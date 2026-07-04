@@ -13,5 +13,6 @@
     "index.css",
     "tokens.contract.css",
     "themes"
-  ]
+  ],
+  "license": "MIT"
 }

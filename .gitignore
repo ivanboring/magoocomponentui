@@ -4,4 +4,5 @@ dist/
 storybook-static/
 *.tsbuildinfo
 .DS_Store
+.claude
 # Generated variants live in dist/ (build output). Component source + screenshots are committed.

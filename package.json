@@ -2,11 +2,12 @@
   "name": "magoo-component-ui",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@11.9.0",
   "description": "CSS-less skeleton UI components with a single canonical source that generates SDC, Drupal Code Components, React, Vue, and Storybook.",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/build.mjs && node scripts/build-catalog.mjs",
     "catalog": "node scripts/build-catalog.mjs",
     "screenshots": "node scripts/screenshot.mjs",
     "test": "node --test 'packages/**/*.test.mjs'",
