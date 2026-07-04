@@ -55,6 +55,7 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - Atomic types: `atom` · `molecule` · `organism` · `full`.
 - Generated variants land in a central `dist/<category>/<component>/` mirror; source folders stay clean.
 - **Git workflow:** commit directly to `main` — no feature branches needed for component/catalog work. Never push to the remote unless explicitly asked.
+- **Images:** when an example/screenshot needs a real image (not a placeholder box), download a generic one from https://unsplash.com/ rather than inventing a URL or using a data URI.
 
 ## Skills to use
 
