@@ -29,6 +29,13 @@
 ### PAUSE POINT — hand off to another model for component authoring
 Structure is done. **Authoring the 218-component catalog is deferred to another model/session** per the user. To add a component: create `components/<category>/<name>/` with `component.def.yml` + `template.html` + `metadata.yml` (+ optional `behavior.js` / `examples/`), then `pnpm build`. Copy `components/notifications/alert/` as the template. Read `docs/authoring-guide.md`, `docs/template-directives.md`, `docs/theming.md`.
 
+### CATALOG AUTHORING — in progress (2026-07-04/05)
+Authoring the 218 catalog components directly (per CLAUDE.md, no superpowers loop). **61/~64 built so far.** Completed domains, in `docs/catalog/first-200.md` order:
+- **Atoms & Primitives (1–16)** ✅ · **Navigation (17–30)** ✅ · **Overlays & Feedback (31–42)** ✅ · **Notifications (43–56)** ✅ (alert pre-existed).
+- Pre-existing outside this pass: `marketing/feature-grid`, `dashboard/stat-card`, `dashboard/stats-band`, `events/ticket-card`, `events/ticket-selector`.
+- **Next: Cards (57–76)**, then Video/Media, Sports, Commerce, Editorial, Marketing, Data, Forms, Social, Layout, Dashboard.
+Infra added this pass (see CLAUDE.md "Authoring gotchas"): authored human `name:` in every metadata.yml (catalog `display_name`); build emits `examples.json` and the preview renders **all** examples per component; catalog page has theme+breakpoint selectors + Hide-atoms; `pnpm screenshots` run for all. Every component verified live via agent-browser.
+
 ## Resolved with user
 - **Build order: breadth-first** — early wave takes a few from each domain for preview variety, then depth.
 - **Added Dashboard domain** (18 components, #201–218) → catalog now 218.
