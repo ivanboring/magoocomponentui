@@ -1,3 +1,4 @@
+name: "Button"
 short_description: A labeled action button with variant, size, and optional leading/trailing icon slots.
 long_visual_description: >
   A compact pill-to-rounded rectangle sized by its size prop, filled or outlined

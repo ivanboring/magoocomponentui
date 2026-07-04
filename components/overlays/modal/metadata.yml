@@ -1,0 +1,74 @@
+name: "Modal"
+short_description: A centered dialog with a backdrop, header, body, and footer, dismissed by backdrop/close/Escape.
+long_visual_description: >
+  A centered card floating above a dimmed backdrop, with a titled header and close
+  button, a scrollable body region, and a footer aligned to the trailing edge for
+  actions. Sizes from small to large; closing hides the whole overlay.
+
+use_cases:
+  - Confirm or collect input without leaving the page (e.g. invite teammates).
+  - Show a focused form in an overlay.
+  - Present terms, details, or a preview above the current context.
+  - Gate a destructive action behind an explicit dialog.
+  - Show onboarding or a welcome step.
+  - Edit a single record inline via a dialog.
+
+recommended_for:
+  - Focused tasks that should interrupt and overlay the page.
+avoid_for:
+  - Brief transient messages (use snackbar or notification-toast).
+  - Side panels that keep page context (use drawer).
+  - Simple yes/no confirmations (use confirm-dialog).
+
+markets:
+  - Global
+
+example_usage: >
+  Put the main content in the body slot and actions in the footer slot; give any element
+  a data-modal-close attribute to make it dismiss the dialog. Escape and the backdrop
+  also close it.
+
+props:
+  title: The dialog heading, shown in the header and used as its accessible label.
+  open: Initial open state; the behavior toggles it closed.
+  size: Match the dialog width to its content.
+
+slots:
+  body: The dialog's main content.
+  footer: Trailing action buttons, e.g. Cancel and a primary action.
+
+example_prompts:
+  - "Add a modal to invite teammates with Cancel and Send invites buttons."
+  - "Add a medium dialog that shows a focused edit form."
+
+lifecycle: experimental
+content_model: A title, a body region, and a footer of actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Give the dialog a clear, specific title; keep the primary action's label a concrete verb.
+
+categorization:
+  category: Overlays
+  subcategory: Dialogs
+  atomic_type: organism
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal with aria-labelledby the title; Escape and backdrop close; close control has an accessible label. A production build should add full focus trapping.
+  keyboard_support: Escape closes; the close button and footer actions are focusable. Focus trapping within the dialog is left to the integrating app.
+  seo_score: 25
+  text_direction: both

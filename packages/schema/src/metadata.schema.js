@@ -15,6 +15,7 @@ export const metadataSchema = {
   additionalProperties: false,
   required: ["short_description", "lifecycle", "categorization"],
   properties: {
+    name: { type: "string", minLength: 1 },
     short_description: { type: "string", minLength: 1 },
     long_visual_description: { type: "string" },
 

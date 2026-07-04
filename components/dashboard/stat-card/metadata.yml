@@ -1,3 +1,4 @@
+name: "Stat Card"
 short_description: A single-metric tile showing a value, its label, and a period-over-period change.
 long_visual_description: >
   A compact card on the surface colour with a card radius and soft shadow. A muted label

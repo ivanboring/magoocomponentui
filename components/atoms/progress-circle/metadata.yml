@@ -1,3 +1,4 @@
+name: "Progress Circle"
 short_description: A circular/radial progress indicator with a centered percentage value.
 long_visual_description: >
   A ring gauge: a muted background track circle and a primary-coloured progress arc

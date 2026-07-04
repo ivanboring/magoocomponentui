@@ -1,3 +1,4 @@
+name: "Ticket Selector"
 short_description: An organism that lays out ticket-card tiers and totals a running price with a checkout CTA.
 long_visual_description: >
   A card-radius panel on the surface colour with an optional heading, a vertically

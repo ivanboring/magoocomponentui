@@ -1,3 +1,4 @@
+name: "Tooltip"
 short_description: A hover/focus tooltip panel attached to any trigger element via a slot.
 long_visual_description: >
   A small dark, high-contrast label that appears anchored to one side of its trigger

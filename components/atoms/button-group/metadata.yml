@@ -1,3 +1,4 @@
+name: "Button Group"
 short_description: A segmented set of mutually-exclusive buttons with a single active state.
 long_visual_description: >
   A single pill/rounded container with a thin border holding evenly spaced segments;

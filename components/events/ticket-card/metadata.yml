@@ -1,3 +1,4 @@
+name: "Ticket Card"
 short_description: A single ticket-tier row with a price and a quantity stepper, used inside ticket-selector.
 long_visual_description: >
   A horizontal row on the surface colour with a card radius and shadow. The tier name

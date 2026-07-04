@@ -1,3 +1,4 @@
+name: "Footer Navigation"
 short_description: A responsive multi-column grid of grouped footer links.
 long_visual_description: >
   A grid of link columns, each headed by a short bold label with its links listed

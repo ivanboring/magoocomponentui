@@ -1,3 +1,4 @@
+name: "Price Tag"
 short_description: A formatted price display with an optional struck-through original price.
 long_visual_description: >
   A prominent current price in heading type, with a smaller muted strikethrough

@@ -1,3 +1,4 @@
+name: "Dropdown Menu"
 short_description: A click-to-open dropdown menu of actions with dividers and destructive-item styling.
 long_visual_description: >
   A bordered trigger button with a chevron; clicking opens a small floating panel of

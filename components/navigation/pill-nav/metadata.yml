@@ -1,3 +1,4 @@
+name: "Pill Navigation"
 short_description: A pill-style segmented navigation where the active item sits raised on the surface.
 long_visual_description: >
   A rounded track in the raised surface tone holding a few text items; the active item

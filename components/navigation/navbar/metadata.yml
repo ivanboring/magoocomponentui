@@ -1,3 +1,4 @@
+name: "Navbar"
 short_description: A site header with a logo, primary links, trailing actions, and a mobile toggle.
 long_visual_description: >
   A horizontal bar on the surface colour with a bottom border, the logo on the leading

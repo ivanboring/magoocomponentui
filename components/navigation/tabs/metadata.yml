@@ -1,3 +1,4 @@
+name: "Tabs"
 short_description: A horizontal ARIA tablist with arrow-key navigation that toggles matching content panels.
 long_visual_description: >
   A row of text tab labels sitting on a bottom border; the active tab is marked by a

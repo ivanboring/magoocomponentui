@@ -1,3 +1,4 @@
+name: "Tag"
 short_description: A small content keyword/tag label, optionally removable.
 long_visual_description: >
   A compact outlined chip on the surface colour with small text and, when removable,

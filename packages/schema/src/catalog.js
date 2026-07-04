@@ -4,6 +4,15 @@
  * and derives the facets the preview nav/search need.
  */
 
+/** Machine name → human-readable title fallback ("navbar-mega" → "Navbar Mega"). */
+function titleCaseName(machineName) {
+  return String(machineName)
+    .split(/[-_]/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 /**
  * @param {{ id: string, path: string, def: any, metadata: any }} input
  */
@@ -14,6 +23,7 @@ export function buildEntry({ id, path, def, metadata }) {
     id,
     path,
     name: def.name,
+    display_name: metadata.name || titleCaseName(def.name),
     props: def.props.map((p) => ({ ...p, usage: propUsage[p.name] || "" })),
     slots: def.slots.map((s) => ({ ...s, usage: slotUsage[s.name] || "" })),
     short_description: metadata.short_description,

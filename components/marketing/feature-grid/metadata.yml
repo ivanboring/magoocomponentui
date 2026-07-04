@@ -1,3 +1,4 @@
+name: "Feature Grid"
 short_description: A responsive grid of icon-badged feature cards that reflows from one to four columns.
 long_visual_description: >
   A grid of equal cards on the surface colour, each with a small square badge in the primary

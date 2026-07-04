@@ -1,3 +1,4 @@
+name: "Progress Bar"
 short_description: A linear progress indicator with a value from 0-100 and an optional label.
 long_visual_description: >
   A thin full-width pill track in a muted surface tone with a filled primary-colour

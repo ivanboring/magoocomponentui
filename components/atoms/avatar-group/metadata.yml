@@ -1,3 +1,4 @@
+name: "Avatar Group"
 short_description: An overlapping stack of avatars with an optional "+N" overflow count.
 long_visual_description: >
   A horizontal row of circular avatars overlapping slightly with a light ring

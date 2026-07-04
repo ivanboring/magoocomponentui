@@ -1,0 +1,29 @@
+name: modal
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Invite teammates"
+  open:
+    type: boolean
+    default: true
+    title: Open
+    description: Initial open state; the behavior toggles it.
+  size:
+    type: enum
+    values: [sm, md, lg]
+    default: md
+    title: Size
+slots:
+  body:
+    title: Body
+    description: The dialog's main content.
+  footer:
+    title: Footer
+    description: Action buttons (e.g. Cancel / Confirm).
+variants:
+  size:
+    sm: "max-w-sm"
+    md: "max-w-lg"
+    lg: "max-w-2xl"

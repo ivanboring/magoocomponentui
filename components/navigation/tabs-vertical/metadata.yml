@@ -1,3 +1,4 @@
+name: "Vertical Tabs"
 short_description: A vertical ARIA tablist with Up/Down navigation that toggles matching content panels.
 long_visual_description: >
   A left-hand column of stacked tab labels against a right border, the active one marked

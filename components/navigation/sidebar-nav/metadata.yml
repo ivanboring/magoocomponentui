@@ -1,3 +1,4 @@
+name: "Sidebar Navigation"
 short_description: A collapsible vertical navigation with grouped, headed sections of links.
 long_visual_description: >
   A narrow vertical panel of link groups. Each group has a small uppercase heading that

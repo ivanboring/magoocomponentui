@@ -1,0 +1,9 @@
+{
+  "title": "Invite teammates",
+  "open": true,
+  "size": "md",
+  "$slots": {
+    "body": "<p>Enter the email addresses of the people you'd like to invite to this workspace. They'll receive a link to join.</p>",
+    "footer": "<button type=\"button\" class=\"rounded-button px-4 py-2 text-sm font-heading text-on-surface hover:bg-surface-raised\" data-modal-close>Cancel</button><button type=\"button\" class=\"rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast hover:opacity-90\">Send invites</button>"
+  }
+}

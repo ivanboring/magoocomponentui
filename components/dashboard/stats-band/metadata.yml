@@ -1,3 +1,4 @@
+name: "Stats Band"
 short_description: A responsive band that lays out a row of stat cards under an optional heading.
 long_visual_description: >
   An optional heading followed by an evenly spaced grid of stat cards — one column on

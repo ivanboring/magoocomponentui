@@ -1,3 +1,4 @@
+name: "Icon"
 short_description: An inline SVG wrapper with a configurable size and optional accessible label.
 long_visual_description: >
   A small square wrapper that sizes and colors (via currentColor) any inline SVG glyph

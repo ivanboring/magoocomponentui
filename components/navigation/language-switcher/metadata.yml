@@ -1,3 +1,4 @@
+name: "Language Switcher"
 short_description: A locale selector dropdown showing the current language and a menu of alternatives.
 long_visual_description: >
   A bordered button with a globe icon, the current language name, and a chevron. Clicking

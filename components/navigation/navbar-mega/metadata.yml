@@ -1,3 +1,4 @@
+name: "Mega-menu Navbar"
 short_description: A navbar variant where primary links can reveal a grouped mega-menu dropdown panel.
 long_visual_description: >
   Identical header bar to navbar, but any link may open a wide panel below it on

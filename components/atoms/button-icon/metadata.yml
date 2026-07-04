@@ -1,3 +1,4 @@
+name: "Icon Button"
 short_description: An icon-only button with a required accessible label for screen readers.
 long_visual_description: >
   A small square/circular control sized by size, filled or ghost according to variant,

@@ -1,3 +1,4 @@
+name: "Star Rating"
 short_description: A star rating display with a configurable max and value, and a filled/empty state per star.
 long_visual_description: >
   A horizontal row of small star glyphs in the warning/gold tone; filled stars use a

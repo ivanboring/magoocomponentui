@@ -1,3 +1,4 @@
+name: "Avatar"
 short_description: A user image with an initials fallback, configurable size and shape.
 long_visual_description: >
   A small circular or squared-off tile showing a cropped photo when available, or the

@@ -1,3 +1,4 @@
+name: "Stepper"
 short_description: A multi-step progress indicator with complete, current, and upcoming step states.
 long_visual_description: >
   A sequence of numbered circular markers with labels and optional descriptions.

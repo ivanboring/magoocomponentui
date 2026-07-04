@@ -1,3 +1,4 @@
+name: "Alert"
 short_description: An inline alert that flags a message with a severity accent and optional dismiss.
 long_visual_description: >
   A horizontal panel on the surface colour with a coloured left border and a matching

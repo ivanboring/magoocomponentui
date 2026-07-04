@@ -1,3 +1,4 @@
+name: "Back to Top"
 short_description: A scroll-aware floating button that appears after scrolling and returns to the top.
 long_visual_description: >
   A round primary-colour button fixed to the bottom-right corner with an up-arrow glyph.

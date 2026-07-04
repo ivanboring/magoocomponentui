@@ -1,3 +1,4 @@
+name: "Fullscreen Menu"
 short_description: A hamburger button that opens a full-screen overlay of large navigation links.
 long_visual_description: >
   A menu button that, when pressed, covers the viewport with a full-screen panel: a

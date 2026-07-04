@@ -1,3 +1,4 @@
+name: "Breadcrumb"
 short_description: A hierarchical path of links with separators, ending in the current page.
 long_visual_description: >
   A single-line row of small text links separated by slashes; every item is a live

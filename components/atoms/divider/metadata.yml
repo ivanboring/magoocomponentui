@@ -1,3 +1,4 @@
+name: "Divider"
 short_description: A horizontal or vertical rule with an optional centered label.
 long_visual_description: >
   A thin border-colour line spanning its container, optionally interrupted by a small

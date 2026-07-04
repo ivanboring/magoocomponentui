@@ -37,7 +37,11 @@ const categories = catalog.facets.categories || {};
         </optgroup>
       ))}
     </select>
-    <span id="count" class="text-sm text-slate-400 sm:ml-auto"></span>
+    <label class="flex shrink-0 items-center gap-2 text-sm text-slate-600 sm:ml-auto">
+      <input id="hide-atoms" type="checkbox" checked class="size-4 rounded border-slate-300" />
+      Hide atoms
+    </label>
+    <span id="count" class="text-sm text-slate-400"></span>
   </div>
 
   {cards.length === 0 && (
@@ -53,7 +57,8 @@ const categories = catalog.facets.categories || {};
         class="card group block overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300 hover:shadow-sm"
         data-cat={c.categorization.category}
         data-sub={c.categorization.subcategory || ""}
-        data-search={`${c.name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
+        data-atomic={c.categorization.atomic_type}
+        data-search={`${c.name} ${c.display_name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
       >
         <div class="flex items-center justify-center border-b border-slate-100 bg-slate-50 p-5" data-theme="simple">
           {c.shots.length > 0 ? (
@@ -66,9 +71,10 @@ const categories = catalog.facets.categories || {};
         </div>
         <div class="p-4">
           <div class="flex items-center gap-2">
-            <h3 class="font-semibold">{c.name}</h3>
+            <h3 class="font-semibold">{c.display_name}</h3>
             <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] text-slate-500">{c.categorization.atomic_type}</span>
           </div>
+          <code class="mt-0.5 block font-mono text-[11px] text-slate-400">{c.name}</code>
           <p class="mt-1 line-clamp-2 text-sm text-slate-500">{c.short_description}</p>
         </div>
       </a>
@@ -81,6 +87,7 @@ const categories = catalog.facets.categories || {};
     const PAGE_SIZE = 20;
     const search = document.getElementById("search");
     const catSelect = document.getElementById("cat");
+    const hideAtoms = document.getElementById("hide-atoms");
     const cards = Array.from(document.querySelectorAll(".card"));
     const empty = document.getElementById("empty");
     const count = document.getElementById("count");
@@ -92,7 +99,8 @@ const categories = catalog.facets.categories || {};
       const [cat, sub] = (catSelect.value || "").split("::");
       return (!q || card.dataset.search.includes(q)) &&
         (!cat || card.dataset.cat === cat) &&
-        (!sub || card.dataset.sub === sub);
+        (!sub || card.dataset.sub === sub) &&
+        (!hideAtoms.checked || card.dataset.atomic !== "atom");
     }
 
     function render() {
@@ -143,6 +151,7 @@ const categories = catalog.facets.categories || {};
 
     search.addEventListener("input", () => { page = 1; render(); });
     catSelect.addEventListener("change", () => { page = 1; render(); });
+    hideAtoms.addEventListener("change", () => { page = 1; render(); });
     render();
   </script>
 </Layout>

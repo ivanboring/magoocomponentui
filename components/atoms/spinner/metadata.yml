@@ -1,3 +1,4 @@
+name: "Spinner"
 short_description: A rotating loading spinner with a configurable size and accessible label.
 long_visual_description: >
   A small circular ring in the primary colour with a transparent leading edge,

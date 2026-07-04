@@ -1,3 +1,4 @@
+name: "Badge"
 short_description: A small status/label pill with a severity or brand color variant.
 long_visual_description: >
   A tiny pill-shaped label with dense padding, small medium-weight text, and a solid

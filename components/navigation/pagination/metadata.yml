@@ -1,3 +1,4 @@
+name: "Pagination"
 short_description: A page-number list with previous/next controls and "…" truncation for long ranges.
 long_visual_description: >
   A single-row inline control: a muted "‹ Prev" text link, a row of small square page

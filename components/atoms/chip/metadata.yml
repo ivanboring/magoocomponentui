@@ -1,3 +1,4 @@
+name: "Chip"
 short_description: A compact selectable chip with an optional leading avatar or icon.
 long_visual_description: >
   A pill-shaped outlined control that fills with the primary colour when selected; an
