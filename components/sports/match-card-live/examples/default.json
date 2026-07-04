@@ -1,0 +1,13 @@
+{
+  "home_team": "Brazil",
+  "home_code": "BRA",
+  "home_score": "2",
+  "away_team": "Spain",
+  "away_code": "ESP",
+  "away_score": "1",
+  "minute": "67'",
+  "scorers": [
+    { "text": "Neymar 23', Rodrygo 51'" },
+    { "text": "Pedri 39'" }
+  ]
+}

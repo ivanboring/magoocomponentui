@@ -1,0 +1,11 @@
+<article class="match-card-upcoming rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="match-card-upcoming__teams flex items-center justify-center gap-4">
+    <span class="flex flex-1 items-center justify-end gap-2 text-sm font-medium text-on-surface">{{ home_team }}<span class="flex size-8 items-center justify-center rounded-full bg-surface-raised text-xs">{{ home_code }}</span></span>
+    <span class="match-card-upcoming__kickoff shrink-0 rounded-control bg-surface-raised px-3 py-1 text-sm font-heading text-on-surface tabular-nums">{{ kickoff }}</span>
+    <span class="flex flex-1 items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-8 items-center justify-center rounded-full bg-surface-raised text-xs">{{ away_code }}</span>{{ away_team }}</span>
+  </div>
+  <p data-if="venue" class="match-card-upcoming__venue mt-3 flex items-center justify-center gap-1.5 text-xs text-on-surface-muted">
+    <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg>
+    {{ venue }}
+  </p>
+</article>

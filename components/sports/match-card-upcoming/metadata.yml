@@ -1,0 +1,69 @@
+name: "Upcoming Match Card"
+short_description: An upcoming fixture card with both teams, kickoff time, and venue.
+long_visual_description: >
+  A card with the two teams facing a central kickoff-time pill, and an optional venue line
+  with a pin icon beneath.
+
+use_cases:
+  - Upcoming fixture in a schedule.
+  - Next-match card on a team page.
+  - Fixtures list entry before kickoff.
+  - Matchday preview card.
+  - Featured upcoming game.
+
+recommended_for:
+  - Showing a scheduled match before it starts.
+avoid_for:
+  - Live matches (use match-card-live).
+  - Finished matches (use match-card-result).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the kickoff time prominently between the teams and the venue beneath; no score
+  before kickoff.
+
+props:
+  home_team: Home team name.
+  home_code: Home team short code.
+  away_team: Away team name.
+  away_code: Away team short code.
+  kickoff: The kickoff day/time.
+  venue: Optional venue.
+
+example_prompts:
+  - "Add an upcoming match card Germany vs Japan, Sat 20:00, at Allianz Arena."
+  - "Add a next-fixture card with kickoff time and venue."
+
+lifecycle: experimental
+content_model: Two teams, a kickoff time, and a venue.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use a consistent kickoff format and the viewer's timezone where possible.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All content is real text; the venue icon is decorative.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

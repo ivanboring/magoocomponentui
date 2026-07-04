@@ -1,0 +1,31 @@
+name: match-card-upcoming
+props:
+  home_team:
+    type: string
+    required: true
+    title: Home team
+    example: "Germany"
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "GER"
+  away_team:
+    type: string
+    required: true
+    title: Away team
+    example: "Japan"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "JPN"
+  kickoff:
+    type: string
+    required: true
+    title: Kickoff
+    example: "Sat 20:00"
+  venue:
+    type: string
+    title: Venue
+    example: "Allianz Arena, Munich"

@@ -1,0 +1,71 @@
+name: "Match Result Card"
+short_description: A finished-match card showing the final score with the winner emphasized.
+long_visual_description: >
+  A card with both teams and their final scores stacked; the winning team's name and score
+  are bolder and full-contrast while the loser is muted, with a status line (FT) beneath.
+
+use_cases:
+  - Finished match in a results list.
+  - Recent results on a team page.
+  - Completed fixture in a matchday recap.
+  - Head-to-head history entries.
+  - Knockout result summary.
+
+recommended_for:
+  - Showing a completed match's final score with the winner emphasized.
+avoid_for:
+  - Live matches (use match-card-live).
+  - Upcoming fixtures (use match-card-upcoming).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark the winning side with home_winner/away_winner to emphasize it; leave both false for
+  a draw.
+
+props:
+  home_team: Home team name.
+  home_code: Home team short code.
+  home_score: Home final score.
+  home_winner: Whether home won (emphasized).
+  away_team: Away team name.
+  away_code: Away team short code.
+  away_score: Away final score.
+  away_winner: Whether away won (emphasized).
+  status: Result status (FT, AET, pens).
+
+example_prompts:
+  - "Add a result card England 2–1 Netherlands with England emphasized."
+  - "Add a finished match card ending in a draw."
+
+lifecycle: experimental
+content_model: Two teams with final scores, a winner emphasis, and a status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Emphasize the winner by weight/contrast, not colour alone; use consistent status labels.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: molecule
+  usage_type: [card, list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The winner is emphasized via font weight and contrast, not colour alone; scores are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

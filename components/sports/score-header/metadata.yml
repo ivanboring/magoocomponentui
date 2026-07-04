@@ -1,0 +1,70 @@
+name: "Score Header"
+short_description: A big match header with both teams' crests, the scoreline, and status.
+long_visual_description: >
+  A centered header with the competition name, both teams (crest badge over name) flanking
+  a large scoreline, and a status pill (FT, live minute, or kickoff) beneath.
+
+use_cases:
+  - Match page header for a live, upcoming, or finished game.
+  - Featured fixture banner.
+  - Final result header for a knockout tie.
+  - Head-to-head summary top of a match report.
+  - Scoreboard header on a broadcast-style page.
+
+recommended_for:
+  - The prominent header of a single match view.
+avoid_for:
+  - Compact match rows in a list (use match-card-* components).
+
+markets:
+  - Global
+
+example_usage: >
+  Use short team codes for the crest badges and full names beneath; put the state (FT,
+  minute, kickoff, penalties) in the status.
+
+props:
+  home_team: Home team name.
+  home_code: Home team short code.
+  home_score: Home score.
+  away_team: Away team name.
+  away_code: Away team short code.
+  away_score: Away score.
+  status: Match status or time.
+  competition: Optional competition/round label.
+
+example_prompts:
+  - "Add a score header for the World Cup Final ending 3–3 (4–2 pens)."
+  - "Add a big match header with crests and the current minute."
+
+lifecycle: experimental
+content_model: Two teams, a scoreline, a status, and a competition label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Use official team codes; keep the status concise and consistent (FT, HT, minute, kickoff).
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: molecule
+  usage_type: [highlight, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All content is real text; crest badges use team codes as text so they're readable without images.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

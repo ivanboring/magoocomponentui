@@ -1,0 +1,44 @@
+name: match-card-result
+props:
+  home_team:
+    type: string
+    required: true
+    title: Home team
+    example: "England"
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "ENG"
+  home_score:
+    type: string
+    required: true
+    title: Home score
+    example: "2"
+  home_winner:
+    type: boolean
+    default: false
+    title: Home won
+  away_team:
+    type: string
+    required: true
+    title: Away team
+    example: "Netherlands"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "NED"
+  away_score:
+    type: string
+    required: true
+    title: Away score
+    example: "1"
+  away_winner:
+    type: boolean
+    default: false
+    title: Away won
+  status:
+    type: string
+    default: "FT"
+    title: Status

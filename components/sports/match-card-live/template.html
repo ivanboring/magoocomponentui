@@ -1,0 +1,25 @@
+<article class="match-card-live rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="match-card-live__head flex items-center justify-between">
+    <span class="match-card-live__live inline-flex items-center gap-1.5 rounded-control bg-danger px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-danger-contrast">
+      <span class="size-2 animate-pulse rounded-full bg-danger-contrast" aria-hidden="true"></span>
+      Live
+    </span>
+    <span class="match-card-live__minute text-sm font-medium text-on-surface tabular-nums">{{ minute }}</span>
+  </div>
+  <div class="match-card-live__teams mt-3 flex flex-col gap-2">
+    <div class="flex items-center justify-between gap-3">
+      <span class="flex items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-7 items-center justify-center rounded-full bg-surface-raised text-xs">{{ home_code }}</span>{{ home_team }}</span>
+      <span class="font-heading text-lg text-on-surface tabular-nums">{{ home_score }}</span>
+    </div>
+    <div class="flex items-center justify-between gap-3">
+      <span class="flex items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-7 items-center justify-center rounded-full bg-surface-raised text-xs">{{ away_code }}</span>{{ away_team }}</span>
+      <span class="font-heading text-lg text-on-surface tabular-nums">{{ away_score }}</span>
+    </div>
+  </div>
+  <ul data-if="scorers" class="match-card-live__scorers mt-3 border-t border-border pt-2 text-xs text-on-surface-muted">
+    <li data-for="scorer in scorers" class="flex items-center gap-1.5">
+      <svg class="size-3 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="7"/></svg>
+      {{ scorer.text }}
+    </li>
+  </ul>
+</article>

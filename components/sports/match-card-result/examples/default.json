@@ -1,0 +1,11 @@
+{
+  "home_team": "England",
+  "home_code": "ENG",
+  "home_score": "2",
+  "home_winner": true,
+  "away_team": "Netherlands",
+  "away_code": "NED",
+  "away_score": "1",
+  "away_winner": false,
+  "status": "FT"
+}

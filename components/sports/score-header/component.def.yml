@@ -1,0 +1,42 @@
+name: score-header
+props:
+  home_team:
+    type: string
+    required: true
+    title: Home team
+    example: "Argentina"
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "ARG"
+  home_score:
+    type: string
+    required: true
+    title: Home score
+    example: "3"
+  away_team:
+    type: string
+    required: true
+    title: Away team
+    example: "France"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "FRA"
+  away_score:
+    type: string
+    required: true
+    title: Away score
+    example: "3"
+  status:
+    type: string
+    required: true
+    title: Status
+    description: e.g. "FT", "90'+3", "HT", kickoff time.
+    example: "FT (4–2 pens)"
+  competition:
+    type: string
+    title: Competition
+    example: "World Cup Final"

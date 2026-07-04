@@ -1,0 +1,73 @@
+name: "Live Match Card"
+short_description: A live match card with a pulsing indicator, minute clock, score, and scorers.
+long_visual_description: >
+  A card with a LIVE badge and current minute across the top, both teams (code badge +
+  name) with their scores stacked, and an optional scorers list beneath a divider.
+
+use_cases:
+  - Live match in a fixtures or scores list.
+  - Featured in-progress game card.
+  - Live tile in a multi-match dashboard.
+  - Real-time score card on a competition page.
+  - Live match entry in a ticker's expanded view.
+
+recommended_for:
+  - Showing an in-progress match with live score and scorers.
+avoid_for:
+  - Upcoming fixtures (use match-card-upcoming).
+  - Finished matches (use match-card-result).
+
+markets:
+  - Global
+
+example_usage: >
+  Update minute and scores live; list scorers per team. The LIVE badge should only show
+  while the match is in progress.
+
+props:
+  home_team: Home team name.
+  home_code: Home team short code.
+  home_score: Home score.
+  away_team: Away team name.
+  away_code: Away team short code.
+  away_score: Away score.
+  minute: The current match minute.
+  scorers: Optional per-team scorer lines.
+
+example_prompts:
+  - "Add a live match card Brazil 2–1 Spain at 67' with scorers."
+  - "Add an in-progress match tile with a live minute."
+
+lifecycle: experimental
+content_model: Two teams with live scores, a minute, and optional scorers.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep scorer lines concise (name + minute); use official team codes.
+
+categorization:
+  category: Sports
+  subcategory: Live
+  atomic_type: molecule
+  usage_type: [card, list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The LIVE text conveys state (the pulse is decorative); scores and minute are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

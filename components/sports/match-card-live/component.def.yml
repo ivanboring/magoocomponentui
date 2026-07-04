@@ -1,0 +1,42 @@
+name: match-card-live
+props:
+  home_team:
+    type: string
+    required: true
+    title: Home team
+    example: "Brazil"
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "BRA"
+  home_score:
+    type: string
+    required: true
+    title: Home score
+    example: "2"
+  away_team:
+    type: string
+    required: true
+    title: Away team
+    example: "Spain"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "ESP"
+  away_score:
+    type: string
+    required: true
+    title: Away score
+    example: "1"
+  minute:
+    type: string
+    required: true
+    title: Minute
+    example: "67'"
+  scorers:
+    type: array
+    items: object
+    title: Scorers
+    description: "Each item: { text } — e.g. 'Neymar 23', 45+2'."

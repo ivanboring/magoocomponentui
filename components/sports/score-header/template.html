@@ -1,0 +1,19 @@
+<header class="score-header rounded-card border border-border bg-surface p-(--space-section) text-center shadow-card">
+  <p data-if="competition" class="score-header__competition text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ competition }}</p>
+  <div class="score-header__row mt-3 flex items-center justify-center gap-6">
+    <div class="score-header__team flex flex-1 flex-col items-center gap-2">
+      <span class="score-header__crest flex size-14 items-center justify-center rounded-full bg-surface-raised font-heading text-lg text-on-surface">{{ home_code }}</span>
+      <span class="score-header__name text-sm font-medium text-on-surface">{{ home_team }}</span>
+    </div>
+    <div class="score-header__scoreline flex shrink-0 items-center gap-3 font-heading text-4xl text-on-surface tabular-nums">
+      <span>{{ home_score }}</span>
+      <span class="text-on-surface-muted">–</span>
+      <span>{{ away_score }}</span>
+    </div>
+    <div class="score-header__team flex flex-1 flex-col items-center gap-2">
+      <span class="score-header__crest flex size-14 items-center justify-center rounded-full bg-surface-raised font-heading text-lg text-on-surface">{{ away_code }}</span>
+      <span class="score-header__name text-sm font-medium text-on-surface">{{ away_team }}</span>
+    </div>
+  </div>
+  <p class="score-header__status mt-3 inline-flex rounded-pill bg-surface-raised px-3 py-1 text-xs font-medium text-on-surface-muted">{{ status }}</p>
+</header>

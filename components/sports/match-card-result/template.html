@@ -1,0 +1,13 @@
+<article class="match-card-result rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="match-card-result__teams flex flex-col gap-2">
+    <div class="flex items-center justify-between gap-3" data-winner="{{ home_winner }}">
+      <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ home_winner }}"><span class="flex size-7 items-center justify-center rounded-full bg-surface-raised text-xs">{{ home_code }}</span>{{ home_team }}</span>
+      <span class="font-heading text-lg text-on-surface-muted tabular-nums data-[winner=true]:text-on-surface" data-winner="{{ home_winner }}">{{ home_score }}</span>
+    </div>
+    <div class="flex items-center justify-between gap-3" data-winner="{{ away_winner }}">
+      <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ away_winner }}"><span class="flex size-7 items-center justify-center rounded-full bg-surface-raised text-xs">{{ away_code }}</span>{{ away_team }}</span>
+      <span class="font-heading text-lg text-on-surface-muted tabular-nums data-[winner=true]:text-on-surface" data-winner="{{ away_winner }}">{{ away_score }}</span>
+    </div>
+  </div>
+  <p class="match-card-result__status mt-3 border-t border-border pt-2 text-xs font-medium text-on-surface-muted">{{ status }}</p>
+</article>
