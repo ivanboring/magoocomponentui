@@ -10,10 +10,22 @@ const cards = catalog.components.map((c) => {
     const { ast, args } = loadRender(c.id);
     preview = renderToHtml(ast, args);
   } catch {}
-  const shots = orderedShots(c.screenshots, "simple").map((s) => s.src);
-  return { ...c, preview, shots };
+  const hasShots = Object.keys(c.screenshots || {}).length > 0;
+  return { ...c, preview, hasShots };
 });
 const categories = catalog.facets.categories || {};
+const THEME_OPTS = [
+  { id: "simple", label: "Simple" },
+  { id: "futuristic", label: "Futuristic" },
+  { id: "classic", label: "Classic" },
+  { id: "smooth", label: "Smooth" },
+];
+const BP_OPTS = [
+  { id: "desktop", label: "Desktop" },
+  { id: "small", label: "Small" },
+  { id: "tablet", label: "Tablet" },
+  { id: "mobile", label: "Mobile" },
+];
 ---
 
 <Layout title="Magoo Component UI — Catalog">
@@ -36,6 +48,20 @@ const categories = catalog.facets.categories || {};
           {subs.map((sub) => (<option value={`${cat}::${sub}`}>{cat} › {sub}</option>))}
         </optgroup>
       ))}
+    </select>
+    <select
+      id="theme"
+      title="Preview theme"
+      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
+    >
+      {THEME_OPTS.map((t) => (<option value={t.id}>{t.label}</option>))}
+    </select>
+    <select
+      id="bp"
+      title="Preview breakpoint"
+      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
+    >
+      {BP_OPTS.map((b) => (<option value={b.id}>{b.label}</option>))}
     </select>
     <label class="flex shrink-0 items-center gap-2 text-sm text-slate-600 sm:ml-auto">
       <input id="hide-atoms" type="checkbox" checked class="size-4 rounded border-slate-300" />
@@ -61,10 +87,14 @@ const categories = catalog.facets.categories || {};
         data-search={`${c.name} ${c.display_name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
       >
         <div class="flex items-center justify-center border-b border-slate-100 bg-slate-50 p-5" data-theme="simple">
-          {c.shots.length > 0 ? (
-            <div class="grid w-full grid-cols-4 gap-1">
-              {c.shots.slice(0, 4).map((src) => (<img src={src} alt="" class="w-full rounded" />))}
-            </div>
+          {c.hasShots ? (
+            <img
+              class="card-shot w-full rounded"
+              data-shots={JSON.stringify(c.screenshots)}
+              src={(c.screenshots.simple && c.screenshots.simple.desktop) || ""}
+              alt={`${c.display_name} preview`}
+              loading="lazy"
+            />
           ) : (
             <div class="pointer-events-none w-full" set:html={c.preview} />
           )}
@@ -88,7 +118,23 @@ const categories = catalog.facets.categories || {};
     const search = document.getElementById("search");
     const catSelect = document.getElementById("cat");
     const hideAtoms = document.getElementById("hide-atoms");
+    const themeSel = document.getElementById("theme");
+    const bpSel = document.getElementById("bp");
     const cards = Array.from(document.querySelectorAll(".card"));
+
+    function applyPreview() {
+      const theme = themeSel.value;
+      const bp = bpSel.value;
+      // Swap each card's single screenshot to the chosen theme + breakpoint.
+      document.querySelectorAll(".card-shot").forEach((img) => {
+        let shots = {};
+        try { shots = JSON.parse(img.dataset.shots || "{}"); } catch {}
+        const src = shots[theme] && shots[theme][bp];
+        if (src) img.src = src;
+      });
+      // Live-render fallbacks (components without screenshots) follow the theme too.
+      document.querySelectorAll("#grid .card > div[data-theme]").forEach((el) => { el.dataset.theme = theme; });
+    }
     const empty = document.getElementById("empty");
     const count = document.getElementById("count");
     const pager = document.getElementById("pager");
@@ -152,6 +198,9 @@ const categories = catalog.facets.categories || {};
     search.addEventListener("input", () => { page = 1; render(); });
     catSelect.addEventListener("change", () => { page = 1; render(); });
     hideAtoms.addEventListener("change", () => { page = 1; render(); });
+    themeSel.addEventListener("change", applyPreview);
+    bpSel.addEventListener("change", applyPreview);
+    applyPreview();
     render();
   </script>
 </Layout>
