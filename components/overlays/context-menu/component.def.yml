@@ -1,0 +1,19 @@
+name: context-menu
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      Each item: { label, value, icon, danger, divider }. Set divider: true for a
+      separator. The menu opens at the pointer on right-click of the target area.
+    example:
+      - { label: "Open", value: "open", danger: false, divider: false }
+      - { label: "Rename", value: "rename", danger: false, divider: false }
+      - { divider: true }
+      - { label: "Delete", value: "delete", danger: true, divider: false }
+slots:
+  target:
+    title: Target
+    description: The area that responds to right-click / long-press.

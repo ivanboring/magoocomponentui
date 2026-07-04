@@ -1,0 +1,76 @@
+name: "Cookie Consent"
+short_description: A bottom consent banner with accept, reject, and settings actions and a policy link.
+long_visual_description: >
+  A full-width bar fixed to the bottom of the viewport on the surface colour, with a
+  short consent message and a policy link on the leading edge and Settings / Reject /
+  Accept buttons trailing. Dismisses on accept or reject.
+
+use_cases:
+  - GDPR/ePrivacy cookie consent on first visit.
+  - Analytics/tracking opt-in prompt.
+  - Consent banner linking to a full privacy policy.
+  - Regional consent gate with granular settings.
+  - Marketing-cookie opt-in for a storefront.
+
+recommended_for:
+  - Sites that must obtain cookie/tracking consent before setting non-essential cookies.
+avoid_for:
+  - Essential-only sites with no non-essential cookies.
+  - In-app permission prompts (use a dedicated dialog).
+
+markets:
+  - EU
+  - UK
+  - Global
+
+example_usage: >
+  Keep the message short and link the full policy; provide a genuine reject option
+  alongside accept, and a settings path for granular control. Listen for the accept/
+  reject/settings events to persist the choice.
+
+props:
+  message: The short consent explanation.
+  policy_href: Link to the full privacy/cookie policy.
+  policy_label: The policy link text.
+  accept_label: The accept-all button text.
+  reject_label: The reject button text.
+  settings_label: The granular-settings button text.
+
+example_prompts:
+  - "Add a cookie consent banner with Accept all, Reject, and Settings."
+  - "Add a GDPR cookie bar linking to our privacy policy."
+
+lifecycle: experimental
+content_model: A consent message, a policy link, and accept/reject/settings actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Give reject equal visual weight to accept where the law requires it; keep the message
+  to one sentence and link, don't inline, the full policy.
+
+categorization:
+  category: Overlays
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [banner, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="region" with an aria-label; all actions are real buttons with visible labels; the policy link is a real anchor.
+  keyboard_support: All buttons and the policy link are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

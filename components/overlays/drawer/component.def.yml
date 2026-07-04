@@ -1,0 +1,26 @@
+name: drawer
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Filters"
+  side:
+    type: enum
+    values: [left, right, top, bottom]
+    default: right
+    title: Side
+  open:
+    type: boolean
+    default: true
+    title: Open
+slots:
+  body:
+    title: Body
+    description: The drawer's content.
+variants:
+  side:
+    left: "left-0 top-0 h-full w-80 max-w-[85vw]"
+    right: "right-0 top-0 h-full w-80 max-w-[85vw]"
+    top: "left-0 top-0 h-64 w-full"
+    bottom: "bottom-0 left-0 h-64 w-full"

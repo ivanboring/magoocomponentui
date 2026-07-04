@@ -1,0 +1,9 @@
+{
+  "title": "No projects yet",
+  "description": "Create your first project to get started.",
+  "cta_label": "New project",
+  "cta_href": "/projects/new",
+  "$slots": {
+    "illustration": "<svg class=\"size-12\" viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"8\" y=\"12\" width=\"32\" height=\"26\" rx=\"3\"/><path d=\"M8 20h32M16 12V8m16 4V8\"/></svg>"
+  }
+}

@@ -1,0 +1,29 @@
+name: confirm-dialog
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Delete project?"
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "This permanently removes the project and all its data. This can't be undone."
+  confirm_label:
+    type: string
+    default: "Confirm"
+    title: Confirm label
+  cancel_label:
+    type: string
+    default: "Cancel"
+    title: Cancel label
+  destructive:
+    type: boolean
+    default: false
+    title: Destructive
+    description: Tints the confirm button with the danger colour.
+  open:
+    type: boolean
+    default: true
+    title: Open

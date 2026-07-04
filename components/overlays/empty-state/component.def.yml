@@ -1,0 +1,22 @@
+name: empty-state
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "No projects yet"
+  description:
+    type: string
+    title: Description
+    example: "Create your first project to get started."
+  cta_label:
+    type: string
+    title: CTA label
+    example: "New project"
+  cta_href:
+    type: link
+    title: CTA link
+slots:
+  illustration:
+    title: Illustration
+    description: Optional icon or illustration above the title.

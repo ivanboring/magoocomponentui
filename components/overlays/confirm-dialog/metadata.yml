@@ -1,0 +1,74 @@
+name: "Confirm Dialog"
+short_description: A compact yes/no dialog for confirming an action, with a destructive variant.
+long_visual_description: >
+  A small centered card over a dimmed backdrop with a short title, an explanatory
+  message, and a Cancel / Confirm button pair aligned right. The confirm button turns
+  danger-coloured when the action is destructive.
+
+use_cases:
+  - Confirm deleting a record or file.
+  - Confirm leaving a page with unsaved changes.
+  - Confirm an irreversible action like publishing or sending.
+  - Confirm signing out or disconnecting an integration.
+  - Confirm cancelling a subscription or order.
+
+recommended_for:
+  - A single, focused yes/no decision, especially destructive ones.
+avoid_for:
+  - Multi-field forms or rich content (use modal).
+  - Non-blocking confirmations (use snackbar with an undo action).
+
+markets:
+  - Global
+
+example_usage: >
+  State the consequence in the message and use a specific confirm label ("Delete", not
+  "OK"); set destructive for irreversible actions. Listen for confirm-dialog:confirm.
+
+props:
+  title: The decision being confirmed, as a question or short statement.
+  message: A one- or two-line explanation of the consequence.
+  confirm_label: The confirm button text; make it a specific verb.
+  cancel_label: The cancel button text.
+  destructive: Tints the confirm button danger for irreversible actions.
+  open: Initial open state; the behavior toggles it closed on either action.
+
+example_prompts:
+  - "Add a confirm dialog to delete a project with a red Delete button."
+  - "Add a confirmation asking before discarding unsaved changes."
+
+lifecycle: experimental
+content_model: A title, a consequence message, and a confirm/cancel choice.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --color-surface-raised
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Make the confirm label name the action ("Delete", "Leave"), not a generic "OK"; state
+  the irreversible consequence plainly in the message.
+
+categorization:
+  category: Overlays
+  subcategory: Dialogs
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alertdialog" aria-modal, labelled by title and described by message; Escape and backdrop cancel; buttons are focusable.
+  keyboard_support: Escape cancels; Cancel and Confirm are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

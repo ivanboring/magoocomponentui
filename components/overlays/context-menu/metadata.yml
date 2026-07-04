@@ -1,0 +1,68 @@
+name: "Context Menu"
+short_description: A right-click contextual menu that opens at the pointer over a target area.
+long_visual_description: >
+  An invisible target region that, on right-click, opens a small floating menu of actions
+  at the cursor. Rows may be divided, and a destructive action is tinted danger. Closes
+  on outside click, Escape, or scroll.
+
+use_cases:
+  - Right-click actions on a file, row, or canvas item.
+  - Custom context menu replacing the browser default in an app surface.
+  - Per-item actions in a file manager or board.
+  - Contextual editing actions on a design/canvas element.
+  - Quick actions on a list row without a visible button.
+
+recommended_for:
+  - Pointer-driven contextual actions on a specific target area.
+avoid_for:
+  - Primary discoverable actions (use a visible button or menu-dropdown).
+  - Touch-only interfaces where right-click isn't available.
+
+markets:
+  - Global
+
+example_usage: >
+  Wrap the interactive area in the target slot and list actions as items; insert a
+  divider before a destructive action. Listen for context-menu:select.
+
+props:
+  items: The action rows, including dividers and any destructive item.
+
+slots:
+  target: The area that opens the menu on right-click.
+
+example_prompts:
+  - "Add a right-click context menu with Open, Rename, and a red Delete."
+  - "Add a context menu on the file row with duplicate and delete actions."
+
+lifecycle: experimental
+content_model: A target area and an ordered list of contextual actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Use verb-first labels; keep the list short and reserve the danger style for destructive actions.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: A
+    notes: role="menu"/"menuitem" with Escape-to-close; opens on right-click only, so a production build must also offer a keyboard/button path to the same actions to meet AA.
+  keyboard_support: Escape closes the menu; items are focusable buttons. A keyboard trigger for opening is left to the integrating app.
+  seo_score: 10
+  text_direction: both

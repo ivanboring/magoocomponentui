@@ -1,0 +1,12 @@
+<div class="drawer fixed inset-0 z-50 data-[open=false]:hidden" data-open="{{ open }}">
+  <div class="drawer__backdrop absolute inset-0 bg-on-surface/40" data-drawer-close aria-hidden="true"></div>
+  <div class="drawer__panel absolute flex flex-col bg-surface shadow-raised {{ side@class }}" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer__header flex items-center justify-between gap-4 border-b border-border p-(--space-card)">
+      <h2 class="drawer__title font-heading text-lg text-on-surface" id="drawer-title">{{ title }}</h2>
+      <button type="button" class="drawer__close -m-1 shrink-0 rounded-control p-1 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" data-drawer-close aria-label="Close">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+    <div class="drawer__body flex-1 overflow-y-auto p-(--space-card) text-sm text-on-surface"><slot name="body"></slot></div>
+  </div>
+</div>

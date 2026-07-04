@@ -1,0 +1,9 @@
+<div class="announcement-bar relative flex items-center justify-center gap-3 bg-primary px-10 py-2.5 text-sm text-primary-contrast" role="region" aria-label="Announcement" data-dismissible="{{ dismissible }}">
+  <p class="announcement-bar__message text-center">
+    {{ message }}
+    <a data-if="cta_href" class="announcement-bar__cta font-heading font-semibold underline" href="{{ cta_href }}">{{ cta_label }}</a>
+  </p>
+  <button data-if="dismissible" type="button" class="announcement-bar__dismiss absolute right-3 shrink-0 rounded-control p-1 text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-80" data-announcement-dismiss aria-label="Dismiss announcement">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+</div>

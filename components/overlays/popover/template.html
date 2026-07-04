@@ -1,0 +1,6 @@
+<div class="popover relative inline-block">
+  <span class="popover__trigger"><slot name="trigger"></slot></span>
+  <div class="popover__panel absolute z-30 hidden w-64 rounded-card border border-border bg-surface p-(--space-card) text-sm text-on-surface shadow-raised {{ position@class }}" role="dialog">
+    <slot name="content"></slot>
+  </div>
+</div>

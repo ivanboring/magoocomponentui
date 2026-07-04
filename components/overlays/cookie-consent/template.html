@@ -1,0 +1,13 @@
+<div class="cookie-consent fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface p-(--space-card) shadow-raised" role="region" aria-label="Cookie consent">
+  <div class="mx-auto flex max-w-4xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="cookie-consent__message text-sm text-on-surface-muted">
+      {{ message }}
+      <a data-if="policy_href" class="cookie-consent__policy font-medium text-on-surface underline" href="{{ policy_href }}">{{ policy_label }}</a>
+    </p>
+    <div class="cookie-consent__actions flex shrink-0 flex-wrap items-center gap-2">
+      <button type="button" class="cookie-consent__settings rounded-button px-3 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-cookie-settings>{{ settings_label }}</button>
+      <button type="button" class="cookie-consent__reject rounded-button border border-border px-3 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-cookie-reject>{{ reject_label }}</button>
+      <button type="button" class="cookie-consent__accept rounded-button bg-primary px-3 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" data-cookie-accept>{{ accept_label }}</button>
+    </div>
+  </div>
+</div>

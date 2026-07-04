@@ -1,0 +1,11 @@
+name: loading-overlay
+props:
+  label:
+    type: string
+    default: "Loading"
+    title: Label
+    description: Accessible loading text, also shown under the spinner.
+  visible:
+    type: boolean
+    default: true
+    title: Visible

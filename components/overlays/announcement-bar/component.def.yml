@@ -1,0 +1,19 @@
+name: announcement-bar
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Free shipping on orders over $50 — this week only."
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Shop now"
+  cta_href:
+    type: link
+    title: CTA link
+    example: "/sale"
+  dismissible:
+    type: boolean
+    default: true
+    title: Dismissible

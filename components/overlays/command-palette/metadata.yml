@@ -1,0 +1,67 @@
+name: "Command Palette"
+short_description: A searchable command launcher (⌘K) that filters grouped commands as you type.
+long_visual_description: >
+  A centered overlay near the top of the viewport with a search input above a scrollable
+  list of grouped commands, each showing an optional keyboard hint. Typing filters the
+  list live; arrow keys move the highlighted option and Enter runs it.
+
+use_cases:
+  - App-wide ⌘K launcher for navigation and actions.
+  - Quick jump to any page or record.
+  - Run an action without hunting through menus.
+  - Search-and-execute pattern for power users.
+  - Fuzzy command finder in an editor or dashboard.
+
+recommended_for:
+  - Apps with many destinations/actions that benefit from a keyboard-first launcher.
+avoid_for:
+  - Small sites with few destinations (use plain navigation).
+  - Selecting a value in a form (use a select or search-autocomplete).
+
+markets:
+  - Global
+
+example_usage: >
+  Group commands under short headings and give frequent ones a keyboard hint; wire the
+  command-palette:select event to run the chosen command. Open it from a ⌘K shortcut.
+
+props:
+  placeholder: The search input's placeholder text.
+  open: Initial open state; the behavior toggles it closed.
+  groups: The command groups, each with a heading and its commands.
+
+example_prompts:
+  - "Add a ⌘K command palette with Navigation and Actions groups."
+  - "Add a searchable command launcher that filters as you type."
+
+lifecycle: experimental
+content_model: A search input and grouped, filterable commands with optional shortcut hints.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Write commands as imperative phrases ("Go to Settings", "New project"); group by intent
+  and keep headings to one word.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [overlay, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Combobox input controls a listbox of options; ArrowUp/Down move aria-selected, Enter runs, Escape closes; the dialog is aria-modal. A production build should trap focus within the panel.
+  keyboard_support: Type to filter; ArrowUp/ArrowDown move the active option; Enter selects; Escape closes.
+  seo_score: 15
+  text_direction: both

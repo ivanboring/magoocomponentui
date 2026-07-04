@@ -1,0 +1,29 @@
+name: dropdown-menu
+props:
+  align:
+    type: enum
+    values: [start, end]
+    default: start
+    title: Align
+    description: Align the menu to the trigger's start or end edge.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      Each item: { label, value, danger, divider }. Set divider: true for a separator.
+      Unlike menu-dropdown, the trigger is supplied via a slot so any element can open it.
+    example:
+      - { label: "Profile", value: "profile", danger: false, divider: false }
+      - { label: "Settings", value: "settings", danger: false, divider: false }
+      - { divider: true }
+      - { label: "Sign out", value: "signout", danger: false, divider: false }
+slots:
+  trigger:
+    title: Trigger
+    description: The element that opens the menu (e.g. an avatar or icon button).
+variants:
+  align:
+    start: "left-0"
+    end: "right-0"

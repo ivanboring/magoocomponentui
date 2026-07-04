@@ -1,0 +1,9 @@
+<div class="context-menu relative">
+  <div class="context-menu__target"><slot name="target"></slot></div>
+  <div class="context-menu__menu fixed z-50 hidden min-w-44 flex-col rounded-card border border-border bg-surface p-1 shadow-raised" role="menu">
+    <span data-for="item in items" class="context-menu__row">
+      <hr data-if="item.divider" class="my-1 border-border" role="none">
+      <button data-if="!item.divider" type="button" class="context-menu__item block w-full rounded-control px-3 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[danger=true]:text-danger" role="menuitem" data-value="{{ item.value }}" data-danger="{{ item.danger }}">{{ item.label }}</button>
+    </span>
+  </div>
+</div>

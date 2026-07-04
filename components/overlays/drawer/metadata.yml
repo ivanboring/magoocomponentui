@@ -1,0 +1,69 @@
+name: "Drawer"
+short_description: A slide-in panel anchored to a screen edge, dismissed by backdrop/close/Escape.
+long_visual_description: >
+  A panel fixed to one edge of the viewport (left, right, top, or bottom) over a dimmed
+  backdrop, with a titled header and close button above a scrollable body. Keeps the
+  page context visible behind the backdrop, unlike a centered modal.
+
+use_cases:
+  - Faceted filters panel for a product listing.
+  - Slide-in cart or mini-basket.
+  - Settings or details panel that keeps page context.
+  - Mobile navigation drawer.
+  - Notifications or activity side panel.
+  - Quick edit form beside the main content.
+
+recommended_for:
+  - Secondary content or controls that should overlay from an edge while keeping context.
+avoid_for:
+  - Centered, focus-stealing dialogs (use modal).
+  - Brief transient messages (use snackbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Choose the side nearest the triggering control; put content in the body slot. Give any
+  element data-drawer-close to dismiss; Escape and the backdrop also close it.
+
+props:
+  title: The drawer heading and its accessible label.
+  side: Which edge the panel slides in from.
+  open: Initial open state; the behavior toggles it closed.
+
+slots:
+  body: The drawer's scrollable content.
+
+example_prompts:
+  - "Add a right-side filters drawer for the product grid."
+  - "Add a slide-in cart drawer from the right."
+
+lifecycle: experimental
+content_model: A title and a scrollable body of controls or content.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Title the drawer by its function ("Filters", "Cart"); keep the body scannable.
+
+categorization:
+  category: Overlays
+  subcategory: Dialogs
+  atomic_type: organism
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal labelled by the title; Escape and backdrop close; close control is labelled. Focus trapping is left to the integrating app.
+  keyboard_support: Escape closes; close control and body controls are focusable.
+  seo_score: 25
+  text_direction: both

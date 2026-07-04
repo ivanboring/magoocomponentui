@@ -1,0 +1,59 @@
+name: "Loading Overlay"
+short_description: A translucent veil with a spinner that covers its container while content loads.
+long_visual_description: >
+  A semi-transparent, slightly blurred layer filling its positioned container, centering
+  a spinner above a short loading label. Sits above the content it obscures until the
+  data is ready.
+
+use_cases:
+  - Cover a panel or card while its data refetches.
+  - Block a form during submission.
+  - Veil a table while it sorts or paginates server-side.
+  - Indicate a section is updating without collapsing its layout.
+  - Overlay a chart while its dataset loads.
+
+recommended_for:
+  - Covering a specific container (not the whole page) during an in-place load.
+avoid_for:
+  - A tiny inline spinner (use spinner).
+  - Determinate progress with a percentage (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Place inside a position:relative container so it fills just that region; toggle
+  visible to show/hide. The label doubles as the accessible status text.
+
+props:
+  label: Loading text shown under the spinner and announced to assistive tech.
+  visible: Whether the overlay is shown.
+
+example_prompts:
+  - "Add a loading overlay over the results panel while data loads."
+  - "Add a veil with a spinner over the form during submit."
+
+lifecycle: experimental
+content_model: A spinner and a short loading label; no other content.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+
+editorial_guidance: >
+  Say what's loading ("Loading results") rather than a bare "Loading" where it adds clarity.
+
+categorization:
+  category: Overlays
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" aria-live="polite" with a visible label; spinner is aria-hidden. The overlaid content should also be marked aria-busy by the integrating app.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

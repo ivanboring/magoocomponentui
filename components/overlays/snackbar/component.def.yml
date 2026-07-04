@@ -1,0 +1,12 @@
+name: snackbar
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Message archived"
+  action_label:
+    type: string
+    title: Action label
+    description: Optional single action (e.g. Undo).
+    example: "Undo"

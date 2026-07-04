@@ -1,0 +1,63 @@
+name: "Announcement Bar"
+short_description: A dismissible full-width top strip for a promo or notice with an optional CTA.
+long_visual_description: >
+  A slim primary-coloured strip spanning the page width with a centered message and an
+  optional underlined call-to-action link, plus a close button on the trailing edge when
+  dismissible.
+
+use_cases:
+  - Promote a sale or limited-time offer.
+  - Announce a new feature or launch.
+  - Notify of planned maintenance or downtime.
+  - Highlight a shipping or returns policy.
+  - Drive signups to an event or webinar.
+
+recommended_for:
+  - A single, page-wide promotional or informational notice at the top of the page.
+avoid_for:
+  - Contextual in-page feedback (use alert).
+  - Cookie/consent gating (use cookie-consent).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the message to one line and pair it with a single CTA; make it dismissible unless
+  the notice is critical and must stay.
+
+props:
+  message: The announcement text.
+  cta_label: Optional call-to-action link text.
+  cta_href: Where the CTA links.
+  dismissible: Show a close button that hides the bar.
+
+example_prompts:
+  - "Add an announcement bar for free shipping over $50 with a Shop now link."
+  - "Add a dismissible top bar announcing scheduled maintenance."
+
+lifecycle: experimental
+content_model: A one-line message with an optional CTA link.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the benefit; keep the message to one line and the CTA to two or three words.
+
+categorization:
+  category: Overlays
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="region" with an aria-label; the CTA is a real link; the dismiss control has an accessible label.
+  keyboard_support: The CTA and dismiss button are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

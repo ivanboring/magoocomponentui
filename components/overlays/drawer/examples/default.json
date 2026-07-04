@@ -1,0 +1,8 @@
+{
+  "title": "Filters",
+  "side": "right",
+  "open": true,
+  "$slots": {
+    "body": "<p class=\"text-on-surface-muted\">Refine results by category, price, and availability. Changes apply as you select them.</p>"
+  }
+}

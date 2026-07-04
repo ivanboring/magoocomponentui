@@ -1,0 +1,22 @@
+{
+  "placeholder": "Type a command or search…",
+  "open": true,
+  "groups": [
+    {
+      "heading": "Navigation",
+      "commands": [
+        { "label": "Go to Dashboard", "value": "nav-dashboard", "hint": "G D" },
+        { "label": "Go to Projects", "value": "nav-projects", "hint": "G P" },
+        { "label": "Go to Settings", "value": "nav-settings", "hint": "G S" }
+      ]
+    },
+    {
+      "heading": "Actions",
+      "commands": [
+        { "label": "New project", "value": "new-project", "hint": "N" },
+        { "label": "Invite teammate", "value": "invite", "hint": "" },
+        { "label": "Toggle dark mode", "value": "toggle-theme", "hint": "" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<div class="command-palette fixed inset-0 z-50 flex items-start justify-center p-4 pt-[15vh] data-[open=false]:hidden" data-open="{{ open }}">
+  <div class="command-palette__backdrop absolute inset-0 bg-on-surface/40" data-command-close aria-hidden="true"></div>
+  <div class="command-palette__panel relative z-10 flex w-full max-w-lg flex-col overflow-hidden rounded-card border border-border bg-surface shadow-raised" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="command-palette__search flex items-center gap-2 border-b border-border px-4">
+      <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <input type="text" class="command-palette__input w-full bg-transparent py-3 text-sm text-on-surface outline-none placeholder:text-on-surface-muted" placeholder="{{ placeholder }}" role="combobox" aria-expanded="true" aria-controls="command-palette-list" aria-autocomplete="list">
+    </div>
+    <ul class="command-palette__list max-h-80 overflow-y-auto p-2" id="command-palette-list" role="listbox">
+      <li data-for="group in groups" class="command-palette__group" data-group>
+        <p class="command-palette__group-heading px-2 py-1 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ group.heading }}</p>
+        <button data-for="command in group.commands" type="button" class="command-palette__item flex w-full items-center justify-between gap-3 rounded-control px-2 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised aria-selected:bg-surface-raised" role="option" data-value="{{ command.value }}" data-label="{{ command.label }}">
+          <span>{{ command.label }}</span>
+          <kbd data-if="command.hint" class="command-palette__hint shrink-0 rounded-control bg-surface-raised px-1.5 py-0.5 font-mono text-xs text-on-surface-muted">{{ command.hint }}</kbd>
+        </button>
+      </li>
+    </ul>
+    <p class="command-palette__empty hidden px-4 py-6 text-center text-sm text-on-surface-muted" data-command-empty>No matching commands.</p>
+  </div>
+</div>

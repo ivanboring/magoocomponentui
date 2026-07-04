@@ -1,0 +1,63 @@
+name: "Snackbar"
+short_description: A brief bottom message with a single optional action, such as Undo.
+long_visual_description: >
+  A compact dark pill centered near the bottom of the viewport with a short message and,
+  optionally, one accent-coloured action word like "Undo". Designed to appear briefly
+  after an action and then dismiss.
+
+use_cases:
+  - Confirm a quick action with an undo option (archive, delete, move).
+  - Acknowledge a background save or sync.
+  - Report a lightweight result ("Copied to clipboard").
+  - Offer a single follow-up action after a change.
+  - Show a brief non-blocking status update.
+
+recommended_for:
+  - Short, transient confirmations, especially those offering a single undo action.
+avoid_for:
+  - Messages that must persist or be acknowledged (use alert or a dialog).
+  - Multiple actions or rich content (use a dialog).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the message to a few words; include a single action only when there's a genuine
+  follow-up like Undo. Listen for snackbar:action to handle it.
+
+props:
+  message: The short status message.
+  action_label: An optional single action word.
+
+example_prompts:
+  - "Add a snackbar saying 'Message archived' with an Undo action."
+  - "Add a snackbar that confirms 'Copied to clipboard'."
+
+lifecycle: experimental
+content_model: A short message and an optional single action.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-surface
+    - --color-accent
+    - --radius-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the message under six words; the action should be a single verb like "Undo".
+
+categorization:
+  category: Overlays
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [overlay, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" aria-live="polite" announces the message; the action is a real focusable button.
+  keyboard_support: The action button is focusable and activates on Enter/Space.
+  seo_score: 15
+  text_direction: both

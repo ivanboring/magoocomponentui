@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "label": "Open", "value": "open", "danger": false, "divider": false },
+    { "label": "Rename", "value": "rename", "danger": false, "divider": false },
+    { "label": "Duplicate", "value": "duplicate", "danger": false, "divider": false },
+    { "divider": true },
+    { "label": "Delete", "value": "delete", "danger": true, "divider": false }
+  ],
+  "$slots": {
+    "target": "<div class=\"flex h-40 items-center justify-center rounded-card border border-dashed border-border bg-surface text-sm text-on-surface-muted\">Right-click anywhere in this area</div>"
+  }
+}

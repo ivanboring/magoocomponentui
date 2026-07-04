@@ -1,0 +1,66 @@
+name: "Popover"
+short_description: An anchored floating panel toggled from a trigger, for richer content than a tooltip.
+long_visual_description: >
+  A small bordered card that appears next to its trigger on click, positioned to one
+  side, holding a title and a short block of content or controls. Closes on outside
+  click or Escape.
+
+use_cases:
+  - Show extra detail or help on demand next to a control.
+  - Present a small set of actions or a mini-form anchored to a button.
+  - Explain a field with richer, interactive content than a tooltip allows.
+  - Show a colour/date/emoji picker anchored to an input.
+  - Preview summary info without navigating away.
+
+recommended_for:
+  - On-demand, click-triggered supplementary content or controls tied to an element.
+avoid_for:
+  - Passive hover hints (use tooltip).
+  - Large or modal content (use modal or drawer).
+
+markets:
+  - Global
+
+example_usage: >
+  Put the toggling element in the trigger slot and the floating content in the content
+  slot; choose the position that keeps the panel on screen.
+
+props:
+  position: Which side of the trigger the panel opens toward.
+
+slots:
+  trigger: The element that opens/closes the popover.
+  content: The floating panel content.
+
+example_prompts:
+  - "Add a popover on the info button explaining the shipping estimate."
+  - "Add a popover with a small form anchored to the Add button."
+
+lifecycle: experimental
+content_model: A trigger element and a small panel of content or controls.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-raised
+    - --space-card
+
+editorial_guidance: >
+  Give the panel a short title and keep its content to a few lines or a compact control.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Panel is role="dialog"; opens on trigger click and closes on Escape/outside click. A production build should manage focus into and out of the panel.
+  keyboard_support: Trigger toggles on Enter/Space; Escape closes the panel.
+  seo_score: 20
+  text_direction: both

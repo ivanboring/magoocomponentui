@@ -1,0 +1,69 @@
+name: "Dropdown Menu"
+short_description: An actionable menu opened from any slotted trigger, with keyboard navigation.
+long_visual_description: >
+  A menu panel that opens beneath a caller-supplied trigger (an avatar, icon button, or
+  any element), aligned to its start or end edge, listing action items with optional
+  dividers and destructive tinting. Keyboard-navigable and closes on Escape/outside click.
+
+use_cases:
+  - Account/profile menu opened from an avatar.
+  - Overflow actions opened from an icon button.
+  - Row or card actions opened from a custom trigger.
+  - App-bar user menu with settings and sign-out.
+  - Any menu whose opener isn't a plain labeled button.
+
+recommended_for:
+  - Actionable menus where the trigger is a custom element (avatar, icon, etc.).
+avoid_for:
+  - A plain labeled button trigger (menu-dropdown already includes one).
+  - Right-click contextual menus (use context-menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Put the opener (avatar, icon button, …) in the trigger slot and list actions as items;
+  choose align end for right-anchored menus. Listen for dropdown-menu:select.
+
+props:
+  align: Align the menu to the trigger's start or end edge.
+  items: The action rows, including dividers and any destructive item.
+
+slots:
+  trigger: The element that opens the menu.
+
+example_prompts:
+  - "Add a dropdown menu opened from the avatar with Profile, Settings, and Sign out."
+  - "Add an end-aligned actions menu opened from an icon button."
+
+lifecycle: experimental
+content_model: A trigger element and an ordered list of action items.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Use verb-first or noun labels consistent with the rest of the app; group with a divider
+  before sign-out or destructive actions.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [overlay, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trigger exposes aria-haspopup/aria-expanded and opens on Enter/Space/ArrowDown; menu uses role="menu"/"menuitem"; Arrow keys move focus; Escape closes and restores focus.
+  keyboard_support: Enter/Space/ArrowDown open (focusing the first item); ArrowUp/ArrowDown cycle items; Escape closes and refocuses the trigger.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,7 @@
+{
+  "position": "bottom",
+  "$slots": {
+    "trigger": "<button type=\"button\" class=\"rounded-button border border-border bg-surface px-3 py-2 text-sm font-heading text-on-surface\">Show details</button>",
+    "content": "<p class=\"font-heading text-on-surface\">Shipping estimate</p><p class=\"mt-1 text-on-surface-muted\">Arrives in 3–5 business days. Free over $50.</p>"
+  }
+}

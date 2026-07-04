@@ -1,0 +1,27 @@
+name: cookie-consent
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "We use cookies to improve your experience and analyze traffic."
+  policy_href:
+    type: link
+    title: Policy link
+    example: "/privacy"
+  policy_label:
+    type: string
+    default: "Learn more"
+    title: Policy link label
+  accept_label:
+    type: string
+    default: "Accept all"
+    title: Accept label
+  reject_label:
+    type: string
+    default: "Reject"
+    title: Reject label
+  settings_label:
+    type: string
+    default: "Settings"
+    title: Settings label

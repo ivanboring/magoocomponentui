@@ -1,0 +1,26 @@
+name: command-palette
+props:
+  placeholder:
+    type: string
+    default: "Type a command or search…"
+    title: Input placeholder
+  open:
+    type: boolean
+    default: true
+    title: Open
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Command groups
+    description: >
+      Each group: { heading, commands: [{ label, value, hint }] }. hint is an optional
+      trailing shortcut/label. Filtering is handled by the behavior against label text.
+    example:
+      - heading: "Navigation"
+        commands:
+          - { label: "Go to Dashboard", value: "nav-dashboard", hint: "G D" }
+          - { label: "Go to Settings", value: "nav-settings", hint: "G S" }
+      - heading: "Actions"
+        commands:
+          - { label: "New project", value: "new-project", hint: "" }

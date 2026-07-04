@@ -1,0 +1,73 @@
+name: "Empty State"
+short_description: A no-content placeholder with an illustration, message, and optional call to action.
+long_visual_description: >
+  A centered block inside a dashed-border card: an optional illustration or icon, a short
+  title, a one-line explanation, and an optional primary CTA button — used where a list
+  or region has no content yet.
+
+use_cases:
+  - First-run state before any records exist ("No projects yet").
+  - Empty search or filter results.
+  - Cleared inbox or completed task list.
+  - Empty cart or wishlist.
+  - A section awaiting its first entry with a create action.
+  - Error-free but data-less dashboards or widgets.
+
+recommended_for:
+  - Any list, table, or region that can legitimately have zero items.
+avoid_for:
+  - Loading states (use loading-overlay or spinner).
+  - Error states that need troubleshooting guidance (use an error component).
+
+markets:
+  - Global
+
+example_usage: >
+  Explain why it's empty and give one clear next action; use the illustration slot for a
+  simple icon. Keep the CTA to the single most useful action.
+
+props:
+  title: A short statement of what's empty.
+  description: A one-line explanation or encouragement.
+  cta_label: The primary next-action label.
+  cta_href: Where the CTA links.
+
+slots:
+  illustration: An optional icon or illustration above the title.
+
+example_prompts:
+  - "Add an empty state for no projects with a New project button."
+  - "Add an empty-results state for a search with no matches."
+
+lifecycle: experimental
+content_model: A title, an optional description, an optional illustration, and an optional CTA.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Be encouraging, not apologetic; name the single most useful next action in the CTA.
+
+categorization:
+  category: Overlays
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real heading and paragraph; the CTA is a real link; the illustration is decorative (aria-hidden).
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 25
+  text_direction: both

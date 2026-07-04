@@ -1,0 +1,11 @@
+<div class="confirm-dialog fixed inset-0 z-50 flex items-center justify-center p-4 data-[open=false]:hidden" data-open="{{ open }}">
+  <div class="confirm-dialog__backdrop absolute inset-0 bg-on-surface/40" data-confirm-cancel aria-hidden="true"></div>
+  <div class="confirm-dialog__panel relative z-10 w-full max-w-sm rounded-card bg-surface p-(--space-card) shadow-raised" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+    <h2 class="confirm-dialog__title font-heading text-lg text-on-surface" id="confirm-title">{{ title }}</h2>
+    <p class="confirm-dialog__message mt-2 text-sm text-on-surface-muted" id="confirm-message">{{ message }}</p>
+    <div class="confirm-dialog__actions mt-6 flex justify-end gap-3">
+      <button type="button" class="confirm-dialog__cancel rounded-button px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-confirm-cancel>{{ cancel_label }}</button>
+      <button type="button" class="confirm-dialog__confirm rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 data-[destructive=true]:bg-danger data-[destructive=true]:text-danger-contrast" data-destructive="{{ destructive }}" data-confirm-ok>{{ confirm_label }}</button>
+    </div>
+  </div>
+</div>
