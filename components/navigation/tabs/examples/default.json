@@ -1,0 +1,11 @@
+{
+  "label": "Account settings",
+  "tabs": [
+    { "id": "overview", "label": "Overview", "active": true },
+    { "id": "billing", "label": "Billing", "active": false },
+    { "id": "team", "label": "Team", "active": false }
+  ],
+  "$slots": {
+    "panels": "<div role=\"tabpanel\" id=\"panel-overview\" aria-labelledby=\"tab-overview\" data-tab-panel=\"overview\" class=\"text-sm text-on-surface\">Your account at a glance — plan, usage, and recent activity.</div><div role=\"tabpanel\" id=\"panel-billing\" aria-labelledby=\"tab-billing\" data-tab-panel=\"billing\" class=\"text-sm text-on-surface\" hidden>Manage your payment method and download invoices.</div><div role=\"tabpanel\" id=\"panel-team\" aria-labelledby=\"tab-team\" data-tab-panel=\"team\" class=\"text-sm text-on-surface\" hidden>Invite teammates and set their roles.</div>"
+  }
+}

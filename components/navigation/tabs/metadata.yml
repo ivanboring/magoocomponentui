@@ -1,0 +1,66 @@
+short_description: A horizontal ARIA tablist with arrow-key navigation that toggles matching content panels.
+long_visual_description: >
+  A row of text tab labels sitting on a bottom border; the active tab is marked by a
+  primary-colour underline and solid text while inactive tabs are muted. Below the row,
+  a panel region shows the content for the selected tab and hides the others.
+
+use_cases:
+  - Switch between sections of a settings page (Overview, Billing, Team).
+  - Organize a product page into Description, Specs, Reviews.
+  - Split a dashboard into multiple views under one header.
+  - Group a form into logical stages shown one at a time.
+  - Show different data ranges or categories in a report.
+  - Separate documentation sections without navigating away.
+
+recommended_for:
+  - A small set of peer content panels the user switches between in place.
+avoid_for:
+  - Sequential steps that must be completed in order (use stepper).
+  - Primary site navigation between pages (use navbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a tabs array with one active tab, and place one panel element per tab in the
+  panels slot. Each panel needs role="tabpanel", id="panel-<id>", aria-labelledby="tab-<id>",
+  data-tab-panel="<id>", and `hidden` on all but the active panel.
+
+props:
+  label: Accessible name for the tablist as a whole.
+  tabs: The ordered tab buttons; exactly one should be active.
+
+slots:
+  panels: The tab panels, one per tab, keyed to tabs by data-tab-panel.
+
+example_prompts:
+  - "Add tabs for Overview, Billing, and Team on the settings page."
+  - "Add a tabbed panel splitting the product page into Description, Specs, and Reviews."
+
+lifecycle: experimental
+content_model: An ordered set of tab labels, each paired with a content panel.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --duration-token
+
+editorial_guidance: >
+  Keep tab labels to one or two words; order them by expected frequency of use, most
+  common first.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="tablist"/"tab"/"tabpanel" with aria-selected, aria-controls, aria-labelledby; roving tabindex keeps one tab in the tab order; Left/Right/Home/End move between tabs.
+  keyboard_support: Tab moves focus into the active tab; Left/Right cycle tabs and activate them; Home/End jump to first/last; Enter/Space and click also activate.
+  seo_score: 40
+  text_direction: both

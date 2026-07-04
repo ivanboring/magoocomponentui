@@ -1,0 +1,26 @@
+name: tabs
+props:
+  label:
+    type: string
+    default: "Tabs"
+    title: Tablist label
+    description: Accessible name for the whole tablist (aria-label).
+  tabs:
+    type: array
+    items: object
+    required: true
+    title: Tabs
+    description: >
+      Each item: { id, label, active }. id must be a slug that matches the panel's
+      data-tab-panel attribute in the panels slot. Exactly one item should be active.
+    example:
+      - { id: "overview", label: "Overview", active: true }
+      - { id: "billing", label: "Billing", active: false }
+      - { id: "team", label: "Team", active: false }
+slots:
+  panels:
+    title: Panels
+    description: >
+      One element per tab. Give each a role="tabpanel", id="panel-<id>",
+      aria-labelledby="tab-<id>", data-tab-panel="<id>", and `hidden` on all but the
+      active one. The behavior toggles `hidden` to match the selected tab.

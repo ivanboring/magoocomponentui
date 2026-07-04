@@ -1,0 +1,8 @@
+<div class="tabs">
+  <div class="tabs__list flex items-center gap-1 border-b border-border" role="tablist" aria-label="{{ label }}">
+    <button data-for="tab in tabs" type="button" class="tabs__tab -mb-px border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" id="tab-{{ tab.id }}" aria-controls="panel-{{ tab.id }}" aria-selected="{{ tab.active }}" data-active="{{ tab.active }}" data-tab="{{ tab.id }}">{{ tab.label }}</button>
+  </div>
+  <div class="tabs__panels pt-4">
+    <slot name="panels"></slot>
+  </div>
+</div>
