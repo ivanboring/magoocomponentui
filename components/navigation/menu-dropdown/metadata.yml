@@ -1,0 +1,65 @@
+short_description: A click-to-open dropdown menu of actions with dividers and destructive-item styling.
+long_visual_description: >
+  A bordered trigger button with a chevron; clicking opens a small floating panel of
+  stacked action links below it. Rows can be separated by hairline dividers, and a
+  destructive action (e.g. Delete) is tinted with the danger colour.
+
+use_cases:
+  - Row-level actions menu (Edit, Duplicate, Delete) on a table or card.
+  - Overflow ("More") menu for secondary actions.
+  - Account menu with links and a sign-out.
+  - Context actions on a file or item.
+  - Bulk-action selector on a toolbar.
+
+recommended_for:
+  - A short list of actions triggered from a button.
+avoid_for:
+  - Selecting one value from many (use a select field).
+  - In-place content switching (use tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  List action items in priority order; insert a divider before a destructive action and
+  mark it danger: true.
+
+props:
+  trigger_label: The button text that opens the menu.
+  items: The action rows, including any dividers and a destructive item.
+
+example_prompts:
+  - "Add an options menu with Edit, Duplicate, and a red Delete."
+  - "Add a 'More' dropdown with Share and Report actions."
+
+lifecycle: experimental
+content_model: A trigger label and an ordered list of action items (with optional dividers).
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Use verb-first action labels; reserve the danger style for genuinely destructive actions.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [nav, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trigger exposes aria-haspopup/aria-expanded; menu uses role="menu"/"menuitem"; Escape closes and returns focus; Arrow keys move between items.
+  keyboard_support: Enter/Space opens (focusing the first item); ArrowUp/ArrowDown move between items; Escape closes and refocuses the trigger.
+  seo_score: 25
+  text_direction: both

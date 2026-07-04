@@ -1,0 +1,19 @@
+name: footer-nav
+props:
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: >
+      Each column: { heading, links: [{ label, href }] }. Rendered as a responsive
+      multi-column link grid (1 col on mobile up to 4 on desktop).
+    example:
+      - heading: "Product"
+        links:
+          - { label: "Features", href: "/features" }
+          - { label: "Pricing", href: "/pricing" }
+      - heading: "Company"
+        links:
+          - { label: "About", href: "/about" }
+          - { label: "Careers", href: "/careers" }

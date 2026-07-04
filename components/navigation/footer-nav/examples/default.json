@@ -1,0 +1,35 @@
+{
+  "columns": [
+    {
+      "heading": "Product",
+      "links": [
+        { "label": "Features", "href": "/features" },
+        { "label": "Pricing", "href": "/pricing" },
+        { "label": "Integrations", "href": "/integrations" }
+      ]
+    },
+    {
+      "heading": "Company",
+      "links": [
+        { "label": "About", "href": "/about" },
+        { "label": "Careers", "href": "/careers" },
+        { "label": "Blog", "href": "/blog" }
+      ]
+    },
+    {
+      "heading": "Resources",
+      "links": [
+        { "label": "Docs", "href": "/docs" },
+        { "label": "Support", "href": "/support" },
+        { "label": "Status", "href": "/status" }
+      ]
+    },
+    {
+      "heading": "Legal",
+      "links": [
+        { "label": "Privacy", "href": "/privacy" },
+        { "label": "Terms", "href": "/terms" }
+      ]
+    }
+  ]
+}

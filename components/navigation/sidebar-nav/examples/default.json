@@ -1,0 +1,20 @@
+{
+  "label": "Main navigation",
+  "groups": [
+    {
+      "heading": "Main",
+      "items": [
+        { "label": "Dashboard", "href": "/dashboard", "active": true },
+        { "label": "Projects", "href": "/projects", "active": false },
+        { "label": "Reports", "href": "/reports", "active": false }
+      ]
+    },
+    {
+      "heading": "Account",
+      "items": [
+        { "label": "Team", "href": "/team", "active": false },
+        { "label": "Settings", "href": "/settings", "active": false }
+      ]
+    }
+  ]
+}

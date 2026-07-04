@@ -1,0 +1,8 @@
+{
+  "orientation": "horizontal",
+  "steps": [
+    { "number": 1, "label": "Cart", "description": "Review items", "status": "complete", "current": false },
+    { "number": 2, "label": "Shipping", "description": "Enter address", "status": "current", "current": true },
+    { "number": 3, "label": "Payment", "description": "Add card", "status": "upcoming", "current": false }
+  ]
+}

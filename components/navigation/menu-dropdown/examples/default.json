@@ -1,0 +1,10 @@
+{
+  "trigger_label": "Options",
+  "items": [
+    { "label": "Edit", "href": "#edit", "danger": false, "divider": false },
+    { "label": "Duplicate", "href": "#duplicate", "danger": false, "divider": false },
+    { "label": "Share", "href": "#share", "danger": false, "divider": false },
+    { "divider": true },
+    { "label": "Delete", "href": "#delete", "danger": true, "divider": false }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "label": "Settings sections",
+  "tabs": [
+    { "id": "profile", "label": "Profile", "active": true },
+    { "id": "security", "label": "Security", "active": false },
+    { "id": "notifications", "label": "Notifications", "active": false }
+  ],
+  "$slots": {
+    "panels": "<div role=\"tabpanel\" id=\"panel-profile\" aria-labelledby=\"tab-profile\" data-tab-panel=\"profile\" class=\"text-sm text-on-surface\">Update your name, photo, and public profile details.</div><div role=\"tabpanel\" id=\"panel-security\" aria-labelledby=\"tab-security\" data-tab-panel=\"security\" class=\"text-sm text-on-surface\" hidden>Change your password and manage two-factor authentication.</div><div role=\"tabpanel\" id=\"panel-notifications\" aria-labelledby=\"tab-notifications\" data-tab-panel=\"notifications\" class=\"text-sm text-on-surface\" hidden>Choose which emails and push notifications you receive.</div>"
+  }
+}

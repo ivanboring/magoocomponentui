@@ -1,0 +1,12 @@
+<ol class="stepper flex gap-0 {{ orientation@class }}" aria-label="Progress">
+  <li data-for="step in steps" class="stepper__step group flex flex-1 items-center gap-3 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start" data-status="{{ step.status }}" data-orientation="{{ orientation }}" aria-current="{{ step.current }}">
+    <span class="stepper__marker flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-border text-sm font-medium text-on-surface-muted data-[status=complete]:border-primary data-[status=complete]:bg-primary data-[status=complete]:text-primary-contrast data-[status=current]:border-primary data-[status=current]:text-primary" data-status="{{ step.status }}">
+      <svg class="hidden size-4 group-data-[status=complete]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <span class="group-data-[status=complete]:hidden">{{ step.number }}</span>
+    </span>
+    <span class="stepper__body min-w-0">
+      <span class="stepper__label block text-sm font-medium text-on-surface-muted group-data-[status=complete]:text-on-surface group-data-[status=current]:text-on-surface">{{ step.label }}</span>
+      <span data-if="step.description" class="stepper__description block text-xs text-on-surface-muted">{{ step.description }}</span>
+    </span>
+  </li>
+</ol>

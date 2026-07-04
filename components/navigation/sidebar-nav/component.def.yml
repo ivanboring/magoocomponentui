@@ -1,0 +1,22 @@
+name: sidebar-nav
+props:
+  label:
+    type: string
+    default: "Sidebar"
+    title: Accessible label
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Each group: { heading, items: [{ label, href, active }] }. Groups are collapsible
+      sections; items are the leaf links within them.
+    example:
+      - heading: "Main"
+        items:
+          - { label: "Dashboard", href: "/dashboard", active: true }
+          - { label: "Projects", href: "/projects", active: false }
+      - heading: "Account"
+        items:
+          - { label: "Settings", href: "/settings", active: false }

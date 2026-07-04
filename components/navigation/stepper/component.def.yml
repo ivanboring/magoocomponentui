@@ -1,0 +1,25 @@
+name: stepper
+props:
+  orientation:
+    type: enum
+    values: [horizontal, vertical]
+    default: horizontal
+    title: Orientation
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: >
+      Each item: { number, label, description, status, current } where status is one of
+      complete, current, or upcoming (drives marker styling), number is the displayed step
+      index, and current is true only for the in-progress step (sets aria-current).
+      Completed steps show a checkmark instead of the number.
+    example:
+      - { number: 1, label: "Cart", description: "Review items", status: "complete", current: false }
+      - { number: 2, label: "Shipping", description: "Enter address", status: "current", current: true }
+      - { number: 3, label: "Payment", description: "Add card", status: "upcoming", current: false }
+variants:
+  orientation:
+    horizontal: "flex-row items-start"
+    vertical: "flex-col"

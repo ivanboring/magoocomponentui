@@ -1,0 +1,8 @@
+{
+  "label": "Task views",
+  "items": [
+    { "label": "All", "href": "?filter=all", "active": true },
+    { "label": "Active", "href": "?filter=active", "active": false },
+    { "label": "Archived", "href": "?filter=archived", "active": false }
+  ]
+}

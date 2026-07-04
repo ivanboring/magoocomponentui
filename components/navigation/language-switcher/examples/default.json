@@ -1,0 +1,9 @@
+{
+  "current_label": "English",
+  "languages": [
+    { "label": "English", "href": "/en", "active": true },
+    { "label": "Español", "href": "/es", "active": false },
+    { "label": "Français", "href": "/fr", "active": false },
+    { "label": "Deutsch", "href": "/de", "active": false }
+  ]
+}

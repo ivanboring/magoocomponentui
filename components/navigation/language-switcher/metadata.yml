@@ -1,0 +1,64 @@
+short_description: A locale selector dropdown showing the current language and a menu of alternatives.
+long_visual_description: >
+  A bordered button with a globe icon, the current language name, and a chevron. Clicking
+  it opens a small menu of language links anchored to the button's trailing edge; the
+  active language is marked. Closes on outside click or Escape.
+
+use_cases:
+  - Let visitors switch the site's language.
+  - Regional locale selector in a site header or footer.
+  - Language preference control in account settings.
+  - Multi-region storefront language switch.
+  - Documentation language selector.
+
+recommended_for:
+  - Sites offering content in multiple languages/locales.
+avoid_for:
+  - A single available language.
+  - Currency or region-only switching without language (build a dedicated control).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current language on the toggle and list all available locales as links, each
+  pointing at that language's URL; mark the active one.
+
+props:
+  current_label: The name of the currently selected language shown on the toggle.
+  languages: The available languages as links, with one active.
+
+example_prompts:
+  - "Add a language switcher for English, Spanish, and French."
+  - "Add a locale dropdown showing the current language as English."
+
+lifecycle: experimental
+content_model: A current language label and a list of language links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Show each language in its own name (endonym), e.g. "Español" not "Spanish".
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [nav, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Toggle exposes aria-haspopup and aria-expanded; menu uses role="menu"/"menuitem"; active locale sets aria-current; Escape closes and returns focus.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes and refocuses the toggle; menu links are focusable.
+  seo_score: 35
+  text_direction: both

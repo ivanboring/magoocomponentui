@@ -1,0 +1,16 @@
+<div class="menu-fullscreen">
+  <button type="button" class="menu-fullscreen__open flex size-11 items-center justify-center rounded-control text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Open menu" aria-expanded="false" aria-controls="menu-fullscreen-overlay">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <div class="menu-fullscreen__overlay fixed inset-0 z-50 hidden flex-col bg-background p-8" id="menu-fullscreen-overlay" role="dialog" aria-modal="true" aria-label="{{ label }}">
+    <div class="flex justify-end">
+      <button type="button" class="menu-fullscreen__close flex size-11 items-center justify-center rounded-control text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Close menu">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="menu-fullscreen__nav flex flex-1 flex-col items-center justify-center gap-6" aria-label="{{ label }}">
+      <a data-for="link in links" class="menu-fullscreen__link font-heading text-4xl text-on-surface transition-colors duration-(--duration-token) hover:text-primary" href="{{ link.href }}">{{ link.label }}</a>
+    </nav>
+    <div class="menu-fullscreen__footer flex justify-center gap-6 text-sm text-on-surface-muted"><slot name="footer"></slot></div>
+  </div>
+</div>

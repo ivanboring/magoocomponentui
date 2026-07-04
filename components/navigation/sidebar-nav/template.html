@@ -1,0 +1,13 @@
+<nav class="sidebar-nav flex w-60 flex-col gap-4 bg-surface p-3" aria-label="{{ label }}">
+  <div data-for="group in groups" class="sidebar-nav__group">
+    <button type="button" class="sidebar-nav__group-toggle flex w-full items-center justify-between px-2 py-1 text-xs font-semibold uppercase tracking-wide text-on-surface-muted" aria-expanded="true">
+      {{ group.heading }}
+      <svg class="sidebar-nav__chevron size-3.5 transition-transform duration-(--duration-token)" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+    </button>
+    <ul class="sidebar-nav__list mt-1 flex flex-col gap-0.5">
+      <li data-for="item in group.items">
+        <a class="sidebar-nav__item block rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-on-surface" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">{{ item.label }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

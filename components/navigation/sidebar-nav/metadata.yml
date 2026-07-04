@@ -1,0 +1,62 @@
+short_description: A collapsible vertical navigation with grouped, headed sections of links.
+long_visual_description: >
+  A narrow vertical panel of link groups. Each group has a small uppercase heading that
+  collapses its list when clicked (the chevron rotates), and the links below highlight
+  the active route with a raised surface background.
+
+use_cases:
+  - App shell primary navigation grouped by area.
+  - Admin/dashboard side navigation.
+  - Documentation sidebar with sectioned links.
+  - Settings navigation grouped by category.
+  - Project workspace section switcher.
+  - Account area navigation with collapsible groups.
+
+recommended_for:
+  - Apps and dashboards with a persistent left navigation of grouped destinations.
+avoid_for:
+  - Top-level marketing site navigation (use navbar).
+  - In-page panel switching (use tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  Group links under short headings; mark the current route's item active. Groups start
+  expanded and collapse on heading click.
+
+props:
+  label: Accessible name for the whole navigation region.
+  groups: The headed groups, each with its list of links.
+
+example_prompts:
+  - "Add a sidebar nav with Main (Dashboard, Projects) and Account (Settings)."
+  - "Add a collapsible dashboard side navigation grouped by section."
+
+lifecycle: experimental
+content_model: Grouped, headed sections each containing a list of navigation links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep group headings to one word; order the most-used group and links first.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; group toggles expose aria-expanded; the active link sets aria-current.
+  keyboard_support: Group headings toggle on Enter/Space; links are focusable and activate on Enter.
+  seo_score: 45
+  text_direction: both

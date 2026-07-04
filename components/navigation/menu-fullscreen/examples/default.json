@@ -1,0 +1,12 @@
+{
+  "label": "Main menu",
+  "links": [
+    { "label": "Work", "href": "/work" },
+    { "label": "Studio", "href": "/studio" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "$slots": {
+    "footer": "<a href=\"#\" class=\"hover:text-on-surface\">Instagram</a><a href=\"#\" class=\"hover:text-on-surface\">Twitter</a>"
+  }
+}

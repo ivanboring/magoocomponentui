@@ -1,0 +1,11 @@
+name: back-to-top
+props:
+  label:
+    type: string
+    default: "Back to top"
+    title: Accessible label
+  threshold:
+    type: integer
+    default: 300
+    title: Scroll threshold
+    description: Pixels scrolled before the button appears.

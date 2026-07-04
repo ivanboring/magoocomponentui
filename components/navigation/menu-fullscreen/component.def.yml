@@ -1,0 +1,20 @@
+name: menu-fullscreen
+props:
+  label:
+    type: string
+    default: "Main menu"
+    title: Accessible label
+  links:
+    type: array
+    items: object
+    required: true
+    title: Links
+    description: "Each item: { label, href }. Large overlay navigation links."
+    example:
+      - { label: "Work", href: "/work" }
+      - { label: "About", href: "/about" }
+      - { label: "Contact", href: "/contact" }
+slots:
+  footer:
+    title: Footer
+    description: Optional area under the links for secondary/social links.

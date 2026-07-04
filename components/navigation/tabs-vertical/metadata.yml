@@ -1,0 +1,65 @@
+short_description: A vertical ARIA tablist with Up/Down navigation that toggles matching content panels.
+long_visual_description: >
+  A left-hand column of stacked tab labels against a right border, the active one marked
+  by a primary-colour right-edge bar and solid text, with the selected panel's content
+  filling the area to the right.
+
+use_cases:
+  - Vertical settings navigation (Profile, Security, Notifications).
+  - Account or admin section switcher on wide screens.
+  - Documentation category switcher in a sidebar.
+  - Multi-section preferences panel.
+  - Wizard-like section list where any section can be revisited.
+  - Product configuration with side-listed option groups.
+
+recommended_for:
+  - Wide layouts where a vertical list of peer panels reads better than a horizontal row.
+avoid_for:
+  - Narrow/mobile layouts (use horizontal tabs).
+  - Ordered, must-complete steps (use stepper).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a tabs array with one active tab and one panel per tab in the panels slot,
+  each keyed by data-tab-panel and hidden unless active.
+
+props:
+  label: Accessible name for the tablist as a whole.
+  tabs: The ordered tab buttons; exactly one should be active.
+
+slots:
+  panels: The tab panels, one per tab, keyed to tabs by data-tab-panel.
+
+example_prompts:
+  - "Add vertical tabs for Profile, Security, and Notifications settings."
+  - "Add a side tab list splitting preferences into three sections."
+
+lifecycle: experimental
+content_model: An ordered set of tab labels stacked vertically, each paired with a content panel.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep tab labels short; group related sections and order them logically top to bottom.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="tablist" with aria-orientation="vertical"; Up/Down/Home/End move and activate tabs; roving tabindex keeps one tab tabbable.
+  keyboard_support: Tab focuses the active tab; Up/Down cycle and activate tabs; Home/End jump to first/last; click also activates.
+  seo_score: 40
+  text_direction: both

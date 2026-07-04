@@ -1,0 +1,20 @@
+name: menu-dropdown
+props:
+  trigger_label:
+    type: string
+    required: true
+    title: Trigger label
+    example: "Options"
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      Each item: { label, href, icon, danger, divider }. Set divider: true for a
+      separator row (other fields ignored). Set danger: true to tint a destructive item.
+    example:
+      - { label: "Edit", href: "#edit", danger: false, divider: false }
+      - { label: "Duplicate", href: "#duplicate", danger: false, divider: false }
+      - { divider: true }
+      - { label: "Delete", href: "#delete", danger: true, divider: false }

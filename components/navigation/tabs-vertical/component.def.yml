@@ -1,0 +1,25 @@
+name: tabs-vertical
+props:
+  label:
+    type: string
+    default: "Tabs"
+    title: Tablist label
+    description: Accessible name for the whole tablist (aria-label).
+  tabs:
+    type: array
+    items: object
+    required: true
+    title: Tabs
+    description: >
+      Each item: { id, label, active }. id must match the panel's data-tab-panel
+      attribute in the panels slot. Exactly one item should be active.
+    example:
+      - { id: "profile", label: "Profile", active: true }
+      - { id: "security", label: "Security", active: false }
+      - { id: "notifications", label: "Notifications", active: false }
+slots:
+  panels:
+    title: Panels
+    description: >
+      One element per tab. Give each role="tabpanel", id="panel-<id>",
+      aria-labelledby="tab-<id>", data-tab-panel="<id>", and `hidden` on all but active.

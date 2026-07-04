@@ -1,0 +1,58 @@
+short_description: A scroll-aware floating button that appears after scrolling and returns to the top.
+long_visual_description: >
+  A round primary-colour button fixed to the bottom-right corner with an up-arrow glyph.
+  It is hidden at the top of the page and fades in once the user scrolls past a
+  threshold; clicking it smoothly scrolls back to the top.
+
+use_cases:
+  - Return to the top of a long article or documentation page.
+  - Jump up from the bottom of a long product listing.
+  - Return to the top of a lengthy feed or search results.
+  - Aid navigation on long single-page sites.
+  - Provide a quick way up on long mobile pages.
+
+recommended_for:
+  - Any page long enough that scrolling back up manually is tedious.
+avoid_for:
+  - Short pages that never scroll past the threshold.
+
+markets:
+  - Global
+
+example_usage: >
+  Place once per scrollable page; tune threshold to roughly one viewport height so it
+  only appears once the top is out of view.
+
+props:
+  label: Accessible name for the button.
+  threshold: Pixels the user must scroll before the button appears.
+
+example_prompts:
+  - "Add a back-to-top button that appears after scrolling 400px."
+  - "Add a floating scroll-to-top control to this long article."
+
+lifecycle: experimental
+content_model: No content; a single fixed control tied to scroll position.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep the accessible label literal ("Back to top"); the icon alone is the visible affordance.
+
+categorization:
+  category: Navigation
+  subcategory: Wayfinding
+  atomic_type: atom
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Native button with an aria-label; hidden attribute removes it from the tab order until revealed; smooth scroll respects the user's reduced-motion setting via the browser.
+  keyboard_support: Focusable and activates on Enter/Space once visible.
+  seo_score: 15
+  text_direction: both

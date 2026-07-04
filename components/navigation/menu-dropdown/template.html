@@ -1,0 +1,12 @@
+<div class="menu-dropdown relative inline-block">
+  <button type="button" class="menu-dropdown__trigger inline-flex items-center gap-2 rounded-control border border-border bg-surface px-3 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="false">
+    {{ trigger_label }}
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <div class="menu-dropdown__menu absolute left-0 z-20 mt-1 hidden min-w-48 flex-col rounded-card border border-border bg-surface p-1 shadow-raised" role="menu">
+    <span data-for="item in items" class="menu-dropdown__row">
+      <hr data-if="item.divider" class="my-1 border-border" role="none">
+      <a data-if="!item.divider" class="menu-dropdown__item block rounded-control px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[danger=true]:text-danger" href="{{ item.href }}" role="menuitem" data-danger="{{ item.danger }}">{{ item.label }}</a>
+    </span>
+  </div>
+</div>

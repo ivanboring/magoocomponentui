@@ -1,0 +1,62 @@
+short_description: A pill-style segmented navigation where the active item sits raised on the surface.
+long_visual_description: >
+  A rounded track in the raised surface tone holding a few text items; the active item
+  is lifted onto a solid surface pill with a soft shadow while the others stay muted and
+  flat until hovered.
+
+use_cases:
+  - Switch between filtered views of a list (All, Active, Archived).
+  - Toggle between content categories on a page.
+  - Switch a feed between Following and For You.
+  - Choose a time window (Today, Week, Month) as links.
+  - Segment a gallery by type.
+
+recommended_for:
+  - A small set of peer views navigated as links, with a clear active one.
+avoid_for:
+  - Primary site navigation (use navbar).
+  - In-place panel switching without navigation (use tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 2-5 items with one active; each is a link, so use this when switching views
+  changes the URL/route.
+
+props:
+  label: Accessible name for the navigation group.
+  items: The ordered view links; one should be active.
+
+example_prompts:
+  - "Add a pill nav to filter tasks by All, Active, and Archived."
+  - "Add a Following / For You pill switcher."
+
+lifecycle: experimental
+content_model: A short ordered set of peer view links with one active.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep item labels to a single word; order from broadest ("All") to most specific.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active link sets aria-current; state is not conveyed by colour alone (the active pill is also raised with a shadow).
+  keyboard_support: Each item is a focusable link activating on Enter.
+  seo_score: 40
+  text_direction: both

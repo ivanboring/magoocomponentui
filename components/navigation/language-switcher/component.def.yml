@@ -1,0 +1,17 @@
+name: language-switcher
+props:
+  current_label:
+    type: string
+    required: true
+    title: Current language label
+    example: "English"
+  languages:
+    type: array
+    items: object
+    required: true
+    title: Languages
+    description: "Each item: { label, href, active }."
+    example:
+      - { label: "English", href: "/en", active: true }
+      - { label: "Español", href: "/es", active: false }
+      - { label: "Français", href: "/fr", active: false }

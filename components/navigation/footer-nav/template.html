@@ -1,0 +1,10 @@
+<nav class="footer-nav grid grid-cols-2 gap-8 md:grid-cols-4" aria-label="Footer">
+  <div data-for="column in columns" class="footer-nav__column">
+    <h3 class="footer-nav__heading font-heading text-sm font-semibold text-on-surface">{{ column.heading }}</h3>
+    <ul class="footer-nav__list mt-3 flex flex-col gap-2">
+      <li data-for="link in column.links">
+        <a class="footer-nav__link text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

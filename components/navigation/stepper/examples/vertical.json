@@ -1,0 +1,9 @@
+{
+  "orientation": "vertical",
+  "steps": [
+    { "number": 1, "label": "Account", "description": "Create your login", "status": "complete", "current": false },
+    { "number": 2, "label": "Profile", "description": "Tell us about you", "status": "complete", "current": false },
+    { "number": 3, "label": "Plan", "description": "Pick a subscription", "status": "current", "current": true },
+    { "number": 4, "label": "Confirm", "description": "Review and finish", "status": "upcoming", "current": false }
+  ]
+}

@@ -1,0 +1,67 @@
+short_description: A hamburger button that opens a full-screen overlay of large navigation links.
+long_visual_description: >
+  A menu button that, when pressed, covers the viewport with a full-screen panel: a
+  close button top-right, oversized centered navigation links in the heading face, and
+  an optional row of secondary/social links at the bottom.
+
+use_cases:
+  - Immersive navigation for a portfolio or agency site.
+  - Mobile-first full-screen menu for a marketing site.
+  - Editorial or fashion site menu with large type.
+  - Landing page navigation that hides until invoked.
+  - Event or campaign microsite menu.
+
+recommended_for:
+  - Bold, minimal sites that want navigation to take over the screen when opened.
+avoid_for:
+  - Dense app navigation with many destinations (use sidebar-nav).
+  - Standard persistent site headers (use navbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the link list short (3-6 items) since each is oversized; use the footer slot for
+  social or secondary links. Opens as a modal overlay and closes on Escape, the close
+  button, or a link click.
+
+props:
+  label: Accessible name for the menu/overlay.
+  links: The primary navigation links shown large and centered.
+
+slots:
+  footer: Optional secondary/social links beneath the main navigation.
+
+example_prompts:
+  - "Add a full-screen overlay menu with Work, About, and Contact."
+  - "Add a hamburger that opens a big centered navigation with social links."
+
+lifecycle: experimental
+content_model: A short set of primary links plus optional secondary/social links.
+
+theming:
+  tokens_used:
+    - --color-background
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep to a few punchy, single-word links; the format rewards restraint over completeness.
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [nav, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Overlay uses role="dialog" aria-modal; open button exposes aria-expanded/aria-controls; Escape closes and focus returns to the opener. A production build should add full focus trapping.
+  keyboard_support: Enter/Space opens; Escape or the close button closes and restores focus to the opener; links are focusable.
+  seo_score: 40
+  text_direction: both

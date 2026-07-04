@@ -1,0 +1,58 @@
+short_description: A responsive multi-column grid of grouped footer links.
+long_visual_description: >
+  A grid of link columns, each headed by a short bold label with its links listed
+  beneath in muted text. The grid collapses from four columns on desktop to two on
+  mobile.
+
+use_cases:
+  - Main site footer navigation grouped by topic.
+  - Documentation or product footer with resource links.
+  - Marketing site footer (Product, Company, Resources, Legal).
+  - Storefront footer grouping help, policies, and company links.
+  - App marketing footer with sitemap-style links.
+
+recommended_for:
+  - The grouped link block of a site footer.
+avoid_for:
+  - The full footer with logo, social, and newsletter (use footer-columns).
+  - Primary top navigation (use navbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 2-4 columns each with a heading and a handful of links; keep the number of
+  columns aligned with the responsive grid (up to 4).
+
+props:
+  columns: The footer link columns, each with a heading and its links.
+
+example_prompts:
+  - "Add a footer nav with Product, Company, Resources, and Legal columns."
+  - "Add a grouped footer link grid for a marketing site."
+
+lifecycle: experimental
+content_model: Grouped columns of footer links, each column with a heading.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep column headings to one word; group links so related destinations sit together.
+
+categorization:
+  category: Navigation
+  subcategory: Wayfinding
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has aria-label="Footer"; headings use real heading elements; links are plain focusable anchors.
+  keyboard_support: All links are focusable and activate on Enter.
+  seo_score: 55
+  text_direction: both

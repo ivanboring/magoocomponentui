@@ -1,0 +1,63 @@
+short_description: A multi-step progress indicator with complete, current, and upcoming step states.
+long_visual_description: >
+  A sequence of numbered circular markers with labels and optional descriptions.
+  Completed steps fill with the primary colour and show a checkmark; the current step
+  has a primary outline and highlighted label; upcoming steps stay muted. Renders as a
+  horizontal row or a vertical stack.
+
+use_cases:
+  - Checkout flow progress (Cart, Shipping, Payment).
+  - Multi-step signup or onboarding wizard.
+  - Application or form completion tracker.
+  - Order fulfilment status (Placed, Packed, Shipped, Delivered).
+  - Setup wizard with sequential stages.
+  - Approval workflow showing the current stage.
+
+recommended_for:
+  - Sequential processes where the user should see where they are and what's left.
+avoid_for:
+  - Peer sections switched freely in any order (use tabs).
+  - A single percentage of completion (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide steps with a number, label, and status (complete/current/upcoming); mark the
+  in-progress step current: true. Completed steps automatically show a checkmark.
+
+props:
+  orientation: horizontal for wide layouts, vertical for narrow or side placement.
+  steps: The ordered steps with their number, labels, and status.
+
+example_prompts:
+  - "Add a checkout stepper: Cart (done), Shipping (current), Payment (upcoming)."
+  - "Add a vertical onboarding stepper with four steps, currently on step 3."
+
+lifecycle: experimental
+content_model: An ordered list of steps, each with a number, label, optional description, and status.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+
+editorial_guidance: >
+  Keep step labels to one or two words; use the description for the short imperative
+  detail. Order steps in the exact sequence the user completes them.
+
+categorization:
+  category: Navigation
+  subcategory: Wayfinding
+  atomic_type: molecule
+  usage_type: [nav, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; the current step sets aria-current; the checkmark is aria-hidden with the status also encoded on data attributes.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both
