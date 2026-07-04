@@ -102,20 +102,44 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   HTTP server, so `scripts/screenshot.mjs` inlines any `/stock/...` string in the render args as a
   base64 data URI just for that pass (see `inlineStockImages()`) — don't touch the source examples
   to work around that, the inlining is generic and already handles it.
+- **Authored human name**: every `metadata.yml` starts with `name: "Human Readable Name"` (e.g.
+  `name: "Mega-menu Navbar"` for machine-name `navbar-mega`). It's optional in the schema — the
+  catalog falls back to a title-cased machine name — but author it so the preview reads well. The
+  preview shows this `display_name` as the heading with the kebab machine name in a mono chip below.
+- **Multiple examples all render now**: the build writes `dist/<id>/examples.json` (the full
+  `examples/*.json` map), and the preview detail page renders **every** named example as its own
+  theme-switchable stage (not just Default). This is how alternate states become visible (an
+  avatar's initials fallback, pagination's first-page, a sold-out ticket) — so a second example is
+  the way to show a variant, and it will actually appear on the page.
+- **Screenshots must be regenerated when you add/rename components**: `pnpm screenshots` captures
+  16 PNGs/component and the index cards + detail pages show them. Run it (after `pnpm build &&
+  pnpm preview:build`) once a batch of components is done; otherwise new components show the live
+  DOM render instead of screenshots.
 - **Always visually check new/changed components before considering them done**, using the
-  `agent-browser` skill against the real running preview — `pnpm build && pnpm preview:build`,
-  serve `preview/` (`pnpm exec astro preview --root preview --port 4321` from repo root, not `cd`
-  into `preview/` first — that silently changes the shell's cwd for every subsequent command), then
-  `agent-browser open http://localhost:4321/c/<category>/<name>` + `screenshot` + `Read` the PNG.
+  `agent-browser` skill against the real running preview:
+  1. `pnpm build && pnpm preview:build` (the Astro build **caches** — if a source change to
+     `preview/src/**` doesn't show up, `rm -rf preview/.astro preview/dist` first, then rebuild).
+  2. Serve it by the workspace-local binary with an explicit root — `pnpm exec astro` from the repo
+     root fails with "astro not found" (it's a preview-workspace dep), and `cd preview` silently
+     changes cwd for later commands. Use:
+     `preview/node_modules/.bin/astro preview --root preview --port 4321` (run detached).
+  3. **Kill stale servers first** — orphaned `astro dev`/`preview` node procs survive `pkill -f`
+     and keep serving old output on the port (symptom: the browser shows a different/old component
+     count than `curl`). Kill by the port's PID: `ss -ltnp | grep :4321` → `kill -9 <pid>`.
+  4. `agent-browser open http://localhost:4321/c/<category>/<name>` + `screenshot` + `Read` the PNG.
+     If the browser DOM looks stale vs. `curl` of the same URL (Chromium profile cache), serve on a
+     fresh port or `agent-browser close --all` then reopen; trust `curl`/in-page `fetch` over the
+     cached tab.
   `pnpm build`/`pnpm test` only prove the generators and schema validate; they render nothing, so
   they miss dead Tailwind classes, broken hover/click states, and layout problems that only show
   up in an actual browser.
-- First 218-component catalog build order in progress: Atoms & Primitives (1–16) and Navigation
-  (17+, in progress) done as of 2026-07-04. Continue through `docs/catalog/first-200.md` in list
-  order, then Overlays, Notifications (partially done: `alert`), Cards, Video/Media, Sports,
-  Commerce, Editorial, Marketing (partially done: `feature-grid`), Data, Forms, Social, Layout,
-  Dashboard (partially done: `stat-card`, `stats-band`). Events domain (`ticket-card`,
-  `ticket-selector`) was added outside the original 218 and doesn't need revisiting.
+- First 218-component catalog build order in progress: **Atoms & Primitives (1–16) ✅ and Navigation
+  (17–30) ✅** done as of 2026-07-04; Overlays in progress (`modal` done). Continue through
+  `docs/catalog/first-200.md` in list order: rest of Overlays (#31–42), Notifications (partially
+  done: `alert`), Cards, Video/Media, Sports, Commerce, Editorial, Marketing (partially done:
+  `feature-grid`), Data, Forms, Social, Layout, Dashboard (partially done: `stat-card`,
+  `stats-band`). Events domain (`ticket-card`, `ticket-selector`) was added outside the original
+  218 and doesn't need revisiting.
 
 ## Commands
 
