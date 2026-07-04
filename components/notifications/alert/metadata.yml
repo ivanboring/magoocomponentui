@@ -1,0 +1,83 @@
+short_description: An inline alert that flags a message with a severity accent and optional dismiss.
+long_visual_description: >
+  A horizontal panel on the surface colour with a coloured left border and a matching
+  status icon on the leading edge. The severity (info, success, warning, danger) drives
+  the border and icon colour; the title sits in the heading face and the body message in
+  muted body text. An optional close button sits on the trailing edge. The panel keeps a
+  card radius and adapts its accent to each theme's token palette.
+
+use_cases:
+  - Confirm a successful save or submission inline.
+  - Warn before a destructive or irreversible action.
+  - Surface a validation or form error near the field group.
+  - Announce planned maintenance or downtime.
+  - Flag a degraded or partial-service status.
+  - Give contextual guidance inside a wizard step.
+  - Note a deprecated feature and its replacement.
+  - Confirm a background job finished.
+
+recommended_for:
+  - In-page feedback tied to a user action.
+  - Persistent notices that should not auto-dismiss.
+  - Forms, settings pages, and dashboards.
+avoid_for:
+  - Transient toasts (use notification-toast).
+  - Full-screen blocking states (use a modal).
+  - Marketing announcements (use announcement-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Place directly above the content it refers to, one alert per message. Set variant to
+  match intent and provide a concise title plus a one-line body.
+
+props:
+  variant: Sets the accent colour and icon tone; match it to the message intent.
+  title: Short, specific headline; omit for a single-line message.
+  dismissible: Enable when the user should be able to clear the notice.
+
+slots:
+  body: The message text; keep to one or two lines and use plain, active language.
+
+example_prompts:
+  - "Add a dismissible success alert confirming the profile was saved."
+  - "Show a danger alert warning that deleting the project is permanent."
+  - "Put a warning alert about scheduled maintenance at the top of the page."
+
+lifecycle: experimental
+content_model: >
+  A severity, an optional short title, and a one-to-two line message. No media. Optional
+  dismiss affordance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with what happened, then what to do. Errors state the problem and the fix without
+  apologising. Keep to sentence case and one idea per alert.
+
+categorization:
+  category: Notifications
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [highlight, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces the message; icon is aria-hidden; dismiss has an accessible label.
+  keyboard_support: Dismiss button is focusable and activates on Enter/Space; Escape dismisses when focus is within the alert.
+  seo_score: 55
+  text_direction: both

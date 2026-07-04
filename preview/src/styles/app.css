@@ -1,0 +1,10 @@
+/* Tailwind v4 + shared token contract + all four themes. */
+@import "@magoo/themes";
+
+/*
+ * Scan component sources and generated output so every utility class used by a
+ * component is emitted — including variant classes that live in component.def.yml
+ * / meta.json rather than in template.html.
+ */
+@source "../../../components/**/*.{html,yml}";
+@source "../../../dist/**/*.json";

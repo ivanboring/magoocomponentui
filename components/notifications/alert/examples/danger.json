@@ -1,0 +1,6 @@
+{
+  "variant": "danger",
+  "title": "Delete project?",
+  "dismissible": false,
+  "$slots": { "body": "This permanently removes the project and all its data." }
+}

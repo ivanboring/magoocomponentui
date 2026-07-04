@@ -1,0 +1,6 @@
+{
+  "variant": "info",
+  "title": "Heads up",
+  "dismissible": true,
+  "$slots": { "body": "Your changes have been saved as a draft." }
+}

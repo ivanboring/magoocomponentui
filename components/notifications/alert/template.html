@@ -1,0 +1,14 @@
+<div class="alert flex items-start gap-3 rounded-card border border-l-4 bg-surface p-(--space-card) {{ variant@class }}" role="alert" data-dismissible="{{ dismissible }}">
+  <span class="alert__icon mt-0.5 shrink-0" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p data-if="title" class="alert__title font-heading text-on-surface">{{ title }}</p>
+    <div class="alert__body text-sm text-on-surface-muted">
+      <slot name="body"></slot>
+    </div>
+  </div>
+  <button data-if="dismissible" type="button" class="alert__dismiss -m-1 shrink-0 rounded-control p-1 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Dismiss">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+</div>

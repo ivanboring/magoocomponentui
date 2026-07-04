@@ -1,0 +1,27 @@
+name: alert
+props:
+  variant:
+    type: enum
+    values: [info, success, warning, danger]
+    default: info
+    title: Severity
+    description: Sets the accent colour and icon tone.
+  title:
+    type: string
+    title: Title
+    example: "Heads up"
+  dismissible:
+    type: boolean
+    default: false
+    title: Dismissible
+    description: Show a close button that hides the alert.
+slots:
+  body:
+    title: Body
+    description: The alert message. Accepts inline markup.
+variants:
+  variant:
+    info: "border-info text-info"
+    success: "border-success text-success"
+    warning: "border-warning text-warning"
+    danger: "border-danger text-danger"

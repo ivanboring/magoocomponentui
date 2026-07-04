@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { loadCatalog, loadRender, THEMES } from "../../lib/data.js";
+import { renderToHtml } from "@magoo/generator";
+
+export function getStaticPaths() {
+  const catalog = loadCatalog();
+  return catalog.components.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { ast, args, behaviorJs } = loadRender(entry.id);
+const html = renderToHtml(ast, args);
+const cat = entry.categorization || {};
+---
+
+<Layout title={`${entry.name} — Magoo Component UI`}>
+  <a href="/" class="text-sm text-slate-500 hover:text-slate-900">&larr; Catalog</a>
+
+  <div class="mt-3 flex flex-wrap items-center gap-3">
+    <h1 class="text-2xl font-semibold tracking-tight">{entry.name}</h1>
+    <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{cat.atomic_type}</span>
+    <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{entry.lifecycle}</span>
+  </div>
+  <p class="mt-2 max-w-2xl text-slate-600">{entry.short_description}</p>
+
+  <!-- Live stage with theme switch -->
+  <div class="mt-6 flex gap-2">
+    {THEMES.map((t, i) => (
+      <button
+        class="theme-btn rounded-md border border-slate-300 px-3 py-1 text-sm hover:bg-slate-100 aria-[current=true]:border-slate-900 aria-[current=true]:bg-slate-900 aria-[current=true]:text-white"
+        data-theme-id={t.id}
+        aria-current={i === 0 ? "true" : "false"}
+      >{t.label}</button>
+    ))}
+  </div>
+  <div id="stage" data-theme="simple" class="mt-3 rounded-xl border border-slate-200 p-8">
+    <div set:html={html} />
+  </div>
+
+  <!-- Screenshots grid, when present -->
+  {Object.keys(entry.screenshots || {}).length > 0 && (
+    <section class="mt-8">
+      <h2 class="mb-3 text-lg font-semibold">Screenshots</h2>
+      <div class="space-y-4">
+        {Object.entries(entry.screenshots).map(([theme, bps]) => (
+          <div>
+            <div class="mb-1 text-xs uppercase tracking-wide text-slate-400">{theme}</div>
+            <div class="grid grid-cols-4 gap-2">
+              {Object.entries(bps).map(([bp, src]) => (
+                <figure><img src={src} alt={`${theme} ${bp}`} class="rounded border border-slate-200" /><figcaption class="mt-1 text-[11px] text-slate-400">{bp}</figcaption></figure>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-2">
+    {entry.props.length > 0 && (
+      <section>
+        <h2 class="mb-2 text-lg font-semibold">Props</h2>
+        <table class="w-full text-sm">
+          <thead><tr class="border-b text-left text-slate-400"><th class="py-1">Name</th><th>Type</th><th>Req</th></tr></thead>
+          <tbody>
+            {entry.props.map((p) => (
+              <tr class="border-b border-slate-100 align-top">
+                <td class="py-1 font-mono text-xs">{p.name}</td>
+                <td class="text-slate-500">{p.type}{p.type === "enum" ? ` (${p.values.join(" | ")})` : ""}</td>
+                <td>{p.required ? "✓" : ""}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    )}
+    {entry.slots.length > 0 && (
+      <section>
+        <h2 class="mb-2 text-lg font-semibold">Slots</h2>
+        <ul class="text-sm text-slate-600">
+          {entry.slots.map((s) => (<li class="border-b border-slate-100 py-1"><span class="font-mono text-xs">{s.name}</span> — {s.usage || s.description}</li>))}
+        </ul>
+      </section>
+    )}
+  </div>
+
+  {entry.use_cases.length > 0 && (
+    <section class="mt-8">
+      <h2 class="mb-2 text-lg font-semibold">Use cases</h2>
+      <ul class="list-disc pl-5 text-sm text-slate-600">{entry.use_cases.map((u) => (<li>{u}</li>))}</ul>
+    </section>
+  )}
+
+  <section class="mt-8 flex flex-wrap gap-2 text-xs">
+    {cat.usage_type?.map((u) => (<span class="rounded bg-slate-100 px-2 py-1 text-slate-600">{u}</span>))}
+    {cat.wcag?.level && <span class="rounded bg-emerald-50 px-2 py-1 text-emerald-700">WCAG {cat.wcag.level}</span>}
+    {typeof cat.seo_score === "number" && <span class="rounded bg-slate-100 px-2 py-1 text-slate-600">SEO {cat.seo_score}</span>}
+    {cat.text_direction && <span class="rounded bg-slate-100 px-2 py-1 text-slate-600">dir: {cat.text_direction}</span>}
+    <span class="rounded bg-slate-100 px-2 py-1 text-slate-600">{cat.maturity}</span>
+  </section>
+
+  <script is:inline define:vars={{ behaviorJs }}>
+    document.querySelectorAll(".theme-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("stage").dataset.theme = btn.dataset.themeId;
+        document.querySelectorAll(".theme-btn").forEach((b) => b.setAttribute("aria-current", "false"));
+        btn.setAttribute("aria-current", "true");
+      });
+    });
+    if (behaviorJs) {
+      const s = document.createElement("script");
+      s.textContent = behaviorJs;
+      document.body.appendChild(s);
+    }
+  </script>
+</Layout>
