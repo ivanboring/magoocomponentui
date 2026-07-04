@@ -61,7 +61,8 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - **frontend-design** — when authoring the four theme token sets and preview visuals.
 - **web-design-guidelines** — when authoring component `template.html` markup.
 - **agent-browser** — to preview/verify themes and drive Playwright screenshot capture.
-- **superpowers:brainstorming → writing-plans** — process for new scope.
+- **superpowers:brainstorming → writing-plans** — process for new *structural/tooling* scope (generator, build pipeline, new directive syntax, etc.).
+- **Do NOT use superpowers (brainstorming/writing-plans/subagent-driven-development) for authoring an individual catalog component** (or its child components). Component creation follows the fixed shape documented above (`component.def.yml` + `template.html` + `metadata.yml` + optional `behavior.js`/`examples/`) and reference components to copy — author it directly, in one pass, without a brainstorming/planning/review loop.
 
 ## Commands
 
