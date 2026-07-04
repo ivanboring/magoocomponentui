@@ -49,12 +49,16 @@ export function parseInterpolation(input) {
     }
     const raw = m[1] !== undefined;
     const path = (raw ? m[1] : m[2]).trim();
-    if (!PATH_RE.test(path)) {
+    const classMatch = /^([A-Za-z_][A-Za-z0-9_]*)@class$/.exec(path);
+    if (classMatch && !raw) {
+      parts.push({ kind: "classmap", prop: classMatch[1] });
+    } else if (PATH_RE.test(path)) {
+      parts.push(raw ? { kind: "raw", path } : { kind: "expr", path });
+    } else {
       throw new Error(
-        `Invalid interpolation expression "${path}". Only dotted paths are allowed (e.g. item.title).`,
+        `Invalid interpolation expression "${path}". Only dotted paths (e.g. item.title) or \`prop@class\` are allowed.`,
       );
     }
-    parts.push(raw ? { kind: "raw", path } : { kind: "expr", path });
     last = re.lastIndex;
   }
   if (last < input.length) {

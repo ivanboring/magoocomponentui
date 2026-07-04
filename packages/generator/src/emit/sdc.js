@@ -113,7 +113,7 @@ export function emitSdc({ name, def, ast, behavior, metadata }) {
       )
     : defToComponentYml(def, meta);
   files[`${name}.component.yml`] = yml;
-  files[`${name}.twig`] = astToTwig(ast);
+  files[`${name}.twig`] = astToTwig(ast, def.variants || {});
   if (behavior) files[`${name}.js`] = wrapPortable(name, behavior);
   return files;
 }

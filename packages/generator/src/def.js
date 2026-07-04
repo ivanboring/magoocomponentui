@@ -82,7 +82,32 @@ export function normalizeDef(def) {
     title: (spec && spec.title) || titleCase(name),
     description: (spec && spec.description) || "",
   }));
-  return { name: def.name, props, slots };
+  const variants = normalizeVariants(def.variants || {}, props);
+  return { name: def.name, props, slots, variants };
+}
+
+/**
+ * variants: { <enumProp>: { <value>: "utility classes", … } }
+ * Referenced in templates as `{{ <enumProp>@class }}`.
+ * @param {any} variants
+ * @param {any[]} props
+ */
+function normalizeVariants(variants, props) {
+  /** @type {Record<string, Record<string,string>>} */
+  const out = {};
+  for (const [propName, map] of Object.entries(variants)) {
+    const prop = props.find((p) => p.name === propName);
+    if (!prop) throw new Error(`variants: references unknown prop "${propName}".`);
+    if (prop.type !== "enum") throw new Error(`variants: "${propName}" must be an enum prop.`);
+    if (!map || typeof map !== "object") throw new Error(`variants.${propName} must be a mapping of value → classes.`);
+    for (const value of Object.keys(map)) {
+      if (!prop.values.includes(value)) {
+        throw new Error(`variants.${propName}: "${value}" is not one of the enum values.`);
+      }
+    }
+    out[propName] = { ...map };
+  }
+  return out;
 }
 
 /** @param {string} yamlString */

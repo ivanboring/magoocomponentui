@@ -1,6 +1,7 @@
 /**
  * AST → Vue Single File Component. Vue's own mustache + v-if/v-for/v-html/<slot>
- * map almost 1:1 onto our directive vocabulary.
+ * map almost 1:1 onto our directive vocabulary. `{{ prop@class }}` becomes an
+ * inline map expression using single-quoted literals (safe inside :attr="…").
  */
 
 /** @param {string} name */
@@ -12,16 +13,35 @@ function esc(s) {
   return s.replace(/\\/g, "\\\\").replace(/`/g, "\\`").replace(/\$\{/g, "\\${").replace(/"/g, "&quot;");
 }
 
-/** @param {any} attr */
-function attrToVue(attr) {
+/** @param {Record<string,string>} map */
+function mapLiteral(map) {
+  const body = Object.entries(map)
+    .map(([k, v]) => `'${k}':'${v.replace(/'/g, "\\'")}'`)
+    .join(",");
+  return `{${body}}`;
+}
+
+/** @param {any} part @param {Record<string,any>} variants */
+function mapExpr(part, variants) {
+  return `${mapLiteral(variants[part.prop] || {})}[${part.prop}] || ''`;
+}
+
+/** @param {any} attr @param {Record<string,any>} variants */
+function attrToVue(attr, variants) {
   const parts = attr.parts;
-  if (parts.length === 1 && parts[0].kind === "literal") {
-    return `${attr.name}="${parts[0].value.replace(/"/g, "&quot;")}"`;
+  if (parts.length === 1) {
+    const p = parts[0];
+    if (p.kind === "literal") return `${attr.name}="${p.value.replace(/"/g, "&quot;")}"`;
+    if (p.kind === "expr") return `:${attr.name}="${p.path}"`;
+    if (p.kind === "classmap") return `:${attr.name}="${mapExpr(p, variants)}"`;
   }
-  if (parts.length === 1 && parts[0].kind === "expr") {
-    return `:${attr.name}="${parts[0].path}"`;
-  }
-  const tpl = parts.map((p) => (p.kind === "literal" ? esc(p.value) : "${" + p.path + "}")).join("");
+  const tpl = parts
+    .map((p) => {
+      if (p.kind === "literal") return esc(p.value);
+      if (p.kind === "expr") return "${" + p.path + "}";
+      return "${" + mapExpr(p, variants) + "}";
+    })
+    .join("");
   return `:${attr.name}="\`${tpl}\`"`;
 }
 
@@ -30,19 +50,20 @@ const VOID = new Set([
   "link", "meta", "param", "source", "track", "wbr",
 ]);
 
-/** @param {any} node */
-function nodeToVue(node) {
+/** @param {any} node @param {Record<string,any>} variants */
+function nodeToVue(node, variants) {
   if (node.type === "text") {
     return node.parts
       .map((p) => {
         if (p.kind === "literal") return p.value;
         if (p.kind === "expr") return `{{ ${p.path} }}`;
+        if (p.kind === "classmap") return `{{ ${mapExpr(p, variants)} }}`;
         return `<span v-html="${p.path}"></span>`;
       })
       .join("");
   }
   if (node.type === "slot") {
-    const fallback = node.fallback.map(nodeToVue).join("");
+    const fallback = node.fallback.map((c) => nodeToVue(c, variants)).join("");
     return `<slot name="${node.name}">${fallback}</slot>`;
   }
   if (node.type !== "element") return "";
@@ -52,11 +73,11 @@ function nodeToVue(node) {
   if (node.__ref) parts.push('ref="root"');
   if (dir.for) parts.push(`v-for="(${dir.for.item}, $index) in ${dir.for.list}"`, ':key="$index"');
   if (dir.if) parts.push(`v-if="${dir.if.negate ? "!" : ""}${dir.if.path}"`);
-  for (const a of node.attrs) parts.push(attrToVue(a));
+  for (const a of node.attrs) parts.push(attrToVue(a, variants));
   const open = parts.join(" ");
 
   if (VOID.has(node.tag.toLowerCase())) return `${open} />`;
-  return `${open}>${node.children.map(nodeToVue).join("")}</${node.tag}>`;
+  return `${open}>${node.children.map((c) => nodeToVue(c, variants)).join("")}</${node.tag}>`;
 }
 
 const VUE_TYPE = {
@@ -80,12 +101,13 @@ function defToVueProps(def) {
  * @param {{ name:string, def:any, ast:any[], behavior:string|null }} input
  */
 export function emitVue({ name, def, ast, behavior }) {
+  const variants = def.variants || {};
   const tree = JSON.parse(JSON.stringify(ast));
   if (behavior) {
     const first = tree.find((n) => n.type === "element");
     if (first) first.__ref = true;
   }
-  const template = tree.map(nodeToVue).join("\n  ");
+  const template = tree.map((n) => nodeToVue(n, variants)).join("\n  ");
 
   const propNames = def.props.map((p) => p.name);
   let script = `const props = ${defToVueProps(def)}`;

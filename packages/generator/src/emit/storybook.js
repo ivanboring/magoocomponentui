@@ -78,13 +78,14 @@ export function emitStorybook({ name, def, metadata, behavior, examples }) {
 
   return `import { renderToHtml } from "@magoo/generator";
 import ast from "../ast.json";
+import meta from "../meta.json";
 ${behaviorImport}
 export default {
   title: "${group}/${Comp}",
   argTypes: ${JSON.stringify(argTypes, null, 2)},
 };
 
-const Template = (args) => renderToHtml(ast, args);
+const Template = (args) => renderToHtml(ast, { ...args, $variants: meta.def.variants });
 
 ${storyExports}
 `;

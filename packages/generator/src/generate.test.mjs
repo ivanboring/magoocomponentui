@@ -112,7 +112,7 @@ test("Vue SFC: v-if, v-for, slot, defineProps, onMounted", () => {
 test("Storybook story renders via renderToHtml with argTypes", () => {
   const { files } = generate({ id: "demo/demo-card", def, template, behavior });
   const story = files["stories/demo-card.stories.js"];
-  assert.match(story, /renderToHtml\(ast, args\)/);
+  assert.match(story, /renderToHtml\(ast, \{ \.\.\.args/);
   assert.match(story, /argTypes:/);
   assert.match(story, /import "\.\.\/sdc\/demo-card\/demo-card\.js"/); // behavior loaded
 });

@@ -1,15 +1,27 @@
 /**
  * AST → Twig (for SDC). Directives map to Twig control structures; slots use the
  * SDC `{% block %}` form so fallback content is preserved as the default.
+ * `{{ prop@class }}` becomes a Twig ternary chain over the def's variants map.
  */
 
-/** @param {any[]} parts @param {boolean} inAttr */
-function partsToTwig(parts, inAttr) {
+/** @param {string} prop @param {Record<string,string>} map */
+function classTernary(prop, map) {
+  const entries = Object.entries(map);
+  if (!entries.length) return "''";
+  return entries.reduceRight(
+    (acc, [value, classes]) => `${prop} == '${value}' ? '${classes}' : (${acc})`,
+    "''",
+  );
+}
+
+/** @param {any[]} parts @param {Record<string,any>} variants */
+function partsToTwig(parts, variants) {
   let out = "";
   for (const p of parts) {
     if (p.kind === "literal") out += p.value;
     else if (p.kind === "expr") out += `{{ ${p.path} }}`;
     else if (p.kind === "raw") out += `{{ ${p.path}|raw }}`;
+    else if (p.kind === "classmap") out += `{{ ${classTernary(p.prop, variants[p.prop] || {})} }}`;
   }
   return out;
 }
@@ -19,20 +31,20 @@ const VOID = new Set([
   "link", "meta", "param", "source", "track", "wbr",
 ]);
 
-/** @param {any} node */
-function nodeToTwig(node) {
-  if (node.type === "text") return partsToTwig(node.parts, false);
+/** @param {any} node @param {Record<string,any>} variants */
+function nodeToTwig(node, variants) {
+  if (node.type === "text") return partsToTwig(node.parts, variants);
   if (node.type === "slot") {
-    const fallback = nodesToTwig(node.fallback);
+    const fallback = nodesToTwig(node.fallback, variants);
     return `{% block ${node.name} %}${fallback}{% endblock %}`;
   }
   if (node.type !== "element") return "";
 
   let attrs = "";
-  for (const a of node.attrs) attrs += ` ${a.name}="${partsToTwig(a.parts, true)}"`;
+  for (const a of node.attrs) attrs += ` ${a.name}="${partsToTwig(a.parts, variants)}"`;
   const inner = VOID.has(node.tag.toLowerCase())
     ? `<${node.tag}${attrs}>`
-    : `<${node.tag}${attrs}>${nodesToTwig(node.children)}</${node.tag}>`;
+    : `<${node.tag}${attrs}>${nodesToTwig(node.children, variants)}</${node.tag}>`;
 
   let out = inner;
   const dir = node.directives || {};
@@ -44,12 +56,12 @@ function nodeToTwig(node) {
   return out;
 }
 
-/** @param {any[]} nodes */
-export function nodesToTwig(nodes) {
-  return nodes.map(nodeToTwig).join("");
+/** @param {any[]} nodes @param {Record<string,any>} [variants] */
+export function nodesToTwig(nodes, variants = {}) {
+  return nodes.map((n) => nodeToTwig(n, variants)).join("");
 }
 
-/** @param {any[]} ast */
-export function astToTwig(ast) {
-  return nodesToTwig(ast).trim() + "\n";
+/** @param {any[]} ast @param {Record<string,any>} [variants] */
+export function astToTwig(ast, variants = {}) {
+  return nodesToTwig(ast, variants).trim() + "\n";
 }

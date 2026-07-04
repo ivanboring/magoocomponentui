@@ -1,6 +1,7 @@
 /**
  * AST → JSX. Shared by the React and Preact (Drupal Code Component) emitters;
  * only the import header and behavior-hook wiring differ by `mode`.
+ * `{{ prop@class }}` becomes an inline `({...}[prop] || "")` map expression.
  */
 
 const ATTR_RENAME = { class: "className", for: "htmlFor" };
@@ -15,19 +16,27 @@ function escTpl(s) {
   return s.replace(/\\/g, "\\\\").replace(/`/g, "\\`").replace(/\$\{/g, "\\${");
 }
 
-/** @param {any} attr */
-function attrToJsx(attr) {
+/** @param {any} part @param {Record<string,any>} variants */
+function mapExpr(part, variants) {
+  return `(${JSON.stringify(variants[part.prop] || {})}[${part.prop}] || "")`;
+}
+
+/** @param {any} attr @param {Record<string,any>} variants */
+function attrToJsx(attr, variants) {
   const name = ATTR_RENAME[attr.name] || attr.name;
   const parts = attr.parts;
-  if (parts.length === 1 && parts[0].kind === "literal") {
-    const v = parts[0].value;
-    return v.includes('"') ? `${name}={${JSON.stringify(v)}}` : `${name}="${v}"`;
-  }
-  if (parts.length === 1 && parts[0].kind === "expr") {
-    return `${name}={${parts[0].path}}`;
+  if (parts.length === 1) {
+    const p = parts[0];
+    if (p.kind === "literal") return p.value.includes('"') ? `${name}={${JSON.stringify(p.value)}}` : `${name}="${p.value}"`;
+    if (p.kind === "expr") return `${name}={${p.path}}`;
+    if (p.kind === "classmap") return `${name}={${mapExpr(p, variants)}}`;
   }
   const tpl = parts
-    .map((p) => (p.kind === "literal" ? escTpl(p.value) : `\${${p.path}}`))
+    .map((p) => {
+      if (p.kind === "literal") return escTpl(p.value);
+      if (p.kind === "expr") return `\${${p.path}}`;
+      return `\${${mapExpr(p, variants)}}`;
+    })
     .join("");
   return `${name}={\`${tpl}\`}`;
 }
@@ -37,28 +46,27 @@ const VOID = new Set([
   "link", "meta", "param", "source", "track", "wbr",
 ]);
 
-/** @param {any} node */
-function nodeToJsx(node) {
+/** @param {any} node @param {Record<string,any>} variants */
+function nodeToJsx(node, variants) {
   if (node.type === "text") {
     return node.parts
       .map((p) => {
         if (p.kind === "literal") return p.value;
         if (p.kind === "expr") return `{${p.path}}`;
+        if (p.kind === "classmap") return `{${mapExpr(p, variants)}}`;
         return `<span dangerouslySetInnerHTML={{ __html: ${p.path} }} />`;
       })
       .join("");
   }
-  if (node.type === "slot") {
-    return `{${node.name}}`;
-  }
+  if (node.type === "slot") return `{${node.name}}`;
   if (node.type !== "element") return "";
 
-  let attrs = node.attrs.map(attrToJsx).join(" ");
+  let attrs = node.attrs.map((a) => attrToJsx(a, variants)).join(" ");
   if (node.__ref) attrs = `ref={rootRef}${attrs ? " " + attrs : ""}`;
   const open = attrs ? `<${node.tag} ${attrs}` : `<${node.tag}`;
   const el = VOID.has(node.tag.toLowerCase())
     ? `${open} />`
-    : `${open}>${node.children.map(nodeToJsx).join("")}</${node.tag}>`;
+    : `${open}>${node.children.map((c) => nodeToJsx(c, variants)).join("")}</${node.tag}>`;
 
   let out = el;
   const dir = node.directives || {};
@@ -77,17 +85,17 @@ function withKey(jsx) {
  */
 export function emitJsx({ name, def, ast, behavior, mode }) {
   const Comp = pascal(name);
+  const variants = def.variants || {};
   const slotNames = def.slots.map((s) => s.name);
   const propNames = def.props.map((p) => p.name);
   const params = [...propNames, ...slotNames];
 
-  // Mark the first top-level element to receive the behavior ref.
   const tree = JSON.parse(JSON.stringify(ast));
   if (behavior) {
     const first = tree.find((n) => n.type === "element");
     if (first) first.__ref = true;
   }
-  const body = tree.map(nodeToJsx).join("\n      ");
+  const body = tree.map((n) => nodeToJsx(n, variants)).join("\n      ");
 
   const header =
     mode === "react"

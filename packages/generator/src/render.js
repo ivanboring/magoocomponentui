@@ -43,6 +43,10 @@ function renderParts(parts, scope, forAttr) {
     } else if (part.kind === "raw") {
       const v = resolve(scope, part.path);
       out += v == null ? "" : String(v); // intentionally unescaped
+    } else if (part.kind === "classmap") {
+      const map = scope.$variants && scope.$variants[part.prop];
+      const value = resolve(scope, part.prop);
+      out += (map && map[value]) || ""; // author-controlled class string
     }
   }
   return out;
