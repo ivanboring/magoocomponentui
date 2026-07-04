@@ -1,0 +1,37 @@
+name: card-blog
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Designing for scale: lessons from 1000 components"
+  excerpt:
+    type: string
+    required: true
+    title: Excerpt
+    example: "How a single source of truth keeps a large component library consistent."
+  image:
+    type: image
+    title: Cover image
+    example: "/stock/cover-workspace.jpg"
+  category:
+    type: string
+    title: Category
+    example: "Engineering"
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Jul 4, 2026"
+  read_time:
+    type: string
+    title: Read time
+    example: "5 min read"
+  href:
+    type: link
+    title: Link

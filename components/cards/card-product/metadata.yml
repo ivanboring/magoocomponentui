@@ -1,0 +1,83 @@
+name: "Product Card"
+short_description: An e-commerce product card with image, brand, price, rating, and add-to-cart.
+long_visual_description: >
+  A vertical card with a square product image (zooming on hover) and an optional corner
+  sale badge, then the brand, name, a star rating, the current price with an optional
+  struck-through original, and a full-width Add to cart button.
+
+use_cases:
+  - Product grid on a category or search page.
+  - Featured or recommended products rail.
+  - Sale/clearance listing with discounted prices.
+  - Storefront homepage product showcase.
+  - Related or cross-sell products section.
+  - Wishlist or saved-items grid.
+
+recommended_for:
+  - Listing a purchasable product in a grid or rail.
+avoid_for:
+  - Digital app listings (use card-app).
+  - Editorial content (use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a square image and a formatted price; set original_price and a badge for sale
+  items, and rating_display for the star score. Add to cart is a placeholder button to
+  wire up.
+
+props:
+  name: The product name.
+  brand: Optional brand label.
+  price: The current formatted price.
+  original_price: Optional pre-discount price, struck through.
+  image: The product image.
+  rating_display: The numeric rating shown next to a star.
+  badge: Optional corner badge like "Sale" or "New".
+  href: The product page URL.
+
+example_prompts:
+  - "Add a product card for sneakers on sale at $89 from $120 with a 4.6 rating."
+  - "Add a product grid card with brand, price, and add-to-cart."
+
+lifecycle: experimental
+content_model: A product image, brand, name, rating, price, and a purchase action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --color-warning
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Always show currency with the price; use the badge sparingly and only for genuine
+  promotions.
+
+categorization:
+  category: Cards
+  subcategory: Commerce
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The product image carries the product name as alt; price and rating are real text; the add-to-cart control is a real button.
+  keyboard_support: Image/name links and the add-to-cart button are focusable and activate on Enter/Space.
+  seo_score: 65
+  text_direction: both

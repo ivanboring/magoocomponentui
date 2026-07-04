@@ -1,0 +1,18 @@
+name: card-grid
+props:
+  mobile_cols:
+    type: integer
+    default: 1
+    title: Mobile columns
+  tablet_cols:
+    type: integer
+    default: 2
+    title: Tablet columns
+  desktop_cols:
+    type: integer
+    default: 3
+    title: Desktop columns
+slots:
+  items:
+    title: Items
+    description: The child cards to lay out in the responsive grid.

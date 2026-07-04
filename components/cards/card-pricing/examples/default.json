@@ -1,0 +1,15 @@
+{
+  "plan": "Pro",
+  "price": "$29",
+  "period": "/mo",
+  "description": "For growing teams that need more.",
+  "features": [
+    { "label": "Unlimited projects", "included": true },
+    { "label": "Advanced analytics", "included": true },
+    { "label": "Priority support", "included": true },
+    { "label": "SSO & SAML", "included": false }
+  ],
+  "cta_label": "Start free trial",
+  "cta_href": "#",
+  "featured": true
+}

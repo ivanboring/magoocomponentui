@@ -1,0 +1,26 @@
+name: card-stat
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Active users"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "12,480"
+  delta:
+    type: string
+    title: Delta
+    example: "+8.2%"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: flat
+    title: Trend
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

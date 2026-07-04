@@ -1,0 +1,61 @@
+name: "Quote Card"
+short_description: A large decorative pull-quote card with an oversized quotation mark and attribution.
+long_visual_description: >
+  A bold primary-coloured card with a big translucent opening quotation mark behind a
+  large quotation in heading type and an attribution line beneath.
+
+use_cases:
+  - A featured quote block on a page.
+  - A brand or mission statement highlight.
+  - An inspirational quote in a grid.
+  - A section divider carrying a memorable line.
+  - A slide-like quote in a carousel.
+
+recommended_for:
+  - A single, visually prominent decorative quote.
+avoid_for:
+  - Attributed customer testimonials with avatars (use card-testimonial).
+  - Inline article pull quotes (use pull-quote).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the quote short and punchy so it reads at a large size; attribute it on the caption
+  line.
+
+props:
+  quote: The quotation text.
+  attribution: Who said it.
+
+example_prompts:
+  - "Add a large decorative quote card with an attribution."
+  - "Add a bold pull-quote card for a brand statement."
+
+lifecycle: experimental
+content_model: A short quotation and an attribution.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Keep it to one memorable sentence; the format rewards brevity over completeness.
+
+categorization:
+  category: Cards
+  subcategory: Editorial
+  atomic_type: molecule
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic figure/blockquote/figcaption; the decorative mark is aria-hidden. Ensure the primary/contrast pair meets contrast in every theme.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

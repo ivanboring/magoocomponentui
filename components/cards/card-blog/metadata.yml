@@ -1,0 +1,74 @@
+name: "Blog Card"
+short_description: A blog/article preview card with a cover image, category, title, excerpt, and byline.
+long_visual_description: >
+  A vertical card with a cover image that zooms slightly on hover, a coloured category
+  label, a title that underlines on hover, a two-line excerpt, and a byline row with the
+  author, date, and read time.
+
+use_cases:
+  - Blog index or article listing grid.
+  - Featured posts section on a homepage.
+  - Related-articles row beneath a post.
+  - Content hub or resources listing.
+  - Newsroom or magazine article grid.
+  - Category archive of posts.
+
+recommended_for:
+  - Previewing an article or blog post in a grid or list.
+avoid_for:
+  - Breaking-news items with timestamps (use card-news).
+  - Non-article content like products or profiles (use the matching card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a cover image, a one-line excerpt (clamped to two lines), and a byline; set the
+  category to the post's primary topic. The whole title and image link to the post.
+
+props:
+  title: The post title.
+  excerpt: A short teaser, clamped to two lines.
+  image: The cover image.
+  category: The post's primary topic label.
+  author: The author's name.
+  date: The publish date.
+  read_time: Estimated reading time.
+  href: The post URL.
+
+example_prompts:
+  - "Add a blog card for an engineering post with a cover image and 5 min read."
+  - "Add an article preview card with category, excerpt, and byline."
+
+lifecycle: experimental
+content_model: A cover image, category, title, excerpt, and byline (author, date, read time).
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the excerpt to one sentence; use a real category taxonomy consistent across posts.
+
+categorization:
+  category: Cards
+  subcategory: Editorial
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The cover image is decorative (empty alt) since the title link conveys the destination; title and image links share the same href.
+  keyboard_support: Title and image links are focusable and activate on Enter.
+  seo_score: 60
+  text_direction: both

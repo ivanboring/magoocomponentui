@@ -1,0 +1,66 @@
+name: "Stat Card"
+short_description: A single-metric card with a big value and a colored trend delta.
+long_visual_description: >
+  A compact card with a muted label, a large tabular value, and a delta line whose colour
+  and arrow reflect an up/down/flat trend (green up, red down, muted flat).
+
+use_cases:
+  - A KPI tile in a dashboard or report.
+  - A single headline metric in a stats band.
+  - A period-over-period change indicator.
+  - A summary figure on an overview page.
+  - A metric within a grid of stats.
+
+recommended_for:
+  - Showing one metric with an optional trend versus a comparison period.
+avoid_for:
+  - Metrics needing an inline chart (use sparkline-card or metric-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Pair the value with a delta and set trend to colour it; keep the label short and the
+  value pre-formatted.
+
+props:
+  label: What the metric measures.
+  value: The pre-formatted metric value.
+  delta: The change versus a comparison period.
+  trend: up, down, or flat (drives the delta colour and arrow).
+
+example_prompts:
+  - "Add a stat card for active users at 12,480 up 8.2%."
+  - "Add a churn metric card trending down."
+
+lifecycle: experimental
+content_model: A label, a value, and an optional trend delta.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the label to two or three words; always say what the delta compares against.
+
+categorization:
+  category: Cards
+  subcategory: People
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is conveyed by both the arrow direction and the delta text, not colour alone; the arrow is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

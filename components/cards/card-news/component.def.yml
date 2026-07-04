@@ -1,0 +1,24 @@
+name: card-news
+props:
+  headline:
+    type: string
+    required: true
+    title: Headline
+    example: "Markets rally as tech earnings beat expectations"
+  category:
+    type: string
+    required: true
+    title: Category
+    example: "Business"
+  timestamp:
+    type: string
+    required: true
+    title: Timestamp
+    example: "2h ago"
+  image:
+    type: image
+    title: Thumbnail
+    example: "/stock/cover-workspace.jpg"
+  href:
+    type: link
+    title: Link

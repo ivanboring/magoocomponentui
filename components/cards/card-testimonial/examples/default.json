@@ -1,0 +1,10 @@
+{
+  "quote": "This library saved our team weeks of work. We ship consistent UI everywhere now.",
+  "author": "Jane Doe",
+  "author_initials": "JD",
+  "author_image": "/stock/avatar-woman-1.jpg",
+  "role": "Head of Design, Northwind",
+  "rating_stars": [
+    { "filled": true }, { "filled": true }, { "filled": true }, { "filled": true }, { "filled": true }
+  ]
+}

@@ -1,0 +1,34 @@
+name: card-podcast
+props:
+  title:
+    type: string
+    required: true
+    title: Episode title
+    example: "Building for a thousand components"
+  show:
+    type: string
+    required: true
+    title: Show name
+    example: "The Design Systems Podcast"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Jul 4, 2026"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "42:18"
+  excerpt:
+    type: string
+    title: Excerpt
+    example: "A conversation about scaling a component catalog with a single source of truth."
+  image:
+    type: image
+    title: Cover
+    example: "/stock/cover-workspace.jpg"
+  audio_src:
+    type: link
+    title: Audio source
+    description: URL of the audio file for the inline player.

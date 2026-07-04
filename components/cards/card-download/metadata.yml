@@ -1,0 +1,66 @@
+name: "Download Card"
+short_description: A file download row with a file-type icon, name, size, and a download button.
+long_visual_description: >
+  A horizontal card with a document icon tile, the filename and a type · size meta line,
+  and a download icon button on the trailing edge.
+
+use_cases:
+  - Downloadable asset in a resources list.
+  - Attachment row in a message or record.
+  - Press-kit or media downloads.
+  - Document library entry.
+  - Report or export download.
+
+recommended_for:
+  - A single downloadable file with its metadata and a download action.
+avoid_for:
+  - Rich media previews (use the appropriate media card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the file type and size so users know what they're getting; the download button
+  uses the download attribute.
+
+props:
+  filename: The file's name.
+  filetype: The file type label (e.g. PDF, ZIP).
+  size: The human-readable file size.
+  href: The download URL.
+
+example_prompts:
+  - "Add a download card for a 3.4 MB PDF of brand guidelines."
+  - "Add a file download row with type and size."
+
+lifecycle: experimental
+content_model: A filename, type, size, and a download action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use the real filename and an accurate size; keep the type label uppercase and short.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The download control has an accessible label naming the file; the icon is decorative.
+  keyboard_support: The download link is focusable and activates on Enter.
+  seo_score: 30
+  text_direction: both

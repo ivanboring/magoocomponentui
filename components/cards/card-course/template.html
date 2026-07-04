@@ -1,0 +1,20 @@
+<article class="card-course group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="card-course__media block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="">
+  </a>
+  <div class="card-course__body flex flex-1 flex-col p-(--space-card)">
+    <h3 class="card-course__title font-heading text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p class="card-course__meta mt-1 text-sm text-on-surface-muted">{{ instructor }} · {{ lessons }}</p>
+    <div class="card-course__progress mt-4">
+      <div class="mb-1 flex items-center justify-between text-xs text-on-surface-muted">
+        <span>Progress</span>
+        <span class="tabular-nums">{{ progress }}%</span>
+      </div>
+      <div class="h-1.5 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" aria-label="Course progress">
+        <div class="card-course__bar h-full rounded-pill bg-primary" style="width: {{ progress }}%"></div>
+      </div>
+    </div>
+  </div>
+</article>

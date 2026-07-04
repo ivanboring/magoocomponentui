@@ -1,0 +1,16 @@
+<figure class="card-testimonial flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div data-if="rating_stars" class="card-testimonial__rating mb-3 flex items-center gap-0.5 text-warning" aria-hidden="true">
+    <svg data-for="star in rating_stars" class="size-4 data-[filled=false]:opacity-25" data-filled="{{ star.filled }}" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+  </div>
+  <blockquote class="card-testimonial__quote flex-1 text-on-surface">"{{ quote }}"</blockquote>
+  <figcaption class="card-testimonial__author mt-4 flex items-center gap-3">
+    <span class="relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ author }}">
+      <img data-if="author_image" class="size-full object-cover" src="{{ author_image }}" alt="">
+      <span data-if="!author_image" aria-hidden="true">{{ author_initials }}</span>
+    </span>
+    <span class="min-w-0">
+      <span class="card-testimonial__name block font-heading text-sm text-on-surface">{{ author }}</span>
+      <span data-if="role" class="card-testimonial__role block text-xs text-on-surface-muted">{{ role }}</span>
+    </span>
+  </figcaption>
+</figure>

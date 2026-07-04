@@ -1,0 +1,73 @@
+name: "Podcast Card"
+short_description: A podcast episode card with cover, meta, excerpt, and an inline audio player with scrub.
+long_visual_description: >
+  A card with a square cover, the show name, episode title, date · duration, and a
+  two-line excerpt, above an inline player: a round play/pause button, a seek scrubber
+  that fills as it plays, and a time label.
+
+use_cases:
+  - Episode in a podcast feed or show page.
+  - Featured or latest episode block.
+  - Inline playable episode in an article.
+  - Playlist or queue entry.
+  - Related episodes rail.
+
+recommended_for:
+  - A single podcast episode with inline playback.
+avoid_for:
+  - A general audio file player without episode metadata (use audio-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide audio_src to make the player functional; without it the play/scrub UI still
+  toggles for preview. Keep the excerpt to a sentence.
+
+props:
+  title: The episode title.
+  show: The podcast/show name.
+  date: The publish date.
+  duration: The episode length.
+  excerpt: A one-line description.
+  image: The episode/show cover.
+  audio_src: The audio file URL for playback.
+
+example_prompts:
+  - "Add a podcast episode card with an inline player and a 42:18 duration."
+  - "Add a playable podcast card with cover, excerpt, and scrubber."
+
+lifecycle: experimental
+content_model: An episode's cover, metadata, excerpt, and an inline audio player.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the show and episode title; keep the excerpt to one sentence.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, media, player]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Play toggles aria-pressed and its label; the scrubber is a role="slider" with aria-valuenow and ArrowLeft/Right support and is keyboard focusable; the cover is decorative.
+  keyboard_support: Play/pause activates on Enter/Space; the scrubber is focusable and seeks with ArrowLeft/ArrowRight.
+  seo_score: 45
+  text_direction: both

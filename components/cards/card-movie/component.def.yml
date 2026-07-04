@@ -1,0 +1,31 @@
+name: card-movie
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "The Cartographer"
+  year:
+    type: string
+    required: true
+    title: Year
+    example: "2026"
+  runtime:
+    type: string
+    title: Runtime
+    example: "2h 08m"
+  rating_display:
+    type: string
+    title: Rating
+    example: "8.4"
+  genres:
+    type: array
+    items: object
+    title: Genres
+    description: "Each item: { label }."
+  poster:
+    type: image
+    title: Poster
+  href:
+    type: link
+    title: Link

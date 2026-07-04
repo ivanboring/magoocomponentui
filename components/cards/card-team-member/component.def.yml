@@ -1,0 +1,25 @@
+name: card-team-member
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Sam Lee"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "SL"
+  image:
+    type: image
+    title: Photo
+  role:
+    type: string
+    required: true
+    title: Role
+    example: "Engineering Lead"
+  links:
+    type: array
+    items: object
+    title: Social links
+    description: "Each item: { label, href }, revealed on hover."

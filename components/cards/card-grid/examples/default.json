@@ -1,0 +1,8 @@
+{
+  "mobile_cols": 1,
+  "tablet_cols": 2,
+  "desktop_cols": 3,
+  "$slots": {
+    "items": "<article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">First card</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Any child cards drop into the grid.</p></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">Second card</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Columns adapt across breakpoints.</p></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">Third card</h3><p class=\"mt-1 text-sm text-on-surface-muted\">1 / 2 / 3 columns by default.</p></div></article>"
+  }
+}

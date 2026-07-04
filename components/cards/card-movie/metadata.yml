@@ -1,0 +1,76 @@
+name: "Movie Card"
+short_description: A movie poster card with rating badge, title, year, runtime, and genre chips.
+long_visual_description: >
+  A portrait poster tile (or a gradient placeholder showing the title when no poster is
+  set) with a rating badge in the corner, then the title, a year · runtime line, and a
+  row of small genre chips.
+
+use_cases:
+  - Movie catalog or streaming grid.
+  - Now-playing or coming-soon rail.
+  - Recommendations or watchlist grid.
+  - Genre or category browse.
+  - Search results for films.
+
+recommended_for:
+  - A single film in a poster grid or rail.
+avoid_for:
+  - TV shows with season/episode context (make a distinct card per concept).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a portrait poster; without one the card shows a themed gradient placeholder with
+  the title. Show the rating badge and a couple of genre chips.
+
+props:
+  title: The film title.
+  year: The release year.
+  runtime: The runtime.
+  rating_display: The rating value shown in the badge.
+  genres: A few genre chips.
+  poster: The portrait poster image.
+  href: The film's page URL.
+
+example_prompts:
+  - "Add a movie card with an 8.4 rating, year, runtime, and genre chips."
+  - "Add a poster grid card for a drama film."
+
+lifecycle: experimental
+content_model: A poster, rating, title, year, runtime, and genres.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep genre chips to two or three; use a consistent runtime format.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The poster alt is the title; the gradient placeholder title is decorative when a real poster is absent; the rating badge is real text.
+  keyboard_support: Title and poster links are focusable and activate on Enter.
+  seo_score: 55
+  text_direction: both

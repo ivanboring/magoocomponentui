@@ -1,0 +1,28 @@
+name: card-profile
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  image:
+    type: image
+    title: Photo
+  role:
+    type: string
+    title: Role
+    example: "Product Designer"
+  bio:
+    type: string
+    title: Bio
+    example: "Designing calm, accessible interfaces for complex products."
+  links:
+    type: array
+    items: object
+    title: Social links
+    description: "Each item: { label, href }."

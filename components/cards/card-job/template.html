@@ -1,0 +1,15 @@
+<article class="card-job flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <div class="card-job__head flex items-start gap-3">
+    <span class="card-job__logo flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised font-heading text-on-surface uppercase" role="img" aria-label="{{ company }}">{{ company_initials }}</span>
+    <div class="min-w-0 flex-1">
+      <h3 class="card-job__title font-heading text-on-surface">
+        <a class="hover:underline" href="{{ href }}">{{ title }}</a>
+      </h3>
+      <p class="card-job__company text-sm text-on-surface-muted">{{ company }} · {{ location }}</p>
+    </div>
+    <span data-if="salary" class="card-job__salary shrink-0 text-sm font-medium text-on-surface">{{ salary }}</span>
+  </div>
+  <div data-if="tags" class="card-job__tags mt-3 flex flex-wrap gap-1.5">
+    <span data-for="tag in tags" class="rounded-control border border-border px-2 py-0.5 text-xs text-on-surface-muted">{{ tag.label }}</span>
+  </div>
+</article>

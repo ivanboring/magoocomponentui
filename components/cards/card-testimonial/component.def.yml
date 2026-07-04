@@ -1,0 +1,29 @@
+name: card-testimonial
+props:
+  quote:
+    type: string
+    required: true
+    title: Quote
+    example: "This library saved our team weeks of work. We ship consistent UI everywhere now."
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  author_initials:
+    type: string
+    required: true
+    title: Author initials
+    example: "JD"
+  author_image:
+    type: image
+    title: Author image
+  role:
+    type: string
+    title: Role
+    example: "Head of Design, Northwind"
+  rating_stars:
+    type: array
+    items: object
+    title: Rating stars
+    description: "Precomputed { filled } per star for an optional rating row."

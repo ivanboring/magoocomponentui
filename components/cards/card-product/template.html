@@ -1,0 +1,23 @@
+<article class="card-product group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <div class="card-product__media relative aspect-square overflow-hidden bg-surface-raised">
+    <a data-if="image" class="block size-full" href="{{ href }}">
+      <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ name }}">
+    </a>
+    <span data-if="badge" class="card-product__badge absolute left-2 top-2 rounded-pill bg-danger px-2 py-0.5 text-xs font-semibold text-danger-contrast">{{ badge }}</span>
+  </div>
+  <div class="card-product__body flex flex-1 flex-col p-(--space-card)">
+    <span data-if="brand" class="card-product__brand text-xs uppercase tracking-wide text-on-surface-muted">{{ brand }}</span>
+    <h3 class="card-product__name mt-0.5 font-heading text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ name }}</a>
+    </h3>
+    <div data-if="rating_display" class="card-product__rating mt-1 flex items-center gap-1 text-xs text-on-surface-muted">
+      <svg class="size-3.5 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      <span>{{ rating_display }}</span>
+    </div>
+    <div class="card-product__price mt-3 flex items-baseline gap-2">
+      <span class="font-heading text-lg text-on-surface">{{ price }}</span>
+      <span data-if="original_price" class="text-sm text-on-surface-muted line-through">{{ original_price }}</span>
+    </div>
+    <button type="button" class="card-product__add mt-3 w-full rounded-button bg-primary py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Add to cart</button>
+  </div>
+</article>

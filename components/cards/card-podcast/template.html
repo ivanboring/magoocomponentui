@@ -1,0 +1,22 @@
+<article class="card-podcast flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="card-podcast__head flex gap-4">
+    <img data-if="image" class="card-podcast__cover size-20 shrink-0 rounded-card object-cover" src="{{ image }}" alt="">
+    <div class="min-w-0 flex-1">
+      <p class="card-podcast__show text-xs font-semibold uppercase tracking-wide text-primary">{{ show }}</p>
+      <h3 class="card-podcast__title mt-0.5 font-heading text-on-surface">{{ title }}</h3>
+      <p class="card-podcast__meta mt-1 text-xs text-on-surface-muted">{{ date }} · {{ duration }}</p>
+    </div>
+  </div>
+  <p data-if="excerpt" class="card-podcast__excerpt mt-3 line-clamp-2 text-sm text-on-surface-muted">{{ excerpt }}</p>
+  <audio data-if="audio_src" class="card-podcast__audio hidden" src="{{ audio_src }}" preload="none"></audio>
+  <div class="card-podcast__player mt-4 flex items-center gap-3">
+    <button type="button" class="card-podcast__play flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-label="Play episode" aria-pressed="false">
+      <svg class="card-podcast__icon-play size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+      <svg class="card-podcast__icon-pause hidden size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+    </button>
+    <div class="card-podcast__scrubber h-1.5 flex-1 cursor-pointer overflow-hidden rounded-pill bg-surface-raised" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+      <div class="card-podcast__progress h-full rounded-pill bg-primary" style="width: 0%"></div>
+    </div>
+    <span class="card-podcast__time shrink-0 text-xs tabular-nums text-on-surface-muted">{{ duration }}</span>
+  </div>
+</article>

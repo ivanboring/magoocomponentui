@@ -1,0 +1,68 @@
+name: "News Card"
+short_description: A horizontal news item with a thumbnail, category, timestamp, and headline.
+long_visual_description: >
+  A compact horizontal card with a square thumbnail on the leading edge and, on the right,
+  a category + relative-time meta row above a multi-line clamped headline.
+
+use_cases:
+  - News feed or headlines list.
+  - Latest-stories rail on a homepage.
+  - Category news listing.
+  - Related news beneath an article.
+  - Breaking-news ticker expanded into cards.
+
+recommended_for:
+  - A compact, time-stamped news headline with a thumbnail.
+avoid_for:
+  - Long-form article previews with excerpts (use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Lead with the category and relative time; let the headline clamp to a few lines. The
+  thumbnail and headline link to the article.
+
+props:
+  headline: The news headline.
+  category: The section/category label.
+  timestamp: A relative time like "2h ago".
+  image: The thumbnail image.
+  href: The article URL.
+
+example_prompts:
+  - "Add a news card with a Business category and a 2h-ago timestamp."
+  - "Add a compact headline card with a thumbnail."
+
+lifecycle: experimental
+content_model: A thumbnail, category, timestamp, and headline.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep headlines active and specific; use a consistent relative-time format.
+
+categorization:
+  category: Cards
+  subcategory: Editorial
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Thumbnail is decorative (empty alt) since the headline link conveys the destination; headline and thumbnail share the href.
+  keyboard_support: Headline and thumbnail links are focusable and activate on Enter.
+  seo_score: 60
+  text_direction: both

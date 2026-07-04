@@ -1,0 +1,23 @@
+name: card-overlay
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Explore the collection"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Autumn 2026"
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/cover-workspace.jpg"
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Shop now"
+  href:
+    type: link
+    title: Link

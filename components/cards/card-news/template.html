@@ -1,0 +1,15 @@
+<article class="card-news group flex gap-4 rounded-card border border-border bg-surface p-3 shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="card-news__media block size-24 shrink-0 overflow-hidden rounded-control" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="">
+  </a>
+  <div class="card-news__body flex min-w-0 flex-1 flex-col">
+    <div class="card-news__meta flex items-center gap-2 text-xs">
+      <span class="card-news__category font-semibold uppercase tracking-wide text-primary">{{ category }}</span>
+      <span class="text-on-surface-muted" aria-hidden="true">·</span>
+      <span class="card-news__time text-on-surface-muted">{{ timestamp }}</span>
+    </div>
+    <h3 class="card-news__headline mt-1 line-clamp-3 font-heading text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ headline }}</a>
+    </h3>
+  </div>
+</article>

@@ -1,0 +1,10 @@
+{
+  "title": "Designing for scale: lessons from 1000 components",
+  "excerpt": "How a single source of truth keeps a large component library consistent across every framework target.",
+  "image": "/stock/cover-workspace.jpg",
+  "category": "Engineering",
+  "author": "Jane Doe",
+  "date": "Jul 4, 2026",
+  "read_time": "5 min read",
+  "href": "#"
+}

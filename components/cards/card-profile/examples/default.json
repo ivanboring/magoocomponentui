@@ -1,0 +1,12 @@
+{
+  "name": "Jane Doe",
+  "initials": "JD",
+  "image": "/stock/avatar-woman-1.jpg",
+  "role": "Product Designer",
+  "bio": "Designing calm, accessible interfaces for complex products.",
+  "links": [
+    { "label": "Website", "href": "#" },
+    { "label": "LinkedIn", "href": "#" },
+    { "label": "Twitter", "href": "#" }
+  ]
+}

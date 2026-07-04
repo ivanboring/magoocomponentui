@@ -1,0 +1,77 @@
+name: "Recipe Card"
+short_description: A recipe card with a photo, prep time, servings, and a difficulty badge.
+long_visual_description: >
+  A vertical card with a dish photo (zooming on hover) carrying a colour-coded difficulty
+  badge in the corner, then the recipe title and a meta row with prep time and servings,
+  each with an icon.
+
+use_cases:
+  - Recipe index or category grid.
+  - Featured recipes on a food site.
+  - Meal-plan or collection listing.
+  - Search results for recipes.
+  - Related recipes rail.
+
+recommended_for:
+  - Previewing a recipe in a grid or list.
+avoid_for:
+  - The full recipe page with ingredients and steps.
+
+markets:
+  - Global
+
+example_usage: >
+  Show an appetizing photo and the key at-a-glance facts (prep time, servings); the
+  difficulty badge colour maps easy/medium/hard to success/warning/danger.
+
+props:
+  title: The recipe name.
+  image: The dish photo.
+  prep_time: Total or prep time.
+  servings: Number of servings.
+  difficulty: easy, medium, or hard (drives the badge colour).
+  href: The recipe URL.
+
+example_prompts:
+  - "Add a recipe card for a fruit bowl, 15 min, 4 servings, easy."
+  - "Add a recipe grid card with a difficulty badge."
+
+lifecycle: experimental
+content_model: A photo, title, prep time, servings, and difficulty.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-success-contrast
+    - --color-warning
+    - --color-warning-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep prep_time and servings in a consistent format; reserve "hard" for genuinely
+  advanced recipes.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the recipe title; the difficulty is conveyed by text plus colour; meta icons are decorative.
+  keyboard_support: Title and image links are focusable and activate on Enter.
+  seo_score: 60
+  text_direction: both

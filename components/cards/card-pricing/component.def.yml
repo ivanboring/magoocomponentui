@@ -1,0 +1,42 @@
+name: card-pricing
+props:
+  plan:
+    type: string
+    required: true
+    title: Plan name
+    example: "Pro"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$29"
+  period:
+    type: string
+    default: "/mo"
+    title: Period
+  description:
+    type: string
+    title: Description
+    example: "For growing teams that need more."
+  features:
+    type: array
+    items: object
+    required: true
+    title: Features
+    description: "Each item: { label, included }. included false shows a muted, crossed style."
+    example:
+      - { label: "Unlimited projects", included: true }
+      - { label: "Priority support", included: true }
+      - { label: "SSO", included: false }
+  cta_label:
+    type: string
+    default: "Get started"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link
+  featured:
+    type: boolean
+    default: false
+    title: Featured
+    description: Highlights the plan with a primary ring and badge.

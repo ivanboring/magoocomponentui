@@ -1,0 +1,10 @@
+{
+  "name": "Sam Lee",
+  "initials": "SL",
+  "image": "/stock/avatar-man-1.jpg",
+  "role": "Engineering Lead",
+  "links": [
+    { "label": "GitHub", "href": "#" },
+    { "label": "LinkedIn", "href": "#" }
+  ]
+}

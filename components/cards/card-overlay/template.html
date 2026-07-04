@@ -1,0 +1,9 @@
+<a class="card-overlay group relative flex aspect-[4/3] items-end overflow-hidden rounded-card shadow-card" href="{{ href }}">
+  <img class="card-overlay__image absolute inset-0 size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="">
+  <div class="card-overlay__scrim absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true"></div>
+  <div class="card-overlay__body relative p-(--space-card) text-white">
+    <p data-if="subtitle" class="card-overlay__subtitle text-xs font-semibold uppercase tracking-wide opacity-90">{{ subtitle }}</p>
+    <h3 class="card-overlay__title mt-1 font-heading text-xl">{{ title }}</h3>
+    <span data-if="cta_label" class="card-overlay__cta mt-2 inline-flex items-center gap-1 text-sm font-medium underline-offset-2 group-hover:underline">{{ cta_label }} <span aria-hidden="true">→</span></span>
+  </div>
+</a>

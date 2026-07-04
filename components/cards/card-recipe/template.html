@@ -1,0 +1,21 @@
+<article class="card-recipe group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="card-recipe__media relative block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ title }}">
+    <span class="card-recipe__difficulty absolute right-2 top-2 rounded-pill px-2 py-0.5 text-xs font-semibold capitalize {{ difficulty@class }}">{{ difficulty }}</span>
+  </a>
+  <div class="card-recipe__body flex flex-1 flex-col p-(--space-card)">
+    <h3 class="card-recipe__title font-heading text-lg text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ title }}</a>
+    </h3>
+    <div class="card-recipe__meta mt-3 flex items-center gap-4 text-sm text-on-surface-muted">
+      <span class="flex items-center gap-1.5">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>
+        {{ prep_time }}
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h12a4 4 0 01-4 4H8a4 4 0 01-4-4z"/><path d="M7 4v2M10 3v3M13 4v2"/></svg>
+        {{ servings }}
+      </span>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,71 @@
+name: "Job Card"
+short_description: A job listing card with title, company, location, salary, and tags.
+long_visual_description: >
+  A card with a company logo initial, the job title and company · location line, a salary
+  on the trailing edge, and a row of outlined tags (employment type, skills) beneath.
+
+use_cases:
+  - Job board search results.
+  - Careers page openings list.
+  - Recommended jobs rail.
+  - Saved or applied jobs.
+  - Recruiter posting grid.
+
+recommended_for:
+  - A single job posting preview in a list or grid.
+avoid_for:
+  - The full job description page.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute company_initials for the logo tile; keep tags to employment type and a few
+  key skills.
+
+props:
+  title: The job title.
+  company: The hiring company.
+  company_initials: 1-2 char logo fallback, precomputed.
+  location: Location and/or remote policy.
+  salary: Optional salary range.
+  tags: Employment type and skill tags.
+  href: The posting URL.
+
+example_prompts:
+  - "Add a job card for a Senior Frontend Engineer, remote EU, with skill tags."
+  - "Add a job listing card with company, location, and salary."
+
+lifecycle: experimental
+content_model: A title, company, location, optional salary, and tags.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep tags short and consistent; show a salary range where possible for transparency.
+
+categorization:
+  category: Cards
+  subcategory: Commerce
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The logo tile carries the company name; the title link conveys the destination; tags are plain text.
+  keyboard_support: The title link is focusable and activates on Enter.
+  seo_score: 55
+  text_direction: both

@@ -1,0 +1,70 @@
+name: "Profile Card"
+short_description: A centered person card with avatar, name, role, short bio, and social links.
+long_visual_description: >
+  A centered card with a large round avatar (or initials), the person's name, a
+  primary-coloured role, a short bio, and a row of social links.
+
+use_cases:
+  - Team member profile in an about page.
+  - Author or contributor card.
+  - Speaker profile on an event page.
+  - Community member spotlight.
+  - Directory or roster entry.
+
+recommended_for:
+  - A standalone person profile with links.
+avoid_for:
+  - A compact roster row (use a list row).
+  - A hover-bio team grid (use card-team-member).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials for the avatar fallback; keep the bio to one sentence and list a
+  few social links.
+
+props:
+  name: The person's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional photo.
+  role: The person's role or title.
+  bio: A one-line bio.
+  links: Social/contact links.
+
+example_prompts:
+  - "Add a profile card for a product designer with a photo and social links."
+  - "Add a speaker profile card with name, role, and bio."
+
+lifecycle: experimental
+content_model: An avatar, name, role, bio, and social links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the bio to one sentence; label links by network name.
+
+categorization:
+  category: Cards
+  subcategory: People
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the person's name; links are real anchors with visible labels.
+  keyboard_support: Social links are focusable and activate on Enter.
+  seo_score: 45
+  text_direction: both

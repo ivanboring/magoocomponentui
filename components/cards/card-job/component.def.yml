@@ -1,0 +1,34 @@
+name: card-job
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Senior Frontend Engineer"
+  company:
+    type: string
+    required: true
+    title: Company
+    example: "Northwind"
+  company_initials:
+    type: string
+    required: true
+    title: Company initials
+    example: "N"
+  location:
+    type: string
+    required: true
+    title: Location
+    example: "Remote · EU"
+  salary:
+    type: string
+    title: Salary
+    example: "€70k – €95k"
+  tags:
+    type: array
+    items: object
+    title: Tags
+    description: "Each item: { label } — e.g. Full-time, React."
+  href:
+    type: link
+    title: Link

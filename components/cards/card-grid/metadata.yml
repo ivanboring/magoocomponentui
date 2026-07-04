@@ -1,0 +1,66 @@
+name: "Card Grid"
+short_description: A responsive grid container that lays out any child cards with configurable columns.
+long_visual_description: >
+  A generic grid wrapper that arranges whatever cards are slotted into it, stepping from
+  a mobile column count up to tablet and desktop counts with consistent gaps.
+
+use_cases:
+  - Lay out a set of blog, product, or profile cards responsively.
+  - Wrap a search or category result set.
+  - Build a features or services grid from mixed cards.
+  - Arrange a gallery of media cards.
+  - Compose any uniform card collection.
+
+recommended_for:
+  - A responsive container for a homogeneous set of child cards.
+avoid_for:
+  - Uneven, masonry-style layouts (use masonry-grid).
+  - Non-card content sections (use a layout section).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot any cards into items and set the column counts per breakpoint. The dynamic
+  grid-cols classes are safelisted in the Tailwind build, so values 1–12 work.
+
+props:
+  mobile_cols: Columns on small screens.
+  tablet_cols: Columns at the medium breakpoint.
+  desktop_cols: Columns at the large breakpoint.
+
+slots:
+  items: The child cards to arrange.
+
+example_prompts:
+  - "Add a 1/2/3-column card grid of product cards."
+  - "Wrap these blog cards in a responsive 3-column grid."
+
+relationships:
+  children:
+    - cards/card-blog
+    - cards/card-product
+
+lifecycle: experimental
+content_model: A responsive grid of slotted child cards.
+
+theming:
+  tokens_used:
+    - --space-card
+
+editorial_guidance: >
+  Keep the slotted cards a single type for a tidy grid; pick column counts that keep card
+  widths comfortable at each breakpoint.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Purely a layout container; accessibility depends on the slotted child cards.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

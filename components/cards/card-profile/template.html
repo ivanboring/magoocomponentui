@@ -1,0 +1,12 @@
+<article class="card-profile flex flex-col items-center rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+  <span class="card-profile__avatar relative inline-flex size-20 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <h3 class="card-profile__name mt-3 font-heading text-lg text-on-surface">{{ name }}</h3>
+  <p data-if="role" class="card-profile__role text-sm text-primary">{{ role }}</p>
+  <p data-if="bio" class="card-profile__bio mt-2 text-sm text-on-surface-muted">{{ bio }}</p>
+  <div data-if="links" class="card-profile__links mt-4 flex items-center gap-3">
+    <a data-for="link in links" class="text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+  </div>
+</article>

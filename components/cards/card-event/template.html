@@ -1,0 +1,18 @@
+<article class="card-event flex items-stretch gap-4 overflow-hidden rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="card-event__date flex shrink-0 flex-col items-center justify-center rounded-card bg-primary px-3 py-2 text-primary-contrast">
+    <span class="card-event__month text-xs font-semibold uppercase tracking-wide">{{ month }}</span>
+    <span class="card-event__day font-heading text-2xl leading-none">{{ day }}</span>
+  </div>
+  <div class="card-event__body flex min-w-0 flex-1 flex-col">
+    <h3 class="card-event__title font-heading text-on-surface">{{ title }}</h3>
+    <p data-if="time" class="card-event__time mt-1 flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>
+      {{ time }}
+    </p>
+    <p class="card-event__venue mt-1 flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg>
+      {{ venue }}
+    </p>
+    <a class="card-event__cta mt-3 inline-flex w-fit items-center rounded-button bg-primary px-3 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">{{ cta_label }}</a>
+  </div>
+</article>

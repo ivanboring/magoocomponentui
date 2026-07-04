@@ -1,0 +1,8 @@
+<article class="card-stat flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="card-stat__label text-sm text-on-surface-muted">{{ label }}</p>
+  <p class="card-stat__value mt-1 font-heading text-3xl text-on-surface tabular-nums">{{ value }}</p>
+  <p data-if="delta" class="card-stat__delta mt-2 flex items-center gap-1 text-sm font-medium {{ trend@class }}" data-trend="{{ trend }}">
+    <svg data-if="trend" class="size-4 shrink-0 data-[trend=down]:rotate-180 data-[trend=flat]:hidden" data-trend="{{ trend }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+    {{ delta }}
+  </p>
+</article>

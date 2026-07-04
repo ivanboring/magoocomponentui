@@ -1,0 +1,36 @@
+name: card-event
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Frontend Conf 2026"
+  month:
+    type: string
+    required: true
+    title: Month
+    example: "JUL"
+  day:
+    type: string
+    required: true
+    title: Day
+    example: "18"
+  time:
+    type: string
+    title: Time
+    example: "9:00 AM – 5:00 PM"
+  venue:
+    type: string
+    required: true
+    title: Venue
+    example: "Metropolitan Convention Center"
+  image:
+    type: image
+    title: Image
+  cta_label:
+    type: string
+    default: "Register"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link

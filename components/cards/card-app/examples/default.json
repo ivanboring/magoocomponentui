@@ -1,0 +1,11 @@
+{
+  "name": "Focus Timer",
+  "developer": "Northwind Labs",
+  "category": "Productivity",
+  "rating_display": "4.8",
+  "install_label": "Get",
+  "href": "#",
+  "$slots": {
+    "icon": "<svg class=\"size-8\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"12\" cy=\"13\" r=\"8\"/><path d=\"M12 9v4l2.5 2.5M9 3h6\"/></svg>"
+  }
+}

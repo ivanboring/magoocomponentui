@@ -1,0 +1,43 @@
+name: card-property
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Modern 4-bed villa"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$1,250,000"
+  location:
+    type: string
+    required: true
+    title: Location
+    example: "Guardamar del Segura, Spain"
+  beds:
+    type: string
+    required: true
+    title: Beds
+    example: "4"
+  baths:
+    type: string
+    required: true
+    title: Baths
+    example: "3"
+  area:
+    type: string
+    required: true
+    title: Area
+    example: "320 m²"
+  image:
+    type: image
+    title: Image
+    example: "/stock/property-house.jpg"
+  status:
+    type: string
+    title: Status badge
+    example: "For sale"
+  href:
+    type: link
+    title: Link

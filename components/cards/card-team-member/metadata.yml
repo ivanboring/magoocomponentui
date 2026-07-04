@@ -1,0 +1,68 @@
+name: "Team Member Card"
+short_description: A compact team member card whose social links reveal on hover/focus.
+long_visual_description: >
+  A centered card with a large round photo (or initials), the person's name and role, and
+  a row of social links that fade in on hover or keyboard focus.
+
+use_cases:
+  - Team or about-us grid.
+  - Leadership or staff directory.
+  - Contributors showcase.
+  - Department roster.
+  - Advisory board grid.
+
+recommended_for:
+  - A team grid where links stay hidden until hover/focus for a clean look.
+avoid_for:
+  - A detailed profile with a bio (use card-profile).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; keep the role short. Links reveal on hover and on keyboard focus
+  so they remain reachable.
+
+props:
+  name: The person's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional photo.
+  role: The person's role.
+  links: Social links revealed on hover/focus.
+
+example_prompts:
+  - "Add a team member card for an engineering lead with hover-reveal links."
+  - "Add an about-us grid card with photo, name, and role."
+
+lifecycle: experimental
+content_model: A photo, name, role, and hover-revealed social links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep roles consistent in style across the team; label links by network.
+
+categorization:
+  category: Cards
+  subcategory: People
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Links reveal on both hover and keyboard focus (group-focus-within) so they aren't keyboard-inaccessible; the avatar carries the name.
+  keyboard_support: Focusing a link within the card reveals the link row; links activate on Enter.
+  seo_score: 45
+  text_direction: both

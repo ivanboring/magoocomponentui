@@ -1,0 +1,11 @@
+name: card-quote
+props:
+  quote:
+    type: string
+    required: true
+    title: Quote
+    example: "Simplicity is the ultimate sophistication."
+  attribution:
+    type: string
+    title: Attribution
+    example: "Leonardo da Vinci"

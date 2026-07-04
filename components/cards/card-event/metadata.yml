@@ -1,0 +1,74 @@
+name: "Event Card"
+short_description: An event card with a prominent date block, title, time, venue, and a CTA.
+long_visual_description: >
+  A horizontal card with a coloured date block (month over day) on the leading edge, and
+  the event title, a time row with a clock icon, a venue row with a pin icon, and a
+  register CTA on the right.
+
+use_cases:
+  - Upcoming events list on a site.
+  - Conference or meetup listing.
+  - Webinar schedule entry.
+  - Community calendar item.
+  - Class or workshop session card.
+
+recommended_for:
+  - Listing a single dated event with a clear register action.
+avoid_for:
+  - Ticket tier selection (use ticket-card / ticket-selector).
+  - A full calendar view (use calendar-month).
+
+markets:
+  - Global
+
+example_usage: >
+  Split the date into month and day for the date block; include the time and venue and a
+  single register CTA.
+
+props:
+  title: The event name.
+  month: The three-letter month for the date block.
+  day: The day number for the date block.
+  time: The event time range.
+  venue: The location.
+  image: Optional event image (unused by the compact layout).
+  cta_label: The action text.
+  cta_href: Where the CTA links.
+
+example_prompts:
+  - "Add an event card for Frontend Conf on Jul 18 with a Register button."
+  - "Add a meetup card with date block, venue, and time."
+
+lifecycle: experimental
+content_model: A date, title, time, venue, and a register action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use a consistent date and time format across all event cards; keep the venue to its name.
+
+categorization:
+  category: Cards
+  subcategory: Editorial
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Icons are decorative (aria-hidden) with adjacent text; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 55
+  text_direction: both

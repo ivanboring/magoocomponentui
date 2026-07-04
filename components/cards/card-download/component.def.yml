@@ -1,0 +1,20 @@
+name: card-download
+props:
+  filename:
+    type: string
+    required: true
+    title: Filename
+    example: "Brand guidelines.pdf"
+  filetype:
+    type: string
+    required: true
+    title: File type
+    example: "PDF"
+  size:
+    type: string
+    required: true
+    title: Size
+    example: "3.4 MB"
+  href:
+    type: link
+    title: Download link

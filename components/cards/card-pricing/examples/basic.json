@@ -1,0 +1,15 @@
+{
+  "plan": "Starter",
+  "price": "$0",
+  "period": "/mo",
+  "description": "Everything you need to get going.",
+  "features": [
+    { "label": "Up to 3 projects", "included": true },
+    { "label": "Community support", "included": true },
+    { "label": "Advanced analytics", "included": false },
+    { "label": "SSO & SAML", "included": false }
+  ],
+  "cta_label": "Get started",
+  "cta_href": "#",
+  "featured": false
+}

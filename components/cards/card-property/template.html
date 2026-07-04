@@ -1,0 +1,21 @@
+<article class="card-property group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="card-property__media relative block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ title }}">
+    <span data-if="status" class="card-property__status absolute left-2 top-2 rounded-pill bg-surface px-2 py-0.5 text-xs font-semibold text-on-surface">{{ status }}</span>
+  </a>
+  <div class="card-property__body flex flex-1 flex-col p-(--space-card)">
+    <p class="card-property__price font-heading text-lg text-on-surface">{{ price }}</p>
+    <h3 class="card-property__title mt-0.5 text-sm text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p class="card-property__location mt-1 flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg>
+      {{ location }}
+    </p>
+    <div class="card-property__specs mt-3 flex items-center gap-4 border-t border-border pt-3 text-sm text-on-surface-muted">
+      <span class="flex items-center gap-1.5"><span class="font-medium text-on-surface">{{ beds }}</span> beds</span>
+      <span class="flex items-center gap-1.5"><span class="font-medium text-on-surface">{{ baths }}</span> baths</span>
+      <span class="flex items-center gap-1.5"><span class="font-medium text-on-surface">{{ area }}</span></span>
+    </div>
+  </div>
+</article>

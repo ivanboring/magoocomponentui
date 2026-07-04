@@ -1,0 +1,12 @@
+<article class="card-download flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="card-download__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>
+  </span>
+  <div class="card-download__body min-w-0 flex-1">
+    <p class="card-download__filename truncate font-heading text-sm text-on-surface">{{ filename }}</p>
+    <p class="card-download__meta text-xs text-on-surface-muted">{{ filetype }} · {{ size }}</p>
+  </div>
+  <a class="card-download__button flex size-9 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="{{ href }}" aria-label="Download {{ filename }}" download>
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12"/></svg>
+  </a>
+</article>

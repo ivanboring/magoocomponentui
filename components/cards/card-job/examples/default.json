@@ -1,0 +1,14 @@
+{
+  "title": "Senior Frontend Engineer",
+  "company": "Northwind",
+  "company_initials": "N",
+  "location": "Remote · EU",
+  "salary": "€70k – €95k",
+  "tags": [
+    { "label": "Full-time" },
+    { "label": "React" },
+    { "label": "TypeScript" },
+    { "label": "Design systems" }
+  ],
+  "href": "#"
+}

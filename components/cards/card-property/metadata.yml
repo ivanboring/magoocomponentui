@@ -1,0 +1,74 @@
+name: "Property Card"
+short_description: A real-estate listing card with photo, price, location, and beds/baths/area specs.
+long_visual_description: >
+  A vertical card with a property photo carrying a status pill, then the price in heading
+  type, the listing title, a location row with a pin icon, and a specs row (beds, baths,
+  area) separated by a divider.
+
+use_cases:
+  - Real-estate search results grid.
+  - Featured listings on a property site.
+  - Saved or shortlisted properties.
+  - Rental or sale listing rail.
+  - Agent portfolio of listings.
+
+recommended_for:
+  - A single property listing preview in a grid or list.
+avoid_for:
+  - The full property detail page.
+
+markets:
+  - Global
+
+example_usage: >
+  Lead with the price and show the key specs (beds, baths, area) in a consistent format;
+  use the status pill for "For sale"/"For rent"/"Sold".
+
+props:
+  title: The listing title.
+  price: The formatted price.
+  location: The property location.
+  beds: Number of bedrooms.
+  baths: Number of bathrooms.
+  area: Floor area with unit.
+  image: The property photo.
+  status: Optional status badge.
+  href: The listing URL.
+
+example_prompts:
+  - "Add a property card for a $1.25M villa with 4 beds and 3 baths."
+  - "Add a real-estate listing card with a For sale badge."
+
+lifecycle: experimental
+content_model: A photo, price, title, location, and beds/baths/area specs.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep specs in a consistent unit and order across all listings; put the most compelling
+  figure (price) first.
+
+categorization:
+  category: Cards
+  subcategory: Commerce
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the listing title; the location icon is decorative; specs are real text.
+  keyboard_support: Title and image links are focusable and activate on Enter.
+  seo_score: 60
+  text_direction: both

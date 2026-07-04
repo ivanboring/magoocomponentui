@@ -1,0 +1,19 @@
+<article class="card-blog group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="card-blog__media block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="">
+  </a>
+  <div class="card-blog__body flex flex-1 flex-col p-(--space-card)">
+    <span data-if="category" class="card-blog__category text-xs font-semibold uppercase tracking-wide text-primary">{{ category }}</span>
+    <h3 class="card-blog__title mt-1 font-heading text-lg text-on-surface">
+      <a class="hover:underline" href="{{ href }}">{{ title }}</a>
+    </h3>
+    <p class="card-blog__excerpt mt-2 line-clamp-2 text-sm text-on-surface-muted">{{ excerpt }}</p>
+    <div class="card-blog__meta mt-4 flex items-center gap-2 text-xs text-on-surface-muted">
+      <span class="font-medium text-on-surface">{{ author }}</span>
+      <span aria-hidden="true">·</span>
+      <span>{{ date }}</span>
+      <span data-if="read_time" aria-hidden="true">·</span>
+      <span data-if="read_time">{{ read_time }}</span>
+    </div>
+  </div>
+</article>

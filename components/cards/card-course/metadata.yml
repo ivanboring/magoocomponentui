@@ -1,0 +1,72 @@
+name: "Course Card"
+short_description: An online-course card with a thumbnail, instructor, lesson count, and progress bar.
+long_visual_description: >
+  A vertical card with a course thumbnail, the title and instructor · lessons line, and a
+  labeled progress bar showing completion percentage.
+
+use_cases:
+  - Enrolled courses in a learning dashboard.
+  - Course catalog listing.
+  - Continue-learning rail with progress.
+  - Curriculum or path modules.
+  - Recommended courses grid.
+
+recommended_for:
+  - A course preview that shows the learner's progress.
+avoid_for:
+  - A course with no progress concept (drop the bar or use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Set progress to the learner's completion percentage; show the instructor and lesson
+  count in the meta line.
+
+props:
+  title: The course title.
+  instructor: The instructor's name.
+  lessons: The lesson count label.
+  progress: Completion percentage 0-100.
+  image: The course thumbnail.
+  href: The course URL.
+
+example_prompts:
+  - "Add a course card at 45% progress with instructor and lesson count."
+  - "Add a continue-learning card with a progress bar."
+
+lifecycle: experimental
+content_model: A thumbnail, title, instructor, lessons, and progress.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the lessons label consistent ("24 lessons"); the progress bar should reflect real
+  completion.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The progress bar uses role="progressbar" with aria-valuenow/min/max; the thumbnail is decorative.
+  keyboard_support: Title and image links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

@@ -1,0 +1,34 @@
+name: card-recipe
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Summer Fruit Bowl"
+  image:
+    type: image
+    title: Image
+    example: "/stock/food-plate.jpg"
+  prep_time:
+    type: string
+    required: true
+    title: Prep time
+    example: "15 min"
+  servings:
+    type: string
+    required: true
+    title: Servings
+    example: "4 servings"
+  difficulty:
+    type: enum
+    values: [easy, medium, hard]
+    default: easy
+    title: Difficulty
+  href:
+    type: link
+    title: Link
+variants:
+  difficulty:
+    easy: "bg-success text-success-contrast"
+    medium: "bg-warning text-warning-contrast"
+    hard: "bg-danger text-danger-contrast"

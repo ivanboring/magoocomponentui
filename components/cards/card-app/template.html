@@ -1,0 +1,16 @@
+<article class="card-app flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="card-app__icon flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-card bg-surface-raised text-primary" aria-hidden="true"><slot name="icon"></slot></span>
+  <div class="card-app__body min-w-0 flex-1">
+    <h3 class="card-app__name truncate font-heading text-on-surface">{{ name }}</h3>
+    <p data-if="developer" class="card-app__developer truncate text-xs text-on-surface-muted">{{ developer }}</p>
+    <div class="card-app__meta mt-1 flex items-center gap-2 text-xs text-on-surface-muted">
+      <span data-if="rating_display" class="flex items-center gap-0.5">
+        <svg class="size-3 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+        {{ rating_display }}
+      </span>
+      <span data-if="category" aria-hidden="true">·</span>
+      <span data-if="category">{{ category }}</span>
+    </div>
+  </div>
+  <a class="card-app__install shrink-0 rounded-pill bg-primary px-4 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ href }}">{{ install_label }}</a>
+</article>

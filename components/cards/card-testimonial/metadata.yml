@@ -1,0 +1,70 @@
+name: "Testimonial Card"
+short_description: A customer quote card with an optional star rating and an attributed author.
+long_visual_description: >
+  A card with an optional gold star rating row, a prominent quotation, and an author
+  block with an avatar (or initials), name, and role. Built as a semantic figure with a
+  blockquote and figcaption.
+
+use_cases:
+  - Social-proof testimonials on a landing page.
+  - Customer quotes in a marketing section.
+  - Review highlight on a product page.
+  - Case-study pull quote with attribution.
+  - Wall-of-love grid of customer quotes.
+
+recommended_for:
+  - A single attributed customer quote, optionally with a rating.
+avoid_for:
+  - A product review with title and body (use review-item).
+  - A large decorative pull quote within an article (use card-quote).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the quote to one or two sentences; precompute author_initials and the rating_stars
+  array. Attribute with the author's name and role.
+
+props:
+  quote: The testimonial text.
+  author: The author's name.
+  author_initials: 1-2 char avatar fallback, precomputed.
+  author_image: Optional author photo.
+  role: The author's title/company.
+  rating_stars: Optional precomputed per-star filled flags.
+
+example_prompts:
+  - "Add a 5-star testimonial card from a Head of Design with an avatar."
+  - "Add a customer quote card attributed to a named author and role."
+
+lifecycle: experimental
+content_model: A quote, an optional rating, and an attributed author.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use the author's real words; keep quotes specific and concrete rather than generic praise.
+
+categorization:
+  category: Cards
+  subcategory: People
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic figure/blockquote/figcaption; the avatar carries the author name; the star row is decorative (aria-hidden) with the rating implied by the quote context.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

@@ -1,0 +1,30 @@
+name: card-app
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Focus Timer"
+  developer:
+    type: string
+    title: Developer
+    example: "Northwind Labs"
+  category:
+    type: string
+    title: Category
+    example: "Productivity"
+  rating_display:
+    type: string
+    title: Rating
+    example: "4.8"
+  install_label:
+    type: string
+    default: "Get"
+    title: Install label
+  href:
+    type: link
+    title: Link
+slots:
+  icon:
+    title: App icon
+    description: The app's icon/logo.

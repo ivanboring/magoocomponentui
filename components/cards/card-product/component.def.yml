@@ -1,0 +1,36 @@
+name: card-product
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Court Classic Sneakers"
+  brand:
+    type: string
+    title: Brand
+    example: "Northwind"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$89"
+  original_price:
+    type: string
+    title: Original price
+    example: "$120"
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  rating_display:
+    type: string
+    title: Rating (display)
+    example: "4.6"
+  badge:
+    type: string
+    title: Badge
+    description: Optional corner badge, e.g. "Sale".
+    example: "Sale"
+  href:
+    type: link
+    title: Link

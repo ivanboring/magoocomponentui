@@ -1,0 +1,11 @@
+<article class="card-team-member group flex flex-col items-center overflow-hidden rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+  <span class="card-team-member__avatar relative inline-flex size-24 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-2xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <h3 class="card-team-member__name mt-3 font-heading text-on-surface">{{ name }}</h3>
+  <p class="card-team-member__role text-sm text-on-surface-muted">{{ role }}</p>
+  <div data-if="links" class="card-team-member__links mt-3 flex items-center gap-3 opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100 group-focus-within:opacity-100">
+    <a data-for="link in links" class="text-sm font-medium text-primary hover:underline" href="{{ link.href }}">{{ link.label }}</a>
+  </div>
+</article>

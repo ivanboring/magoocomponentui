@@ -1,0 +1,79 @@
+name: "Pricing Card"
+short_description: A single pricing plan card with price, feature list, CTA, and a featured variant.
+long_visual_description: >
+  A vertical card with the plan name and description, a large price with a period suffix,
+  a checklist of features (included ones ticked in success colour, excluded ones crossed
+  and muted), and a CTA. The featured plan gains a primary ring, a "Most popular" badge,
+  and a filled CTA.
+
+use_cases:
+  - A single tier within a pricing section.
+  - Highlighted recommended plan among several.
+  - Free vs paid plan comparison cards.
+  - Add-on or module pricing card.
+  - Membership tier card.
+
+recommended_for:
+  - One plan/tier in a pricing layout, optionally highlighted.
+avoid_for:
+  - A full feature-by-feature comparison matrix (use comparison-table).
+
+markets:
+  - Global
+
+example_usage: >
+  List features with included true/false; mark exactly one plan featured to highlight it.
+  Keep feature labels short and parallel across plans.
+
+props:
+  plan: The plan name.
+  price: The formatted price.
+  period: The billing period suffix (e.g. "/mo").
+  description: A one-line positioning statement.
+  features: The feature checklist with included flags.
+  cta_label: The call-to-action text.
+  cta_href: Where the CTA links.
+  featured: Highlights the plan as recommended.
+
+example_prompts:
+  - "Add a featured Pro plan at $29/mo with a feature checklist."
+  - "Add a free Starter pricing card with some features excluded."
+
+lifecycle: experimental
+content_model: A plan name, price, feature checklist, and a call to action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --color-success
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep feature labels parallel across plans so tiers are easy to compare; feature only the
+  plan you want most users to choose.
+
+categorization:
+  category: Cards
+  subcategory: Commerce
+  atomic_type: organism
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Included/excluded state is conveyed by both icon and muted text, not colour alone; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 55
+  text_direction: both

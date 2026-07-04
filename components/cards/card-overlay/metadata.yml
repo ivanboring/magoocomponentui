@@ -1,0 +1,64 @@
+name: "Overlay Card"
+short_description: An image card with a gradient scrim and overlaid title, subtitle, and CTA.
+long_visual_description: >
+  A full-bleed image card with a dark bottom-up gradient scrim and white text overlaid at
+  the bottom: an eyebrow subtitle, a bold title, and an arrow CTA that underlines on
+  hover. The image zooms slightly on hover.
+
+use_cases:
+  - Category or collection tile with imagery.
+  - Editorial hero tile in a grid.
+  - Campaign or promo image card.
+  - Destination or place card.
+  - Featured content tile.
+
+recommended_for:
+  - An image-forward tile where text sits over the photo.
+avoid_for:
+  - Text-heavy content that needs a readable surface (use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a strong image; the dark scrim keeps the white text legible over any photo. The
+  whole card is a single link.
+
+props:
+  title: The overlaid title.
+  subtitle: An optional eyebrow above the title.
+  image: The background image (required).
+  cta_label: An optional call-to-action.
+  href: The card's link.
+
+example_prompts:
+  - "Add an image overlay card for a collection with a Shop now CTA."
+  - "Add a category tile with a gradient scrim and title over the photo."
+
+lifecycle: experimental
+content_model: A background image with an overlaid title, subtitle, and CTA.
+
+theming:
+  tokens_used:
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title short so it reads over the image; the dark scrim + white text is fixed
+  for legibility and intentionally does not follow the theme.
+
+categorization:
+  category: Cards
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [card, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The gradient scrim keeps white text legible over the image; the whole card is one link and the image is decorative (empty alt). Verify contrast against your specific images.
+  keyboard_support: The card link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

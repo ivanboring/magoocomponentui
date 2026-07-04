@@ -1,0 +1,29 @@
+name: card-course
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Design Systems from Scratch"
+  instructor:
+    type: string
+    required: true
+    title: Instructor
+    example: "Jane Doe"
+  lessons:
+    type: string
+    required: true
+    title: Lessons
+    example: "24 lessons"
+  progress:
+    type: integer
+    default: 0
+    title: Progress
+    description: Completion percentage 0-100.
+  image:
+    type: image
+    title: Thumbnail
+    example: "/stock/cover-workspace.jpg"
+  href:
+    type: link
+    title: Link

@@ -1,0 +1,75 @@
+name: "App Card"
+short_description: An app store-style row with an icon, name, rating, category, and install button.
+long_visual_description: >
+  A horizontal card with a rounded app icon, the app name and developer, a rating and
+  category meta line, and a pill install button on the trailing edge.
+
+use_cases:
+  - App store listing row.
+  - Featured or recommended apps rail.
+  - Integrations/marketplace listing.
+  - Plugin or extension directory.
+  - Installed-apps management list.
+
+recommended_for:
+  - A single app/integration listing with an install action.
+avoid_for:
+  - Physical products (use card-product).
+
+markets:
+  - Global
+
+example_usage: >
+  Put the app icon in the icon slot; show the rating and category in the meta line and a
+  short install label on the button.
+
+props:
+  name: The app name.
+  developer: The developer/publisher.
+  category: The app category.
+  rating_display: The store rating value.
+  install_label: The install button text.
+  href: The app/listing URL.
+
+slots:
+  icon: The app icon.
+
+example_prompts:
+  - "Add an app card for a productivity app with a 4.8 rating and a Get button."
+  - "Add a marketplace integration card with an install action."
+
+lifecycle: experimental
+content_model: An icon, name, developer, rating, category, and install action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the install label short ("Get", "Install"); show the rating where available.
+
+categorization:
+  category: Cards
+  subcategory: Commerce
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The icon is decorative; the install control is a real link; rating and category are real text.
+  keyboard_support: The install link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both
