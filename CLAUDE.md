@@ -54,6 +54,7 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - Component machine-names are kebab-case, domain-prefixed where useful (`card-*`, `match-card-*`, `video-*`, `notification-*`).
 - Atomic types: `atom` · `molecule` · `organism` · `full`.
 - Generated variants land in a central `dist/<category>/<component>/` mirror; source folders stay clean.
+- **Git workflow:** commit directly to `main` — no feature branches needed for component/catalog work. Never push to the remote unless explicitly asked.
 
 ## Skills to use
 
