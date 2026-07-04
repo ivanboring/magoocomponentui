@@ -30,10 +30,10 @@
 Structure is done. **Authoring the 218-component catalog is deferred to another model/session** per the user. To add a component: create `components/<category>/<name>/` with `component.def.yml` + `template.html` + `metadata.yml` (+ optional `behavior.js` / `examples/`), then `pnpm build`. Copy `components/notifications/alert/` as the template. Read `docs/authoring-guide.md`, `docs/template-directives.md`, `docs/theming.md`.
 
 ### CATALOG AUTHORING — in progress (2026-07-04/05)
-Authoring the 218 catalog components directly (per CLAUDE.md, no superpowers loop). **81 built so far.** Completed domains, in `docs/catalog/first-200.md` order:
-- **Atoms & Primitives (1–16)** ✅ · **Navigation (17–30)** ✅ · **Overlays & Feedback (31–42)** ✅ · **Notifications (43–56)** ✅ (alert pre-existed) · **Cards (57–76)** ✅.
+Authoring the 218 catalog components directly (per CLAUDE.md, no superpowers loop). **99 built so far.** Completed domains, in `docs/catalog/first-200.md` order:
+- **Atoms & Primitives (1–16)** ✅ · **Navigation (17–30)** ✅ · **Overlays & Feedback (31–42)** ✅ · **Notifications (43–56)** ✅ (alert pre-existed) · **Cards (57–76)** ✅ · **Video/Media (77–94)** ✅.
 - Pre-existing outside this pass: `marketing/feature-grid`, `dashboard/stat-card`, `dashboard/stats-band`, `events/ticket-card`, `events/ticket-selector`.
-- **Next: Video/Media (77–94)**, then Sports, Commerce, Editorial, Marketing, Data, Forms, Social, Layout, Dashboard.
+- **Next: Sports/World Cup (95–116)**, then Commerce, Editorial, Marketing, Data, Forms, Social, Layout, Dashboard.
 - Reusable stock images in `preview/public/stock/`: avatar-woman-1, avatar-man-1, cover-workspace, product-sneaker, food-plate, property-house (all verified real Unsplash).
 Infra added this pass (see CLAUDE.md "Authoring gotchas"): authored human `name:` in every metadata.yml (catalog `display_name`); build emits `examples.json` and the preview renders **all** examples per component; catalog page has theme+breakpoint selectors + Hide-atoms; `pnpm screenshots` run for all. Every component verified live via agent-browser.
 
