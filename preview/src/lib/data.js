@@ -13,6 +13,48 @@ export function loadCatalog() {
   return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : EMPTY;
 }
 
+/** Read a component's portable behavior JS (self-inits in the browser), or null. */
+function readBehavior(id, name) {
+  const jsPath = path.join(DIST, id, "sdc", name, `${name}.js`);
+  return existsSync(jsPath) ? readFileSync(jsPath, "utf8") : null;
+}
+
+/** The set of class tokens used anywhere in an HTML string. */
+function classTokens(html) {
+  const tokens = new Set();
+  const re = /class=["']([^"']*)["']/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    for (const t of m[1].split(/\s+/)) if (t) tokens.add(t);
+  }
+  return tokens;
+}
+
+/**
+ * Behaviors to load for a composed preview: the component's own, plus any
+ * catalog component whose hook class (== machine name) appears in the slot
+ * markup. Slotted children (e.g. ticket-card inside ticket-selector) carry
+ * their own behavior.js, so without this their interactivity would be inert.
+ */
+function collectBehaviors(id, name, slots) {
+  const behaviors = [];
+  const own = readBehavior(id, name);
+  if (own) behaviors.push(own);
+
+  const slotHtml = slots
+    ? Object.values(slots).filter((v) => typeof v === "string").join(" ")
+    : "";
+  if (!slotHtml) return behaviors;
+
+  const tokens = classTokens(slotHtml);
+  for (const c of loadCatalog().components) {
+    if (c.id === id || !tokens.has(c.name)) continue;
+    const js = readBehavior(c.id, c.name);
+    if (js && !behaviors.includes(js)) behaviors.push(js);
+  }
+  return behaviors;
+}
+
 /** Load render inputs for one component id (e.g. "notifications/alert"). */
 export function loadRender(id) {
   const dir = path.join(DIST, id);
@@ -21,10 +63,8 @@ export function loadRender(id) {
   const previewPath = path.join(dir, "preview.json");
   const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
   const args = { ...base, $variants: meta.def.variants };
-  // A component's portable behavior (self-inits in the browser), if it has one.
-  const jsPath = path.join(dir, "sdc", meta.name, `${meta.name}.js`);
-  const behaviorJs = existsSync(jsPath) ? readFileSync(jsPath, "utf8") : null;
-  return { ast, meta, args, behaviorJs };
+  const behaviors = collectBehaviors(id, meta.name, base.$slots);
+  return { ast, meta, args, behaviors };
 }
 
 export const THEMES = [

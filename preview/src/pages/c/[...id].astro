@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { ast, args, behaviorJs } = loadRender(entry.id);
+const { ast, args, behaviors } = loadRender(entry.id);
 const html = renderToHtml(ast, args);
 const cat = entry.categorization || {};
 
@@ -148,7 +148,7 @@ const relGroups = [
     <span class="rounded bg-slate-100 px-2 py-1 text-slate-600">{cat.maturity}</span>
   </section>
 
-  <script is:inline define:vars={{ behaviorJs }}>
+  <script is:inline define:vars={{ behaviors }}>
     document.querySelectorAll(".theme-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         document.getElementById("stage").dataset.theme = btn.dataset.themeId;
@@ -156,9 +156,11 @@ const relGroups = [
         btn.setAttribute("aria-current", "true");
       });
     });
-    if (behaviorJs) {
+    // The viewed component's own behavior, plus any slotted children's, so
+    // composed demos (e.g. ticket-card steppers inside ticket-selector) are live.
+    for (const js of behaviors || []) {
       const s = document.createElement("script");
-      s.textContent = behaviorJs;
+      s.textContent = js;
       document.body.appendChild(s);
     }
 
