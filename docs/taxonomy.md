@@ -22,6 +22,7 @@ preview nav. The first 218 planned components live in `catalog/first-200.md`.
 | Social | Comments, Profiles, Feed, Chat |
 | Layout | Sections, Grids, Structure |
 | Dashboard | Layout, Widgets, Charts, Metrics |
+| Events | Ticketing, Schedule, Venue |
 
 ## Atomic types
 
