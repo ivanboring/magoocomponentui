@@ -1,0 +1,18 @@
+name: ticket-selector
+props:
+  title:
+    type: string
+    title: Title
+    example: "Select your tickets"
+  currency_symbol:
+    type: string
+    default: "$"
+    title: Currency symbol
+  checkout_label:
+    type: string
+    default: "Checkout"
+    title: Checkout label
+slots:
+  tiers:
+    title: Ticket tiers
+    description: "Place ticket-card components here; the selector totals their quantities."

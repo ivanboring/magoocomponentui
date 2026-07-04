@@ -1,0 +1,82 @@
+short_description: A single ticket-tier row with a price and a quantity stepper, used inside ticket-selector.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and shadow. The tier name
+  and an optional "Sold out" badge sit top-left, with a description line and formatted
+  price below. A quantity stepper — minus button, live count, plus button — sits on the
+  trailing edge. Sold-out tiers show the badge and disable the stepper.
+
+use_cases:
+  - A single ticket tier inside a ticket-selector for an event.
+  - Concert, conference, or sports-match tier pricing row.
+  - Sold-out tier shown alongside available ones.
+  - Add-on or merchandise line with a quantity stepper.
+  - Workshop or breakout-session seat tier at a conference.
+  - Membership or season-pass tier with a per-tier quantity limit.
+
+recommended_for:
+  - Ticketing and checkout flows for events.
+  - Anywhere a per-item quantity needs live total math.
+avoid_for:
+  - A single, non-quantity purchase (use a plain CTA button).
+  - Seat-specific selection (use a seat map component).
+
+markets:
+  - Global
+
+example_usage: >
+  Place two or more ticket-card components inside a ticket-selector's tiers slot, one
+  per pricing tier. Set status to sold-out to disable a tier.
+
+props:
+  tier_name: The ticket tier's name, e.g. "General admission" or "VIP balcony".
+  price_display: The human-formatted price, including currency symbol.
+  price_cents: The numeric price in cents; drives the parent's running total.
+  description: A short one-line perk or restriction note.
+  max_quantity: The highest quantity a buyer can select for this tier.
+  initial_quantity: The quantity shown when the component first renders.
+  status: Set to sold-out to disable the stepper and show the badge.
+
+example_prompts:
+  - "Add a $49 general admission ticket tier with up to 8 tickets."
+  - "Show a sold-out VIP balcony ticket tier."
+  - "Add three ticket tiers: general, VIP, and backstage."
+
+relationships:
+  parents:
+    - events/ticket-selector
+
+lifecycle: experimental
+content_model: A tier name, a formatted price, an optional description, and a quantity stepper.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Tier names should match how the box office names them. Keep descriptions to one
+  short clause. Never show a price without its currency symbol.
+
+categorization:
+  category: Events
+  subcategory: Ticketing
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stepper buttons carry descriptive aria-labels naming the tier; sold-out sets aria-disabled; live quantity uses aria-live="polite".
+  keyboard_support: Stepper buttons are focusable and activate on Enter/Space; disabled when sold-out.
+  seo_score: 35
+  text_direction: both

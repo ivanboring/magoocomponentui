@@ -1,0 +1,42 @@
+name: ticket-card
+props:
+  tier_name:
+    type: string
+    required: true
+    title: Tier name
+    example: "General admission"
+  price_display:
+    type: string
+    required: true
+    title: Price (display)
+    description: Formatted for humans, e.g. "$49".
+    example: "$49"
+  price_cents:
+    type: integer
+    required: true
+    title: Price (cents)
+    description: Numeric price used for the running total calculation.
+    example: 4900
+  description:
+    type: string
+    title: Description
+    example: "Standing room, all-ages"
+  max_quantity:
+    type: integer
+    default: 10
+    title: Max quantity
+    description: Upper clamp for the quantity stepper.
+  initial_quantity:
+    type: integer
+    default: 0
+    title: Initial quantity
+  status:
+    type: enum
+    values: [available, sold-out]
+    default: available
+    title: Status
+    description: Sold-out disables the stepper and shows a badge.
+variants:
+  status:
+    available: "hidden"
+    sold-out: ""

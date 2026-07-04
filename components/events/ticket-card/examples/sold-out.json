@@ -1,0 +1,9 @@
+{
+  "tier_name": "VIP balcony",
+  "price_display": "$129",
+  "price_cents": 12900,
+  "description": "Reserved seating with early entry",
+  "max_quantity": 4,
+  "initial_quantity": 0,
+  "status": "sold-out"
+}

@@ -1,0 +1,15 @@
+<div class="ticket-card flex items-center justify-between gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-status="{{ status }}" data-price-cents="{{ price_cents }}" data-quantity="{{ initial_quantity }}" data-max-quantity="{{ max_quantity }}">
+  <div class="min-w-0 flex-1">
+    <div class="flex items-center gap-2">
+      <h3 class="ticket-card__tier font-heading text-on-surface">{{ tier_name }}</h3>
+      <span class="ticket-card__badge shrink-0 rounded-pill bg-danger px-2 py-0.5 text-xs font-medium text-danger-contrast {{ status@class }}">Sold out</span>
+    </div>
+    <p data-if="description" class="mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+    <p class="ticket-card__price mt-1 text-sm font-medium text-on-surface">{{ price_display }}</p>
+  </div>
+  <div class="ticket-card__stepper flex shrink-0 items-center gap-2">
+    <button type="button" class="ticket-card__decrement flex size-8 items-center justify-center rounded-control border border-border text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Decrease quantity for {{ tier_name }}">−</button>
+    <span class="ticket-card__quantity w-6 text-center font-heading text-on-surface tabular-nums" aria-live="polite">{{ initial_quantity }}</span>
+    <button type="button" class="ticket-card__increment flex size-8 items-center justify-center rounded-control border border-border text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Increase quantity for {{ tier_name }}">+</button>
+  </div>
+</div>

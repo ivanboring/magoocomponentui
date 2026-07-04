@@ -1,0 +1,10 @@
+<section class="ticket-selector rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-currency-symbol="{{ currency_symbol }}">
+  <h2 data-if="title" class="mb-4 font-heading text-lg text-on-surface">{{ title }}</h2>
+  <div class="ticket-selector__tiers flex flex-col gap-(--space-control)">
+    <slot name="tiers"></slot>
+  </div>
+  <div class="mt-(--space-card) flex items-center justify-between border-t border-border pt-(--space-control)">
+    <p class="text-sm text-on-surface-muted">Total: <span class="ticket-selector__total font-heading text-on-surface tabular-nums" aria-live="polite">{{ currency_symbol }}0</span></p>
+    <button type="button" class="ticket-selector__checkout rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) disabled:cursor-not-allowed disabled:opacity-50" disabled>{{ checkout_label }}</button>
+  </div>
+</section>

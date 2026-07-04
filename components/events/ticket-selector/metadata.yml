@@ -1,0 +1,81 @@
+short_description: An organism that lays out ticket-card tiers and totals a running price with a checkout CTA.
+long_visual_description: >
+  A card-radius panel on the surface colour with an optional heading, a vertically
+  stacked list of ticket-card tiers, and a divider above a footer row showing the
+  running total on the left and a primary checkout button on the right. The button
+  stays disabled until at least one ticket is selected across any tier.
+
+use_cases:
+  - Ticket purchase panel for a concert, conference, or sports event.
+  - Multi-tier pricing selector with live total.
+  - Add-on selector with a checkout gate.
+  - Festival pass selector spanning several ticket tiers.
+  - Fundraiser or gala ticket purchase panel with sponsor and standard tiers.
+
+recommended_for:
+  - Event and ticketing pages.
+  - Any purchase flow with 2 or more selectable priced tiers.
+avoid_for:
+  - A single fixed-price purchase (use a plain CTA button).
+  - Seat-specific selection (use a seat map component).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it an optional title and place two or more ticket-card components in the tiers
+  slot. The selector totals quantities across all tiers and enables checkout once the
+  total is greater than zero.
+
+props:
+  title: Optional short heading above the ticket tiers.
+  currency_symbol: Prefix shown before the running total, e.g. "$".
+  checkout_label: Text on the checkout button.
+
+slots:
+  tiers: The ticket-card tiers to offer; typically two to five.
+
+example_prompts:
+  - "Add a ticket selector titled Select your tickets with general and VIP tiers."
+  - "Build a ticket purchase panel with a running total and checkout button."
+  - "Show a sold-out VIP tier alongside an available general admission tier."
+
+relationships:
+  children:
+    - events/ticket-card
+
+lifecycle: experimental
+content_model: An optional title, a set of ticket-card children, a running total, and a checkout button.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --space-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title short or omit it. Checkout label should be a verb phrase ("Checkout",
+  "Continue to payment") — never just "Submit".
+
+categorization:
+  category: Events
+  subcategory: Ticketing
+  atomic_type: organism
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Running total uses aria-live="polite" so screen-reader users hear updates; checkout button's disabled state is a real disabled attribute, not visual-only.
+  keyboard_support: All interactive elements (steppers in child ticket-cards, checkout button) are native buttons, focusable and Enter/Space activated.
+  seo_score: 40
+  text_direction: both

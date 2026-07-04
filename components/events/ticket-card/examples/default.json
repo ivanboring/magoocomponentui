@@ -1,0 +1,9 @@
+{
+  "tier_name": "General admission",
+  "price_display": "$49",
+  "price_cents": 4900,
+  "description": "Standing room, all-ages",
+  "max_quantity": 8,
+  "initial_quantity": 0,
+  "status": "available"
+}
