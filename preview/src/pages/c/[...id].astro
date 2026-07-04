@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadCatalog, loadRender, THEMES, orderedShots } from "../../lib/data.js";
+import { loadCatalog, loadExamples, THEMES, orderedShots } from "../../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
 export function getStaticPaths() {
@@ -9,8 +9,10 @@ export function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { ast, args, behaviors } = loadRender(entry.id);
-const html = renderToHtml(ast, args);
+const { ast, names } = loadExamples(entry.id);
+const examples = names.map((ex) => ({ ...ex, html: renderToHtml(ast, ex.args) }));
+// Every example's behaviors, de-duplicated, loaded once for the whole page.
+const behaviors = [...new Set(examples.flatMap((ex) => ex.behaviors))];
 const cat = entry.categorization || {};
 
 const catalog = loadCatalog();
@@ -43,8 +45,17 @@ const relGroups = [
       >{t.label}</button>
     ))}
   </div>
-  <div id="stage" data-theme="simple" class="mt-3 rounded-xl border border-slate-200 p-8">
-    <div set:html={html} />
+  <div class="mt-3 space-y-4">
+    {examples.map((ex) => (
+      <div>
+        {examples.length > 1 && (
+          <div class="mb-1 text-xs font-medium uppercase tracking-wide text-slate-400">{ex.name}</div>
+        )}
+        <div data-theme="simple" class="stage rounded-xl border border-slate-200 p-8">
+          <div set:html={ex.html} />
+        </div>
+      </div>
+    ))}
   </div>
 
   <!-- Screenshots grid, when present -->
@@ -151,7 +162,7 @@ const relGroups = [
   <script is:inline define:vars={{ behaviors }}>
     document.querySelectorAll(".theme-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        document.getElementById("stage").dataset.theme = btn.dataset.themeId;
+        document.querySelectorAll(".stage").forEach((s) => { s.dataset.theme = btn.dataset.themeId; });
         document.querySelectorAll(".theme-btn").forEach((b) => b.setAttribute("aria-current", "false"));
         btn.setAttribute("aria-current", "true");
       });

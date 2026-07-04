@@ -67,6 +67,38 @@ export function loadRender(id) {
   return { ast, meta, args, behaviors };
 }
 
+/**
+ * Load every named example for a component as its own renderable stage.
+ * Falls back to the single default example (or generated default args) when the
+ * component ships no examples/ folder. Each entry carries its own behaviors so a
+ * variant that slots interactive children stays live.
+ */
+export function loadExamples(id) {
+  const dir = path.join(DIST, id);
+  const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
+  const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
+  const variants = meta.def.variants;
+  const examplesPath = path.join(dir, "examples.json");
+
+  /** @type {Record<string, any>} */
+  let examples;
+  if (existsSync(examplesPath)) {
+    examples = JSON.parse(readFileSync(examplesPath, "utf8"));
+  } else {
+    const previewPath = path.join(dir, "preview.json");
+    const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
+    examples = { Default: base };
+  }
+
+  // "Default" first, then the rest in definition order.
+  const names = Object.keys(examples).sort((a, b) => (a === "Default" ? -1 : b === "Default" ? 1 : 0));
+  return { ast, names: names.map((name) => ({
+    name,
+    args: { ...examples[name], $variants: variants },
+    behaviors: collectBehaviors(id, meta.name, examples[name].$slots),
+  })) };
+}
+
 export const THEMES = [
   { id: "simple", label: "Simple" },
   { id: "futuristic", label: "Futuristic" },
