@@ -1,0 +1,16 @@
+{
+  "logo_text": "Acme",
+  "logo_href": "/",
+  "links": [
+    {
+      "label": "Products",
+      "href": "/products",
+      "groups": [
+        { "heading": "Platform", "items": [{ "label": "Analytics", "href": "/analytics" }, { "label": "Automation", "href": "/automation" }] },
+        { "heading": "Solutions", "items": [{ "label": "For startups", "href": "/startups" }, { "label": "For enterprise", "href": "/enterprise" }] }
+      ]
+    },
+    { "label": "Pricing", "href": "/pricing" },
+    { "label": "Docs", "href": "/docs" }
+  ]
+}

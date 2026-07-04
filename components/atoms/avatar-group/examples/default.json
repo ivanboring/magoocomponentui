@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "name": "Jane Doe", "image": "/stock/avatar-woman-1.jpg" },
+    { "name": "Sam Lee", "image": "/stock/avatar-man-1.jpg" },
+    { "name": "Ari Cohen", "image": "" }
+  ],
+  "max_visible": 4,
+  "overflow_count": 3
+}

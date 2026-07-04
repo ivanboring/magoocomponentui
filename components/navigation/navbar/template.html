@@ -1,0 +1,13 @@
+<header class="navbar relative flex items-center justify-between gap-4 border-b border-border bg-surface px-(--space-card) py-3">
+  <a class="navbar__logo shrink-0 font-heading text-lg text-on-surface" href="{{ logo_href }}">{{ logo_text }}</a>
+  <nav class="navbar__links hidden items-center gap-6 md:flex" aria-label="Primary">
+    <a data-for="link in links" class="text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:text-on-surface data-[active=true]:font-medium" href="{{ link.href }}" data-active="{{ link.active }}">{{ link.label }}</a>
+  </nav>
+  <div class="navbar__actions hidden shrink-0 items-center gap-3 md:flex"><slot name="actions"></slot></div>
+  <button type="button" class="navbar__toggle flex size-9 items-center justify-center rounded-control text-on-surface md:hidden" aria-label="Toggle menu" aria-expanded="false">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+  </button>
+  <nav class="navbar__mobile-panel absolute inset-x-0 top-full hidden flex-col gap-1 border-b border-border bg-surface p-(--space-card) md:hidden" aria-label="Primary mobile">
+    <a data-for="link in links" class="rounded-control px-3 py-2 text-sm text-on-surface-muted data-[active=true]:bg-surface-raised data-[active=true]:text-on-surface" href="{{ link.href }}" data-active="{{ link.active }}">{{ link.label }}</a>
+  </nav>
+</header>

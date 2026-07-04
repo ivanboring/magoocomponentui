@@ -1,0 +1,6 @@
+<nav class="breadcrumb flex items-center gap-1.5 text-sm" aria-label="Breadcrumb">
+  <span data-for="item in items" class="breadcrumb__item flex items-center gap-1.5">
+    <a class="text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[current=true]:pointer-events-none data-[current=true]:font-medium data-[current=true]:text-on-surface" href="{{ item.href }}" data-current="{{ item.current }}" aria-current="{{ item.current }}">{{ item.label }}</a>
+    <span class="breadcrumb__separator text-on-surface-muted" aria-hidden="true">/</span>
+  </span>
+</nav>

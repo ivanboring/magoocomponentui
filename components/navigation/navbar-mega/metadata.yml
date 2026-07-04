@@ -1,0 +1,62 @@
+short_description: A navbar variant where primary links can reveal a grouped mega-menu dropdown panel.
+long_visual_description: >
+  Identical header bar to navbar, but any link may open a wide panel below it on
+  hover, itself split into headed columns of secondary links — used for large,
+  categorized navigation such as "Products" or "Solutions".
+
+use_cases:
+  - Large SaaS marketing site with many product/solution pages to surface.
+  - E-commerce site navigation grouped by department.
+  - Documentation portal grouping guides, references, and API docs under one item.
+  - Enterprise site navigation with many sub-sections per top-level item.
+  - Platform site distinguishing "Developers" vs "Business" content paths.
+
+recommended_for:
+  - Sites with enough sub-navigation depth to warrant grouped panels.
+avoid_for:
+  - Simple sites with fewer than ~10 total destinations (use navbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Give most links a plain href; give one or two links a groups array with 2-4 headed
+  columns of 3-6 links each.
+
+props:
+  links: Primary links; any link may include groups for a mega panel.
+
+example_prompts:
+  - "Add a navbar where 'Products' opens a mega menu grouped by category."
+  - "Add a mega-menu navbar for 'Solutions' with two columns of links."
+
+lifecycle: experimental
+content_model: A logo, primary links, and optional grouped columns of secondary links per item.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --font-heading
+    - --radius-card
+    - --shadow-raised
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep group headings to one or two words; keep each column to 3-6 links.
+
+categorization:
+  category: Navigation
+  subcategory: Bars
+  atomic_type: organism
+  usage_type: [nav, overlay]
+  maturity: ai-generated
+  wcag:
+    level: A
+    notes: Hover-revealed panel is CSS-only; a production build should add keyboard/focus handling to fully meet AA for mega menus.
+  keyboard_support: Links are focusable; the mega panel currently reveals on mouse hover only.
+  seo_score: 55
+  text_direction: both

@@ -1,0 +1,17 @@
+name: navbar-mega
+props:
+  logo_text:
+    type: string
+    required: true
+    title: Logo text
+    example: "Acme"
+  logo_href:
+    type: link
+    default: "/"
+    title: Logo link
+  links:
+    type: array
+    items: object
+    required: true
+    title: Links
+    description: "Each item: { label, href, groups: [{ heading, items: [{ label, href }] }] }. Omit groups for a plain link."

@@ -1,0 +1,7 @@
+{
+  "label": "Delete account",
+  "variant": "danger",
+  "size": "md",
+  "href": "",
+  "disabled": false
+}

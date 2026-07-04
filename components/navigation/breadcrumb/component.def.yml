@@ -1,0 +1,12 @@
+name: breadcrumb
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { label, href, current }. The last item is usually current."
+    example:
+      - { label: "Home", href: "/", current: false }
+      - { label: "Products", href: "/products", current: false }
+      - { label: "Widget", href: "/products/widget", current: true }

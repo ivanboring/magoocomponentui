@@ -1,0 +1,10 @@
+{
+  "logo_text": "Acme",
+  "logo_href": "/",
+  "links": [
+    { "label": "Product", "href": "/product", "active": true },
+    { "label": "Pricing", "href": "/pricing", "active": false },
+    { "label": "Docs", "href": "/docs", "active": false }
+  ],
+  "$slots": { "actions": "<a class=\"text-sm font-medium text-on-surface\" href=\"/signin\">Sign in</a>" }
+}

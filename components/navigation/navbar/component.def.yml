@@ -1,0 +1,25 @@
+name: navbar
+props:
+  logo_text:
+    type: string
+    required: true
+    title: Logo text
+    example: "Acme"
+  logo_href:
+    type: link
+    default: "/"
+    title: Logo link
+  links:
+    type: array
+    items: object
+    required: true
+    title: Links
+    description: "Each item: { label, href, active }."
+    example:
+      - { label: "Product", href: "/product", active: true }
+      - { label: "Pricing", href: "/pricing", active: false }
+      - { label: "Docs", href: "/docs", active: false }
+slots:
+  actions:
+    title: Actions
+    description: Trailing buttons/CTAs (e.g. sign in, get started).

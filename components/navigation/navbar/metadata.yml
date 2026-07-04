@@ -1,0 +1,69 @@
+short_description: A site header with a logo, primary links, trailing actions, and a mobile toggle.
+long_visual_description: >
+  A horizontal bar on the surface colour with a bottom border, the logo on the leading
+  edge, a row of text links centered/trailing on desktop, action buttons on the far
+  trailing edge, and a hamburger toggle that reveals a stacked mobile panel below the
+  bar on small screens.
+
+use_cases:
+  - Primary site navigation for a marketing site.
+  - App shell top navigation with sign-in/sign-up actions.
+  - Documentation site header with a links row.
+  - Product site header with a "Get started" CTA.
+  - E-commerce site header (paired with a separate cart action).
+
+recommended_for:
+  - The single top-level navigation bar for a page or app.
+avoid_for:
+  - Secondary/in-page navigation (use tabs or pill-nav).
+  - Mega-menu dropdowns (use navbar-mega).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 3-6 primary links with one marked active; place sign-in/CTA buttons in the
+  actions slot.
+
+props:
+  logo_text: The site/brand name shown as the logo.
+  logo_href: Where the logo links, usually "/".
+  links: The primary navigation links, with one marked active.
+
+slots:
+  actions: Trailing buttons, typically sign-in and a primary CTA.
+
+example_prompts:
+  - "Add a navbar with Product, Pricing, and Docs links and a 'Sign in' button."
+  - "Add a site header with our logo and a 'Get started' CTA."
+
+lifecycle: experimental
+content_model: A logo, an ordered list of primary links, and optional trailing actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-surface-raised
+    - --color-border
+    - --font-heading
+    - --radius-control
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep primary link labels to a single word where possible; limit to 3-6 links.
+
+categorization:
+  category: Navigation
+  subcategory: Bars
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Desktop and mobile links share nav landmarks with aria-label; mobile toggle exposes aria-expanded.
+  keyboard_support: All links and the mobile toggle are focusable and activate on Enter/Space.
+  seo_score: 60
+  text_direction: both

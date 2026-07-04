@@ -9,6 +9,7 @@ props:
   image:
     type: image
     title: Image
+    example: "/stock/avatar-woman-1.jpg"
   size:
     type: enum
     values: [sm, md, lg, xl]

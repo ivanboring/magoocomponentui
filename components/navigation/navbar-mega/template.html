@@ -1,0 +1,14 @@
+<header class="navbar-mega flex items-center justify-between gap-6 border-b border-border bg-surface px-(--space-card) py-3">
+  <a class="navbar-mega__logo shrink-0 font-heading text-lg text-on-surface" href="{{ logo_href }}">{{ logo_text }}</a>
+  <nav class="navbar-mega__links flex items-center gap-6" aria-label="Primary">
+    <div data-for="link in links" class="navbar-mega__item group relative">
+      <a class="text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+      <div data-if="link.groups" class="navbar-mega__panel absolute left-1/2 top-full z-10 hidden w-screen max-w-md -translate-x-1/2 gap-6 rounded-card border border-border bg-surface p-(--space-card) shadow-raised group-hover:flex">
+        <div data-for="group in link.groups" class="navbar-mega__group flex-1">
+          <p class="navbar-mega__group-heading font-heading text-sm text-on-surface">{{ group.heading }}</p>
+          <a data-for="item in group.items" class="mt-2 block text-sm text-on-surface-muted hover:text-on-surface" href="{{ item.href }}">{{ item.label }}</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

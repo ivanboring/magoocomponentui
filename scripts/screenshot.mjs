@@ -35,6 +35,25 @@ function loadPreviewCss() {
     .join("\n");
 }
 
+const MIME_BY_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp" };
+
+// The screenshot pipeline renders via page.setContent() with no HTTP server, so
+// root-relative example image paths (served by the Astro/Storybook static dirs at
+// runtime) can't load over the network. Inline them as data URIs just for this pass.
+function inlineStockImages(value) {
+  if (typeof value === "string" && value.startsWith("/stock/")) {
+    const file = path.join(ROOT, "preview", "public", value);
+    if (!existsSync(file)) return value;
+    const mime = MIME_BY_EXT[path.extname(file).toLowerCase()] || "application/octet-stream";
+    return `data:${mime};base64,${readFileSync(file).toString("base64")}`;
+  }
+  if (Array.isArray(value)) return value.map(inlineStockImages);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, inlineStockImages(v)]));
+  }
+  return value;
+}
+
 function doc(css, theme, html) {
   return `<!doctype html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +80,7 @@ async function main() {
     const meta = JSON.parse(readFileSync(path.join(distDir, "meta.json"), "utf8"));
     const previewPath = path.join(distDir, "preview.json");
     const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
-    const args = { ...base, $variants: meta.def.variants };
+    const args = inlineStockImages({ ...base, $variants: meta.def.variants });
     const html = renderToHtml(ast, args);
 
     const outDirs = [

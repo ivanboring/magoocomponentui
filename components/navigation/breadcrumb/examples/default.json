@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "label": "Home", "href": "/", "current": false },
+    { "label": "Products", "href": "/products", "current": false },
+    { "label": "Widget", "href": "/products/widget", "current": true }
+  ]
+}

@@ -1,0 +1,55 @@
+short_description: A hierarchical path of links with separators, ending in the current page.
+long_visual_description: >
+  A single-line row of small text links separated by slashes; every item is a live
+  link except the last, which is bolder, muted-to-solid text marking the current page.
+
+use_cases:
+  - Show the folder/category path above a product or article page.
+  - Show navigation depth in a documentation site.
+  - Show a file's path in a document management UI.
+  - Show a multi-level category path in an e-commerce listing.
+  - Orient users returning deep in a settings/admin section.
+
+recommended_for:
+  - Any page reached through 2+ levels of hierarchy.
+avoid_for:
+  - Flat, single-level sites with no real hierarchy.
+
+markets:
+  - Global
+
+example_usage: >
+  List every ancestor from the root down to the current page, marking only the last
+  item current: true (and giving it no functional href).
+
+props:
+  items: The ordered path from root to current page.
+
+example_prompts:
+  - "Add a breadcrumb: Home / Products / Widget."
+  - "Add a breadcrumb trail for this documentation page's section."
+
+lifecycle: experimental
+content_model: An ordered list of path segments, the last one marked current.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --duration-token
+
+editorial_guidance: >
+  Use the exact page/section titles as they appear elsewhere in the site; don't abbreviate.
+
+categorization:
+  category: Navigation
+  subcategory: Wayfinding
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has aria-label="Breadcrumb"; the current item sets aria-current="true" and is not a functional link target.
+  keyboard_support: Each non-current link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both
