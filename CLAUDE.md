@@ -102,6 +102,17 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   HTTP server, so `scripts/screenshot.mjs` inlines any `/stock/...` string in the render args as a
   base64 data URI just for that pass (see `inlineStockImages()`) — don't touch the source examples
   to work around that, the inlining is generic and already handles it.
+- **Empty `src`/`href` resolves to the page URL.** A media element rendered with an empty
+  attribute (`<audio src="{{ audio_src }}">` when `audio_src` is "") produces `src=""`, and the
+  browser resolves the *property* `el.src` to the current page URL — which is truthy. This silently
+  broke card-podcast's play toggle (`if (audio.src)` was always true, so it tried to play the HTML
+  page as audio). Guard the whole media element with `data-if="audio_src"` (or `poster`, `image`,
+  …) so it isn't rendered at all when there's no source, rather than emitting an empty `src`.
+- **YAML list-item trap**: a `use_cases`/`example_prompts` item whose text *starts* with a `"`
+  (e.g. `- "More" overflow menu`) is parsed as a quoted scalar and the trailing text throws; an
+  item containing a bare colon (`- Activity row: something`) parses as a map. Rephrase so items
+  don't start with a quote and don't contain `: ` — or quote the entire item. A fast pre-build
+  check: `for f in components/*/*/metadata.yml; do python3 -c "import yaml;yaml.safe_load(open('$f'))" || echo BAD $f; done`.
 - **Authored human name**: every `metadata.yml` starts with `name: "Human Readable Name"` (e.g.
   `name: "Mega-menu Navbar"` for machine-name `navbar-mega`). It's optional in the schema — the
   catalog falls back to a title-cased machine name — but author it so the preview reads well. The
