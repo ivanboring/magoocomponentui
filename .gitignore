@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+storybook-static/
+*.tsbuildinfo
+.DS_Store
+# Generated variants live in dist/ (build output). Component source + screenshots are committed.

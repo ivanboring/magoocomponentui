@@ -8,7 +8,9 @@ The planned first batch for the skeleton component library. Principles:
 - The three domains explicitly requested — **Sports/World Cup**, **Video/Media**, **Notifications** — are covered in depth, including the complex ones (single-elimination bracket, live video player with scrubber + transcript, notification center).
 - The **9-component proof set** is drawn from this list: `button`, `badge`, `card-grid` (generic slot container), `card-podcast`, `notification-toast`, `accordion`, `tabs`, `bracket-single-elim`, `video-player`.
 
-Counts by domain: Atoms 16 · Navigation 14 · Overlays 12 · Notifications 14 · Cards 20 · Video/Media 18 · Sports/World Cup 22 · Commerce 16 · Editorial 12 · Marketing/CTA 16 · Data 12 · Forms 12 · Social 10 · Layout 6 = **200**.
+Counts by domain: Atoms 16 · Navigation 14 · Overlays 12 · Notifications 14 · Cards 20 · Video/Media 18 · Sports/World Cup 22 · Commerce 16 · Editorial 12 · Marketing/CTA 16 · Data 12 · Forms 12 · Social 10 · Layout 6 · **Dashboard 18** = **218**.
+
+**Build order: breadth-first** — an early wave takes a few components from each domain so the preview site shows variety quickly, then depth follows.
 
 ---
 
@@ -253,6 +255,29 @@ Counts by domain: Atoms 16 · Navigation 14 · Overlays 12 · Notifications 14 �
 198. **accordion** *(organism)* — stacked expandable panels, keyboard + ARIA.
 199. **sticky-header** *(organism)* — scroll-aware sticky/condensing header.
 200. **footer-columns** *(organism)* — multi-column site footer with newsletter.
+
+## Dashboard (201–218)
+
+Analytics/admin building blocks. Chart components are **skeleton widget shells** (header, legend, period toggle, and a chart container/slot) — the agent supplies the actual chart; the library ships no charting library.
+
+201. **dashboard-shell** *(full)* — sidebar + topbar + responsive widget grid layout.
+202. **widget-card** *(organism)* — generic widget container: title, actions, body + footer slots.
+203. **metric-tile** *(molecule)* — big number, label, delta, inline sparkline.
+204. **metric-comparison** *(molecule)* — current vs previous period with change bars.
+205. **chart-card-line** *(organism)* — line-chart widget shell with legend + period toggle.
+206. **chart-card-bar** *(organism)* — bar-chart widget shell.
+207. **chart-card-area** *(organism)* — stacked/area-chart widget shell.
+208. **donut-chart-card** *(organism)* — donut/pie breakdown widget with legend.
+209. **funnel-chart** *(organism)* — conversion funnel with per-stage drop-off.
+210. **progress-ring-stat** *(molecule)* — radial progress KPI with center value.
+211. **goal-progress** *(molecule)* — goal vs actual progress widget.
+212. **top-list-widget** *(organism)* — ranked top-N list (pages, products, referrers).
+213. **activity-summary** *(organism)* — recent-activity feed widget.
+214. **dashboard-toolbar** *(organism)* — filters + date range + export/refresh controls.
+215. **date-range-picker** *(molecule)* — presets + custom range selector (JS).
+216. **world-map-stat** *(organism)* — geographic distribution map widget shell.
+217. **cohort-heatmap** *(organism)* — retention cohort grid heatmap.
+218. **widget-empty-state** *(molecule)* — no-data widget placeholder with CTA.
 
 ---
 

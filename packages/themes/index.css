@@ -1,0 +1,29 @@
+/*
+ * @magoo/themes entry — load this in the preview site and Storybook.
+ * Provides Tailwind v4 + the shared token contract + all four theme value sets.
+ * Switch themes by setting data-theme="simple|futuristic|classic|smooth" on a wrapper.
+ */
+@import "tailwindcss";
+@import "./tokens.contract.css";
+@import "./themes/simple.css";
+@import "./themes/futuristic.css";
+@import "./themes/classic.css";
+@import "./themes/smooth.css";
+
+/*
+ * Safelist dynamic utility classes composed from props (e.g. grid-cols-{{ cols }}).
+ * Components never ship CSS, but the preview must emit these since the class strings
+ * are assembled at render time and aren't statically visible to the scanner.
+ */
+@source inline("grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("md:grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("lg:grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+
+/* Any theme wrapper paints its own ground, text, and body face. */
+@layer base {
+  [data-theme] {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-body);
+  }
+}

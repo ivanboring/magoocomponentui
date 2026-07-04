@@ -1,0 +1,16 @@
+{
+  "name": "@magoo/generator",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Parses a component's template.html + component.def.yml into an AST and emits SDC, Code Component (Preact), React, Vue, and Storybook variants.",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./parser": "./src/parser.js"
+  },
+  "dependencies": {
+    "node-html-parser": "^6.1.13",
+    "js-yaml": "^4.1.0"
+  }
+}

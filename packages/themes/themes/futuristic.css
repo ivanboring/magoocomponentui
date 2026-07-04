@@ -1,0 +1,50 @@
+/*
+ * THEME: futuristic — duotone cyan × hot-magenta HUD on deep indigo-black.
+ * Wide geometric display, zero radius, colored glow shadows.
+ */
+[data-theme="futuristic"] {
+  --color-background: #0b0e1a;
+  --color-on-background: #e5e9ff;
+  --color-surface: #121729;
+  --color-surface-raised: #1a2138;
+  --color-on-surface: #e5e9ff;
+  --color-on-surface-muted: #7f8ab5;
+  --color-primary: #22d3ee;
+  --color-primary-contrast: #04121a;
+  --color-secondary: #7c3aed;
+  --color-secondary-contrast: #ffffff;
+  --color-accent: #ff3dae;
+  --color-accent-contrast: #150011;
+  --color-border: #24304f;
+  --color-ring: #22d3ee;
+  --color-success: #34d399;
+  --color-success-contrast: #04121a;
+  --color-warning: #fbbf24;
+  --color-warning-contrast: #1a1300;
+  --color-danger: #fb7185;
+  --color-danger-contrast: #1a0006;
+  --color-info: #38bdf8;
+  --color-info-contrast: #04121a;
+
+  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-control: 0;
+  --radius-button: 0;
+  --radius-card: 0;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 0 0 1px rgba(34, 211, 238, 0.15), 0 8px 30px -8px rgba(34, 211, 238, 0.25);
+  --shadow-raised: 0 0 0 1px rgba(255, 61, 174, 0.2), 0 0 28px -4px rgba(255, 61, 174, 0.35);
+  --shadow-focus: 0 0 0 2px #22d3ee, 0 0 16px rgba(34, 211, 238, 0.6);
+
+  --weight-heading: 700;
+  --weight-body: 400;
+  --tracking-heading: 0.04em;
+  --space-section: 4rem;
+  --space-card: 1.25rem;
+  --space-control: 0.625rem;
+  --duration-token: 120ms;
+  --ease-token: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

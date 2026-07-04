@@ -1,0 +1,409 @@
+<style>
+  /* ---- Page chrome (theme-aware, quiet — the panels are the subject) ---- */
+  :root {
+    --page-bg: #f5f6fa;
+    --page-panelgap: #eceef4;
+    --ink: #1a1f2e;
+    --ink-muted: #626b82;
+    --hair: #dfe2ec;
+    --chrome-accent: #4f46e5;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #0d0f16;
+      --page-panelgap: #141824;
+      --ink: #eef0f6;
+      --ink-muted: #9aa3ba;
+      --hair: #232838;
+      --chrome-accent: #8b85ff;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="light"] {
+    --page-bg: #f5f6fa; --page-panelgap: #eceef4; --ink: #1a1f2e; --ink-muted: #626b82;
+    --hair: #dfe2ec; --chrome-accent: #4f46e5; color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0d0f16; --page-panelgap: #141824; --ink: #eef0f6; --ink-muted: #9aa3ba;
+    --hair: #232838; --chrome-accent: #8b85ff; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .wrap {
+    background: var(--page-bg);
+    color: var(--ink);
+    font: 15px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    padding: clamp(20px, 4vw, 48px);
+  }
+  .masthead { max-width: 1180px; margin: 0 auto 28px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--chrome-accent); font-weight: 700; margin: 0 0 10px;
+  }
+  .masthead h1 {
+    font-size: clamp(24px, 3.4vw, 38px); line-height: 1.1; margin: 0 0 12px;
+    letter-spacing: -.02em; text-wrap: balance; font-weight: 700;
+  }
+  .masthead p { margin: 0; max-width: 64ch; color: var(--ink-muted); }
+  .masthead .fine { margin-top: 12px; font-size: 13px; }
+  .masthead code {
+    font-family: ui-monospace, SFMono-Regular, monospace; font-size: .85em;
+    background: color-mix(in srgb, var(--chrome-accent) 12%, transparent);
+    color: var(--chrome-accent); padding: 1px 6px; border-radius: 5px;
+  }
+
+  .grid {
+    max-width: 1180px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+  }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+
+  /* ---- A panel is a self-contained theme world ---- */
+  .tpanel {
+    border: 1px solid var(--hair);
+    border-radius: 16px; overflow: hidden;
+    background: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    box-shadow: 0 1px 2px rgba(10, 12, 20, .04);
+  }
+  .tpanel__bar {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface-raised);
+  }
+  .tpanel__name {
+    font-family: var(--font-heading); font-weight: var(--weight-heading, 700);
+    letter-spacing: var(--tracking-heading, 0); font-size: 20px; margin: 0;
+    color: var(--color-on-surface);
+  }
+  .tpanel__meta { text-align: right; font-size: 11px; color: var(--color-on-surface-muted); line-height: 1.5; }
+  .tpanel__body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .tpanel__char { font-size: 13px; color: var(--color-on-surface-muted); margin: -2px 0 0; }
+
+  /* swatches */
+  .swatches { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .sw { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--color-on-surface-muted); }
+  .sw i { width: 20px; height: 20px; border-radius: 6px; border: 1px solid rgba(128,128,128,.25); }
+  .sw--primary i { background: var(--color-primary); }
+  .sw--secondary i { background: var(--color-secondary); }
+  .sw--accent i { background: var(--color-accent); }
+  .sw--surface i { background: var(--color-surface); }
+
+  /* buttons */
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn {
+    font-family: var(--font-heading); font-weight: 600; font-size: 14px;
+    padding: 9px 16px; border-radius: var(--radius-button); border: 1px solid transparent;
+    cursor: pointer; transition: filter var(--duration-token, 150ms) var(--ease-token, ease);
+  }
+  .btn:hover { filter: brightness(1.05); }
+  .btn--primary { background: var(--color-primary); color: var(--color-primary-contrast); }
+  .btn--secondary { background: var(--color-secondary); color: var(--color-secondary-contrast); }
+  .btn--ghost { background: transparent; color: var(--color-primary); border-color: var(--color-border); }
+
+  /* match-score card (sports flavor) */
+  .card {
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 16px;
+  }
+  .match { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .match__team { display: flex; align-items: center; gap: 9px; font-weight: 600; color: var(--color-on-surface); }
+  .match__crest { width: 26px; height: 26px; border-radius: var(--radius-pill); background: var(--color-accent); }
+  .match__crest--2 { background: var(--color-secondary); }
+  .match__score {
+    font-family: var(--font-heading); font-weight: 700; font-size: 26px;
+    letter-spacing: var(--tracking-heading, 0); color: var(--color-on-surface);
+    font-variant-numeric: tabular-nums;
+  }
+  .live {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--color-danger);
+    margin-top: 10px;
+  }
+  .live b { width: 7px; height: 7px; border-radius: 50%; background: var(--color-danger); }
+  @media (prefers-reduced-motion: no-preference) { .live b { animation: pulse 1.4s ease-in-out infinite; } }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+  /* badges */
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-pill);
+  }
+  .badge--success { background: var(--color-success); color: var(--color-success-contrast); }
+  .badge--warning { background: var(--color-warning); color: var(--color-warning-contrast); }
+  .badge--danger { background: var(--color-danger); color: var(--color-danger-contrast); }
+  .badge--info { background: var(--color-info); color: var(--color-info-contrast); }
+
+  /* notification toast */
+  .toast {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--color-surface-raised); border: 1px solid var(--color-border);
+    border-radius: var(--radius-card); box-shadow: var(--shadow-raised); padding: 12px 14px;
+  }
+  .toast__dot { width: 34px; height: 34px; border-radius: var(--radius-pill); background: var(--color-primary); flex: none; }
+  .toast__t { font-family: var(--font-heading); font-weight: 600; color: var(--color-on-surface); font-size: 14px; }
+  .toast__d { font-size: 12.5px; color: var(--color-on-surface-muted); }
+
+  /* input with focus ring */
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 12px; font-weight: 600; color: var(--color-on-surface-muted); }
+  .field input {
+    font: inherit; font-family: var(--font-body); color: var(--color-on-surface);
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-control); padding: 9px 12px; outline: none;
+  }
+  .field input:focus { box-shadow: var(--shadow-focus); border-color: var(--color-ring); }
+
+  /* stat + progress */
+  .stat { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .stat__n { font-family: var(--font-heading); font-weight: 700; font-size: 28px; color: var(--color-on-surface); font-variant-numeric: tabular-nums; }
+  .stat__l { font-size: 12px; color: var(--color-on-surface-muted); }
+  .bar { height: 8px; border-radius: var(--radius-pill); background: var(--color-border); overflow: hidden; margin-top: 8px; }
+  .bar > i { display: block; height: 100%; width: 68%; background: var(--color-primary); border-radius: var(--radius-pill); }
+
+  .divider { height: 1px; background: var(--color-border); border: 0; margin: 0; }
+
+  /* ---- The four theme value sets (identical variable names, values only) ---- */
+  .tpanel[data-theme="simple"] {
+    --color-background:#ffffff;--color-on-background:#0f172a;--color-surface:#ffffff;--color-surface-raised:#f8fafc;
+    --color-on-surface:#0f172a;--color-on-surface-muted:#64748b;--color-primary:#4f46e5;--color-primary-contrast:#ffffff;
+    --color-secondary:#0f172a;--color-secondary-contrast:#ffffff;--color-accent:#6366f1;--color-accent-contrast:#ffffff;
+    --color-border:#e2e8f0;--color-ring:#4f46e5;--color-success:#16a34a;--color-success-contrast:#fff;--color-warning:#d97706;
+    --color-warning-contrast:#fff;--color-danger:#dc2626;--color-danger-contrast:#fff;--color-info:#2563eb;--color-info-contrast:#fff;
+    --font-heading:"Inter",ui-sans-serif,system-ui,sans-serif;--font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --radius-control:.375rem;--radius-button:.5rem;--radius-card:.75rem;--radius-pill:9999px;
+    --shadow-card:0 1px 2px rgba(15,23,42,.06),0 1px 3px rgba(15,23,42,.08);
+    --shadow-raised:0 10px 15px -3px rgba(15,23,42,.08),0 4px 6px -4px rgba(15,23,42,.06);
+    --shadow-focus:0 0 0 3px rgba(79,70,229,.35);--weight-heading:600;--tracking-heading:-.01em;
+    --duration-token:150ms;--ease-token:cubic-bezier(.4,0,.2,1);
+  }
+  .tpanel[data-theme="futuristic"] {
+    --color-background:#0b0e1a;--color-on-background:#e5e9ff;--color-surface:#121729;--color-surface-raised:#1a2138;
+    --color-on-surface:#e5e9ff;--color-on-surface-muted:#7f8ab5;--color-primary:#22d3ee;--color-primary-contrast:#04121a;
+    --color-secondary:#7c3aed;--color-secondary-contrast:#ffffff;--color-accent:#ff3dae;--color-accent-contrast:#150011;
+    --color-border:#24304f;--color-ring:#22d3ee;--color-success:#34d399;--color-success-contrast:#04121a;--color-warning:#fbbf24;
+    --color-warning-contrast:#1a1300;--color-danger:#fb7185;--color-danger-contrast:#1a0006;--color-info:#38bdf8;--color-info-contrast:#04121a;
+    --font-heading:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;--font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+    --radius-control:0;--radius-button:0;--radius-card:0;--radius-pill:9999px;
+    --shadow-card:0 0 0 1px rgba(34,211,238,.15),0 8px 30px -8px rgba(34,211,238,.25);
+    --shadow-raised:0 0 0 1px rgba(255,61,174,.2),0 0 28px -4px rgba(255,61,174,.35);
+    --shadow-focus:0 0 0 2px #22d3ee,0 0 16px rgba(34,211,238,.6);--weight-heading:700;--tracking-heading:.04em;
+    --duration-token:120ms;--ease-token:cubic-bezier(.2,.8,.2,1);
+  }
+  .tpanel[data-theme="classic"] {
+    --color-background:#fbf9f4;--color-on-background:#26221c;--color-surface:#fffefb;--color-surface-raised:#f6f1e7;
+    --color-on-surface:#26221c;--color-on-surface-muted:#6b6152;--color-primary:#7b2d3a;--color-primary-contrast:#fbf9f4;
+    --color-secondary:#1e3a34;--color-secondary-contrast:#fbf9f4;--color-accent:#9a7b3f;--color-accent-contrast:#1f1a12;
+    --color-border:#e4dbcb;--color-ring:#7b2d3a;--color-success:#3f6b4a;--color-success-contrast:#fff;--color-warning:#b07d2b;
+    --color-warning-contrast:#1f1a12;--color-danger:#9b2c2c;--color-danger-contrast:#fff;--color-info:#2c5a78;--color-info-contrast:#fff;
+    --font-heading:"Fraunces","Spectral",Georgia,"Times New Roman",serif;--font-body:"Spectral",Georgia,serif;
+    --radius-control:.25rem;--radius-button:.3125rem;--radius-card:.375rem;--radius-pill:9999px;
+    --shadow-card:0 1px 2px rgba(38,34,28,.08),0 2px 8px rgba(38,34,28,.06);
+    --shadow-raised:0 12px 24px -8px rgba(38,34,28,.18),0 4px 8px -4px rgba(38,34,28,.1);
+    --shadow-focus:0 0 0 3px rgba(123,45,58,.3);--weight-heading:600;--tracking-heading:.002em;
+    --duration-token:200ms;--ease-token:cubic-bezier(.4,0,.2,1);
+  }
+  .tpanel[data-theme="smooth"] {
+    --color-background:#fff5f2;--color-on-background:#4a3b44;--color-surface:#ffffff;--color-surface-raised:#fdf0ec;
+    --color-on-surface:#4a3b44;--color-on-surface-muted:#a08894;--color-primary:#ec5a93;--color-primary-contrast:#ffffff;
+    --color-secondary:#b191e8;--color-secondary-contrast:#2e2340;--color-accent:#ffb4a2;--color-accent-contrast:#5a2a22;
+    --color-border:#f6dad0;--color-ring:#ec5a93;--color-success:#5fbf9b;--color-success-contrast:#05231a;--color-warning:#f1a94e;
+    --color-warning-contrast:#3a2205;--color-danger:#e76a6a;--color-danger-contrast:#fff;--color-info:#7ba0e0;--color-info-contrast:#061428;
+    --font-heading:"Quicksand",ui-rounded,"SF Pro Rounded",system-ui,sans-serif;--font-body:"Nunito Sans",ui-sans-serif,system-ui,sans-serif;
+    --radius-control:.75rem;--radius-button:1rem;--radius-card:1.5rem;--radius-pill:9999px;
+    --shadow-card:0 8px 24px -6px rgba(236,90,147,.18);--shadow-raised:0 16px 36px -10px rgba(177,145,232,.25);
+    --shadow-focus:0 0 0 4px rgba(236,90,147,.3);--weight-heading:600;--tracking-heading:0;
+    --duration-token:250ms;--ease-token:cubic-bezier(.34,1.56,.64,1);
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Magoo Component UI · Theme directions</p>
+    <h1>One CSS-less markup, four token worlds</h1>
+    <p>Every component ships zero CSS — just tokenized Tailwind utilities. These four themes redefine the <em>same</em> variable names (<code>--color-primary</code>, <code>--radius-card</code>, <code>--shadow-card</code>…) with different values. Swap a value block and the whole library re-skins. Each panel below is rendered entirely in its own tokens.</p>
+    <p class="fine masthead"><span style="color:var(--ink-muted)">Colour, radius, shadow and spacing are exact. Display faces show as system fallbacks here — the intended face is labelled per panel and loads for real in the live preview.</span></p>
+  </header>
+
+  <div class="grid">
+    <!-- SIMPLE -->
+    <section class="tpanel" data-theme="simple">
+      <div class="tpanel__bar">
+        <h2 class="tpanel__name">Simple</h2>
+        <div class="tpanel__meta">Inter<br>Swiss · disciplined</div>
+      </div>
+      <div class="tpanel__body">
+        <p class="tpanel__char">Neutral ground, one restrained indigo, tight radii, flat shadows.</p>
+        <div class="swatches">
+          <span class="sw sw--primary"><i></i>primary</span>
+          <span class="sw sw--secondary"><i></i>secondary</span>
+          <span class="sw sw--accent"><i></i>accent</span>
+          <span class="sw sw--surface"><i></i>surface</span>
+        </div>
+        <div class="btns">
+          <button class="btn btn--primary">Follow match</button>
+          <button class="btn btn--secondary">Line-ups</button>
+          <button class="btn btn--ghost">Stats</button>
+        </div>
+        <div class="card">
+          <div class="match">
+            <span class="match__team"><span class="match__crest"></span>Argentina</span>
+            <span class="match__score">2 – 1</span>
+            <span class="match__team">France<span class="match__crest match__crest--2"></span></span>
+          </div>
+          <div class="live"><b></b>Live · 78'</div>
+        </div>
+        <div class="badges">
+          <span class="badge badge--success">Qualified</span>
+          <span class="badge badge--warning">Extra time</span>
+          <span class="badge badge--danger">Red card</span>
+          <span class="badge badge--info">VAR</span>
+        </div>
+        <div class="toast">
+          <span class="toast__dot"></span>
+          <div><div class="toast__t">Goal! Messi 78'</div><div class="toast__d">Argentina now lead 2–1.</div></div>
+        </div>
+        <hr class="divider">
+        <div class="field"><label>Search teams</label><input value="Click to see focus ring"></div>
+        <div class="stat"><div><div class="stat__n">64%</div><div class="stat__l">Possession</div></div></div>
+        <div class="bar"><i></i></div>
+      </div>
+    </section>
+
+    <!-- FUTURISTIC -->
+    <section class="tpanel" data-theme="futuristic">
+      <div class="tpanel__bar">
+        <h2 class="tpanel__name">Futuristic</h2>
+        <div class="tpanel__meta">Space Grotesk<br>HUD · duotone</div>
+      </div>
+      <div class="tpanel__body">
+        <p class="tpanel__char">Cyan × hot-magenta on indigo-black, zero radius, colored glow.</p>
+        <div class="swatches">
+          <span class="sw sw--primary"><i></i>primary</span>
+          <span class="sw sw--secondary"><i></i>secondary</span>
+          <span class="sw sw--accent"><i></i>accent</span>
+          <span class="sw sw--surface"><i></i>surface</span>
+        </div>
+        <div class="btns">
+          <button class="btn btn--primary">Follow match</button>
+          <button class="btn btn--secondary">Line-ups</button>
+          <button class="btn btn--ghost">Stats</button>
+        </div>
+        <div class="card">
+          <div class="match">
+            <span class="match__team"><span class="match__crest"></span>Argentina</span>
+            <span class="match__score">2 – 1</span>
+            <span class="match__team">France<span class="match__crest match__crest--2"></span></span>
+          </div>
+          <div class="live"><b></b>Live · 78'</div>
+        </div>
+        <div class="badges">
+          <span class="badge badge--success">Qualified</span>
+          <span class="badge badge--warning">Extra time</span>
+          <span class="badge badge--danger">Red card</span>
+          <span class="badge badge--info">VAR</span>
+        </div>
+        <div class="toast">
+          <span class="toast__dot"></span>
+          <div><div class="toast__t">Goal! Messi 78'</div><div class="toast__d">Argentina now lead 2–1.</div></div>
+        </div>
+        <hr class="divider">
+        <div class="field"><label>Search teams</label><input value="Click to see focus ring"></div>
+        <div class="stat"><div><div class="stat__n">64%</div><div class="stat__l">Possession</div></div></div>
+        <div class="bar"><i></i></div>
+      </div>
+    </section>
+
+    <!-- CLASSIC -->
+    <section class="tpanel" data-theme="classic">
+      <div class="tpanel__bar">
+        <h2 class="tpanel__name">Classic</h2>
+        <div class="tpanel__meta">Fraunces · Spectral<br>editorial · oxblood</div>
+      </div>
+      <div class="tpanel__body">
+        <p class="tpanel__char">Oxblood &amp; ink on warm ivory, brass accent, refined serifs.</p>
+        <div class="swatches">
+          <span class="sw sw--primary"><i></i>primary</span>
+          <span class="sw sw--secondary"><i></i>secondary</span>
+          <span class="sw sw--accent"><i></i>accent</span>
+          <span class="sw sw--surface"><i></i>surface</span>
+        </div>
+        <div class="btns">
+          <button class="btn btn--primary">Follow match</button>
+          <button class="btn btn--secondary">Line-ups</button>
+          <button class="btn btn--ghost">Stats</button>
+        </div>
+        <div class="card">
+          <div class="match">
+            <span class="match__team"><span class="match__crest"></span>Argentina</span>
+            <span class="match__score">2 – 1</span>
+            <span class="match__team">France<span class="match__crest match__crest--2"></span></span>
+          </div>
+          <div class="live"><b></b>Live · 78'</div>
+        </div>
+        <div class="badges">
+          <span class="badge badge--success">Qualified</span>
+          <span class="badge badge--warning">Extra time</span>
+          <span class="badge badge--danger">Red card</span>
+          <span class="badge badge--info">VAR</span>
+        </div>
+        <div class="toast">
+          <span class="toast__dot"></span>
+          <div><div class="toast__t">Goal! Messi 78'</div><div class="toast__d">Argentina now lead 2–1.</div></div>
+        </div>
+        <hr class="divider">
+        <div class="field"><label>Search teams</label><input value="Click to see focus ring"></div>
+        <div class="stat"><div><div class="stat__n">64%</div><div class="stat__l">Possession</div></div></div>
+        <div class="bar"><i></i></div>
+      </div>
+    </section>
+
+    <!-- SMOOTH -->
+    <section class="tpanel" data-theme="smooth">
+      <div class="tpanel__bar">
+        <h2 class="tpanel__name">Smooth</h2>
+        <div class="tpanel__meta">Quicksand · Nunito<br>soft · rounded</div>
+      </div>
+      <div class="tpanel__body">
+        <p class="tpanel__char">Rose, lavender &amp; peach, large radii, diffuse pastel shadow.</p>
+        <div class="swatches">
+          <span class="sw sw--primary"><i></i>primary</span>
+          <span class="sw sw--secondary"><i></i>secondary</span>
+          <span class="sw sw--accent"><i></i>accent</span>
+          <span class="sw sw--surface"><i></i>surface</span>
+        </div>
+        <div class="btns">
+          <button class="btn btn--primary">Follow match</button>
+          <button class="btn btn--secondary">Line-ups</button>
+          <button class="btn btn--ghost">Stats</button>
+        </div>
+        <div class="card">
+          <div class="match">
+            <span class="match__team"><span class="match__crest"></span>Argentina</span>
+            <span class="match__score">2 – 1</span>
+            <span class="match__team">France<span class="match__crest match__crest--2"></span></span>
+          </div>
+          <div class="live"><b></b>Live · 78'</div>
+        </div>
+        <div class="badges">
+          <span class="badge badge--success">Qualified</span>
+          <span class="badge badge--warning">Extra time</span>
+          <span class="badge badge--danger">Red card</span>
+          <span class="badge badge--info">VAR</span>
+        </div>
+        <div class="toast">
+          <span class="toast__dot"></span>
+          <div><div class="toast__t">Goal! Messi 78'</div><div class="toast__d">Argentina now lead 2–1.</div></div>
+        </div>
+        <hr class="divider">
+        <div class="field"><label>Search teams</label><input value="Click to see focus ring"></div>
+        <div class="stat"><div><div class="stat__n">64%</div><div class="stat__l">Possession</div></div></div>
+        <div class="bar"><i></i></div>
+      </div>
+    </section>
+  </div>
+</div>

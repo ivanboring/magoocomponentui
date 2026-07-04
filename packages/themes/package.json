@@ -1,0 +1,17 @@
+{
+  "name": "@magoo/themes",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared design-token contract + four example theme value sets (simple, futuristic, classic, smooth).",
+  "exports": {
+    ".": "./index.css",
+    "./contract": "./tokens.contract.css",
+    "./themes/*": "./themes/*"
+  },
+  "files": [
+    "index.css",
+    "tokens.contract.css",
+    "themes"
+  ]
+}

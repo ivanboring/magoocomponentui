@@ -1,0 +1,22 @@
+{
+  "name": "magoo-component-ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "description": "CSS-less skeleton UI components with a single canonical source that generates SDC, Drupal Code Components, React, Vue, and Storybook.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "catalog": "node scripts/build-catalog.mjs",
+    "screenshots": "node scripts/screenshot.mjs",
+    "test": "node --test 'packages/**/*.test.mjs'",
+    "typecheck": "tsc -p tsconfig.json",
+    "preview:dev": "pnpm --filter @magoo/preview dev",
+    "preview:build": "pnpm --filter @magoo/preview build",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

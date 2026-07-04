@@ -1,0 +1,50 @@
+/*
+ * THEME: smooth — soft rose / lavender / peach, large radii, diffuse pastel shadows.
+ * Rounded Quicksand × Nunito, gentle overshoot easing.
+ */
+[data-theme="smooth"] {
+  --color-background: #fff5f2;
+  --color-on-background: #4a3b44;
+  --color-surface: #ffffff;
+  --color-surface-raised: #fdf0ec;
+  --color-on-surface: #4a3b44;
+  --color-on-surface-muted: #a08894;
+  --color-primary: #ec5a93;
+  --color-primary-contrast: #ffffff;
+  --color-secondary: #b191e8;
+  --color-secondary-contrast: #2e2340;
+  --color-accent: #ffb4a2;
+  --color-accent-contrast: #5a2a22;
+  --color-border: #f6dad0;
+  --color-ring: #ec5a93;
+  --color-success: #5fbf9b;
+  --color-success-contrast: #05231a;
+  --color-warning: #f1a94e;
+  --color-warning-contrast: #3a2205;
+  --color-danger: #e76a6a;
+  --color-danger-contrast: #ffffff;
+  --color-info: #7ba0e0;
+  --color-info-contrast: #061428;
+
+  --font-heading: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --radius-control: 0.75rem;
+  --radius-button: 1rem;
+  --radius-card: 1.5rem;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 8px 24px -6px rgba(236, 90, 147, 0.18);
+  --shadow-raised: 0 16px 36px -10px rgba(177, 145, 232, 0.25);
+  --shadow-focus: 0 0 0 4px rgba(236, 90, 147, 0.3);
+
+  --weight-heading: 600;
+  --weight-body: 400;
+  --tracking-heading: 0em;
+  --space-section: 4.5rem;
+  --space-card: 1.75rem;
+  --space-control: 0.875rem;
+  --duration-token: 250ms;
+  --ease-token: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

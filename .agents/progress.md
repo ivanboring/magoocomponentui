@@ -10,8 +10,8 @@
 - Toolchain: Node 24, pnpm 11 (via corepack). Project is greenfield (no scaffold yet).
 
 ## Next (build order — tracked in the task list)
-1. Scaffold monorepo (pnpm workspaces, TS, Tailwind v4, `packages/themes/tokens.contract.css` + 4 value sets).
-2. `component.def.yml` shape + template directive parser (AST) + tests.
+1. ✅ Scaffolded monorepo (pnpm workspaces, Node ESM + JSDoc, root config). `@magoo/themes`: `tokens.contract.css` (shared contract) + 4 value sets (simple/futuristic/classic/smooth) + `index.css` (Tailwind v4 + safelist + theme base). Designed with frontend-design skill.
+2. ✅ `@magoo/generator`: `parser.js` (template.html → AST: element/text/slot + `{{ }}`/`{{{ }}}`/`data-if`/`data-for`) and `def.js` (component.def.yml normalizer). 9 unit tests pass (`pnpm test`).
 3. Metadata JSON Schema + ajv validator + catalog builder → `dist/catalog.json`.
 4. Generator emitters: SDC → Code Component → React → Vue → Storybook.
 5. Drupal paragraph + custom_field scaffolding + mapping docs.
@@ -21,6 +21,7 @@
 9. Playwright screenshot pipeline (16/component).
 10. Docs + spec copy + end-to-end verification.
 
-## Awaiting user input
-- Confirm/adjust the 200 list (priority order, coverage gaps, merge/split granularity) — open questions at bottom of `docs/catalog/first-200.md`.
-- Build order: domain-first vs breadth-first.
+## Resolved with user
+- **Build order: breadth-first** — early wave takes a few from each domain for preview variety, then depth.
+- **Added Dashboard domain** (18 components, #201–218) → catalog now 218.
+- **Granularity: keep concepts separate** (e.g. `card-movie` vs `card-tv-show` are distinct components).
