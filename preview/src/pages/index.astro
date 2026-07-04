@@ -75,32 +75,74 @@ const categories = catalog.facets.categories || {};
     ))}
   </div>
   <p id="empty" class="hidden py-12 text-center text-slate-400">No components match.</p>
+  <nav id="pager" class="mt-8 flex items-center justify-center gap-1 text-sm"></nav>
 
   <script>
+    const PAGE_SIZE = 20;
     const search = document.getElementById("search");
     const catSelect = document.getElementById("cat");
     const cards = Array.from(document.querySelectorAll(".card"));
     const empty = document.getElementById("empty");
     const count = document.getElementById("count");
+    const pager = document.getElementById("pager");
+    let page = 1;
 
-    function apply() {
+    function matches(card) {
       const q = (search.value || "").trim().toLowerCase();
       const [cat, sub] = (catSelect.value || "").split("::");
-      let shown = 0;
-      for (const card of cards) {
-        const matchesText = !q || card.dataset.search.includes(q);
-        const matchesCat = !cat || card.dataset.cat === cat;
-        const matchesSub = !sub || card.dataset.sub === sub;
-        const show = matchesText && matchesCat && matchesSub;
-        card.classList.toggle("hidden", !show);
-        if (show) shown++;
-      }
-      empty.classList.toggle("hidden", shown !== 0);
-      count.textContent = `${shown} shown`;
+      return (!q || card.dataset.search.includes(q)) &&
+        (!cat || card.dataset.cat === cat) &&
+        (!sub || card.dataset.sub === sub);
     }
 
-    search.addEventListener("input", apply);
-    catSelect.addEventListener("change", apply);
-    apply();
+    function render() {
+      const matched = cards.filter(matches);
+      const pages = Math.max(1, Math.ceil(matched.length / PAGE_SIZE));
+      if (page > pages) page = pages;
+      const start = (page - 1) * PAGE_SIZE;
+      const visible = new Set(matched.slice(start, start + PAGE_SIZE));
+      for (const card of cards) card.classList.toggle("hidden", !visible.has(card));
+      empty.classList.toggle("hidden", matched.length !== 0);
+      count.textContent = matched.length ? `${matched.length} component${matched.length === 1 ? "" : "s"}` : "";
+      renderPager(pages);
+    }
+
+    function pageButton(label, target, opts = {}) {
+      const b = document.createElement("button");
+      b.textContent = label;
+      b.className = "rounded-md border px-3 py-1 " +
+        (opts.current ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 hover:bg-slate-100") +
+        (opts.disabled ? " cursor-not-allowed opacity-40" : "");
+      if (opts.disabled) b.disabled = true;
+      else b.addEventListener("click", () => { page = target; render(); window.scrollTo({ top: 0 }); });
+      return b;
+    }
+
+    function renderPager(pages) {
+      pager.innerHTML = "";
+      if (pages <= 1) return;
+      pager.appendChild(pageButton("‹ Prev", page - 1, { disabled: page === 1 }));
+      // windowed page numbers
+      const win = [];
+      for (let p = 1; p <= pages; p++) {
+        if (p === 1 || p === pages || Math.abs(p - page) <= 2) win.push(p);
+        else if (win[win.length - 1] !== "…") win.push("…");
+      }
+      for (const p of win) {
+        if (p === "…") {
+          const s = document.createElement("span");
+          s.textContent = "…";
+          s.className = "px-2 text-slate-400";
+          pager.appendChild(s);
+        } else {
+          pager.appendChild(pageButton(String(p), p, { current: p === page }));
+        }
+      }
+      pager.appendChild(pageButton("Next ›", page + 1, { disabled: page === pages }));
+    }
+
+    search.addEventListener("input", () => { page = 1; render(); });
+    catSelect.addEventListener("change", () => { page = 1; render(); });
+    render();
   </script>
 </Layout>

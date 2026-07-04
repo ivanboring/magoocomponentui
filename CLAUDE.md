@@ -7,8 +7,8 @@ A library of **CSS-less, skeleton UI components** whose primary consumer is an *
 - **Single canonical source per component → a generator emits every target.** Author once; generate SDC, Drupal Code Components (Preact), React, Vue, and Storybook. No hand-porting.
 - **Components ship no CSS.** Markup is pure **tokenized Tailwind (v4)** — semantic utilities bound to CSS-variable design tokens. Interactivity is **vanilla JS** by default.
 - **Granular catalog.** One component per concept (podcast card ≠ movie card ≠ product card), each *modestly* configurable via props — not generic do-everything shells.
-- **Rich per-component `metadata.yml`** makes the catalog explorable by an agent (descriptions, use cases, screenshots, WCAG, categorization, example prompts, etc.).
-- **Every component maps to Drupal** via a paragraph type + fields + twig template, using **custom_field** for complex/repeating structures.
+- **Rich per-component `metadata.yml`** makes the catalog explorable by an agent (descriptions, use cases, screenshots, categorization, example prompts, `relationships` to other components, etc.). Full field list: `docs/metadata-schema.md`.
+- **Every component maps to Drupal** via a paragraph type + fields + twig template. The generator emits **importable config YAML** (`drush config:import`) and knows core + contrib field types (Address, Video Embed, Geofield, Office Hours, Table Field, custom_field, …); a prop can pick a field type via `drupal.field_type` (array → one config set per alternative). See `docs/drupal-mapping.md`.
 - **Four example themes** (futuristic, simple, classic, smooth) prove the theming model; a **static preview site** (Astro) + **Storybook** show them off; **Playwright** captures screenshots at 4 breakpoints × 4 themes.
 
 ## Targets
@@ -35,7 +35,9 @@ screenshots/        # 16 generated PNGs: <theme>-<breakpoint>.png
 ```
 
 **Template directives** (small enough to transpile deterministically to twig/JSX/Vue; expressions are dotted paths + `!` negation only — no arbitrary JS):
-`{{ prop }}` interpolation · `{{{ prop }}}` raw HTML · `<slot name="x">fallback</slot>` · `data-if="prop"` / `data-if="!prop"` · `data-for="item in items"`.
+`{{ prop }}` interpolation · `{{{ prop }}}` raw HTML · `{{ prop@class }}` variant class-map · `<slot name="x">fallback</slot>` · `data-if="prop"` / `data-if="!prop"` · `data-for="item in items"`. Full reference: `docs/template-directives.md`.
+
+**Variant classes.** An enum prop can't pick different utility classes inline (no equality test), so map them in `component.def.yml` under `variants:` (enum value → class string) and reference `{{ prop@class }}` in the template. The generator inlines it per target. Keep those classes tokenized too.
 
 **JS conventions** (from `../ai_base_theme`): target component-scoped `__hook` classes (e.g. `.card-podcast__player`), separate from styling utilities. Default wrapper is a **portable self-init** (`querySelectorAll(hook).forEach(init)` + `MutationObserver` re-init) that works in Drupal AJAX, Storybook, and static preview; an optional `Drupal.behaviors` variant is emitted for SDC.
 
@@ -60,19 +62,40 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - **agent-browser** — to preview/verify themes and drive Playwright screenshot capture.
 - **superpowers:brainstorming → writing-plans** — process for new scope.
 
-## References
+## Commands
 
-- Approved design/spec: `~/.claude/plans/i-want-to-create-frolicking-walrus.md` (mirrored to `docs/superpowers/specs/` on build).
-- First 200 components: `docs/catalog/first-200.md`.
-- Work log, decisions, external doc notes: `.agents/`.
+```
+pnpm install
+pnpm test            # generator + schema unit tests (node --test)
+pnpm build           # generate dist/<id>/ variants + dist/catalog.json
+pnpm preview:dev     # browse the catalog across all 4 themes (localhost:4321)
+pnpm storybook       # component workbench (theme toolbar)
+pnpm screenshots     # capture 4 themes × 4 breakpoints/component (Playwright)
+pnpm audit           # axe-core a11y + semantics audit → dist/audit.json
+```
+
+## Verification vs. asserted metadata
+
+`metadata.yml` fields `categorization.wcag` and `seo_score` are **author-asserted, not tested**.
+`pnpm audit` runs **axe-core (WCAG 2.0/2.1 A+AA)** against each rendered component plus a
+semantics heuristic (headings/landmarks/alt/accessible-names), writes `dist/audit.json`, and
+**flags where asserted values disagree with measured**. (Lighthouse SEO is page-level and not
+meaningful per-component, hence the heuristic.)
+
+## Reference components to copy (real, on disk)
+
+- `components/notifications/alert/` — enum **variant class-map**, dismiss **behavior.js** (data-attr config + ARIA), a **slot**, full metadata.
+- `components/dashboard/stat-card/` — multiple props, trend variant, icon slot, no JS.
+- `components/marketing/feature-grid/` — **`data-for` loop** + responsive columns (1→2→3→4).
+- `components/dashboard/stats-band/` — **slot composition** + a real parent↔child `relationships` link to `stat-card`.
+
+## Docs & references
+
+- Design spec: `docs/superpowers/specs/2026-07-04-skeleton-component-library-design.md`.
+- **Authoring**: `docs/authoring-guide.md` · `docs/template-directives.md` · `docs/metadata-schema.md` · `docs/theming.md` · `docs/drupal-mapping.md` · `docs/taxonomy.md`.
+- **Catalog worklist** (names/ideas only, not built): `docs/catalog/first-200.md` (218) + `docs/catalog/next-500.md` (500) ≈ 718 planned.
+- **Current state / decisions / researched facts**: `.agents/progress.md`, `.agents/decisions.md`, `.agents/references.md`.
 - Reference theme (existing SDC patterns): `../ai_base_theme/components/`.
-- Drupal SDC props/slots: https://project.pages.drupalcode.org/canvas/sdc-components/
-- Drupal Code Components: https://project.pages.drupalcode.org/canvas/code-components/
-- custom_field module: https://www.drupal.org/project/custom_field
+- Drupal: [SDC](https://project.pages.drupalcode.org/canvas/sdc-components/) · [Code Components](https://project.pages.drupalcode.org/canvas/code-components/) · [custom_field](https://www.drupal.org/project/custom_field).
 
-## Example Components (illustrative — full list in `docs/catalog/first-200.md`)
-
-- **`card-podcast`** *(molecule · media)* — cover image, vertical date, excerpt, inline audio player with scrubbing. Props: `title`, `image`, `excerpt`, `date_*`, `audio_url`. Behavior: `card-podcast__player` audio controls.
-- **`bracket-single-elim`** *(full · sports)* — single-elimination knockout bracket. Props: nested `rounds[] → matches[] → teams[]`, `winner` highlight, live-score flag. Proves nested-array rendering.
-
-> Do **not** store the component catalog in this file — keep only a couple of examples. The catalog lives in `docs/catalog/`.
+> Keep the component catalog in `docs/catalog/`, not in this file.
