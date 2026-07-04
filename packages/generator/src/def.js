@@ -54,6 +54,8 @@ function normalizeProp(name, spec) {
     description: spec.description || "",
     default: spec.default,
     example: spec.example ?? (Array.isArray(spec.examples) ? spec.examples[0] : undefined),
+    // Optional Drupal field mapping hint: { field_type: string|string[], formatter?: string }
+    drupal: spec.drupal && typeof spec.drupal === "object" ? spec.drupal : null,
   };
   if (type === "enum") {
     prop.values = Array.isArray(spec.values) ? spec.values : [];

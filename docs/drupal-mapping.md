@@ -7,9 +7,54 @@ Generated files:
 
 | File | Purpose |
 |---|---|
-| `fields.yml` | Declarative field plan: each prop → a Drupal field; each slot → a child-paragraph reference. |
+| `config/` (+ `config-<variant>/`) | **Importable Drupal config entities** — paragraph type, field storage + instances, form + view displays. `drush config:import --partial --source=…`. |
+| `fields.yml` | Human-readable field plan: each prop → a Drupal field; each slot → a child-paragraph reference. |
 | `paragraph--<name>.html.twig` | Paragraph template that renders the SDC from the paragraph's field values. |
-| `custom_field.<name>.yml` | Column plan for complex/repeating props (only when the component has `array`/`object` props). |
+| `custom_field.<name>.yml` | Column plan for complex/repeating props (when the component has `array`/`object` props). |
+
+## Importable config
+
+Each `config[/-variant]/` folder is a self-contained set of config entities you can import
+(enable the required modules first). Field-type machine names are import-accurate; widgets,
+formatters, and settings are sensible defaults meant to be tuned.
+
+## Choosing a field type per prop
+
+By default a prop maps by its type (below). Override per prop in `component.def.yml`:
+
+```yaml
+props:
+  location: { type: object, drupal: { field_type: address } }
+  when:     { type: string, drupal: { field_type: datetime } }
+  video:    { type: link,   drupal: { field_type: video_embed } }
+  # Alternatives → one importable config set each (e.g. a table via either field type):
+  rows:     { type: array, items: object, drupal: { field_type: [tablefield, custom_field] } }
+  # View-display formatter override (e.g. render numeric data via Charts):
+  series:   { type: array, items: object, drupal: { field_type: custom_field, formatter: chart } }
+```
+
+## Supported field types
+
+**Core:** `string`, `text_long`, `integer`, `boolean`, `list_string` (enum), `link`,
+`datetime`, `daterange`, `image`, `media_image` (entity_reference → media), `paragraph`
+(entity_reference_revisions), **`custom_field`**.
+
+**Contrib** (module must be enabled): `address` ([Address]), `datetime`/`daterange`
+(core; the [Date] contrib is legacy), `video_embed` ([Video Embed Field]), `geofield`
+([Geofield]), `geolocation` ([Geolocation]), `svg_image` ([SVG Image Field]), `faqfield`
+([FAQ Field]), `office_hours` ([Office Hours]), `tablefield` ([Table Field]); plus a
+`formatter: chart` view-display option ([Charts]).
+
+[Address]: https://www.drupal.org/project/address
+[Date]: https://www.drupal.org/project/date
+[Video Embed Field]: https://www.drupal.org/project/video_embed_field
+[Geofield]: https://www.drupal.org/project/geofield
+[Geolocation]: https://www.drupal.org/project/geolocation
+[SVG Image Field]: https://www.drupal.org/project/svg_image_field
+[FAQ Field]: https://www.drupal.org/project/faqfield
+[Office Hours]: https://www.drupal.org/project/office_hours
+[Table Field]: https://www.drupal.org/project/tablefield
+[Charts]: https://www.drupal.org/project/charts
 
 ## Prop → field type mapping
 
