@@ -1,0 +1,17 @@
+<div class="bracket-single-elim overflow-x-auto">
+  <div class="bracket-single-elim__rounds flex gap-6">
+    <section data-for="round in rounds" class="bracket-single-elim__round flex min-w-56 flex-col justify-around gap-4">
+      <h3 class="bracket-single-elim__round-name text-center text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ round.name }}</h3>
+      <div data-for="match in round.matches" class="bracket-single-elim__match overflow-hidden rounded-card border border-border bg-surface shadow-card">
+        <div class="flex items-center justify-between gap-2 border-b border-border px-3 py-2 data-[winner=true]:bg-success/10" data-winner="{{ match.home_winner }}">
+          <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.home_winner }}"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ match.home_code }}</span>{{ match.home }}</span>
+          <span class="font-heading text-sm text-on-surface tabular-nums">{{ match.home_score }}</span>
+        </div>
+        <div class="flex items-center justify-between gap-2 px-3 py-2 data-[winner=true]:bg-success/10" data-winner="{{ match.away_winner }}">
+          <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.away_winner }}"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ match.away_code }}</span>{{ match.away }}</span>
+          <span class="font-heading text-sm text-on-surface tabular-nums">{{ match.away_score }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

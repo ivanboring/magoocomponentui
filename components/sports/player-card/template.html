@@ -1,0 +1,15 @@
+<article class="player-card overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="player-card__head flex items-center gap-4 bg-primary p-(--space-card) text-primary-contrast">
+    <span class="player-card__number font-heading text-4xl leading-none tabular-nums">{{ number }}</span>
+    <div class="min-w-0">
+      <h3 class="player-card__name font-heading text-lg">{{ name }}</h3>
+      <p class="player-card__meta text-sm opacity-90">{{ position }} · {{ nationality }}</p>
+    </div>
+  </div>
+  <dl data-if="stats" class="player-card__stats grid grid-cols-3 divide-x divide-border">
+    <div data-for="stat in stats" class="flex flex-col items-center gap-0.5 p-3 text-center">
+      <dd class="font-heading text-xl text-on-surface tabular-nums">{{ stat.value }}</dd>
+      <dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt>
+    </div>
+  </dl>
+</article>

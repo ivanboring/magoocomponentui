@@ -1,0 +1,27 @@
+name: team-card
+props:
+  name:
+    type: string
+    required: true
+    title: Team name
+    example: "Brazil"
+  code:
+    type: string
+    required: true
+    title: Code
+    example: "BRA"
+  group:
+    type: string
+    title: Group
+    example: "Group G"
+  record:
+    type: string
+    title: Record
+    example: "W 2 · D 1 · L 0"
+  fifa_rank:
+    type: string
+    title: FIFA rank
+    example: "#3"
+  href:
+    type: link
+    title: Link

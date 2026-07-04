@@ -1,0 +1,65 @@
+name: "Single-elimination Bracket"
+short_description: A single-elimination knockout bracket with rounds, matches, and winner highlight.
+long_visual_description: >
+  Columns of rounds (Quarter-finals → Final), each holding match boxes with both teams and
+  scores; the winning side of each match is shaded and bolded. Scrolls horizontally on
+  narrow screens.
+
+use_cases:
+  - World Cup or tournament knockout bracket.
+  - Cup competition draw and results.
+  - Playoff bracket.
+  - Esports single-elimination bracket.
+  - Any single-elimination knockout visualization.
+
+recommended_for:
+  - Visualizing a single-elimination knockout stage.
+avoid_for:
+  - Double-elimination formats (use bracket-double-elim).
+  - Group/round-robin standings (use group-standings-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rounds in order, each with its matches; mark the winner of each match. The
+  bracket scrolls horizontally when it exceeds the viewport width.
+
+props:
+  rounds: The ordered rounds, each with its matches and results.
+
+example_prompts:
+  - "Add a single-elimination bracket from quarter-finals to the final."
+  - "Add a knockout bracket with winner highlighting."
+
+lifecycle: experimental
+content_model: Ordered knockout rounds, each with match results and a highlighted winner.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep round names standard; emphasize winners by weight and shading, and use official team
+  codes.
+
+categorization:
+  category: Sports
+  subcategory: Brackets
+  atomic_type: full
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Winners are emphasized by weight and shading (not colour alone); scores and names are real text. Each round is a titled section.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

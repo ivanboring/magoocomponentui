@@ -1,0 +1,64 @@
+name: "Group Standings Table"
+short_description: A group table with P, W, D, L, GF, GA, GD, Pts and qualification shading.
+long_visual_description: >
+  A titled table listing teams in a group with played/won/drawn/lost, goals for/against,
+  goal difference, and points; qualification places are shaded with the success tint.
+
+use_cases:
+  - World Cup or tournament group table.
+  - League mini-table for a division.
+  - Qualification standings.
+  - Round-robin group results.
+  - Competition phase standings.
+
+recommended_for:
+  - A single group's standings with full stats and qualification shading.
+avoid_for:
+  - A full league table with a form guide (use league-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Order rows by position and mark qualified places; keep the stat columns in the standard
+  P/W/D/L/GF/GA/GD/Pts order.
+
+props:
+  group_name: The group label.
+  rows: The team rows with their stats and qualified flag.
+
+example_prompts:
+  - "Add a World Cup Group A standings table with qualification shading."
+  - "Add a group table with P/W/D/L/GD/Pts columns."
+
+lifecycle: experimental
+content_model: A group label and ranked team rows with match stats.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use official team codes; keep the column order standard so tables are comparable.
+
+categorization:
+  category: Sports
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped column headers; qualification is shaded but position/points also convey standing, so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

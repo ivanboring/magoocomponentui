@@ -1,0 +1,34 @@
+name: player-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Lionel Messi"
+  number:
+    type: string
+    required: true
+    title: Number
+    example: "10"
+  position:
+    type: string
+    required: true
+    title: Position
+    example: "Forward"
+  nationality:
+    type: string
+    required: true
+    title: Nationality
+    example: "Argentina"
+  nationality_code:
+    type: string
+    title: Nationality code
+    example: "ARG"
+  stats:
+    type: array
+    items: object
+    title: Stats
+    description: "Each stat: { label, value }."
+    example:
+      - { label: "Goals", value: "7" }
+      - { label: "Assists", value: "3" }

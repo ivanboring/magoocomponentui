@@ -1,0 +1,23 @@
+{
+  "rounds": [
+    {
+      "name": "Quarter-finals",
+      "matches": [
+        { "home": "Brazil", "home_code": "BRA", "home_score": "2", "home_winner": true, "away": "Croatia", "away_code": "CRO", "away_score": "1", "away_winner": false },
+        { "home": "Argentina", "home_code": "ARG", "home_score": "3", "home_winner": true, "away": "Netherlands", "away_code": "NED", "away_score": "2", "away_winner": false }
+      ]
+    },
+    {
+      "name": "Semi-finals",
+      "matches": [
+        { "home": "Brazil", "home_code": "BRA", "home_score": "1", "home_winner": false, "away": "Argentina", "away_code": "ARG", "away_score": "2", "away_winner": true }
+      ]
+    },
+    {
+      "name": "Final",
+      "matches": [
+        { "home": "Argentina", "home_code": "ARG", "home_score": "3", "home_winner": true, "away": "France", "away_code": "FRA", "away_score": "3", "away_winner": false }
+      ]
+    }
+  ]
+}

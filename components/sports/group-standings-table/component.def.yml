@@ -1,0 +1,17 @@
+name: group-standings-table
+props:
+  group_name:
+    type: string
+    required: true
+    title: Group name
+    example: "Group A"
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each row: { pos, team, code, p, w, d, l, gf, ga, gd, pts, qualified }. qualified true
+      shades the row as a qualification place.
+    example:
+      - { pos: 1, team: "Netherlands", code: "NED", p: 3, w: 2, d: 1, l: 0, gf: 5, ga: 1, gd: "+4", pts: 7, qualified: true }

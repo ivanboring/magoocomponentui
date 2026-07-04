@@ -1,0 +1,69 @@
+name: "Player Card"
+short_description: A player card with squad number, position, nationality, and key stats.
+long_visual_description: >
+  A card with a coloured header showing a large squad number beside the player's name,
+  position, and nationality, above a three-column stat strip (goals, assists, apps).
+
+use_cases:
+  - Squad list player card.
+  - Top performer highlight.
+  - Player profile summary.
+  - Lineup player detail.
+  - Fantasy or stats app player card.
+
+recommended_for:
+  - A compact player summary with headline stats.
+avoid_for:
+  - A full player profile page.
+
+markets:
+  - Global
+
+example_usage: >
+  Show the squad number prominently and 2-4 headline stats in the strip; keep position and
+  nationality on the header line.
+
+props:
+  name: The player's name.
+  number: Squad number.
+  position: Playing position.
+  nationality: Nationality.
+  nationality_code: Optional nationality code.
+  stats: Headline stats (label + value).
+
+example_prompts:
+  - "Add a player card for a forward with goals, assists, and apps."
+  - "Add a squad card with number, position, and stats."
+
+lifecycle: experimental
+content_model: A player's identity and a small set of headline stats.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep stats parallel across players so cards compare cleanly; use the player's actual
+  squad number.
+
+categorization:
+  category: Sports
+  subcategory: Teams
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stats use a real definition list; the header uses real text. Ensure the primary/contrast pair meets contrast per theme.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

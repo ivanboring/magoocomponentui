@@ -1,0 +1,70 @@
+name: "Team Card"
+short_description: A national/club team card with crest badge, name, group, record, and FIFA rank.
+long_visual_description: >
+  A horizontal card with a crest badge (team code), the team name and a group · record
+  meta line, and a FIFA rank pill on the trailing edge.
+
+use_cases:
+  - Team entry in a tournament team list.
+  - Group overview team card.
+  - Team directory or browse.
+  - Head-to-head team reference.
+  - Team picker in a bracket builder.
+
+recommended_for:
+  - A compact team summary with crest, group, and record.
+avoid_for:
+  - A full team page header (build a dedicated header).
+
+markets:
+  - Global
+
+example_usage: >
+  Use the team code in the crest badge; show the group and a short record, plus an
+  optional FIFA rank.
+
+props:
+  name: The team name.
+  code: The team short code.
+  group: The team's group.
+  record: A short W/D/L record.
+  fifa_rank: Optional FIFA ranking.
+  href: The team page URL.
+
+example_prompts:
+  - "Add a team card for Brazil in Group G with their record and FIFA rank."
+  - "Add a tournament team card with crest and record."
+
+lifecycle: experimental
+content_model: A team crest, name, group, record, and rank.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use official team codes and a consistent record format across cards.
+
+categorization:
+  category: Sports
+  subcategory: Teams
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The crest badge carries the team name via role="img"/aria-label; the row is a single link.
+  keyboard_support: The card is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

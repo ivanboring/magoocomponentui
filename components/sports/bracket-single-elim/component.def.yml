@@ -1,0 +1,14 @@
+name: bracket-single-elim
+props:
+  rounds:
+    type: array
+    items: object
+    required: true
+    title: Rounds
+    description: >
+      Each round: { name, matches: [{ home, home_code, home_score, home_winner,
+      away, away_code, away_score, away_winner }] }. Rendered as columns of matches.
+    example:
+      - name: "Quarter-finals"
+        matches:
+          - { home: "Brazil", home_code: "BRA", home_score: "2", home_winner: true, away: "Croatia", away_code: "CRO", away_score: "1", away_winner: false }

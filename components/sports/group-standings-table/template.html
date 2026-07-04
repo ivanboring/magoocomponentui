@@ -1,0 +1,35 @@
+<section class="group-standings-table overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <h3 class="group-standings-table__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ group_name }}</h3>
+  <div class="overflow-x-auto">
+    <table class="group-standings-table__table w-full text-sm">
+      <thead>
+        <tr class="border-b border-border text-xs text-on-surface-muted">
+          <th class="px-3 py-2 text-left font-medium" scope="col">#</th>
+          <th class="px-3 py-2 text-left font-medium" scope="col">Team</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">P</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">W</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">D</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">L</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">GF</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">GA</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">GD</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="row in rows" class="border-b border-border last:border-0 data-[qualified=true]:bg-success/10" data-qualified="{{ row.qualified }}">
+          <td class="px-3 py-2.5 text-on-surface-muted tabular-nums">{{ row.pos }}</td>
+          <td class="px-3 py-2.5"><span class="flex items-center gap-2 font-medium text-on-surface"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ row.code }}</span>{{ row.team }}</span></td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.p }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.w }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.d }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.l }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.gf }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.ga }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.gd }}</td>
+          <td class="px-2 py-2.5 text-center font-heading text-on-surface tabular-nums">{{ row.pts }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

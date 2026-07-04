@@ -1,0 +1,9 @@
+{
+  "group_name": "Group A",
+  "rows": [
+    { "pos": 1, "team": "Netherlands", "code": "NED", "p": 3, "w": 2, "d": 1, "l": 0, "gf": 5, "ga": 1, "gd": "+4", "pts": 7, "qualified": true },
+    { "pos": 2, "team": "Senegal", "code": "SEN", "p": 3, "w": 2, "d": 0, "l": 1, "gf": 5, "ga": 4, "gd": "+1", "pts": 6, "qualified": true },
+    { "pos": 3, "team": "Ecuador", "code": "ECU", "p": 3, "w": 1, "d": 1, "l": 1, "gf": 4, "ga": 3, "gd": "+1", "pts": 4, "qualified": false },
+    { "pos": 4, "team": "Qatar", "code": "QAT", "p": 3, "w": 0, "d": 0, "l": 3, "gf": 1, "ga": 7, "gd": "-6", "pts": 0, "qualified": false }
+  ]
+}

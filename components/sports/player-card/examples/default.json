@@ -1,0 +1,12 @@
+{
+  "name": "Lionel Messi",
+  "number": "10",
+  "position": "Forward",
+  "nationality": "Argentina",
+  "nationality_code": "ARG",
+  "stats": [
+    { "label": "Goals", "value": "7" },
+    { "label": "Assists", "value": "3" },
+    { "label": "Apps", "value": "7" }
+  ]
+}
