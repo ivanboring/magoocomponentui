@@ -1,0 +1,74 @@
+name: "Notification Center"
+short_description: A full notifications panel with filter tabs, grouping, and mark-all-read.
+long_visual_description: >
+  A larger panel than the inbox: a header with the title and a mark-all-read action, a
+  row of filter tabs (All / Unread / Mentions), and a grouped, divided list of
+  notification rows under date headers. The active filter tab is underlined.
+
+use_cases:
+  - Full notifications page or large panel.
+  - Filtered notification management (All / Unread / Mentions).
+  - Grouped notification history by date.
+  - Settings-adjacent notification review surface.
+  - Dedicated notifications route in an app.
+
+recommended_for:
+  - A full, filterable notification management surface.
+avoid_for:
+  - A compact bell-icon dropdown (use notification-inbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide filter tabs with one active and fill the items slot with grouped
+  notification-list-item rows and notification-group-header dividers. Filter selection
+  and mark-all-read fire events for the app to handle.
+
+props:
+  title: The panel heading.
+  filters: The filter tabs, one active.
+
+slots:
+  items: Grouped notification rows and headers.
+
+example_prompts:
+  - "Add a notification center with All, Unread, and Mentions filters."
+  - "Add a full notifications panel grouped by Today and Earlier."
+
+relationships:
+  children:
+    - notifications/notification-list-item
+    - notifications/notification-group-header
+
+lifecycle: experimental
+content_model: A titled panel with filter tabs and grouped notification rows.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep filter labels to one word; group rows under consistent date buckets.
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: organism
+  usage_type: [list-item, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Filters use role="tablist"/"tab" with aria-selected; rows are links; mark-all-read is a real button. A production build should wire the tabs to filter the list and manage roving focus.
+  keyboard_support: Filter tabs, rows, and mark-all-read are focusable and activate on Enter/Space.
+  seo_score: 25
+  text_direction: both

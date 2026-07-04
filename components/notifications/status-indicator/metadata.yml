@@ -1,0 +1,59 @@
+name: "Status Indicator"
+short_description: A colored status dot with an optional label for presence (online/away/busy/offline).
+long_visual_description: >
+  A small filled circle whose colour encodes presence — success/green online, warning/
+  amber away, danger/red busy, muted offline — optionally followed by a short text label.
+
+use_cases:
+  - Show a user's presence next to their name or avatar.
+  - Indicate a service or integration's health (up/degraded/down).
+  - Show a device or agent's connection status.
+  - Mark an item's live status in a list.
+  - Convey availability in a team roster.
+
+recommended_for:
+  - Compact presence or health status next to a name, avatar, or row.
+avoid_for:
+  - Status that needs a full label and severity styling (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Pair with an avatar or name; include the label wherever colour alone wouldn't be
+  understood (colour is not the only cue for non-visual users — keep the label).
+
+props:
+  status: The presence/health state driving the dot colour.
+  label: Optional visible text after the dot.
+
+example_prompts:
+  - "Add an online status indicator next to the username."
+  - "Add a busy status dot labeled 'Do not disturb'."
+
+lifecycle: experimental
+content_model: A presence state and an optional short label.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-on-surface
+    - --color-on-surface-muted
+
+editorial_guidance: >
+  Keep the label to one or two words; include it wherever the dot alone could be ambiguous.
+
+categorization:
+  category: Notifications
+  subcategory: Activity
+  atomic_type: atom
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The dot is aria-hidden; the label carries the meaning for assistive tech. Provide the label where status must be conveyed non-visually.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

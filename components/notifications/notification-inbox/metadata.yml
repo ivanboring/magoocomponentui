@@ -1,0 +1,78 @@
+name: "Notification Inbox"
+short_description: A dropdown/drawer panel listing notifications with an unread count and mark-all-read.
+long_visual_description: >
+  A bordered panel with a header showing the title, an unread count pill, and a "Mark all
+  read" action; a scrollable divided list of notification rows; and a footer link to the
+  full notifications page. Marking all read clears the unread dots and the count.
+
+use_cases:
+  - Bell-icon dropdown listing recent notifications.
+  - Slide-in notifications drawer.
+  - Header notifications panel with mark-all-read.
+  - Compact recent-activity list with a "view all" link.
+  - App-shell notifications popover.
+
+recommended_for:
+  - A compact, actionable list of recent notifications opened from a bell icon.
+avoid_for:
+  - A full-page notification management view (use notification-center).
+
+markets:
+  - Global
+
+example_usage: >
+  Fill the items slot with notification-list-item rows (and optional group headers);
+  set unread_count to the number of unread rows. "Mark all read" clears their unread
+  state and the count.
+
+props:
+  title: The panel heading.
+  unread_count: The number of unread notifications shown as a pill.
+  footer_href: Link to the full notifications page.
+  footer_label: The footer link text.
+
+slots:
+  items: The notification rows and any group headers.
+
+example_prompts:
+  - "Add a notifications dropdown with 2 unread and a View all link."
+  - "Add a bell-icon inbox panel with mark-all-read."
+
+relationships:
+  children:
+    - notifications/notification-list-item
+    - notifications/notification-group-header
+
+lifecycle: experimental
+content_model: A titled panel wrapping a list of notification rows with an unread count and actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the panel to recent items and link to the full page; label the clear action
+  "Mark all read".
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: organism
+  usage_type: [overlay, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="region" labelled by the title; rows are links; mark-all-read and the footer are real controls. A production build should manage focus when opened from a bell icon.
+  keyboard_support: Mark-all-read, rows, and the footer link are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,18 @@
+<div class="activity-feed-item flex gap-3" data-last="{{ is_last }}">
+  <div class="activity-feed-item__rail relative flex flex-col items-center">
+    <span class="activity-feed-item__avatar relative inline-flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ actor }}">
+      <img data-if="actor_image" class="size-full object-cover" src="{{ actor_image }}" alt="">
+      <span data-if="!actor_image" aria-hidden="true">{{ actor_initials }}</span>
+    </span>
+    <span data-if="!is_last" class="activity-feed-item__line mt-1 w-px flex-1 bg-border" aria-hidden="true"></span>
+  </div>
+  <div class="activity-feed-item__body min-w-0 flex-1 pb-5">
+    <p class="text-sm text-on-surface">
+      <span class="font-medium">{{ actor }}</span>
+      <span class="text-on-surface-muted">{{ verb }}</span>
+      <span class="font-medium">{{ object }}</span>
+      <span data-if="context" class="text-on-surface-muted">{{ context }}</span>
+    </p>
+    <p class="activity-feed-item__time mt-0.5 text-xs text-on-surface-muted">{{ timestamp }}</p>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="in-app-message relative w-80 max-w-[92vw] overflow-hidden rounded-card border border-border bg-surface shadow-raised" role="dialog" aria-labelledby="in-app-message-title">
+  <button type="button" class="in-app-message__dismiss absolute right-2 top-2 z-10 rounded-control bg-surface/70 p-1 text-on-surface-muted backdrop-blur transition-colors duration-(--duration-token) hover:text-on-surface" data-in-app-dismiss aria-label="Dismiss">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+  <img data-if="image" class="in-app-message__image h-36 w-full object-cover" src="{{ image }}" alt="">
+  <div class="in-app-message__body p-(--space-card)">
+    <p data-if="eyebrow" class="in-app-message__eyebrow text-xs font-semibold uppercase tracking-wide text-primary">{{ eyebrow }}</p>
+    <h3 class="in-app-message__title mt-1 font-heading text-lg text-on-surface" id="in-app-message-title">{{ title }}</h3>
+    <p class="in-app-message__message mt-1 text-sm text-on-surface-muted">{{ message }}</p>
+    <a data-if="cta_label" class="in-app-message__cta mt-3 inline-flex items-center rounded-button bg-primary px-3 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">{{ cta_label }}</a>
+  </div>
+</div>

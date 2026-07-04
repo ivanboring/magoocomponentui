@@ -1,0 +1,6 @@
+<span class="notification-badge relative inline-flex">
+  <span class="notification-badge__icon"><slot name="icon"></slot></span>
+  <span data-if="show" class="notification-badge__count absolute -right-1 -top-1 flex min-w-4 items-center justify-center rounded-pill bg-danger px-1 text-[10px] font-semibold leading-4 text-danger-contrast data-[dot=true]:size-2.5 data-[dot=true]:min-w-0 data-[dot=true]:p-0" data-dot="{{ dot }}" aria-label="{{ count }} unread">
+    <span data-if="!dot">{{ count_display }}</span>
+  </span>
+</span>

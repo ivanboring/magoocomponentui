@@ -1,0 +1,35 @@
+name: mention-item
+props:
+  actor:
+    type: string
+    required: true
+    title: Actor
+    example: "Priya Nair"
+  actor_initials:
+    type: string
+    required: true
+    title: Actor initials
+    example: "PN"
+  actor_image:
+    type: image
+    title: Actor image
+  location:
+    type: string
+    required: true
+    title: Location
+    description: Where the mention happened.
+    example: "in Q3 Planning"
+  snippet:
+    type: string
+    required: true
+    title: Snippet
+    description: The surrounding text, with the @mention.
+    example: "Can @you review the roadmap before Friday?"
+  timestamp:
+    type: string
+    required: true
+    title: Timestamp
+    example: "1h ago"
+  href:
+    type: link
+    title: Link

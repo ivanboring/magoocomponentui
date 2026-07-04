@@ -1,0 +1,19 @@
+name: push-optin-card
+props:
+  title:
+    type: string
+    default: "Turn on notifications"
+    title: Title
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Get notified about replies, mentions, and updates — even when the tab is closed."
+  allow_label:
+    type: string
+    default: "Enable"
+    title: Allow label
+  dismiss_label:
+    type: string
+    default: "Not now"
+    title: Dismiss label

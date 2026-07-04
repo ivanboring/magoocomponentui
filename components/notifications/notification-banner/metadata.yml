@@ -1,0 +1,71 @@
+name: "Notification Banner"
+short_description: A persistent full-width severity banner with an optional action and dismiss.
+long_visual_description: >
+  A solid severity-coloured strip spanning its container with a message, an optional
+  underlined action link, and an optional close button. Unlike a toast it persists until
+  dismissed or the condition clears.
+
+use_cases:
+  - Account or billing notice ("Your trial ends in 3 days").
+  - System status or incident banner.
+  - Verification or setup reminder with an action.
+  - Policy or terms update notice.
+  - Region-wide notice at the top of an app view.
+
+recommended_for:
+  - A persistent, page- or section-wide status message, often with one action.
+avoid_for:
+  - Transient confirmations (use notification-toast).
+  - Inline, content-scoped messages (use alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Match variant to severity; keep the message to one line and pair it with a single
+  action. Make it dismissible unless the condition must stay visible.
+
+props:
+  variant: Severity colour for the banner.
+  message: The notice text.
+  action_label: Optional action link text.
+  action_href: Where the action links.
+  dismissible: Show a close button.
+
+example_prompts:
+  - "Add a warning banner that the trial ends in 3 days with an Upgrade link."
+  - "Add a danger banner for an ongoing incident."
+
+lifecycle: experimental
+content_model: A severity, a one-line message, and an optional action.
+
+theming:
+  tokens_used:
+    - --color-info
+    - --color-info-contrast
+    - --color-success
+    - --color-success-contrast
+    - --color-warning
+    - --color-warning-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-control
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the condition and the single next action; keep to one line.
+
+categorization:
+  category: Notifications
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" announces the message; action is a real link; dismiss control is labelled. Ensure the severity colour meets contrast against its contrast token per theme.
+  keyboard_support: The action link and dismiss button are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

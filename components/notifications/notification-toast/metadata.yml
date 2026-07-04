@@ -1,0 +1,73 @@
+name: "Toast"
+short_description: A transient corner toast with a severity accent that auto-dismisses.
+long_visual_description: >
+  A compact raised card with a severity-coloured status icon, a bold title, an optional
+  message, and a close button. Appears briefly in a screen corner and fades out after a
+  timeout (paused while hovered).
+
+use_cases:
+  - Confirm a quick action succeeded ("Saved").
+  - Report a background error that isn't page-blocking.
+  - Notify of an incoming event or update.
+  - Acknowledge a queued or completed job.
+  - Surface a brief warning that doesn't require action.
+
+recommended_for:
+  - Transient, self-dismissing feedback stacked in a screen corner.
+avoid_for:
+  - Persistent inline messages tied to content (use alert).
+  - Messages requiring an explicit decision (use a dialog).
+
+markets:
+  - Global
+
+example_usage: >
+  Match variant to intent; keep the title to a few words with an optional one-line
+  message. Set duration to 0 for errors that should stay until dismissed. Stack multiple
+  toasts in a corner container and listen for notification-toast:dismissed to reflow.
+
+props:
+  variant: Severity accent for the icon.
+  title: A short, bold headline.
+  message: An optional one-line detail.
+  duration: Auto-dismiss delay in ms; 0 keeps it until dismissed.
+
+example_prompts:
+  - "Add a success toast saying 'Saved' that auto-dismisses."
+  - "Add a persistent error toast for a failed upload."
+
+lifecycle: experimental
+content_model: A severity, a short title, and an optional one-line message.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the outcome; keep the title to a few words. Give error toasts no auto-dismiss.
+
+categorization:
+  category: Notifications
+  subcategory: Toasts
+  atomic_type: molecule
+  usage_type: [overlay, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" aria-live="polite" announces the toast; auto-dismiss pauses on hover; the dismiss control is labelled. Errors should use a longer/zero duration so they aren't missed.
+  keyboard_support: The dismiss button is focusable and activates on Enter/Space.
+  seo_score: 15
+  text_direction: both

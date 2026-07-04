@@ -1,0 +1,66 @@
+name: "Notification Badge"
+short_description: An unread count (or dot) badge overlaid on the corner of an icon.
+long_visual_description: >
+  A small danger-coloured pill pinned to the top-right corner of an icon showing an
+  unread count, or a bare dot when only presence of unread items matters. Hidden when
+  there's nothing unread.
+
+use_cases:
+  - Unread count on a bell/notifications icon.
+  - Unread messages count on a chat/inbox icon.
+  - Cart item count on a cart icon.
+  - Pending-tasks count on a nav item.
+  - Dot indicator for "new" without a number.
+
+recommended_for:
+  - Overlaying an unread/new count or dot on an icon or avatar.
+avoid_for:
+  - Standalone status labels (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Wrap the icon in the icon slot; precompute count_display (clamping to max as "N+") since
+  the template can't do the comparison. Set dot for a numberless indicator, and show:
+  false to hide it when there's nothing unread.
+
+props:
+  count: The raw unread count (used for the accessible label).
+  max: The cap above which the count shows as "max+".
+  count_display: Precomputed visible text (e.g. "99+").
+  dot: Show a bare dot instead of a number.
+  show: Whether the badge renders at all.
+
+slots:
+  icon: The icon the badge is overlaid on.
+
+example_prompts:
+  - "Add a notification badge with 9 unread on a bell icon."
+  - "Add a dot-only new indicator on the messages icon."
+
+lifecycle: experimental
+content_model: An unread count or dot overlaid on an icon.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-danger-contrast
+    - --color-on-surface
+    - --radius-pill
+
+editorial_guidance: >
+  Clamp large counts (e.g. "99+"); hide the badge entirely at zero rather than showing "0".
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The badge carries an aria-label with the unread count; when using dot-only, ensure the count is available to assistive tech via the label.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

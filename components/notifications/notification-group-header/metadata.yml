@@ -1,0 +1,56 @@
+name: "Notification Group Header"
+short_description: A small date/section header that groups rows within a notification list.
+long_visual_description: >
+  A slim header row in muted uppercase type ("Today", "Earlier", "This week") with an
+  optional count on the trailing edge, used to separate groups of notification rows.
+
+use_cases:
+  - Separate notifications by time ("Today", "Yesterday", "Earlier").
+  - Group activity by section or category.
+  - Head a batch of grouped list items in an inbox.
+  - Divide a feed into dated segments.
+  - Label a cluster of related notifications.
+
+recommended_for:
+  - Section/date headers inside notification-inbox or notification-center lists.
+avoid_for:
+  - Standalone page headings (use a real heading component).
+
+markets:
+  - Global
+
+example_usage: >
+  Place before each group of notification-list-item rows; use a short time or category
+  label and an optional count.
+
+props:
+  label: The group's short label (a date bucket or category).
+  count: Optional number of items in the group.
+
+example_prompts:
+  - "Add a 'Today' group header with a count of 4."
+  - "Add an 'Earlier' section header to the notification list."
+
+lifecycle: experimental
+content_model: A short group label and an optional count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+
+editorial_guidance: >
+  Use consistent bucket labels across the app ("Today", "Yesterday", "Earlier"); keep them short.
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: atom
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real heading element so the group is announced; the count is plain text.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

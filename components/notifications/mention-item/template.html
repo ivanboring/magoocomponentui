@@ -1,0 +1,14 @@
+<a class="mention-item flex items-start gap-3 rounded-card px-(--space-card) py-3 transition-colors duration-(--duration-token) hover:bg-surface-raised" href="{{ href }}">
+  <span class="mention-item__avatar relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ actor }}">
+    <img data-if="actor_image" class="size-full object-cover" src="{{ actor_image }}" alt="">
+    <span data-if="!actor_image" aria-hidden="true">{{ actor_initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="mention-item__heading text-sm text-on-surface">
+      <span class="font-medium">{{ actor }}</span>
+      <span class="text-on-surface-muted">mentioned you {{ location }}</span>
+    </p>
+    <p class="mention-item__snippet mt-1 rounded-control border-l-2 border-primary bg-surface-raised px-3 py-1.5 text-sm text-on-surface-muted">{{ snippet }}</p>
+    <p class="mention-item__time mt-1 text-xs text-on-surface-muted">{{ timestamp }}</p>
+  </div>
+</a>

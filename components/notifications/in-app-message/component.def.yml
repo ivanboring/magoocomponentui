@@ -1,0 +1,27 @@
+name: in-app-message
+props:
+  eyebrow:
+    type: string
+    title: Eyebrow
+    description: Small label above the title, e.g. "What's new".
+    example: "What's new"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Introducing dark mode"
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Switch themes from the settings menu. Your eyes will thank you."
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Try it"
+  cta_href:
+    type: link
+    title: CTA link
+  image:
+    type: image
+    title: Image

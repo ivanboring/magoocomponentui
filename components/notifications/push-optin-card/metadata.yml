@@ -1,0 +1,71 @@
+name: "Push Opt-in Card"
+short_description: A card prompting the user to enable browser/push notifications, with allow and dismiss.
+long_visual_description: >
+  A card with a bell icon in a tinted circle, a short title and explanation of the
+  benefit, and two actions — a primary Enable and a low-emphasis Not now. Used to ask
+  for notification permission in context rather than on load.
+
+use_cases:
+  - Prompt to enable web push notifications.
+  - Ask to turn on browser notifications after a relevant action.
+  - Encourage enabling alerts for replies or mentions.
+  - Re-prompt (softly) after an earlier dismissal.
+  - Onboarding step offering notifications.
+
+recommended_for:
+  - A contextual, benefit-led prompt to enable notifications (not an on-load nag).
+avoid_for:
+  - Immediately triggering the native permission dialog without context.
+  - Non-notification permissions.
+
+markets:
+  - Global
+
+example_usage: >
+  Show after the user does something that makes notifications useful; state the benefit,
+  not the mechanism. Only call the native permission API after they choose Enable.
+
+props:
+  title: The prompt headline.
+  message: A one- or two-line benefit statement.
+  allow_label: The enable button text.
+  dismiss_label: The soft-dismiss text.
+
+example_prompts:
+  - "Add a push opt-in card asking to enable notifications for replies and mentions."
+  - "Add a soft prompt to turn on browser notifications with Enable and Not now."
+
+lifecycle: experimental
+content_model: A benefit-led message with allow and dismiss actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with what the user gains, not "we'd like to send you notifications"; keep Not now
+  genuinely low-friction.
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="region" labelled by the title; both actions are real buttons; the icon is decorative.
+  keyboard_support: Both buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

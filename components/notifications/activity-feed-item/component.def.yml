@@ -1,0 +1,41 @@
+name: activity-feed-item
+props:
+  actor:
+    type: string
+    required: true
+    title: Actor
+    example: "Sam Lee"
+  actor_initials:
+    type: string
+    required: true
+    title: Actor initials
+    description: 1-2 char avatar fallback; precomputed by the caller.
+    example: "SL"
+  actor_image:
+    type: image
+    title: Actor image
+  verb:
+    type: string
+    required: true
+    title: Verb
+    example: "moved"
+  object:
+    type: string
+    required: true
+    title: Object
+    example: "Design review"
+  context:
+    type: string
+    title: Context
+    description: Optional trailing context, e.g. "to In Progress".
+    example: "to In Progress"
+  timestamp:
+    type: string
+    required: true
+    title: Timestamp
+    example: "10:24"
+  is_last:
+    type: boolean
+    default: false
+    title: Is last
+    description: Hides the connecting timeline line on the final item.

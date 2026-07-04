@@ -1,0 +1,12 @@
+<section class="notification-center flex flex-col rounded-card border border-border bg-surface" aria-label="{{ title }}">
+  <div class="notification-center__header flex items-center justify-between gap-3 border-b border-border px-(--space-card) pt-3">
+    <h2 class="notification-center__title font-heading text-lg text-on-surface">{{ title }}</h2>
+    <button type="button" class="notification-center__mark-all pb-3 text-sm font-medium text-primary transition-opacity duration-(--duration-token) hover:opacity-80" data-mark-all-read>Mark all read</button>
+  </div>
+  <div class="notification-center__filters flex items-center gap-1 border-b border-border px-(--space-card)" role="tablist" aria-label="Filter notifications">
+    <button data-for="filter in filters" type="button" class="notification-center__filter -mb-px border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" data-value="{{ filter.value }}" data-active="{{ filter.active }}" aria-selected="{{ filter.active }}">{{ filter.label }}</button>
+  </div>
+  <div class="notification-center__list divide-y divide-border">
+    <slot name="items"></slot>
+  </div>
+</section>

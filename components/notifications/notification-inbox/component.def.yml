@@ -1,0 +1,22 @@
+name: notification-inbox
+props:
+  title:
+    type: string
+    default: "Notifications"
+    title: Title
+  unread_count:
+    type: integer
+    default: 0
+    title: Unread count
+  footer_href:
+    type: link
+    title: Footer link
+    example: "/notifications"
+  footer_label:
+    type: string
+    default: "View all"
+    title: Footer label
+slots:
+  items:
+    title: Items
+    description: The notification rows (notification-list-item / group headers).

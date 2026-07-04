@@ -1,0 +1,11 @@
+{
+  "title": "Notifications",
+  "filters": [
+    { "label": "All", "value": "all", "active": true },
+    { "label": "Unread", "value": "unread", "active": false },
+    { "label": "Mentions", "value": "mentions", "active": false }
+  ],
+  "$slots": {
+    "items": "<div class=\"bg-surface px-4 py-1.5\"><h3 class=\"text-xs font-semibold uppercase tracking-wide text-on-surface-muted\">Today</h3></div><a class=\"notification-list-item flex items-start gap-3 px-4 py-3 hover:bg-surface-raised data-[unread=true]:bg-surface-raised\" href=\"#\" data-unread=\"true\"><span class=\"relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface\" role=\"img\" aria-label=\"Jane Doe\"><img class=\"size-full object-cover\" src=\"/stock/avatar-woman-1.jpg\" alt=\"\"></span><div class=\"min-w-0 flex-1\"><p class=\"text-sm text-on-surface\"><span class=\"font-medium\">Jane Doe</span> commented on your post</p><p class=\"mt-0.5 text-xs text-on-surface-muted\">2h ago</p></div><span class=\"notification-list-item__dot mt-1.5 size-2 shrink-0 rounded-full bg-primary\" aria-label=\"Unread\"></span></a><div class=\"bg-surface px-4 py-1.5\"><h3 class=\"text-xs font-semibold uppercase tracking-wide text-on-surface-muted\">Earlier</h3></div><a class=\"notification-list-item flex items-start gap-3 px-4 py-3 hover:bg-surface-raised\" href=\"#\" data-unread=\"false\"><span class=\"relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface\" role=\"img\" aria-label=\"Ari Cohen\"><span aria-hidden=\"true\">AC</span></span><div class=\"min-w-0 flex-1\"><p class=\"text-sm text-on-surface\"><span class=\"font-medium\">Ari Cohen</span> assigned you a task</p><p class=\"mt-0.5 text-xs text-on-surface-muted\">Yesterday</p></div></a>"
+  }
+}

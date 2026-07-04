@@ -1,0 +1,10 @@
+name: notification-empty-state
+props:
+  title:
+    type: string
+    default: "You're all caught up"
+    title: Title
+  description:
+    type: string
+    default: "New notifications will show up here."
+    title: Description

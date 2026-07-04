@@ -1,0 +1,31 @@
+name: notification-badge
+props:
+  count:
+    type: integer
+    default: 0
+    title: Count
+    description: Unread count; 0 hides the badge unless dot is set.
+  max:
+    type: integer
+    default: 99
+    title: Max
+    description: Counts above this show as "max+".
+  count_display:
+    type: string
+    title: Count display
+    description: Precomputed badge text (e.g. "99+"); caller clamps count to max.
+    example: "9"
+  dot:
+    type: boolean
+    default: false
+    title: Dot only
+    description: Show a small dot with no number.
+  show:
+    type: boolean
+    default: true
+    title: Show
+    description: Whether the badge is visible (usually count > 0 or dot).
+slots:
+  icon:
+    title: Icon
+    description: The element the badge is overlaid on (e.g. a bell icon).

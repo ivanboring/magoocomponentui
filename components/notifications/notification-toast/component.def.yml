@@ -1,0 +1,27 @@
+name: notification-toast
+props:
+  variant:
+    type: enum
+    values: [info, success, warning, danger]
+    default: info
+    title: Severity
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Saved"
+  message:
+    type: string
+    title: Message
+    example: "Your changes were saved."
+  duration:
+    type: integer
+    default: 5000
+    title: Auto-dismiss (ms)
+    description: Milliseconds before auto-dismiss; 0 disables it.
+variants:
+  variant:
+    info: "text-info"
+    success: "text-success"
+    warning: "text-warning"
+    danger: "text-danger"

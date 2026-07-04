@@ -1,0 +1,11 @@
+name: notification-group-header
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Today"
+  count:
+    type: integer
+    title: Count
+    description: Optional count shown on the trailing edge.

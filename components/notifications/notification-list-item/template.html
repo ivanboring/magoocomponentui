@@ -1,0 +1,13 @@
+<a class="notification-list-item flex items-start gap-3 px-(--space-card) py-3 transition-colors duration-(--duration-token) hover:bg-surface-raised data-[unread=true]:bg-surface-raised" href="{{ href }}" data-unread="{{ unread }}">
+  <span class="notification-list-item__avatar relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ actor }}">
+    <img data-if="actor_image" class="size-full object-cover" src="{{ actor_image }}" alt="">
+    <span data-if="!actor_image" aria-hidden="true">{{ actor_initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="notification-list-item__text text-sm text-on-surface">
+      <span class="font-medium">{{ actor }}</span> {{ message }}
+    </p>
+    <p class="notification-list-item__time mt-0.5 text-xs text-on-surface-muted">{{ timestamp }}</p>
+  </div>
+  <span data-if="unread" class="notification-list-item__dot mt-1.5 size-2 shrink-0 rounded-full bg-primary" aria-label="Unread"></span>
+</a>

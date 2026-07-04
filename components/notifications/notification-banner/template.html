@@ -1,0 +1,7 @@
+<div class="notification-banner flex items-center gap-3 px-(--space-card) py-3 text-sm {{ variant@class }}" role="status" data-dismissible="{{ dismissible }}">
+  <p class="notification-banner__message min-w-0 flex-1">{{ message }}</p>
+  <a data-if="action_href" class="notification-banner__action shrink-0 font-heading font-semibold underline" href="{{ action_href }}">{{ action_label }}</a>
+  <button data-if="dismissible" type="button" class="notification-banner__dismiss shrink-0 rounded-control p-1 transition-opacity duration-(--duration-token) hover:opacity-80" data-banner-dismiss aria-label="Dismiss">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+</div>

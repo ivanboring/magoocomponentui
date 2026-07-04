@@ -1,0 +1,34 @@
+name: notification-list-item
+props:
+  actor:
+    type: string
+    required: true
+    title: Actor
+    example: "Jane Doe"
+  actor_initials:
+    type: string
+    required: true
+    title: Actor initials
+    description: 1-2 char avatar fallback; precomputed by the caller.
+    example: "JD"
+  actor_image:
+    type: image
+    title: Actor image
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "commented on your post"
+  timestamp:
+    type: string
+    required: true
+    title: Timestamp
+    description: Human-formatted relative time.
+    example: "2h ago"
+  href:
+    type: link
+    title: Link
+  unread:
+    type: boolean
+    default: false
+    title: Unread

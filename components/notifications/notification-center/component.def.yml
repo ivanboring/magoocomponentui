@@ -1,0 +1,20 @@
+name: notification-center
+props:
+  title:
+    type: string
+    default: "Notifications"
+    title: Title
+  filters:
+    type: array
+    items: object
+    required: true
+    title: Filters
+    description: "Each filter tab: { label, value, active }. One should be active."
+    example:
+      - { label: "All", value: "all", active: true }
+      - { label: "Unread", value: "unread", active: false }
+      - { label: "Mentions", value: "mentions", active: false }
+slots:
+  items:
+    title: Items
+    description: Notification rows and group headers.

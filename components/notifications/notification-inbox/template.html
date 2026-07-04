@@ -1,0 +1,13 @@
+<div class="notification-inbox flex w-96 max-w-[92vw] flex-col overflow-hidden rounded-card border border-border bg-surface shadow-raised" role="region" aria-label="{{ title }}">
+  <div class="notification-inbox__header flex items-center justify-between gap-3 border-b border-border px-(--space-card) py-3">
+    <div class="flex items-center gap-2">
+      <h2 class="notification-inbox__title font-heading text-on-surface">{{ title }}</h2>
+      <span data-if="unread_count" class="notification-inbox__count rounded-pill bg-primary px-2 py-0.5 text-xs font-semibold text-primary-contrast">{{ unread_count }}</span>
+    </div>
+    <button type="button" class="notification-inbox__mark-all text-sm font-medium text-primary transition-opacity duration-(--duration-token) hover:opacity-80" data-mark-all-read>Mark all read</button>
+  </div>
+  <div class="notification-inbox__list max-h-96 divide-y divide-border overflow-y-auto">
+    <slot name="items"></slot>
+  </div>
+  <a data-if="footer_href" class="notification-inbox__footer border-t border-border px-(--space-card) py-3 text-center text-sm font-medium text-primary transition-colors duration-(--duration-token) hover:bg-surface-raised" href="{{ footer_href }}">{{ footer_label }}</a>
+</div>

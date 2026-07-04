@@ -1,0 +1,7 @@
+{
+  "variant": "warning",
+  "message": "Your trial ends in 3 days.",
+  "action_label": "Upgrade",
+  "action_href": "/billing",
+  "dismissible": true
+}

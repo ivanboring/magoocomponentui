@@ -1,0 +1,69 @@
+name: "Mention Item"
+short_description: An @mention notification showing who mentioned you, where, and a context snippet.
+long_visual_description: >
+  A row with the mentioner's avatar, a heading naming them and where the mention
+  happened, a quoted snippet of the surrounding text set off by a primary-coloured left
+  border, and a timestamp.
+
+use_cases:
+  - "@you was mentioned in a comment or document."
+  - Mention in a chat channel or thread.
+  - Tagged in a task, card, or review.
+  - Mention in a shared doc's comment.
+  - Mention in a project discussion.
+
+recommended_for:
+  - Mention notifications that benefit from showing the surrounding context.
+avoid_for:
+  - Generic activity rows without a quoted snippet (use notification-list-item).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the snippet with the @mention so the user understands the context at a glance;
+  precompute actor_initials and a relative timestamp.
+
+props:
+  actor: Who mentioned the user.
+  actor_initials: 1-2 char avatar fallback, precomputed.
+  actor_image: Optional actor photo.
+  location: Where the mention happened (e.g. "in Q3 Planning").
+  snippet: The surrounding text containing the mention.
+  timestamp: A human relative time.
+  href: Where the row links (to the mention in context).
+
+example_prompts:
+  - "Add a mention notification: Priya mentioned you in Q3 Planning with a snippet."
+  - "Add an @mention item from a chat thread."
+
+lifecycle: experimental
+content_model: A mentioner, a location, a quoted context snippet, and a timestamp.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the snippet to the sentence containing the mention; don't paraphrase it.
+
+categorization:
+  category: Notifications
+  subcategory: Activity
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The row is a single link; the avatar carries the actor name via role="img"/aria-label; the snippet is real text.
+  keyboard_support: The row is focusable and activates on Enter.
+  seo_score: 20
+  text_direction: both

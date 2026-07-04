@@ -1,0 +1,12 @@
+<div class="notification-toast flex w-80 max-w-[90vw] items-start gap-3 rounded-card border border-border bg-surface-raised p-(--space-card) shadow-raised" role="status" aria-live="polite" data-duration="{{ duration }}">
+  <span class="notification-toast__icon mt-0.5 shrink-0 {{ variant@class }}" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="notification-toast__title font-heading text-sm text-on-surface">{{ title }}</p>
+    <p data-if="message" class="notification-toast__message mt-0.5 text-sm text-on-surface-muted">{{ message }}</p>
+  </div>
+  <button type="button" class="notification-toast__dismiss -m-1 shrink-0 rounded-control p-1 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Dismiss">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+</div>

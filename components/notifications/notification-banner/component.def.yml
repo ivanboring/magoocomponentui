@@ -1,0 +1,29 @@
+name: notification-banner
+props:
+  variant:
+    type: enum
+    values: [info, success, warning, danger]
+    default: info
+    title: Severity
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Your trial ends in 3 days."
+  action_label:
+    type: string
+    title: Action label
+    example: "Upgrade"
+  action_href:
+    type: link
+    title: Action link
+  dismissible:
+    type: boolean
+    default: false
+    title: Dismissible
+variants:
+  variant:
+    info: "bg-info text-info-contrast"
+    success: "bg-success text-success-contrast"
+    warning: "bg-warning text-warning-contrast"
+    danger: "bg-danger text-danger-contrast"

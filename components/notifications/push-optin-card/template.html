@@ -1,0 +1,13 @@
+<div class="push-optin-card flex items-start gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="region" aria-label="{{ title }}">
+  <span class="push-optin-card__icon flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 8a6 6 0 1112 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 20a2 2 0 004 0"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <h3 class="push-optin-card__title font-heading text-on-surface">{{ title }}</h3>
+    <p class="push-optin-card__message mt-1 text-sm text-on-surface-muted">{{ message }}</p>
+    <div class="push-optin-card__actions mt-3 flex items-center gap-2">
+      <button type="button" class="push-optin-card__allow rounded-button bg-primary px-3 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" data-optin-allow>{{ allow_label }}</button>
+      <button type="button" class="push-optin-card__dismiss rounded-button px-3 py-1.5 text-sm font-heading text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" data-optin-dismiss>{{ dismiss_label }}</button>
+    </div>
+  </div>
+</div>

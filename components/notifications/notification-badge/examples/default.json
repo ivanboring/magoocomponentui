@@ -1,0 +1,10 @@
+{
+  "count": 9,
+  "max": 99,
+  "count_display": "9",
+  "dot": false,
+  "show": true,
+  "$slots": {
+    "icon": "<svg class=\"size-6 text-on-surface\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M6 8a6 6 0 1112 0c0 5 2 6 2 6H4s2-1 2-6z\"/><path d=\"M10 20a2 2 0 004 0\"/></svg>"
+  }
+}

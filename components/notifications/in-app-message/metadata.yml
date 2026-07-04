@@ -1,0 +1,73 @@
+name: "In-app Message"
+short_description: A dismissible in-app promo/announcement card with an optional image and CTA.
+long_visual_description: >
+  A compact card with an optional cover image, a small coloured eyebrow label, a title,
+  a short message, and an optional CTA button, plus a close button in the corner. Used
+  for feature announcements or promos inside the app.
+
+use_cases:
+  - Announce a new feature inside the app.
+  - Promote an upgrade or add-on contextually.
+  - Share a tip or onboarding nudge.
+  - Highlight an event or limited-time offer in-product.
+  - Cross-sell a related feature after a relevant action.
+
+recommended_for:
+  - A single, dismissible in-product announcement or promo.
+avoid_for:
+  - System status or severity messages (use notification-banner or alert).
+  - Transient confirmations (use notification-toast).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep it to one message and one CTA; use the eyebrow for a category ("What's new") and
+  an optional image for visual appeal. Always dismissible.
+
+props:
+  eyebrow: Small category label above the title.
+  title: The announcement headline.
+  message: A one- or two-line description.
+  cta_label: Optional call-to-action text.
+  cta_href: Where the CTA links.
+  image: Optional cover image.
+
+example_prompts:
+  - "Add an in-app message announcing dark mode with a Try it button."
+  - "Add a dismissible promo card for a new feature."
+
+lifecycle: experimental
+content_model: An eyebrow, title, message, optional image, and optional CTA.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  One idea per message; lead with the benefit and keep the CTA to two or three words.
+
+categorization:
+  category: Notifications
+  subcategory: Feedback
+  atomic_type: molecule
+  usage_type: [highlight, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" labelled by the title; the dismiss control is labelled; the cover image is decorative (empty alt).
+  keyboard_support: The CTA and dismiss button are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

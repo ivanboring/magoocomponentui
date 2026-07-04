@@ -1,0 +1,57 @@
+name: "Notification Empty State"
+short_description: A "you're all caught up" placeholder shown when there are no notifications.
+long_visual_description: >
+  A centered block with a muted bell/slash icon, a reassuring title, and a one-line
+  explanation — shown inside a notification inbox or center when the list is empty.
+
+use_cases:
+  - Empty notification inbox after everything is read.
+  - Empty notification center with no items.
+  - Cleared alerts panel.
+  - Fresh account with no notifications yet.
+  - Filtered view with no matching notifications.
+
+recommended_for:
+  - The zero-state of a notification inbox/center.
+avoid_for:
+  - General empty states elsewhere (use empty-state).
+
+markets:
+  - Global
+
+example_usage: >
+  Show in place of the notification list when it's empty; keep the copy positive and brief.
+
+props:
+  title: The reassuring headline.
+  description: A one-line explanation of what will appear here.
+
+example_prompts:
+  - "Add a 'You're all caught up' empty state for the notifications panel."
+  - "Add an empty notifications placeholder."
+
+lifecycle: experimental
+content_model: A short title and a one-line description.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep it positive ("You're all caught up"), not negative ("No notifications").
+
+categorization:
+  category: Notifications
+  subcategory: Center
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real heading and paragraph; the icon is decorative (aria-hidden).
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,67 @@
+name: "Activity Feed Item"
+short_description: An actor–verb–object activity row with a timeline rail and timestamp.
+long_visual_description: >
+  A row with a small avatar on a vertical timeline rail, a sentence naming the actor, the
+  action verb, and the object (with optional trailing context), plus a timestamp beneath.
+  The connecting line is hidden on the final item.
+
+use_cases:
+  - Project/board activity ("Sam moved Design review to In Progress").
+  - Audit log of who did what and when.
+  - Version history or changelog entries.
+  - Deal or ticket activity timeline.
+  - Document collaboration history.
+
+recommended_for:
+  - Chronological activity streams where each entry is actor–verb–object.
+avoid_for:
+  - Simple notification rows (use notification-list-item).
+  - Chat messages (use message-bubble).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute actor_initials and the timestamp; stack items in a container and set is_last
+  on the final one to end the timeline line cleanly.
+
+props:
+  actor: Who performed the action.
+  actor_initials: 1-2 char avatar fallback, precomputed.
+  actor_image: Optional actor photo.
+  verb: The past-tense action, e.g. "moved", "commented on".
+  object: The thing acted upon.
+  context: Optional trailing detail, e.g. "to In Progress".
+  timestamp: A short time label.
+  is_last: Hides the connecting line on the final item.
+
+example_prompts:
+  - "Add an activity item: Sam Lee moved Design review to In Progress at 10:24."
+  - "Add an activity feed row for a comment on a task."
+
+lifecycle: experimental
+content_model: An actor, a verb, an object, optional context, and a timestamp.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Use past-tense verbs; keep the object short and specific, and put nuance in the context.
+
+categorization:
+  category: Notifications
+  subcategory: Activity
+  atomic_type: molecule
+  usage_type: [list-item, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the actor name via role="img"/aria-label; the timeline line is decorative (aria-hidden); the sentence reads naturally to a screen reader.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both
