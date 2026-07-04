@@ -1,0 +1,13 @@
+<section class="watch-next-rail" aria-label="{{ title }}">
+  <h2 class="watch-next-rail__title mb-3 font-heading text-lg text-on-surface">{{ title }}</h2>
+  <div class="watch-next-rail__track flex gap-4 overflow-x-auto pb-2">
+    <a data-for="item in items" class="watch-next-rail__item group flex w-48 shrink-0 flex-col" href="{{ item.href }}">
+      <span class="relative block aspect-video overflow-hidden rounded-card bg-surface-raised">
+        <img data-if="item.thumbnail" class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.thumbnail }}" alt="">
+        <span class="absolute bottom-1.5 right-1.5 rounded-control bg-black/75 px-1.5 text-xs font-medium tabular-nums text-white">{{ item.duration }}</span>
+      </span>
+      <span class="mt-2 line-clamp-2 text-sm font-medium text-on-surface">{{ item.title }}</span>
+      <span class="mt-0.5 text-xs text-on-surface-muted">{{ item.channel }}</span>
+    </a>
+  </div>
+</section>

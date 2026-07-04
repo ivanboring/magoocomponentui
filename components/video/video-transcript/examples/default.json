@@ -1,0 +1,8 @@
+{
+  "cues": [
+    { "time": "0:00", "seconds": 0, "text": "Welcome to the Design Systems Podcast.", "active": false },
+    { "time": "0:12", "seconds": 12, "text": "Today we talk about scaling a component library.", "active": true },
+    { "time": "0:31", "seconds": 31, "text": "Let's start with a single source of truth.", "active": false },
+    { "time": "0:58", "seconds": 58, "text": "Then we'll cover generating every framework target.", "active": false }
+  ]
+}

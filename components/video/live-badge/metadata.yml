@@ -1,0 +1,56 @@
+name: "Live Badge"
+short_description: A pulsing red LIVE indicator for streams and real-time content.
+long_visual_description: >
+  A small red pill with a pulsing dot and uppercase "LIVE" text, signalling that content
+  is streaming in real time.
+
+use_cases:
+  - Mark a live video stream.
+  - Flag a live sports match or event.
+  - Indicate a live audio room or broadcast.
+  - Show a real-time dashboard is live.
+  - Badge a live blog or ticker.
+
+recommended_for:
+  - Signalling that content is currently live/streaming.
+avoid_for:
+  - Recorded or on-demand content.
+  - Generic status labels (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Overlay on a video thumbnail or place next to a title; keep the label short ("LIVE").
+
+props:
+  label: The badge text.
+
+example_prompts:
+  - "Add a pulsing LIVE badge to the stream thumbnail."
+  - "Add a live indicator next to the match title."
+
+lifecycle: experimental
+content_model: A short live label with a pulsing dot.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-control
+
+editorial_guidance: >
+  Reserve strictly for genuinely live content; remove it the moment the stream ends.
+
+categorization:
+  category: Video
+  subcategory: Live
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The pulsing dot is decorative; the "LIVE" text conveys the state. The pulse animation is subtle and respects reduced-motion via the browser where configured.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

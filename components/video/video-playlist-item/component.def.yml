@@ -1,0 +1,28 @@
+name: video-playlist-item
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Episode 3 — Tokens and theming"
+  channel:
+    type: string
+    required: true
+    title: Channel
+    example: "Design Systems Podcast"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "18:24"
+  thumbnail:
+    type: image
+    title: Thumbnail
+    example: "/stock/cover-workspace.jpg"
+  playing:
+    type: boolean
+    default: false
+    title: Now playing
+  href:
+    type: link
+    title: Link

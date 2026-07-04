@@ -1,0 +1,17 @@
+<header class="channel-header overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="channel-header__banner h-32 bg-cover bg-center bg-surface-raised" style="background-image: url({{ banner }})" aria-hidden="true"></div>
+  <div class="channel-header__body flex flex-col items-start gap-4 p-(--space-card) sm:flex-row sm:items-center">
+    <span class="channel-header__avatar relative -mt-12 inline-flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-full border-4 border-surface bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+      <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <h1 class="channel-header__name font-heading text-xl text-on-surface">{{ name }}</h1>
+      <p class="channel-header__stats text-sm text-on-surface-muted">{{ subscribers }}<span data-if="videos"> · {{ videos }}</span></p>
+    </div>
+    <button type="button" class="channel-header__subscribe shrink-0 rounded-pill px-5 py-2 text-sm font-heading transition-colors duration-(--duration-token) data-[subscribed=true]:border data-[subscribed=true]:border-border data-[subscribed=true]:bg-surface data-[subscribed=true]:text-on-surface data-[subscribed=false]:bg-primary data-[subscribed=false]:text-primary-contrast data-[subscribed=false]:hover:opacity-90" data-subscribed="{{ subscribed }}" aria-pressed="{{ subscribed }}">
+      <span class="data-[subscribed=true]:hidden" data-subscribed="{{ subscribed }}">Subscribe</span>
+      <span class="hidden data-[subscribed=true]:inline" data-subscribed="{{ subscribed }}">Subscribed</span>
+    </button>
+  </div>
+</header>

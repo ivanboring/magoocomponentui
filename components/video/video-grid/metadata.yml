@@ -1,0 +1,60 @@
+name: "Video Grid"
+short_description: A responsive grid of video thumbnails with title, channel, views, and duration.
+long_visual_description: >
+  A responsive grid of video cards, each a 16:9 thumbnail with a duration overlay above a
+  two-line title and a channel · views meta line. Thumbnails zoom slightly on hover.
+
+use_cases:
+  - Channel or search results video grid.
+  - Category or playlist browse.
+  - Home feed of recommended videos.
+  - Related videos section.
+  - Media library grid.
+
+recommended_for:
+  - A grid of video previews from a list of items.
+avoid_for:
+  - A single up-next list (use video-playlist-item rows).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide items with thumbnail, title, channel, views, and duration; the grid steps from
+  1 to 3 columns responsively.
+
+props:
+  items: The videos to display.
+
+example_prompts:
+  - "Add a responsive video grid of recommended videos."
+  - "Add a channel's video grid with durations and view counts."
+
+lifecycle: experimental
+content_model: A responsive grid of video preview items.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --radius-control
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep titles to two lines; use a consistent views and duration format.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each item is a single link; thumbnails are decorative and durations/meta are real text.
+  keyboard_support: Each item is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

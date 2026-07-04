@@ -1,0 +1,62 @@
+name: "Video Chapters"
+short_description: A list of chapter markers with thumbnails and timestamps that seek on click.
+long_visual_description: >
+  A vertical list of chapters, each a small thumbnail beside a title and a monospace start
+  time; the active chapter is highlighted and clicking one seeks the player to its start.
+
+use_cases:
+  - Chapter navigation beside a long video.
+  - Section jump list for a tutorial.
+  - Segmented lecture navigation.
+  - Timestamped highlights list.
+  - Podcast/video table of contents.
+
+recommended_for:
+  - Jumping between named sections of a single video.
+avoid_for:
+  - A full spoken transcript (use video-transcript).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide chapters with title, display time, and numeric seconds; mark the current
+  chapter active. Clicking emits chapters:seek for the player.
+
+props:
+  chapters: The chapter markers with titles, times, and thumbnails.
+
+example_prompts:
+  - "Add a chapter list with thumbnails that seek the video."
+  - "Add a chapters navigation for a long tutorial."
+
+relationships:
+  related:
+    - video/video-player
+
+lifecycle: experimental
+content_model: An ordered list of chapter markers with a current one.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Title chapters by topic, not "Part 1"; align start times to real section boundaries.
+
+categorization:
+  category: Video
+  subcategory: Timeline
+  atomic_type: molecule
+  usage_type: [list-item, timeline, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each chapter is a real button; the active chapter sets aria-current; thumbnails are decorative.
+  keyboard_support: Each chapter is focusable and seeks on Enter/Space.
+  seo_score: 40
+  text_direction: both

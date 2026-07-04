@@ -1,0 +1,27 @@
+<figure class="video-player-live relative overflow-hidden rounded-card bg-black shadow-card">
+  <video data-if="src" class="video-player-live__video block aspect-video w-full" src="{{ src }}" poster="{{ poster }}" preload="metadata"></video>
+  <div data-if="!src" class="video-player-live__placeholder relative flex aspect-video w-full items-center justify-center bg-cover bg-center" style="background-image: url({{ poster }})">
+    <span class="absolute inset-0 bg-black/30" aria-hidden="true"></span>
+  </div>
+  <div class="video-player-live__top absolute inset-x-0 top-0 flex items-center gap-2 p-3">
+    <span class="video-player-live__live inline-flex items-center gap-1.5 rounded-control bg-danger px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-danger-contrast">
+      <span class="size-2 animate-pulse rounded-full bg-danger-contrast" aria-hidden="true"></span>
+      LIVE
+    </span>
+    <span data-if="latency" class="video-player-live__latency rounded-control bg-black/60 px-2 py-0.5 text-xs text-white">{{ latency }}</span>
+    <span class="video-player-live__viewers ml-auto flex items-center gap-1.5 rounded-control bg-black/60 px-2 py-0.5 text-xs text-white">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><circle cx="10" cy="10" r="2.5" fill="currentColor"/></svg>
+      {{ viewers }}
+    </span>
+  </div>
+  <div class="video-player-live__controls absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-black/80 to-transparent p-3 text-white">
+    <button type="button" class="video-player-live__play flex size-8 items-center justify-center rounded-control hover:bg-white/15" aria-label="Play" aria-pressed="false">
+      <svg class="video-player-live__icon-play size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+      <svg class="video-player-live__icon-pause hidden size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+    </button>
+    <button type="button" class="video-player-live__mute flex size-8 items-center justify-center rounded-control hover:bg-white/15" aria-label="Mute" aria-pressed="false">
+      <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 8v4h3l4 3V5L7 8z"/></svg>
+    </button>
+    <span class="ml-auto flex items-center gap-1.5 text-xs font-medium text-danger-contrast"><span class="size-1.5 rounded-full bg-danger" aria-hidden="true"></span>Live edge</span>
+  </div>
+</figure>

@@ -1,0 +1,10 @@
+<div class="media-gallery flex flex-col gap-3">
+  <div class="media-gallery__stage aspect-video w-full overflow-hidden rounded-card bg-surface-raised">
+    <img data-for="item in items" class="media-gallery__main size-full object-cover data-[active=false]:hidden" data-active="{{ item.active }}" src="{{ item.src }}" alt="{{ item.alt }}">
+  </div>
+  <div class="media-gallery__thumbs flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Gallery thumbnails">
+    <button data-for="item in items" type="button" class="media-gallery__thumb aspect-video w-20 shrink-0 overflow-hidden rounded-control border-2 border-transparent transition-colors duration-(--duration-token) data-[active=true]:border-primary" role="tab" data-active="{{ item.active }}" data-src="{{ item.src }}" aria-selected="{{ item.active }}" aria-label="{{ item.alt }}">
+      <img class="size-full object-cover" src="{{ item.src }}" alt="">
+    </button>
+  </div>
+</div>

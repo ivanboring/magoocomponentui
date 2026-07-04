@@ -1,0 +1,9 @@
+{
+  "title": "Up next",
+  "items": [
+    { "title": "Theming across four brands", "channel": "DS Podcast", "duration": "14:03", "thumbnail": "/stock/property-house.jpg", "href": "#" },
+    { "title": "Generating every framework target", "channel": "DS Podcast", "duration": "21:47", "thumbnail": "/stock/food-plate.jpg", "href": "#" },
+    { "title": "Accessibility from the start", "channel": "DS Podcast", "duration": "11:30", "thumbnail": "/stock/product-sneaker.jpg", "href": "#" },
+    { "title": "Intro to design tokens", "channel": "DS Podcast", "duration": "8:12", "thumbnail": "/stock/cover-workspace.jpg", "href": "#" }
+  ]
+}

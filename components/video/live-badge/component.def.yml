@@ -1,0 +1,6 @@
+name: live-badge
+props:
+  label:
+    type: string
+    default: "LIVE"
+    title: Label

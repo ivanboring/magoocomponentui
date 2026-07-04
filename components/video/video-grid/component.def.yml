@@ -1,0 +1,10 @@
+name: video-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Videos
+    description: "Each item: { title, channel, duration, views, thumbnail, href }."
+    example:
+      - { title: "Intro to tokens", channel: "DS Podcast", duration: "8:12", views: "12K views", thumbnail: "/stock/cover-workspace.jpg", href: "#" }

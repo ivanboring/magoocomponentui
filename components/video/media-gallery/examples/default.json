@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "src": "/stock/cover-workspace.jpg", "alt": "Workspace with laptop", "active": true },
+    { "src": "/stock/property-house.jpg", "alt": "Modern house exterior", "active": false },
+    { "src": "/stock/food-plate.jpg", "alt": "Fruit plate", "active": false },
+    { "src": "/stock/product-sneaker.jpg", "alt": "White sneakers", "active": false }
+  ]
+}

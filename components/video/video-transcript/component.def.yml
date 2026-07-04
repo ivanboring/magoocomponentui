@@ -1,0 +1,14 @@
+name: video-transcript
+props:
+  cues:
+    type: array
+    items: object
+    required: true
+    title: Cues
+    description: >
+      Each cue: { time, seconds, text, active }. time is the display label (e.g. "0:42"),
+      seconds the numeric offset (for seeking), active marks the current cue.
+    example:
+      - { time: "0:00", seconds: 0, text: "Welcome to the show.", active: false }
+      - { time: "0:12", seconds: 12, text: "Today we talk about design systems.", active: true }
+      - { time: "0:31", seconds: 31, text: "Let's start with tokens.", active: false }

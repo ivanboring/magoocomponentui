@@ -1,0 +1,20 @@
+name: image-compare
+props:
+  before_image:
+    type: image
+    required: true
+    title: Before image
+    example: "/stock/cover-workspace.jpg"
+  after_image:
+    type: image
+    required: true
+    title: After image
+    example: "/stock/property-house.jpg"
+  before_label:
+    type: string
+    default: "Before"
+    title: Before label
+  after_label:
+    type: string
+    default: "After"
+    title: After label

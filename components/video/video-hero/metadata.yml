@@ -1,0 +1,67 @@
+name: "Video Hero"
+short_description: A full-bleed hero with a poster/video backdrop, overlaid title, and a play CTA.
+long_visual_description: >
+  A large hero panel with a dark-scrimmed poster (or background video) behind an eyebrow,
+  a bold title, a short description, and a prominent play CTA — used to feature a film or
+  show at the top of a watch page.
+
+use_cases:
+  - Featured title hero on a streaming homepage.
+  - Show or film spotlight banner.
+  - Trailer hero with a play CTA.
+  - Channel or series landing hero.
+  - Campaign hero for video content.
+
+recommended_for:
+  - Featuring a single video/title prominently at the top of a page.
+avoid_for:
+  - The actual playback surface (use video-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a strong poster; the dark scrim keeps the white text legible. Keep the description
+  to one line and provide a single play CTA.
+
+props:
+  eyebrow: Small label above the title.
+  title: The featured title.
+  description: A one-line synopsis.
+  poster: The background poster image.
+  cta_label: The play button text.
+  cta_href: Where the CTA links.
+
+example_prompts:
+  - "Add a video hero for a featured film with a Watch now button."
+  - "Add a streaming homepage hero with a poster backdrop."
+
+lifecycle: experimental
+content_model: A backdrop poster with an overlaid title, description, and play CTA.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title short and the description to one line so they read over the image.
+
+categorization:
+  category: Video
+  subcategory: Live
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scrim keeps white text legible over the poster; the play CTA is a real link and the backdrop is decorative.
+  keyboard_support: The play CTA is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

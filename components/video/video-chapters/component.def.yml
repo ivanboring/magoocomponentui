@@ -1,0 +1,11 @@
+name: video-chapters
+props:
+  chapters:
+    type: array
+    items: object
+    required: true
+    title: Chapters
+    description: "Each chapter: { title, time, seconds, thumbnail, active }."
+    example:
+      - { title: "Introduction", time: "0:00", seconds: 0, thumbnail: "/stock/cover-workspace.jpg", active: true }
+      - { title: "Design tokens", time: "3:20", seconds: 200, thumbnail: "/stock/food-plate.jpg", active: false }

@@ -1,0 +1,8 @@
+{
+  "chapters": [
+    { "title": "Introduction", "time": "0:00", "seconds": 0, "thumbnail": "/stock/cover-workspace.jpg", "active": true },
+    { "title": "Design tokens", "time": "3:20", "seconds": 200, "thumbnail": "/stock/food-plate.jpg", "active": false },
+    { "title": "Theming four brands", "time": "9:45", "seconds": 585, "thumbnail": "/stock/property-house.jpg", "active": false },
+    { "title": "Wrap-up", "time": "18:10", "seconds": 1090, "thumbnail": "/stock/product-sneaker.jpg", "active": false }
+  ]
+}

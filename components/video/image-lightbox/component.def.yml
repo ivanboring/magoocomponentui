@@ -1,0 +1,15 @@
+name: image-lightbox
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Images
+    description: "Each item: { src, alt }."
+    example:
+      - { src: "/stock/cover-workspace.jpg", alt: "Workspace" }
+      - { src: "/stock/property-house.jpg", alt: "House" }
+  open:
+    type: boolean
+    default: true
+    title: Open

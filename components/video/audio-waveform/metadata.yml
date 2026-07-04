@@ -1,0 +1,58 @@
+name: "Audio Waveform"
+short_description: A waveform seek control with played bars highlighted and click-to-seek.
+long_visual_description: >
+  A row of vertical bars of varying heights forming a waveform between time labels; the
+  played portion is tinted primary and the rest muted. Clicking or arrow-keying seeks.
+
+use_cases:
+  - Waveform seek bar for an audio track.
+  - Voice message playback with waveform.
+  - Podcast or music player scrubber.
+  - Audio editor timeline.
+  - Sound clip preview with position.
+
+recommended_for:
+  - A visual waveform seek control for audio.
+avoid_for:
+  - A plain progress bar (use video-scrubber or progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide bar heights (0-100) and mark the played ones; clicking sets the played portion
+  and emits waveform:seek.
+
+props:
+  bars: The waveform bars with height and played state.
+  current_time: The current time label.
+  duration: The total duration label.
+
+example_prompts:
+  - "Add an audio waveform seek control with played bars highlighted."
+  - "Add a voice-message waveform with a position indicator."
+
+lifecycle: experimental
+content_model: A set of waveform bars with a played position and time labels.
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-pill
+
+editorial_guidance: >
+  Precompute bar heights from the audio's amplitude; keep a consistent bar count per width.
+
+categorization:
+  category: Video
+  subcategory: Timeline
+  atomic_type: molecule
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bars container is a role="slider" with aria-valuenow and ArrowLeft/Right support and is keyboard focusable; individual bars are decorative.
+  keyboard_support: The waveform is focusable and seeks with ArrowLeft/ArrowRight; click also seeks.
+  seo_score: 15
+  text_direction: both

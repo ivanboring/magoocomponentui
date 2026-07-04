@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "title": "Intro to design tokens", "channel": "DS Podcast", "duration": "8:12", "views": "12K views", "thumbnail": "/stock/cover-workspace.jpg", "href": "#" },
+    { "title": "Theming across four brands", "channel": "DS Podcast", "duration": "14:03", "views": "9.4K views", "thumbnail": "/stock/property-house.jpg", "href": "#" },
+    { "title": "Generating every framework target", "channel": "DS Podcast", "duration": "21:47", "views": "18K views", "thumbnail": "/stock/food-plate.jpg", "href": "#" },
+    { "title": "Accessibility from the start", "channel": "DS Podcast", "duration": "11:30", "views": "7.1K views", "thumbnail": "/stock/product-sneaker.jpg", "href": "#" }
+  ]
+}

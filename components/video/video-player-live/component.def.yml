@@ -1,0 +1,18 @@
+name: video-player-live
+props:
+  poster:
+    type: image
+    title: Poster
+    example: "/stock/cover-workspace.jpg"
+  src:
+    type: link
+    title: Stream source
+  viewers:
+    type: string
+    required: true
+    title: Viewers
+    example: "1,204 watching"
+  latency:
+    type: string
+    title: Latency
+    example: "Low latency"

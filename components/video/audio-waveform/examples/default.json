@@ -1,0 +1,14 @@
+{
+  "bars": [
+    { "height": 30, "played": true }, { "height": 55, "played": true }, { "height": 80, "played": true }, { "height": 45, "played": true },
+    { "height": 90, "played": true }, { "height": 60, "played": true }, { "height": 35, "played": true }, { "height": 70, "played": true },
+    { "height": 50, "played": true }, { "height": 85, "played": true }, { "height": 40, "played": true }, { "height": 65, "played": true },
+    { "height": 95, "played": true }, { "height": 55, "played": true }, { "height": 30, "played": false }, { "height": 75, "played": false },
+    { "height": 60, "played": false }, { "height": 45, "played": false }, { "height": 80, "played": false }, { "height": 35, "played": false },
+    { "height": 70, "played": false }, { "height": 50, "played": false }, { "height": 90, "played": false }, { "height": 55, "played": false },
+    { "height": 40, "played": false }, { "height": 65, "played": false }, { "height": 30, "played": false }, { "height": 85, "played": false },
+    { "height": 60, "played": false }, { "height": 45, "played": false }, { "height": 75, "played": false }, { "height": 50, "played": false }
+  ],
+  "current_time": "1:24",
+  "duration": "3:52"
+}

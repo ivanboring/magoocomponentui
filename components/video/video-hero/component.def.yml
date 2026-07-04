@@ -1,0 +1,26 @@
+name: video-hero
+props:
+  eyebrow:
+    type: string
+    title: Eyebrow
+    example: "Now streaming"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "The Cartographer"
+  description:
+    type: string
+    title: Description
+    example: "An epic journey across uncharted worlds."
+  poster:
+    type: image
+    title: Background poster
+    example: "/stock/property-house.jpg"
+  cta_label:
+    type: string
+    default: "Watch now"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link

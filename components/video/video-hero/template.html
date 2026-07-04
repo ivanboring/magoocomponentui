@@ -1,0 +1,15 @@
+<section class="video-hero relative flex min-h-80 items-end overflow-hidden rounded-card bg-black shadow-card">
+  <div class="video-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ poster }})" aria-hidden="true"></div>
+  <div class="video-hero__scrim absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" aria-hidden="true"></div>
+  <div class="video-hero__body relative max-w-xl p-(--space-section) text-white">
+    <p data-if="eyebrow" class="video-hero__eyebrow text-xs font-semibold uppercase tracking-wide text-primary">{{ eyebrow }}</p>
+    <h2 class="video-hero__title mt-2 font-heading text-3xl leading-tight">{{ title }}</h2>
+    <p data-if="description" class="video-hero__description mt-2 text-sm text-white/85">{{ description }}</p>
+    <div class="video-hero__actions mt-5 flex items-center gap-3">
+      <a class="video-hero__play inline-flex items-center gap-2 rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+        {{ cta_label }}
+      </a>
+    </div>
+  </div>
+</section>

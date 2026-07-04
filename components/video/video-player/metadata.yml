@@ -1,0 +1,64 @@
+name: "Video Player"
+short_description: A VOD player skeleton with play/pause, seek scrubber, volume, speed, and fullscreen.
+long_visual_description: >
+  A 16:9 player over a poster with a gradient control bar: a seek scrubber that fills as
+  it plays, a play/pause toggle, a mute toggle, a time label, a playback-speed cycle
+  button, and a fullscreen button.
+
+use_cases:
+  - On-demand video playback on a watch page.
+  - Course or tutorial video.
+  - Embedded product or marketing video.
+  - Recorded webinar or talk.
+  - Any inline video needing standard controls.
+
+recommended_for:
+  - Playing an on-demand video with a full control set.
+avoid_for:
+  - Live streams (use video-player-live).
+  - Audio-only playback (use audio-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide src to make the controls functional against a real <video>; without it the
+  poster shows and the controls still toggle their state for preview. Guard the <video>
+  with a source so an empty src doesn't resolve to the page URL.
+
+props:
+  title: The video title (for context/labelling).
+  poster: The poster frame shown before playback.
+  src: The video file URL.
+  duration: The time label (e.g. "0:00 / 42:18").
+
+example_prompts:
+  - "Add a video player with play/pause, scrubber, speed, and fullscreen."
+  - "Add an on-demand video player with a poster."
+
+lifecycle: experimental
+content_model: A video surface with a standard set of playback controls.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Provide a representative poster frame; keep the title concise where shown.
+
+categorization:
+  category: Video
+  subcategory: Players
+  atomic_type: organism
+  usage_type: [player, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Controls are real buttons with labels and aria-pressed toggles; the scrubber is a role="slider" with aria-valuenow and Arrow-key seeking and is focusable. A production build should add captions and keyboard shortcuts.
+  keyboard_support: Play/mute/speed/fullscreen activate on Enter/Space; the scrubber is focusable and seeks with ArrowLeft/ArrowRight.
+  seo_score: 40
+  text_direction: both

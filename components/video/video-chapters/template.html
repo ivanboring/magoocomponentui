@@ -1,0 +1,11 @@
+<div class="video-chapters flex flex-col gap-1" role="list" aria-label="Chapters">
+  <button data-for="chapter in chapters" type="button" class="video-chapters__item flex items-center gap-3 rounded-control p-2 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:bg-surface-raised" role="listitem" data-seconds="{{ chapter.seconds }}" data-active="{{ chapter.active }}" aria-current="{{ chapter.active }}">
+    <span class="video-chapters__thumb relative block aspect-video w-20 shrink-0 overflow-hidden rounded-control bg-surface-raised">
+      <img data-if="chapter.thumbnail" class="size-full object-cover" src="{{ chapter.thumbnail }}" alt="">
+    </span>
+    <span class="min-w-0 flex-1">
+      <span class="video-chapters__title block truncate text-sm font-medium text-on-surface">{{ chapter.title }}</span>
+      <span class="video-chapters__time mt-0.5 block font-mono text-xs text-primary tabular-nums">{{ chapter.time }}</span>
+    </span>
+  </button>
+</div>

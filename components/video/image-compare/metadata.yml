@@ -1,0 +1,62 @@
+name: "Image Compare"
+short_description: A before/after image slider with a draggable, keyboard-accessible reveal handle.
+long_visual_description: >
+  Two overlaid images with a vertical divider and a round grip; dragging the grip (or
+  using arrow keys) reveals more of the before or after image. Each side carries a small
+  corner label.
+
+use_cases:
+  - Before/after edit or retouch comparison.
+  - Renovation or restoration reveal.
+  - Product configuration comparison.
+  - Map or satellite change over time.
+  - Design mockup A vs B reveal.
+
+recommended_for:
+  - Comparing two aligned images with an interactive reveal.
+avoid_for:
+  - Side-by-side galleries (use media-gallery).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide two same-aspect images; the handle starts centered and can be dragged or moved
+  with Arrow keys.
+
+props:
+  before_image: The image revealed on the left of the handle.
+  after_image: The image revealed on the right of the handle.
+  before_label: Corner label for the before image.
+  after_label: Corner label for the after image.
+
+example_prompts:
+  - "Add a before/after image comparison slider."
+  - "Add a draggable reveal to compare two photos."
+
+lifecycle: experimental
+content_model: A before image, an after image, and a reveal position.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --shadow-card
+
+editorial_guidance: >
+  Use two images of the same crop and aspect so the comparison aligns cleanly.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: molecule
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The grip is a role="slider" with aria-valuenow and ArrowLeft/Right support and is keyboard focusable; both images carry descriptive alt via their labels.
+  keyboard_support: The grip is focusable and moves the reveal with ArrowLeft/ArrowRight; pointer drag also works.
+  seo_score: 25
+  text_direction: both

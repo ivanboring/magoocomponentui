@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "language": "English",
+  "languages": [
+    { "label": "English", "value": "en" },
+    { "label": "Español", "value": "es" },
+    { "label": "Français", "value": "fr" }
+  ]
+}

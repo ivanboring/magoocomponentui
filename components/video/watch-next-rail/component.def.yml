@@ -1,0 +1,12 @@
+name: watch-next-rail
+props:
+  title:
+    type: string
+    default: "Up next"
+    title: Rail title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Videos
+    description: "Each item: { title, channel, duration, thumbnail, href }."

@@ -1,0 +1,63 @@
+name: "Video Scrubber"
+short_description: A standalone timeline scrubber with played and buffered ranges and a hover thumb.
+long_visual_description: >
+  A slim timeline between a current-time and duration label: a muted buffered range, a
+  primary-coloured played range, and a draggable thumb that appears on hover. Click or
+  arrow-key to seek.
+
+use_cases:
+  - Seek bar in a custom video player.
+  - Standalone timeline for audio or video.
+  - Progress + buffered indicator for streaming media.
+  - Scrub control decoupled from a specific player.
+  - Timeline in a media editor.
+
+recommended_for:
+  - A reusable seek timeline with buffered feedback.
+avoid_for:
+  - A full player (use video-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Set progress and buffered percentages and the time labels; the thumb reveals on hover
+  and the track seeks on click or Arrow keys.
+
+props:
+  progress: Played percentage 0-100.
+  buffered: Buffered percentage 0-100.
+  current_time: The current time label.
+  duration: The total duration label.
+
+example_prompts:
+  - "Add a video scrubber showing played and buffered ranges."
+  - "Add a seek timeline with a hover thumb and time labels."
+
+lifecycle: experimental
+content_model: A seek timeline with played/buffered ranges and time labels.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-pill
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep time labels in a consistent format; buffered should never appear behind played.
+
+categorization:
+  category: Video
+  subcategory: Timeline
+  atomic_type: molecule
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The track is a role="slider" with aria-valuenow and ArrowLeft/Right support and is keyboard focusable; time labels are real text.
+  keyboard_support: The track is focusable and seeks with ArrowLeft/ArrowRight; click also seeks.
+  seo_score: 20
+  text_direction: both

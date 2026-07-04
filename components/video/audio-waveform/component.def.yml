@@ -1,0 +1,20 @@
+name: audio-waveform
+props:
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: "Each bar: { height, played } — height 0-100 (%), played marks the played portion."
+    example:
+      - { height: 40, played: true }
+      - { height: 80, played: true }
+      - { height: 55, played: false }
+  current_time:
+    type: string
+    default: "0:00"
+    title: Current time
+  duration:
+    type: string
+    default: "0:00"
+    title: Duration

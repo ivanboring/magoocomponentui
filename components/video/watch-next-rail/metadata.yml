@@ -1,0 +1,60 @@
+name: "Watch Next Rail"
+short_description: A horizontal, scrollable rail of up-next video thumbnails.
+long_visual_description: >
+  A titled horizontal strip of fixed-width video cards that scrolls sideways; each shows a
+  thumbnail with a duration overlay, a two-line title, and the channel name.
+
+use_cases:
+  - Up-next rail beside or below a player.
+  - Recommended videos strip on a watch page.
+  - Continue-watching rail.
+  - Category highlights rail on a home feed.
+  - Related content carousel.
+
+recommended_for:
+  - A horizontally scrollable set of suggested videos.
+avoid_for:
+  - A full multi-row grid (use video-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a handful of items; the rail scrolls horizontally with a consistent card width.
+
+props:
+  title: The rail heading.
+  items: The videos in the rail.
+
+example_prompts:
+  - "Add an up-next rail of recommended videos."
+  - "Add a horizontal watch-next carousel."
+
+lifecycle: experimental
+content_model: A titled horizontal list of video preview items.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Order items by relevance; keep titles to two lines.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: organism
+  usage_type: [media, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The rail is a labelled region; each item is a single link; the track is horizontally scrollable and keyboard-reachable via the links.
+  keyboard_support: Each item link is focusable and activates on Enter; focus scrolls items into view.
+  seo_score: 45
+  text_direction: both

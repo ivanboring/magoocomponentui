@@ -1,0 +1,54 @@
+name: "Duration Badge"
+short_description: A small overlay badge showing a video's length, typically pinned to a thumbnail corner.
+long_visual_description: >
+  A compact dark, semi-transparent pill with monospaced time text, designed to overlay
+  the corner of a video thumbnail.
+
+use_cases:
+  - Show video length on a thumbnail.
+  - Show remaining time on a playlist item.
+  - Badge episode duration in a grid.
+  - Indicate clip length in a media library.
+  - Overlay runtime on a watch-next rail item.
+
+recommended_for:
+  - Overlaying a video's duration on its thumbnail.
+avoid_for:
+  - Standalone time labels in text (use plain text).
+
+markets:
+  - Global
+
+example_usage: >
+  Position absolutely in the bottom-right of a thumbnail container; format the time as
+  mm:ss or h:mm:ss.
+
+props:
+  duration: The formatted duration string.
+
+example_prompts:
+  - "Add a 12:45 duration badge to the video thumbnail."
+  - "Overlay the clip length on the corner of the thumbnail."
+
+lifecycle: experimental
+content_model: A formatted duration string.
+
+theming:
+  tokens_used:
+    - --radius-control
+
+editorial_guidance: >
+  Use a consistent time format across all thumbnails (mm:ss, or h:mm:ss for long videos).
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: atom
+  usage_type: [highlight, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Fixed dark badge with white text keeps contrast regardless of theme; the value is real text.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

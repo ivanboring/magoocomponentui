@@ -1,0 +1,59 @@
+name: "Media Gallery"
+short_description: A thumbnail strip with a large active preview that swaps on thumbnail click.
+long_visual_description: >
+  A large preview image above a horizontal strip of thumbnails; the active thumbnail is
+  outlined in the primary colour, and clicking a thumbnail swaps the large preview.
+
+use_cases:
+  - Product image gallery.
+  - Photo set viewer.
+  - Portfolio or case-study images.
+  - Property or listing photos.
+  - Media picker with a preview.
+
+recommended_for:
+  - Browsing a set of images with a large preview and thumbnail navigation.
+avoid_for:
+  - A before/after comparison (use image-compare).
+  - A full-screen zoom modal (use image-lightbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide images with alt text and mark one active; clicking a thumbnail shows its image
+  in the stage.
+
+props:
+  items: The gallery images, one marked active.
+
+example_prompts:
+  - "Add a product media gallery with a thumbnail strip."
+  - "Add an image gallery with a large preview and thumbnails."
+
+lifecycle: experimental
+content_model: A set of images with a selected large preview.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Provide meaningful alt text per image; keep the set focused and ordered.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Thumbnails are role="tab" with aria-selected and accessible labels; the active main image carries alt text.
+  keyboard_support: Thumbnails are focusable and swap the preview on Enter/Space.
+  seo_score: 40
+  text_direction: both

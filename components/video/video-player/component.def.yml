@@ -1,0 +1,18 @@
+name: video-player
+props:
+  title:
+    type: string
+    title: Title
+    example: "Building for a thousand components"
+  poster:
+    type: image
+    title: Poster
+    example: "/stock/cover-workspace.jpg"
+  src:
+    type: link
+    title: Video source
+    description: URL of the video file for the inline player.
+  duration:
+    type: string
+    default: "0:00"
+    title: Duration label

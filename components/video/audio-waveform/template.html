@@ -1,0 +1,7 @@
+<div class="audio-waveform flex items-center gap-3">
+  <span class="audio-waveform__current shrink-0 text-xs tabular-nums text-on-surface-muted">{{ current_time }}</span>
+  <div class="audio-waveform__bars flex h-10 flex-1 cursor-pointer items-center gap-0.5" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+    <span data-for="bar in bars" class="audio-waveform__bar w-full shrink rounded-pill bg-on-surface-muted/40 data-[played=true]:bg-primary" data-played="{{ bar.played }}" style="height: {{ bar.height }}%"></span>
+  </div>
+  <span class="audio-waveform__duration shrink-0 text-xs tabular-nums text-on-surface-muted">{{ duration }}</span>
+</div>

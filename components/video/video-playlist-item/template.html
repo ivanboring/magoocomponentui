@@ -1,0 +1,11 @@
+<a class="video-playlist-item flex gap-3 rounded-card p-2 transition-colors duration-(--duration-token) hover:bg-surface-raised data-[playing=true]:bg-surface-raised" href="{{ href }}" data-playing="{{ playing }}" aria-current="{{ playing }}">
+  <span class="video-playlist-item__media relative block aspect-video w-32 shrink-0 overflow-hidden rounded-control bg-surface-raised">
+    <img data-if="thumbnail" class="size-full object-cover" src="{{ thumbnail }}" alt="">
+    <span class="video-playlist-item__duration absolute bottom-1 right-1 rounded-control bg-black/75 px-1 text-[10px] font-medium tabular-nums text-white">{{ duration }}</span>
+    <span data-if="playing" class="video-playlist-item__badge absolute left-1 top-1 rounded-control bg-primary px-1.5 py-0.5 text-[10px] font-semibold text-primary-contrast">Now playing</span>
+  </span>
+  <span class="video-playlist-item__body min-w-0 flex-1">
+    <span class="video-playlist-item__title line-clamp-2 text-sm font-medium text-on-surface">{{ title }}</span>
+    <span class="video-playlist-item__channel mt-1 block text-xs text-on-surface-muted">{{ channel }}</span>
+  </span>
+</a>

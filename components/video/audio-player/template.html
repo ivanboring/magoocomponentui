@@ -1,0 +1,17 @@
+<div class="audio-player flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <audio data-if="src" class="audio-player__audio hidden" src="{{ src }}" preload="none"></audio>
+  <button type="button" class="audio-player__play flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-label="Play" aria-pressed="false">
+    <svg class="audio-player__icon-play size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+    <svg class="audio-player__icon-pause hidden size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+  </button>
+  <div class="audio-player__body min-w-0 flex-1">
+    <div class="flex items-baseline justify-between gap-2">
+      <p class="audio-player__title truncate text-sm font-medium text-on-surface">{{ title }}</p>
+      <span class="audio-player__time shrink-0 text-xs tabular-nums text-on-surface-muted">{{ duration }}</span>
+    </div>
+    <p data-if="artist" class="audio-player__artist truncate text-xs text-on-surface-muted">{{ artist }}</p>
+    <div class="audio-player__scrubber mt-2 h-1.5 cursor-pointer overflow-hidden rounded-pill bg-surface-raised" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+      <div class="audio-player__progress h-full rounded-pill bg-primary" style="width: 0%"></div>
+    </div>
+  </div>
+</div>

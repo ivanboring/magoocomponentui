@@ -1,0 +1,67 @@
+name: "Video Playlist Item"
+short_description: A horizontal video row with thumbnail, title, channel, duration, and now-playing state.
+long_visual_description: >
+  A row with a 16:9 thumbnail carrying a duration overlay (and a "Now playing" badge when
+  active), beside a two-line title and channel name. The active row has a raised
+  background.
+
+use_cases:
+  - Up-next list beside a video player.
+  - Playlist or queue entry.
+  - Search results row for videos.
+  - Course lesson list item.
+  - Watch-later or history row.
+
+recommended_for:
+  - A single video entry in a vertical playlist or queue.
+avoid_for:
+  - Grid thumbnails (use video-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark the current item playing to highlight it and show the badge; overlay the duration
+  on the thumbnail.
+
+props:
+  title: The video title.
+  channel: The channel or show name.
+  duration: The video length.
+  thumbnail: The thumbnail image.
+  playing: Whether this is the now-playing item.
+  href: The video URL.
+
+example_prompts:
+  - "Add a playlist item marked now-playing with a duration overlay."
+  - "Add an up-next video row with thumbnail and channel."
+
+lifecycle: experimental
+content_model: A thumbnail, title, channel, duration, and playing state.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep titles to two lines; use a consistent duration format across the playlist.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: molecule
+  usage_type: [list-item, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The row is a single link; the now-playing item sets aria-current; the thumbnail is decorative and the duration is real text.
+  keyboard_support: The row is focusable and activates on Enter.
+  seo_score: 40
+  text_direction: both

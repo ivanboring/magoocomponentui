@@ -1,0 +1,15 @@
+<div class="image-lightbox fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-6 data-[open=false]:hidden" data-open="{{ open }}" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" class="image-lightbox__close absolute right-4 top-4 flex size-10 items-center justify-center rounded-control text-white/80 hover:text-white" data-lightbox-close aria-label="Close">
+    <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+  <button type="button" class="image-lightbox__prev absolute left-3 flex size-11 items-center justify-center rounded-full text-white/80 hover:bg-white/10 hover:text-white" data-lightbox-prev aria-label="Previous image">
+    <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+  </button>
+  <figure class="image-lightbox__figure max-h-full max-w-4xl">
+    <img data-for="item in items" class="image-lightbox__image mx-auto max-h-[80vh] rounded-card data-[active=false]:hidden" data-active="false" src="{{ item.src }}" alt="{{ item.alt }}">
+    <figcaption class="image-lightbox__caption mt-3 text-center text-sm text-white/80" data-lightbox-caption></figcaption>
+  </figure>
+  <button type="button" class="image-lightbox__next absolute right-3 flex size-11 items-center justify-center rounded-full text-white/80 hover:bg-white/10 hover:text-white" data-lightbox-next aria-label="Next image">
+    <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+  </button>
+</div>

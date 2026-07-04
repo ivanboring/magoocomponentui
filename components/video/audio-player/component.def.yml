@@ -1,0 +1,18 @@
+name: audio-player
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Ambient Focus — Track 1"
+  artist:
+    type: string
+    title: Artist
+    example: "Northwind"
+  duration:
+    type: string
+    default: "0:00"
+    title: Duration
+  src:
+    type: link
+    title: Audio source

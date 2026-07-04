@@ -1,0 +1,13 @@
+<div class="image-compare relative aspect-video w-full select-none overflow-hidden rounded-card shadow-card">
+  <img class="image-compare__after absolute inset-0 size-full object-cover" src="{{ after_image }}" alt="{{ after_label }}">
+  <span class="image-compare__after-label absolute bottom-2 right-2 rounded-control bg-black/70 px-2 py-0.5 text-xs font-medium text-white" aria-hidden="true">{{ after_label }}</span>
+  <div class="image-compare__before absolute inset-0 overflow-hidden" style="width: 50%">
+    <img class="image-compare__before-img absolute inset-0 h-full w-auto max-w-none object-cover" src="{{ before_image }}" alt="{{ before_label }}" style="width: 100vw">
+    <span class="image-compare__before-label absolute bottom-2 left-2 rounded-control bg-black/70 px-2 py-0.5 text-xs font-medium text-white" aria-hidden="true">{{ before_label }}</span>
+  </div>
+  <div class="image-compare__handle absolute inset-y-0 w-0.5 -translate-x-1/2 bg-white" style="left: 50%">
+    <button type="button" class="image-compare__grip absolute top-1/2 left-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-on-surface shadow-raised" role="slider" aria-label="Compare images" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 6l-3 4 3 4M12 6l3 4-3 4"/></svg>
+    </button>
+  </div>
+</div>

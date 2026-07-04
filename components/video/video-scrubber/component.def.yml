@@ -1,0 +1,20 @@
+name: video-scrubber
+props:
+  progress:
+    type: integer
+    default: 30
+    title: Progress
+    description: Played percentage 0-100.
+  buffered:
+    type: integer
+    default: 55
+    title: Buffered
+    description: Buffered percentage 0-100.
+  current_time:
+    type: string
+    default: "0:00"
+    title: Current time
+  duration:
+    type: string
+    default: "0:00"
+    title: Duration

@@ -1,0 +1,67 @@
+name: "Video Transcript"
+short_description: A synced, click-to-seek transcript that highlights the active cue.
+long_visual_description: >
+  A scrollable list of timestamped lines; each row shows a monospace timecode and the
+  spoken text. The active cue is highlighted, and clicking any line seeks the player to
+  that moment.
+
+use_cases:
+  - Synced transcript beside a video or podcast.
+  - Click-to-seek interactive transcript.
+  - Searchable spoken-word reference.
+  - Accessibility transcript for media.
+  - Lecture or talk transcript with navigation.
+
+recommended_for:
+  - A timestamped transcript that drives and follows a player.
+avoid_for:
+  - Plain static transcripts with no seeking (use prose).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide cues with a display time, numeric seconds, and text; mark the current cue
+  active. Clicking a cue emits transcript:seek for the player to handle.
+
+props:
+  cues: The transcript lines with time, seconds, text, and active state.
+
+example_prompts:
+  - "Add a click-to-seek transcript synced to the video."
+  - "Add an interactive transcript with timestamps."
+
+relationships:
+  related:
+    - video/video-player
+
+lifecycle: experimental
+content_model: An ordered list of timestamped transcript cues with an active one.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep cues to a sentence or clause; align timecodes to natural pauses.
+
+categorization:
+  category: Video
+  subcategory: Timeline
+  atomic_type: organism
+  usage_type: [list-item, timeline, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each cue is a real button; the active cue sets aria-current; the timecode and text are real content.
+  keyboard_support: Each cue is focusable and activates (seeks) on Enter/Space.
+  seo_score: 45
+  text_direction: both

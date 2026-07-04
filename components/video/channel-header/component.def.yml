@@ -1,0 +1,32 @@
+name: channel-header
+props:
+  name:
+    type: string
+    required: true
+    title: Channel name
+    example: "Design Systems Podcast"
+  initials:
+    type: string
+    required: true
+    title: Avatar initials
+    example: "DS"
+  avatar:
+    type: image
+    title: Avatar
+  banner:
+    type: image
+    title: Banner
+    example: "/stock/cover-workspace.jpg"
+  subscribers:
+    type: string
+    required: true
+    title: Subscribers
+    example: "48.2K subscribers"
+  videos:
+    type: string
+    title: Video count
+    example: "126 videos"
+  subscribed:
+    type: boolean
+    default: false
+    title: Subscribed

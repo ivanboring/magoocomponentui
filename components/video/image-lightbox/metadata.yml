@@ -1,0 +1,60 @@
+name: "Image Lightbox"
+short_description: A full-screen image viewer modal with previous/next navigation and captions.
+long_visual_description: >
+  A dark full-screen overlay centering one image with a caption, a close button, and
+  left/right arrows to move through the set. Escape and arrow keys also navigate.
+
+use_cases:
+  - Zoomed full-screen view from a gallery thumbnail.
+  - Photo set viewer with next/prev.
+  - Product image zoom modal.
+  - Portfolio image viewer.
+  - Press or media asset viewer.
+
+recommended_for:
+  - A focused full-screen viewer for a set of images.
+avoid_for:
+  - Inline gallery browsing (use media-gallery).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the image set with alt text; the lightbox opens on the first image and cycles
+  with the arrows or ArrowLeft/ArrowRight. Escape or the backdrop closes it.
+
+props:
+  items: The images to view, each with alt text.
+  open: Initial open state; the behavior toggles it closed.
+
+example_prompts:
+  - "Add a full-screen image lightbox with prev/next navigation."
+  - "Add a zoom modal for a gallery with captions."
+
+relationships:
+  related:
+    - video/media-gallery
+
+lifecycle: experimental
+content_model: A set of full-screen images with a current index and captions.
+
+theming:
+  tokens_used:
+    - --radius-card
+
+editorial_guidance: >
+  Provide meaningful alt text — it doubles as the caption; keep the set ordered as shown
+  in the source gallery.
+
+categorization:
+  category: Video
+  subcategory: Library
+  atomic_type: organism
+  usage_type: [overlay, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal; close/prev/next are labelled buttons; Escape and Arrow keys navigate. A production build should trap focus within the overlay.
+  keyboard_support: ArrowLeft/ArrowRight change image; Escape closes; close/prev/next activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

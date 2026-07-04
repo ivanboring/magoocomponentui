@@ -1,0 +1,68 @@
+name: "Audio Player"
+short_description: A standalone audio player with play/pause, progress scrubber, and time.
+long_visual_description: >
+  A horizontal bar with a round play/pause button, the track title and artist with a time
+  label, and a seek scrubber that fills as it plays.
+
+use_cases:
+  - Play a single audio track or clip.
+  - Voice message or note playback.
+  - Music preview on a page.
+  - Audio attachment in a message.
+  - Sound sample in a library.
+
+recommended_for:
+  - Standalone audio playback with a scrubber.
+avoid_for:
+  - A podcast episode with cover and metadata (use card-podcast).
+  - Waveform seeking (use audio-waveform).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide src for real playback; without it the controls toggle for preview. Guard the
+  <audio> with the source so an empty src doesn't resolve to the page URL.
+
+props:
+  title: The track title.
+  artist: Optional artist/source.
+  duration: The time label.
+  src: The audio file URL.
+
+example_prompts:
+  - "Add an audio player for a music track with a scrubber."
+  - "Add a voice-message player with play and progress."
+
+lifecycle: experimental
+content_model: A track title, artist, time, and a play/seek control set.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title concise; show the artist where it adds context.
+
+categorization:
+  category: Video
+  subcategory: Players
+  atomic_type: molecule
+  usage_type: [player, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Play toggles aria-pressed and its label; the scrubber is a role="slider" with aria-valuenow and Arrow-key seeking and is focusable.
+  keyboard_support: Play activates on Enter/Space; the scrubber is focusable and seeks with ArrowLeft/ArrowRight.
+  seo_score: 25
+  text_direction: both

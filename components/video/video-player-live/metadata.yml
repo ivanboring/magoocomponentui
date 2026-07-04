@@ -1,0 +1,63 @@
+name: "Live Video Player"
+short_description: A live-stream player with a pulsing LIVE badge, viewer count, and latency indicator.
+long_visual_description: >
+  A 16:9 stream surface with a LIVE badge, latency label, and live viewer count across the
+  top, and a bottom control bar with play/pause, mute, and a "Live edge" indicator — no
+  scrubber, since live plays at the edge.
+
+use_cases:
+  - Live stream playback (gaming, events, talks).
+  - Live sports or match broadcast.
+  - Live shopping or auction stream.
+  - Webinar or town-hall live view.
+  - Breaking-news live feed.
+
+recommended_for:
+  - Playing a live stream with live-specific affordances.
+avoid_for:
+  - On-demand video with seeking (use video-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Show a pulsing LIVE badge, the current viewer count, and an optional latency label.
+  Provide src for real playback; guard the <video> so an empty src doesn't resolve to the
+  page URL.
+
+props:
+  poster: The poster/preview frame.
+  src: The stream source URL.
+  viewers: The live viewer count label.
+  latency: Optional latency mode label.
+
+example_prompts:
+  - "Add a live player with a LIVE badge and viewer count."
+  - "Add a low-latency live stream player."
+
+lifecycle: experimental
+content_model: A live stream surface with LIVE/viewer/latency indicators and basic controls.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+
+editorial_guidance: >
+  Keep the viewer count live and remove the LIVE badge the instant the stream ends.
+
+categorization:
+  category: Video
+  subcategory: Live
+  atomic_type: organism
+  usage_type: [player, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Controls are real buttons with aria-pressed; the LIVE state and viewer count are real text; the pulsing dot is decorative.
+  keyboard_support: Play and mute activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

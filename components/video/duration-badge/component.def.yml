@@ -1,0 +1,7 @@
+name: duration-badge
+props:
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "12:45"
