@@ -1,0 +1,22 @@
+name: rating-stars
+props:
+  value:
+    type: integer
+    required: true
+    title: Value
+    description: Rating value out of max, rounded (no half-star math in the template).
+    example: 4
+  max:
+    type: integer
+    default: 5
+    title: Max
+  label:
+    type: string
+    title: Accessible label
+    example: "4 out of 5 stars"
+  items:
+    type: array
+    items: object
+    required: true
+    title: Stars
+    description: "Precomputed list of { filled } booleans, length == max."

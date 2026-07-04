@@ -1,0 +1,67 @@
+short_description: An icon-only button with a required accessible label for screen readers.
+long_visual_description: >
+  A small square/circular control sized by size, filled or ghost according to variant,
+  containing a single centered icon glyph with no visible text.
+
+use_cases:
+  - Close a modal or drawer.
+  - Toggle a favorite/bookmark state.
+  - Open a menu or overflow panel.
+  - Icon action inside a toolbar (edit, delete, more).
+  - Compact action inside a card corner.
+
+recommended_for:
+  - Dense toolbars and card corners where a labeled button doesn't fit.
+avoid_for:
+  - Primary actions that benefit from a visible label (use button).
+
+markets:
+  - Global
+
+example_usage: >
+  Always set label to a clear verb phrase even though it isn't shown; it is the only
+  accessible name the control has.
+
+props:
+  label: Required accessible name, e.g. "Close dialog".
+  variant: Match to context; ghost for low-emphasis toolbar actions.
+  size: Match to touch-target needs; sm for dense tables.
+  disabled: Disables interaction and dims the control.
+
+slots:
+  icon: The glyph to display; provide an inline SVG.
+
+example_prompts:
+  - "Add a ghost icon button to close the modal."
+  - "Add a small icon button to bookmark this item."
+
+lifecycle: experimental
+content_model: A single icon glyph and a required accessible label.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-secondary
+    - --color-danger
+    - --color-on-surface
+    - --color-surface-raised
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Write the label as if it were a button caption: verb-first, specific ("Remove item",
+  not "Icon button").
+
+categorization:
+  category: Atoms
+  subcategory: Buttons
+  atomic_type: atom
+  usage_type: [nav, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: aria-label supplies the accessible name; icon is aria-hidden.
+  keyboard_support: Focusable, activates on Enter/Space via native button semantics.
+  seo_score: 10
+  text_direction: both

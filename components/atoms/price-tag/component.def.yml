@@ -1,0 +1,13 @@
+name: price-tag
+props:
+  price:
+    type: string
+    required: true
+    title: Price
+    description: Formatted for display, including currency symbol.
+    example: "$49.00"
+  original_price:
+    type: string
+    title: Original price
+    description: Shown struck through when set, to indicate a discount.
+    example: "$69.00"

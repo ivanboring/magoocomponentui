@@ -1,0 +1,4 @@
+<span class="tooltip group relative inline-flex" data-position="{{ position }}">
+  <span class="tooltip__trigger" tabindex="0"><slot name="trigger"></slot></span>
+  <span class="tooltip__panel pointer-events-none absolute z-10 whitespace-nowrap rounded-control bg-on-surface px-2 py-1 text-xs text-surface opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-hover:opacity-100 group-focus-within:opacity-100 {{ position@class }}" role="tooltip">{{ text }}</span>
+</span>

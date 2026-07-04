@@ -1,0 +1,54 @@
+short_description: A rotating loading spinner with a configurable size and accessible label.
+long_visual_description: >
+  A small circular ring in the primary colour with a transparent leading edge,
+  continuously rotating to indicate indeterminate loading.
+
+use_cases:
+  - Show while a page or panel is loading.
+  - Show inside a button while a submit action is in flight.
+  - Show over a table while data refetches.
+  - Show while an image or media asset loads.
+  - Show inline while a search query is in flight.
+
+recommended_for:
+  - Indeterminate loading states of any size.
+avoid_for:
+  - Determinate progress with a known percentage (use progress-bar/progress-circle).
+
+markets:
+  - Global
+
+example_usage: >
+  Place inline where content will appear, or centered inside a container; keep label
+  descriptive of what's loading when not generic.
+
+props:
+  label: Accessible description, e.g. "Loading results".
+  size: Match to context (sm inside buttons, lg for full-panel loads).
+
+example_prompts:
+  - "Add a small loading spinner inside the submit button."
+  - "Add a large centered spinner while the dashboard loads."
+
+lifecycle: experimental
+content_model: No visible text; conveys loading via motion and an accessible label.
+
+theming:
+  tokens_used:
+    - --color-primary
+
+editorial_guidance: >
+  Keep the label short and specific about what is loading.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" with aria-label announces the loading state to assistive tech.
+  keyboard_support: "none"
+  seo_score: 5
+  text_direction: both

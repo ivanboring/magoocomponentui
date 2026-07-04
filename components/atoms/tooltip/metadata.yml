@@ -1,0 +1,62 @@
+short_description: A hover/focus tooltip panel attached to any trigger element via a slot.
+long_visual_description: >
+  A small dark, high-contrast label that appears anchored to one side of its trigger
+  on hover or keyboard focus, fading in and out with no layout shift.
+
+use_cases:
+  - Explain an icon-only button's action.
+  - Show a truncated value's full text on hover.
+  - Add helper context to a form field label.
+  - Show extra detail on a data point or chart marker.
+  - Explain a disabled control's reason for being disabled.
+
+recommended_for:
+  - Short, supplementary hint text tied to a specific trigger element.
+avoid_for:
+  - Content required to complete a task (tooltips are not reliably discoverable, especially on touch).
+  - Long or interactive content (use popover).
+
+markets:
+  - Global
+
+example_usage: >
+  Wrap any trigger (often a button-icon) in the trigger slot and provide short
+  supplementary text; choose the position that keeps the tooltip on-screen.
+
+props:
+  text: Short supplementary text, under one sentence.
+  position: Which side of the trigger the tooltip appears on.
+
+slots:
+  trigger: The element the tooltip is attached to.
+
+example_prompts:
+  - "Add a tooltip explaining the icon button says 'Refresh data'."
+  - "Add a tooltip below the info icon with the field's help text."
+
+lifecycle: experimental
+content_model: A short hint string attached to a trigger element.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-surface
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep tooltip text under ten words; do not duplicate the trigger's visible label.
+
+categorization:
+  category: Atoms
+  subcategory: Typographic
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="tooltip" panel appears on both hover and keyboard focus via group-focus-within.
+  keyboard_support: Trigger is focusable; tooltip reveals on focus and hides on blur.
+  seo_score: 5
+  text_direction: both

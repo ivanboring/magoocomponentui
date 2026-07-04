@@ -1,0 +1,60 @@
+short_description: A linear progress indicator with a value from 0-100 and an optional label.
+long_visual_description: >
+  A thin full-width pill track in a muted surface tone with a filled primary-colour
+  bar growing left-to-right; an optional label and numeric percentage sit above it.
+
+use_cases:
+  - Show a file upload/download progress.
+  - Show a multi-step form's completion percentage.
+  - Show a goal or quota's progress toward completion.
+  - Show a course or onboarding completion percentage.
+  - Show a skill or profile completeness score.
+
+recommended_for:
+  - Determinate progress with a known percentage.
+avoid_for:
+  - Indeterminate loading (use spinner).
+  - Radial/compact display (use progress-circle).
+
+markets:
+  - Global
+
+example_usage: >
+  Set value to the current percentage (0-100); provide label to describe what is
+  progressing.
+
+props:
+  value: Current progress percentage, 0-100.
+  label: What is progressing, e.g. "Upload progress".
+  show_value: Toggle the numeric percentage display.
+
+example_prompts:
+  - "Add a progress bar at 60% labeled 'Upload progress'."
+  - "Add a progress bar for onboarding completion at 25%."
+
+lifecycle: experimental
+content_model: A numeric percentage and an optional label.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface-muted
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Label should describe the task being tracked, not repeat the word "progress" twice.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="progressbar" with aria-valuenow/min/max and an aria-label.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

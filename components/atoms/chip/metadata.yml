@@ -1,0 +1,64 @@
+short_description: A compact selectable chip with an optional leading avatar or icon.
+long_visual_description: >
+  A pill-shaped outlined control that fills with the primary colour when selected; an
+  optional small avatar or icon sits on the leading edge before the label.
+
+use_cases:
+  - Toggleable option in a group (e.g. size/topping selection).
+  - Selected recipient chip with an avatar.
+  - Filter option a user can toggle on/off.
+  - Selectable category in an onboarding flow.
+  - Selected dietary preference in a food-ordering flow.
+
+recommended_for:
+  - Multi-select toggle groups, especially with avatars/icons.
+avoid_for:
+  - Non-interactive keyword display (use tag).
+  - Status labels (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Render a row of chips for a multi-select choice; each toggles independently on click
+  and dispatches chip:toggle.
+
+props:
+  label: The option's text.
+  selected: Initial selected state.
+
+slots:
+  avatar: A small avatar image or icon shown before the label.
+
+example_prompts:
+  - "Add selectable topping chips: cheese, pepperoni, mushroom."
+  - "Add a recipient chip with an avatar for 'Jane Doe'."
+
+lifecycle: experimental
+content_model: A short label, optional avatar/icon, and a selected boolean state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep chip labels to a single word or short phrase so several fit on one row.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [form, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses aria-pressed to convey toggle state.
+  keyboard_support: Focusable, toggles on Enter/Space via native button semantics.
+  seo_score: 10
+  text_direction: both

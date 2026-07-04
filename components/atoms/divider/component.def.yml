@@ -1,0 +1,15 @@
+name: divider
+props:
+  orientation:
+    type: enum
+    values: [horizontal, vertical]
+    default: horizontal
+    title: Orientation
+  label:
+    type: string
+    title: Label
+    description: Optional centered label; only rendered for horizontal dividers.
+variants:
+  orientation:
+    horizontal: "w-full border-t"
+    vertical: "h-full border-l"

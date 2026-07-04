@@ -1,0 +1,18 @@
+name: progress-circle
+props:
+  value:
+    type: integer
+    required: true
+    title: Value
+    description: Current value from 0-100, shown as the center label.
+    example: 72
+  dash_offset:
+    type: string
+    required: true
+    title: Dash offset
+    description: Precomputed SVG stroke-dashoffset for a circle of circumference 251 (r=40), e.g. "70".
+    example: "70"
+  label:
+    type: string
+    title: Accessible label
+    example: "72% complete"

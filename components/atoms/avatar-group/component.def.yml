@@ -1,0 +1,20 @@
+name: avatar-group
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: People
+    description: "Each item: { name, image }."
+    example:
+      - { name: "Jane Doe", image: "" }
+      - { name: "Sam Lee", image: "" }
+  max_visible:
+    type: integer
+    default: 4
+    title: Max visible
+  overflow_count:
+    type: integer
+    default: 0
+    title: Overflow count
+    description: Precomputed "+N" count; set by the caller since the template has no math.

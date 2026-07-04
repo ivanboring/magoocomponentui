@@ -1,0 +1,12 @@
+name: tag
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "javascript"
+  removable:
+    type: boolean
+    default: false
+    title: Removable
+    description: Shows a remove button that fires a tag:remove event.

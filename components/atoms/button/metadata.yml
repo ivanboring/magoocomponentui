@@ -1,0 +1,75 @@
+short_description: A labeled action button with variant, size, and optional leading/trailing icon slots.
+long_visual_description: >
+  A compact pill-to-rounded rectangle sized by its size prop, filled or outlined
+  according to variant, centered label in the heading face, and optional small icons
+  flanking the label. Hover lightens/darkens the fill slightly; disabled state dims it.
+
+use_cases:
+  - Primary submit action on a form.
+  - Secondary "cancel" or "back" action next to a primary button.
+  - Destructive action such as delete or remove.
+  - Ghost/tertiary action inside a toolbar.
+  - Call-to-action inside a card or hero.
+  - Icon-flanked action like "Download" or "Continue".
+
+recommended_for:
+  - Any single, clearly-labeled user action.
+  - Forms, toolbars, cards, and marketing sections.
+avoid_for:
+  - Icon-only actions (use button-icon).
+  - A set of mutually exclusive toggle options (use button-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Use variant primary for the main action per view, secondary/ghost for supporting
+  actions, and danger only for destructive operations. Set href to navigate on click.
+
+props:
+  label: Short, verb-first action text, e.g. "Save changes".
+  variant: Match to the action's importance and intent.
+  size: Match to the surrounding density (sm in tables/toolbars, lg in heroes).
+  href: Optional destination; when set the button also navigates on click.
+  disabled: Disables interaction and dims the button.
+
+slots:
+  icon-leading: A small icon shown before the label.
+  icon-trailing: A small icon shown after the label, e.g. a chevron.
+
+example_prompts:
+  - "Add a primary 'Continue' button."
+  - "Add a danger 'Delete account' button."
+  - "Add a ghost button with a trailing chevron icon that links to /pricing."
+
+lifecycle: experimental
+content_model: A short label, an intent variant, a size, and optional flanking icons.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-secondary
+    - --color-danger
+    - --color-danger-contrast
+    - --color-on-surface
+    - --color-surface-raised
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Start labels with a verb. Keep to one to three words. Avoid "Click here" or "Submit".
+
+categorization:
+  category: Atoms
+  subcategory: Buttons
+  atomic_type: atom
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Native button element carries focus and activation semantics; disabled state also sets data-disabled so behavior can block activation.
+  keyboard_support: Focusable, activates on Enter/Space via native button semantics.
+  seo_score: 20
+  text_direction: both

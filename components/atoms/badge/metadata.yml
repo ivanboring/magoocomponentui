@@ -1,0 +1,63 @@
+short_description: A small status/label pill with a severity or brand color variant.
+long_visual_description: >
+  A tiny pill-shaped label with dense padding, small medium-weight text, and a solid
+  background matching the chosen variant's semantic color.
+
+use_cases:
+  - Flag a "New" or "Beta" feature.
+  - Show an order/ticket status (e.g. "Shipped", "Pending").
+  - Highlight a category or content type next to a title.
+  - Indicate severity next to a list row.
+  - Mark a plan tier (e.g. "Pro").
+
+recommended_for:
+  - Small inline status or categorization labels next to text.
+avoid_for:
+  - Removable/interactive labels (use tag or chip).
+  - Long text (keep to one or two words).
+
+markets:
+  - Global
+
+example_usage: >
+  Place directly after a heading or inside a list row; choose the variant that matches
+  the label's semantic meaning.
+
+props:
+  label: One or two words, e.g. "Beta" or "Shipped".
+  variant: Match the semantic meaning of the label.
+
+example_prompts:
+  - "Add a 'New' badge next to the feature title."
+  - "Add a danger badge that says 'Overdue'."
+
+lifecycle: experimental
+content_model: A short label and a semantic color variant.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-pill
+
+editorial_guidance: >
+  Use one or two words, title case or sentence case consistently across the product.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Text-based, no color-only meaning; ensure sufficient contrast per theme.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

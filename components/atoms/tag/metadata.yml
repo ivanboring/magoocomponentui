@@ -1,0 +1,59 @@
+short_description: A small content keyword/tag label, optionally removable.
+long_visual_description: >
+  A compact outlined chip on the surface colour with small text and, when removable,
+  a tiny close glyph on the trailing edge.
+
+use_cases:
+  - Show topic/keyword tags on a blog post or product.
+  - Selected filter tag that can be removed.
+  - Skill or technology tag on a job listing or profile.
+  - Category label list under an article.
+  - Ingredient or attribute tag on a recipe card.
+
+recommended_for:
+  - Lists of keywords, topics, or applied filters.
+avoid_for:
+  - Status/severity labels (use badge).
+  - Selectable options with an avatar/icon (use chip).
+
+markets:
+  - Global
+
+example_usage: >
+  Render a row of tags for content topics; set removable when the tag represents an
+  applied filter the user can clear.
+
+props:
+  label: The keyword or topic text.
+  removable: Show a remove control that dispatches tag:remove and removes the tag.
+
+example_prompts:
+  - "Add topic tags: design, engineering, product."
+  - "Add a removable tag for the 'in-stock' filter."
+
+lifecycle: experimental
+content_model: A short keyword string and an optional remove affordance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-control
+
+editorial_guidance: >
+  Use lowercase for technical/topic tags unless the source data is a proper noun.
+
+categorization:
+  category: Atoms
+  subcategory: Typographic
+  atomic_type: atom
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Remove control has a descriptive aria-label naming the tag.
+  keyboard_support: Remove button is focusable and activates on Enter/Space.
+  seo_score: 15
+  text_direction: both

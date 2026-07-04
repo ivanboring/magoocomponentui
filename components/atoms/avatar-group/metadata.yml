@@ -1,0 +1,61 @@
+short_description: An overlapping stack of avatars with an optional "+N" overflow count.
+long_visual_description: >
+  A horizontal row of circular avatars overlapping slightly with a light ring
+  separating each from its neighbor, ending in a muted "+N" circle when there are more
+  people than fit.
+
+use_cases:
+  - Show meeting or document collaborators.
+  - Show assignees on a task or ticket.
+  - Show attendees on an event card.
+  - Show team members on a project card.
+  - Show reviewers on a pull request or document.
+
+recommended_for:
+  - Compact display of a group of people, 2 or more.
+avoid_for:
+  - A single person (use avatar).
+  - A full list with names (use a list of profile rows).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the visible people as items and precompute overflow_count as the remaining
+  count beyond max_visible; the template performs no arithmetic itself.
+
+props:
+  items: The people to render as overlapping avatars.
+  max_visible: How many avatars the caller intends to show (informational/for JS).
+  overflow_count: Precomputed remaining count shown as "+N"; 0 hides it.
+
+example_prompts:
+  - "Add an avatar group for 5 collaborators, showing 4 plus an overflow count."
+  - "Add an avatar group for the event's 3 attendees."
+
+lifecycle: experimental
+content_model: A short ordered list of people (name + optional photo) and an overflow count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+
+editorial_guidance: >
+  Order people by relevance (owner first) since only the first max_visible are meant to render.
+
+categorization:
+  category: Atoms
+  subcategory: Media
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each avatar carries role="img" and aria-label with the person's name.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

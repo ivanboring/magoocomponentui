@@ -1,0 +1,59 @@
+short_description: A user image with an initials fallback, configurable size and shape.
+long_visual_description: >
+  A small circular or squared-off tile showing a cropped photo when available, or the
+  person's initials centered on a muted surface background when not.
+
+use_cases:
+  - Show a user's photo next to their name in a comment or list row.
+  - Author avatar on a byline.
+  - Assignee indicator on a task card.
+  - Profile picture in a header or card.
+  - Fallback initials for users without a photo.
+
+recommended_for:
+  - Any place a person needs a compact visual identifier.
+avoid_for:
+  - Multiple overlapping avatars (use avatar-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Always pass name for the accessible label and initials fallback; pass image when a
+  photo is available.
+
+props:
+  name: Full name; drives the initials fallback and accessible label.
+  image: Optional photo URL.
+  size: Match to context density (sm in lists, xl on profile headers).
+  shape: circle for people, square for organizations/brands.
+
+example_prompts:
+  - "Add a medium circular avatar for Jane Doe with no photo."
+  - "Add a large square avatar with a company logo."
+
+lifecycle: experimental
+content_model: A name (for initials/label) and an optional photo.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --font-heading
+    - --radius-card
+
+editorial_guidance: >
+  Initials fallback derives from name automatically; ensure name is the full display name.
+
+categorization:
+  category: Atoms
+  subcategory: Media
+  atomic_type: atom
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="img" with aria-label names the person; decorative image alt is empty.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

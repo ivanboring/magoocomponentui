@@ -1,0 +1,56 @@
+short_description: A formatted price display with an optional struck-through original price.
+long_visual_description: >
+  A prominent current price in heading type, with a smaller muted strikethrough
+  original price beside it when the item is discounted.
+
+use_cases:
+  - Show a product's current price on a product card.
+  - Show a discounted price alongside the original price.
+  - Show a plan's price on a pricing card.
+  - Show a ticket tier's price.
+  - Show a cart line item's price.
+
+recommended_for:
+  - Any place a formatted price needs to display, with or without a discount.
+avoid_for:
+  - Full pricing comparison tables (use price-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Always pass price pre-formatted with its currency symbol; set original_price only
+  when the item is on sale.
+
+props:
+  price: The current, human-formatted price.
+  original_price: The pre-discount price, shown struck through.
+
+example_prompts:
+  - "Add a price tag showing $49 with an original price of $69."
+  - "Add a plain price tag for $12.50."
+
+lifecycle: experimental
+content_model: A formatted current price and an optional formatted original price.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+
+editorial_guidance: >
+  Always format currency the same way as the rest of the surrounding page.
+
+categorization:
+  category: Atoms
+  subcategory: Typographic
+  atomic_type: atom
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Struck-through original price is visually indicated only; ensure surrounding text also states "sale" for non-visual users.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

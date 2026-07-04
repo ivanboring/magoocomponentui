@@ -1,0 +1,17 @@
+name: button-group
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each item: { label, value, active }."
+    example:
+      - { label: "Day", value: "day", active: true }
+      - { label: "Week", value: "week", active: false }
+      - { label: "Month", value: "month", active: false }
+  active_class:
+    type: string
+    default: "bg-primary text-primary-contrast"
+    title: Active class
+    description: Utility classes applied to the active segment.

@@ -1,0 +1,30 @@
+name: avatar
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: Used for the accessible label and the initials fallback.
+    example: "Jane Doe"
+  image:
+    type: image
+    title: Image
+  size:
+    type: enum
+    values: [sm, md, lg, xl]
+    default: md
+    title: Size
+  shape:
+    type: enum
+    values: [circle, square]
+    default: circle
+    title: Shape
+variants:
+  size:
+    sm: "size-8 text-xs"
+    md: "size-10 text-sm"
+    lg: "size-12 text-base"
+    xl: "size-16 text-lg"
+  shape:
+    circle: "rounded-full"
+    square: "rounded-card"

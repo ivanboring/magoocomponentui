@@ -1,0 +1,16 @@
+name: spinner
+props:
+  label:
+    type: string
+    default: "Loading"
+    title: Accessible label
+  size:
+    type: enum
+    values: [sm, md, lg]
+    default: md
+    title: Size
+variants:
+  size:
+    sm: "size-4 border-2"
+    md: "size-6 border-2"
+    lg: "size-10 border-[3px]"

@@ -1,0 +1,59 @@
+short_description: A circular/radial progress indicator with a centered percentage value.
+long_visual_description: >
+  A ring gauge: a muted background track circle and a primary-coloured progress arc
+  drawn over it, with the numeric percentage centered inside the ring.
+
+use_cases:
+  - Show a goal completion percentage in a dashboard tile.
+  - Show storage/quota usage as a ring.
+  - Show a quiz or assessment score.
+  - Show upload/processing progress compactly.
+  - Show a battery or resource level indicator.
+
+recommended_for:
+  - Compact radial progress in dashboards and stat tiles.
+avoid_for:
+  - Long linear progress with a label (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute dash_offset as 251 * (1 - value/100) for a value 0-100, since the
+  template performs no arithmetic.
+
+props:
+  value: The percentage shown as the center label.
+  dash_offset: Precomputed stroke-dashoffset driving the arc length.
+  label: Full accessible description, e.g. "72% complete".
+
+example_prompts:
+  - "Add a progress circle at 72% for storage usage."
+  - "Add a radial progress gauge for a quiz score of 85%."
+
+lifecycle: experimental
+content_model: A percentage value and a precomputed arc offset.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the center value to a short number/percentage; avoid extra words inside the ring.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="img" with a full-sentence aria-label conveys the value.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

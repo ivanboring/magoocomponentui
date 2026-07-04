@@ -1,0 +1,42 @@
+name: button
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Continue"
+  variant:
+    type: enum
+    values: [primary, secondary, ghost, danger]
+    default: primary
+    title: Variant
+  size:
+    type: enum
+    values: [sm, md, lg]
+    default: md
+    title: Size
+  href:
+    type: link
+    title: Link
+    description: When set, clicking navigates here instead of just firing a click event.
+  disabled:
+    type: boolean
+    default: false
+    title: Disabled
+slots:
+  icon-leading:
+    title: Leading icon
+    description: Small icon before the label.
+  icon-trailing:
+    title: Trailing icon
+    description: Small icon after the label.
+variants:
+  variant:
+    primary: "bg-primary text-primary-contrast hover:opacity-90"
+    secondary: "bg-secondary text-on-surface hover:opacity-90"
+    ghost: "bg-transparent text-on-surface hover:bg-surface-raised"
+    danger: "bg-danger text-danger-contrast hover:opacity-90"
+  size:
+    sm: "px-3 py-1.5 text-sm"
+    md: "px-4 py-2 text-sm"
+    lg: "px-5 py-2.5 text-base"

@@ -1,0 +1,62 @@
+short_description: A segmented set of mutually-exclusive buttons with a single active state.
+long_visual_description: >
+  A single pill/rounded container with a thin border holding evenly spaced segments;
+  the active segment is filled with the active_class colour, inactive segments sit flush
+  against the surface and highlight on hover.
+
+use_cases:
+  - Toggle a chart's time range (day/week/month).
+  - Switch between list and grid view.
+  - Choose a unit (metric/imperial).
+  - Select a filter mode with mutually-exclusive options.
+  - Switch tabs in a compact toolbar context.
+
+recommended_for:
+  - A small (2-5) set of mutually exclusive options shown inline.
+avoid_for:
+  - More than five options (use tabs or a select).
+  - Multi-select choices (use chips).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 2-5 items with one marked active: true; listen for the button-group:change
+  event to react to selection.
+
+props:
+  items: The ordered list of segments with label, value, and active state.
+  active_class: Utility classes applied to whichever segment is active.
+
+example_prompts:
+  - "Add a button group to switch between Day, Week, and Month."
+  - "Add a list/grid view toggle button group."
+
+lifecycle: experimental
+content_model: A short ordered list of mutually-exclusive labeled options.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-surface-raised
+    - --color-border
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep segment labels to a single word where possible so the group stays compact.
+
+categorization:
+  category: Atoms
+  subcategory: Buttons
+  atomic_type: molecule
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Segments use aria-pressed to convey selected state; group has role="group".
+  keyboard_support: Each segment is a focusable button activating on Enter/Space.
+  seo_score: 10
+  text_direction: both

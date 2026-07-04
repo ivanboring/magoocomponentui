@@ -1,0 +1,55 @@
+short_description: A horizontal or vertical rule with an optional centered label.
+long_visual_description: >
+  A thin border-colour line spanning its container, optionally interrupted by a small
+  muted label such as "OR" centered along its length.
+
+use_cases:
+  - Separate form sections.
+  - Separate "sign in with email" from "or continue with Google".
+  - Divide items in a horizontal toolbar (vertical orientation).
+  - Visually separate list groups.
+  - Separate a card's header from its body content.
+
+recommended_for:
+  - Simple visual separation between content blocks.
+avoid_for:
+  - Separation that also needs spacing/structure (use section-wrapper).
+
+markets:
+  - Global
+
+example_usage: >
+  Use horizontal within stacked content and vertical between inline items; set label
+  only on horizontal dividers.
+
+props:
+  orientation: horizontal for stacked content, vertical for inline rows.
+  label: Optional short centered label, e.g. "OR".
+
+example_prompts:
+  - "Add a divider labeled 'OR' between the two sign-in options."
+  - "Add a vertical divider between the toolbar buttons."
+
+lifecycle: experimental
+content_model: A line with an optional short label.
+
+theming:
+  tokens_used:
+    - --color-border
+    - --color-on-surface-muted
+
+editorial_guidance: >
+  Keep the label to one short word, typically uppercase ("OR", "AND").
+
+categorization:
+  category: Atoms
+  subcategory: Typographic
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="separator" conveys the divider's purpose to assistive tech.
+  keyboard_support: "none"
+  seo_score: 5
+  text_direction: both

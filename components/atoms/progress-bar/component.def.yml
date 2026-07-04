@@ -1,0 +1,16 @@
+name: progress-bar
+props:
+  value:
+    type: integer
+    required: true
+    title: Value
+    description: Current value from 0-100.
+    example: 60
+  label:
+    type: string
+    title: Label
+    example: "Upload progress"
+  show_value:
+    type: boolean
+    default: true
+    title: Show value

@@ -1,0 +1,15 @@
+name: chip
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Extra cheese"
+  selected:
+    type: boolean
+    default: false
+    title: Selected
+slots:
+  avatar:
+    title: Avatar or icon
+    description: Optional small leading avatar/icon.

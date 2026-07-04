@@ -1,0 +1,56 @@
+short_description: An inline SVG wrapper with a configurable size and optional accessible label.
+long_visual_description: >
+  A small square wrapper that sizes and colors (via currentColor) any inline SVG glyph
+  passed into its slot, with no visual chrome of its own.
+
+use_cases:
+  - Wrap a decorative icon next to a label.
+  - Wrap a meaningful icon that needs an accessible name (e.g. a status glyph).
+  - Provide consistent sizing for icons across a page.
+  - Icon inside a button, badge, or list row.
+  - Directional chevron/arrow inside navigation controls.
+
+recommended_for:
+  - Any inline SVG icon that needs consistent sizing/color and correct a11y treatment.
+avoid_for:
+  - Icons that are already handled by a specific component's icon slot.
+
+markets:
+  - Global
+
+example_usage: >
+  Set label when the icon conveys meaning on its own; leave it empty for purely
+  decorative icons next to visible text.
+
+props:
+  label: Accessible name for meaningful icons; omit for decorative ones.
+  size: Match to surrounding text size.
+
+slots:
+  glyph: The inline SVG markup.
+
+example_prompts:
+  - "Add a small decorative chevron icon."
+  - "Add a medium icon labeled 'Verified' next to the username."
+
+lifecycle: experimental
+content_model: A single inline SVG glyph, a size, and an optional accessible label.
+
+theming:
+  tokens_used: []
+
+editorial_guidance: >
+  Keep labels to a short noun phrase describing what the icon represents, not its shape.
+
+categorization:
+  category: Atoms
+  subcategory: Media
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Toggles between aria-hidden (decorative) and aria-label (meaningful) based on the label prop.
+  keyboard_support: "none"
+  seo_score: 5
+  text_direction: both

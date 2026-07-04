@@ -1,0 +1,20 @@
+name: icon
+props:
+  label:
+    type: string
+    title: Accessible label
+    description: When set, the icon is announced; when empty it is treated as decorative.
+  size:
+    type: enum
+    values: [sm, md, lg]
+    default: md
+    title: Size
+variants:
+  size:
+    sm: "size-4"
+    md: "size-5"
+    lg: "size-6"
+slots:
+  glyph:
+    title: Glyph
+    description: The inline SVG to wrap.

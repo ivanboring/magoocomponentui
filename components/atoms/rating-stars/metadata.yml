@@ -1,0 +1,56 @@
+short_description: A star rating display with a configurable max and value, and a filled/empty state per star.
+long_visual_description: >
+  A horizontal row of small star glyphs in the warning/gold tone; filled stars use a
+  solid fill, empty stars a muted outline fill, up to max stars total.
+
+use_cases:
+  - Show a product's average rating.
+  - Show a review's star score.
+  - Show a recipe or app's rating on a card.
+  - Display a testimonial's star score.
+  - Show an app's store rating on a card.
+
+recommended_for:
+  - Read-only display of an existing rating value.
+avoid_for:
+  - Interactive rating input (build a dedicated input control).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the items array (one entry per star with filled true/false) and the
+  accessible label string ("4 out of 5 stars") from value/max before rendering.
+
+props:
+  value: The numeric rating value.
+  max: Total number of stars.
+  label: Full accessible description of the rating.
+  items: One entry per star indicating filled state; length must equal max.
+
+example_prompts:
+  - "Add a 4 out of 5 star rating."
+  - "Add a perfect 5-star rating to the review card."
+
+lifecycle: experimental
+content_model: A numeric rating out of a max, rendered as filled/empty star glyphs.
+
+theming:
+  tokens_used:
+    - --color-warning
+
+editorial_guidance: >
+  Always provide the accessible label as a full sentence, not just the number.
+
+categorization:
+  category: Atoms
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="img" with a full-sentence aria-label conveys the rating to assistive tech.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

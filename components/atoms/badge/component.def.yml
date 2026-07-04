@@ -1,0 +1,20 @@
+name: badge
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "New"
+  variant:
+    type: enum
+    values: [neutral, primary, success, warning, danger, info]
+    default: neutral
+    title: Variant
+variants:
+  variant:
+    neutral: "bg-surface-raised text-on-surface"
+    primary: "bg-primary text-primary-contrast"
+    success: "bg-success text-success-contrast"
+    warning: "bg-warning text-warning-contrast"
+    danger: "bg-danger text-danger-contrast"
+    info: "bg-info text-info-contrast"
