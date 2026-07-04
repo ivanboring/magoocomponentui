@@ -1,0 +1,33 @@
+name: stat-card
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Monthly revenue"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "$48,210"
+  delta:
+    type: string
+    title: Delta
+    description: Change vs the previous period.
+    example: "+12.5%"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: flat
+    example: up
+    title: Trend
+    description: Colours the delta and its arrow.
+slots:
+  icon:
+    title: Icon
+    description: Optional leading glyph, top-right.
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

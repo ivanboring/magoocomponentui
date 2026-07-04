@@ -53,6 +53,11 @@ async function main() {
       await mkdir(path.dirname(dest), { recursive: true });
       await writeFile(dest, contents);
     }
+    // Preferred args for preview/screenshots: the "Default" example, else the first.
+    if (examples) {
+      const preferred = examples.Default || Object.values(examples)[0];
+      await writeFile(path.join(outDir, "preview.json"), JSON.stringify(preferred, null, 2));
+    }
     // Mirror screenshots alongside the generated variants for the preview.
     const shots = path.join(dir, "screenshots");
     if (await exists(shots)) await cp(shots, path.join(outDir, "screenshots"), { recursive: true });

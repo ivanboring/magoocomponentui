@@ -1,0 +1,78 @@
+short_description: A single-metric tile showing a value, its label, and a period-over-period change.
+long_visual_description: >
+  A compact card on the surface colour with a card radius and soft shadow. A muted label
+  sits top-left with room for an optional icon top-right, a large value in the heading face
+  dominates the middle, and a small delta below is coloured by trend — green for up, red for
+  down, muted for flat. Digits use tabular figures so values and deltas align in a grid.
+
+use_cases:
+  - Headline KPI in a dashboard summary row.
+  - Revenue, users, or conversion figure with period change.
+  - Health metric with a good/bad colour cue.
+  - Compact stat inside a widget grid.
+  - Marketing stats band entry.
+  - Account overview number (balance, credits).
+  - Ops metric (uptime, error rate) with trend.
+
+recommended_for:
+  - Dashboards and admin summaries.
+  - Grids of comparable metrics.
+  - At-a-glance figures that need a trend cue.
+avoid_for:
+  - Metrics needing a chart or history (use a chart-card).
+  - Long labels or multi-line values.
+  - Non-numeric content.
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid. Give each a short label, a formatted value, a signed
+  delta, and a trend that matches the delta's direction.
+
+props:
+  label: Short metric name in sentence case; keep to a few words.
+  value: The formatted figure, including currency or unit.
+  delta: Signed change vs the previous period, e.g. "+12.5%".
+  trend: Colours the delta; set it to agree with the delta's sign.
+
+slots:
+  icon: Optional small glyph in the top-right; keep it decorative.
+
+example_prompts:
+  - "Add a revenue stat card showing $48,210 up 12.5%."
+  - "Show an error-rate stat with a red downward trend."
+  - "Put four KPI stat cards in a row on the dashboard."
+
+lifecycle: experimental
+content_model: A label, a formatted value, an optional signed delta with a trend, and an optional icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Label names what people recognise, not the system metric. Keep the value formatted and the
+  delta signed. Colour must agree with direction — never a green minus.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is conveyed by the delta's sign and text, not colour alone; icon slot is decorative.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 45
+  text_direction: both

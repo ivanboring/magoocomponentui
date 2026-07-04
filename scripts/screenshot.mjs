@@ -58,7 +58,9 @@ async function main() {
     const distDir = path.join(ROOT, "dist", id);
     const ast = JSON.parse(readFileSync(path.join(distDir, "ast.json"), "utf8"));
     const meta = JSON.parse(readFileSync(path.join(distDir, "meta.json"), "utf8"));
-    const args = { ...defaultArgs(meta.def), $variants: meta.def.variants };
+    const previewPath = path.join(distDir, "preview.json");
+    const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
+    const args = { ...base, $variants: meta.def.variants };
     const html = renderToHtml(ast, args);
 
     const outDirs = [

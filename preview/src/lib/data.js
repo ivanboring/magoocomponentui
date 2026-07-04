@@ -18,7 +18,9 @@ export function loadRender(id) {
   const dir = path.join(DIST, id);
   const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
   const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
-  const args = { ...defaultArgs(meta.def), $variants: meta.def.variants };
+  const previewPath = path.join(dir, "preview.json");
+  const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
+  const args = { ...base, $variants: meta.def.variants };
   // A component's portable behavior (self-inits in the browser), if it has one.
   const jsPath = path.join(dir, "sdc", meta.name, `${meta.name}.js`);
   const behaviorJs = existsSync(jsPath) ? readFileSync(jsPath, "utf8") : null;

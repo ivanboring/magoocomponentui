@@ -1,0 +1,8 @@
+<div class="stat-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <p class="text-sm text-on-surface-muted">{{ label }}</p>
+    <span class="stat-card__icon shrink-0 text-on-surface-muted"><slot name="icon"></slot></span>
+  </div>
+  <p class="mt-2 font-heading text-3xl text-on-surface tabular-nums">{{ value }}</p>
+  <p data-if="delta" class="mt-1 text-sm font-medium {{ trend@class }}">{{ delta }}</p>
+</div>
