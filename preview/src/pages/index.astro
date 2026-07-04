@@ -17,98 +17,90 @@ const categories = catalog.facets.categories || {};
 ---
 
 <Layout title="Magoo Component UI — Catalog">
-  <div class="grid gap-8 md:grid-cols-[13rem_1fr]">
-    <aside class="md:sticky md:top-20 md:self-start">
-      <input
-        id="search"
-        type="search"
-        placeholder="Search components…"
-        class="mb-4 w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500"
-      />
-      <nav class="text-sm">
-        <button data-cat="" class="cat-link block w-full rounded px-2 py-1 text-left font-medium text-slate-900 hover:bg-slate-100">
-          All ({catalog.count})
-        </button>
-        {Object.entries(categories).map(([cat, subs]) => (
-          <div class="mt-2">
-            <button data-cat={cat} class="cat-link block w-full rounded px-2 py-1 text-left font-medium hover:bg-slate-100">{cat}</button>
-            {subs.map((sub) => (
-              <button data-cat={cat} data-sub={sub} class="cat-link block w-full rounded px-2 py-1 pl-5 text-left text-slate-500 hover:bg-slate-100">{sub}</button>
-            ))}
-          </div>
-        ))}
-      </nav>
-    </aside>
-
-    <main>
-      {cards.length === 0 && (
-        <p class="rounded-lg border border-dashed border-slate-300 p-8 text-center text-slate-500">
-          No components yet. Author one under <code>components/</code> and run <code>pnpm build</code>.
-        </p>
-      )}
-      <div id="grid" class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {cards.map((c) => (
-          <a
-            href={`/c/${c.id}`}
-            class="card group block overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300 hover:shadow-sm"
-            data-name={c.name}
-            data-cat={c.categorization.category}
-            data-sub={c.categorization.subcategory || ""}
-            data-search={`${c.name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
-          >
-            <div class="flex items-center justify-center border-b border-slate-100 bg-slate-50 p-5" data-theme="simple">
-              {c.shots.length > 0 ? (
-                <div class="grid w-full grid-cols-4 gap-1">
-                  {c.shots.slice(0, 4).map((src) => (<img src={src} alt="" class="w-full rounded" />))}
-                </div>
-              ) : (
-                <div class="pointer-events-none w-full" set:html={c.preview} />
-              )}
-            </div>
-            <div class="p-4">
-              <div class="flex items-center gap-2">
-                <h3 class="font-semibold">{c.name}</h3>
-                <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] text-slate-500">{c.categorization.atomic_type}</span>
-              </div>
-              <p class="mt-1 line-clamp-2 text-sm text-slate-500">{c.short_description}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-      <p id="empty" class="hidden py-12 text-center text-slate-400">No components match.</p>
-    </main>
+  <!-- Top toolbar: search + category dropdown -->
+  <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <input
+      id="search"
+      type="search"
+      placeholder="Search components…"
+      class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500 sm:max-w-xs"
+    />
+    <select
+      id="cat"
+      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
+    >
+      <option value="">All categories ({catalog.count})</option>
+      {Object.entries(categories).map(([cat, subs]) => (
+        <optgroup label={cat}>
+          <option value={cat}>{cat} — all</option>
+          {subs.map((sub) => (<option value={`${cat}::${sub}`}>{cat} › {sub}</option>))}
+        </optgroup>
+      ))}
+    </select>
+    <span id="count" class="text-sm text-slate-400 sm:ml-auto"></span>
   </div>
+
+  {cards.length === 0 && (
+    <p class="rounded-lg border border-dashed border-slate-300 p-8 text-center text-slate-500">
+      No components yet. Author one under <code>components/</code> and run <code>pnpm build</code>.
+    </p>
+  )}
+
+  <div id="grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    {cards.map((c) => (
+      <a
+        href={`/c/${c.id}`}
+        class="card group block overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300 hover:shadow-sm"
+        data-cat={c.categorization.category}
+        data-sub={c.categorization.subcategory || ""}
+        data-search={`${c.name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
+      >
+        <div class="flex items-center justify-center border-b border-slate-100 bg-slate-50 p-5" data-theme="simple">
+          {c.shots.length > 0 ? (
+            <div class="grid w-full grid-cols-4 gap-1">
+              {c.shots.slice(0, 4).map((src) => (<img src={src} alt="" class="w-full rounded" />))}
+            </div>
+          ) : (
+            <div class="pointer-events-none w-full" set:html={c.preview} />
+          )}
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-2">
+            <h3 class="font-semibold">{c.name}</h3>
+            <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] text-slate-500">{c.categorization.atomic_type}</span>
+          </div>
+          <p class="mt-1 line-clamp-2 text-sm text-slate-500">{c.short_description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+  <p id="empty" class="hidden py-12 text-center text-slate-400">No components match.</p>
 
   <script>
     const search = document.getElementById("search");
+    const catSelect = document.getElementById("cat");
     const cards = Array.from(document.querySelectorAll(".card"));
     const empty = document.getElementById("empty");
-    let activeCat = "";
-    let activeSub = "";
+    const count = document.getElementById("count");
 
     function apply() {
       const q = (search.value || "").trim().toLowerCase();
+      const [cat, sub] = (catSelect.value || "").split("::");
       let shown = 0;
       for (const card of cards) {
         const matchesText = !q || card.dataset.search.includes(q);
-        const matchesCat = !activeCat || card.dataset.cat === activeCat;
-        const matchesSub = !activeSub || card.dataset.sub === activeSub;
+        const matchesCat = !cat || card.dataset.cat === cat;
+        const matchesSub = !sub || card.dataset.sub === sub;
         const show = matchesText && matchesCat && matchesSub;
         card.classList.toggle("hidden", !show);
         if (show) shown++;
       }
       empty.classList.toggle("hidden", shown !== 0);
+      count.textContent = `${shown} shown`;
     }
 
     search.addEventListener("input", apply);
-    document.querySelectorAll(".cat-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        activeCat = link.dataset.cat || "";
-        activeSub = link.dataset.sub || "";
-        document.querySelectorAll(".cat-link").forEach((l) => l.classList.remove("bg-slate-100"));
-        link.classList.add("bg-slate-100");
-        apply();
-      });
-    });
+    catSelect.addEventListener("change", apply);
+    apply();
   </script>
 </Layout>

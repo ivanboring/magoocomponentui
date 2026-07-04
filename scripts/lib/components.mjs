@@ -42,6 +42,25 @@ export async function findComponentDirs() {
   return found.sort((a, b) => a.id.localeCompare(b.id));
 }
 
+/**
+ * Discover captured screenshots for a component → { theme: { breakpoint: url } }.
+ * Filenames are `<theme>-<breakpoint>.png`; URLs point at the preview's public mirror.
+ * @param {string} dir @param {string} id
+ */
+export async function readScreenshots(dir, id) {
+  const shotsDir = path.join(dir, "screenshots");
+  if (!(await exists(shotsDir))) return {};
+  /** @type {Record<string, Record<string, string>>} */
+  const map = {};
+  for (const f of await readdir(shotsDir)) {
+    const m = /^(.+)-(mobile|tablet|small|desktop)\.png$/.exec(f);
+    if (!m) continue;
+    const [, theme, bp] = m;
+    (map[theme] ||= {})[bp] = `/screenshots/${id}/${f}`;
+  }
+  return map;
+}
+
 /** @param {string} dir */
 export async function readComponentSource(dir) {
   const defYaml = await readFile(path.join(dir, "component.def.yml"), "utf8");

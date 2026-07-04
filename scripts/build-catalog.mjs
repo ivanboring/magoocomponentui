@@ -8,7 +8,7 @@ import path from "node:path";
 import { loadDef } from "../packages/generator/src/def.js";
 import { validateMetadataYaml } from "../packages/schema/src/validate.js";
 import { buildEntry, assembleCatalog } from "../packages/schema/src/catalog.js";
-import { findComponentDirs, readComponentSource, DIST_DIR } from "./lib/components.mjs";
+import { findComponentDirs, readComponentSource, readScreenshots, DIST_DIR } from "./lib/components.mjs";
 
 async function main() {
   const dirs = await findComponentDirs();
@@ -33,6 +33,8 @@ async function main() {
       for (const e of errors) problems.push(`[${id}] metadata.yml: ${e}`);
       continue;
     }
+    const shots = await readScreenshots(dir, id);
+    if (Object.keys(shots).length) data.screenshots = shots;
     entries.push(buildEntry({ id, path: path.relative(DIST_DIR, dir), def, metadata: data }));
   }
 
