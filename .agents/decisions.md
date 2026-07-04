@@ -16,3 +16,17 @@
 
 ## Component-scoped hook classes vs styling
 Styling = token-bound Tailwind utilities. JS targeting = component-scoped `__hook` classes (BEM-ish). Keep them separate so themes never break behavior and behavior never depends on utility classes.
+
+## Behavior config via data-attributes (convention)
+The portable self-init wrapper (SDC/preview/Storybook) calls `init(root, {})` — it has **no props object at runtime**. So behaviors MUST read configuration from the root element's `data-*` attributes (set in the template from props), e.g. `root.dataset.allowMultiple`. The React/Vue wrappers *do* pass props to `init`, but for cross-target consistency, author behaviors to rely on `data-*`. Root element also carries `class="<name>"` as the JS hook.
+
+## OPEN DESIGN ITEM — variant → class mapping (decide before authoring components)
+The template language has **no equality test** (`data-if` is truthy-only), so an enum
+`variant` cannot currently pick different utility-class sets (e.g. primary vs secondary
+button, or toast severity → `bg-success`/`bg-danger`). Many components need this.
+Recommended approach (**b**): add a `variants:` block to `component.def.yml` mapping each
+enum value → a class string, plus a template token like `{{ variant@class }}`; the
+generator inlines it per target (twig `{% if %}` chain, JSX/Vue conditional class, and
+the reference renderer resolves via the def). Alternative (**a**): extend `data-if` with
+equality (`data-if="variant == 'primary'"`) and author N branches (verbose).
+→ Implement as the first item of remaining structure, before the component phase.

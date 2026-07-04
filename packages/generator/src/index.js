@@ -17,6 +17,7 @@ import { emitSdc, defToComponentYml } from "./emit/sdc.js";
 import { emitJsx } from "./emit/jsx.js";
 import { emitVue } from "./emit/vue.js";
 import { emitStorybook, defaultArgs, sampleValue } from "./emit/storybook.js";
+import { emitDrupal } from "./emit/drupal.js";
 import { astToTwig } from "./emit/twig.js";
 import { wrapPortable } from "./emit/behavior.js";
 
@@ -32,6 +33,7 @@ export {
   emitJsx,
   emitVue,
   emitStorybook,
+  emitDrupal,
   astToTwig,
   wrapPortable,
   defaultArgs,
@@ -81,6 +83,12 @@ export function generate(source) {
     behavior: Boolean(behavior),
     examples: source.examples || null,
   });
+
+  for (const [file, contents] of Object.entries(
+    emitDrupal({ name, def: source.def, ast, metadata }),
+  )) {
+    files[`drupal/${file}`] = contents;
+  }
 
   return { ast, files };
 }

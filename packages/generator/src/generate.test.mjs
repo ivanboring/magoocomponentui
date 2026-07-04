@@ -116,3 +116,17 @@ test("Storybook story renders via renderToHtml with argTypes", () => {
   assert.match(story, /argTypes:/);
   assert.match(story, /import "\.\.\/sdc\/demo-card\/demo-card\.js"/); // behavior loaded
 });
+
+test("Drupal: field plan, inferred custom_field columns, paragraph embed", () => {
+  const { files } = generate({ id: "demo/demo-card", def, template, behavior });
+  const fields = files["drupal/fields.yml"];
+  assert.match(fields, /type: custom_field/); // items array → custom_field
+  assert.match(fields, /label: string/); // column inferred from item.label
+  assert.match(fields, /type: list_string/); // enum variant
+  assert.match(fields, /allowed_values/);
+
+  assert.ok(files["drupal/custom_field.demo-card.yml"]); // complex prop present
+  const twig = files["drupal/paragraph--demo-card.html.twig"];
+  assert.match(twig, /embed 'your_theme:demo-card'/);
+  assert.match(twig, /title: paragraph\.field_title\.value/);
+});

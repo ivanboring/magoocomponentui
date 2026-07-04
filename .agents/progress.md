@@ -12,14 +12,20 @@
 ## Next (build order — tracked in the task list)
 1. ✅ Scaffolded monorepo (pnpm workspaces, Node ESM + JSDoc, root config). `@magoo/themes`: `tokens.contract.css` (shared contract) + 4 value sets (simple/futuristic/classic/smooth) + `index.css` (Tailwind v4 + safelist + theme base). Designed with frontend-design skill.
 2. ✅ `@magoo/generator`: `parser.js` (template.html → AST: element/text/slot + `{{ }}`/`{{{ }}}`/`data-if`/`data-for`) and `def.js` (component.def.yml normalizer). 9 unit tests pass (`pnpm test`).
-3. Metadata JSON Schema + ajv validator + catalog builder → `dist/catalog.json`.
-4. Generator emitters: SDC → Code Component → React → Vue → Storybook.
-5. Drupal paragraph + custom_field scaffolding + mapping docs.
-6. Author the 9 proof-set components (source only).
-7. Full build pipeline + Storybook wiring.
-8. Astro static preview site (nav, Fuse.js search, screenshot grid, theme switch).
-9. Playwright screenshot pipeline (16/component).
-10. Docs + spec copy + end-to-end verification.
+3. ✅ `@magoo/schema`: metadata JSON Schema + ajv validator + catalog builder (`dist/catalog.json`). 6 tests.
+4. ✅ Emitters (all in `@magoo/generator`, 18 tests): reference AST→HTML renderer, SDC (component.yml+twig+js), Preact code component, React, Vue, Storybook. Portable self-init behavior wrapper.
+5. ✅ Drupal emitter: `fields.yml` + `paragraph--<name>.html.twig` + inferred `custom_field` columns. `docs/drupal-mapping.md`.
+   Build pipeline: `scripts/build.mjs` (generate → `dist/<id>/`) + `scripts/build-catalog.mjs`. `pnpm build` runs both. MIT licensed.
+
+### Remaining STRUCTURE (finish before pausing for the component phase)
+- **[first] variant→class mapping** feature — see OPEN DESIGN ITEM in decisions.md.
+- Storybook config (`.storybook/`) + theme-toolbar decorator.
+- Astro static preview site (nav, Fuse.js search, 16-screenshot grid, live theme switch).
+- Playwright screenshot pipeline (`scripts/screenshot.mjs`, 16/component).
+- `docs/` (authoring-guide, template-directives, metadata-schema, theming, taxonomy) + spec copy.
+
+### PAUSE POINT
+After the above, PAUSE. **Component authoring (the 200 catalog + proof set) is deferred to another model/session** per the user. Everything an author needs: `component.def.yml` + `template.html` + optional `behavior.js` + `metadata.yml` (+ `examples/`), then `pnpm build`.
 
 ## Resolved with user
 - **Build order: breadth-first** — early wave takes a few from each domain for preview variety, then depth.

@@ -18,6 +18,7 @@
     "storybook:build": "storybook build"
   },
   "devDependencies": {
+    "js-yaml": "^4.1.0",
     "typescript": "^5.6.0"
   }
 }
