@@ -33,3 +33,12 @@ export const THEMES = [
   { id: "classic", label: "Classic" },
   { id: "smooth", label: "Smooth" },
 ];
+
+// Preview display order: widest → narrowest.
+export const BREAKPOINTS = ["desktop", "small", "tablet", "mobile"];
+
+/** Screenshots for one theme, ordered desktop → mobile. */
+export function orderedShots(screenshots, theme) {
+  const bps = (screenshots && screenshots[theme]) || {};
+  return BREAKPOINTS.filter((bp) => bps[bp]).map((bp) => ({ bp, src: bps[bp] }));
+}

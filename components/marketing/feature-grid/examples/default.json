@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "badge": "1", "title": "Fast by default", "body": "No CSS to ship; markup is pure tokenized Tailwind." },
+    { "badge": "2", "title": "One source", "body": "Author once, generate every framework target." },
+    { "badge": "3", "title": "Four themes", "body": "Swap a token value set to re-skin everything." },
+    { "badge": "4", "title": "Agent-ready", "body": "Rich metadata makes the catalog explorable." }
+  ]
+}

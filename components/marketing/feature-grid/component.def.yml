@@ -1,0 +1,9 @@
+name: feature-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Features
+    description: "Each item: { badge, title, body }."
+slots: {}

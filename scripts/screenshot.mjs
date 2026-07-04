@@ -14,7 +14,8 @@ import { renderToHtml, defaultArgs } from "../packages/generator/src/index.js";
 import { findComponentDirs, readComponentSource, ROOT } from "./lib/components.mjs";
 
 const THEMES = ["simple", "futuristic", "classic", "smooth"];
-const BREAKPOINTS = { mobile: 375, tablet: 768, small: 1024, desktop: 1440 };
+// Widest → narrowest, matching the preview display order.
+const BREAKPOINTS = { desktop: 1440, small: 1024, tablet: 768, mobile: 375 };
 
 const FONTS =
   "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700" +
@@ -39,7 +40,7 @@ function doc(css, theme, html) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="${FONTS}">
 <style>${css}</style>
-<style>html,body{margin:0}#shot{display:inline-block;padding:28px;background:var(--color-background)}</style>
+<style>html,body{margin:0}#shot{display:block;padding:28px;background:var(--color-background)}</style>
 </head><body><div id="shot" data-theme="${theme}">${html}</div></body></html>`;
 }
 

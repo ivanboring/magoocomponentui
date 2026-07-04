@@ -1,0 +1,74 @@
+short_description: A responsive grid of icon-badged feature cards that reflows from one to four columns.
+long_visual_description: >
+  A grid of equal cards on the surface colour, each with a small square badge in the primary
+  colour, a heading, and a short paragraph. The grid is one column on mobile, two on tablet,
+  three on small screens, and four on wide desktops, so the same content reflows with the
+  viewport.
+
+use_cases:
+  - Product feature highlights on a landing page.
+  - Benefits grid answering "why choose us".
+  - Service or plan capability overview.
+  - Step or principle summary (non-sequential).
+  - Integration or partner capability tiles.
+  - Docs "what you get" section.
+
+recommended_for:
+  - Marketing and landing pages.
+  - Any set of 3–8 short, parallel points.
+  - Layouts that must reflow across breakpoints.
+avoid_for:
+  - Ordered steps (use a stepper).
+  - Long-form content per item.
+  - Single call-to-action (use a CTA band).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 3–8 items, each with a short badge glyph or number, a two-to-four word title, and a
+  one-line body. The grid handles all responsive column changes.
+
+props:
+  items: A list of features; each has a badge, a title, and a body.
+
+slots: {}
+
+example_prompts:
+  - "Add a four-item feature grid highlighting speed, one source, themes, and metadata."
+  - "Show a responsive benefits grid with icon badges."
+  - "Put a three-column feature section under the hero."
+
+lifecycle: experimental
+content_model: A list of feature items, each with a short badge, a title, and a one-line body.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Titles are short and parallel in grammar. Bodies are one line and concrete. Badges are
+  decorative — a number or glyph, not essential meaning.
+
+categorization:
+  category: Marketing
+  subcategory: Features
+  atomic_type: organism
+  usage_type: [grid, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic headings per card; badges are decorative; colour is not the only cue.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 60
+  text_direction: both

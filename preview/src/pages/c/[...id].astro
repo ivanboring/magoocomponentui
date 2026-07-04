@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadCatalog, loadRender, THEMES } from "../../lib/data.js";
+import { loadCatalog, loadRender, THEMES, orderedShots } from "../../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
 export function getStaticPaths() {
@@ -41,14 +41,19 @@ const cat = entry.categorization || {};
   <!-- Screenshots grid, when present -->
   {Object.keys(entry.screenshots || {}).length > 0 && (
     <section class="mt-8">
-      <h2 class="mb-3 text-lg font-semibold">Screenshots</h2>
+      <h2 class="mb-3 text-lg font-semibold">Screenshots <span class="text-sm font-normal text-slate-400">— click to enlarge</span></h2>
       <div class="space-y-4">
-        {Object.entries(entry.screenshots).map(([theme, bps]) => (
+        {THEMES.filter((t) => entry.screenshots[t.id]).map((t) => (
           <div>
-            <div class="mb-1 text-xs uppercase tracking-wide text-slate-400">{theme}</div>
-            <div class="grid grid-cols-4 gap-2">
-              {Object.entries(bps).map(([bp, src]) => (
-                <figure><img src={src} alt={`${theme} ${bp}`} class="rounded border border-slate-200" /><figcaption class="mt-1 text-[11px] text-slate-400">{bp}</figcaption></figure>
+            <div class="mb-1 text-xs uppercase tracking-wide text-slate-400">{t.label}</div>
+            <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {orderedShots(entry.screenshots, t.id).map(({ bp, src }) => (
+                <figure>
+                  <button type="button" class="shot block w-full" data-full={src} data-label={`${t.label} · ${bp}`}>
+                    <img src={src} alt={`${t.label} ${bp}`} class="w-full cursor-zoom-in rounded border border-slate-200 transition hover:border-slate-400" />
+                  </button>
+                  <figcaption class="mt-1 text-[11px] text-slate-400">{bp}</figcaption>
+                </figure>
               ))}
             </div>
           </div>
@@ -56,6 +61,15 @@ const cat = entry.categorization || {};
       </div>
     </section>
   )}
+
+  <!-- Full-preview lightbox -->
+  <div id="lightbox" hidden class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6">
+    <button id="lightbox-close" class="absolute right-5 top-4 text-2xl text-white/80 hover:text-white" aria-label="Close">&times;</button>
+    <figure class="max-w-full">
+      <img id="lightbox-img" src="" alt="" class="mx-auto max-h-[82vh] max-w-full rounded shadow-2xl" />
+      <figcaption id="lightbox-cap" class="mt-3 text-center text-sm text-white/80"></figcaption>
+    </figure>
+  </div>
 
   <div class="mt-8 grid gap-8 lg:grid-cols-2">
     {entry.props.length > 0 && (
@@ -113,5 +127,32 @@ const cat = entry.categorization || {};
       s.textContent = behaviorJs;
       document.body.appendChild(s);
     }
+
+    // Screenshot lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCap = document.getElementById("lightbox-cap");
+    function openLightbox(src, label) {
+      lightboxImg.src = src;
+      lightboxImg.alt = label;
+      lightboxCap.textContent = label;
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox() {
+      lightbox.hidden = true;
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+    document.querySelectorAll(".shot").forEach((btn) => {
+      btn.addEventListener("click", () => openLightbox(btn.dataset.full, btn.dataset.label));
+    });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target.id === "lightbox-close") closeLightbox();
+    });
+    document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+    });
   </script>
 </Layout>

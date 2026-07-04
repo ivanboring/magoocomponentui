@@ -1,0 +1,7 @@
+<div class="feature-grid grid grid-cols-1 gap-(--space-card) sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+  <div data-for="item in items" class="rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+    <div class="feature-grid__badge mb-3 flex size-10 items-center justify-center rounded-control bg-primary font-heading text-primary-contrast">{{ item.badge }}</div>
+    <h3 class="font-heading text-on-surface">{{ item.title }}</h3>
+    <p class="mt-1 text-sm text-on-surface-muted">{{ item.body }}</p>
+  </div>
+</div>

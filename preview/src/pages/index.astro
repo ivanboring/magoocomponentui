@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { loadCatalog, loadRender } from "../lib/data.js";
+import { loadCatalog, loadRender, orderedShots } from "../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
 const catalog = loadCatalog();
@@ -10,7 +10,7 @@ const cards = catalog.components.map((c) => {
     const { ast, args } = loadRender(c.id);
     preview = renderToHtml(ast, args);
   } catch {}
-  const shots = Object.values(c.screenshots || {}).flatMap((bp) => Object.values(bp || {}));
+  const shots = orderedShots(c.screenshots, "simple").map((s) => s.src);
   return { ...c, preview, shots };
 });
 const categories = catalog.facets.categories || {};
