@@ -53,6 +53,24 @@ test("buildEntry merges def types with metadata prose", () => {
   assert.equal(entry.short_description, good.short_description);
 });
 
+test("assembleCatalog resolves relationships and derives reverse links", () => {
+  const band = buildEntry({
+    id: "dashboard/stats-band", path: "p",
+    def: { name: "stats-band", props: [], slots: [] },
+    metadata: { ...good, relationships: { children: ["stat-card"] } },
+  });
+  const card = buildEntry({
+    id: "dashboard/stat-card", path: "p",
+    def: { name: "stat-card", props: [], slots: [] },
+    metadata: good,
+  });
+  const cat = assembleCatalog([band, card]);
+  const b = cat.components.find((c) => c.id === "dashboard/stats-band");
+  const c = cat.components.find((c) => c.id === "dashboard/stat-card");
+  assert.deepEqual(b.relationships.children, ["dashboard/stat-card"]); // name → id
+  assert.deepEqual(c.relationships.parents, ["dashboard/stats-band"]); // reverse derived
+});
+
 test("deriveFacets and assembleCatalog produce nav facets", () => {
   const entry = buildEntry({
     id: "sports/match-card",

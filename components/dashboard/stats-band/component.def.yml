@@ -1,0 +1,11 @@
+name: stats-band
+props:
+  title:
+    type: string
+    title: Title
+    example: "This month"
+    description: Optional heading above the metrics.
+slots:
+  items:
+    title: Stat cards
+    description: "Place stat-card components here; the band lays them out responsively."

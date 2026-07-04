@@ -30,7 +30,37 @@ export function buildEntry({ id, path, def, metadata }) {
     editorial_guidance: metadata.editorial_guidance || "",
     categorization: metadata.categorization,
     screenshots: metadata.screenshots || {},
+    relationships: {
+      parents: (metadata.relationships && metadata.relationships.parents) || [],
+      children: (metadata.relationships && metadata.relationships.children) || [],
+      related: (metadata.relationships && metadata.relationships.related) || [],
+    },
   };
+}
+
+/**
+ * Resolve relationship references (id or name → canonical id) and derive reverse
+ * links so authors only declare a relationship once (parent↔child, related↔related).
+ * @param {any[]} entries
+ */
+export function linkRelationships(entries) {
+  const idSet = new Set(entries.map((e) => e.id));
+  const nameToId = new Map(entries.map((e) => [e.name, e.id]));
+  const byId = new Map(entries.map((e) => [e.id, e]));
+  const resolve = (v) => (idSet.has(v) ? v : nameToId.get(v) || v);
+  const add = (arr, v) => { if (v && !arr.includes(v)) arr.push(v); };
+
+  for (const e of entries) {
+    e.relationships.parents = e.relationships.parents.map(resolve);
+    e.relationships.children = e.relationships.children.map(resolve);
+    e.relationships.related = e.relationships.related.map(resolve);
+  }
+  for (const e of entries) {
+    for (const c of e.relationships.children) { const t = byId.get(c); if (t) add(t.relationships.parents, e.id); }
+    for (const p of e.relationships.parents) { const t = byId.get(p); if (t) add(t.relationships.children, e.id); }
+    for (const r of e.relationships.related) { const t = byId.get(r); if (t) add(t.relationships.related, e.id); }
+  }
+  return entries;
 }
 
 /**
@@ -66,6 +96,7 @@ export function deriveFacets(entries) {
  */
 export function assembleCatalog(entries, meta = {}) {
   const sorted = [...entries].sort((a, b) => a.id.localeCompare(b.id));
+  linkRelationships(sorted);
   return {
     generatedAt: meta.generatedAt ?? null,
     count: sorted.length,

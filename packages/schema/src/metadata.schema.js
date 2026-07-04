@@ -45,6 +45,18 @@ export const metadataSchema = {
 
     example_prompts: { type: "array", items: { type: "string" } },
 
+    // Cross-component relationships. Values are a component id (category/name) or name.
+    // Reverse links are derived automatically by the catalog builder.
+    relationships: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        parents: { type: "array", items: { type: "string" } }, // this lives inside these
+        children: { type: "array", items: { type: "string" } }, // these are made to live inside this
+        related: { type: "array", items: { type: "string" } }, // loosely associated
+      },
+    },
+
     lifecycle: { type: "string", enum: ["experimental", "stable", "deprecated"] },
     content_model: { type: "string" },
 

@@ -1,0 +1,6 @@
+{
+  "title": "This month",
+  "$slots": {
+    "items": "<div class=\"stat-card rounded-card border border-border bg-surface p-(--space-card) shadow-card\"><p class=\"text-sm text-on-surface-muted\">Revenue</p><p class=\"mt-2 font-heading text-3xl text-on-surface tabular-nums\">$48,210</p><p class=\"mt-1 text-sm font-medium text-success\">+12.5%</p></div><div class=\"stat-card rounded-card border border-border bg-surface p-(--space-card) shadow-card\"><p class=\"text-sm text-on-surface-muted\">New users</p><p class=\"mt-2 font-heading text-3xl text-on-surface tabular-nums\">1,204</p><p class=\"mt-1 text-sm font-medium text-success\">+3.1%</p></div><div class=\"stat-card rounded-card border border-border bg-surface p-(--space-card) shadow-card\"><p class=\"text-sm text-on-surface-muted\">Churn</p><p class=\"mt-2 font-heading text-3xl text-on-surface tabular-nums\">2.4%</p><p class=\"mt-1 text-sm font-medium text-danger\">-0.6%</p></div><div class=\"stat-card rounded-card border border-border bg-surface p-(--space-card) shadow-card\"><p class=\"text-sm text-on-surface-muted\">Uptime</p><p class=\"mt-2 font-heading text-3xl text-on-surface tabular-nums\">99.98%</p><p class=\"mt-1 text-sm font-medium text-on-surface-muted\">flat</p></div>"
+  }
+}

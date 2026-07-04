@@ -12,6 +12,15 @@ const { entry } = Astro.props;
 const { ast, args, behaviorJs } = loadRender(entry.id);
 const html = renderToHtml(ast, args);
 const cat = entry.categorization || {};
+
+const catalog = loadCatalog();
+const byId = new Map(catalog.components.map((c) => [c.id, c]));
+const rel = entry.relationships || { parents: [], children: [], related: [] };
+const relGroups = [
+  { label: "Part of", ids: rel.parents || [] },
+  { label: "Contains", ids: rel.children || [] },
+  { label: "Related", ids: rel.related || [] },
+].filter((g) => g.ids.length);
 ---
 
 <Layout title={`${entry.name} — Magoo Component UI`}>
@@ -62,9 +71,11 @@ const cat = entry.categorization || {};
     </section>
   )}
 
-  <!-- Full-preview lightbox -->
+  <!-- Full-preview lightbox (← / → to navigate) -->
   <div id="lightbox" hidden class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6">
     <button id="lightbox-close" class="absolute right-5 top-4 text-2xl text-white/80 hover:text-white" aria-label="Close">&times;</button>
+    <button id="lightbox-prev" class="absolute left-3 top-1/2 -translate-y-1/2 px-3 text-4xl text-white/70 hover:text-white" aria-label="Previous">&lsaquo;</button>
+    <button id="lightbox-next" class="absolute right-3 top-1/2 -translate-y-1/2 px-3 text-4xl text-white/70 hover:text-white" aria-label="Next">&rsaquo;</button>
     <figure class="max-w-full">
       <img id="lightbox-img" src="" alt="" class="mx-auto max-h-[82vh] max-w-full rounded shadow-2xl" />
       <figcaption id="lightbox-cap" class="mt-3 text-center text-sm text-white/80"></figcaption>
@@ -99,6 +110,29 @@ const cat = entry.categorization || {};
     )}
   </div>
 
+  {relGroups.length > 0 && (
+    <section class="mt-8">
+      <h2 class="mb-2 text-lg font-semibold">Related components</h2>
+      <div class="flex flex-col gap-2 text-sm">
+        {relGroups.map((g) => (
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="w-20 shrink-0 text-slate-400">{g.label}</span>
+            {g.ids.map((id) => {
+              const t = byId.get(id);
+              return t ? (
+                <a href={`/c/${id}`} class="rounded-full border border-slate-200 px-3 py-1 hover:border-slate-400">
+                  {t.name} <span class="text-slate-400">· {t.categorization.atomic_type}</span>
+                </a>
+              ) : (
+                <span class="rounded-full border border-dashed border-slate-200 px-3 py-1 text-slate-400">{id}</span>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
   {entry.use_cases.length > 0 && (
     <section class="mt-8">
       <h2 class="mb-2 text-lg font-semibold">Use cases</h2>
@@ -128,14 +162,22 @@ const cat = entry.categorization || {};
       document.body.appendChild(s);
     }
 
-    // Screenshot lightbox
+    // Screenshot lightbox with prev/next
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxCap = document.getElementById("lightbox-cap");
-    function openLightbox(src, label) {
-      lightboxImg.src = src;
-      lightboxImg.alt = label;
-      lightboxCap.textContent = label;
+    const shotButtons = [...document.querySelectorAll(".shot")];
+    const shots = shotButtons.map((b) => ({ src: b.dataset.full, label: b.dataset.label }));
+    let idx = 0;
+
+    function show(i) {
+      idx = (i + shots.length) % shots.length;
+      lightboxImg.src = shots[idx].src;
+      lightboxImg.alt = shots[idx].label;
+      lightboxCap.textContent = shots[idx].label;
+    }
+    function openLightbox(i) {
+      show(i);
       lightbox.hidden = false;
       document.body.style.overflow = "hidden";
     }
@@ -144,15 +186,16 @@ const cat = entry.categorization || {};
       lightboxImg.src = "";
       document.body.style.overflow = "";
     }
-    document.querySelectorAll(".shot").forEach((btn) => {
-      btn.addEventListener("click", () => openLightbox(btn.dataset.full, btn.dataset.label));
-    });
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox || e.target.id === "lightbox-close") closeLightbox();
-    });
+    shotButtons.forEach((btn, i) => btn.addEventListener("click", () => openLightbox(i)));
     document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+    document.getElementById("lightbox-prev").addEventListener("click", (e) => { e.stopPropagation(); show(idx - 1); });
+    document.getElementById("lightbox-next").addEventListener("click", (e) => { e.stopPropagation(); show(idx + 1); });
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
+      if (lightbox.hidden) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") show(idx - 1);
+      else if (e.key === "ArrowRight") show(idx + 1);
     });
   </script>
 </Layout>

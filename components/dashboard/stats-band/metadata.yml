@@ -1,0 +1,70 @@
+short_description: A responsive band that lays out a row of stat cards under an optional heading.
+long_visual_description: >
+  An optional heading followed by an evenly spaced grid of stat cards — one column on
+  mobile, two on tablet, and four on wide screens. It is a thin container: the cards it
+  holds carry the visual weight, so the band adapts to whatever stat cards are placed in it.
+
+use_cases:
+  - Dashboard summary row of key metrics.
+  - Marketing stats band above the fold.
+  - Account overview header figures.
+  - Report section KPIs.
+  - Product analytics snapshot.
+  - Ops status metrics row.
+
+recommended_for:
+  - Grouping 2–4 related metrics as a unit.
+  - Dashboards and overview pages.
+  - Any place a row of stat cards is needed.
+avoid_for:
+  - A single metric (use stat-card directly).
+  - Charts or time series (use a chart card).
+  - Long lists of numbers (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it an optional title and place stat-card components in the items slot. The band
+  handles responsive layout.
+
+props:
+  title: Optional short heading above the metrics.
+
+slots:
+  items: The stat cards to lay out; typically three or four stat-card components.
+
+example_prompts:
+  - "Add a stats band titled This month with revenue, users, churn, and uptime."
+  - "Lay out four KPI cards in a responsive band."
+  - "Put a metrics row above the dashboard charts."
+
+relationships:
+  children:
+    - dashboard/stat-card
+
+lifecycle: experimental
+content_model: An optional title and a set of stat-card children.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the title short or omit it. Use a consistent number of cards (three or four) so the
+  grid stays balanced across breakpoints.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: organism
+  usage_type: [grid, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Optional heading provides structure; layout only, no interactive elements.
+  keyboard_support: None — layout container.
+  seo_score: 55
+  text_direction: both
