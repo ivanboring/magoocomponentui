@@ -1,0 +1,5 @@
+@import "@magoo/themes";
+
+/* Emit every utility used by components, incl. variant classes in def/meta. */
+@source "../components/**/*.{html,yml}";
+@source "../dist/**/*.json";

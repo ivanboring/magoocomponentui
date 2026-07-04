@@ -17,15 +17,17 @@
 5. ✅ Drupal emitter: `fields.yml` + `paragraph--<name>.html.twig` + inferred `custom_field` columns. `docs/drupal-mapping.md`.
    Build pipeline: `scripts/build.mjs` (generate → `dist/<id>/`) + `scripts/build-catalog.mjs`. `pnpm build` runs both. MIT licensed.
 
-### Remaining STRUCTURE (finish before pausing for the component phase)
-- **[first] variant→class mapping** feature — see OPEN DESIGN ITEM in decisions.md.
-- Storybook config (`.storybook/`) + theme-toolbar decorator.
-- Astro static preview site (nav, Fuse.js search, 16-screenshot grid, live theme switch).
-- Playwright screenshot pipeline (`scripts/screenshot.mjs`, 16/component).
-- `docs/` (authoring-guide, template-directives, metadata-schema, theming, taxonomy) + spec copy.
+### STRUCTURE — COMPLETE ✅
+- ✅ variant→class mapping (`variants:` + `{{ prop@class }}`) across all targets.
+- ✅ Storybook (`.storybook/`) — HTML renderer, theme toolbar, web fonts; `storybook build` green.
+- ✅ Astro static preview — top search + category dropdown, live theme switch, screenshot grid, props/slots + metadata.
+- ✅ Playwright screenshot pipeline (`scripts/screenshot.mjs`) — 16/component; catalog auto-detects them.
+- ✅ Docs: authoring-guide, template-directives, metadata-schema, theming, taxonomy, drupal-mapping, README, spec copy.
+- ✅ Reference component `notifications/alert` (variants + JS + slot + 16 screenshots) — kept as the worked example.
+- Verified: `pnpm test` (31), `pnpm build`, `pnpm preview:build`, `pnpm storybook:build`, `pnpm screenshots` all green.
 
-### PAUSE POINT
-After the above, PAUSE. **Component authoring (the 200 catalog + proof set) is deferred to another model/session** per the user. Everything an author needs: `component.def.yml` + `template.html` + optional `behavior.js` + `metadata.yml` (+ `examples/`), then `pnpm build`.
+### PAUSE POINT — hand off to another model for component authoring
+Structure is done. **Authoring the 218-component catalog is deferred to another model/session** per the user. To add a component: create `components/<category>/<name>/` with `component.def.yml` + `template.html` + `metadata.yml` (+ optional `behavior.js` / `examples/`), then `pnpm build`. Copy `components/notifications/alert/` as the template. Read `docs/authoring-guide.md`, `docs/template-directives.md`, `docs/theming.md`.
 
 ## Resolved with user
 - **Build order: breadth-first** — early wave takes a few from each domain for preview variety, then depth.
