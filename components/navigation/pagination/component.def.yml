@@ -1,0 +1,35 @@
+name: pagination
+props:
+  prev_href:
+    type: link
+    title: Previous page href
+    description: Empty/omitted when on the first page.
+  prev_disabled:
+    type: boolean
+    default: false
+    title: Previous disabled
+    description: Set true on the first page.
+  next_href:
+    type: link
+    title: Next page href
+    description: Empty/omitted when on the last page.
+  next_disabled:
+    type: boolean
+    default: false
+    title: Next disabled
+    description: Set true on the last page.
+  pages:
+    type: array
+    items: object
+    required: true
+    title: Pages
+    description: >
+      Precomputed page items: { label, href, active, ellipsis }. Set ellipsis: true for a
+      "…" separator (label/href/active are ignored for those entries). Truncation math
+      (which pages to show) is the caller's responsibility, not the template's.
+    example:
+      - { label: "1", href: "?page=1", active: false, ellipsis: false }
+      - { label: "2", href: "?page=2", active: true, ellipsis: false }
+      - { label: "3", href: "?page=3", active: false, ellipsis: false }
+      - { label: "…", href: "", active: false, ellipsis: true }
+      - { label: "12", href: "?page=12", active: false, ellipsis: false }

@@ -1,7 +1,7 @@
 <div class="avatar-group flex items-center -space-x-2" data-max-visible="{{ max_visible }}">
   <span data-for="item in items" class="avatar-group__item relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm text-on-surface ring-2 ring-surface" role="img" aria-label="{{ item.name }}">
     <img data-if="item.image" class="size-full object-cover" src="{{ item.image }}" alt="">
-    <span data-if="!item.image" aria-hidden="true">{{ item.name }}</span>
+    <span data-if="!item.image" class="uppercase" aria-hidden="true">{{ item.initials }}</span>
   </span>
   <span data-if="overflow_count" class="avatar-group__overflow relative inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-raised text-xs font-medium text-on-surface-muted ring-2 ring-surface">+{{ overflow_count }}</span>
 </div>

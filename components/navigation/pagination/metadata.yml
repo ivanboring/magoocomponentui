@@ -1,0 +1,67 @@
+short_description: A page-number list with previous/next controls and "…" truncation for long ranges.
+long_visual_description: >
+  A single-row inline control: a muted "‹ Prev" text link, a row of small square page
+  number buttons where the current page is filled solid with the primary colour, a
+  muted ellipsis where the range is truncated, and a muted "Next ›" text link. Prev/Next
+  dim and stop responding to clicks at the first/last page.
+
+use_cases:
+  - Paginate a blog or article listing.
+  - Paginate search results.
+  - Paginate a product grid or admin data table.
+  - Paginate a comments list.
+  - Navigate a long forum thread list.
+
+recommended_for:
+  - Server-rendered, link-based pagination of any list with a known total.
+avoid_for:
+  - Infinite scroll or "load more" patterns.
+  - Very large page counts better served by a jump-to-page input.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the pages array with your own truncation window (e.g. first, last, and a
+  few around the current page) and mark exactly one item active: true; set an item's
+  ellipsis: true instead of a real page for a "…" gap.
+
+props:
+  prev_href: Link to the previous page; leave empty on the first page.
+  prev_disabled: Set true on the first page to dim and disable the previous control.
+  next_href: Link to the next page; leave empty on the last page.
+  next_disabled: Set true on the last page to dim and disable the next control.
+  pages: The page items to render, including any "…" ellipsis gaps.
+
+example_prompts:
+  - "Add pagination for 12 pages, currently on page 2."
+  - "Add a pagination control disabled on the previous button since we're on page 1."
+
+lifecycle: experimental
+content_model: A previous/next link pair and an ordered list of page numbers (with optional ellipsis gaps).
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-surface-raised
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep "Prev"/"Next" wording short and consistent across every paginated list in the product.
+
+categorization:
+  category: Navigation
+  subcategory: Pagination
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has aria-label="Pagination"; current page sets aria-current="true"; disabled prev/next are visually dimmed and non-interactive via pointer-events.
+  keyboard_support: Every enabled link is focusable and activates on Enter; disabled prev/next are removed from the tab order's effective interaction via pointer-events but remain focusable — treat as a known limitation for a fully custom build.
+  seo_score: 50
+  text_direction: both

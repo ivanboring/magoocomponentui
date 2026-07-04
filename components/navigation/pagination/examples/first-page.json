@@ -1,0 +1,11 @@
+{
+  "prev_href": "",
+  "prev_disabled": true,
+  "next_href": "?page=2",
+  "next_disabled": false,
+  "pages": [
+    { "label": "1", "href": "?page=1", "active": true, "ellipsis": false },
+    { "label": "2", "href": "?page=2", "active": false, "ellipsis": false },
+    { "label": "3", "href": "?page=3", "active": false, "ellipsis": false }
+  ]
+}

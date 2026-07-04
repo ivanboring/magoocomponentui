@@ -1,8 +1,8 @@
 {
   "items": [
-    { "name": "Jane Doe", "image": "/stock/avatar-woman-1.jpg" },
-    { "name": "Sam Lee", "image": "/stock/avatar-man-1.jpg" },
-    { "name": "Ari Cohen", "image": "" }
+    { "name": "Jane Doe", "initials": "JD", "image": "/stock/avatar-woman-1.jpg" },
+    { "name": "Sam Lee", "initials": "SL", "image": "/stock/avatar-man-1.jpg" },
+    { "name": "Ari Cohen", "initials": "AC", "image": "" }
   ],
   "max_visible": 4,
   "overflow_count": 3

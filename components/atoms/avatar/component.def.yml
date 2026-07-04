@@ -4,8 +4,16 @@ props:
     type: string
     required: true
     title: Name
-    description: Used for the accessible label and the initials fallback.
+    description: Used for the accessible label.
     example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    description: >
+      1-2 characters shown when there is no image, e.g. "JD" for "Jane Doe". Precomputed
+      by the caller — the template has no string-slicing directive to derive this from name.
+    example: "JD"
   image:
     type: image
     title: Image

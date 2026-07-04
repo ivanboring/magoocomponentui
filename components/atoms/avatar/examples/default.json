@@ -1,1 +1,1 @@
-{ "name": "Jane Doe", "image": "/stock/avatar-woman-1.jpg", "size": "md", "shape": "circle" }
+{ "name": "Jane Doe", "initials": "JD", "image": "/stock/avatar-woman-1.jpg", "size": "md", "shape": "circle" }

@@ -1,0 +1,8 @@
+<nav class="pagination flex items-center gap-1" aria-label="Pagination">
+  <a class="pagination__prev flex h-9 items-center rounded-control px-3 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40" href="{{ prev_href }}" data-disabled="{{ prev_disabled }}" aria-label="Previous page">‹ Prev</a>
+  <span data-for="item in pages" class="pagination__item">
+    <span data-if="item.ellipsis" class="flex h-9 w-9 items-center justify-center text-sm text-on-surface-muted" aria-hidden="true">{{ item.label }}</span>
+    <a data-if="!item.ellipsis" class="flex h-9 w-9 items-center justify-center rounded-control text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-primary data-[active=true]:text-primary-contrast data-[active=true]:hover:text-primary-contrast" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">{{ item.label }}</a>
+  </span>
+  <a class="pagination__next flex h-9 items-center rounded-control px-3 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40" href="{{ next_href }}" data-disabled="{{ next_disabled }}" aria-label="Next page">Next ›</a>
+</nav>

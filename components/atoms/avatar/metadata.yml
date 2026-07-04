@@ -19,11 +19,12 @@ markets:
   - Global
 
 example_usage: >
-  Always pass name for the accessible label and initials fallback; pass image when a
-  photo is available.
+  Always pass name for the accessible label and initials for the no-photo fallback;
+  pass image when a photo is available.
 
 props:
-  name: Full name; drives the initials fallback and accessible label.
+  name: Full name; drives the accessible label.
+  initials: 1-2 character fallback shown when there is no image, e.g. "JD".
   image: Optional photo URL.
   size: Match to context density (sm in lists, xl on profile headers).
   shape: circle for people, square for organizations/brands.
@@ -33,7 +34,7 @@ example_prompts:
   - "Add a large square avatar with a company logo."
 
 lifecycle: experimental
-content_model: A name (for initials/label) and an optional photo.
+content_model: A name (for the accessible label), an initials fallback, and an optional photo.
 
 theming:
   tokens_used:
@@ -43,7 +44,8 @@ theming:
     - --radius-card
 
 editorial_guidance: >
-  Initials fallback derives from name automatically; ensure name is the full display name.
+  Compute initials from the person's actual display name (first + last initial); don't
+  default to a generic placeholder like "?" unless the name is genuinely unknown.
 
 categorization:
   category: Atoms

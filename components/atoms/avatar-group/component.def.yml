@@ -5,10 +5,12 @@ props:
     items: object
     required: true
     title: People
-    description: "Each item: { name, image }."
+    description: >
+      Each item: { name, initials, image }. initials is the 1-2 character fallback
+      (e.g. "JD"), precomputed by the caller since the template can't slice strings.
     example:
-      - { name: "Jane Doe", image: "" }
-      - { name: "Sam Lee", image: "" }
+      - { name: "Jane Doe", initials: "JD", image: "" }
+      - { name: "Sam Lee", initials: "SL", image: "" }
   max_visible:
     type: integer
     default: 4
