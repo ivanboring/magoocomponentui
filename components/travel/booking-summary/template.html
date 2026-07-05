@@ -1,0 +1,18 @@
+<section class="booking-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="booking-summary__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <div class="booking-summary__trip mt-3 flex flex-col gap-1 border-b border-border pb-3 text-sm">
+    <p class="flex items-center gap-2 text-on-surface"><svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>{{ dates }}</p>
+    <p class="flex items-center gap-2 text-on-surface"><svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="7" r="3"/><path d="M4 17a6 6 0 0112 0"/></svg>{{ guests }}</p>
+  </div>
+  <dl class="booking-summary__lines mt-3 flex flex-col gap-2 text-sm">
+    <div data-for="line in lines" class="flex items-center justify-between">
+      <dt class="text-on-surface-muted underline decoration-dotted underline-offset-2 data-[muted=false]:no-underline" data-muted="{{ line.muted }}">{{ line.label }}</dt>
+      <dd class="text-on-surface tabular-nums">{{ line.value }}</dd>
+    </div>
+  </dl>
+  <div class="booking-summary__total mt-3 flex items-center justify-between border-t border-border pt-3">
+    <span class="font-heading text-on-surface">Total</span>
+    <span class="font-heading text-lg text-on-surface tabular-nums">{{ total_value }}</span>
+  </div>
+  <button type="button" class="booking-summary__cta mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</section>

@@ -1,0 +1,12 @@
+{
+  "name": "The Grand Marina",
+  "location": "Waterfront · 0.4 mi from center",
+  "image": "/stock/property-house.jpg",
+  "score": "8.9",
+  "score_label": "Fabulous",
+  "amenities": [
+    { "label": "Free WiFi" }, { "label": "Pool" }, { "label": "Breakfast" }, { "label": "Spa" }
+  ],
+  "price": "$189",
+  "href": "#"
+}

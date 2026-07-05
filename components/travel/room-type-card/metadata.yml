@@ -1,0 +1,71 @@
+name: "Room Type Card"
+short_description: A hotel room type with photo, beds, perks, and nightly rate.
+long_visual_description: >
+  A horizontal card with a room photo, the room name and bed configuration, a list of perks
+  (free cancellation, breakfast), and a nightly rate with a reserve action.
+
+use_cases:
+  - Room type option on a hotel page.
+  - Rate plan card.
+  - Room comparison entry.
+  - Booking flow room choice.
+  - Accommodation option.
+
+recommended_for:
+  - A room/rate option within a hotel.
+avoid_for:
+  - A hotel search result (use hotel-result-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the beds and key perks; the rate and reserve action drive booking.
+
+props:
+  name: The room name.
+  beds: The bed configuration.
+  image: The room photo.
+  perks: The rate perks.
+  rate: The nightly rate.
+  rate_note: A rate note (per night, taxes).
+  href: The reserve link.
+
+example_prompts:
+  - "Add a deluxe king room type card with perks and rate."
+  - "Add a room option with free cancellation."
+
+lifecycle: experimental
+content_model: A room photo, beds, perks, and rate.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the perks travelers care about (cancellation, breakfast); show the all-in rate.
+
+categorization:
+  category: Travel
+  subcategory: Hotels
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the room name; perks and rate are real text; reserve is a real link.
+  keyboard_support: The reserve action is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

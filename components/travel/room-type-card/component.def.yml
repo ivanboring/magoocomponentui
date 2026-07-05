@@ -1,0 +1,33 @@
+name: room-type-card
+props:
+  name:
+    type: string
+    required: true
+    title: Room name
+    example: "Deluxe King Room"
+  beds:
+    type: string
+    required: true
+    title: Beds
+    example: "1 king bed"
+  image:
+    type: image
+    title: Image
+    example: "/stock/property-house.jpg"
+  perks:
+    type: array
+    items: object
+    title: Perks
+    description: "Each item: { label }."
+  rate:
+    type: string
+    required: true
+    title: Rate
+    example: "$219"
+  rate_note:
+    type: string
+    title: Rate note
+    example: "per night · incl. taxes"
+  href:
+    type: link
+    title: Link

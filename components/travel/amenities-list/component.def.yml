@@ -1,0 +1,15 @@
+name: amenities-list
+props:
+  title:
+    type: string
+    default: "Amenities"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Amenities
+    description: "Each item: { label, icon } where icon is a short glyph or empty."
+    example:
+      - { label: "Free WiFi", icon: "📶" }
+      - { label: "Pool", icon: "🏊" }

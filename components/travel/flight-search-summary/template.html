@@ -1,0 +1,15 @@
+<div class="flight-search-summary flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card border border-border bg-surface px-(--space-card) py-3 shadow-card">
+  <span class="flight-search-summary__route flex items-center gap-2 font-heading text-on-surface">
+    {{ from_city }}
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
+    {{ to_city }}
+  </span>
+  <span class="flight-search-summary__meta flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-on-surface-muted">
+    <span>{{ trip_type }}</span>
+    <span aria-hidden="true">·</span>
+    <span>{{ dates }}</span>
+    <span aria-hidden="true">·</span>
+    <span>{{ passengers }}</span>
+  </span>
+  <button type="button" class="flight-search-summary__edit ml-auto rounded-control px-3 py-1.5 text-sm font-medium text-primary hover:bg-surface-raised">Edit search</button>
+</div>

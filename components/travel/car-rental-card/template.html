@@ -1,0 +1,18 @@
+<article class="car-rental-card flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised sm:flex-row sm:items-center sm:gap-4">
+  <div data-if="image" class="car-rental-card__media h-28 shrink-0 sm:w-40">
+    <img class="size-full rounded-control object-cover" src="{{ image }}" alt="{{ model }}">
+  </div>
+  <div class="car-rental-card__body mt-3 flex-1 sm:mt-0">
+    <h3 class="car-rental-card__model font-heading text-on-surface">{{ model }}</h3>
+    <p data-if="category" class="car-rental-card__category text-sm text-on-surface-muted">{{ category }}</p>
+    <div class="car-rental-card__specs mt-2 flex flex-wrap gap-3 text-xs text-on-surface-muted">
+      <span class="flex items-center gap-1"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="2.5"/><circle cx="13" cy="7" r="2.5"/><path d="M3 16a4 4 0 018 0M9 16a4 4 0 018 0"/></svg>{{ seats }} seats</span>
+      <span class="flex items-center gap-1"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 4v6l4 2"/></svg>{{ transmission }}</span>
+      <span data-if="bags" class="flex items-center gap-1"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="10" height="9" rx="1"/><path d="M8 7V5h4v2"/></svg>{{ bags }} bags</span>
+    </div>
+  </div>
+  <div class="car-rental-card__book mt-3 flex items-center justify-between gap-3 sm:mt-0 sm:flex-col sm:items-end">
+    <p class="text-sm text-on-surface-muted"><span class="font-heading text-lg text-on-surface">{{ price }}</span> / day</p>
+    <a class="rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ href }}">Select</a>
+  </div>
+</article>

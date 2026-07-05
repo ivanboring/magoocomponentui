@@ -1,0 +1,65 @@
+name: "Seat Map"
+short_description: A selectable aircraft seat grid with available/selected/taken states.
+long_visual_description: >
+  A grid of seats by row with an aisle gap; available seats are outlined, taken seats are
+  muted and inert, and selecting a seat fills it with the primary colour. A legend explains
+  the states.
+
+use_cases:
+  - Flight seat selection.
+  - Event or cinema seat picker.
+  - Reserved-seating selection.
+  - Seat availability display.
+  - Check-in seat choice.
+
+recommended_for:
+  - Selecting a seat from an availability grid.
+avoid_for:
+  - A venue overview without selection (make a static map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rows of seats with statuses (available/selected/taken/aisle); clicking an available
+  seat toggles selection and emits seat:select.
+
+props:
+  rows: The seat rows, each with a number and seats with statuses.
+
+example_prompts:
+  - "Add a selectable aircraft seat map."
+  - "Add a seat picker with taken and available seats."
+
+lifecycle: experimental
+content_model: A grid of seats with selectable availability states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the legend visible; taken seats should be clearly non-interactive.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Seats are real buttons with per-seat aria-labels and aria-pressed; a legend explains states; taken seats are inert. State is shown by fill plus the legend, not colour alone.
+  keyboard_support: Available seats are focusable and toggle selection on Enter/Space.
+  seo_score: 25
+  text_direction: both

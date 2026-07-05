@@ -1,0 +1,13 @@
+name: itinerary-timeline
+props:
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: "Each day: { day, date, items: [{ time, title, detail }] }."
+    example:
+      - day: "Day 1"
+        date: "Mon, Aug 12"
+        items:
+          - { time: "09:00", title: "Arrive & check in", detail: "The Grand Marina" }

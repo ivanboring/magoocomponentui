@@ -1,0 +1,30 @@
+name: loyalty-tier-card
+props:
+  tier:
+    type: string
+    required: true
+    title: Tier
+    example: "Gold"
+  points:
+    type: string
+    required: true
+    title: Points
+    example: "42,180"
+  next_tier:
+    type: string
+    title: Next tier
+    example: "Platinum"
+  progress_pct:
+    type: integer
+    default: 0
+    title: Progress to next
+    description: 0-100 percent toward the next tier.
+  points_to_next:
+    type: string
+    title: Points to next
+    example: "7,820 points to Platinum"
+  perks:
+    type: array
+    items: object
+    title: Perks
+    description: "Each item: { label }."

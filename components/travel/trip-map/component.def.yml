@@ -1,0 +1,15 @@
+name: trip-map
+props:
+  title:
+    type: string
+    default: "Route"
+    title: Title
+  stops:
+    type: array
+    items: object
+    required: true
+    title: Stops
+    description: "Each stop: { label, detail }."
+    example:
+      - { label: "New York", detail: "Depart Aug 12" }
+      - { label: "Reykjavík", detail: "Layover 2h" }

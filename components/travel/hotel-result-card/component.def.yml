@@ -1,0 +1,37 @@
+name: hotel-result-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "The Grand Marina"
+  location:
+    type: string
+    required: true
+    title: Location
+    example: "Waterfront · 0.4 mi from center"
+  image:
+    type: image
+    title: Image
+    example: "/stock/property-house.jpg"
+  score:
+    type: string
+    title: Score
+    example: "8.9"
+  score_label:
+    type: string
+    title: Score label
+    example: "Fabulous"
+  amenities:
+    type: array
+    items: object
+    title: Amenities
+    description: "Each item: { label }."
+  price:
+    type: string
+    required: true
+    title: Price per night
+    example: "$189"
+  href:
+    type: link
+    title: Link

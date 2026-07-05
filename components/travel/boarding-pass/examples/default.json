@@ -1,0 +1,10 @@
+{
+  "passenger": "JANE DOE",
+  "airline": "Skyward Air",
+  "flight": "SK 482",
+  "from_code": "JFK",
+  "to_code": "LAX",
+  "boarding": "07:45",
+  "gate": "B12",
+  "seat": "14A"
+}

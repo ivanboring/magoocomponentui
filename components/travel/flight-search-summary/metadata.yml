@@ -1,0 +1,67 @@
+name: "Flight Search Summary"
+short_description: A compact route/dates/passengers summary bar with an edit action.
+long_visual_description: >
+  A bar showing the origin → destination route, trip type, dates, and passengers, with an
+  edit-search action on the trailing edge.
+
+use_cases:
+  - Search summary above flight results.
+  - Editable search recap.
+  - Booking flow context bar.
+  - Sticky search summary.
+  - Results header.
+
+recommended_for:
+  - Recapping the current flight search with an edit affordance.
+avoid_for:
+  - A single flight result (use flight-result-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the route, trip type, dates, and passengers; edit opens the search form.
+
+props:
+  from_city: The origin.
+  to_city: The destination.
+  dates: The travel dates.
+  passengers: The passenger count.
+  trip_type: Round trip or one way.
+
+example_prompts:
+  - "Add a flight search summary bar with an edit action."
+  - "Add a route/dates/passengers recap."
+
+lifecycle: experimental
+content_model: A route, dates, passengers, and an edit action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the route prominent; use a consistent date format.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: molecule
+  usage_type: [banner, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The arrow is decorative; all values are real text; edit is a real button.
+  keyboard_support: The edit button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

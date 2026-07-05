@@ -1,0 +1,26 @@
+name: flight-search-summary
+props:
+  from_city:
+    type: string
+    required: true
+    title: From
+    example: "New York (JFK)"
+  to_city:
+    type: string
+    required: true
+    title: To
+    example: "Los Angeles (LAX)"
+  dates:
+    type: string
+    required: true
+    title: Dates
+    example: "Aug 12 – Aug 19"
+  passengers:
+    type: string
+    required: true
+    title: Passengers
+    example: "2 adults"
+  trip_type:
+    type: string
+    default: "Round trip"
+    title: Trip type

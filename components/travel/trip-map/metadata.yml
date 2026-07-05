@@ -1,0 +1,64 @@
+name: "Trip Map"
+short_description: A route overview with a map placeholder and a stop-by-stop list.
+long_visual_description: >
+  A widget with a map-preview placeholder (a stylized route line with pins) above a
+  connected list of stops with labels and details.
+
+use_cases:
+  - Route or itinerary overview.
+  - Multi-stop trip map.
+  - Flight route with layovers.
+  - Journey stops list.
+  - Trip overview with pins.
+
+recommended_for:
+  - A route overview pairing a map placeholder with a stops list.
+avoid_for:
+  - A live interactive map (embed a real map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the ordered stops with labels and details; the map area is a placeholder for a real
+  map in production.
+
+props:
+  title: The section title.
+  stops: The ordered stops with label and detail.
+
+example_prompts:
+  - "Add a trip route map with stops and layovers."
+  - "Add a journey overview with a map placeholder."
+
+lifecycle: experimental
+content_model: A map placeholder with an ordered list of stops.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Order stops in travel sequence; the stop list carries the real route info.
+
+categorization:
+  category: Travel
+  subcategory: Booking
+  atomic_type: organism
+  usage_type: [media, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The map is decorative; the ordered stop list provides the route as text.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

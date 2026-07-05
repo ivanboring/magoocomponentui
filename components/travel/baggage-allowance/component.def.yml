@@ -1,0 +1,11 @@
+name: baggage-allowance
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { type, detail, included } — type e.g. Cabin bag, Checked bag."
+    example:
+      - { type: "Cabin bag", detail: "8 kg · 55×40×20 cm", included: true }
+      - { type: "Checked bag", detail: "23 kg", included: false }

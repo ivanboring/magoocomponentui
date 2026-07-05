@@ -1,0 +1,10 @@
+{
+  "steps": [
+    { "number": 1, "label": "Passengers", "status": "complete" },
+    { "number": 2, "label": "Seats", "status": "current" },
+    { "number": 3, "label": "Bags", "status": "upcoming" },
+    { "number": 4, "label": "Boarding pass", "status": "upcoming" }
+  ],
+  "current_title": "Choose your seats",
+  "current_help": "Pick a seat for each passenger. Some seats have an extra fee."
+}

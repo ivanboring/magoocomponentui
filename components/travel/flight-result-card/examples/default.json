@@ -1,0 +1,12 @@
+{
+  "airline": "Skyward Air",
+  "airline_code": "SK",
+  "depart_time": "08:15",
+  "depart_code": "JFK",
+  "arrive_time": "11:40",
+  "arrive_code": "LAX",
+  "duration": "6h 25m",
+  "stops": "Nonstop",
+  "price": "$312",
+  "href": "#"
+}

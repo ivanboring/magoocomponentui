@@ -1,0 +1,64 @@
+name: "Check-in Stepper"
+short_description: An online check-in progress stepper with the current step's title and help.
+long_visual_description: >
+  A numbered step indicator across the top (passengers, seats, bags, boarding pass) with the
+  current step's title and help text below.
+
+use_cases:
+  - Online flight check-in flow.
+  - Multi-step travel process.
+  - Booking completion steps.
+  - Guided check-in.
+  - Staged travel form.
+
+recommended_for:
+  - A guided online check-in with visible progress.
+avoid_for:
+  - A generic multi-step form (use multi-step-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark steps complete/current/upcoming; show the current step's title and helper text.
+
+props:
+  steps: The check-in steps with number, label, and status.
+  current_title: The current step title.
+  current_help: The current step help text.
+
+example_prompts:
+  - "Add an online check-in stepper on the Seats step."
+  - "Add a flight check-in progress indicator."
+
+lifecycle: experimental
+content_model: A check-in step indicator with the current step's guidance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep step labels to one word; the help text should explain what to do on the current step.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: molecule
+  usage_type: [nav, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; status is shown by icon/outline plus label emphasis, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

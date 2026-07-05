@@ -1,0 +1,26 @@
+<article class="hotel-result-card flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised sm:flex-row">
+  <a data-if="image" class="hotel-result-card__media block shrink-0 sm:w-56" href="{{ href }}">
+    <img class="h-40 w-full object-cover sm:h-full" src="{{ image }}" alt="{{ name }}">
+  </a>
+  <div class="hotel-result-card__body flex flex-1 flex-col p-(--space-card)">
+    <div class="flex items-start justify-between gap-3">
+      <div class="min-w-0">
+        <h3 class="hotel-result-card__name font-heading text-lg text-on-surface"><a class="hover:underline" href="{{ href }}">{{ name }}</a></h3>
+        <p class="hotel-result-card__location mt-0.5 text-sm text-on-surface-muted">{{ location }}</p>
+      </div>
+      <span data-if="score" class="hotel-result-card__score flex shrink-0 items-center gap-2">
+        <span class="text-right text-xs">
+          <span data-if="score_label" class="block font-medium text-on-surface">{{ score_label }}</span>
+        </span>
+        <span class="flex size-9 items-center justify-center rounded-card rounded-br-none bg-primary font-heading text-sm text-primary-contrast tabular-nums">{{ score }}</span>
+      </span>
+    </div>
+    <ul data-if="amenities" class="hotel-result-card__amenities mt-3 flex flex-wrap gap-1.5">
+      <li data-for="amenity in amenities" class="rounded-control bg-surface-raised px-2 py-0.5 text-xs text-on-surface-muted">{{ amenity.label }}</li>
+    </ul>
+    <div class="hotel-result-card__foot mt-auto flex items-end justify-between gap-3 pt-4">
+      <p class="text-sm text-on-surface-muted">from <span class="font-heading text-lg text-on-surface">{{ price }}</span> / night</p>
+      <a class="rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ href }}">View deal</a>
+    </div>
+  </div>
+</article>

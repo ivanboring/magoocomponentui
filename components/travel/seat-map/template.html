@@ -1,0 +1,13 @@
+<div class="seat-map inline-flex flex-col gap-2 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="seat-map__legend mb-1 flex items-center gap-4 text-xs text-on-surface-muted">
+    <span class="flex items-center gap-1.5"><span class="size-3 rounded bg-surface-raised ring-1 ring-border"></span>Available</span>
+    <span class="flex items-center gap-1.5"><span class="size-3 rounded bg-primary"></span>Selected</span>
+    <span class="flex items-center gap-1.5"><span class="size-3 rounded bg-on-surface-muted/40"></span>Taken</span>
+  </div>
+  <div data-for="row in rows" class="seat-map__row flex items-center gap-1.5">
+    <span class="seat-map__num w-5 shrink-0 text-right text-xs text-on-surface-muted tabular-nums">{{ row.number }}</span>
+    <span data-for="seat in row.seats" class="seat-map__cell inline-flex data-[status=aisle]:w-4" data-status="{{ seat.status }}">
+      <button type="button" class="seat-map__seat flex size-8 items-center justify-center rounded text-xs font-medium ring-1 ring-border transition-colors duration-(--duration-token) data-[status=aisle]:hidden data-[status=available]:bg-surface-raised data-[status=available]:text-on-surface data-[status=available]:hover:ring-primary data-[status=selected]:bg-primary data-[status=selected]:text-primary-contrast data-[status=selected]:ring-primary data-[status=taken]:cursor-not-allowed data-[status=taken]:bg-on-surface-muted/30 data-[status=taken]:text-on-surface-muted" data-status="{{ seat.status }}" data-seat="{{ row.number }}{{ seat.label }}" aria-label="Seat {{ row.number }}{{ seat.label }}" aria-pressed="false">{{ seat.label }}</button>
+    </span>
+  </div>
+</div>

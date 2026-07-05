@@ -1,0 +1,69 @@
+name: "Boarding Pass"
+short_description: A boarding pass with route, passenger, boarding/gate/seat, and a barcode stub.
+long_visual_description: >
+  A ticket-style card with the airline and flight, a large from→to route, the passenger name,
+  boarding/gate/seat details, and a perforated stub with a barcode.
+
+use_cases:
+  - Digital boarding pass.
+  - Flight ticket display.
+  - Wallet-style pass.
+  - Check-in confirmation.
+  - Trip document card.
+
+recommended_for:
+  - A boarding pass / flight ticket display.
+avoid_for:
+  - A flight search result (use flight-result-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the route large, the passenger, and the key boarding details; the stub carries a
+  barcode placeholder.
+
+props:
+  passenger: The passenger name.
+  airline: The airline.
+  flight: The flight number.
+  from_code: Origin airport code.
+  to_code: Destination airport code.
+  boarding: Boarding time.
+  gate: The gate.
+  seat: The seat.
+
+example_prompts:
+  - "Add a boarding pass JFK–LAX with gate and seat."
+  - "Add a digital flight ticket card."
+
+lifecycle: experimental
+content_model: A flight ticket with route, passenger, and boarding details.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use official airport codes; the barcode is illustrative — swap for a real code in production.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Details use a definition list; the barcode has an accessible label; all values are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

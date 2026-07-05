@@ -1,0 +1,74 @@
+name: "Car Rental Card"
+short_description: A rental vehicle card with specs (seats, transmission, bags) and daily price.
+long_visual_description: >
+  A card with a vehicle image, the model and category, a spec row (seats, transmission,
+  bags) with icons, and a per-day price with a select action.
+
+use_cases:
+  - Car rental search result.
+  - Vehicle option in a booking flow.
+  - Fleet listing.
+  - Rental comparison entry.
+  - Vehicle class card.
+
+recommended_for:
+  - A single rental vehicle option with specs and price.
+avoid_for:
+  - A car marketplace listing (make a distinct card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the key specs (seats, transmission, bags) and the daily price; the select action
+  proceeds to booking.
+
+props:
+  model: The vehicle model.
+  category: The category / "or similar".
+  seats: Number of seats.
+  transmission: Transmission type.
+  bags: Number of bags.
+  image: The vehicle image.
+  price: The per-day price.
+  href: The select link.
+
+example_prompts:
+  - "Add a car rental card for a compact automatic at $38/day."
+  - "Add a rental vehicle option with specs."
+
+lifecycle: experimental
+content_model: A vehicle image, specs, and daily price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the specs travelers compare (seats, transmission, bags); price per day.
+
+categorization:
+  category: Travel
+  subcategory: Cars
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The image alt is the model; spec icons are decorative with adjacent text; select is a real link.
+  keyboard_support: The select action is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,23 @@
+name: destination-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Lisbon, Portugal"
+  teaser:
+    type: string
+    title: Teaser
+    example: "Sun-washed hills, tiled façades, and pastéis de nata."
+  from_price:
+    type: string
+    title: From price
+    example: "from $340"
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/property-house.jpg"
+  href:
+    type: link
+    title: Link

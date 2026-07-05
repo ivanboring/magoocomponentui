@@ -1,0 +1,63 @@
+name: "Destination Card"
+short_description: A tall image tile for a travel destination with a teaser and from-price.
+long_visual_description: >
+  A portrait image tile with a dark scrim and overlaid destination name, a short teaser, and
+  a from-price pill; the image zooms on hover.
+
+use_cases:
+  - Destination inspiration grid.
+  - Featured places to visit.
+  - Trending destinations.
+  - Region or city tile.
+  - Travel discovery card.
+
+recommended_for:
+  - An image-forward destination tile with a teaser.
+avoid_for:
+  - A bookable tour (use tour-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a strong destination image; the scrim keeps the white text legible. Keep the teaser to
+  one line.
+
+props:
+  name: The destination name.
+  teaser: A one-line teaser.
+  from_price: An optional from-price.
+  image: The destination image (required).
+  href: The destination link.
+
+example_prompts:
+  - "Add a destination card for Lisbon with a from-price."
+  - "Add a travel inspiration tile."
+
+lifecycle: experimental
+content_model: A destination image with a name, teaser, and from-price.
+
+theming:
+  tokens_used:
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the teaser evocative and short; the dark scrim + white text is fixed for legibility.
+
+categorization:
+  category: Travel
+  subcategory: Destinations
+  atomic_type: molecule
+  usage_type: [card, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scrim keeps white text legible over the image; the card is one link and the image is decorative. Verify contrast against your images.
+  keyboard_support: The card is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

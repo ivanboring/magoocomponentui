@@ -1,0 +1,9 @@
+<section class="amenities-list" aria-label="{{ title }}">
+  <h3 class="amenities-list__title mb-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="amenities-list__grid grid grid-cols-2 gap-3 sm:grid-cols-3">
+    <li data-for="item in items" class="amenities-list__item flex items-center gap-2 text-sm text-on-surface">
+      <span class="amenities-list__icon flex size-8 shrink-0 items-center justify-center rounded-control bg-surface-raised" aria-hidden="true">{{ item.icon }}</span>
+      {{ item.label }}
+    </li>
+  </ul>
+</section>

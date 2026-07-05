@@ -1,0 +1,56 @@
+name: "Amenities List"
+short_description: An icon + label grid of property or venue amenities.
+long_visual_description: >
+  A titled responsive grid of amenities, each an icon tile beside its label.
+
+use_cases:
+  - Hotel or rental amenities.
+  - Venue facilities list.
+  - Property features grid.
+  - Included services list.
+  - Facilities overview.
+
+recommended_for:
+  - Listing amenities/facilities with icons.
+avoid_for:
+  - Dietary or allergen badges (use dietary-badges).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide amenities with a short icon glyph and label; keep labels concise.
+
+props:
+  title: The section title.
+  items: The amenities with icon and label.
+
+example_prompts:
+  - "Add an amenities list for a hotel."
+  - "Add a facilities grid with icons."
+
+lifecycle: experimental
+content_model: A grid of amenity icon+label items.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --radius-control
+    - --font-heading
+
+editorial_guidance: >
+  Use consistent icons; keep labels to one or two words.
+
+categorization:
+  category: Travel
+  subcategory: Hotels
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Icons are decorative (aria-hidden) with the label as text; uses a real list.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

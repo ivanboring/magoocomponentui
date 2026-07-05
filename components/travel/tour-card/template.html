@@ -1,0 +1,18 @@
+<article class="tour-card group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="tour-card__media block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ title }}">
+  </a>
+  <div class="tour-card__body flex flex-1 flex-col p-(--space-card)">
+    <h3 class="tour-card__title font-heading text-on-surface"><a class="hover:underline" href="{{ href }}">{{ title }}</a></h3>
+    <p class="tour-card__meta mt-1 flex items-center gap-2 text-sm text-on-surface-muted">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>
+      {{ duration }}
+    </p>
+    <p data-if="rating" class="tour-card__rating mt-1 flex items-center gap-1 text-sm text-on-surface">
+      <svg class="size-4 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      <span class="font-medium">{{ rating }}</span>
+      <span data-if="reviews" class="text-on-surface-muted">({{ reviews }})</span>
+    </p>
+    <p class="tour-card__price mt-auto pt-3 text-sm text-on-surface-muted">from <span class="font-heading text-lg text-on-surface">{{ price }}</span></p>
+  </div>
+</article>

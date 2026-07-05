@@ -1,0 +1,37 @@
+name: car-rental-card
+props:
+  model:
+    type: string
+    required: true
+    title: Model
+    example: "Volkswagen Golf"
+  category:
+    type: string
+    title: Category
+    example: "or similar · Compact"
+  seats:
+    type: string
+    required: true
+    title: Seats
+    example: "5"
+  transmission:
+    type: string
+    required: true
+    title: Transmission
+    example: "Automatic"
+  bags:
+    type: string
+    title: Bags
+    example: "2"
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    required: true
+    title: Price per day
+    example: "$38"
+  href:
+    type: link
+    title: Link

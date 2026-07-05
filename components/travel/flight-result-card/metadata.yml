@@ -1,0 +1,77 @@
+name: "Flight Result Card"
+short_description: A flight search result with airline, times, duration, stops, and price.
+long_visual_description: >
+  A row with the airline badge, departure and arrival times/airports flanking a duration and
+  stops indicator with a plane icon, and a price with a select action.
+
+use_cases:
+  - Flight search result row.
+  - Fare option in a results list.
+  - Itinerary segment card.
+  - Booking flow flight choice.
+  - Fare comparison entry.
+
+recommended_for:
+  - A single flight option in a search results list.
+avoid_for:
+  - A route/date summary (use flight-search-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the times, airports, duration, and stops between the airline and the price; the
+  select action proceeds to booking.
+
+props:
+  airline: The airline name.
+  airline_code: The airline short code.
+  depart_time: Departure time.
+  depart_code: Departure airport code.
+  arrive_time: Arrival time.
+  arrive_code: Arrival airport code.
+  duration: Flight duration.
+  stops: Stops label (Nonstop / 1 stop).
+  price: The fare price.
+  href: The select link.
+
+example_prompts:
+  - "Add a nonstop flight result JFK–LAX at $312."
+  - "Add a flight search result card with times and stops."
+
+lifecycle: experimental
+content_model: A flight option with route, timing, stops, and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use 24h or 12h times consistently; state stops clearly (Nonstop, 1 stop).
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The airline badge carries the airline name; times/airports are real text; the plane icon is decorative; select is a real link.
+  keyboard_support: The select action is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

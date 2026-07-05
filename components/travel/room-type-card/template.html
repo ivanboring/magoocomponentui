@@ -1,0 +1,22 @@
+<article class="room-type-card flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card sm:flex-row">
+  <div data-if="image" class="room-type-card__media shrink-0 sm:w-48">
+    <img class="h-36 w-full object-cover sm:h-full" src="{{ image }}" alt="{{ name }}">
+  </div>
+  <div class="room-type-card__body flex flex-1 flex-col p-(--space-card)">
+    <h3 class="room-type-card__name font-heading text-on-surface">{{ name }}</h3>
+    <p class="room-type-card__beds mt-0.5 text-sm text-on-surface-muted">{{ beds }}</p>
+    <ul data-if="perks" class="room-type-card__perks mt-2 flex flex-col gap-1 text-sm text-on-surface-muted">
+      <li data-for="perk in perks" class="flex items-center gap-2">
+        <svg class="size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        {{ perk.label }}
+      </li>
+    </ul>
+    <div class="room-type-card__foot mt-auto flex items-end justify-between gap-3 pt-4">
+      <div>
+        <p class="font-heading text-xl text-on-surface">{{ rate }}</p>
+        <p data-if="rate_note" class="text-xs text-on-surface-muted">{{ rate_note }}</p>
+      </div>
+      <a class="rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ href }}">Reserve</a>
+    </div>
+  </div>
+</article>

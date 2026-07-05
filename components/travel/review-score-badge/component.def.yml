@@ -1,0 +1,16 @@
+name: review-score-badge
+props:
+  score:
+    type: string
+    required: true
+    title: Score
+    example: "8.9"
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Fabulous"
+  count:
+    type: string
+    title: Review count
+    example: "1,204 reviews"

@@ -1,0 +1,13 @@
+{
+  "days": [
+    { "day": "Day 1", "date": "Mon, Aug 12", "items": [
+      { "time": "09:00", "title": "Arrive & check in", "detail": "The Grand Marina" },
+      { "time": "13:00", "title": "Old Town walking tour", "detail": "3 hours · meet at the plaza" },
+      { "time": "19:30", "title": "Dinner", "detail": "Seafront restaurant" }
+    ]},
+    { "day": "Day 2", "date": "Tue, Aug 13", "items": [
+      { "time": "08:30", "title": "Coastal day trip", "detail": "Guided, includes lunch" },
+      { "time": "18:00", "title": "Free evening", "detail": "" }
+    ]}
+  ]
+}

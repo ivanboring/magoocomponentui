@@ -1,0 +1,50 @@
+name: flight-result-card
+props:
+  airline:
+    type: string
+    required: true
+    title: Airline
+    example: "Skyward Air"
+  airline_code:
+    type: string
+    required: true
+    title: Airline code
+    example: "SK"
+  depart_time:
+    type: string
+    required: true
+    title: Depart time
+    example: "08:15"
+  depart_code:
+    type: string
+    required: true
+    title: Depart airport
+    example: "JFK"
+  arrive_time:
+    type: string
+    required: true
+    title: Arrive time
+    example: "11:40"
+  arrive_code:
+    type: string
+    required: true
+    title: Arrive airport
+    example: "LAX"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "6h 25m"
+  stops:
+    type: string
+    required: true
+    title: Stops
+    example: "Nonstop"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$312"
+  href:
+    type: link
+    title: Link

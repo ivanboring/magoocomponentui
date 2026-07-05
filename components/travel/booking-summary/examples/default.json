@@ -1,0 +1,12 @@
+{
+  "title": "Your trip",
+  "dates": "Aug 12 – Aug 19 · 7 nights",
+  "guests": "2 guests",
+  "lines": [
+    { "label": "$189 × 7 nights", "value": "$1,323", "muted": true },
+    { "label": "Cleaning fee", "value": "$60", "muted": true },
+    { "label": "Service fee", "value": "$85", "muted": true }
+  ],
+  "total_value": "$1,468",
+  "cta_label": "Reserve"
+}

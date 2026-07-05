@@ -1,0 +1,13 @@
+{
+  "name": "Deluxe King Room",
+  "beds": "1 king bed · sleeps 2",
+  "image": "/stock/property-house.jpg",
+  "perks": [
+    { "label": "Free cancellation" },
+    { "label": "Breakfast included" },
+    { "label": "Pay at the property" }
+  ],
+  "rate": "$219",
+  "rate_note": "per night · incl. taxes",
+  "href": "#"
+}

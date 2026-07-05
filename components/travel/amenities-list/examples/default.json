@@ -1,0 +1,11 @@
+{
+  "title": "Amenities",
+  "items": [
+    { "label": "Free WiFi", "icon": "📶" },
+    { "label": "Pool", "icon": "🏊" },
+    { "label": "Breakfast", "icon": "🥐" },
+    { "label": "Parking", "icon": "🅿️" },
+    { "label": "Gym", "icon": "🏋️" },
+    { "label": "Spa", "icon": "💆" }
+  ]
+}

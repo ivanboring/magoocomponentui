@@ -1,0 +1,33 @@
+name: booking-summary
+props:
+  title:
+    type: string
+    default: "Your trip"
+    title: Title
+  dates:
+    type: string
+    required: true
+    title: Dates
+    example: "Aug 12 – Aug 19 · 7 nights"
+  guests:
+    type: string
+    required: true
+    title: Guests
+    example: "2 guests"
+  lines:
+    type: array
+    items: object
+    required: true
+    title: Price lines
+    description: "Each line: { label, value, muted }."
+    example:
+      - { label: "$189 × 7 nights", value: "$1,323", muted: true }
+  total_value:
+    type: string
+    required: true
+    title: Total
+    example: "$1,468"
+  cta_label:
+    type: string
+    default: "Reserve"
+    title: CTA label

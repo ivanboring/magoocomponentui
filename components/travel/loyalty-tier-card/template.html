@@ -1,0 +1,30 @@
+<article class="loyalty-tier-card overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="loyalty-tier-card__head flex items-center justify-between bg-primary p-(--space-card) text-primary-contrast">
+    <div>
+      <p class="text-xs uppercase tracking-wide opacity-90">Membership</p>
+      <p class="loyalty-tier-card__tier font-heading text-2xl">{{ tier }}</p>
+    </div>
+    <div class="text-right">
+      <p class="loyalty-tier-card__points font-heading text-2xl tabular-nums">{{ points }}</p>
+      <p class="text-xs opacity-90">points</p>
+    </div>
+  </div>
+  <div class="loyalty-tier-card__body p-(--space-card)">
+    <div data-if="next_tier" class="loyalty-tier-card__progress">
+      <div class="flex items-center justify-between text-xs text-on-surface-muted">
+        <span>{{ tier }}</span>
+        <span>{{ next_tier }}</span>
+      </div>
+      <div class="mt-1 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Progress to {{ next_tier }}">
+        <div class="h-full rounded-pill bg-primary" style="width: {{ progress_pct }}%"></div>
+      </div>
+      <p data-if="points_to_next" class="mt-1.5 text-xs text-on-surface-muted">{{ points_to_next }}</p>
+    </div>
+    <ul data-if="perks" class="loyalty-tier-card__perks mt-4 flex flex-col gap-2 text-sm text-on-surface">
+      <li data-for="perk in perks" class="flex items-center gap-2">
+        <svg class="size-4 shrink-0 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        {{ perk.label }}
+      </li>
+    </ul>
+  </div>
+</article>

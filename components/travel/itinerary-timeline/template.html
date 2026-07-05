@@ -1,0 +1,18 @@
+<div class="itinerary-timeline flex flex-col gap-6">
+  <section data-for="day in days" class="itinerary-timeline__day">
+    <div class="itinerary-timeline__head flex items-baseline gap-2">
+      <h3 class="font-heading text-on-surface">{{ day.day }}</h3>
+      <span class="text-sm text-on-surface-muted">{{ day.date }}</span>
+    </div>
+    <ol class="itinerary-timeline__items relative mt-3 flex flex-col gap-4 before:absolute before:inset-y-1 before:left-[5px] before:w-px before:bg-border">
+      <li data-for="item in day.items" class="itinerary-timeline__item flex gap-4">
+        <span class="itinerary-timeline__dot relative z-10 mt-1 size-3 shrink-0 rounded-full bg-primary ring-4 ring-surface" aria-hidden="true"></span>
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-medium text-primary tabular-nums">{{ item.time }}</p>
+          <p class="itinerary-timeline__title font-medium text-on-surface">{{ item.title }}</p>
+          <p data-if="item.detail" class="itinerary-timeline__detail text-sm text-on-surface-muted">{{ item.detail }}</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>

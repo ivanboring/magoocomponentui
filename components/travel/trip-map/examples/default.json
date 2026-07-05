@@ -1,0 +1,8 @@
+{
+  "title": "Route",
+  "stops": [
+    { "label": "New York (JFK)", "detail": "Depart Aug 12 · 08:15" },
+    { "label": "Reykjavík (KEF)", "detail": "Layover · 2h 10m" },
+    { "label": "London (LHR)", "detail": "Arrive Aug 12 · 21:40" }
+  ]
+}

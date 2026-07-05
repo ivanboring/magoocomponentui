@@ -1,0 +1,12 @@
+{
+  "tier": "Gold",
+  "points": "42,180",
+  "next_tier": "Platinum",
+  "progress_pct": 84,
+  "points_to_next": "7,820 points to Platinum",
+  "perks": [
+    { "label": "Priority boarding" },
+    { "label": "2 free checked bags" },
+    { "label": "Lounge access" }
+  ]
+}

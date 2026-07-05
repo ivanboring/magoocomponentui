@@ -1,0 +1,27 @@
+<article class="boarding-pass mx-auto flex max-w-md overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="boarding-pass__main flex-1 p-(--space-card)">
+    <div class="flex items-center justify-between">
+      <span class="boarding-pass__airline font-heading text-on-surface">{{ airline }}</span>
+      <span class="boarding-pass__flight text-sm text-on-surface-muted">{{ flight }}</span>
+    </div>
+    <div class="boarding-pass__route mt-4 flex items-center justify-between">
+      <div><p class="font-heading text-3xl text-on-surface">{{ from_code }}</p></div>
+      <svg class="size-6 text-on-surface-muted" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 14l18-6-7 16-3-7-8-3z"/></svg>
+      <div class="text-right"><p class="font-heading text-3xl text-on-surface">{{ to_code }}</p></div>
+    </div>
+    <p class="boarding-pass__passenger mt-4 text-xs uppercase tracking-wide text-on-surface-muted">Passenger</p>
+    <p class="boarding-pass__name font-heading text-on-surface">{{ passenger }}</p>
+    <dl class="boarding-pass__details mt-3 grid grid-cols-3 gap-2 text-sm">
+      <div><dt class="text-xs text-on-surface-muted">Boarding</dt><dd class="font-heading text-on-surface tabular-nums">{{ boarding }}</dd></div>
+      <div><dt class="text-xs text-on-surface-muted">Gate</dt><dd class="font-heading text-on-surface">{{ gate }}</dd></div>
+      <div><dt class="text-xs text-on-surface-muted">Seat</dt><dd class="font-heading text-on-surface">{{ seat }}</dd></div>
+    </dl>
+  </div>
+  <div class="boarding-pass__stub flex flex-col items-center justify-between border-l border-dashed border-border bg-surface-raised p-4">
+    <span class="text-[10px] uppercase text-on-surface-muted [writing-mode:vertical-rl]">Boarding pass</span>
+    <svg class="h-24 w-8" viewBox="0 0 32 96" fill="currentColor" aria-hidden="true" role="img" aria-label="Barcode">
+      <rect x="2" y="0" width="2" height="96"/><rect x="6" y="0" width="1" height="96"/><rect x="9" y="0" width="3" height="96"/><rect x="14" y="0" width="1" height="96"/><rect x="17" y="0" width="2" height="96"/><rect x="21" y="0" width="1" height="96"/><rect x="24" y="0" width="3" height="96"/><rect x="29" y="0" width="1" height="96"/>
+    </svg>
+    <span class="text-[10px] font-mono text-on-surface-muted">{{ seat }}</span>
+  </div>
+</article>

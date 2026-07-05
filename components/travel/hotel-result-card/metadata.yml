@@ -1,0 +1,75 @@
+name: "Hotel Result Card"
+short_description: A hotel search result with photo, score, amenities, and price per night.
+long_visual_description: >
+  A horizontal card with a hotel photo, the name and location, a review score badge,
+  amenity chips, and a from-price with a view-deal action.
+
+use_cases:
+  - Hotel search result row.
+  - Accommodation listing.
+  - Stay option in a booking flow.
+  - Property result with score.
+  - Hotel comparison entry.
+
+recommended_for:
+  - A single hotel/stay option in search results.
+avoid_for:
+  - A room type within a hotel (use room-type-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the score badge, a few key amenities, and the nightly price; the whole card links to
+  the property.
+
+props:
+  name: The hotel name.
+  location: The location line.
+  image: The hotel photo.
+  score: The review score.
+  score_label: The sentiment label.
+  amenities: Key amenity chips.
+  price: The nightly price.
+  href: The property link.
+
+example_prompts:
+  - "Add a hotel result card with an 8.9 score and amenities."
+  - "Add an accommodation listing with nightly price."
+
+lifecycle: experimental
+content_model: A hotel photo, name, location, score, amenities, and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the most compelling amenities; show the score prominently for trust.
+
+categorization:
+  category: Travel
+  subcategory: Hotels
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the hotel name; score and price are real text; the view-deal action is a real link.
+  keyboard_support: Name, image, and view-deal links are focusable and activate on Enter.
+  seo_score: 55
+  text_direction: both

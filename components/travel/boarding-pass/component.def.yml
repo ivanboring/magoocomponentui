@@ -1,0 +1,42 @@
+name: boarding-pass
+props:
+  passenger:
+    type: string
+    required: true
+    title: Passenger
+    example: "JANE DOE"
+  airline:
+    type: string
+    required: true
+    title: Airline
+    example: "Skyward Air"
+  flight:
+    type: string
+    required: true
+    title: Flight
+    example: "SK 482"
+  from_code:
+    type: string
+    required: true
+    title: From
+    example: "JFK"
+  to_code:
+    type: string
+    required: true
+    title: To
+    example: "LAX"
+  boarding:
+    type: string
+    required: true
+    title: Boarding
+    example: "07:45"
+  gate:
+    type: string
+    required: true
+    title: Gate
+    example: "B12"
+  seat:
+    type: string
+    required: true
+    title: Seat
+    example: "14A"

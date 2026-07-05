@@ -1,0 +1,70 @@
+name: "Loyalty Tier Card"
+short_description: A membership tier card with points, progress to the next tier, and perks.
+long_visual_description: >
+  A card with a coloured header showing the current tier and points, a progress bar toward
+  the next tier, and a list of tier perks.
+
+use_cases:
+  - Airline or hotel loyalty status.
+  - Rewards membership card.
+  - Points and tier overview.
+  - Progress-to-next-tier display.
+  - Perks summary.
+
+recommended_for:
+  - A member's loyalty tier with points and progress.
+avoid_for:
+  - A pricing tier (use card-pricing).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current tier and points; the progress bar and points-to-next motivate the next
+  tier. List the tier's perks.
+
+props:
+  tier: The current tier.
+  points: The points balance.
+  next_tier: The next tier name.
+  progress_pct: Percent toward the next tier.
+  points_to_next: Points remaining to the next tier.
+  perks: The tier perks.
+
+example_prompts:
+  - "Add a Gold loyalty tier card with progress to Platinum."
+  - "Add a rewards membership card with perks."
+
+lifecycle: experimental
+content_model: A tier, points, progress to the next tier, and perks.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show points-to-next to motivate progress; list the perks that matter most.
+
+categorization:
+  category: Travel
+  subcategory: Loyalty
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The progress bar uses role="progressbar" with a label and aria-valuenow; points and perks are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

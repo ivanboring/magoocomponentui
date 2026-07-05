@@ -1,0 +1,59 @@
+name: "Itinerary Timeline"
+short_description: A day-by-day trip schedule with timed activities down a connecting line.
+long_visual_description: >
+  Grouped by day (with a date), each day shows a vertical timeline of timed activities with a
+  title and optional detail.
+
+use_cases:
+  - Trip itinerary display.
+  - Tour day-by-day schedule.
+  - Event agenda across days.
+  - Travel plan overview.
+  - Multi-day schedule.
+
+recommended_for:
+  - A day-by-day schedule of timed activities.
+avoid_for:
+  - A single-day agenda list (use calendar-agenda).
+
+markets:
+  - Global
+
+example_usage: >
+  Group activities under each day with a date; each activity has a time, title, and optional
+  detail.
+
+props:
+  days: The days, each with a date and timed activities.
+
+example_prompts:
+  - "Add a day-by-day trip itinerary timeline."
+  - "Add a multi-day tour schedule."
+
+lifecycle: experimental
+content_model: Day-grouped timed activities.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Order activities chronologically within each day; keep details brief.
+
+categorization:
+  category: Travel
+  subcategory: Booking
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Days use headings and each day is an ordered list; the line and dots are decorative.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

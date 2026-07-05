@@ -1,0 +1,19 @@
+<div class="price-calendar rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="price-calendar__head mb-3 flex items-center justify-between">
+    <h3 class="font-heading text-on-surface">{{ month }}</h3>
+    <div class="price-calendar__legend flex items-center gap-3 text-xs text-on-surface-muted">
+      <span class="flex items-center gap-1"><span class="size-2.5 rounded-full bg-success"></span>Low</span>
+      <span class="flex items-center gap-1"><span class="size-2.5 rounded-full bg-warning"></span>Mid</span>
+      <span class="flex items-center gap-1"><span class="size-2.5 rounded-full bg-danger"></span>High</span>
+    </div>
+  </div>
+  <div class="price-calendar__weekdays grid grid-cols-7 gap-1 text-center text-xs text-on-surface-muted">
+    <span data-for="weekday in weekdays">{{ weekday.label }}</span>
+  </div>
+  <div class="price-calendar__grid mt-1 grid grid-cols-7 gap-1">
+    <button data-for="day in days" type="button" class="price-calendar__day flex aspect-square flex-col items-center justify-center rounded-control text-xs transition-colors duration-(--duration-token) data-[muted=true]:pointer-events-none data-[muted=true]:opacity-30 data-[muted=false]:hover:bg-surface-raised" data-muted="{{ day.muted }}">
+      <span class="text-on-surface tabular-nums">{{ day.number }}</span>
+      <span class="price-calendar__price mt-0.5 font-medium tabular-nums data-[tier=low]:text-success data-[tier=mid]:text-warning data-[tier=high]:text-danger" data-tier="{{ day.tier }}">{{ day.price }}</span>
+    </button>
+  </div>
+</div>

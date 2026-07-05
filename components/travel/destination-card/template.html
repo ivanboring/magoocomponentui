@@ -1,0 +1,9 @@
+<a class="destination-card group relative flex aspect-[3/4] items-end overflow-hidden rounded-card shadow-card" href="{{ href }}">
+  <img class="destination-card__image absolute inset-0 size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="">
+  <span class="destination-card__scrim absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" aria-hidden="true"></span>
+  <span class="destination-card__body relative p-(--space-card) text-white">
+    <span class="destination-card__name block font-heading text-xl">{{ name }}</span>
+    <span data-if="teaser" class="destination-card__teaser mt-1 block text-sm text-white/85">{{ teaser }}</span>
+    <span data-if="from_price" class="destination-card__price mt-2 inline-block rounded-pill bg-white/20 px-2 py-0.5 text-xs font-medium">{{ from_price }}</span>
+  </span>
+</a>

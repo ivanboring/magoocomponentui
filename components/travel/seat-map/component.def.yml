@@ -1,0 +1,15 @@
+name: seat-map
+props:
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each row: { number, seats: [{ label, status }] } where status is available |
+      selected | taken | aisle (aisle renders a gap).
+    example:
+      - number: "12"
+        seats:
+          - { label: "A", status: "available" }
+          - { label: "B", status: "taken" }

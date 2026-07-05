@@ -1,0 +1,15 @@
+<ul class="baggage-allowance flex flex-col divide-y divide-border rounded-card border border-border bg-surface">
+  <li data-for="item in items" class="baggage-allowance__item flex items-center gap-3 px-(--space-card) py-3" data-included="{{ item.included }}">
+    <span class="baggage-allowance__icon flex size-9 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="6" width="10" height="10" rx="1.5"/><path d="M8 6V4h4v2"/></svg>
+    </span>
+    <span class="min-w-0 flex-1">
+      <span class="baggage-allowance__type block text-sm font-medium text-on-surface">{{ item.type }}</span>
+      <span class="baggage-allowance__detail block text-xs text-on-surface-muted">{{ item.detail }}</span>
+    </span>
+    <span class="baggage-allowance__status shrink-0 text-sm font-medium data-[included=true]:text-success data-[included=false]:text-on-surface-muted" data-included="{{ item.included }}">
+      <span data-if="item.included" class="inline-flex items-center gap-1"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>Included</span>
+      <span data-if="!item.included">Not included</span>
+    </span>
+  </li>
+</ul>

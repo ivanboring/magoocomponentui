@@ -1,0 +1,32 @@
+name: tour-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Old Town Walking Tour"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "3 hours"
+  rating:
+    type: string
+    title: Rating
+    example: "4.8"
+  reviews:
+    type: string
+    title: Reviews
+    example: "2,140"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$45"
+  image:
+    type: image
+    title: Image
+    example: "/stock/property-house.jpg"
+  href:
+    type: link
+    title: Link

@@ -1,0 +1,70 @@
+name: "Booking Summary"
+short_description: A trip booking summary with dates, guests, a price breakdown, and a reserve CTA.
+long_visual_description: >
+  A panel with the trip dates and guests, a price breakdown of nightly rate and fees, a bold
+  total, and a reserve button.
+
+use_cases:
+  - Stay booking summary sidebar.
+  - Reservation price breakdown.
+  - Checkout summary for travel.
+  - Trip cost recap.
+  - Booking confirmation panel.
+
+recommended_for:
+  - Summarizing a travel booking's cost with a reserve action.
+avoid_for:
+  - A generic order summary (use checkout-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the dates and guests, then the price lines and total; the reserve CTA proceeds to
+  payment.
+
+props:
+  title: The summary title.
+  dates: The stay dates.
+  guests: The guest count.
+  lines: The price breakdown lines.
+  total_value: The total.
+  cta_label: The reserve button text.
+
+example_prompts:
+  - "Add a booking summary with a price breakdown and reserve button."
+  - "Add a stay reservation cost panel."
+
+lifecycle: experimental
+content_model: A trip's dates, guests, price breakdown, and total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Break out fees transparently; the total should be the all-in price.
+
+categorization:
+  category: Travel
+  subcategory: Booking
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list for the breakdown; icons are decorative; the CTA is a real button.
+  keyboard_support: The reserve button is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

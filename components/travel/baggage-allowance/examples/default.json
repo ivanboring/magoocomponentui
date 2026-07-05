@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "type": "Personal item", "detail": "Fits under the seat", "included": true },
+    { "type": "Cabin bag", "detail": "8 kg · 55×40×20 cm", "included": true },
+    { "type": "Checked bag", "detail": "23 kg", "included": false }
+  ]
+}

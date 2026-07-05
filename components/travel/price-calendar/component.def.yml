@@ -1,0 +1,23 @@
+name: price-calendar
+props:
+  month:
+    type: string
+    required: true
+    title: Month
+    example: "August 2026"
+  weekdays:
+    type: array
+    items: object
+    required: true
+    title: Weekday headers
+    description: "Each: { label }."
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      Each day cell: { number, price, tier, muted } where tier is low | mid | high (fare
+      band) and muted marks other-month/unavailable days.
+    example:
+      - { number: "1", price: "$189", tier: "low", muted: false }

@@ -1,0 +1,69 @@
+name: "Tour Card"
+short_description: An excursion card with image, duration, rating, and from-price.
+long_visual_description: >
+  A vertical card with a tour photo, the title, a duration row with a clock icon, a star
+  rating with review count, and a from-price.
+
+use_cases:
+  - Tours and activities listing.
+  - Excursion booking grid.
+  - Things-to-do card.
+  - Experience result card.
+  - Guided tour option.
+
+recommended_for:
+  - A bookable tour/experience in a grid or list.
+avoid_for:
+  - A destination inspiration tile (use destination-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the duration and rating; the from-price signals the starting cost.
+
+props:
+  title: The tour title.
+  duration: The tour duration.
+  rating: The star rating.
+  reviews: The review count.
+  price: The from-price.
+  image: The tour photo.
+  href: The tour link.
+
+example_prompts:
+  - "Add a walking tour card with rating and price."
+  - "Add a things-to-do experience card."
+
+lifecycle: experimental
+content_model: A tour photo, title, duration, rating, and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the duration and rating prominently; the from-price sets expectations.
+
+categorization:
+  category: Travel
+  subcategory: Tours
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the tour title; icons are decorative; rating and price are real text.
+  keyboard_support: Title and image links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

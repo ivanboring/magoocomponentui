@@ -1,0 +1,61 @@
+name: "Baggage Allowance"
+short_description: A cabin/checked baggage allowance summary with included/not-included status.
+long_visual_description: >
+  A list of baggage types (personal item, cabin, checked) each with size/weight detail and an
+  included or not-included status.
+
+use_cases:
+  - Fare baggage allowance.
+  - Booking baggage summary.
+  - Fare comparison detail.
+  - Check-in baggage info.
+  - Ancillary baggage panel.
+
+recommended_for:
+  - Summarizing what baggage a fare includes.
+avoid_for:
+  - Purchasing extra bags (build a dedicated add-on).
+
+markets:
+  - Global
+
+example_usage: >
+  List each baggage type with its dimensions/weight and whether it's included in the fare.
+
+props:
+  items: The baggage items with type, detail, and included status.
+
+example_prompts:
+  - "Add a baggage allowance summary for a fare."
+  - "Add a cabin vs checked baggage list."
+
+lifecycle: experimental
+content_model: A list of baggage types with allowance and inclusion status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --space-card
+
+editorial_guidance: >
+  State dimensions/weight limits clearly; mark inclusion by text and icon.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inclusion is shown by text ("Included"/"Not included") plus an icon, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

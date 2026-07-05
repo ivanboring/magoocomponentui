@@ -1,0 +1,60 @@
+name: "Review Score Badge"
+short_description: A prominent review score with a qualitative label and review count.
+long_visual_description: >
+  A filled score chip (e.g. 8.9) beside a qualitative label ("Fabulous") and a review count,
+  in the booking-site style.
+
+use_cases:
+  - Hotel or property review score.
+  - Rating summary on a result card.
+  - Booking-site style score badge.
+  - Aggregate rating display.
+  - Score with sentiment label.
+
+recommended_for:
+  - A single prominent aggregate score with a sentiment label.
+avoid_for:
+  - A star rating (use rating-stars).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the score, a sentiment word, and the review count; keep the score to one decimal.
+
+props:
+  score: The review score.
+  label: The qualitative label.
+  count: The review count.
+
+example_prompts:
+  - "Add an 8.9 Fabulous review score badge."
+  - "Add a booking-style score with review count."
+
+lifecycle: experimental
+content_model: A score, a sentiment label, and a count.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Map the label to the score band consistently; show the count for credibility.
+
+categorization:
+  category: Travel
+  subcategory: Reviews
+  atomic_type: atom
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Score, label, and count are all real text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,69 @@
+name: "Price Calendar"
+short_description: A month grid showing the fare for each day, colour-coded by price band.
+long_visual_description: >
+  A month calendar where each day shows the date and its fare, with the price colour-coded by
+  band (green low, amber mid, red high) and a legend.
+
+use_cases:
+  - Cheapest-day fare finder.
+  - Flexible-date price grid.
+  - Fare calendar for a route.
+  - Best-time-to-book view.
+  - Price-by-day picker.
+
+recommended_for:
+  - Showing fares across a month to find cheaper days.
+avoid_for:
+  - An events calendar (use calendar-month).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the day grid (leading/trailing muted days) with a price and tier per day; the
+  legend maps tiers to bands.
+
+props:
+  month: The month/year label.
+  weekdays: The weekday header labels.
+  days: The day cells with number, price, tier, and muted flag.
+
+example_prompts:
+  - "Add a fare price calendar colour-coded by price band."
+  - "Add a cheapest-day month grid."
+
+lifecycle: experimental
+content_model: A month grid of daily fares with price bands.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Map tiers to bands consistently; include the legend so colours are interpretable.
+
+categorization:
+  category: Travel
+  subcategory: Flights
+  atomic_type: organism
+  usage_type: [table, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each day shows the price as text (not colour-only); the legend explains the bands; days are real buttons. Add per-day aria-labels (date + price) in production.
+  keyboard_support: Day cells are focusable buttons; muted days are inert.
+  seo_score: 30
+  text_direction: both
