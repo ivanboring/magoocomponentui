@@ -1,0 +1,15 @@
+<section class="feature-list-auto rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="feature-list-auto__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <div class="feature-list-auto__groups mt-4 grid grid-cols-1 gap-5 sm:grid-cols-2">
+    <div data-for="group in groups" class="feature-list-auto__group">
+      <p class="feature-list-auto__group-label text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ group.label }}</p>
+      <ul class="mt-2 flex flex-col gap-1.5">
+        <li data-for="feature in group.features" class="feature-list-auto__feature flex items-center gap-2 text-sm data-[included=false]:text-on-surface-muted" data-included="{{ feature.included }}">
+          <svg data-if="feature.included" class="size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          <svg data-if="!feature.included" class="size-4 shrink-0 text-on-surface-muted/50" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+          <span class="text-on-surface data-[included=false]:text-on-surface-muted data-[included=false]:line-through" data-included="{{ feature.included }}">{{ feature.label }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

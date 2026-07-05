@@ -1,0 +1,14 @@
+{
+  "trims": [
+    { "name": "Standard Range", "price": "$28,990", "recommended": false },
+    { "name": "Long Range", "price": "$34,990", "recommended": true },
+    { "name": "Performance", "price": "$42,990", "recommended": false }
+  ],
+  "rows": [
+    { "label": "Range", "values": [ { "text": "272 mi" }, { "text": "333 mi" }, { "text": "315 mi" } ] },
+    { "label": "0–60 mph", "values": [ { "text": "5.8s" }, { "text": "4.2s" }, { "text": "3.1s" } ] },
+    { "label": "Top speed", "values": [ { "text": "140 mph" }, { "text": "145 mph" }, { "text": "162 mph" } ] },
+    { "label": "Drivetrain", "values": [ { "text": "RWD" }, { "text": "AWD" }, { "text": "AWD" } ] },
+    { "label": "Wheels", "values": [ { "text": "18\"" }, { "text": "19\"" }, { "text": "20\"" } ] }
+  ]
+}

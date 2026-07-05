@@ -1,0 +1,28 @@
+name: trade-in-estimator
+props:
+  make_options:
+    type: array
+    items: object
+    required: true
+    title: Make options
+    description: "Each: { label, selected }."
+  year_options:
+    type: array
+    items: object
+    required: true
+    title: Year options
+    description: "Each: { label, selected }."
+  condition_options:
+    type: array
+    items: object
+    required: true
+    title: Condition options
+    description: "Each: { label, active }."
+  estimate:
+    type: string
+    title: Estimate
+    example: "$18,400 – $21,200"
+  cta_label:
+    type: string
+    default: "Get estimate"
+    title: CTA label

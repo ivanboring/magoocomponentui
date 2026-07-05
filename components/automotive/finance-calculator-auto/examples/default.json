@@ -1,0 +1,8 @@
+{
+  "modes": [ { "label": "Finance", "active": true }, { "label": "Lease", "active": false } ],
+  "price": 34990,
+  "down": 4000,
+  "rate": "6.9",
+  "term": 60,
+  "monthly": "$611"
+}

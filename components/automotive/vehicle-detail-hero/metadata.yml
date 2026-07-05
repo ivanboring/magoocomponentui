@@ -1,0 +1,63 @@
+name: "Vehicle Detail Hero"
+short_description: A vehicle detail header with a gallery mosaic, price, and key specs.
+long_visual_description: >
+  A gallery mosaic (one large photo plus a grid), the vehicle name and trim, the price with a
+  monthly estimate, and a key-specs strip (range, 0–60, miles, drivetrain).
+
+use_cases:
+  - Top of a vehicle detail page.
+  - Vehicle listing hero.
+  - Car overview header.
+  - Spec-forward intro.
+  - Detail page gallery.
+
+recommended_for:
+  - The hero of a vehicle detail page with gallery and specs.
+avoid_for:
+  - A compact vehicle card (use vehicle-listing-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide gallery images (first is large) and key specs; show the price with a monthly
+  estimate.
+
+props:
+  name: The vehicle name.
+  trim: The trim/config.
+  price: The price.
+  price_note: A monthly estimate.
+  images: The gallery images (first is large).
+  specs: The key specs (value + label).
+
+example_prompts:
+  - "Add a vehicle detail hero with gallery and specs."
+  - "Add a car detail header with price and key specs."
+
+lifecycle: experimental
+content_model: A vehicle gallery, price, and key specs.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Lead with the best photo; show the specs buyers compare (range, 0–60, miles).
+
+categorization:
+  category: Automotive
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Gallery images carry descriptive alt; uses a real h1 and a definition list for specs.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

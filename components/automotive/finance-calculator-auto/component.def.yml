@@ -1,0 +1,30 @@
+name: finance-calculator-auto
+props:
+  modes:
+    type: array
+    items: object
+    required: true
+    title: Modes
+    description: "Each: { label, active } — e.g. Finance, Lease."
+  price:
+    type: integer
+    default: 34990
+    title: Vehicle price
+  down:
+    type: integer
+    default: 4000
+    title: Down payment
+  rate:
+    type: string
+    default: "6.9"
+    title: APR %
+  term:
+    type: integer
+    default: 60
+    title: Term (months)
+  monthly:
+    type: string
+    required: true
+    title: Monthly payment
+    description: Precomputed monthly payment (behavior recalculates live).
+    example: "$611"

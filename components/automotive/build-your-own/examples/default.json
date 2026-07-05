@@ -1,0 +1,11 @@
+{
+  "steps": [
+    { "label": "Model", "choice": "Model 3 Long Range", "price": "$34,990", "done": true },
+    { "label": "Paint", "choice": "Midnight Silver", "price": "+$1,500", "done": true },
+    { "label": "Wheels", "choice": "19\" Sport", "price": "+$1,500", "done": true },
+    { "label": "Interior", "choice": "Choose interior", "price": "", "done": false },
+    { "label": "Autopilot", "choice": "Choose package", "price": "", "done": false }
+  ],
+  "total": "$37,990",
+  "cta_label": "Continue to order"
+}

@@ -1,0 +1,19 @@
+name: build-your-own
+props:
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, choice, price, done }."
+    example:
+      - { label: "Model", choice: "Model 3 Long Range", price: "$34,990", done: true }
+  total:
+    type: string
+    required: true
+    title: Total
+    example: "$41,490"
+  cta_label:
+    type: string
+    default: "Continue to order"
+    title: CTA label

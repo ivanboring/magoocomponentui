@@ -1,0 +1,20 @@
+<div class="spec-comparison overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="spec-comparison__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="w-40 px-4 py-3 text-left" scope="col"></th>
+        <th data-for="trim in trims" class="px-4 py-3 text-left align-top data-[recommended=true]:bg-primary/5" data-recommended="{{ trim.recommended }}" scope="col">
+          <span data-if="trim.recommended" class="mb-1 inline-block rounded-pill bg-primary px-2 py-0.5 text-[10px] font-semibold uppercase text-primary-contrast">Recommended</span>
+          <span class="block font-heading text-on-surface">{{ trim.name }}</span>
+          <span class="block font-heading text-lg text-on-surface tabular-nums">{{ trim.price }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border last:border-0">
+        <th class="px-4 py-2.5 text-left font-medium text-on-surface-muted" scope="row">{{ row.label }}</th>
+        <td data-for="value in row.values" class="px-4 py-2.5 text-on-surface tabular-nums">{{ value.text }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

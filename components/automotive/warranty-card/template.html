@@ -1,0 +1,11 @@
+<section class="warranty-card rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="warranty-card__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <ul class="warranty-card__items mt-4 flex flex-col divide-y divide-border">
+    <li data-for="item in items" class="warranty-card__item flex items-center gap-3 py-3 first:pt-0 last:pb-0">
+      <span class="warranty-card__icon flex size-9 shrink-0 items-center justify-center rounded-control bg-surface-raised text-lg" aria-hidden="true">{{ item.icon }}</span>
+      <span class="min-w-0 flex-1 text-sm text-on-surface">{{ item.label }}</span>
+      <span class="warranty-card__coverage shrink-0 text-sm font-medium text-on-surface tabular-nums">{{ item.coverage }}</span>
+    </li>
+  </ul>
+  <p data-if="note" class="warranty-card__note mt-3 border-t border-border pt-2 text-xs text-on-surface-muted">{{ note }}</p>
+</section>

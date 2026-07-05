@@ -1,0 +1,61 @@
+name: "Vehicle Color Picker"
+short_description: Exterior color swatches with the selected color's name and price.
+long_visual_description: >
+  A row of round color swatches with the selected one ringed; the selected color's name and
+  any upcharge show above.
+
+use_cases:
+  - Vehicle exterior color selection.
+  - Configurator color step.
+  - Paint option picker.
+  - Trim color choice.
+  - Build color swatches.
+
+recommended_for:
+  - Selecting an exterior vehicle color.
+avoid_for:
+  - A generic swatch grid (use color-swatch-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide colors with a CSS swatch and name; selecting updates the shown name. Emits
+  color:change.
+
+props:
+  label: The picker label.
+  selected_name: The selected color name.
+  selected_price: The selected color upcharge.
+  colors: The color options with swatch and name.
+
+example_prompts:
+  - "Add a vehicle exterior color picker with prices."
+  - "Add paint color swatches for a configurator."
+
+lifecycle: experimental
+content_model: A single-select vehicle color picker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --duration-token
+
+editorial_guidance: >
+  Show the selected color's name and any upcharge; swatches use real paint colors.
+
+categorization:
+  category: Automotive
+  subcategory: Configurator
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Swatches are a radiogroup with role="radio"/aria-checked and per-swatch aria-labels naming the colour, so choice isn't colour-only.
+  keyboard_support: Swatches are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

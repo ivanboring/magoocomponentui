@@ -1,0 +1,15 @@
+name: mileage-badge
+props:
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "24,180 mi"
+  label:
+    type: string
+    title: Label
+    example: "Odometer"
+  icon:
+    type: string
+    default: "🛣"
+    title: Icon

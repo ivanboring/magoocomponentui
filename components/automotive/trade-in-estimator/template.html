@@ -1,0 +1,22 @@
+<form class="trade-in-estimator rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="trade-in-estimator__title font-heading text-lg text-on-surface">Trade-in estimate</h3>
+  <div class="trade-in-estimator__fields mt-4 grid grid-cols-2 gap-3 text-sm">
+    <label class="block"><span class="text-on-surface">Make</span>
+      <select class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface"><option data-for="option in make_options" selected="{{ option.selected }}">{{ option.label }}</option></select>
+    </label>
+    <label class="block"><span class="text-on-surface">Year</span>
+      <select class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface"><option data-for="option in year_options" selected="{{ option.selected }}">{{ option.label }}</option></select>
+    </label>
+  </div>
+  <div class="trade-in-estimator__condition mt-4">
+    <span class="text-sm text-on-surface">Condition</span>
+    <div class="mt-1.5 grid grid-cols-4 gap-2" role="radiogroup" aria-label="Condition">
+      <button data-for="option in condition_options" type="button" class="rounded-control border border-border py-1.5 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ option.active }}" role="radio" aria-checked="{{ option.active }}">{{ option.label }}</button>
+    </div>
+  </div>
+  <div data-if="estimate" class="trade-in-estimator__result mt-4 flex items-baseline justify-between rounded-card bg-surface-raised px-4 py-3">
+    <span class="text-sm text-on-surface-muted">Estimated value</span>
+    <span class="font-heading text-xl text-primary tabular-nums">{{ estimate }}</span>
+  </div>
+  <button type="submit" class="trade-in-estimator__cta mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

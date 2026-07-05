@@ -1,0 +1,19 @@
+{
+  "name": "2023 Tesla Model 3",
+  "trim": "Long Range · Dual Motor AWD",
+  "price": "$34,990",
+  "price_note": "Est. $512/mo",
+  "images": [
+    { "src": "/stock/product-sneaker.jpg", "alt": "Front three-quarter" },
+    { "src": "/stock/cover-workspace.jpg", "alt": "Interior" },
+    { "src": "/stock/product-sneaker.jpg", "alt": "Rear" },
+    { "src": "/stock/cover-workspace.jpg", "alt": "Dashboard" },
+    { "src": "/stock/product-sneaker.jpg", "alt": "Wheels" }
+  ],
+  "specs": [
+    { "value": "333 mi", "label": "Range" },
+    { "value": "3.1s", "label": "0–60 mph" },
+    { "value": "24,180", "label": "Miles" },
+    { "value": "AWD", "label": "Drivetrain" }
+  ]
+}

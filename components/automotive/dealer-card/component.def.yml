@@ -1,0 +1,27 @@
+name: dealer-card
+props:
+  name:
+    type: string
+    required: true
+    title: Dealer name
+    example: "Bayside Motors"
+  rating:
+    type: string
+    title: Rating
+    example: "4.6"
+  reviews:
+    type: string
+    title: Reviews
+    example: "820 reviews"
+  address:
+    type: string
+    title: Address
+    example: "1200 Coast Hwy, San Diego, CA"
+  phone:
+    type: string
+    title: Phone
+    example: "(555) 204-8890"
+  open_status:
+    type: string
+    title: Open status
+    example: "Open until 8 PM"

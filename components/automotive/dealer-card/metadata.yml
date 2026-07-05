@@ -1,0 +1,74 @@
+name: "Dealer Card"
+short_description: A dealership card with rating, address, open status, and call/directions.
+long_visual_description: >
+  A card with the dealer name and rating, an open-status pill, the address, and call/directions
+  actions.
+
+use_cases:
+  - Dealership info card.
+  - Seller contact card.
+  - Dealer on a listing.
+  - Find-a-dealer entry.
+  - Service center card.
+
+recommended_for:
+  - A dealership's info and contact actions.
+avoid_for:
+  - A private seller (make a distinct card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the rating and open status; the call link uses a real tel: URL and directions opens a
+  map.
+
+props:
+  name: The dealer name.
+  rating: The rating.
+  reviews: The review count.
+  address: The address.
+  phone: The phone (call link).
+  open_status: The open/closed status.
+
+example_prompts:
+  - "Add a dealer card with rating and call/directions."
+  - "Add a dealership contact card."
+
+lifecycle: experimental
+content_model: A dealership's info and contact actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the rating and open status for trust; the call uses a real tel URL.
+
+categorization:
+  category: Automotive
+  subcategory: Dealers
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Open status is text plus a pill (not colour alone); call is a real tel link; directions is a real button.
+  keyboard_support: Call and directions are focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,72 @@
+name: "Vehicle Listing Card"
+short_description: A car listing with photo, trim, key specs, price, and a status badge.
+long_visual_description: >
+  A vertical card with a vehicle photo (and optional badge), the name and trim, key spec chips
+  (mileage, range, transmission), and the price.
+
+use_cases:
+  - Car marketplace listing.
+  - Vehicle search result.
+  - Dealer inventory card.
+  - Used-car listing.
+  - Vehicle grid entry.
+
+recommended_for:
+  - A single vehicle listing in a grid or search.
+avoid_for:
+  - A vehicle detail hero (use vehicle-detail-hero).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the key specs buyers scan (mileage, range, transmission) and the price; a badge marks
+  certified/new.
+
+props:
+  name: The vehicle name.
+  trim: The trim/config.
+  image: The vehicle photo.
+  price: The price.
+  specs: The key spec chips.
+  badge: An optional status badge.
+  href: The listing link.
+
+example_prompts:
+  - "Add a vehicle listing card with specs and price."
+  - "Add a used-car marketplace card."
+
+lifecycle: experimental
+content_model: A vehicle photo, trim, specs, and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the specs that matter (mileage, range); the badge flags certified/new.
+
+categorization:
+  category: Automotive
+  subcategory: Listings
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the vehicle name; specs and price are real text; spec icons are decorative.
+  keyboard_support: Name and image links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

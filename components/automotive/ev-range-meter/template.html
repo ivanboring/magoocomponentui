@@ -1,0 +1,13 @@
+<section class="ev-range-meter rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Battery range">
+  <div class="flex items-baseline justify-between gap-2">
+    <p class="ev-range-meter__range font-heading text-2xl text-on-surface tabular-nums">{{ range }}</p>
+    <p class="ev-range-meter__charge text-sm font-medium text-success tabular-nums">{{ charge_pct }}</p>
+  </div>
+  <div class="ev-range-meter__battery mt-3 flex items-center gap-1.5" role="progressbar" aria-valuenow="{{ charge_width }}" aria-valuemin="0" aria-valuemax="100" aria-label="Battery charge">
+    <div class="relative h-6 flex-1 overflow-hidden rounded-control border-2 border-on-surface-muted/40">
+      <div class="h-full rounded-sm bg-gradient-to-r from-success to-success/70" style="width: {{ charge_width }}%"></div>
+    </div>
+    <span class="h-3 w-1 rounded-r bg-on-surface-muted/40" aria-hidden="true"></span>
+  </div>
+  <p data-if="status" class="ev-range-meter__status mt-2 text-xs text-on-surface-muted">{{ status }}</p>
+</section>

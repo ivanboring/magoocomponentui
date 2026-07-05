@@ -1,0 +1,18 @@
+<section class="service-history rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="service-history__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ol class="service-history__records relative flex flex-col">
+    <li data-for="record in records" class="service-history__record flex gap-4 px-(--space-card) py-3">
+      <div class="service-history__rail flex flex-col items-center">
+        <span class="mt-1 size-3 shrink-0 rounded-full bg-primary ring-4 ring-surface" aria-hidden="true"></span>
+        <span class="mt-1 w-px flex-1 bg-border group-last:hidden"></span>
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex items-baseline justify-between gap-2">
+          <p class="service-history__service text-sm font-medium text-on-surface">{{ record.service }}</p>
+          <span class="service-history__mileage shrink-0 text-xs text-on-surface-muted tabular-nums">{{ record.mileage }}</span>
+        </div>
+        <p class="service-history__meta text-xs text-on-surface-muted">{{ record.date }} · {{ record.provider }}</p>
+      </div>
+    </li>
+  </ol>
+</section>

@@ -1,0 +1,16 @@
+name: feature-list-auto
+props:
+  title:
+    type: string
+    default: "Features & equipment"
+    title: Title
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: "Each group: { label, features: [{ label, included }] }."
+    example:
+      - label: "Safety"
+        features:
+          - { label: "Automatic emergency braking", included: true }

@@ -1,0 +1,22 @@
+<section class="build-your-own rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="build-your-own__title font-heading text-lg text-on-surface">Build your own</h3>
+  <ol class="build-your-own__steps mt-3 flex flex-col gap-2">
+    <li data-for="step in steps" class="build-your-own__step">
+      <button type="button" class="flex w-full items-center gap-3 rounded-control border border-border p-3 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised" data-done="{{ step.done }}">
+        <span class="build-your-own__marker flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-on-surface-muted data-[done=true]:border-primary data-[done=true]:bg-primary data-[done=true]:text-primary-contrast" data-done="{{ step.done }}" aria-hidden="true">
+          <svg class="hidden size-3.5 data-[done=true]:block" data-done="{{ step.done }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 10l4 4 8-8"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-xs uppercase tracking-wide text-on-surface-muted">{{ step.label }}</span>
+          <span class="block text-sm font-medium text-on-surface data-[done=false]:text-on-surface-muted" data-done="{{ step.done }}">{{ step.choice }}</span>
+        </span>
+        <span data-if="step.price" class="build-your-own__price shrink-0 text-sm text-on-surface tabular-nums">{{ step.price }}</span>
+      </button>
+    </li>
+  </ol>
+  <div class="build-your-own__total mt-4 flex items-center justify-between border-t border-border pt-3">
+    <span class="font-heading text-on-surface">Total</span>
+    <span class="font-heading text-xl text-on-surface tabular-nums">{{ total }}</span>
+  </div>
+  <button type="button" class="build-your-own__cta mt-4 w-full rounded-button bg-primary py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</section>

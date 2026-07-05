@@ -1,0 +1,65 @@
+name: "EV Range Meter"
+short_description: An electric-vehicle range readout with a battery charge gauge.
+long_visual_description: >
+  A panel with the estimated range and charge percentage, a battery-shaped fill gauge, and a
+  status line.
+
+use_cases:
+  - EV range and charge.
+  - Battery status display.
+  - Electric vehicle stat.
+  - Range estimate widget.
+  - Charge level gauge.
+
+recommended_for:
+  - An EV's range and charge level.
+avoid_for:
+  - A generic progress bar (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the estimated range and charge percent; the battery gauge fills to charge_width.
+
+props:
+  range: The estimated range.
+  charge_pct: The charge percentage.
+  charge_width: The battery fill width 0-100.
+  status: A status line.
+
+example_prompts:
+  - "Add an EV range meter with a battery gauge."
+  - "Add an electric vehicle charge readout."
+
+lifecycle: experimental
+content_model: An EV range with a charge gauge.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show both range and charge percent; the gauge is a visual reinforcement of the numbers.
+
+categorization:
+  category: Automotive
+  subcategory: EV
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The gauge uses role="progressbar" with a label; range and charge are real text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

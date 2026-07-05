@@ -1,0 +1,63 @@
+name: "Spec Comparison"
+short_description: A trim-by-trim spec comparison table with a recommended column.
+long_visual_description: >
+  A table with a trim (name, price) per column — one highlighted as recommended — and spec
+  rows (range, 0–60, drivetrain) down the side.
+
+use_cases:
+  - Compare vehicle trims.
+  - Trim/spec comparison.
+  - Configuration compare.
+  - Model lineup table.
+  - Spec sheet comparison.
+
+recommended_for:
+  - Comparing trims across specs.
+avoid_for:
+  - A single vehicle's specs (use vehicle-detail-hero).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide trim columns (mark one recommended) and spec rows with one value per trim.
+
+props:
+  trims: The trim columns with name, price, recommended.
+  rows: The spec rows with a value per trim.
+
+example_prompts:
+  - "Add a trim spec comparison table."
+  - "Add a vehicle configuration compare."
+
+lifecycle: experimental
+content_model: Trim columns and spec comparison rows.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep rows parallel; highlight the recommended trim, but the label carries the meaning.
+
+categorization:
+  category: Automotive
+  subcategory: Specs
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped column and row headers; recommended is shown by a text pill, not colour alone.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

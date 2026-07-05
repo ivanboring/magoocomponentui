@@ -1,0 +1,9 @@
+{
+  "title": "Service history",
+  "records": [
+    { "date": "May 2026", "mileage": "22,400 mi", "service": "Oil change & tire rotation", "provider": "Bayside Service" },
+    { "date": "Nov 2025", "mileage": "18,100 mi", "service": "Brake pads replaced", "provider": "Bayside Service" },
+    { "date": "Apr 2025", "mileage": "12,050 mi", "service": "Scheduled maintenance", "provider": "Dealer" },
+    { "date": "Oct 2024", "mileage": "6,200 mi", "service": "Software update & inspection", "provider": "Dealer" }
+  ]
+}

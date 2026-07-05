@@ -1,0 +1,9 @@
+<div class="color-picker-vehicle">
+  <div class="flex items-baseline justify-between gap-2">
+    <span class="color-picker-vehicle__label text-sm font-medium text-on-surface">{{ label }}</span>
+    <span class="color-picker-vehicle__selected text-sm text-on-surface-muted"><span class="color-picker-vehicle__name font-medium text-on-surface">{{ selected_name }}</span><span data-if="selected_price"> · {{ selected_price }}</span></span>
+  </div>
+  <div class="color-picker-vehicle__swatches mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="{{ label }}">
+    <button data-for="color in colors" type="button" class="color-picker-vehicle__swatch size-9 rounded-full ring-2 ring-transparent ring-offset-2 ring-offset-surface transition-shadow duration-(--duration-token) data-[active=true]:ring-primary" data-active="{{ color.active }}" data-name="{{ color.name }}" style="background: {{ color.swatch }}; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.1)" role="radio" aria-checked="{{ color.active }}" aria-label="{{ color.name }}"></button>
+  </div>
+</div>

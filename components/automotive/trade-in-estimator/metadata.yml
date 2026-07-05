@@ -1,0 +1,70 @@
+name: "Trade-in Estimator"
+short_description: A trade-in value form with make/year/condition and an estimate range.
+long_visual_description: >
+  A form with make and year selects, condition chips, an estimated value range, and a
+  get-estimate button.
+
+use_cases:
+  - Trade-in value estimate.
+  - Sell-your-car form.
+  - Vehicle valuation.
+  - Instant offer capture.
+  - Trade-in tool.
+
+recommended_for:
+  - Estimating a vehicle's trade-in value.
+avoid_for:
+  - A finance calculator (use finance-calculator-auto).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide make/year options and condition chips; the estimate range shows the valuation.
+
+props:
+  make_options: The make select options.
+  year_options: The year select options.
+  condition_options: The condition chips.
+  estimate: The estimated value range.
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a trade-in estimator with condition selection."
+  - "Add a sell-your-car valuation form."
+
+lifecycle: experimental
+content_model: A trade-in valuation form with an estimate.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show a value range rather than a single number; condition drives the estimate.
+
+categorization:
+  category: Automotive
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Selects have labels; condition is a radiogroup; submit is a real button.
+  keyboard_support: All controls are focusable and keyboard-operable.
+  seo_score: 30
+  text_direction: both

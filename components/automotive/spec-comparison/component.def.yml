@@ -1,0 +1,16 @@
+name: spec-comparison
+props:
+  trims:
+    type: array
+    items: object
+    required: true
+    title: Trims
+    description: "Each: { name, price, recommended }."
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Spec rows
+    description: "Each: { label, values: [{ text }] } — one value per trim."
+    example:
+      - { label: "Range", values: [{ text: "272 mi" }, { text: "333 mi" }] }

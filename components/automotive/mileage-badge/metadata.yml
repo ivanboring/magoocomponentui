@@ -1,0 +1,57 @@
+name: "Mileage Badge"
+short_description: An odometer or efficiency pill for a vehicle.
+long_visual_description: >
+  A pill with an icon, a mileage or efficiency value, and an optional label (e.g. Odometer).
+
+use_cases:
+  - Vehicle odometer reading.
+  - Fuel efficiency badge.
+  - Mileage on a listing.
+  - MPG/range pill.
+  - Vehicle stat chip.
+
+recommended_for:
+  - A single mileage/efficiency figure.
+avoid_for:
+  - An EV range gauge (use ev-range-meter).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the value with a label; use for odometer, MPG, or efficiency.
+
+props:
+  value: The mileage/efficiency value.
+  label: The stat label.
+  icon: An icon glyph.
+
+example_prompts:
+  - "Add an odometer mileage badge."
+  - "Add an MPG efficiency pill."
+
+lifecycle: experimental
+content_model: A vehicle mileage/efficiency figure.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+
+editorial_guidance: >
+  Include units; label the figure so it's unambiguous.
+
+categorization:
+  category: Automotive
+  subcategory: Specs
+  atomic_type: atom
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The value and label are real text; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

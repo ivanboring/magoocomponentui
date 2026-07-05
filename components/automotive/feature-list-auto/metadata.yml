@@ -1,0 +1,62 @@
+name: "Vehicle Feature List"
+short_description: A grouped equipment checklist showing included and not-included features.
+long_visual_description: >
+  Grouped feature lists (safety, comfort) where included features are ticked and
+  not-included ones are struck through.
+
+use_cases:
+  - Vehicle equipment checklist.
+  - Trim feature comparison.
+  - Included features list.
+  - Spec sheet features.
+  - Options overview.
+
+recommended_for:
+  - A grouped vehicle equipment checklist.
+avoid_for:
+  - A trim comparison table (use spec-comparison).
+
+markets:
+  - Global
+
+example_usage: >
+  Group features and mark each included or not; not-included are struck through.
+
+props:
+  title: The section title.
+  groups: The feature groups with included flags.
+
+example_prompts:
+  - "Add a vehicle feature checklist by category."
+  - "Add an equipment list with included/not-included."
+
+lifecycle: experimental
+content_model: A grouped vehicle feature checklist.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group features logically; inclusion is shown by icon and strikethrough, not colour alone.
+
+categorization:
+  category: Automotive
+  subcategory: Specs
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inclusion is shown by check/cross icons and strikethrough, not colour alone; labels are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

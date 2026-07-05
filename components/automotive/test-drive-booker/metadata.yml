@@ -1,0 +1,69 @@
+name: "Test Drive Booker"
+short_description: A test-drive scheduler with mode (dealership/home), day, and time.
+long_visual_description: >
+  A form for a vehicle with a mode toggle (at dealership / home test drive), day chips, time
+  chips, and a book button.
+
+use_cases:
+  - Schedule a test drive.
+  - Book a vehicle demo.
+  - Test-drive capture.
+  - Home test-drive request.
+  - Dealer appointment.
+
+recommended_for:
+  - Booking a test drive by mode, day, and time.
+avoid_for:
+  - A generic appointment booker (use appointment-booker).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide mode, day, and time options (one active each); submit books the test drive.
+
+props:
+  vehicle: The vehicle being booked.
+  days: The day chips.
+  times: The time chips.
+  mode_options: The mode options (dealership/home).
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a test drive booker with dealership/home modes."
+  - "Add a vehicle test-drive scheduler."
+
+lifecycle: experimental
+content_model: A test-drive booking by mode, day, and time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Offer home test drives where available; default to the soonest slot.
+
+categorization:
+  category: Automotive
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Mode/day/time are radiogroups with role="radio"/aria-checked; submit is a real button.
+  keyboard_support: Chips select on Enter/Space; submit via Enter.
+  seo_score: 30
+  text_direction: both

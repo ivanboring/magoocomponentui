@@ -1,0 +1,14 @@
+name: service-history
+props:
+  title:
+    type: string
+    default: "Service history"
+    title: Title
+  records:
+    type: array
+    items: object
+    required: true
+    title: Records
+    description: "Each record: { date, mileage, service, provider }."
+    example:
+      - { date: "May 2026", mileage: "22,400 mi", service: "Oil change & tire rotation", provider: "Bayside Service" }

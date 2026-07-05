@@ -1,0 +1,7 @@
+{
+  "make_options": [ { "label": "Toyota", "selected": true }, { "label": "Honda", "selected": false }, { "label": "Tesla", "selected": false } ],
+  "year_options": [ { "label": "2021", "selected": true }, { "label": "2020", "selected": false }, { "label": "2019", "selected": false } ],
+  "condition_options": [ { "label": "Poor", "active": false }, { "label": "Fair", "active": false }, { "label": "Good", "active": true }, { "label": "Great", "active": false } ],
+  "estimate": "$18,400 – $21,200",
+  "cta_label": "Get estimate"
+}

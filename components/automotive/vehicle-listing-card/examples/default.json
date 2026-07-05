@@ -1,0 +1,13 @@
+{
+  "name": "2023 Tesla Model 3",
+  "trim": "Long Range · AWD",
+  "image": "/stock/product-sneaker.jpg",
+  "price": "$34,990",
+  "specs": [
+    { "icon": "🛣", "label": "24,180 mi" },
+    { "icon": "⚡", "label": "333 mi range" },
+    { "icon": "⚙️", "label": "Automatic" }
+  ],
+  "badge": "Certified",
+  "href": "#"
+}

@@ -1,0 +1,29 @@
+name: test-drive-booker
+props:
+  vehicle:
+    type: string
+    required: true
+    title: Vehicle
+    example: "2023 Tesla Model 3 · Long Range"
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: "Each: { label, date, active }."
+  times:
+    type: array
+    items: object
+    required: true
+    title: Times
+    description: "Each: { label, active }."
+  mode_options:
+    type: array
+    items: object
+    required: true
+    title: Mode options
+    description: "Each: { label, active } — e.g. At dealership, Home test drive."
+  cta_label:
+    type: string
+    default: "Book test drive"
+    title: CTA label

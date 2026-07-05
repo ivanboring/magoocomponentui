@@ -1,0 +1,69 @@
+name: "Build Your Own"
+short_description: A vehicle configurator step list with choices, prices, and a running total.
+long_visual_description: >
+  A stepper of configuration choices (model, paint, wheels, interior), each showing the
+  current choice and price with a done check, and a running total plus continue button.
+
+use_cases:
+  - Vehicle configurator.
+  - Build-and-price.
+  - Custom order steps.
+  - Trim/option builder.
+  - Configure-your-car.
+
+recommended_for:
+  - A vehicle configurator with stepped choices and a total.
+avoid_for:
+  - A single option picker (use color-picker-vehicle).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each configuration step with its choice and price; the total updates as choices are
+  made.
+
+props:
+  steps: The configuration steps with choice, price, and done state.
+  total: The running total.
+  cta_label: The continue button text.
+
+example_prompts:
+  - "Add a build-your-own vehicle configurator."
+  - "Add a build-and-price stepper."
+
+lifecycle: experimental
+content_model: A vehicle configurator with stepped choices and a total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Prompt unfinished steps ("Choose interior"); the total reflects the running configuration.
+
+categorization:
+  category: Automotive
+  subcategory: Configurator
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each step is a real button; done state is shown by a check and emphasis, not colour alone; the total is real text.
+  keyboard_support: Steps and the continue button are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

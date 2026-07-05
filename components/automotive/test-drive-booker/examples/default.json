@@ -1,0 +1,17 @@
+{
+  "vehicle": "2023 Tesla Model 3 · Long Range",
+  "mode_options": [ { "label": "At dealership", "active": true }, { "label": "Home test drive", "active": false } ],
+  "days": [
+    { "label": "Mon", "date": "18", "active": false },
+    { "label": "Tue", "date": "19", "active": true },
+    { "label": "Wed", "date": "20", "active": false },
+    { "label": "Thu", "date": "21", "active": false }
+  ],
+  "times": [
+    { "label": "10:00 AM", "active": false },
+    { "label": "12:00 PM", "active": true },
+    { "label": "3:00 PM", "active": false },
+    { "label": "5:00 PM", "active": false }
+  ],
+  "cta_label": "Book test drive"
+}

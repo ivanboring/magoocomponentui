@@ -1,0 +1,35 @@
+name: vehicle-listing-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "2023 Tesla Model 3"
+  trim:
+    type: string
+    title: Trim
+    example: "Long Range · AWD"
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$34,990"
+  specs:
+    type: array
+    items: object
+    required: true
+    title: Specs
+    description: "Each spec: { icon, label }."
+    example:
+      - { icon: "🛣", label: "24k mi" }
+  badge:
+    type: string
+    title: Badge
+    example: "Certified"
+  href:
+    type: link
+    title: Link

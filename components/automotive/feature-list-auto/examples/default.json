@@ -1,0 +1,17 @@
+{
+  "title": "Features & equipment",
+  "groups": [
+    { "label": "Safety", "features": [
+      { "label": "Automatic emergency braking", "included": true },
+      { "label": "Blind-spot monitoring", "included": true },
+      { "label": "Adaptive cruise control", "included": true },
+      { "label": "Night vision", "included": false }
+    ]},
+    { "label": "Comfort", "features": [
+      { "label": "Heated front seats", "included": true },
+      { "label": "Dual-zone climate", "included": true },
+      { "label": "Ventilated seats", "included": false },
+      { "label": "Massage seats", "included": false }
+    ]}
+  ]
+}

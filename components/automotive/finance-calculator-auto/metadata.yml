@@ -1,0 +1,71 @@
+name: "Auto Finance Calculator"
+short_description: A finance/lease payment calculator with price, down, APR, and term.
+long_visual_description: >
+  A calculator with a finance/lease toggle, a prominent monthly-payment result, and inputs
+  for price and down (sliders) plus APR and term; the payment updates live.
+
+use_cases:
+  - Auto loan payment estimate.
+  - Finance/lease calculator.
+  - Monthly payment tool.
+  - Vehicle affordability.
+  - Financing widget.
+
+recommended_for:
+  - A live monthly-payment calculator for a vehicle.
+avoid_for:
+  - A trade-in valuation (use trade-in-estimator).
+
+markets:
+  - Global
+
+example_usage: >
+  The behavior amortizes price − down over the term at the APR live; the initial monthly is
+  the server-precomputed value.
+
+props:
+  modes: The finance/lease toggle options.
+  price: The vehicle price.
+  down: The down payment.
+  rate: The APR percent.
+  term: The term in months.
+  monthly: The initial monthly payment.
+
+example_prompts:
+  - "Add an auto finance calculator with finance/lease toggle."
+  - "Add a car payment estimator."
+
+lifecycle: experimental
+content_model: Auto loan inputs and a live monthly payment.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Default to representative values; show the monthly payment prominently.
+
+categorization:
+  category: Automotive
+  subcategory: Tools
+  atomic_type: organism
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inputs have labels; the mode toggle uses aria-pressed; the result updates live and is keyboard-operable.
+  keyboard_support: All inputs and the mode toggle are focusable and keyboard-operable.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,16 @@
+<form class="test-drive-booker rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="test-drive-booker__title font-heading text-lg text-on-surface">Book a test drive</h3>
+  <p class="test-drive-booker__vehicle text-sm text-on-surface-muted">{{ vehicle }}</p>
+  <div class="test-drive-booker__mode mt-4 grid grid-cols-2 gap-2" role="radiogroup" aria-label="Test drive type">
+    <button data-for="mode in mode_options" type="button" class="test-drive-booker__mode-btn rounded-control border border-border py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ mode.active }}" role="radio" aria-checked="{{ mode.active }}">{{ mode.label }}</button>
+  </div>
+  <p class="mt-4 text-sm font-medium text-on-surface">Day</p>
+  <div class="test-drive-booker__days mt-1.5 flex gap-2 overflow-x-auto pb-1" role="radiogroup" aria-label="Day">
+    <button data-for="day in days" type="button" class="test-drive-booker__day flex w-16 shrink-0 flex-col items-center rounded-control border border-border py-2 text-sm transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ day.active }}" role="radio" aria-checked="{{ day.active }}"><span class="text-[10px] uppercase opacity-80">{{ day.label }}</span><span class="font-heading">{{ day.date }}</span></button>
+  </div>
+  <p class="mt-4 text-sm font-medium text-on-surface">Time</p>
+  <div class="test-drive-booker__times mt-1.5 flex flex-wrap gap-2" role="radiogroup" aria-label="Time">
+    <button data-for="time in times" type="button" class="test-drive-booker__time rounded-control border border-border px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ time.active }}" role="radio" aria-checked="{{ time.active }}">{{ time.label }}</button>
+  </div>
+  <button type="submit" class="test-drive-booker__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

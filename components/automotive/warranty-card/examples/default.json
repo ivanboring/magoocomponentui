@@ -1,0 +1,10 @@
+{
+  "title": "Warranty coverage",
+  "items": [
+    { "label": "Basic", "coverage": "4 yr / 50,000 mi", "icon": "🛡" },
+    { "label": "Powertrain", "coverage": "6 yr / 70,000 mi", "icon": "⚙️" },
+    { "label": "Battery (EV)", "coverage": "8 yr / 100,000 mi", "icon": "🔋" },
+    { "label": "Roadside assistance", "coverage": "4 yr / unlimited", "icon": "🚨" }
+  ],
+  "note": "Transferable to the next owner."
+}

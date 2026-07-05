@@ -1,0 +1,21 @@
+name: ev-range-meter
+props:
+  range:
+    type: string
+    required: true
+    title: Range
+    example: "268 mi"
+  charge_pct:
+    type: string
+    required: true
+    title: Charge percent
+    example: "82%"
+  charge_width:
+    type: integer
+    default: 0
+    title: Charge width
+    description: 0-100 battery fill width.
+  status:
+    type: string
+    title: Status
+    example: "Ready · Full range at 100%"

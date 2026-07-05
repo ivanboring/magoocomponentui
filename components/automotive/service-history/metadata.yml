@@ -1,0 +1,62 @@
+name: "Service History"
+short_description: A maintenance records timeline with date, mileage, and service.
+long_visual_description: >
+  A timeline of service records, each with the service performed, the mileage, and the
+  date/provider.
+
+use_cases:
+  - Vehicle maintenance records.
+  - Service log timeline.
+  - Ownership history.
+  - Maintenance transparency.
+  - Used-car service record.
+
+recommended_for:
+  - A vehicle's maintenance/service history.
+avoid_for:
+  - Warranty terms (use warranty-card).
+
+markets:
+  - Global
+
+example_usage: >
+  List records newest-first with the service, mileage, and date/provider.
+
+props:
+  title: The section title.
+  records: The service records with date, mileage, service, and provider.
+
+example_prompts:
+  - "Add a vehicle service history timeline."
+  - "Add a maintenance records log."
+
+lifecycle: experimental
+content_model: A timeline of vehicle service records.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order newest-first; show mileage so records are contextual.
+
+categorization:
+  category: Automotive
+  subcategory: Ownership
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; the timeline dots are decorative; records are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

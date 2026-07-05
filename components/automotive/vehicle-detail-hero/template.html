@@ -1,0 +1,18 @@
+<section class="vehicle-detail-hero">
+  <div class="vehicle-detail-hero__gallery grid grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-card" style="height: 22rem">
+    <img data-for="image in images" class="size-full object-cover first:col-span-2 first:row-span-2" src="{{ image.src }}" alt="{{ image.alt }}">
+  </div>
+  <div class="vehicle-detail-hero__head mt-4 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <h1 class="vehicle-detail-hero__name font-heading text-2xl text-on-surface">{{ name }}</h1>
+      <p data-if="trim" class="vehicle-detail-hero__trim text-on-surface-muted">{{ trim }}</p>
+    </div>
+    <div class="text-right">
+      <p class="vehicle-detail-hero__price font-heading text-2xl text-on-surface tabular-nums">{{ price }}</p>
+      <p data-if="price_note" class="text-sm text-on-surface-muted">{{ price_note }}</p>
+    </div>
+  </div>
+  <dl class="vehicle-detail-hero__specs mt-4 grid grid-cols-2 gap-3 border-t border-border pt-4 sm:grid-cols-4">
+    <div data-for="spec in specs" class="text-center"><dd class="font-heading text-xl text-on-surface tabular-nums">{{ spec.value }}</dd><dt class="text-xs text-on-surface-muted">{{ spec.label }}</dt></div>
+  </dl>
+</section>

@@ -1,0 +1,32 @@
+name: vehicle-detail-hero
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "2023 Tesla Model 3"
+  trim:
+    type: string
+    title: Trim
+    example: "Long Range · Dual Motor AWD"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$34,990"
+  price_note:
+    type: string
+    title: Price note
+    example: "Est. $512/mo"
+  images:
+    type: array
+    items: object
+    required: true
+    title: Gallery
+    description: "Each: { src, alt }. First is the large image."
+  specs:
+    type: array
+    items: object
+    required: true
+    title: Key specs
+    description: "Each: { value, label }."

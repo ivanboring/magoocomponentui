@@ -1,0 +1,64 @@
+name: "Warranty Card"
+short_description: A warranty coverage summary listing each type and its term.
+long_visual_description: >
+  A card listing warranty types (basic, powertrain, battery, roadside), each with an icon and
+  its coverage term, plus a transferability note.
+
+use_cases:
+  - Vehicle warranty summary.
+  - Coverage overview.
+  - Warranty terms card.
+  - Protection plan display.
+  - Spec-sheet warranty.
+
+recommended_for:
+  - Summarizing a vehicle's warranty coverage.
+avoid_for:
+  - A service history log (use service-history).
+
+markets:
+  - Global
+
+example_usage: >
+  List each warranty type with its term; note transferability where relevant.
+
+props:
+  title: The section title.
+  items: The warranty items with coverage terms.
+  note: A supporting note.
+
+example_prompts:
+  - "Add a warranty coverage card with terms."
+  - "Add a vehicle protection summary."
+
+lifecycle: experimental
+content_model: A warranty coverage summary.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show each term clearly (years/miles); note transferability.
+
+categorization:
+  category: Automotive
+  subcategory: Ownership
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Coverage terms and labels are real text; icons are decorative; uses a real list.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

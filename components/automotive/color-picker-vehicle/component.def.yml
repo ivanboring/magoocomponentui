@@ -1,0 +1,22 @@
+name: color-picker-vehicle
+props:
+  label:
+    type: string
+    default: "Exterior color"
+    title: Label
+  selected_name:
+    type: string
+    title: Selected name
+    example: "Midnight Silver"
+  selected_price:
+    type: string
+    title: Selected price
+    example: "+$1,500"
+  colors:
+    type: array
+    items: object
+    required: true
+    title: Colors
+    description: "Each: { name, swatch, active } where swatch is a CSS color."
+    example:
+      - { name: "Pearl White", swatch: "#f5f5f0", active: false }
