@@ -1,0 +1,11 @@
+{
+  "title": "Controls",
+  "bindings": [
+    { "keys": [{ "label": "W" }, { "label": "A" }, { "label": "S" }, { "label": "D" }], "action": "Move" },
+    { "keys": [{ "label": "Space" }], "action": "Jump" },
+    { "keys": [{ "label": "Shift" }], "action": "Sprint" },
+    { "keys": [{ "label": "E" }], "action": "Interact" },
+    { "keys": [{ "label": "R" }], "action": "Reload" },
+    { "keys": [{ "label": "Ctrl" }], "action": "Crouch" }
+  ]
+}

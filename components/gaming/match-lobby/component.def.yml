@@ -1,0 +1,23 @@
+name: match-lobby
+props:
+  mode:
+    type: string
+    required: true
+    title: Mode
+    example: "Ranked · 4v4"
+  status:
+    type: string
+    title: Status
+    example: "Waiting for players…"
+  players:
+    type: array
+    items: object
+    required: true
+    title: Players
+    description: "Each: { name, initials, ready, host, empty }."
+    example:
+      - { name: "NovaPlays", initials: "NP", ready: true, host: true, empty: false }
+  ready_label:
+    type: string
+    default: "Ready up"
+    title: Ready label

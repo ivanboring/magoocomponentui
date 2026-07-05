@@ -1,0 +1,14 @@
+name: controls-legend
+props:
+  title:
+    type: string
+    default: "Controls"
+    title: Title
+  bindings:
+    type: array
+    items: object
+    required: true
+    title: Bindings
+    description: "Each: { keys: [{ label }], action }."
+    example:
+      - { keys: [{ label: "W" }], action: "Move forward" }

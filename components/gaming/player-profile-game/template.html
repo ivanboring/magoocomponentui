@@ -1,0 +1,24 @@
+<section class="player-profile-game rounded-card border border-border bg-surface shadow-card" aria-label="Player profile">
+  <div class="player-profile-game__head flex items-center gap-4 border-b border-border p-(--space-card)">
+    <span class="player-profile-game__avatar relative inline-flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <div class="flex items-center gap-2">
+        <h3 class="player-profile-game__name font-heading text-lg text-on-surface">{{ name }}</h3>
+        <span data-if="level" class="player-profile-game__level rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">{{ level }}</span>
+      </div>
+      <span data-if="rank_label" class="player-profile-game__rank mt-1 inline-flex items-center gap-1.5">
+        <span class="size-5 rounded-card" style="background-image: {{ rank_gradient }}" aria-hidden="true"></span>
+        <span class="text-sm font-medium text-on-surface">{{ rank_label }}</span>
+      </span>
+    </div>
+  </div>
+  <dl class="player-profile-game__stats grid grid-cols-3 divide-x divide-border">
+    <div data-for="stat in stats" class="px-3 py-4 text-center"><dd class="font-heading text-xl text-on-surface tabular-nums">{{ stat.value }}</dd><dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt></div>
+  </dl>
+  <div data-if="badges" class="player-profile-game__badges flex flex-wrap gap-2 border-t border-border p-(--space-card)">
+    <span data-for="badge in badges" class="inline-flex items-center gap-1.5 rounded-pill bg-surface-raised px-2.5 py-1 text-xs text-on-surface"><span aria-hidden="true">{{ badge.icon }}</span>{{ badge.label }}</span>
+  </div>
+</section>

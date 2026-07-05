@@ -1,0 +1,58 @@
+name: "Game Rank Badge"
+short_description: A tier emblem with a rank label and points (SR/MMR).
+long_visual_description: >
+  A gradient emblem with a star glyph beside the rank label (e.g. Gold III) and the points.
+
+use_cases:
+  - Player rank tier.
+  - Competitive rank emblem.
+  - SR/MMR badge.
+  - Rank display.
+  - Tier indicator.
+
+recommended_for:
+  - A competitive rank tier emblem.
+avoid_for:
+  - A generic badge (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the tier's fixed gradient (rank colors aren't theme tokens) and the label/points.
+
+props:
+  label: The rank label.
+  points: The SR/MMR points.
+  gradient: Precomputed CSS gradient for the tier emblem.
+
+example_prompts:
+  - "Add a Gold rank badge with SR."
+  - "Add a Diamond tier emblem."
+
+lifecycle: experimental
+content_model: A rank tier emblem with label and points.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Rank tier colors are fixed (bronze/silver/gold/…), passed as a gradient rather than themed.
+
+categorization:
+  category: Gaming
+  subcategory: Ranks
+  atomic_type: atom
+  usage_type: [highlight, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The label and points are real text; the emblem has an aria-label. Rank colour is decorative reinforcement.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,19 @@
+name: loadout-card
+props:
+  name:
+    type: string
+    required: true
+    title: Loadout name
+    example: "Aggro Rush"
+  class_name:
+    type: string
+    title: Class
+    example: "Assault"
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Slots
+    description: "Each: { label, item, icon }."
+    example:
+      - { label: "Primary", item: "Vector SMG", icon: "🔫" }

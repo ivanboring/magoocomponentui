@@ -1,0 +1,32 @@
+name: stream-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Ranked grind to Diamond!"
+  streamer:
+    type: string
+    required: true
+    title: Streamer
+    example: "NovaPlays"
+  game:
+    type: string
+    title: Game
+    example: "Neon Drift"
+  viewers:
+    type: string
+    title: Viewers
+    example: "12.4K"
+  thumbnail:
+    type: image
+    required: true
+    title: Thumbnail
+    example: "/stock/product-sneaker.jpg"
+  avatar_initials:
+    type: string
+    title: Avatar initials
+    example: "NP"
+  href:
+    type: link
+    title: Link

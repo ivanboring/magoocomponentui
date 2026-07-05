@@ -1,0 +1,13 @@
+{
+  "title": "Neon Drift",
+  "tagline": "Outrun the night in the ultimate arcade racer.",
+  "image": "/stock/product-sneaker.jpg",
+  "price": "$29.99",
+  "rating": "Overwhelmingly Positive · 48,200 reviews",
+  "specs": [
+    { "label": "Genre", "value": "Racing · Arcade" },
+    { "label": "Players", "value": "1–8 online" },
+    { "label": "Released", "value": "Aug 2026" },
+    { "label": "Platforms", "value": "PC · Console" }
+  ]
+}

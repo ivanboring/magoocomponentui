@@ -1,0 +1,27 @@
+name: loot-reveal
+props:
+  item_name:
+    type: string
+    required: true
+    title: Item name
+    example: "Dragon Slayer"
+  rarity_label:
+    type: string
+    required: true
+    title: Rarity label
+    example: "Legendary drop!"
+  rarity:
+    type: enum
+    values: [common, rare, epic, legendary]
+    default: legendary
+    title: Rarity
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+variants:
+  rarity:
+    common: "from-on-surface-muted/20 to-transparent"
+    rare: "from-info/30 to-transparent"
+    epic: "from-accent/30 to-transparent"
+    legendary: "from-warning/40 to-transparent"

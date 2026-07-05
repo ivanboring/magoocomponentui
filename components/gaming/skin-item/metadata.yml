@@ -1,0 +1,76 @@
+name: "Skin Item"
+short_description: A cosmetic item card with rarity-colored border, price, and buy/owned state.
+long_visual_description: >
+  A card with a rarity-coloured ring, the item image, a rarity label and owned badge, the name
+  and category, and a price with a buy button.
+
+use_cases:
+  - Cosmetic item shop.
+  - Skin/weapon cosmetic.
+  - Item store card.
+  - Inventory item.
+  - Loot cosmetic.
+
+recommended_for:
+  - A cosmetic item with rarity and price.
+avoid_for:
+  - A loadout summary (use loadout-card).
+
+markets:
+  - Global
+
+example_usage: >
+  The rarity drives the border/label; show the price and a buy button unless owned.
+
+props:
+  name: The item name.
+  category: The item category.
+  rarity_label: The rarity text.
+  rarity: The rarity (drives colour).
+  image: The item image.
+  price: The price.
+  owned: Whether owned.
+
+example_prompts:
+  - "Add a legendary weapon skin item card."
+  - "Add a cosmetic store item."
+
+lifecycle: experimental
+content_model: A cosmetic item with rarity and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-success-contrast
+    - --color-info
+    - --color-accent
+    - --color-warning
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Rarity is shown by both the ring and the text label; the owned badge prevents re-buying.
+
+categorization:
+  category: Gaming
+  subcategory: Store
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Rarity has a text label (not colour-only); the image alt is the name; owned/buy states are text/controls.
+  keyboard_support: The buy button is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

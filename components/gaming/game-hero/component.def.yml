@@ -1,0 +1,29 @@
+name: game-hero
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Neon Drift"
+  tagline:
+    type: string
+    title: Tagline
+    example: "Outrun the night in the ultimate arcade racer."
+  image:
+    type: image
+    required: true
+    title: Background
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    title: Price
+    example: "$29.99"
+  rating:
+    type: string
+    title: Rating
+    example: "Overwhelmingly Positive"
+  specs:
+    type: array
+    items: object
+    title: Specs
+    description: "Each: { label, value }."

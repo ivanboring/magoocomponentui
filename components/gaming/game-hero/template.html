@@ -1,0 +1,20 @@
+<section class="game-hero relative flex min-h-[26rem] items-end overflow-hidden rounded-card">
+  <div class="game-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="game-hero__scrim absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" aria-hidden="true"></div>
+  <div class="game-hero__body relative w-full p-(--space-section) text-white">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-xl">
+        <h1 class="game-hero__title font-heading text-4xl leading-tight sm:text-5xl">{{ title }}</h1>
+        <p data-if="tagline" class="game-hero__tagline mt-3 text-white/85">{{ tagline }}</p>
+        <p data-if="rating" class="game-hero__rating mt-2 text-sm text-success">{{ rating }}</p>
+        <div class="game-hero__actions mt-5 flex items-center gap-3">
+          <button type="button" class="rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Buy now<span data-if="price"> · {{ price }}</span></button>
+          <button type="button" class="flex items-center gap-2 rounded-button border border-white/40 px-5 py-3 text-sm font-heading text-white transition-colors duration-(--duration-token) hover:bg-white/10"><svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>Trailer</button>
+        </div>
+      </div>
+      <dl data-if="specs" class="game-hero__specs grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+        <div data-for="spec in specs"><dt class="text-white/60">{{ spec.label }}</dt><dd class="font-medium">{{ spec.value }}</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+name: "Game Player Profile"
+short_description: A player profile with rank, level, key stats, and earned badges.
+long_visual_description: >
+  A profile with the player's avatar, name and level, a rank emblem, a three-up stats strip
+  (win rate, K/D, matches), and a row of earned badges.
+
+use_cases:
+  - Player profile card.
+  - Gamer stats profile.
+  - Rank + stats overview.
+  - Profile with badges.
+  - Competitive profile.
+
+recommended_for:
+  - A player profile with rank, stats, and badges.
+avoid_for:
+  - A leaderboard row (use leaderboard-esports).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials and the rank gradient; show key stats and earned badges.
+
+props:
+  name: The player name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional avatar.
+  rank_label: The rank.
+  rank_gradient: Precomputed rank emblem gradient.
+  level: The level.
+  stats: The key stats.
+  badges: The earned badges.
+
+example_prompts:
+  - "Add a game player profile with rank and stats."
+  - "Add a gamer profile with badges."
+
+lifecycle: experimental
+content_model: A player profile with rank, stats, and badges.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the stats players care about (win rate, K/D); rank colours are fixed (passed as a
+  gradient).
+
+categorization:
+  category: Gaming
+  subcategory: Profile
+  atomic_type: organism
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the name; stats use a definition list; the rank label is real text with the emblem as reinforcement; badge icons are decorative with labels.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

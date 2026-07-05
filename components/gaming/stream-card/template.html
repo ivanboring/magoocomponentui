@@ -1,0 +1,16 @@
+<article class="stream-card group flex flex-col">
+  <a class="stream-card__media relative block aspect-video overflow-hidden rounded-card" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ thumbnail }}" alt="{{ title }}">
+    <span class="stream-card__live absolute left-2 top-2 flex items-center gap-1 rounded-control bg-danger px-2 py-0.5 text-[10px] font-bold uppercase text-danger-contrast">
+      <span class="size-1.5 rounded-full bg-current"></span>Live
+    </span>
+    <span data-if="viewers" class="stream-card__viewers absolute bottom-2 left-2 rounded-control bg-black/70 px-2 py-0.5 text-[11px] font-medium text-white tabular-nums">{{ viewers }} watching</span>
+  </a>
+  <div class="stream-card__body mt-2 flex gap-2.5">
+    <span class="stream-card__avatar flex size-9 shrink-0 items-center justify-center rounded-full bg-surface-raised text-xs font-heading uppercase text-on-surface" role="img" aria-label="{{ streamer }}">{{ avatar_initials }}</span>
+    <div class="min-w-0">
+      <h3 class="stream-card__title truncate text-sm font-medium text-on-surface"><a class="hover:underline" href="{{ href }}">{{ title }}</a></h3>
+      <p class="stream-card__meta truncate text-xs text-on-surface-muted">{{ streamer }}<span data-if="game"> · {{ game }}</span></p>
+    </div>
+  </div>
+</article>

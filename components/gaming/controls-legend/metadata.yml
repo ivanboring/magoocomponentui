@@ -1,0 +1,61 @@
+name: "Controls Legend"
+short_description: A key/button-to-action mapping legend.
+long_visual_description: >
+  A two-column list mapping keyboard keys (as kbd chips) to their in-game actions.
+
+use_cases:
+  - Keybinding reference.
+  - Controls overlay.
+  - Key mapping legend.
+  - How-to-play controls.
+  - Input reference.
+
+recommended_for:
+  - A key/button-to-action mapping.
+avoid_for:
+  - An editable keybind settings panel.
+
+markets:
+  - Global
+
+example_usage: >
+  List each binding with its keys as kbd chips and the action.
+
+props:
+  title: The section title.
+  bindings: The key/action bindings.
+
+example_prompts:
+  - "Add a controls legend for WASD movement."
+  - "Add a keybinding reference."
+
+lifecycle: experimental
+content_model: A key-to-action mapping legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group related keys; use kbd chips so the mapping is scannable.
+
+categorization:
+  category: Gaming
+  subcategory: Reference
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses kbd elements and a definition list; keys and actions are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,38 @@
+name: achievement-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Speed Demon"
+  description:
+    type: string
+    title: Description
+    example: "Finish a race in under 90 seconds."
+  icon:
+    type: string
+    default: "🏆"
+    title: Icon
+  rarity:
+    type: enum
+    values: [common, rare, epic, legendary]
+    default: rare
+    title: Rarity
+  rarity_label:
+    type: string
+    title: Rarity label
+    example: "Rare · 12.4%"
+  unlocked:
+    type: boolean
+    default: false
+    title: Unlocked
+  progress_pct:
+    type: integer
+    default: 0
+    title: Progress
+variants:
+  rarity:
+    common: "text-on-surface-muted"
+    rare: "text-info"
+    epic: "text-accent"
+    legendary: "text-warning"

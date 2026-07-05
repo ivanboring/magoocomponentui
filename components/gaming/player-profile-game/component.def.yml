@@ -1,0 +1,39 @@
+name: player-profile-game
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "NovaPlays"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "NP"
+  image:
+    type: image
+    title: Avatar
+  rank_label:
+    type: string
+    title: Rank
+    example: "Diamond I"
+  rank_gradient:
+    type: string
+    title: Rank gradient
+    description: Precomputed CSS gradient for the rank emblem.
+    example: "linear-gradient(135deg,#7dd3fc,#4f46e5)"
+  level:
+    type: string
+    title: Level
+    example: "Lvl 148"
+  stats:
+    type: array
+    items: object
+    required: true
+    title: Stats
+    description: "Each: { value, label }."
+  badges:
+    type: array
+    items: object
+    title: Badges
+    description: "Each: { icon, label }."

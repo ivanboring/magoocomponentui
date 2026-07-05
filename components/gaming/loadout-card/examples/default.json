@@ -1,0 +1,10 @@
+{
+  "name": "Aggro Rush",
+  "class_name": "Assault",
+  "slots_list": [
+    { "label": "Primary", "item": "Vector SMG", "icon": "🔫" },
+    { "label": "Secondary", "item": "Combat Pistol", "icon": "🔫" },
+    { "label": "Tactical", "item": "Flashbang", "icon": "💥" },
+    { "label": "Perk", "item": "Fast Hands", "icon": "⚡" }
+  ]
+}

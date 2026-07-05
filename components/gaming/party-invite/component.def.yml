@@ -1,0 +1,24 @@
+name: party-invite
+props:
+  inviter:
+    type: string
+    required: true
+    title: Inviter
+    example: "NovaPlays"
+  inviter_initials:
+    type: string
+    required: true
+    title: Inviter initials
+    example: "NP"
+  message:
+    type: string
+    default: "invited you to their squad"
+    title: Message
+  game:
+    type: string
+    title: Game
+    example: "Neon Drift · Ranked"
+  slots:
+    type: string
+    title: Slots
+    example: "3/4 slots filled"

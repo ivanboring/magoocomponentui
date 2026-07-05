@@ -1,0 +1,69 @@
+name: "Achievement Row"
+short_description: An achievement with icon, rarity, progress, and unlocked state.
+long_visual_description: >
+  A row with an achievement icon (greyed when locked), the name with a rarity label, a
+  description, a progress bar, and an unlocked check.
+
+use_cases:
+  - Achievement list entry.
+  - Trophy row.
+  - Unlock progress.
+  - Rare achievement.
+  - Completion tracker.
+
+recommended_for:
+  - A single achievement with rarity and progress.
+avoid_for:
+  - A quest with a reward (use quest-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the rarity and progress; locked achievements are greyed and unlocked ones show a check.
+
+props:
+  name: The achievement name.
+  description: The description.
+  icon: The icon glyph.
+  rarity: The rarity (drives colour).
+  rarity_label: The rarity + percentage.
+  unlocked: Whether unlocked.
+  progress_pct: The progress toward unlock.
+
+example_prompts:
+  - "Add an unlocked rare achievement row."
+  - "Add a locked achievement with progress."
+
+lifecycle: experimental
+content_model: An achievement with rarity, progress, and unlock state.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-accent
+    - --color-warning
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Show rarity percentages; locked achievements are greyed with progress toward unlock.
+
+categorization:
+  category: Gaming
+  subcategory: Achievements
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Unlocked state is shown by a labelled check and the greyed icon, not colour alone; rarity has a text label; the progress bar has a role and label.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

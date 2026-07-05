@@ -1,0 +1,39 @@
+name: skin-item
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dragon Slayer"
+  category:
+    type: string
+    title: Category
+    example: "Weapon skin"
+  rarity_label:
+    type: string
+    required: true
+    title: Rarity label
+    example: "Legendary"
+  rarity:
+    type: enum
+    values: [common, rare, epic, legendary]
+    default: legendary
+    title: Rarity
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    title: Price
+    example: "1,200 V-Coins"
+  owned:
+    type: boolean
+    default: false
+    title: Owned
+variants:
+  rarity:
+    common: "ring-on-surface-muted/40"
+    rare: "ring-info"
+    epic: "ring-accent"
+    legendary: "ring-warning"

@@ -1,0 +1,16 @@
+name: leaderboard-esports
+props:
+  title:
+    type: string
+    default: "Leaderboard"
+    title: Title
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each row: { rank, name, initials, points, wins, delta, direction, highlight } where
+      direction is up|down|flat.
+    example:
+      - { rank: "1", name: "NovaPlays", initials: "NP", points: "3,120", wins: "182", delta: "+2", direction: "up", highlight: false }

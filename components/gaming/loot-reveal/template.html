@@ -1,0 +1,14 @@
+<article class="loot-reveal relative overflow-hidden rounded-card border border-border bg-surface p-(--space-section) text-center shadow-card">
+  <div class="loot-reveal__glow absolute inset-x-0 top-0 h-40 bg-gradient-to-b {{ rarity@class }}" aria-hidden="true"></div>
+  <div class="loot-reveal__body relative flex flex-col items-center gap-3">
+    <p class="loot-reveal__rarity text-sm font-bold uppercase tracking-widest data-[rarity=common]:text-on-surface-muted data-[rarity=rare]:text-info data-[rarity=epic]:text-accent data-[rarity=legendary]:text-warning" data-rarity="{{ rarity }}">{{ rarity_label }}</p>
+    <div class="loot-reveal__item flex size-28 items-center justify-center overflow-hidden rounded-card bg-surface-raised shadow-raised">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="{{ item_name }}">
+    </div>
+    <p class="loot-reveal__name font-heading text-xl text-on-surface">{{ item_name }}</p>
+    <div class="loot-reveal__actions mt-2 flex gap-2">
+      <button type="button" class="rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Equip</button>
+      <button type="button" class="rounded-button border border-border px-5 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Continue</button>
+    </div>
+  </div>
+</article>

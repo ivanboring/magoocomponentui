@@ -1,0 +1,63 @@
+name: "Server Status List"
+short_description: A regional server list with ping and online/busy/down status.
+long_visual_description: >
+  A list of server regions, each with a status dot, the region, a status word, and the ping.
+
+use_cases:
+  - Game server status.
+  - Region ping list.
+  - Matchmaking regions.
+  - Service health by region.
+  - Connection status.
+
+recommended_for:
+  - A list of server regions with status and ping.
+avoid_for:
+  - A single status pill (use status-badge).
+
+markets:
+  - Global
+
+example_usage: >
+  List regions with a status (online/busy/down) and ping; the status word carries the meaning.
+
+props:
+  title: The section title.
+  servers: The servers with region, ping, and status.
+
+example_prompts:
+  - "Add a server status list with ping by region."
+  - "Add a matchmaking regions status list."
+
+lifecycle: experimental
+content_model: A list of server regions with status and ping.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show ping so players pick a region; the status word (not colour alone) carries availability.
+
+categorization:
+  category: Gaming
+  subcategory: Multiplayer
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is shown by a word (online/busy/down) plus a dot, not colour alone; ping and region are real text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

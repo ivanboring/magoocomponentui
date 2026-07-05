@@ -1,0 +1,15 @@
+<section class="leaderboard-esports overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="leaderboard-esports__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ol class="leaderboard-esports__rows divide-y divide-border">
+    <li data-for="row in rows" class="leaderboard-esports__row flex items-center gap-3 px-(--space-card) py-2.5 data-[highlight=true]:bg-primary/5" data-highlight="{{ row.highlight }}">
+      <span class="leaderboard-esports__rank w-7 shrink-0 text-center font-heading text-on-surface-muted tabular-nums data-[top=true]:text-warning" data-top="{{ row.highlight }}">{{ row.rank }}</span>
+      <span class="leaderboard-esports__avatar flex size-9 shrink-0 items-center justify-center rounded-full bg-surface-raised text-xs font-heading uppercase text-on-surface" role="img" aria-label="{{ row.name }}">{{ row.initials }}</span>
+      <div class="min-w-0 flex-1">
+        <p class="leaderboard-esports__name truncate text-sm font-medium text-on-surface">{{ row.name }}</p>
+        <p class="leaderboard-esports__wins text-xs text-on-surface-muted">{{ row.wins }} wins</p>
+      </div>
+      <span data-if="row.delta" class="leaderboard-esports__delta w-10 text-right text-xs font-medium data-[direction=up]:text-success data-[direction=down]:text-danger data-[direction=flat]:text-on-surface-muted" data-direction="{{ row.direction }}">{{ row.delta }}</span>
+      <span class="leaderboard-esports__points w-16 text-right font-heading text-on-surface tabular-nums">{{ row.points }}</span>
+    </li>
+  </ol>
+</section>

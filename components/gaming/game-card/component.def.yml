@@ -1,0 +1,32 @@
+name: game-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Neon Drift"
+  genre:
+    type: string
+    title: Genre
+    example: "Racing · Arcade"
+  rating:
+    type: string
+    title: Rating
+    example: "4.7"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$29.99"
+  discount:
+    type: string
+    title: Discount
+    example: "-40%"
+  cover:
+    type: image
+    required: true
+    title: Cover
+    example: "/stock/product-sneaker.jpg"
+  href:
+    type: link
+    title: Link

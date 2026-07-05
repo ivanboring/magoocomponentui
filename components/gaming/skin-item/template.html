@@ -1,0 +1,15 @@
+<article class="skin-item overflow-hidden rounded-card border-2 bg-surface shadow-card {{ rarity@class }} ring-2 ring-inset">
+  <div class="skin-item__media relative aspect-square bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="{{ name }}">
+    <span class="skin-item__rarity absolute left-2 top-2 rounded-control px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-on-surface {{ rarity@class }} bg-surface/90 ring-1 ring-inset">{{ rarity_label }}</span>
+    <span data-if="owned" class="skin-item__owned absolute right-2 top-2 rounded-pill bg-success px-2 py-0.5 text-[10px] font-semibold text-success-contrast">Owned</span>
+  </div>
+  <div class="skin-item__body p-3">
+    <h3 class="skin-item__name truncate font-heading text-sm text-on-surface">{{ name }}</h3>
+    <p data-if="category" class="skin-item__category text-xs text-on-surface-muted">{{ category }}</p>
+    <div class="skin-item__foot mt-2 flex items-center justify-between gap-2">
+      <span data-if="price" class="skin-item__price text-sm font-medium text-on-surface tabular-nums">{{ price }}</span>
+      <button data-if="!owned" type="button" class="rounded-button bg-primary px-3 py-1 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Buy</button>
+    </div>
+  </div>
+</article>

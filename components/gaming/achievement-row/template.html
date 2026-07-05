@@ -1,0 +1,14 @@
+<div class="achievement-row flex items-center gap-3 py-3" data-unlocked="{{ unlocked }}">
+  <span class="achievement-row__icon flex size-11 shrink-0 items-center justify-center rounded-card bg-surface-raised text-xl data-[unlocked=false]:grayscale data-[unlocked=false]:opacity-50" data-unlocked="{{ unlocked }}" aria-hidden="true">{{ icon }}</span>
+  <div class="min-w-0 flex-1">
+    <div class="flex items-center gap-2">
+      <p class="achievement-row__name text-sm font-medium text-on-surface">{{ name }}</p>
+      <span data-if="rarity_label" class="achievement-row__rarity text-xs font-semibold {{ rarity@class }}">{{ rarity_label }}</span>
+    </div>
+    <p data-if="description" class="achievement-row__description text-xs text-on-surface-muted">{{ description }}</p>
+    <div data-if="progress_pct" class="achievement-row__progress mt-1.5 h-1 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Progress">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ progress_pct }}%"></div>
+    </div>
+  </div>
+  <span data-if="unlocked" class="achievement-row__check shrink-0 text-success" aria-label="Unlocked"><svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg></span>
+</div>

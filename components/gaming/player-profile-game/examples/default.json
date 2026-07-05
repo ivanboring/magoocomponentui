@@ -1,0 +1,18 @@
+{
+  "name": "NovaPlays",
+  "initials": "NP",
+  "image": "/stock/avatar-man-1.jpg",
+  "rank_label": "Diamond I",
+  "rank_gradient": "linear-gradient(135deg,#7dd3fc,#4f46e5)",
+  "level": "Lvl 148",
+  "stats": [
+    { "value": "62%", "label": "Win rate" },
+    { "value": "2.4", "label": "K/D" },
+    { "value": "1,204", "label": "Matches" }
+  ],
+  "badges": [
+    { "icon": "🏆", "label": "Season 4 Champion" },
+    { "icon": "🔥", "label": "10-win streak" },
+    { "icon": "🎯", "label": "Sharpshooter" }
+  ]
+}

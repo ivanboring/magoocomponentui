@@ -1,0 +1,32 @@
+name: quest-card
+props:
+  kind:
+    type: string
+    default: "Daily"
+    title: Kind
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Win 3 ranked matches"
+  reward:
+    type: string
+    required: true
+    title: Reward
+    example: "+500 XP · 1 Loot Crate"
+  current:
+    type: string
+    title: Current
+    example: "2"
+  target:
+    type: string
+    title: Target
+    example: "3"
+  progress_pct:
+    type: integer
+    default: 0
+    title: Progress
+  expires:
+    type: string
+    title: Expires
+    example: "Resets in 6h"

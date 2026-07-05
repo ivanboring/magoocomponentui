@@ -1,0 +1,66 @@
+name: "Esports Leaderboard"
+short_description: A ranked players/teams leaderboard with points, wins, and rank deltas.
+long_visual_description: >
+  A ranked list of players, each with rank, avatar, name, wins, a rank-change delta, and
+  points; the viewer's own row is highlighted.
+
+use_cases:
+  - Ranked leaderboard.
+  - Esports standings.
+  - Player/team ranking.
+  - Competitive ladder.
+  - Season leaderboard.
+
+recommended_for:
+  - A ranked players/teams leaderboard with deltas.
+avoid_for:
+  - A generic top list (use top-list-widget).
+
+markets:
+  - Global
+
+example_usage: >
+  List ranked rows with points, wins, and a rank delta; highlight the viewer's row.
+
+props:
+  title: The leaderboard title.
+  rows: The ranked rows.
+
+example_prompts:
+  - "Add an esports ranked leaderboard with deltas."
+  - "Add a competitive standings list."
+
+lifecycle: experimental
+content_model: A ranked leaderboard with deltas.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show rank deltas so movement is clear; highlight the viewer's own row.
+
+categorization:
+  category: Gaming
+  subcategory: Competitive
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; deltas are signed text (not colour-only); avatars carry names; the highlighted row also has emphasis.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

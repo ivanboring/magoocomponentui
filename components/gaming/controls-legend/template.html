@@ -1,0 +1,11 @@
+<section class="controls-legend rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="controls-legend__title font-heading text-on-surface">{{ title }}</h3>
+  <dl class="controls-legend__bindings mt-3 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+    <div data-for="binding in bindings" class="controls-legend__binding flex items-center justify-between gap-3">
+      <dd class="controls-legend__keys flex shrink-0 items-center gap-1">
+        <kbd data-for="key in binding.keys" class="inline-flex min-w-6 items-center justify-center rounded border border-border bg-surface-raised px-1.5 py-0.5 font-mono text-xs font-medium text-on-surface shadow-card">{{ key.label }}</kbd>
+      </dd>
+      <dt class="controls-legend__action min-w-0 flex-1 text-right text-sm text-on-surface-muted">{{ binding.action }}</dt>
+    </div>
+  </dl>
+</section>

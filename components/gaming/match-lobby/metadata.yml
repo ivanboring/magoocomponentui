@@ -1,0 +1,71 @@
+name: "Match Lobby"
+short_description: A pre-match lobby showing players' ready-state, host, and open slots.
+long_visual_description: >
+  A lobby with the mode and status, a grid of player slots (avatar, host star, ready/not-ready,
+  or an empty slot), and a ready-up button.
+
+use_cases:
+  - Pre-match lobby.
+  - Squad ready check.
+  - Party lobby.
+  - Matchmaking lobby.
+  - Ready-up screen.
+
+recommended_for:
+  - A pre-match lobby with ready states.
+avoid_for:
+  - A party invite (use party-invite).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each player slot with ready state and host; empty slots are dashed. Ready up confirms.
+
+props:
+  mode: The match mode.
+  status: The lobby status.
+  players: The player slots.
+  ready_label: The ready button text.
+
+example_prompts:
+  - "Add a match lobby with player ready states."
+  - "Add a squad ready-up screen."
+
+lifecycle: experimental
+content_model: A pre-match lobby with ready states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-warning
+    - --color-warning-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show ready states clearly (text, not colour alone); host is marked with a star and label.
+
+categorization:
+  category: Gaming
+  subcategory: Multiplayer
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ready state shows a text label ("Ready"/"Not ready"); host has a labelled star; empty slots are dashed with text; avatars carry names.
+  keyboard_support: The ready-up button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,16 @@
+<article class="quest-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="quest-card__head flex items-start justify-between gap-2">
+    <span class="quest-card__kind rounded-pill bg-primary/15 px-2 py-0.5 text-xs font-semibold uppercase text-primary">{{ kind }}</span>
+    <span data-if="expires" class="quest-card__expires text-xs text-on-surface-muted">{{ expires }}</span>
+  </div>
+  <h3 class="quest-card__title mt-2 font-heading text-on-surface">{{ title }}</h3>
+  <div class="quest-card__progress mt-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span class="quest-card__reward font-medium text-warning">{{ reward }}</span>
+      <span data-if="current" class="tabular-nums">{{ current }} / {{ target }}</span>
+    </div>
+    <div class="mt-1.5 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ title }}">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ progress_pct }}%"></div>
+    </div>
+  </div>
+</article>

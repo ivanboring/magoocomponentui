@@ -1,0 +1,14 @@
+name: tournament-bracket-esports
+props:
+  rounds:
+    type: array
+    items: object
+    required: true
+    title: Rounds
+    description: >
+      Each round: { label, matches: [{ a, a_score, b, b_score, winner }] } where winner is
+      a | b | "".
+    example:
+      - label: "Quarterfinals"
+        matches:
+          - { a: "Team Nova", a_score: "2", b: "Team Vortex", b_score: "1", winner: "a" }

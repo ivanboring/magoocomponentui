@@ -1,0 +1,11 @@
+<section class="server-status-list rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="server-status-list__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="server-status-list__items divide-y divide-border">
+    <li data-for="server in servers" class="server-status-list__item flex items-center gap-3 px-(--space-card) py-2.5" data-status="{{ server.status }}">
+      <span class="server-status-list__dot size-2.5 shrink-0 rounded-full data-[status=online]:bg-success data-[status=busy]:bg-warning data-[status=down]:bg-danger" data-status="{{ server.status }}" aria-hidden="true"></span>
+      <span class="server-status-list__region min-w-0 flex-1 text-sm text-on-surface">{{ server.region }}</span>
+      <span class="server-status-list__status text-xs font-medium capitalize data-[status=online]:text-success data-[status=busy]:text-warning data-[status=down]:text-danger" data-status="{{ server.status }}">{{ server.status }}</span>
+      <span class="server-status-list__ping w-16 text-right text-xs text-on-surface-muted tabular-nums">{{ server.ping }}</span>
+    </li>
+  </ul>
+</section>

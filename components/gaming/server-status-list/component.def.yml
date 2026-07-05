@@ -1,0 +1,14 @@
+name: server-status-list
+props:
+  title:
+    type: string
+    default: "Server status"
+    title: Title
+  servers:
+    type: array
+    items: object
+    required: true
+    title: Servers
+    description: "Each: { region, ping, status } where status is online | busy | down."
+    example:
+      - { region: "US West", ping: "24 ms", status: "online" }

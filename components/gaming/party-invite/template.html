@@ -1,0 +1,15 @@
+<article class="party-invite flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="alert">
+  <span class="party-invite__avatar flex size-11 shrink-0 items-center justify-center rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ inviter }}">{{ inviter_initials }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="party-invite__text text-sm text-on-surface"><span class="font-medium">{{ inviter }}</span> {{ message }}</p>
+    <p class="party-invite__meta text-xs text-on-surface-muted"><span data-if="game">{{ game }}</span><span data-if="slots"> · {{ slots }}</span></p>
+  </div>
+  <div class="party-invite__actions flex shrink-0 gap-2">
+    <button type="button" class="party-invite__decline flex size-9 items-center justify-center rounded-full border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-danger" aria-label="Decline">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+    <button type="button" class="party-invite__accept flex size-9 items-center justify-center rounded-full bg-success text-success-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-label="Accept">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+    </button>
+  </div>
+</article>

@@ -1,0 +1,11 @@
+{
+  "mode": "Ranked · 4v4",
+  "status": "Waiting for players…",
+  "players": [
+    { "name": "NovaPlays", "initials": "NP", "ready": true, "host": true, "empty": false },
+    { "name": "Vortex", "initials": "VX", "ready": true, "host": false, "empty": false },
+    { "name": "Blaze", "initials": "BL", "ready": false, "host": false, "empty": false },
+    { "name": "Open slot", "initials": "", "ready": false, "host": false, "empty": true }
+  ],
+  "ready_label": "Ready up"
+}

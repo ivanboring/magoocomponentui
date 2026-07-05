@@ -1,0 +1,10 @@
+{
+  "title": "Server status",
+  "servers": [
+    { "region": "US West", "ping": "24 ms", "status": "online" },
+    { "region": "US East", "ping": "58 ms", "status": "online" },
+    { "region": "EU Central", "ping": "112 ms", "status": "busy" },
+    { "region": "Asia Pacific", "ping": "184 ms", "status": "online" },
+    { "region": "South America", "ping": "—", "status": "down" }
+  ]
+}

@@ -1,0 +1,72 @@
+name: "Loot Reveal"
+short_description: A reward reveal card with a rarity glow, item, and equip/continue.
+long_visual_description: >
+  A centered reveal with a rarity-coloured glow, the rarity label, the item image and name,
+  and equip/continue actions.
+
+use_cases:
+  - Loot box reveal.
+  - Reward drop screen.
+  - Item unlock celebration.
+  - Crate opening.
+  - Prize reveal.
+
+recommended_for:
+  - A reward/loot reveal moment.
+avoid_for:
+  - A store item (use skin-item).
+
+markets:
+  - Global
+
+example_usage: >
+  The rarity drives the glow and label; show the item and equip/continue.
+
+props:
+  item_name: The item name.
+  rarity_label: The rarity headline.
+  rarity: The rarity (drives colour).
+  image: The item image.
+
+example_prompts:
+  - "Add a legendary loot reveal card."
+  - "Add a reward drop screen."
+
+lifecycle: experimental
+content_model: A loot reveal with rarity and actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --color-accent
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Rarity is shown by both the glow and the text label; equip is the primary action.
+
+categorization:
+  category: Gaming
+  subcategory: Progression
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The rarity label is real text (not colour-only); the item image alt is the name; equip/continue are real buttons.
+  keyboard_support: Equip and continue are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

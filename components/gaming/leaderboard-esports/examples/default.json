@@ -1,0 +1,55 @@
+{
+  "title": "Ranked leaderboard",
+  "rows": [
+    {
+      "rank": "1",
+      "name": "NovaPlays",
+      "initials": "NP",
+      "points": "3,120",
+      "wins": "182",
+      "delta": "+2",
+      "direction": "up",
+      "highlight": false
+    },
+    {
+      "rank": "2",
+      "name": "Vortex",
+      "initials": "VX",
+      "points": "3,050",
+      "wins": "176",
+      "delta": "-1",
+      "direction": "down",
+      "highlight": false
+    },
+    {
+      "rank": "3",
+      "name": "You",
+      "initials": "YO",
+      "points": "2,980",
+      "wins": "168",
+      "delta": "+4",
+      "direction": "up",
+      "highlight": true
+    },
+    {
+      "rank": "4",
+      "name": "Blaze",
+      "initials": "BL",
+      "points": "2,910",
+      "wins": "161",
+      "delta": "0",
+      "direction": "flat",
+      "highlight": false
+    },
+    {
+      "rank": "5",
+      "name": "Specter",
+      "initials": "SP",
+      "points": "2,840",
+      "wins": "159",
+      "delta": "-2",
+      "direction": "down",
+      "highlight": false
+    }
+  ]
+}

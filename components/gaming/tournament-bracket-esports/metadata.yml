@@ -1,0 +1,57 @@
+name: "Esports Tournament Bracket"
+short_description: A single-elimination bracket with rounds, match scores, and winners.
+long_visual_description: >
+  Columns per round (quarterfinals → final), each with match cards showing two teams, their
+  scores, and the winner highlighted.
+
+use_cases:
+  - Esports tournament bracket.
+  - Single-elimination bracket.
+  - Playoff bracket.
+  - Cup bracket.
+  - Match progression.
+
+recommended_for:
+  - A single-elimination tournament bracket.
+avoid_for:
+  - A sports fixtures list (use match-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rounds of matches with scores; precompute winner_a/winner_b booleans so the winner
+  is highlighted. Scrolls horizontally on small screens.
+
+props:
+  rounds: The bracket rounds with their matches (each match has precomputed winner flags).
+
+lifecycle: experimental
+content_model: A single-elimination bracket by round.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Order rounds left-to-right; the winner is highlighted by weight and colour with the score.
+
+categorization:
+  category: Gaming
+  subcategory: Competitive
+  atomic_type: full
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Teams and scores are real text; the winner is shown by weight and score (not colour alone). The bracket scrolls horizontally.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

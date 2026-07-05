@@ -1,0 +1,69 @@
+name: "Loadout Card"
+short_description: A weapons/gear loadout summary with slots and an equip action.
+long_visual_description: >
+  A card with the loadout name and class, a list of gear slots (primary, secondary, tactical,
+  perk) with icons, and an equip button.
+
+use_cases:
+  - Weapon loadout.
+  - Gear setup card.
+  - Class build.
+  - Kit summary.
+  - Equipment preset.
+
+recommended_for:
+  - A weapons/gear loadout summary.
+avoid_for:
+  - A single cosmetic item (use skin-item).
+
+markets:
+  - Global
+
+example_usage: >
+  List the loadout slots with items; equip applies the preset.
+
+props:
+  name: The loadout name.
+  class_name: The class.
+  slots_list: The gear slots with item and icon.
+
+example_prompts:
+  - "Add a weapon loadout card with slots."
+  - "Add a class gear setup card."
+
+lifecycle: experimental
+content_model: A loadout with gear slots and an equip action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Label each slot; equip applies the whole loadout.
+
+categorization:
+  category: Gaming
+  subcategory: Loadouts
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Slots use labels; icons are decorative; equip is a real button; all text is real.
+  keyboard_support: The equip button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

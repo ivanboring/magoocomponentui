@@ -1,0 +1,19 @@
+<div class="tournament-bracket-esports overflow-x-auto pb-2">
+  <div class="tournament-bracket-esports__rounds flex gap-8" style="min-width: max-content">
+    <section data-for="round in rounds" class="tournament-bracket-esports__round flex min-w-52 flex-col justify-around gap-4">
+      <h3 class="tournament-bracket-esports__round-label text-center text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ round.label }}</h3>
+      <div class="flex flex-1 flex-col justify-around gap-4">
+        <article data-for="match in round.matches" class="tournament-bracket-esports__match overflow-hidden rounded-card border border-border bg-surface shadow-card">
+          <div class="tournament-bracket-esports__team flex items-center justify-between gap-2 border-b border-border px-3 py-2 data-[winner=true]:bg-primary/5" data-winner="{{ match.winner_a }}">
+            <span class="truncate text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.winner_a }}">{{ match.a }}</span>
+            <span class="shrink-0 font-heading text-on-surface tabular-nums data-[winner=true]:text-primary" data-winner="{{ match.winner_a }}">{{ match.a_score }}</span>
+          </div>
+          <div class="tournament-bracket-esports__team flex items-center justify-between gap-2 px-3 py-2 data-[winner=true]:bg-primary/5" data-winner="{{ match.winner_b }}">
+            <span class="truncate text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.winner_b }}">{{ match.b }}</span>
+            <span class="shrink-0 font-heading text-on-surface tabular-nums data-[winner=true]:text-primary" data-winner="{{ match.winner_b }}">{{ match.b_score }}</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</div>

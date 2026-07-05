@@ -1,0 +1,68 @@
+name: "Stream Card"
+short_description: A live streamer thumbnail with a live badge, viewers, and streamer info.
+long_visual_description: >
+  A video thumbnail with a live badge and viewer count, and the streamer avatar, stream title,
+  and streamer/game below.
+
+use_cases:
+  - Live stream listing.
+  - Streamer grid tile.
+  - Browse live streams.
+  - Twitch-style card.
+  - Live gameplay card.
+
+recommended_for:
+  - A live stream tile with viewers.
+avoid_for:
+  - A VOD/clip card (make a distinct card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the live badge and viewer count on the thumbnail; the avatar and title identify the
+  stream.
+
+props:
+  title: The stream title.
+  streamer: The streamer name.
+  game: The game being played.
+  viewers: The viewer count.
+  thumbnail: The stream thumbnail (required).
+  avatar_initials: The streamer avatar fallback.
+  href: The stream link.
+
+example_prompts:
+  - "Add a live stream card with viewer count."
+  - "Add a streamer browse tile."
+
+lifecycle: experimental
+content_model: A live stream thumbnail with streamer info.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show the live badge and viewer count; keep the title to one line.
+
+categorization:
+  category: Gaming
+  subcategory: Streaming
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The thumbnail alt is the title; the live badge includes text; the avatar carries the streamer name.
+  keyboard_support: Title and thumbnail links are focusable and activate on Enter.
+  seo_score: 45
+  text_direction: both

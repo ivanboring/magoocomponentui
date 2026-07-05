@@ -1,0 +1,19 @@
+name: rank-badge-game
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Gold III"
+  points:
+    type: string
+    title: Points
+    example: "1,840 SR"
+  gradient:
+    type: string
+    required: true
+    title: Emblem gradient
+    description: >
+      Precomputed CSS gradient for the tier emblem (rank colors are fixed brand colors, not
+      theme tokens), e.g. "linear-gradient(135deg,#facc15,#b45309)".
+    example: "linear-gradient(135deg,#facc15,#b45309)"

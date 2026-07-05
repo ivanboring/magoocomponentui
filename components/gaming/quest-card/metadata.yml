@@ -1,0 +1,70 @@
+name: "Quest Card"
+short_description: A quest/objective card with reward, progress, and reset timer.
+long_visual_description: >
+  A card with a quest kind pill and reset timer, the objective title, and a progress row
+  showing the reward and current/target with a bar.
+
+use_cases:
+  - Daily/weekly quest.
+  - Objective tracker.
+  - Battle-pass challenge.
+  - Mission card.
+  - Reward objective.
+
+recommended_for:
+  - A quest/objective with reward and progress.
+avoid_for:
+  - An achievement (use achievement-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the objective, reward, and current/target progress; the timer shows the reset.
+
+props:
+  kind: The quest kind (Daily/Weekly).
+  title: The objective.
+  reward: The reward.
+  current: Current progress.
+  target: Target.
+  progress_pct: Progress percentage.
+  expires: The reset timer.
+
+example_prompts:
+  - "Add a daily quest card with reward and progress."
+  - "Add a battle-pass challenge card."
+
+lifecycle: experimental
+content_model: A quest objective with reward and progress.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the reward prominently; the progress and timer drive engagement.
+
+categorization:
+  category: Gaming
+  subcategory: Progression
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The progress bar has a role and label; reward and progress figures are real text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

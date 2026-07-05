@@ -1,0 +1,16 @@
+<article class="loadout-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="loadout-card__head flex items-center justify-between gap-2">
+    <h3 class="loadout-card__name font-heading text-on-surface">{{ name }}</h3>
+    <span data-if="class_name" class="loadout-card__class rounded-pill bg-primary/15 px-2 py-0.5 text-xs font-semibold text-primary">{{ class_name }}</span>
+  </div>
+  <ul class="loadout-card__slots mt-3 flex flex-col gap-2">
+    <li data-for="slot in slots_list" class="loadout-card__slot flex items-center gap-3 rounded-control bg-surface-raised p-2">
+      <span class="loadout-card__icon flex size-8 shrink-0 items-center justify-center rounded-control bg-surface text-lg" aria-hidden="true">{{ slot.icon }}</span>
+      <div class="min-w-0 flex-1">
+        <p class="text-[10px] uppercase tracking-wide text-on-surface-muted">{{ slot.label }}</p>
+        <p class="truncate text-sm font-medium text-on-surface">{{ slot.item }}</p>
+      </div>
+    </li>
+  </ul>
+  <button type="button" class="loadout-card__equip mt-4 w-full rounded-button bg-primary py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Equip loadout</button>
+</article>

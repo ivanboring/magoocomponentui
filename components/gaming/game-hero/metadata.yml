@@ -1,0 +1,65 @@
+name: "Game Hero"
+short_description: A game store hero with trailer/buy actions and a spec panel over key art.
+long_visual_description: >
+  A full-bleed key-art hero with a scrim, the game title and tagline, a rating line, buy +
+  trailer actions, and a spec panel (genre, players, released, platforms).
+
+use_cases:
+  - Game store page hero.
+  - Game detail header.
+  - Store landing.
+  - Buy-the-game hero.
+  - Featured game banner.
+
+recommended_for:
+  - The hero of a game store/detail page.
+avoid_for:
+  - A game grid card (use game-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Use strong key art; the scrim keeps text legible. Show buy/trailer and a spec panel.
+
+props:
+  title: The game title.
+  tagline: The tagline.
+  image: The background art (required).
+  price: The price.
+  rating: The rating line.
+  specs: The spec panel items.
+
+example_prompts:
+  - "Add a game store hero with buy and trailer."
+  - "Add a game detail header with specs."
+
+lifecycle: experimental
+content_model: A game hero with buy/trailer and specs.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Show the rating and specs for confidence; buy is the primary action. The scrim + white text
+  is fixed for legibility.
+
+categorization:
+  category: Gaming
+  subcategory: Store
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and a definition list for specs; the scrim keeps white text legible; buy/trailer are real buttons.
+  keyboard_support: Buy and trailer are focusable and activate on Enter/Space.
+  seo_score: 60
+  text_direction: both

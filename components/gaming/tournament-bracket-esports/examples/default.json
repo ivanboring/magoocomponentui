@@ -1,0 +1,75 @@
+{
+  "rounds": [
+    {
+      "label": "Quarterfinals",
+      "matches": [
+        {
+          "a": "Team Nova",
+          "a_score": "2",
+          "b": "Team Vortex",
+          "b_score": "1",
+          "winner_a": true,
+          "winner_b": false
+        },
+        {
+          "a": "Blaze Squad",
+          "a_score": "0",
+          "b": "Specter",
+          "b_score": "2",
+          "winner_a": false,
+          "winner_b": true
+        },
+        {
+          "a": "Iron Wolves",
+          "a_score": "2",
+          "b": "Night Owls",
+          "b_score": "1",
+          "winner_a": true,
+          "winner_b": false
+        },
+        {
+          "a": "Phoenix",
+          "a_score": "2",
+          "b": "Riptide",
+          "b_score": "0",
+          "winner_a": true,
+          "winner_b": false
+        }
+      ]
+    },
+    {
+      "label": "Semifinals",
+      "matches": [
+        {
+          "a": "Team Nova",
+          "a_score": "1",
+          "b": "Specter",
+          "b_score": "2",
+          "winner_a": false,
+          "winner_b": true
+        },
+        {
+          "a": "Iron Wolves",
+          "a_score": "2",
+          "b": "Phoenix",
+          "b_score": "1",
+          "winner_a": true,
+          "winner_b": false
+        }
+      ]
+    },
+    {
+      "label": "Final",
+      "matches": [
+        {
+          "a": "Specter",
+          "a_score": "3",
+          "b": "Iron Wolves",
+          "b_score": "2",
+          "winner_a": true,
+          "winner_b": false
+        }
+      ]
+    }
+  ]
+}

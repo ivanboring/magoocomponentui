@@ -1,0 +1,71 @@
+name: "Game Card"
+short_description: A store game card with cover, genre, rating, discount, and price.
+long_visual_description: >
+  A portrait game cover (with a discount flag), the title and genre, and a rating with the
+  price — the game-store grid style.
+
+use_cases:
+  - Game store listing.
+  - Storefront game grid.
+  - Library game tile.
+  - Sale game card.
+  - Game catalog entry.
+
+recommended_for:
+  - A game store tile with price and rating.
+avoid_for:
+  - A game detail hero (use game-hero).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a portrait cover; show the discount flag, rating, and price.
+
+props:
+  title: The game title.
+  genre: The genre.
+  rating: The rating.
+  price: The price.
+  discount: The discount flag.
+  cover: The cover art (required).
+  href: The game link.
+
+example_prompts:
+  - "Add a game store card with a discount and rating."
+  - "Add a game library tile."
+
+lifecycle: experimental
+content_model: A game cover, genre, rating, and price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a strong portrait cover; show the discount and rating for conversion.
+
+categorization:
+  category: Gaming
+  subcategory: Store
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The cover alt is the title; rating/price are real text; the discount flag is text; the star icon is decorative.
+  keyboard_support: Title and cover links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both
