@@ -1,7 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadCatalog, loadExamples, renderInContainer, isContainer, isCardLeaf, THEMES, orderedShots } from "../../lib/data.js";
+import { loadCatalog, loadExamples, renderInContainer, isContainer, isCardLeaf, rebase, rebaseHtml, THEMES, orderedShots } from "../../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
+
+const BASE = import.meta.env.BASE_URL;
 
 export function getStaticPaths() {
   const catalog = loadCatalog();
@@ -10,7 +12,7 @@ export function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { ast, names } = loadExamples(entry.id);
-const examplesRaw = names.map((ex) => ({ ...ex, html: renderToHtml(ast, ex.args) }));
+const examplesRaw = names.map((ex) => ({ ...ex, html: rebaseHtml(renderToHtml(ast, ex.args), BASE) }));
 const cat = entry.categorization || {};
 
 const catalog = loadCatalog();
@@ -48,7 +50,7 @@ const examples = examplesRaw.map((ex) => {
     const inner = ex.html.repeat(def.copies);
     const rendered = renderInContainer(def.id, inner, def.args);
     if (rendered) {
-      variants[def.label] = rendered.html;
+      variants[def.label] = rebaseHtml(rendered.html, BASE);
       if (rendered.behavior) containerBehaviors.add(rendered.behavior);
     }
   }
@@ -67,7 +69,7 @@ const relGroups = [
 ---
 
 <Layout title={`${entry.display_name} — Magoo Component UI`}>
-  <a href="/" class="text-sm text-slate-500 hover:text-slate-900">&larr; Catalog</a>
+  <a href={rebase("/", BASE)} class="text-sm text-slate-500 hover:text-slate-900">&larr; Catalog</a>
 
   <div class="mt-3 flex flex-wrap items-center gap-3">
     <h1 class="text-2xl font-semibold tracking-tight">{entry.display_name}</h1>
@@ -120,8 +122,8 @@ const relGroups = [
             <div class="w-16 shrink-0 text-xs uppercase tracking-wide text-slate-400">{t.label}</div>
             <div class="flex flex-1 gap-2 overflow-x-auto">
               {orderedShots(entry.screenshots, t.id).map(({ bp, src }) => (
-                <button type="button" class="shot group relative h-20 shrink-0 overflow-hidden rounded border border-slate-200 transition hover:border-slate-400" data-full={src} data-label={`${t.label} · ${bp}`}>
-                  <img src={src} alt={`${t.label} ${bp}`} class="h-full w-auto max-w-none cursor-zoom-in object-cover object-top" />
+                <button type="button" class="shot group relative h-20 shrink-0 overflow-hidden rounded border border-slate-200 transition hover:border-slate-400" data-full={rebase(src, BASE)} data-label={`${t.label} · ${bp}`}>
+                  <img src={rebase(src, BASE)} alt={`${t.label} ${bp}`} class="h-full w-auto max-w-none cursor-zoom-in object-cover object-top" />
                   <span class="absolute inset-x-0 bottom-0 bg-black/50 py-0.5 text-center text-[10px] text-white opacity-0 transition group-hover:opacity-100">{bp}</span>
                 </button>
               ))}
@@ -181,7 +183,7 @@ const relGroups = [
             {g.ids.map((id) => {
               const t = byId.get(id);
               return t ? (
-                <a href={`/c/${id}`} class="rounded-full border border-slate-200 px-3 py-1 hover:border-slate-400">
+                <a href={rebase(`/c/${id}`, BASE)} class="rounded-full border border-slate-200 px-3 py-1 hover:border-slate-400">
                   {t.display_name} <span class="text-slate-400">· {t.categorization.atomic_type}</span>
                 </a>
               ) : (

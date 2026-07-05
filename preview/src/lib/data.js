@@ -129,6 +129,21 @@ export function isCardLeaf(entry) {
   return usage.includes("card") && !isContainer(entry);
 }
 
+/** Prefix a root-absolute app path with the deploy base (e.g. "/c/x" → "/repo/c/x"). */
+export function rebase(p, base) {
+  if (!base || base === "/") return p;
+  const b = base.replace(/\/$/, "");
+  return p.startsWith("/") ? b + p : p;
+}
+
+/** Rewrite root-absolute asset URLs (/stock/…, /screenshots/…) inside a rendered HTML string. */
+export function rebaseHtml(html, base) {
+  if (!base || base === "/" || !html) return html;
+  const b = base.replace(/\/$/, "");
+  return html
+    .replace(/(["'(])\/(stock|screenshots)\//g, `$1${b}/$2/`);
+}
+
 export const THEMES = [
   { id: "simple", label: "Simple" },
   { id: "futuristic", label: "Futuristic" },

@@ -1,17 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { loadCatalog, loadRender, orderedShots } from "../lib/data.js";
+import { loadCatalog, loadRender, orderedShots, rebase, rebaseHtml } from "../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
+const BASE = import.meta.env.BASE_URL;
 const catalog = loadCatalog();
 const cards = catalog.components.map((c) => {
   let preview = "";
   try {
     const { ast, args } = loadRender(c.id);
-    preview = renderToHtml(ast, args);
+    preview = rebaseHtml(renderToHtml(ast, args), BASE);
   } catch {}
   const hasShots = Object.keys(c.screenshots || {}).length > 0;
-  return { ...c, preview, hasShots };
+  // Rebase the per-card screenshot map so <img> srcs resolve under the deploy base.
+  const screenshots = BASE === "/" ? c.screenshots : JSON.parse(rebaseHtml(JSON.stringify(c.screenshots || {}), BASE));
+  return { ...c, preview, hasShots, screenshots };
 });
 const categories = catalog.facets.categories || {};
 const THEME_OPTS = [
@@ -79,7 +82,7 @@ const BP_OPTS = [
   <div id="grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {cards.map((c) => (
       <a
-        href={`/c/${c.id}`}
+        href={rebase(`/c/${c.id}`, BASE)}
         class="card group block overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300 hover:shadow-sm"
         data-cat={c.categorization.category}
         data-sub={c.categorization.subcategory || ""}
