@@ -1,0 +1,60 @@
+name: "Section Wrapper"
+short_description: A padded page section with an eyebrow, heading, description, and content slot.
+long_visual_description: >
+  A vertically-padded section with a heading block (eyebrow, title, description, left or
+  centered) above a content region for any child content.
+
+use_cases:
+  - Wrap a landing page section with a heading.
+  - Standardize section spacing and headings.
+  - Group features, testimonials, or content.
+  - Introduce a content region.
+  - Consistent page section scaffolding.
+
+recommended_for:
+  - Wrapping page content with a consistent heading and spacing.
+avoid_for:
+  - A hero (use a hero component).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the heading block and slot the section body; choose left or centered heading
+  alignment.
+
+props:
+  eyebrow: Small label above the title.
+  title: The section title.
+  description: A supporting line.
+  align: Heading alignment (left or center).
+
+slots:
+  content: The section body.
+
+lifecycle: experimental
+content_model: A section heading block and a content region.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Keep the title short and the description to one line; use consistent alignment across sections.
+
+categorization:
+  category: Layout
+  subcategory: Sections
+  atomic_type: full
+  usage_type: [hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; content semantics come from the slotted children.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

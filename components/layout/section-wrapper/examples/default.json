@@ -1,0 +1,9 @@
+{
+  "eyebrow": "Features",
+  "title": "Everything you need to ship faster",
+  "description": "A focused set of building blocks that work across every framework target.",
+  "align": "center",
+  "$slots": {
+    "content": "<div class=\"grid grid-cols-1 gap-6 sm:grid-cols-3\"><div class=\"rounded-card border border-border bg-surface p-6\"><h3 class=\"font-heading text-on-surface\">No CSS to ship</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Tokenized Tailwind bound to design tokens.</p></div><div class=\"rounded-card border border-border bg-surface p-6\"><h3 class=\"font-heading text-on-surface\">One source</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Generate every framework target.</p></div><div class=\"rounded-card border border-border bg-surface p-6\"><h3 class=\"font-heading text-on-surface\">Agent-ready</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Rich metadata makes it explorable.</p></div></div>"
+  }
+}

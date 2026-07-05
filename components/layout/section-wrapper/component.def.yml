@@ -1,0 +1,28 @@
+name: section-wrapper
+props:
+  eyebrow:
+    type: string
+    title: Eyebrow
+    example: "Features"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Everything you need to ship faster"
+  description:
+    type: string
+    title: Description
+    example: "A focused set of building blocks that work across every target."
+  align:
+    type: enum
+    values: [left, center]
+    default: center
+    title: Heading alignment
+slots:
+  content:
+    title: Content
+    description: The section body content.
+variants:
+  align:
+    left: "text-left"
+    center: "text-center mx-auto"

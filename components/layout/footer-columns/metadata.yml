@@ -1,0 +1,63 @@
+name: "Footer Columns"
+short_description: A full site footer with a brand block, link columns, and a copyright line.
+long_visual_description: >
+  A footer with a brand + tagline block beside several columns of grouped links, and a
+  copyright line along the bottom.
+
+use_cases:
+  - Full site footer.
+  - Marketing site footer.
+  - Product footer with link groups.
+  - Documentation footer.
+  - App marketing footer.
+
+recommended_for:
+  - A complete multi-column site footer with branding.
+avoid_for:
+  - Just the grouped link block (use footer-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the brand/tagline, a few link columns, and a copyright line.
+
+props:
+  brand: The brand name.
+  tagline: A short tagline.
+  columns: The footer link columns.
+  copyright: The copyright line.
+
+relationships:
+  related:
+    - navigation/footer-nav
+
+lifecycle: experimental
+content_model: A brand block, grouped link columns, and a copyright line.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --font-heading
+    - --space-card
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Group links logically; keep the tagline to one line and the copyright current.
+
+categorization:
+  category: Layout
+  subcategory: Structure
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real footer with labelled nav columns and headings; links are focusable anchors.
+  keyboard_support: All links are focusable and activate on Enter.
+  seo_score: 55
+  text_direction: both

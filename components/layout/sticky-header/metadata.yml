@@ -1,0 +1,60 @@
+name: "Sticky Header"
+short_description: A scroll-aware sticky header that gains a shadow once the page scrolls.
+long_visual_description: >
+  A translucent, backdrop-blurred header pinned to the top with a logo, primary links, and
+  trailing actions; it gains a subtle shadow once the page is scrolled.
+
+use_cases:
+  - Site header that stays visible on scroll.
+  - App top bar with condensing shadow.
+  - Marketing header with CTAs.
+  - Docs header.
+  - Persistent navigation bar.
+
+recommended_for:
+  - A top header that stays pinned and reacts to scroll.
+avoid_for:
+  - Grouped mega-menu navigation (use navbar-mega).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the logo, links, and slot the actions; the shadow appears once scrolled.
+
+props:
+  logo_text: The brand/logo text.
+  links: The primary links.
+
+slots:
+  actions: Trailing actions (sign-in, CTA).
+
+lifecycle: experimental
+content_model: A pinned header with logo, links, and actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the link set small; the shadow-on-scroll signals separation from the content.
+
+categorization:
+  category: Layout
+  subcategory: Structure
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; links and actions are real focusable elements; the backdrop blur is decorative.
+  keyboard_support: Links and actions are focusable and activate on Enter.
+  seo_score: 55
+  text_direction: both

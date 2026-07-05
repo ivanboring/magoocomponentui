@@ -1,0 +1,52 @@
+name: "Sidebar Layout"
+short_description: A content + sidebar two-column responsive layout that stacks on mobile.
+long_visual_description: >
+  A two-column layout with a fixed-width sidebar beside a flexible content region; it stacks
+  vertically on small screens and can place the sidebar left or right.
+
+use_cases:
+  - App shell with a side navigation.
+  - Docs layout with a sidebar.
+  - Dashboard content + filters.
+  - Settings page with a nav rail.
+  - Listing with a filter sidebar.
+
+recommended_for:
+  - A responsive content + sidebar two-column page layout.
+avoid_for:
+  - A full app shell with topbar (use dashboard-shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot the sidebar and content; choose which side the sidebar sits on. It stacks on mobile.
+
+props:
+  sidebar_side: Which side the sidebar is on.
+
+slots:
+  sidebar: The sidebar content.
+  content: The main content.
+
+lifecycle: experimental
+content_model: A sidebar region and a main content region.
+
+theming:
+  tokens_used: []
+
+editorial_guidance: >
+  Keep the sidebar narrow enough that content has room; ensure it stacks sensibly on mobile.
+
+categorization:
+  category: Layout
+  subcategory: Structure
+  atomic_type: full
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses aside and main landmarks; the reading order follows the DOM regardless of the visual side.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

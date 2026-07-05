@@ -1,0 +1,7 @@
+<header class="sticky-header sticky top-0 z-40 flex items-center justify-between gap-4 border-b border-border bg-surface/90 px-(--space-card) py-3 backdrop-blur transition-shadow duration-(--duration-token) data-[scrolled=true]:shadow-card">
+  <a class="sticky-header__logo shrink-0 font-heading text-lg text-on-surface" href="#">{{ logo_text }}</a>
+  <nav class="sticky-header__links hidden items-center gap-6 md:flex" aria-label="Primary">
+    <a data-for="link in links" class="text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+  </nav>
+  <div class="sticky-header__actions flex shrink-0 items-center gap-3"><slot name="actions"></slot></div>
+</header>

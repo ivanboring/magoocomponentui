@@ -1,0 +1,26 @@
+name: footer-columns
+props:
+  brand:
+    type: string
+    required: true
+    title: Brand
+    example: "Acme"
+  tagline:
+    type: string
+    title: Tagline
+    example: "The component library built for AI agents."
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: "Each column: { heading, links: [{ label, href }] }."
+    example:
+      - heading: "Product"
+        links:
+          - { label: "Features", href: "#" }
+  copyright:
+    type: string
+    required: true
+    title: Copyright
+    example: "© 2026 Acme, Inc."

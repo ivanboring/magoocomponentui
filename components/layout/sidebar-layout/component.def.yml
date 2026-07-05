@@ -1,0 +1,18 @@
+name: sidebar-layout
+props:
+  sidebar_side:
+    type: enum
+    values: [left, right]
+    default: left
+    title: Sidebar side
+slots:
+  sidebar:
+    title: Sidebar
+    description: The sidebar content (nav, filters, etc.).
+  content:
+    title: Content
+    description: The main content region.
+variants:
+  sidebar_side:
+    left: "lg:flex-row"
+    right: "lg:flex-row-reverse"

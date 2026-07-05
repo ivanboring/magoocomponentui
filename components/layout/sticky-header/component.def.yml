@@ -1,0 +1,20 @@
+name: sticky-header
+props:
+  logo_text:
+    type: string
+    required: true
+    title: Logo text
+    example: "Acme"
+  links:
+    type: array
+    items: object
+    required: true
+    title: Links
+    description: "Each item: { label, href }."
+    example:
+      - { label: "Product", href: "#" }
+      - { label: "Pricing", href: "#" }
+slots:
+  actions:
+    title: Actions
+    description: Trailing actions (buttons/CTAs).

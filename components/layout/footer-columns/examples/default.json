@@ -1,0 +1,10 @@
+{
+  "brand": "Acme",
+  "tagline": "The component library built for AI agents.",
+  "columns": [
+    { "heading": "Product", "links": [{ "label": "Features", "href": "#" }, { "label": "Pricing", "href": "#" }, { "label": "Changelog", "href": "#" }] },
+    { "heading": "Company", "links": [{ "label": "About", "href": "#" }, { "label": "Careers", "href": "#" }, { "label": "Blog", "href": "#" }] },
+    { "heading": "Legal", "links": [{ "label": "Privacy", "href": "#" }, { "label": "Terms", "href": "#" }] }
+  ],
+  "copyright": "© 2026 Acme, Inc. All rights reserved."
+}

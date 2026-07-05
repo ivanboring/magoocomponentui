@@ -1,0 +1,63 @@
+name: "Accordion"
+short_description: Stacked expandable panels with keyboard support and an optional single-open mode.
+long_visual_description: >
+  A bordered stack of panels; each header toggles its content and rotates a chevron. In
+  single-open mode, opening one closes the others.
+
+use_cases:
+  - Expandable content sections.
+  - FAQ-style disclosure.
+  - Grouped settings panels.
+  - Collapsible documentation sections.
+  - Progressive disclosure of details.
+
+recommended_for:
+  - General stacked expandable panels.
+avoid_for:
+  - A marketing FAQ (use faq-accordion).
+  - Tabbed content (use tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide title/body items with open states; set single to make it exclusive (one open at a
+  time). Up/Down move between headers.
+
+props:
+  single: When true, only one panel is open at a time.
+  items: The panels with title, body, and open state.
+
+example_prompts:
+  - "Add an accordion with three expandable panels."
+  - "Add a single-open accordion."
+
+lifecycle: experimental
+content_model: A stack of expandable title/body panels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use clear panel titles; open the most important panel by default.
+
+categorization:
+  category: Layout
+  subcategory: Structure
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Triggers are real buttons within headings with aria-expanded; Up/Down/Home/End move between headers.
+  keyboard_support: Headers toggle on Enter/Space; Up/Down cycle headers; Home/End jump to first/last.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,8 @@
+<section class="section-wrapper py-(--space-section)">
+  <div class="section-wrapper__head max-w-2xl {{ align@class }}">
+    <p data-if="eyebrow" class="section-wrapper__eyebrow text-xs font-semibold uppercase tracking-wide text-primary">{{ eyebrow }}</p>
+    <h2 class="section-wrapper__title mt-2 font-heading text-3xl text-on-surface">{{ title }}</h2>
+    <p data-if="description" class="section-wrapper__description mt-3 text-on-surface-muted">{{ description }}</p>
+  </div>
+  <div class="section-wrapper__content mt-10"><slot name="content"></slot></div>
+</section>
