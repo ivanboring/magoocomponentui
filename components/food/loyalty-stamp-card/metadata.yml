@@ -1,0 +1,64 @@
+name: "Loyalty Stamp Card"
+short_description: A punch-card style loyalty tracker with filled and empty stamps.
+long_visual_description: >
+  A card with a title and reward, above a grid of stamp slots; earned stamps are filled with
+  a star, remaining slots are dashed outlines.
+
+use_cases:
+  - Coffee-shop punch card.
+  - Buy-N-get-1 loyalty.
+  - Stamp collection reward.
+  - Cafe loyalty tracker.
+  - Repeat-purchase reward.
+
+recommended_for:
+  - A punch-card style loyalty progress tracker.
+avoid_for:
+  - A points-based tier (use loyalty-tier-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the reward and the stamps earned so far; the remaining slots are dashed.
+
+props:
+  title: The offer title.
+  reward: The reward text.
+  stamps: The stamp slots with filled state.
+
+example_prompts:
+  - "Add a buy-9-get-1 loyalty stamp card."
+  - "Add a coffee punch card tracker."
+
+lifecycle: experimental
+content_model: A loyalty punch card with filled/empty stamps.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  State the offer and reward clearly; the count of filled stamps shows progress.
+
+categorization:
+  category: Food
+  subcategory: Loyalty
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title and reward convey the offer as text; stamps are decorative. Add an accessible "X of N earned" summary in production.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

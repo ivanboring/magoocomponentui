@@ -1,0 +1,20 @@
+name: combo-builder
+props:
+  title:
+    type: string
+    default: "Build your combo"
+    title: Title
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, choice, done } — the current selection for that step."
+    example:
+      - { label: "Main", choice: "Cheeseburger", done: true }
+      - { label: "Side", choice: "Choose a side", done: false }
+  total:
+    type: string
+    required: true
+    title: Total
+    example: "$11.50"

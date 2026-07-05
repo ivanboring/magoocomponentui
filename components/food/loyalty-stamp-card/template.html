@@ -1,0 +1,11 @@
+<article class="loyalty-stamp-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="loyalty-stamp-card__head flex items-baseline justify-between gap-2">
+    <h3 class="loyalty-stamp-card__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="reward" class="loyalty-stamp-card__reward text-xs font-medium text-primary">{{ reward }}</span>
+  </div>
+  <div class="loyalty-stamp-card__stamps mt-3 grid grid-cols-5 gap-2">
+    <span data-for="stamp in stamps" class="loyalty-stamp-card__stamp flex aspect-square items-center justify-center rounded-full border-2 border-dashed border-border text-on-surface-muted data-[filled=true]:border-solid data-[filled=true]:border-primary data-[filled=true]:bg-primary data-[filled=true]:text-primary-contrast" data-filled="{{ stamp.filled }}" aria-hidden="true">
+      <svg class="hidden size-4 data-[filled=true]:block" data-filled="{{ stamp.filled }}" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l1.9 4.2 4.6.5-3.5 3 1 4.5L10 15.9 5.9 14.2l1-4.5-3.5-3 4.6-.5z"/></svg>
+    </span>
+  </div>
+</article>

@@ -1,0 +1,71 @@
+name: "Dish Detail"
+short_description: A dish detail with photo, description, option groups, and add-to-order.
+long_visual_description: >
+  A card with a dish photo, name, description, grouped options (base, protein, toppings) as
+  selectable rows, and an add-to-order button showing the price.
+
+use_cases:
+  - Customizable dish detail.
+  - Build-your-own item.
+  - Menu item modal content.
+  - Add-to-order options.
+  - Dish customization panel.
+
+recommended_for:
+  - A dish with option groups and add-to-order.
+avoid_for:
+  - A simple menu row (use menu-item-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide option groups (radio for choose-one, checkbox for choose-many); the add button
+  shows the running price.
+
+props:
+  name: The dish name.
+  description: The dish description.
+  image: The dish photo.
+  base_price: The base price shown on the button.
+  option_groups: The option groups with their options.
+
+example_prompts:
+  - "Add a build-your-own poke bowl dish detail."
+  - "Add a customizable dish with option groups."
+
+lifecycle: experimental
+content_model: A dish with option groups and an add-to-order action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Group options clearly (base/protein/toppings); show upcharges on options.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Option groups use fieldset/legend with real inputs inside labels; the add button is a real button. Upcharges are shown as text.
+  keyboard_support: Options and the add button are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,7 @@
+{
+  "badges": [
+    { "label": "Vegan", "tone": "vegan" },
+    { "label": "Gluten-free", "tone": "gf" },
+    { "label": "Spicy", "tone": "spicy" }
+  ]
+}

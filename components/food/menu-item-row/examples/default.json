@@ -1,0 +1,7 @@
+{
+  "name": "Grilled Salmon Bowl",
+  "description": "Charred salmon, brown rice, avocado, pickled ginger, sesame.",
+  "price": "$16",
+  "image": "/stock/food-plate.jpg",
+  "tags": [ { "label": "GF", "tone": "gf" }, { "label": "Spicy", "tone": "spicy" } ]
+}

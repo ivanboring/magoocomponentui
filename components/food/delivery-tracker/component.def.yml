@@ -1,0 +1,20 @@
+name: delivery-tracker
+props:
+  eta:
+    type: string
+    required: true
+    title: ETA
+    example: "Arriving in 12 min"
+  courier:
+    type: string
+    title: Courier
+    example: "Marco is on the way"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, status } where status is complete | current | upcoming."
+    example:
+      - { label: "Confirmed", status: "complete" }
+      - { label: "Out for delivery", status: "current" }

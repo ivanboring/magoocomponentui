@@ -1,0 +1,60 @@
+name: "Tip Selector"
+short_description: Preset and custom tip buttons showing the tip percentage and amount.
+long_visual_description: >
+  A row of tip options (15/18/20% and Custom), each showing the percentage and the computed
+  amount; the selected option fills with the primary colour.
+
+use_cases:
+  - Add a tip at checkout.
+  - Delivery/pickup tipping.
+  - Service tip selector.
+  - Gratuity picker.
+  - Tip options in a payment flow.
+
+recommended_for:
+  - Choosing a tip from presets or custom.
+avoid_for:
+  - A general amount input (use a number field).
+
+markets:
+  - Global
+
+example_usage: >
+  Show preset percentages with their amounts and a custom option; selection is single-choice.
+
+props:
+  label: The selector label.
+  options: The tip options with label, amount, and active state.
+
+example_prompts:
+  - "Add a tip selector with 15/18/20% and custom."
+  - "Add gratuity buttons showing amounts."
+
+lifecycle: experimental
+content_model: A single-select set of tip options.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show the computed amount so the tip is concrete; default to a common percentage.
+
+categorization:
+  category: Food
+  subcategory: Checkout
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are a radiogroup with role="radio"/aria-checked inside a fieldset/legend.
+  keyboard_support: Options are focusable and select on Enter/Space.
+  seo_score: 20
+  text_direction: both

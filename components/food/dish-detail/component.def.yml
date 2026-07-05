@@ -1,0 +1,33 @@
+name: dish-detail
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Build Your Poke Bowl"
+  description:
+    type: string
+    title: Description
+    example: "Choose a base, a protein, and your toppings."
+  image:
+    type: image
+    title: Image
+    example: "/stock/food-plate.jpg"
+  base_price:
+    type: string
+    required: true
+    title: Base price
+    example: "$12"
+  option_groups:
+    type: array
+    items: object
+    required: true
+    title: Option groups
+    description: >
+      Each group: { label, type, options: [{ label, price, checked }] } where type is
+      radio (choose one) or checkbox (choose many).
+    example:
+      - label: "Base"
+        type: "radio"
+        options:
+          - { label: "White rice", price: "", checked: true }

@@ -1,0 +1,64 @@
+name: "Nutrition Facts"
+short_description: A compact calories and macros panel for a dish.
+long_visual_description: >
+  A panel with the calorie count and serving, above a three-up grid of macros (protein,
+  carbs, fat).
+
+use_cases:
+  - Dish nutrition summary.
+  - Calories and macros panel.
+  - Health info on a menu item.
+  - Meal nutrition display.
+  - Macro breakdown.
+
+recommended_for:
+  - A compact calories + macros summary for a dish.
+avoid_for:
+  - A full FDA nutrition label (build a dedicated component).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the calories with serving and the key macros; keep to protein/carbs/fat.
+
+props:
+  calories: The calorie count.
+  serving: The serving descriptor.
+  macros: The macro values with labels.
+
+example_prompts:
+  - "Add a nutrition facts panel with calories and macros."
+  - "Add a dish macro breakdown."
+
+lifecycle: experimental
+content_model: A calorie count and macro breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  State the serving the numbers refer to; keep macros consistent across items.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list for macros; calories and macros are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

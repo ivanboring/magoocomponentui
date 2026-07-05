@@ -1,0 +1,11 @@
+name: dietary-badges
+props:
+  badges:
+    type: array
+    items: object
+    required: true
+    title: Badges
+    description: "Each badge: { label, tone } where tone is veg | vegan | gf | spicy."
+    example:
+      - { label: "Vegan", tone: "vegan" }
+      - { label: "Gluten-free", tone: "gf" }

@@ -1,0 +1,18 @@
+{
+  "title": "Reserve a table",
+  "party_options": [
+    { "label": "1", "active": false },
+    { "label": "2", "active": true },
+    { "label": "3", "active": false },
+    { "label": "4", "active": false },
+    { "label": "5+", "active": false }
+  ],
+  "date_value": "Fri, Aug 15",
+  "time_options": [
+    { "label": "6:00 PM", "active": false },
+    { "label": "7:00 PM", "active": true },
+    { "label": "8:00 PM", "active": false },
+    { "label": "9:00 PM", "active": false }
+  ],
+  "cta_label": "Find a table"
+}

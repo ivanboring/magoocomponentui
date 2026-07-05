@@ -1,0 +1,19 @@
+name: allergen-list
+props:
+  title:
+    type: string
+    default: "Allergens"
+    title: Title
+  allergens:
+    type: array
+    items: object
+    required: true
+    title: Allergens
+    description: "Each: { label, icon }."
+    example:
+      - { label: "Contains fish", icon: "🐟" }
+      - { label: "Contains sesame", icon: "🌰" }
+  note:
+    type: string
+    title: Note
+    example: "Prepared in a kitchen that handles nuts and gluten."

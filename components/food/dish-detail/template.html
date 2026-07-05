@@ -1,0 +1,25 @@
+<article class="dish-detail overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <img data-if="image" class="dish-detail__image aspect-[16/9] w-full object-cover" src="{{ image }}" alt="{{ name }}">
+  <div class="dish-detail__body p-(--space-card)">
+    <h2 class="dish-detail__name font-heading text-xl text-on-surface">{{ name }}</h2>
+    <p data-if="description" class="dish-detail__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+    <div class="dish-detail__groups mt-4 flex flex-col gap-5">
+      <fieldset data-for="group in option_groups" class="dish-detail__group">
+        <legend class="text-sm font-semibold text-on-surface">{{ group.label }}</legend>
+        <div class="mt-2 flex flex-col gap-1.5">
+          <label data-for="option in group.options" class="dish-detail__option flex cursor-pointer items-center justify-between gap-3 rounded-control px-2 py-1.5 text-sm hover:bg-surface-raised">
+            <span class="flex items-center gap-2 text-on-surface">
+              <input type="checkbox" class="size-4 rounded border-border text-primary" checked="{{ option.checked }}" name="{{ group.label }}">
+              {{ option.label }}
+            </span>
+            <span data-if="option.price" class="text-xs text-on-surface-muted">{{ option.price }}</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <button type="button" class="dish-detail__add mt-6 flex w-full items-center justify-between rounded-button bg-primary px-4 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">
+      <span>Add to order</span>
+      <span class="tabular-nums">{{ base_price }}</span>
+    </button>
+  </div>
+</article>

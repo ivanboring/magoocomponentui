@@ -1,0 +1,6 @@
+<span class="dietary-badges inline-flex flex-wrap gap-1.5">
+  <span data-for="badge in badges" class="dietary-badges__badge inline-flex items-center gap-1 rounded-pill px-2 py-0.5 text-xs font-medium data-[tone=veg]:bg-success/15 data-[tone=veg]:text-success data-[tone=vegan]:bg-success/15 data-[tone=vegan]:text-success data-[tone=gf]:bg-warning/15 data-[tone=gf]:text-warning data-[tone=spicy]:bg-danger/15 data-[tone=spicy]:text-danger" data-tone="{{ badge.tone }}">
+    <span class="size-1.5 rounded-full bg-current" aria-hidden="true"></span>
+    {{ badge.label }}
+  </span>
+</span>

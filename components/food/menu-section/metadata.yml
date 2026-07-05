@@ -1,0 +1,61 @@
+name: "Menu Section"
+short_description: A titled menu section grouping menu-item rows under a heading.
+long_visual_description: >
+  A menu section with an accented heading and optional description, above a divided list of
+  menu item rows.
+
+use_cases:
+  - Menu category (Starters, Mains, Desserts).
+  - Grouped dishes on a menu.
+  - Section of a digital menu.
+  - Course grouping.
+  - Menu heading + items.
+
+recommended_for:
+  - Grouping menu items under a category heading.
+avoid_for:
+  - A single dish (use menu-item-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the section title/description and slot menu-item-row elements.
+
+props:
+  title: The section title.
+  description: An optional section description.
+
+slots:
+  items: The menu item rows.
+
+relationships:
+  children:
+    - food/menu-item-row
+
+lifecycle: experimental
+content_model: A titled menu section wrapping item rows.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Use clear category names; a short description can note shared sides or notes.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; items carry their own semantics.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

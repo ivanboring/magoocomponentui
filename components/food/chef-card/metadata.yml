@@ -1,0 +1,66 @@
+name: "Chef Card"
+short_description: A chef profile with photo, specialty, and a short bio.
+long_visual_description: >
+  A card with the chef's photo (or initials), name, a specialty in the primary colour, and a
+  short bio.
+
+use_cases:
+  - Meet-the-chef on a restaurant page.
+  - Chef profile card.
+  - Culinary team member.
+  - Menu chef credit.
+  - Chef spotlight.
+
+recommended_for:
+  - A chef profile with specialty and bio.
+avoid_for:
+  - A generic person profile (use card-profile).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the chef's specialty and a one-line bio.
+
+props:
+  name: The chef's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional chef photo.
+  specialty: The chef's specialty.
+  bio: A short bio.
+
+example_prompts:
+  - "Add a chef card with specialty and bio."
+  - "Add a meet-the-chef profile."
+
+lifecycle: experimental
+content_model: A chef photo, name, specialty, and bio.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the bio to one sentence; lead with the specialty.
+
+categorization:
+  category: Food
+  subcategory: About
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the chef name; specialty and bio are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,35 @@
+name: restaurant-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Marea Trattoria"
+  cuisine:
+    type: string
+    required: true
+    title: Cuisine
+    example: "Italian · $$"
+  rating:
+    type: string
+    title: Rating
+    example: "4.7"
+  reviews:
+    type: string
+    title: Reviews
+    example: "1,340"
+  delivery_time:
+    type: string
+    title: Delivery time
+    example: "25–35 min"
+  delivery_fee:
+    type: string
+    title: Delivery fee
+    example: "$1.99 delivery"
+  image:
+    type: image
+    title: Image
+    example: "/stock/food-plate.jpg"
+  href:
+    type: link
+    title: Link

@@ -1,0 +1,6 @@
+{
+  "name": "Grilled Salmon Bowl",
+  "modifiers": [ { "label": "Extra avocado" }, { "label": "No ginger" } ],
+  "quantity": 2,
+  "price": "$34.00"
+}

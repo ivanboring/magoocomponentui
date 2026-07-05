@@ -1,0 +1,66 @@
+name: "Delivery Tracker"
+short_description: An order delivery tracker with a map placeholder, ETA, and status steps.
+long_visual_description: >
+  A widget with a map placeholder showing a courier marker, the ETA and courier line, and a
+  horizontal status stepper (confirmed → delivered).
+
+use_cases:
+  - Food delivery order tracking.
+  - Courier ETA and status.
+  - Live delivery progress.
+  - Order status with map.
+  - Delivery timeline.
+
+recommended_for:
+  - Tracking a food delivery with ETA and status steps.
+avoid_for:
+  - E-commerce fulfilment (use order-tracker).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the ETA and courier; mark the delivery steps' status. The map is a placeholder for a
+  real live map in production.
+
+props:
+  eta: The delivery ETA.
+  courier: The courier line.
+  steps: The delivery status steps.
+
+example_prompts:
+  - "Add a food delivery tracker with ETA and status steps."
+  - "Add a courier tracking widget."
+
+lifecycle: experimental
+content_model: A delivery ETA, courier, and status steps with a map placeholder.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the ETA prominent; the map is a placeholder for the real courier location.
+
+categorization:
+  category: Food
+  subcategory: Checkout
+  atomic_type: organism
+  usage_type: [timeline, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The map is decorative; the ETA and steps are real text with status shown by icon/emphasis, not colour alone.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

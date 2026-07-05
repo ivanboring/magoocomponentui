@@ -1,0 +1,15 @@
+name: tip-selector
+props:
+  label:
+    type: string
+    default: "Add a tip"
+    title: Label
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, amount, active }."
+    example:
+      - { label: "15%", amount: "$3.60", active: false }
+      - { label: "20%", amount: "$4.80", active: true }

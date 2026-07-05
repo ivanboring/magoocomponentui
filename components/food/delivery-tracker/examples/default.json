@@ -1,0 +1,10 @@
+{
+  "eta": "Arriving in 12 min",
+  "courier": "Marco is on the way",
+  "steps": [
+    { "label": "Confirmed", "status": "complete" },
+    { "label": "Preparing", "status": "complete" },
+    { "label": "Out for delivery", "status": "current" },
+    { "label": "Delivered", "status": "upcoming" }
+  ]
+}

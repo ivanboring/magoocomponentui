@@ -1,0 +1,73 @@
+name: "Restaurant Card"
+short_description: A restaurant card with cuisine, rating, and delivery time/fee.
+long_visual_description: >
+  A vertical card with a food photo, the restaurant name with a rating chip, the cuisine and
+  price level, and a delivery time and fee line.
+
+use_cases:
+  - Restaurant listing in delivery apps.
+  - Dining discovery card.
+  - Cuisine browse grid.
+  - Nearby restaurants.
+  - Delivery result card.
+
+recommended_for:
+  - A restaurant preview with rating and delivery info.
+avoid_for:
+  - A single dish (use menu-item-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the rating and delivery info that drives choice; the whole card links to the
+  restaurant.
+
+props:
+  name: The restaurant name.
+  cuisine: The cuisine and price level.
+  rating: The rating value.
+  reviews: The review count.
+  delivery_time: The delivery ETA.
+  delivery_fee: The delivery fee.
+  image: The food/restaurant photo.
+  href: The restaurant link.
+
+example_prompts:
+  - "Add a restaurant card with rating and delivery time."
+  - "Add a delivery-app restaurant listing."
+
+lifecycle: experimental
+content_model: A restaurant photo, name, cuisine, rating, and delivery info.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with rating and delivery time; keep the cuisine + price level compact.
+
+categorization:
+  category: Food
+  subcategory: Discovery
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the restaurant name; rating and delivery info are real text; icons are decorative.
+  keyboard_support: Name and image links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

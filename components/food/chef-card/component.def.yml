@@ -1,0 +1,23 @@
+name: chef-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Chef Elena Rossi"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "ER"
+  image:
+    type: image
+    title: Photo
+  specialty:
+    type: string
+    title: Specialty
+    example: "Coastal Italian"
+  bio:
+    type: string
+    title: Bio
+    example: "Two decades from Liguria to your table, with a love of simple seafood."

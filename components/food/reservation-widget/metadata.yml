@@ -1,0 +1,68 @@
+name: "Reservation Widget"
+short_description: A table-booking widget with party size, date, and time selection.
+long_visual_description: >
+  A form with party-size chips, a date field, and time chips (single-select each), and a
+  find-a-table button.
+
+use_cases:
+  - Book a restaurant table.
+  - Reservation booking form.
+  - Dining reservation widget.
+  - Table booking capture.
+  - Reserve-a-table CTA.
+
+recommended_for:
+  - Capturing party size, date, and time for a reservation.
+avoid_for:
+  - Just showing available times (use table-availability).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide party-size and time options with one active each and a date; submit finds a table.
+
+props:
+  title: The widget title.
+  party_options: The party-size chips.
+  date_value: The selected date.
+  time_options: The time chips.
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a table reservation widget with party size and time."
+  - "Add a restaurant booking form."
+
+lifecycle: experimental
+content_model: Party size, date, and time selection with a submit action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Default to the most common party size and the next available time.
+
+categorization:
+  category: Food
+  subcategory: Reservations
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Party/time chips are radiogroups with role="radio"/aria-checked; the date field is labelled; submit is a real button.
+  keyboard_support: Chips select on Enter/Space; submit works via Enter.
+  seo_score: 35
+  text_direction: both

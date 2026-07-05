@@ -1,0 +1,19 @@
+name: table-availability
+props:
+  label:
+    type: string
+    default: "Available times"
+    title: Label
+  party:
+    type: string
+    title: Party size
+    example: "Party of 2 · Tonight"
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Time slots
+    description: "Each: { time, available }."
+    example:
+      - { time: "6:00 PM", available: true }
+      - { time: "6:30 PM", available: false }

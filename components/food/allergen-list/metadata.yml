@@ -1,0 +1,63 @@
+name: "Allergen List"
+short_description: An allergen information panel with icons and a cross-contamination note.
+long_visual_description: >
+  A panel headed with a warning icon listing allergens (each with an icon) and a
+  cross-contamination note.
+
+use_cases:
+  - Dish allergen information.
+  - Allergen warnings on a menu.
+  - Food safety notice.
+  - Ingredient allergen list.
+  - Cross-contamination note.
+
+recommended_for:
+  - Detailed allergen information for a dish.
+avoid_for:
+  - Quick dietary tags (use dietary-badges).
+
+markets:
+  - Global
+
+example_usage: >
+  List the allergens the dish contains and add a cross-contamination note where relevant.
+
+props:
+  title: The section title.
+  allergens: The allergens with label and icon.
+  note: A cross-contamination note.
+
+example_prompts:
+  - "Add an allergen list with a cross-contamination note."
+  - "Add allergen warnings for a dish."
+
+lifecycle: experimental
+content_model: A list of allergens with a note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Be explicit about allergens and cross-contamination; icons support the text labels.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Allergen labels are real text; icons are decorative; the warning icon is decorative with a text heading.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

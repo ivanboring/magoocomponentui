@@ -1,0 +1,9 @@
+{
+  "calories": "540",
+  "serving": "per bowl",
+  "macros": [
+    { "label": "Protein", "value": "32g" },
+    { "label": "Carbs", "value": "48g" },
+    { "label": "Fat", "value": "22g" }
+  ]
+}

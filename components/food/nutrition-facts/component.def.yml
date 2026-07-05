@@ -1,0 +1,20 @@
+name: nutrition-facts
+props:
+  calories:
+    type: string
+    required: true
+    title: Calories
+    example: "540"
+  serving:
+    type: string
+    title: Serving
+    example: "per bowl"
+  macros:
+    type: array
+    items: object
+    required: true
+    title: Macros
+    description: "Each macro: { label, value }."
+    example:
+      - { label: "Protein", value: "32g" }
+      - { label: "Carbs", value: "48g" }

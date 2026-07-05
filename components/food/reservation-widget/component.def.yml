@@ -1,0 +1,27 @@
+name: reservation-widget
+props:
+  title:
+    type: string
+    default: "Reserve a table"
+    title: Title
+  party_options:
+    type: array
+    items: object
+    required: true
+    title: Party sizes
+    description: "Each: { label, active }."
+  date_value:
+    type: string
+    required: true
+    title: Date
+    example: "Fri, Aug 15"
+  time_options:
+    type: array
+    items: object
+    required: true
+    title: Times
+    description: "Each: { label, active }."
+  cta_label:
+    type: string
+    default: "Find a table"
+    title: CTA label

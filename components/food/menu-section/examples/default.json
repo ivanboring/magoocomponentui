@@ -1,0 +1,7 @@
+{
+  "title": "Mains",
+  "description": "Served with a side of seasonal greens.",
+  "$slots": {
+    "items": "<article class=\"flex items-start gap-4 py-4\"><div class=\"min-w-0 flex-1\"><div class=\"flex items-baseline justify-between gap-3\"><h3 class=\"font-heading text-on-surface\">Grilled Salmon Bowl</h3><span class=\"font-heading text-on-surface\">$16</span></div><p class=\"mt-1 text-sm text-on-surface-muted\">Charred salmon, brown rice, avocado, pickled ginger, sesame.</p></div><img class=\"size-20 shrink-0 rounded-card object-cover\" src=\"/stock/food-plate.jpg\" alt=\"Grilled Salmon Bowl\"></article><article class=\"flex items-start gap-4 py-4\"><div class=\"min-w-0 flex-1\"><div class=\"flex items-baseline justify-between gap-3\"><h3 class=\"font-heading text-on-surface\">Wild Mushroom Risotto</h3><span class=\"font-heading text-on-surface\">$14</span></div><p class=\"mt-1 text-sm text-on-surface-muted\">Arborio rice, porcini, parmesan, truffle oil.</p></div><img class=\"size-20 shrink-0 rounded-card object-cover\" src=\"/stock/food-plate.jpg\" alt=\"Wild Mushroom Risotto\"></article>"
+  }
+}

@@ -1,0 +1,21 @@
+<section class="combo-builder rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="combo-builder__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <ol class="combo-builder__steps mt-3 flex flex-col gap-2">
+    <li data-for="step in steps" class="combo-builder__step">
+      <button type="button" class="flex w-full items-center gap-3 rounded-control border border-border p-3 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised" data-done="{{ step.done }}">
+        <span class="combo-builder__marker flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-on-surface-muted data-[done=true]:border-primary data-[done=true]:bg-primary data-[done=true]:text-primary-contrast" data-done="{{ step.done }}" aria-hidden="true">
+          <svg class="hidden size-3.5 data-[done=true]:block" data-done="{{ step.done }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 10l4 4 8-8"/></svg>
+        </span>
+        <span class="min-w-0 flex-1">
+          <span class="block text-xs uppercase tracking-wide text-on-surface-muted">{{ step.label }}</span>
+          <span class="block text-sm font-medium text-on-surface data-[done=false]:text-on-surface-muted" data-done="{{ step.done }}">{{ step.choice }}</span>
+        </span>
+        <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+      </button>
+    </li>
+  </ol>
+  <button type="button" class="combo-builder__add mt-4 flex w-full items-center justify-between rounded-button bg-primary px-4 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">
+    <span>Add combo to order</span>
+    <span class="tabular-nums">{{ total }}</span>
+  </button>
+</section>

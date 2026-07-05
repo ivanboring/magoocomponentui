@@ -1,0 +1,61 @@
+name: "Table Availability"
+short_description: Reservation time-slot chips with available and unavailable states.
+long_visual_description: >
+  A set of time-slot chips for a party size; available slots are outlined in primary,
+  unavailable ones are struck through and disabled.
+
+use_cases:
+  - Restaurant reservation times.
+  - Available booking slots.
+  - Table time picker.
+  - Dining time selector.
+  - Reservation availability.
+
+recommended_for:
+  - Showing bookable reservation time slots.
+avoid_for:
+  - A full reservation form (use reservation-widget).
+
+markets:
+  - Global
+
+example_usage: >
+  Show slots for the party size; unavailable slots are disabled and struck through.
+
+props:
+  label: The section label.
+  party: The party size and date context.
+  slots_list: The time slots with availability.
+
+example_prompts:
+  - "Add reservation time slots for a party of two."
+  - "Add table availability chips."
+
+lifecycle: experimental
+content_model: A set of reservation time slots with availability.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Show the party size/date the times apply to; clearly disable unavailable slots.
+
+categorization:
+  category: Food
+  subcategory: Reservations
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Unavailable slots are struck through (not colour alone) and non-interactive; available slots are real buttons.
+  keyboard_support: Available slots are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

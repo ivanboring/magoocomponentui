@@ -1,0 +1,25 @@
+name: menu-item-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Grilled Salmon Bowl"
+  description:
+    type: string
+    title: Description
+    example: "Charred salmon, brown rice, avocado, pickled ginger, sesame."
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$16"
+  image:
+    type: image
+    title: Image
+    example: "/stock/food-plate.jpg"
+  tags:
+    type: array
+    items: object
+    title: Tags
+    description: "Each tag: { label, tone } (gf, vegan, spicy)."

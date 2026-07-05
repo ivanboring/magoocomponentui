@@ -1,0 +1,69 @@
+name: "Combo Builder"
+short_description: A build-your-meal selector with steps for main, side, and drink.
+long_visual_description: >
+  A stepper of combo choices (main, side, drink), each a row showing the current selection
+  with a done check, and an add-combo button with the total.
+
+use_cases:
+  - Build-a-combo meal selector.
+  - Value meal builder.
+  - Bundle configurator.
+  - Meal-deal picker.
+  - Combo customization.
+
+recommended_for:
+  - Building a combo meal from stepped choices.
+avoid_for:
+  - A single customizable dish (use dish-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each combo step with its current choice and done state; the add button shows the
+  running total.
+
+props:
+  title: The builder title.
+  steps: The combo steps with label, choice, and done state.
+  total: The combo total.
+
+example_prompts:
+  - "Add a combo builder with main, side, and drink."
+  - "Add a value-meal configurator."
+
+lifecycle: experimental
+content_model: A stepped combo selection with a running total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Prompt unfinished steps ("Choose a side"); the total updates as choices are made.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each step is a real button; done state is shown by a check and emphasis, not colour alone; the add button shows the total.
+  keyboard_support: Steps and the add button are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

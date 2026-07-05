@@ -1,0 +1,59 @@
+name: "Order Item Row"
+short_description: An order line with quantity, item, modifiers, and price.
+long_visual_description: >
+  A row with a quantity chip, the item name and its modifiers (extra/no options), and the
+  line price.
+
+use_cases:
+  - Order summary line.
+  - Cart item in a food order.
+  - Receipt line item.
+  - Kitchen ticket entry.
+  - Order review row.
+
+recommended_for:
+  - A food order line with quantity, modifiers, and price.
+avoid_for:
+  - A menu dish (use menu-item-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the quantity and item with its modifiers; the price is the line total.
+
+props:
+  name: The item name.
+  modifiers: The item modifiers.
+  quantity: The quantity.
+  price: The line price.
+
+example_prompts:
+  - "Add an order item row with quantity and modifiers."
+  - "Add a food order line item."
+
+lifecycle: experimental
+content_model: A food order line with quantity, modifiers, and price.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-control
+
+editorial_guidance: >
+  List modifiers concisely (extra/no); the price reflects the quantity.
+
+categorization:
+  category: Food
+  subcategory: Checkout
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Quantity, name, modifiers, and price are all real text; modifiers use a real list.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

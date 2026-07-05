@@ -1,0 +1,11 @@
+<article class="chef-card flex gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="chef-card__avatar relative inline-flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="chef-card__name font-heading text-on-surface">{{ name }}</p>
+    <p data-if="specialty" class="chef-card__specialty text-sm text-primary">{{ specialty }}</p>
+    <p data-if="bio" class="chef-card__bio mt-2 text-sm text-on-surface-muted">{{ bio }}</p>
+  </div>
+</article>

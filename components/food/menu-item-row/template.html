@@ -1,0 +1,13 @@
+<article class="menu-item-row flex items-start gap-4 py-4">
+  <div class="menu-item-row__body min-w-0 flex-1">
+    <div class="flex items-baseline justify-between gap-3">
+      <h3 class="menu-item-row__name font-heading text-on-surface">{{ name }}</h3>
+      <span class="menu-item-row__price shrink-0 font-heading text-on-surface tabular-nums">{{ price }}</span>
+    </div>
+    <p data-if="description" class="menu-item-row__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+    <span data-if="tags" class="menu-item-row__tags mt-2 inline-flex flex-wrap gap-1.5">
+      <span data-for="tag in tags" class="rounded-pill px-2 py-0.5 text-xs font-medium data-[tone=veg]:bg-success/15 data-[tone=veg]:text-success data-[tone=vegan]:bg-success/15 data-[tone=vegan]:text-success data-[tone=gf]:bg-warning/15 data-[tone=gf]:text-warning data-[tone=spicy]:bg-danger/15 data-[tone=spicy]:text-danger" data-tone="{{ tag.tone }}">{{ tag.label }}</span>
+    </span>
+  </div>
+  <img data-if="image" class="menu-item-row__image size-20 shrink-0 rounded-card object-cover" src="{{ image }}" alt="{{ name }}">
+</article>

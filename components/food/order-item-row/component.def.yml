@@ -1,0 +1,21 @@
+name: order-item-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Grilled Salmon Bowl"
+  modifiers:
+    type: array
+    items: object
+    title: Modifiers
+    description: "Each modifier: { label }."
+  quantity:
+    type: integer
+    default: 1
+    title: Quantity
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$16.00"

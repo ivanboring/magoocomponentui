@@ -1,0 +1,9 @@
+{
+  "title": "Build your combo",
+  "steps": [
+    { "label": "Main", "choice": "Cheeseburger", "done": true },
+    { "label": "Side", "choice": "Fries", "done": true },
+    { "label": "Drink", "choice": "Choose a drink", "done": false }
+  ],
+  "total": "$11.50"
+}

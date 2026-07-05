@@ -1,0 +1,10 @@
+{
+  "cuisines": [
+    { "label": "All", "icon": "🍽", "active": true },
+    { "label": "Pizza", "icon": "🍕", "active": false },
+    { "label": "Sushi", "icon": "🍣", "active": false },
+    { "label": "Burgers", "icon": "🍔", "active": false },
+    { "label": "Tacos", "icon": "🌮", "active": false },
+    { "label": "Dessert", "icon": "🍰", "active": false }
+  ]
+}

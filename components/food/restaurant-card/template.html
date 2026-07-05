@@ -1,0 +1,16 @@
+<article class="restaurant-card group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="restaurant-card__media block aspect-[16/9] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ name }}">
+  </a>
+  <div class="restaurant-card__body p-(--space-card)">
+    <div class="flex items-start justify-between gap-3">
+      <h3 class="restaurant-card__name font-heading text-on-surface"><a class="hover:underline" href="{{ href }}">{{ name }}</a></h3>
+      <span data-if="rating" class="restaurant-card__rating flex shrink-0 items-center gap-1 rounded-control bg-surface-raised px-1.5 py-0.5 text-xs"><svg class="size-3 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg><span class="font-medium text-on-surface">{{ rating }}</span><span data-if="reviews" class="text-on-surface-muted">({{ reviews }})</span></span>
+    </div>
+    <p class="restaurant-card__cuisine mt-0.5 text-sm text-on-surface-muted">{{ cuisine }}</p>
+    <p class="restaurant-card__delivery mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-on-surface-muted">
+      <span data-if="delivery_time" class="flex items-center gap-1"><svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>{{ delivery_time }}</span>
+      <span data-if="delivery_fee">{{ delivery_fee }}</span>
+    </p>
+  </div>
+</article>

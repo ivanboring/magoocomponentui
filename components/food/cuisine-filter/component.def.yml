@@ -1,0 +1,11 @@
+name: cuisine-filter
+props:
+  cuisines:
+    type: array
+    items: object
+    required: true
+    title: Cuisines
+    description: "Each: { label, icon, active }."
+    example:
+      - { label: "All", icon: "🍽", active: true }
+      - { label: "Pizza", icon: "🍕", active: false }

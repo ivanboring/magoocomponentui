@@ -1,0 +1,65 @@
+name: "Menu Item Row"
+short_description: A menu dish row with name, description, price, dietary tags, and image.
+long_visual_description: >
+  A row with the dish name and price on one line, a description, dietary tags, and a small
+  dish photo on the trailing edge.
+
+use_cases:
+  - Dish in a restaurant menu.
+  - Menu section item.
+  - Deliverable menu listing.
+  - Digital menu entry.
+  - Food item with tags.
+
+recommended_for:
+  - A single menu dish with description, price, and tags.
+avoid_for:
+  - A cart line item (use order-item-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the dish name and price on one line, a short description, and dietary tags; the photo
+  is optional.
+
+props:
+  name: The dish name.
+  description: The dish description.
+  price: The price.
+  image: The dish photo.
+  tags: Dietary tags with label and tone.
+
+example_prompts:
+  - "Add a menu item row for a salmon bowl with GF and spicy tags."
+  - "Add a restaurant menu dish with price and description."
+
+lifecycle: experimental
+content_model: A dish name, description, price, tags, and image.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Describe the dish's key ingredients; keep tags to the relevant dietary attributes.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the dish name; tags carry labels as text; price and description are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

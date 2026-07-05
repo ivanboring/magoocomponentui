@@ -1,0 +1,10 @@
+<div class="order-item-row flex items-start gap-3 py-3" data-quantity="{{ quantity }}">
+  <span class="order-item-row__qty flex size-6 shrink-0 items-center justify-center rounded-control bg-surface-raised text-xs font-medium text-on-surface tabular-nums">{{ quantity }}</span>
+  <div class="order-item-row__body min-w-0 flex-1">
+    <p class="order-item-row__name text-sm font-medium text-on-surface">{{ name }}</p>
+    <ul data-if="modifiers" class="order-item-row__modifiers mt-0.5 text-xs text-on-surface-muted">
+      <li data-for="modifier in modifiers">{{ modifier.label }}</li>
+    </ul>
+  </div>
+  <span class="order-item-row__price shrink-0 text-sm font-medium text-on-surface tabular-nums">{{ price }}</span>
+</div>

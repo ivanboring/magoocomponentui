@@ -1,0 +1,9 @@
+{
+  "title": "Allergens",
+  "allergens": [
+    { "label": "Contains fish", "icon": "🐟" },
+    { "label": "Contains sesame", "icon": "🌰" },
+    { "label": "Contains soy", "icon": "🫘" }
+  ],
+  "note": "Prepared in a kitchen that also handles nuts and gluten."
+}

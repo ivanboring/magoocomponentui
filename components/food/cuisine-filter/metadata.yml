@@ -1,0 +1,59 @@
+name: "Cuisine Filter"
+short_description: A scrollable row of cuisine chips with icons for filtering restaurants.
+long_visual_description: >
+  A horizontally scrollable row of cuisine chips, each with an emoji icon and label; the
+  active cuisine is highlighted with a primary tint.
+
+use_cases:
+  - Filter restaurants by cuisine.
+  - Food category selector.
+  - Delivery app cuisine bar.
+  - Menu category filter.
+  - Cuisine browse chips.
+
+recommended_for:
+  - Selecting a cuisine to filter a food listing.
+avoid_for:
+  - Multi-facet filters (use filter-sidebar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide cuisines with an icon and label; selection is single-choice. Listen for
+  cuisine:change.
+
+props:
+  cuisines: The cuisine chips with label, icon, and active state.
+
+example_prompts:
+  - "Add a cuisine filter bar with pizza, sushi, and burgers."
+  - "Add a food category chip filter."
+
+lifecycle: experimental
+content_model: A single-select set of cuisine chips.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep an "All" option first; use recognizable icons and short labels.
+
+categorization:
+  category: Food
+  subcategory: Discovery
+  atomic_type: molecule
+  usage_type: [nav, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Chips use aria-pressed; icons are decorative with the label as text; nav has an aria-label.
+  keyboard_support: Chips are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

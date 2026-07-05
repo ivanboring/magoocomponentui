@@ -1,0 +1,57 @@
+name: "Dietary Badges"
+short_description: Colour-coded dietary tags (vegan, gluten-free, spicy) for menu items.
+long_visual_description: >
+  A row of small pill badges colour-coded by dietary attribute — vegetarian/vegan (green),
+  gluten-free (amber), spicy (red) — each with a dot and label.
+
+use_cases:
+  - Dietary tags on a menu item.
+  - Vegan/GF/spicy indicators.
+  - Allergen-friendly labels.
+  - Filter-matching diet badges.
+  - Menu attribute tags.
+
+recommended_for:
+  - Tagging a dish with dietary attributes.
+avoid_for:
+  - Detailed allergen info (use allergen-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Add the dietary attributes that apply; the tone drives the colour and the label carries the
+  meaning.
+
+props:
+  badges: The dietary badges with label and tone.
+
+example_prompts:
+  - "Add vegan and gluten-free dietary badges."
+  - "Add spicy and vegetarian menu tags."
+
+lifecycle: experimental
+content_model: A set of dietary attribute badges.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+
+editorial_guidance: >
+  Use consistent tones per attribute; the label text carries the meaning, colour reinforces.
+
+categorization:
+  category: Food
+  subcategory: Menu
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each badge's label is real text; colour and the dot reinforce it, not colour alone.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,9 @@
+<div class="table-availability">
+  <div class="table-availability__head flex items-baseline justify-between gap-2">
+    <p class="table-availability__label text-sm font-medium text-on-surface">{{ label }}</p>
+    <p data-if="party" class="table-availability__party text-xs text-on-surface-muted">{{ party }}</p>
+  </div>
+  <div class="table-availability__slots mt-2 flex flex-wrap gap-2" role="group" aria-label="{{ label }}">
+    <button data-for="slot in slots_list" type="button" class="table-availability__slot rounded-control border px-3 py-1.5 text-sm font-medium transition-colors duration-(--duration-token) data-[available=true]:border-primary data-[available=true]:text-primary data-[available=true]:hover:bg-primary data-[available=true]:hover:text-primary-contrast data-[available=false]:cursor-not-allowed data-[available=false]:border-border data-[available=false]:text-on-surface-muted/50 data-[available=false]:line-through" data-available="{{ slot.available }}">{{ slot.time }}</button>
+  </div>
+</div>

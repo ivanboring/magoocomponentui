@@ -1,0 +1,15 @@
+name: menu-section
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Mains"
+  description:
+    type: string
+    title: Description
+    example: "Served with a side of seasonal greens."
+slots:
+  items:
+    title: Items
+    description: The menu-item-row elements.

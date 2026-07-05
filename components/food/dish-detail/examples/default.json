@@ -1,0 +1,24 @@
+{
+  "name": "Build Your Poke Bowl",
+  "description": "Choose a base, a protein, and your toppings.",
+  "image": "/stock/food-plate.jpg",
+  "base_price": "$12.00",
+  "option_groups": [
+    { "label": "Base", "type": "radio", "options": [
+      { "label": "White rice", "price": "", "checked": true },
+      { "label": "Brown rice", "price": "", "checked": false },
+      { "label": "Mixed greens", "price": "", "checked": false }
+    ]},
+    { "label": "Protein", "type": "radio", "options": [
+      { "label": "Ahi tuna", "price": "", "checked": true },
+      { "label": "Salmon", "price": "", "checked": false },
+      { "label": "Tofu", "price": "", "checked": false }
+    ]},
+    { "label": "Toppings", "type": "checkbox", "options": [
+      { "label": "Avocado", "price": "+$1.50", "checked": true },
+      { "label": "Edamame", "price": "", "checked": true },
+      { "label": "Seaweed salad", "price": "+$1.00", "checked": false },
+      { "label": "Crispy onions", "price": "", "checked": false }
+    ]}
+  ]
+}

@@ -1,0 +1,13 @@
+<section class="allergen-list rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="allergen-list__title flex items-center gap-2 font-heading text-on-surface">
+    <svg class="size-4 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z"/></svg>
+    {{ title }}
+  </h3>
+  <ul class="allergen-list__items mt-3 flex flex-col gap-2 text-sm text-on-surface">
+    <li data-for="allergen in allergens" class="flex items-center gap-2">
+      <span class="text-base" aria-hidden="true">{{ allergen.icon }}</span>
+      {{ allergen.label }}
+    </li>
+  </ul>
+  <p data-if="note" class="allergen-list__note mt-3 border-t border-border pt-2 text-xs text-on-surface-muted">{{ note }}</p>
+</section>
