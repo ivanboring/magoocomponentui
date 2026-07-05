@@ -1,0 +1,35 @@
+name: invoice-detail
+props:
+  number:
+    type: string
+    required: true
+    title: Invoice number
+    example: "INV-2026-0042"
+  status_label:
+    type: string
+    default: "Paid"
+    title: Status label
+  from:
+    type: string
+    title: From
+    example: "Acme Inc."
+  to:
+    type: string
+    title: To
+    example: "Jane Doe · jane@example.com"
+  date:
+    type: string
+    title: Date
+    example: "Issued Aug 1, 2026"
+  lines:
+    type: array
+    items: object
+    required: true
+    title: Line items
+    description: "Each: { description, qty, amount }."
+  totals:
+    type: array
+    items: object
+    required: true
+    title: Totals
+    description: "Each: { label, value, strong }."

@@ -1,0 +1,20 @@
+name: feature-matrix
+props:
+  plans:
+    type: array
+    items: object
+    required: true
+    title: Plans
+    description: "Each: { name, price, featured }."
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Feature groups
+    description: >
+      Each: { label, rows: [{ label, values: [{ type, text }] }] } where type is check |
+      cross | text (one value per plan).
+    example:
+      - label: "Core"
+        rows:
+          - { label: "Projects", values: [{ type: "text", text: "3" }, { type: "text", text: "Unlimited" }] }

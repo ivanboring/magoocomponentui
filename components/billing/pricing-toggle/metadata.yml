@@ -1,0 +1,64 @@
+name: "Pricing Toggle"
+short_description: A monthly/annual billing switch with a savings note.
+long_visual_description: >
+  A segmented switch between Monthly and Annual with the active period highlighted and a
+  savings pill beside it.
+
+use_cases:
+  - Pricing period toggle.
+  - Monthly/annual switch.
+  - Billing cycle selector.
+  - Plan period switch.
+  - Save-with-annual toggle.
+
+recommended_for:
+  - Switching pricing between monthly and annual.
+avoid_for:
+  - A generic segmented control (use segmented-control).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark one period active; the savings pill nudges annual. Emits pricing:period.
+
+props:
+  monthly_label: The monthly label.
+  annual_label: The annual label.
+  annual_active: Whether annual is active.
+  monthly_active: Whether monthly is active.
+  save_note: The savings note.
+
+example_prompts:
+  - "Add a monthly/annual pricing toggle with a save note."
+  - "Add a billing cycle switch."
+
+lifecycle: experimental
+content_model: A monthly/annual billing switch.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Show the annual savings to encourage the longer commitment.
+
+categorization:
+  category: Billing
+  subcategory: Pricing
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are a radiogroup with role="radio"/aria-checked; the save note is real text.
+  keyboard_support: Options are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

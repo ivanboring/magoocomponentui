@@ -1,0 +1,35 @@
+name: usage-meter
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "API calls"
+  used:
+    type: string
+    required: true
+    title: Used
+    example: "8,240"
+  limit:
+    type: string
+    required: true
+    title: Limit
+    example: "10,000"
+  pct:
+    type: integer
+    default: 0
+    title: Percent
+  status:
+    type: enum
+    values: [ok, warning, over]
+    default: ok
+    title: Status
+  note:
+    type: string
+    title: Note
+    example: "Resets in 12 days"
+variants:
+  status:
+    ok: "bg-primary"
+    warning: "bg-warning"
+    over: "bg-danger"

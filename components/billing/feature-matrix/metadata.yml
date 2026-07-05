@@ -1,0 +1,60 @@
+name: "Feature Matrix"
+short_description: A plans × features comparison grid grouped by category.
+long_visual_description: >
+  A table with plans across the columns (one featured) and grouped feature rows down the side,
+  each cell a check, cross, or value.
+
+use_cases:
+  - Plan comparison table.
+  - Features by plan.
+  - Pricing matrix.
+  - Tier comparison.
+  - Compare-plans grid.
+
+recommended_for:
+  - A plans × features comparison grid.
+avoid_for:
+  - A single plan column (use plan-column).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide plan columns (mark one featured) and grouped feature rows with check/cross/text per
+  plan.
+
+props:
+  plans: The plan columns.
+  groups: The feature groups with their rows.
+
+lifecycle: experimental
+content_model: A plans × features comparison grid.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Group features logically; use values where useful and check/cross for booleans.
+
+categorization:
+  category: Billing
+  subcategory: Pricing
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers and grouped tbody sections; check/cross convey booleans with values as text.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

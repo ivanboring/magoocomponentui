@@ -1,0 +1,7 @@
+<div class="pricing-toggle inline-flex items-center gap-3">
+  <div class="pricing-toggle__switch inline-flex rounded-pill border border-border bg-surface p-1 text-sm" role="radiogroup" aria-label="Billing period">
+    <button type="button" class="pricing-toggle__opt pricing-toggle__monthly rounded-pill px-4 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ monthly_active }}" data-period="monthly" role="radio" aria-checked="{{ monthly_active }}">{{ monthly_label }}</button>
+    <button type="button" class="pricing-toggle__opt pricing-toggle__annual rounded-pill px-4 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ annual_active }}" data-period="annual" role="radio" aria-checked="{{ annual_active }}">{{ annual_label }}</button>
+  </div>
+  <span data-if="save_note" class="pricing-toggle__save rounded-pill bg-success/15 px-2.5 py-1 text-xs font-semibold text-success">{{ save_note }}</span>
+</div>

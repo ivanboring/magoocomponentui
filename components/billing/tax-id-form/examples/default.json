@@ -1,0 +1,8 @@
+{
+  "title": "Tax information",
+  "description": "Add your VAT or tax ID to appear on invoices.",
+  "countries": [ { "label": "United Kingdom", "selected": true }, { "label": "Germany", "selected": false }, { "label": "France", "selected": false } ],
+  "id_types": [ { "label": "VAT", "selected": true }, { "label": "EIN", "selected": false }, { "label": "GST", "selected": false } ],
+  "placeholder": "e.g. GB123456789",
+  "cta_label": "Save tax ID"
+}

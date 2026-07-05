@@ -1,0 +1,10 @@
+name: billing-history
+props:
+  title:
+    type: string
+    default: "Billing history"
+    title: Title
+slots:
+  items:
+    title: Items
+    description: The invoice rows.

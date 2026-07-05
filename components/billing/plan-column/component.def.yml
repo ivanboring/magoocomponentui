@@ -1,0 +1,38 @@
+name: plan-column
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Pro"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$15"
+  period:
+    type: string
+    default: "/mo"
+    title: Period
+  tagline:
+    type: string
+    title: Tagline
+    example: "For growing teams"
+  featured:
+    type: boolean
+    default: false
+    title: Featured
+  badge:
+    type: string
+    title: Badge
+    example: "Most popular"
+  features:
+    type: array
+    items: object
+    required: true
+    title: Features
+    description: "Each: { label, included }."
+  cta_label:
+    type: string
+    default: "Choose Pro"
+    title: CTA label

@@ -1,0 +1,16 @@
+{
+  "name": "Pro",
+  "price": "$15",
+  "period": "/mo",
+  "tagline": "For growing teams",
+  "featured": true,
+  "badge": "Most popular",
+  "features": [
+    { "label": "Unlimited projects", "included": true },
+    { "label": "Up to 20 members", "included": true },
+    { "label": "Advanced analytics", "included": true },
+    { "label": "Priority support", "included": true },
+    { "label": "SSO & SAML", "included": false }
+  ],
+  "cta_label": "Choose Pro"
+}

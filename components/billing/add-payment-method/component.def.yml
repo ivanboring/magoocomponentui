@@ -1,0 +1,10 @@
+name: add-payment-method
+props:
+  title:
+    type: string
+    default: "Add payment method"
+    title: Title
+  cta_label:
+    type: string
+    default: "Add card"
+    title: CTA label

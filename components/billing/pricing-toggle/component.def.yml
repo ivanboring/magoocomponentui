@@ -1,0 +1,22 @@
+name: pricing-toggle
+props:
+  monthly_label:
+    type: string
+    default: "Monthly"
+    title: Monthly label
+  annual_label:
+    type: string
+    default: "Annual"
+    title: Annual label
+  annual_active:
+    type: boolean
+    default: true
+    title: Annual active
+  monthly_active:
+    type: boolean
+    default: false
+    title: Monthly active
+  save_note:
+    type: string
+    title: Save note
+    example: "Save 20%"

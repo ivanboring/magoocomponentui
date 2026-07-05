@@ -1,0 +1,71 @@
+name: "Tax ID Form"
+short_description: A VAT/tax ID entry form with country and ID type.
+long_visual_description: >
+  A form with country and ID-type selects and a tax-ID field, plus a save button, for adding
+  tax info to invoices.
+
+use_cases:
+  - VAT/tax ID entry.
+  - Tax info form.
+  - Invoice tax details.
+  - Business billing info.
+  - Tax exemption entry.
+
+recommended_for:
+  - A tax/VAT ID entry form.
+avoid_for:
+  - A billing address form (build one).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide country and ID-type options; the ID placeholder hints the format.
+
+props:
+  title: The form title.
+  description: The explanation.
+  countries: The country options.
+  id_types: The ID-type options.
+  placeholder: The ID placeholder.
+  cta_label: The save button text.
+
+example_prompts:
+  - "Add a VAT/tax ID entry form."
+  - "Add a tax information form for invoices."
+
+lifecycle: experimental
+content_model: A tax/VAT ID entry form.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Hint the ID format per country/type; validate in production.
+
+categorization:
+  category: Billing
+  subcategory: Payment
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Selects and the ID field have labels; save is a real button.
+  keyboard_support: All fields and controls are focusable and keyboard-operable.
+  seo_score: 15
+  text_direction: both

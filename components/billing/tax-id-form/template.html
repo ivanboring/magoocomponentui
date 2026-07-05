@@ -1,0 +1,17 @@
+<form class="tax-id-form rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="tax-id-form__title font-heading text-on-surface">{{ title }}</h3>
+  <p data-if="description" class="tax-id-form__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  <div class="tax-id-form__row mt-4 grid grid-cols-2 gap-3 text-sm">
+    <label class="block"><span class="text-on-surface">Country</span>
+      <select class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface"><option data-for="country in countries" selected="{{ country.selected }}">{{ country.label }}</option></select>
+    </label>
+    <label class="block"><span class="text-on-surface">ID type</span>
+      <select class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface"><option data-for="type in id_types" selected="{{ type.selected }}">{{ type.label }}</option></select>
+    </label>
+  </div>
+  <label class="tax-id-form__field mt-4 block text-sm">
+    <span class="text-on-surface">Tax ID</span>
+    <input type="text" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}">
+  </label>
+  <button type="submit" class="tax-id-form__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

@@ -1,0 +1,24 @@
+name: proration-notice
+props:
+  title:
+    type: string
+    default: "Prorated change"
+    title: Title
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Upgrading now credits your unused time and charges the difference today."
+  lines:
+    type: array
+    items: object
+    title: Lines
+    description: "Each: { label, value }."
+  total_label:
+    type: string
+    default: "Due today"
+    title: Total label
+  total_value:
+    type: string
+    title: Total value
+    example: "$64.00"

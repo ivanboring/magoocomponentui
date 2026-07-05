@@ -1,0 +1,10 @@
+{
+  "title": "Prorated change",
+  "message": "Upgrading now credits your unused time on the current plan and charges the difference today.",
+  "lines": [
+    { "label": "Pro (annual) from today", "value": "$180.00" },
+    { "label": "Unused Starter credit", "value": "-$116.00" }
+  ],
+  "total_label": "Due today",
+  "total_value": "$64.00"
+}

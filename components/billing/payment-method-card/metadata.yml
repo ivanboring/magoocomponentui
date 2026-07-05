@@ -1,0 +1,69 @@
+name: "Payment Method Card"
+short_description: A saved card row with brand, last-4, expiry, and edit/remove.
+long_visual_description: >
+  A row with the card brand badge, masked number with a default tag, holder/expiry, and
+  edit/remove actions.
+
+use_cases:
+  - Saved payment method.
+  - Card on file.
+  - Billing card row.
+  - Payment settings.
+  - Wallet card.
+
+recommended_for:
+  - A saved card in billing settings.
+avoid_for:
+  - A card entry form (use add-payment-method).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the brand, last-4, and expiry; the default card is tagged and can't be removed.
+
+props:
+  brand: The card brand.
+  last4: The last 4 digits.
+  expiry: The expiry.
+  holder: The card holder.
+  default: Whether it's the default.
+
+example_prompts:
+  - "Add a saved payment method card row."
+  - "Add a card-on-file row with edit/remove."
+
+lifecycle: experimental
+content_model: A saved payment method row.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Mask the number to the last 4; tag the default card.
+
+categorization:
+  category: Billing
+  subcategory: Payment
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The default tag is text; edit/remove are real buttons; the brand badge is decorative with the brand also in text.
+  keyboard_support: Edit and remove are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

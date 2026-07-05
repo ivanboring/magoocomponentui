@@ -1,0 +1,19 @@
+name: discount-banner
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Save 20% on annual plans"
+  code:
+    type: string
+    title: Code
+    example: "ANNUAL20"
+  detail:
+    type: string
+    title: Detail
+    example: "Ends Aug 31"
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Apply"

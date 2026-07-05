@@ -1,0 +1,17 @@
+{
+  "number": "INV-2026-0042",
+  "status_label": "Paid",
+  "from": "Acme Inc. · 500 Market St",
+  "to": "Jane Doe · jane@example.com",
+  "date": "Issued Aug 1, 2026",
+  "lines": [
+    { "description": "Pro plan (annual)", "qty": "1", "amount": "$180.00" },
+    { "description": "Additional seats (2)", "qty": "2", "amount": "$60.00" }
+  ],
+  "totals": [
+    { "label": "Subtotal", "value": "$240.00", "strong": false },
+    { "label": "Tax (VAT 20%)", "value": "$48.00", "strong": false },
+    { "label": "Credit applied", "value": "-$12.00", "strong": false },
+    { "label": "Total", "value": "$276.00", "strong": true }
+  ]
+}

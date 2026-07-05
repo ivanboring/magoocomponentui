@@ -1,0 +1,68 @@
+name: "Add Payment Method"
+short_description: A card entry form with number, expiry, CVC, and set-default.
+long_visual_description: >
+  A form with a card-number field (with brand hint), expiry/CVC, name on card, a set-default
+  checkbox, and an add-card button.
+
+use_cases:
+  - Add a card.
+  - Card entry form.
+  - Payment method form.
+  - Checkout card input.
+  - Billing card add.
+
+recommended_for:
+  - A card entry form.
+avoid_for:
+  - A saved card row (use payment-method-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Capture the card details; set-default marks it as primary. Use a real payment element
+  (Stripe/etc.) in production.
+
+props:
+  title: The form title.
+  cta_label: The add button text.
+
+example_prompts:
+  - "Add a card entry form with expiry and CVC."
+  - "Add a payment method form."
+
+lifecycle: experimental
+content_model: A card entry form.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use a real, PCI-compliant payment element in production; this is a skeleton layout.
+
+categorization:
+  category: Billing
+  subcategory: Payment
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All fields have labels; the set-default checkbox is labelled; add is a real button.
+  keyboard_support: All fields and controls are focusable and keyboard-operable.
+  seo_score: 15
+  text_direction: both

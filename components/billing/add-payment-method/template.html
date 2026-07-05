@@ -1,0 +1,20 @@
+<form class="add-payment-method rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="add-payment-method__title font-heading text-on-surface">{{ title }}</h3>
+  <label class="add-payment-method__field mt-4 block">
+    <span class="text-sm font-medium text-on-surface">Card number</span>
+    <div class="mt-1 flex items-center gap-2 rounded-control border border-border bg-surface px-3 focus-within:border-ring">
+      <input type="text" inputmode="numeric" class="w-full bg-transparent py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted" placeholder="1234 1234 1234 1234">
+      <span class="shrink-0 text-xs font-bold uppercase text-on-surface-muted" aria-hidden="true">VISA</span>
+    </div>
+  </label>
+  <div class="add-payment-method__row mt-4 grid grid-cols-2 gap-3">
+    <label class="block"><span class="text-sm font-medium text-on-surface">Expiry</span><input type="text" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring" placeholder="MM / YY"></label>
+    <label class="block"><span class="text-sm font-medium text-on-surface">CVC</span><input type="text" inputmode="numeric" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring" placeholder="CVC"></label>
+  </div>
+  <label class="add-payment-method__field mt-4 block">
+    <span class="text-sm font-medium text-on-surface">Name on card</span>
+    <input type="text" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring" placeholder="Jane Doe">
+  </label>
+  <label class="add-payment-method__default mt-3 flex items-center gap-2 text-sm text-on-surface"><input type="checkbox" class="size-4 rounded border-border text-primary"> Set as default</label>
+  <button type="submit" class="add-payment-method__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

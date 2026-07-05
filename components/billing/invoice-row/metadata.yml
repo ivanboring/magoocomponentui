@@ -1,0 +1,67 @@
+name: "Invoice Row"
+short_description: An invoice list row with number, date, amount, status, and download.
+long_visual_description: >
+  A row with the invoice number and date, the amount, a colour-coded status pill, and a
+  download button.
+
+use_cases:
+  - Invoice list entry.
+  - Billing history row.
+  - Statement download.
+  - Receipt row.
+  - Payment record.
+
+recommended_for:
+  - A single invoice row in a billing history.
+avoid_for:
+  - An invoice detail (use invoice-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the number, date, amount, and status; the download fetches the PDF.
+
+props:
+  number: The invoice number.
+  date: The invoice date.
+  amount: The amount.
+  status: The status (drives the pill colour).
+  status_label: The status text.
+  href: The download link.
+
+example_prompts:
+  - "Add an invoice row with a paid status and download."
+  - "Add a billing history line."
+
+lifecycle: experimental
+content_model: An invoice with status and download.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  The status pill carries a text label; the download uses the download attribute.
+
+categorization:
+  category: Billing
+  subcategory: Invoices
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status pill has a text label (not colour-only); the download control has an accessible label; amount/date are real text.
+  keyboard_support: The download link is focusable and activates on Enter.
+  seo_score: 25
+  text_direction: both

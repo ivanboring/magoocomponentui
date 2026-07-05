@@ -1,0 +1,11 @@
+{
+  "used": "12",
+  "total": "20",
+  "pct": 60,
+  "price_per_seat": "$8/seat/mo",
+  "members": [
+    { "name": "Jane Doe", "initials": "JD", "email": "jane@example.com", "role": "Owner" },
+    { "name": "Marcus Reed", "initials": "MR", "email": "marcus@example.com", "role": "Admin" },
+    { "name": "Priya Nair", "initials": "PN", "email": "priya@example.com", "role": "Member" }
+  ]
+}

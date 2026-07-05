@@ -1,0 +1,68 @@
+name: "Invoice Detail"
+short_description: A full invoice with parties, line items, and totals.
+long_visual_description: >
+  An invoice with a header (number, date, status), from/billed-to, a line-item table, and a
+  totals block (subtotal, tax, credit, total).
+
+use_cases:
+  - Invoice detail view.
+  - Printable invoice.
+  - Receipt detail.
+  - Billing document.
+  - Statement detail.
+
+recommended_for:
+  - A full invoice with line items and totals.
+avoid_for:
+  - An invoice list row (use invoice-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the parties, line items, and a totals block with the grand total emphasized.
+
+props:
+  number: The invoice number.
+  status_label: The status.
+  from: The issuer.
+  to: The recipient.
+  date: The issue date.
+  lines: The line items.
+  totals: The totals rows (mark the grand total strong).
+
+example_prompts:
+  - "Add a full invoice detail with line items and totals."
+  - "Add a printable receipt view."
+
+lifecycle: experimental
+content_model: A full invoice with line items and totals.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Break out tax and credits; emphasize the grand total.
+
+categorization:
+  category: Billing
+  subcategory: Invoices
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Line items use a real table with scoped headers; totals use a definition list; all values are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

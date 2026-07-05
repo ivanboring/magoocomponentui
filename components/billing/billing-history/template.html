@@ -1,0 +1,7 @@
+<section class="billing-history rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <div class="billing-history__head flex items-center justify-between gap-3 border-b border-border px-(--space-card) py-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <button type="button" class="billing-history__export rounded-button border border-border px-3 py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Export all</button>
+  </div>
+  <div class="billing-history__items divide-y divide-border px-(--space-card)"><slot name="items"></slot></div>
+</section>

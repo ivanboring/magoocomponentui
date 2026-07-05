@@ -1,0 +1,14 @@
+{
+  "title": "We're sorry to see you go",
+  "description": "Before you cancel, here's what you'll lose access to on Aug 12.",
+  "losses": [
+    { "label": "Unlimited projects (you have 14)" },
+    { "label": "Advanced analytics and reports" },
+    { "label": "Priority support" },
+    { "label": "Your 12 team seats" }
+  ],
+  "offer_title": "Stay for 50% off",
+  "offer_detail": "Keep everything for the next 3 months at half price.",
+  "keep_label": "Keep my plan",
+  "cancel_label": "Cancel anyway"
+}

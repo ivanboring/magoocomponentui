@@ -1,0 +1,32 @@
+name: cancel-flow
+props:
+  title:
+    type: string
+    default: "We're sorry to see you go"
+    title: Title
+  description:
+    type: string
+    title: Description
+    example: "Before you cancel, here's what you'll lose access to on Aug 12."
+  losses:
+    type: array
+    items: object
+    required: true
+    title: Losses
+    description: "Each: { label }."
+  offer_title:
+    type: string
+    title: Offer title
+    example: "Stay for 50% off"
+  offer_detail:
+    type: string
+    title: Offer detail
+    example: "Keep everything for 3 months at half price."
+  keep_label:
+    type: string
+    default: "Keep my plan"
+    title: Keep label
+  cancel_label:
+    type: string
+    default: "Cancel anyway"
+    title: Cancel label

@@ -1,0 +1,73 @@
+name: "Plan Column"
+short_description: A single pricing plan column with price, features, and a CTA.
+long_visual_description: >
+  A plan card with an optional "Most popular" badge, name/tagline, price, a checked feature
+  list, and a choose-plan button; the featured plan is emphasized.
+
+use_cases:
+  - Pricing plan column.
+  - Plan card.
+  - Tier in a pricing table.
+  - Subscription option.
+  - Plan chooser column.
+
+recommended_for:
+  - A single plan column in a pricing table.
+avoid_for:
+  - A plans × features grid (use feature-matrix).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark the featured plan; list features with included/excluded; the CTA chooses the plan.
+
+props:
+  name: The plan name.
+  price: The price.
+  period: The billing period.
+  tagline: The plan tagline.
+  featured: Whether it's featured.
+  badge: An optional badge.
+  features: The feature list with included flags.
+  cta_label: The choose button text.
+
+example_prompts:
+  - "Add a featured Pro pricing plan column."
+  - "Add a plan card with features and a CTA."
+
+lifecycle: experimental
+content_model: A pricing plan column.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Emphasize the recommended plan; features use included/excluded icons plus text.
+
+categorization:
+  category: Billing
+  subcategory: Pricing
+  atomic_type: organism
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Included/excluded is shown by icon and text emphasis (not colour alone); the badge is text; the CTA is a real button.
+  keyboard_support: The choose button is focusable and activates on Enter/Space.
+  seo_score: 50
+  text_direction: both

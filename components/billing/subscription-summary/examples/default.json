@@ -1,0 +1,12 @@
+{
+  "plan": "Pro · Annual",
+  "status_label": "Active",
+  "price": "$180/yr",
+  "renewal": "Renews Aug 12, 2027",
+  "details": [
+    { "label": "Seats", "value": "12 of 20 used" },
+    { "label": "Payment", "value": "Visa •••• 4242" },
+    { "label": "Started", "value": "Aug 12, 2026" },
+    { "label": "Next invoice", "value": "$180.00" }
+  ]
+}

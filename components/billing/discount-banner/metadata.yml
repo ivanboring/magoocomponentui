@@ -1,0 +1,66 @@
+name: "Discount Banner"
+short_description: A promo/coupon strip with a code and apply action.
+long_visual_description: >
+  A dashed-border promo strip with a tag icon, the offer message and detail, a coupon code
+  chip, and an apply button.
+
+use_cases:
+  - Promo code banner.
+  - Coupon strip.
+  - Discount offer.
+  - Sale banner.
+  - Apply-code prompt.
+
+recommended_for:
+  - A promo/coupon strip with a code.
+avoid_for:
+  - A breaking news bar (use breaking-news-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the offer, the code, and any deadline; apply pre-fills the code.
+
+props:
+  message: The offer message.
+  code: The coupon code.
+  detail: The deadline/detail.
+  cta_label: The apply action.
+
+example_prompts:
+  - "Add a discount banner with a coupon code."
+  - "Add a promo offer strip."
+
+lifecycle: experimental
+content_model: A promo/coupon strip.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the code and deadline; apply reduces friction.
+
+categorization:
+  category: Billing
+  subcategory: Promotions
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The message and code are real text; apply is a real button; the tag icon is decorative.
+  keyboard_support: The apply button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

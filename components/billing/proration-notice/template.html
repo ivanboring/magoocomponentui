@@ -1,0 +1,17 @@
+<aside class="proration-notice rounded-card border border-border bg-surface-raised p-(--space-card)" role="note">
+  <p class="proration-notice__title flex items-center gap-2 text-sm font-medium text-on-surface">
+    <svg class="size-4 text-info" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9V9h2v5zm0-7H9V5h2v2z"/></svg>
+    {{ title }}
+  </p>
+  <p class="proration-notice__message mt-1 text-sm text-on-surface-muted">{{ message }}</p>
+  <dl data-if="lines" class="proration-notice__lines mt-3 flex flex-col gap-1.5 border-t border-border pt-3 text-sm">
+    <div data-for="line in lines" class="flex items-center justify-between">
+      <dt class="text-on-surface-muted">{{ line.label }}</dt>
+      <dd class="text-on-surface tabular-nums">{{ line.value }}</dd>
+    </div>
+    <div data-if="total_value" class="mt-1 flex items-center justify-between border-t border-border pt-2 font-heading">
+      <dt class="text-on-surface">{{ total_label }}</dt>
+      <dd class="text-on-surface tabular-nums">{{ total_value }}</dd>
+    </div>
+  </dl>
+</aside>

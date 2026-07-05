@@ -1,0 +1,24 @@
+<div class="feature-matrix overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="feature-matrix__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-4 text-left" scope="col"></th>
+        <th data-for="plan in plans" class="px-4 py-4 text-center align-top data-[featured=true]:bg-primary/5" data-featured="{{ plan.featured }}" scope="col">
+          <span class="block font-heading text-on-surface">{{ plan.name }}</span>
+          <span class="block font-heading text-lg text-on-surface">{{ plan.price }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody data-for="group in groups" class="feature-matrix__group">
+      <tr class="bg-surface-raised"><th class="px-4 py-2 text-left text-xs font-semibold uppercase tracking-wide text-on-surface-muted" colspan="99" scope="colgroup">{{ group.label }}</th></tr>
+      <tr data-for="row in group.rows" class="border-b border-border">
+        <th class="px-4 py-2.5 text-left font-normal text-on-surface" scope="row">{{ row.label }}</th>
+        <td data-for="value in row.values" class="px-4 py-2.5 text-center text-on-surface" data-type="{{ value.type }}">
+          <svg data-if="value.type" class="mx-auto hidden size-4 text-success data-[type=check]:block" data-type="{{ value.type }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          <svg data-if="value.type" class="mx-auto hidden size-4 text-on-surface-muted/40 data-[type=cross]:block" data-type="{{ value.type }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+          <span data-if="value.text" class="tabular-nums">{{ value.text }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

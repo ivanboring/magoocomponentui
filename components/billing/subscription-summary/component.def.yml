@@ -1,0 +1,24 @@
+name: subscription-summary
+props:
+  plan:
+    type: string
+    required: true
+    title: Plan
+    example: "Pro · Annual"
+  status_label:
+    type: string
+    default: "Active"
+    title: Status label
+  price:
+    type: string
+    title: Price
+    example: "$180/yr"
+  renewal:
+    type: string
+    title: Renewal
+    example: "Renews Aug 12, 2027"
+  details:
+    type: array
+    items: object
+    title: Details
+    description: "Each: { label, value }."

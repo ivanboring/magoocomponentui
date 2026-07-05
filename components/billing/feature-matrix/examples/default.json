@@ -1,0 +1,19 @@
+{
+  "plans": [
+    { "name": "Free", "price": "$0", "featured": false },
+    { "name": "Pro", "price": "$15", "featured": true },
+    { "name": "Enterprise", "price": "Custom", "featured": false }
+  ],
+  "groups": [
+    { "label": "Core", "rows": [
+      { "label": "Projects", "values": [ { "type": "text", "text": "3" }, { "type": "text", "text": "Unlimited" }, { "type": "text", "text": "Unlimited" } ] },
+      { "label": "Team members", "values": [ { "type": "text", "text": "2" }, { "type": "text", "text": "20" }, { "type": "text", "text": "Unlimited" } ] },
+      { "label": "Storage", "values": [ { "type": "text", "text": "1 GB" }, { "type": "text", "text": "100 GB" }, { "type": "text", "text": "Custom" } ] }
+    ]},
+    { "label": "Advanced", "rows": [
+      { "label": "Analytics", "values": [ { "type": "cross", "text": "" }, { "type": "check", "text": "" }, { "type": "check", "text": "" } ] },
+      { "label": "SSO & SAML", "values": [ { "type": "cross", "text": "" }, { "type": "cross", "text": "" }, { "type": "check", "text": "" } ] },
+      { "label": "Priority support", "values": [ { "type": "cross", "text": "" }, { "type": "check", "text": "" }, { "type": "check", "text": "" } ] }
+    ]}
+  ]
+}

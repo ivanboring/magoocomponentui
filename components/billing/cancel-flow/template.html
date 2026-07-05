@@ -1,0 +1,19 @@
+<section class="cancel-flow mx-auto max-w-md rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h2 class="cancel-flow__title font-heading text-xl text-on-surface">{{ title }}</h2>
+  <p data-if="description" class="cancel-flow__description mt-2 text-sm text-on-surface-muted">{{ description }}</p>
+  <ul class="cancel-flow__losses mt-4 flex flex-col gap-2 text-sm">
+    <li data-for="loss in losses" class="flex items-center gap-2 text-on-surface">
+      <svg class="size-4 shrink-0 text-danger" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      {{ loss.label }}
+    </li>
+  </ul>
+  <div data-if="offer_title" class="cancel-flow__offer mt-5 rounded-card border border-primary/40 bg-primary/5 p-4">
+    <p class="font-heading text-on-surface">{{ offer_title }}</p>
+    <p data-if="offer_detail" class="mt-0.5 text-sm text-on-surface-muted">{{ offer_detail }}</p>
+    <button type="button" class="mt-3 w-full rounded-button bg-primary py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Claim offer</button>
+  </div>
+  <div class="cancel-flow__actions mt-5 flex flex-col gap-2">
+    <button type="button" class="cancel-flow__keep w-full rounded-button border border-border py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ keep_label }}</button>
+    <button type="button" class="cancel-flow__cancel w-full text-center text-sm font-medium text-danger hover:underline">{{ cancel_label }}</button>
+  </div>
+</section>

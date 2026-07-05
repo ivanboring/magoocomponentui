@@ -1,0 +1,25 @@
+name: payment-method-card
+props:
+  brand:
+    type: string
+    required: true
+    title: Brand
+    example: "Visa"
+  last4:
+    type: string
+    required: true
+    title: Last 4
+    example: "4242"
+  expiry:
+    type: string
+    required: true
+    title: Expiry
+    example: "09/28"
+  holder:
+    type: string
+    title: Holder
+    example: "Jane Doe"
+  default:
+    type: boolean
+    default: false
+    title: Default

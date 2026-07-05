@@ -1,0 +1,19 @@
+name: credit-balance
+props:
+  balance:
+    type: string
+    required: true
+    title: Balance
+    example: "$42.50"
+  label:
+    type: string
+    default: "Account credit"
+    title: Label
+  note:
+    type: string
+    title: Note
+    example: "Applied automatically to your next invoice."
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Add credit"

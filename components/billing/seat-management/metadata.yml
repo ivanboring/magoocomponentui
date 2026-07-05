@@ -1,0 +1,72 @@
+name: "Seat Management"
+short_description: A team-seats panel with usage, add/invite, and a members list.
+long_visual_description: >
+  A panel showing seats used of total with a bar and per-seat price, invite/add-seats actions,
+  and a members list with roles and remove.
+
+use_cases:
+  - Team seat management.
+  - Add/remove seats.
+  - Members & seats.
+  - Billing seats.
+  - License management.
+
+recommended_for:
+  - Managing team seats and members.
+avoid_for:
+  - A role-permission matrix (use role-permissions).
+
+markets:
+  - Global
+
+example_usage: >
+  Show seats used/total and per-seat price; invite/add-seats and list members with remove.
+
+props:
+  used: Seats used.
+  total: Total seats.
+  pct: Usage percentage.
+  price_per_seat: The per-seat price.
+  members: The members list.
+
+relationships:
+  children:
+    - auth/session-list
+
+lifecycle: experimental
+content_model: A seat-usage panel with a members list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show seats used and per-seat price so adding seats has clear cost; roles are visible per member.
+
+categorization:
+  category: Billing
+  subcategory: Team
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar has a role and label; used/total figures are real text; invite/add/remove are real buttons; avatars carry names.
+  keyboard_support: All actions are focusable and keyboard-operable.
+  seo_score: 30
+  text_direction: both

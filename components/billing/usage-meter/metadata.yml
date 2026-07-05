@@ -1,0 +1,64 @@
+name: "Usage Meter"
+short_description: A quota used-vs-limit bar with status colour and reset note.
+long_visual_description: >
+  A label with used-of-limit figures above a progress bar coloured by status (ok/warning/over)
+  and a reset note.
+
+use_cases:
+  - Quota usage.
+  - Plan limit meter.
+  - API usage bar.
+  - Seat/storage usage.
+  - Metered billing.
+
+recommended_for:
+  - A single quota's usage against its limit.
+avoid_for:
+  - A dashboard KPI (use metric-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Show used of limit with a precomputed percentage; status colours the bar near/over the cap.
+
+props:
+  label: The quota label.
+  used: The used amount.
+  limit: The limit.
+  pct: The usage percentage.
+  status: ok, warning, or over.
+  note: A reset/reset-date note.
+
+example_prompts:
+  - "Add an API usage meter near its limit."
+  - "Add a quota used-vs-limit bar."
+
+lifecycle: experimental
+content_model: A quota's usage against its limit.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+
+editorial_guidance: >
+  Show the raw used/limit figures; the status colour reinforces the numbers.
+
+categorization:
+  category: Billing
+  subcategory: Usage
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with a label; used/limit figures are real text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,73 @@
+name: "Cancel Flow"
+short_description: A retention cancel step showing losses and a stay offer.
+long_visual_description: >
+  A card with an empathetic title, a list of what the user will lose, a discounted stay offer,
+  and keep-my-plan / cancel-anyway actions.
+
+use_cases:
+  - Cancellation flow.
+  - Retention step.
+  - Downgrade/cancel prompt.
+  - Save offer.
+  - Churn deflection.
+
+recommended_for:
+  - A retention step in a cancel flow.
+avoid_for:
+  - A delete-account confirm (use delete-account).
+
+markets:
+  - Global
+
+example_usage: >
+  List what's lost and present a stay offer; keep is prominent, cancel is available but
+  de-emphasized.
+
+props:
+  title: The empathetic title.
+  description: The context.
+  losses: What the user will lose.
+  offer_title: The stay offer title.
+  offer_detail: The offer detail.
+  keep_label: The keep action.
+  cancel_label: The cancel action.
+
+example_prompts:
+  - "Add a cancel flow with a retention offer."
+  - "Add a churn-deflection cancel step."
+
+lifecycle: experimental
+content_model: A retention cancel step with a stay offer.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Be honest about losses; the stay offer should be genuinely valuable. Keep cancel accessible.
+
+categorization:
+  category: Billing
+  subcategory: Subscriptions
+  atomic_type: organism
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h2; losses are real text with cross icons; keep/cancel are real controls; cancel remains accessible.
+  keyboard_support: All actions are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both

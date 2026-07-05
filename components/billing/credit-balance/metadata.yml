@@ -1,0 +1,66 @@
+name: "Credit Balance"
+short_description: An account credits tile with balance, note, and add-credit.
+long_visual_description: >
+  A card with a credit icon, the account credit label and balance, an application note, and an
+  add-credit action.
+
+use_cases:
+  - Account credit balance.
+  - Prepaid credit tile.
+  - Billing credits.
+  - Wallet balance.
+  - Refund credit.
+
+recommended_for:
+  - An account credit balance tile.
+avoid_for:
+  - A bank balance (use account-balance-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the credit balance and how it's applied; offer add-credit.
+
+props:
+  balance: The credit balance.
+  label: The tile label.
+  note: The application note.
+  cta_label: The add-credit action.
+
+example_prompts:
+  - "Add an account credit balance tile."
+  - "Add a billing credits card."
+
+lifecycle: experimental
+content_model: An account credit balance tile.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Explain how the credit is applied; add-credit is optional.
+
+categorization:
+  category: Billing
+  subcategory: Account
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The balance and note are real text; add-credit is a real button; the icon is decorative.
+  keyboard_support: The add-credit button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

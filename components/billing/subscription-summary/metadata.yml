@@ -1,0 +1,72 @@
+name: "Subscription Summary"
+short_description: A plan summary with status, renewal, details, and manage actions.
+long_visual_description: >
+  A card with the plan and price/renewal, an active status pill, a details grid (seats,
+  payment, next invoice), and change/manage/cancel actions.
+
+use_cases:
+  - Subscription overview.
+  - Plan status card.
+  - Manage subscription.
+  - Billing summary.
+  - Current plan panel.
+
+recommended_for:
+  - A subscription summary with manage actions.
+avoid_for:
+  - A pricing plan column (use plan-column).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current plan, renewal, and details; offer change/manage/cancel.
+
+props:
+  plan: The plan name.
+  status_label: The status.
+  price: The price.
+  renewal: The renewal date.
+  details: The details grid.
+
+example_prompts:
+  - "Add a subscription summary with manage actions."
+  - "Add a current-plan panel."
+
+lifecycle: experimental
+content_model: A subscription summary with manage actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show renewal and next invoice; cancel is present but de-emphasized.
+
+categorization:
+  category: Billing
+  subcategory: Subscriptions
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status pill has a text label; details use a definition list; actions are real buttons.
+  keyboard_support: The actions are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

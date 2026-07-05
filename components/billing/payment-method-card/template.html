@@ -1,0 +1,11 @@
+<article class="payment-method-card flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="payment-method-card__brand flex h-8 w-12 shrink-0 items-center justify-center rounded-control bg-surface-raised font-heading text-xs font-bold uppercase text-on-surface" aria-hidden="true">{{ brand }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="payment-method-card__number flex items-center gap-2 text-sm font-medium text-on-surface">{{ brand }} •••• {{ last4 }}<span data-if="default" class="rounded-pill bg-primary/15 px-1.5 py-0.5 text-[10px] font-semibold text-primary">Default</span></p>
+    <p class="payment-method-card__meta text-xs text-on-surface-muted"><span data-if="holder">{{ holder }} · </span>Expires {{ expiry }}</p>
+  </div>
+  <div class="payment-method-card__actions flex shrink-0 gap-1">
+    <button type="button" class="rounded-control px-2.5 py-1.5 text-xs font-medium text-primary hover:bg-surface-raised">Edit</button>
+    <button data-if="!default" type="button" class="rounded-control px-2.5 py-1.5 text-xs font-medium text-danger hover:bg-danger/10">Remove</button>
+  </div>
+</article>

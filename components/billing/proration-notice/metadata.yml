@@ -1,0 +1,64 @@
+name: "Proration Notice"
+short_description: A mid-cycle plan change note with a prorated charge breakdown.
+long_visual_description: >
+  A note explaining a prorated change, with a breakdown of the new charge and unused credit,
+  and the amount due today.
+
+use_cases:
+  - Plan change proration.
+  - Mid-cycle upgrade note.
+  - Prorated charge preview.
+  - Billing change explainer.
+  - Upgrade cost breakdown.
+
+recommended_for:
+  - Explaining a prorated mid-cycle plan change.
+avoid_for:
+  - A full invoice (use invoice-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Explain proration and show the credit/charge lines with the amount due today.
+
+props:
+  title: The note title.
+  message: The proration explanation.
+  lines: The breakdown lines.
+  total_label: The total label.
+  total_value: The amount due.
+
+example_prompts:
+  - "Add a proration notice for a mid-cycle upgrade."
+  - "Add a prorated charge breakdown."
+
+lifecycle: experimental
+content_model: A prorated plan-change breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Explain proration plainly and show the exact amount due today.
+
+categorization:
+  category: Billing
+  subcategory: Subscriptions
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="note"; the breakdown uses a definition list; all values are real text.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

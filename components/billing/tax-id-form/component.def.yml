@@ -1,0 +1,30 @@
+name: tax-id-form
+props:
+  title:
+    type: string
+    default: "Tax information"
+    title: Title
+  description:
+    type: string
+    title: Description
+    example: "Add your VAT or tax ID to appear on invoices."
+  countries:
+    type: array
+    items: object
+    required: true
+    title: Countries
+    description: "Each: { label, selected }."
+  id_types:
+    type: array
+    items: object
+    required: true
+    title: ID types
+    description: "Each: { label, selected }."
+  placeholder:
+    type: string
+    default: "e.g. GB123456789"
+    title: Placeholder
+  cta_label:
+    type: string
+    default: "Save tax ID"
+    title: CTA label

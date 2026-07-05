@@ -1,0 +1,14 @@
+<article class="plan-column relative flex flex-col rounded-card border bg-surface p-(--space-card) shadow-card data-[featured=true]:border-primary data-[featured=false]:border-border data-[featured=true]:ring-1 data-[featured=true]:ring-primary" data-featured="{{ featured }}">
+  <span data-if="badge" class="plan-column__badge absolute -top-3 left-1/2 -translate-x-1/2 rounded-pill bg-primary px-3 py-0.5 text-xs font-semibold text-primary-contrast">{{ badge }}</span>
+  <h3 class="plan-column__name font-heading text-lg text-on-surface">{{ name }}</h3>
+  <p data-if="tagline" class="plan-column__tagline text-sm text-on-surface-muted">{{ tagline }}</p>
+  <p class="plan-column__price mt-3 font-heading text-3xl text-on-surface">{{ price }}<span class="text-base font-normal text-on-surface-muted">{{ period }}</span></p>
+  <ul class="plan-column__features mt-4 flex flex-1 flex-col gap-2 text-sm">
+    <li data-for="feature in features" class="flex items-start gap-2 data-[included=false]:text-on-surface-muted" data-included="{{ feature.included }}">
+      <svg data-if="feature.included" class="mt-0.5 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <svg data-if="!feature.included" class="mt-0.5 size-4 shrink-0 text-on-surface-muted/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      <span class="text-on-surface data-[included=false]:text-on-surface-muted" data-included="{{ feature.included }}">{{ feature.label }}</span>
+    </li>
+  </ul>
+  <button type="button" class="plan-column__cta mt-6 w-full rounded-button py-2.5 text-sm font-heading transition-opacity duration-(--duration-token) hover:opacity-90 data-[featured=true]:bg-primary data-[featured=true]:text-primary-contrast data-[featured=false]:border data-[featured=false]:border-border data-[featured=false]:text-on-surface" data-featured="{{ featured }}">{{ cta_label }}</button>
+</article>

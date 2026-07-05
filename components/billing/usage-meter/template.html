@@ -1,0 +1,10 @@
+<div class="usage-meter">
+  <div class="flex items-baseline justify-between gap-2 text-sm">
+    <span class="usage-meter__label font-medium text-on-surface">{{ label }}</span>
+    <span class="usage-meter__figures text-on-surface-muted tabular-nums"><span class="font-medium text-on-surface">{{ used }}</span> / {{ limit }}</span>
+  </div>
+  <div class="usage-meter__track mt-1.5 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ label }} usage">
+    <div class="usage-meter__bar h-full rounded-pill {{ status@class }}" style="width: {{ pct }}%"></div>
+  </div>
+  <p data-if="note" class="usage-meter__note mt-1 text-xs text-on-surface-muted">{{ note }}</p>
+</div>

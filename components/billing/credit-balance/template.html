@@ -1,0 +1,11 @@
+<article class="credit-balance flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="credit-balance__icon flex size-11 shrink-0 items-center justify-center rounded-full bg-success/10 text-success" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7"/><path d="M10 6v8M7.5 8.5A2 2 0 019.5 7h1.5a1.5 1.5 0 010 3h-2a1.5 1.5 0 000 3H12"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="credit-balance__label text-sm text-on-surface-muted">{{ label }}</p>
+    <p class="credit-balance__balance font-heading text-2xl text-on-surface tabular-nums">{{ balance }}</p>
+    <p data-if="note" class="credit-balance__note text-xs text-on-surface-muted">{{ note }}</p>
+  </div>
+  <button data-if="cta_label" type="button" class="credit-balance__cta shrink-0 rounded-button border border-border px-3 py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ cta_label }}</button>
+</article>

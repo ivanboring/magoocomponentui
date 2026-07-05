@@ -1,0 +1,36 @@
+name: invoice-row
+props:
+  number:
+    type: string
+    required: true
+    title: Invoice number
+    example: "INV-2026-0042"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Aug 1, 2026"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    example: "$180.00"
+  status:
+    type: enum
+    values: [paid, due, overdue, refunded]
+    default: paid
+    title: Status
+  status_label:
+    type: string
+    required: true
+    title: Status label
+    example: "Paid"
+  href:
+    type: link
+    title: Download link
+variants:
+  status:
+    paid: "bg-success/15 text-success"
+    due: "bg-warning/15 text-warning"
+    overdue: "bg-danger/15 text-danger"
+    refunded: "bg-on-surface-muted/15 text-on-surface-muted"

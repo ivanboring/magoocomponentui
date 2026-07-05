@@ -1,0 +1,11 @@
+<div class="invoice-row flex items-center gap-3 py-3">
+  <div class="invoice-row__body min-w-0 flex-1">
+    <p class="invoice-row__number text-sm font-medium text-on-surface">{{ number }}</p>
+    <p class="invoice-row__date text-xs text-on-surface-muted">{{ date }}</p>
+  </div>
+  <span class="invoice-row__amount shrink-0 font-heading text-on-surface tabular-nums">{{ amount }}</span>
+  <span class="invoice-row__status shrink-0 rounded-pill px-2 py-0.5 text-xs font-semibold {{ status@class }}">{{ status_label }}</span>
+  <a class="invoice-row__download flex size-8 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="{{ href }}" aria-label="Download {{ number }}" download>
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12"/></svg>
+  </a>
+</div>

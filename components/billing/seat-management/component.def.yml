@@ -1,0 +1,26 @@
+name: seat-management
+props:
+  used:
+    type: string
+    required: true
+    title: Used
+    example: "12"
+  total:
+    type: string
+    required: true
+    title: Total
+    example: "20"
+  pct:
+    type: integer
+    default: 0
+    title: Percent
+  price_per_seat:
+    type: string
+    title: Price per seat
+    example: "$8/seat/mo"
+  members:
+    type: array
+    items: object
+    required: true
+    title: Members
+    description: "Each: { name, initials, email, role }."
