@@ -1,0 +1,68 @@
+name: "Permission Request"
+short_description: A grant-access prompt with allow/deny actions.
+long_visual_description: >
+  A card with an icon, a permission title and rationale, and allow/not-now actions.
+
+use_cases:
+  - Notification permission.
+  - Location/camera access.
+  - Grant-access prompt.
+  - Pre-permission primer.
+  - Opt-in request.
+
+recommended_for:
+  - An in-app permission request with rationale.
+avoid_for:
+  - A cookie consent (use consent-preferences).
+
+markets:
+  - Global
+
+example_usage: >
+  Explain the value before requesting; offer allow and not-now.
+
+props:
+  icon: The permission icon.
+  title: The permission title.
+  description: The rationale.
+  allow_label: The allow action.
+  deny_label: The deny action.
+
+example_prompts:
+  - "Add a notifications permission request."
+  - "Add a grant-access primer."
+
+lifecycle: experimental
+content_model: A permission request with rationale.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Explain the benefit before the native prompt; always offer a not-now.
+
+categorization:
+  category: Onboarding
+  subcategory: Permissions
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title/rationale are real text; allow/deny are real buttons; the icon is decorative.
+  keyboard_support: Allow and deny are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,68 @@
+name: "Welcome Modal"
+short_description: A first-run welcome dialog with highlights and get-started.
+long_visual_description: >
+  A centered modal over a scrim with a welcome title, description, a few feature highlights,
+  and get-started / explore-on-my-own actions.
+
+use_cases:
+  - First-run welcome.
+  - Onboarding intro modal.
+  - Product welcome.
+  - Getting-started dialog.
+  - New-user greeting.
+
+recommended_for:
+  - A first-run welcome dialog with highlights.
+avoid_for:
+  - A setup checklist (use onboarding-checklist).
+
+markets:
+  - Global
+
+example_usage: >
+  Greet the new user and highlight the first things to do; offer get-started and a skip.
+
+props:
+  brand: The brand name.
+  title: The welcome title.
+  description: The intro.
+  highlights: The feature highlights.
+  cta_label: The get-started text.
+  skip_label: The skip text.
+
+example_prompts:
+  - "Add a first-run welcome modal with highlights."
+  - "Add a getting-started dialog."
+
+lifecycle: experimental
+content_model: A welcome dialog with highlights.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Highlight the highest-value first actions; always offer a skip.
+
+categorization:
+  category: Onboarding
+  subcategory: Welcome
+  atomic_type: organism
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal with a label; highlights are real text; get-started/skip are real buttons. Trap focus in production.
+  keyboard_support: Actions are focusable; add focus trap and Escape-to-close in production.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,12 @@
+<div class="no-results flex flex-col items-center justify-center gap-3 p-(--space-section) text-center">
+  <span class="no-results__icon flex size-14 items-center justify-center rounded-full bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-7" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5L18 18"/></svg>
+  </span>
+  <div>
+    <p class="no-results__title font-heading text-lg text-on-surface">{{ title }}</p>
+    <p class="no-results__description mt-1 text-sm text-on-surface-muted">{{ description }}<span data-if="query"> No matches for <span class="font-medium text-on-surface">"{{ query }}"</span>.</span></p>
+  </div>
+  <div data-if="suggestions" class="no-results__suggestions mt-1 flex flex-wrap justify-center gap-2">
+    <button data-for="suggestion in suggestions" type="button" class="rounded-pill border border-border px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ suggestion.label }}</button>
+  </div>
+</div>

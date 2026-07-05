@@ -1,0 +1,19 @@
+name: no-results
+props:
+  query:
+    type: string
+    title: Query
+    example: "wireless headphonez"
+  title:
+    type: string
+    default: "No results found"
+    title: Title
+  description:
+    type: string
+    default: "Try different keywords or remove filters."
+    title: Description
+  suggestions:
+    type: array
+    items: object
+    title: Suggestions
+    description: "Each: { label }."

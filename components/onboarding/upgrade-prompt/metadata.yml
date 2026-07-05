@@ -1,0 +1,70 @@
+name: "Upgrade Prompt"
+short_description: A hit-a-limit upsell with usage bar and an upgrade CTA.
+long_visual_description: >
+  A gradient card with a star icon, a limit-reached title and explanation, a usage bar showing
+  used/limit, and an upgrade button.
+
+use_cases:
+  - Plan limit reached.
+  - Upgrade upsell.
+  - Quota-hit prompt.
+  - Feature gate upsell.
+  - Free-to-Pro nudge.
+
+recommended_for:
+  - A limit-reached upgrade prompt.
+avoid_for:
+  - A pricing table (use pricing-tiers).
+
+markets:
+  - Global
+
+example_usage: >
+  State the limit and value of upgrading; the usage bar shows they're at the cap.
+
+props:
+  title: The limit title.
+  description: The explanation.
+  used: The used amount.
+  limit: The limit.
+  pct: The usage percentage.
+  cta_label: The upgrade button text.
+
+example_prompts:
+  - "Add an upgrade prompt for hitting a project limit."
+  - "Add a quota-reached upsell."
+
+lifecycle: experimental
+content_model: A limit-reached upgrade prompt.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the limit and the upgrade value; the usage bar reinforces the cap.
+
+categorization:
+  category: Onboarding
+  subcategory: Upsell
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title/usage figures are real text; the bar has a role and label; upgrade is a real button.
+  keyboard_support: The upgrade button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

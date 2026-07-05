@@ -1,0 +1,11 @@
+<div class="permission-request flex gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="permission-request__icon flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xl" aria-hidden="true">{{ icon }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="permission-request__title font-heading text-on-surface">{{ title }}</p>
+    <p data-if="description" class="permission-request__description mt-0.5 text-sm text-on-surface-muted">{{ description }}</p>
+    <div class="permission-request__actions mt-3 flex gap-2">
+      <button type="button" class="rounded-button bg-primary px-4 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ allow_label }}</button>
+      <button type="button" class="rounded-button border border-border px-4 py-1.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ deny_label }}</button>
+    </div>
+  </div>
+</div>

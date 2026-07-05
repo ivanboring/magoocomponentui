@@ -1,0 +1,29 @@
+name: welcome-modal
+props:
+  brand:
+    type: string
+    title: Brand
+    example: "Acme"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Welcome to Acme 👋"
+  description:
+    type: string
+    title: Description
+    example: "Let's get you set up. Here's what you can do first."
+  highlights:
+    type: array
+    items: object
+    required: true
+    title: Highlights
+    description: "Each: { icon, label, detail }."
+  cta_label:
+    type: string
+    default: "Get started"
+    title: CTA label
+  skip_label:
+    type: string
+    default: "I'll explore on my own"
+    title: Skip label

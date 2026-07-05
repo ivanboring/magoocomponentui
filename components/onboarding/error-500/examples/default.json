@@ -1,0 +1,1 @@
+{ "code": "500", "title": "Something went wrong", "description": "We hit an unexpected error. Our team has been notified — please try again.", "incident_id": "INC-4821-9f2", "retry_label": "Try again" }

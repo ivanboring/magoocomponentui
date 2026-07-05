@@ -1,0 +1,24 @@
+name: success-state
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "All set!"
+  description:
+    type: string
+    title: Description
+    example: "Your account is ready. You can start creating right away."
+  summary:
+    type: array
+    items: object
+    title: Summary
+    description: "Each: { label, value }."
+  primary_label:
+    type: string
+    default: "Go to dashboard"
+    title: Primary label
+  secondary_label:
+    type: string
+    title: Secondary label
+    example: "View receipt"

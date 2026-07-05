@@ -1,0 +1,65 @@
+name: "Feature Tour Tooltip"
+short_description: A guided coachmark with step, message, and next/skip.
+long_visual_description: >
+  A primary-coloured coachmark with a directional arrow, a step indicator, a title and
+  description, and skip/next actions.
+
+use_cases:
+  - Product tour coachmark.
+  - Feature highlight tooltip.
+  - Guided onboarding step.
+  - Spotlight callout.
+  - Walkthrough bubble.
+
+recommended_for:
+  - A guided tour coachmark pointing at a feature.
+avoid_for:
+  - A hover tooltip (use tooltip).
+
+markets:
+  - Global
+
+example_usage: >
+  Point the arrow at the target; show the step, message, and next/skip. Position it near the
+  highlighted element in production.
+
+props:
+  step: The step indicator.
+  title: The coachmark title.
+  description: The description.
+  next_label: The next button text.
+  skip_label: The skip link text.
+  arrow: The arrow side.
+
+example_prompts:
+  - "Add a feature tour coachmark with next/skip."
+  - "Add a guided onboarding tooltip."
+
+lifecycle: experimental
+content_model: A guided tour coachmark.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep each step to one idea; show progress and let users skip.
+
+categorization:
+  category: Onboarding
+  subcategory: Tours
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" with a label; step/message are real text; next/skip are real controls. Verify primary/contrast per theme.
+  keyboard_support: Next and skip are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,4 @@
+<div class="progress-dots inline-flex items-center gap-2" role="group" aria-label="{{ label }}">
+  <span data-for="dot in dots" class="progress-dots__dot h-2 rounded-pill bg-surface-raised transition-all duration-(--duration-token) data-[active=true]:w-6 data-[active=true]:bg-primary data-[active=false]:w-2" data-active="{{ dot.active }}" aria-hidden="true"></span>
+  <span data-if="label" class="sr-only">{{ label }}</span>
+</div>

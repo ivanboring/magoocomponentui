@@ -1,0 +1,11 @@
+name: loading-skeleton-card
+props:
+  media:
+    type: boolean
+    default: true
+    title: Show media block
+  lines:
+    type: integer
+    default: 3
+    title: Text lines
+    description: Safelisted 1-4.

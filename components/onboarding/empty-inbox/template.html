@@ -1,0 +1,10 @@
+<div class="empty-inbox flex flex-col items-center justify-center gap-3 p-(--space-section) text-center">
+  <span class="empty-inbox__icon flex size-16 items-center justify-center rounded-full bg-success/10 text-success" aria-hidden="true">
+    <svg class="size-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7 5 7-5M3 6h14v9H3z"/><path d="M6 12l2 2 4-4" stroke-width="1.8"/></svg>
+  </span>
+  <div>
+    <p class="empty-inbox__title font-heading text-lg text-on-surface">{{ title }}</p>
+    <p class="empty-inbox__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  </div>
+  <button data-if="cta_label" type="button" class="empty-inbox__cta mt-1 rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</div>

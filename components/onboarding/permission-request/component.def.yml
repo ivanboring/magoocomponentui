@@ -1,0 +1,23 @@
+name: permission-request
+props:
+  icon:
+    type: string
+    default: "🔔"
+    title: Icon
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Enable notifications"
+  description:
+    type: string
+    title: Description
+    example: "Get notified about replies, mentions, and important updates."
+  allow_label:
+    type: string
+    default: "Allow"
+    title: Allow label
+  deny_label:
+    type: string
+    default: "Not now"
+    title: Deny label

@@ -1,0 +1,14 @@
+name: offline-banner
+props:
+  message:
+    type: string
+    default: "You're offline"
+    title: Message
+  detail:
+    type: string
+    default: "Changes will sync when you reconnect."
+    title: Detail
+  retry_label:
+    type: string
+    default: "Retry"
+    title: Retry label

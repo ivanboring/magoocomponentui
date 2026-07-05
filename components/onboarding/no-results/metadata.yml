@@ -1,0 +1,63 @@
+name: "No Results"
+short_description: A search empty state with the query, guidance, and suggestions.
+long_visual_description: >
+  A centered empty state with a magnifier icon, a no-results title, guidance mentioning the
+  query, and suggested alternative searches.
+
+use_cases:
+  - Search empty state.
+  - No matches found.
+  - Zero results.
+  - Filter too narrow.
+  - Empty search result.
+
+recommended_for:
+  - A search zero-results state with suggestions.
+avoid_for:
+  - An empty inbox (use empty-inbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Echo the query and offer corrected/alternative searches.
+
+props:
+  query: The search query.
+  title: The empty title.
+  description: The guidance.
+  suggestions: Suggested searches.
+
+example_prompts:
+  - "Add a no-results search empty state with suggestions."
+  - "Add a zero-results view."
+
+lifecycle: experimental
+content_model: A search empty state with suggestions.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-pill
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Echo the query and offer a way forward (corrections, remove filters).
+
+categorization:
+  category: Onboarding
+  subcategory: States
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title/guidance are real text; the icon is decorative; suggestions are real buttons.
+  keyboard_support: Suggestions are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

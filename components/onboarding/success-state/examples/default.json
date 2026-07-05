@@ -1,0 +1,11 @@
+{
+  "title": "Payment successful",
+  "description": "Thanks! Your Pro subscription is now active.",
+  "summary": [
+    { "label": "Plan", "value": "Pro · Annual" },
+    { "label": "Amount", "value": "$180.00" },
+    { "label": "Next billing", "value": "Aug 12, 2027" }
+  ],
+  "primary_label": "Go to dashboard",
+  "secondary_label": "View receipt"
+}

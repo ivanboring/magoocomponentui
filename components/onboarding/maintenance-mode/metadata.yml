@@ -1,0 +1,63 @@
+name: "Maintenance Mode"
+short_description: A down-for-maintenance page with an ETA and status link.
+long_visual_description: >
+  A centered maintenance block with a wrench icon, a friendly title and explanation, an ETA
+  pill, and a status-page link.
+
+use_cases:
+  - Scheduled maintenance page.
+  - Down-for-maintenance.
+  - Service window notice.
+  - Planned downtime.
+  - Under-maintenance state.
+
+recommended_for:
+  - A down-for-maintenance page with ETA.
+avoid_for:
+  - A server error (use error-500).
+
+markets:
+  - Global
+
+example_usage: >
+  Give a friendly message, an ETA, and a link to the status page.
+
+props:
+  title: The title.
+  description: The explanation.
+  eta: The estimated return.
+  status_label: The status link text.
+
+example_prompts:
+  - "Add a down-for-maintenance page with an ETA."
+  - "Add a scheduled-maintenance notice."
+
+lifecycle: experimental
+content_model: A maintenance page with ETA.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-primary
+    - --radius-pill
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Give an ETA and a status link so users know when to return.
+
+categorization:
+  category: Onboarding
+  subcategory: States
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the ETA and status link are real text/controls; the icon is decorative.
+  keyboard_support: The status link is focusable and activates on Enter.
+  seo_score: 20
+  text_direction: both

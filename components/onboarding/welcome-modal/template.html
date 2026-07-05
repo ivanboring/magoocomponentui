@@ -1,0 +1,16 @@
+<div class="welcome-modal fixed inset-0 z-40 flex items-center justify-center bg-black/50 p-4" role="dialog" aria-modal="true" aria-label="{{ title }}">
+  <div class="welcome-modal__panel w-full max-w-md rounded-card bg-surface p-(--space-section) shadow-raised">
+    <div class="welcome-modal__header text-center">
+      <h2 class="welcome-modal__title font-heading text-2xl text-on-surface">{{ title }}</h2>
+      <p data-if="description" class="welcome-modal__description mt-2 text-on-surface-muted">{{ description }}</p>
+    </div>
+    <ul class="welcome-modal__highlights mt-6 flex flex-col gap-4">
+      <li data-for="highlight in highlights" class="welcome-modal__highlight flex items-start gap-3">
+        <span class="flex size-10 shrink-0 items-center justify-center rounded-card bg-primary/10 text-lg" aria-hidden="true">{{ highlight.icon }}</span>
+        <div><p class="font-medium text-on-surface">{{ highlight.label }}</p><p data-if="highlight.detail" class="text-sm text-on-surface-muted">{{ highlight.detail }}</p></div>
+      </li>
+    </ul>
+    <button type="button" class="welcome-modal__cta mt-6 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+    <button type="button" class="welcome-modal__skip mt-3 w-full text-center text-sm font-medium text-on-surface-muted hover:text-on-surface">{{ skip_label }}</button>
+  </div>
+</div>

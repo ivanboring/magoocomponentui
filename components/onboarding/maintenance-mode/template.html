@@ -1,0 +1,11 @@
+<section class="maintenance-mode flex flex-col items-center justify-center gap-4 p-(--space-section) text-center">
+  <span class="maintenance-mode__icon flex size-16 items-center justify-center rounded-full bg-warning/10 text-warning" aria-hidden="true">
+    <svg class="size-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2 2-3 3 3 3-2 2-3-3-3 3-2-2 3-3-3-3 2-2 3 3z"/><path d="M4 16h12"/></svg>
+  </span>
+  <div>
+    <h1 class="maintenance-mode__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+    <p class="maintenance-mode__description mx-auto mt-2 max-w-md text-on-surface-muted">{{ description }}</p>
+  </div>
+  <p data-if="eta" class="maintenance-mode__eta rounded-pill bg-surface-raised px-3 py-1 text-sm font-medium text-on-surface">{{ eta }}</p>
+  <a data-if="status_label" class="maintenance-mode__status text-sm font-medium text-primary hover:underline" href="#">{{ status_label }}</a>
+</section>

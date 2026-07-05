@@ -1,0 +1,69 @@
+name: "Success State"
+short_description: A completed-confirmation with a check, summary, and next actions.
+long_visual_description: >
+  A centered card with a success check badge, a title and description, an optional summary
+  list, and primary/secondary next actions.
+
+use_cases:
+  - Completion confirmation.
+  - Payment success.
+  - Task-done state.
+  - Setup complete.
+  - Order confirmed.
+
+recommended_for:
+  - A success/confirmation state with a summary.
+avoid_for:
+  - An event ticket confirmation (use order-confirmation-ticket).
+
+markets:
+  - Global
+
+example_usage: >
+  Confirm success with a check; show a summary and the next actions.
+
+props:
+  title: The success title.
+  description: The message.
+  summary: The summary rows.
+  primary_label: The primary action.
+  secondary_label: The secondary action.
+
+example_prompts:
+  - "Add a payment-success confirmation state."
+  - "Add a setup-complete success screen."
+
+lifecycle: experimental
+content_model: A success confirmation with summary.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Confirm what happened and give a clear next step; the summary recaps details.
+
+categorization:
+  category: Onboarding
+  subcategory: States
+  atomic_type: organism
+  usage_type: [highlight, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The success check is decorative with a real title; the summary uses a definition list; actions are real buttons.
+  keyboard_support: The actions are focusable and activate on Enter/Space.
+  seo_score: 25
+  text_direction: both

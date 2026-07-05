@@ -1,0 +1,12 @@
+{
+  "brand": "Acme",
+  "title": "Welcome to Acme 👋",
+  "description": "Let's get you set up. Here's what you can do first.",
+  "highlights": [
+    { "icon": "📁", "label": "Create your first project", "detail": "Organize your work into projects." },
+    { "icon": "👥", "label": "Invite your team", "detail": "Collaborate in real time." },
+    { "icon": "⚡", "label": "Connect your tools", "detail": "Sync with the apps you already use." }
+  ],
+  "cta_label": "Get started",
+  "skip_label": "I'll explore on my own"
+}

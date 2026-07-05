@@ -1,0 +1,22 @@
+name: onboarding-checklist
+props:
+  title:
+    type: string
+    default: "Get started"
+    title: Title
+  progress_label:
+    type: string
+    title: Progress label
+    example: "2 of 5 complete"
+  pct:
+    type: integer
+    default: 0
+    title: Percent
+  tasks:
+    type: array
+    items: object
+    required: true
+    title: Tasks
+    description: "Each: { label, detail, done, cta }."
+    example:
+      - { label: "Create your profile", detail: "Add a name and photo.", done: true, cta: "" }

@@ -1,0 +1,12 @@
+{
+  "title": "Get started",
+  "progress_label": "2 of 5 complete",
+  "pct": 40,
+  "tasks": [
+    { "label": "Create your profile", "detail": "Add a name and photo.", "done": true, "cta": "" },
+    { "label": "Create your first project", "detail": "Organize your work.", "done": true, "cta": "" },
+    { "label": "Invite a teammate", "detail": "Collaborate together.", "done": false, "cta": "Invite" },
+    { "label": "Connect an integration", "detail": "Sync your tools.", "done": false, "cta": "Connect" },
+    { "label": "Install the mobile app", "detail": "Take it on the go.", "done": false, "cta": "Get app" }
+  ]
+}

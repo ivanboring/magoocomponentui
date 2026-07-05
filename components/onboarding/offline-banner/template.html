@@ -1,0 +1,8 @@
+<div class="offline-banner flex items-center gap-3 rounded-card bg-on-surface px-(--space-card) py-2.5 text-surface" role="status">
+  <svg class="size-5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6a12 12 0 0116 0M5 9.5a8 8 0 0110 0M8 13a4 4 0 014 0M10 16h.01M3 3l14 14"/></svg>
+  <div class="min-w-0 flex-1">
+    <p class="offline-banner__message text-sm font-medium">{{ message }}</p>
+    <p data-if="detail" class="offline-banner__detail text-xs text-surface/70">{{ detail }}</p>
+  </div>
+  <button type="button" class="offline-banner__retry shrink-0 rounded-button border border-surface/30 px-3 py-1.5 text-xs font-heading text-surface transition-colors duration-(--duration-token) hover:bg-surface/10">{{ retry_label }}</button>
+</div>

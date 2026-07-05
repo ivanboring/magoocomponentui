@@ -1,0 +1,9 @@
+<div class="feature-tour-tooltip relative max-w-xs rounded-card bg-primary p-4 text-primary-contrast shadow-raised before:absolute before:size-3 before:rotate-45 before:bg-primary {{ arrow@class }}" role="dialog" aria-label="{{ title }}">
+  <p data-if="step" class="feature-tour-tooltip__step text-xs font-semibold uppercase tracking-wide text-primary-contrast/70">{{ step }}</p>
+  <p class="feature-tour-tooltip__title mt-0.5 font-heading">{{ title }}</p>
+  <p data-if="description" class="feature-tour-tooltip__description mt-1 text-sm text-primary-contrast/90">{{ description }}</p>
+  <div class="feature-tour-tooltip__actions mt-3 flex items-center justify-between">
+    <button type="button" class="feature-tour-tooltip__skip text-xs font-medium text-primary-contrast/80 hover:text-primary-contrast">{{ skip_label }}</button>
+    <button type="button" class="feature-tour-tooltip__next rounded-button bg-primary-contrast px-3 py-1.5 text-xs font-heading text-primary transition-opacity duration-(--duration-token) hover:opacity-90">{{ next_label }}</button>
+  </div>
+</div>

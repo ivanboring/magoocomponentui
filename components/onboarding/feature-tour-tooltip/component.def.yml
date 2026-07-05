@@ -1,0 +1,34 @@
+name: feature-tour-tooltip
+props:
+  step:
+    type: string
+    title: Step
+    example: "2 of 4"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Quick actions live here"
+  description:
+    type: string
+    title: Description
+    example: "Use the toolbar to create, filter, and export without leaving the page."
+  next_label:
+    type: string
+    default: "Next"
+    title: Next label
+  skip_label:
+    type: string
+    default: "Skip tour"
+    title: Skip label
+  arrow:
+    type: enum
+    values: [top, bottom, left, right]
+    default: top
+    title: Arrow side
+variants:
+  arrow:
+    top: "before:-top-1.5 before:left-6"
+    bottom: "before:-bottom-1.5 before:left-6"
+    left: "before:-left-1.5 before:top-6"
+    right: "before:-right-1.5 before:top-6"

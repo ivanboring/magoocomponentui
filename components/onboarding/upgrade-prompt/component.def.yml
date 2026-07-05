@@ -1,0 +1,27 @@
+name: upgrade-prompt
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "You've hit your project limit"
+  description:
+    type: string
+    title: Description
+    example: "The Free plan includes 3 projects. Upgrade to Pro for unlimited."
+  used:
+    type: string
+    title: Used
+    example: "3"
+  limit:
+    type: string
+    title: Limit
+    example: "3"
+  pct:
+    type: integer
+    default: 100
+    title: Usage percent
+  cta_label:
+    type: string
+    default: "Upgrade to Pro"
+    title: CTA label

@@ -1,0 +1,22 @@
+name: error-500
+props:
+  code:
+    type: string
+    default: "500"
+    title: Code
+  title:
+    type: string
+    default: "Something went wrong"
+    title: Title
+  description:
+    type: string
+    default: "We hit an unexpected error. Our team has been notified — please try again."
+    title: Description
+  incident_id:
+    type: string
+    title: Incident ID
+    example: "INC-4821-9f2"
+  retry_label:
+    type: string
+    default: "Try again"
+    title: Retry label

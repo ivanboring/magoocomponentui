@@ -1,0 +1,60 @@
+name: "Loading Skeleton Card"
+short_description: A placeholder card with a shimmering media block and text lines.
+long_visual_description: >
+  A card skeleton with a pulsing media block, an avatar and title line, and several text
+  lines — a loading placeholder.
+
+use_cases:
+  - Loading placeholder.
+  - Skeleton card.
+  - Content shimmer.
+  - Pre-load state.
+  - Async loading.
+
+recommended_for:
+  - A card-shaped loading skeleton.
+avoid_for:
+  - A spinner (use a spinner).
+
+markets:
+  - Global
+
+example_usage: >
+  Show while a card's content loads; the pulse animation indicates activity.
+
+props:
+  media: Whether to show the media block.
+  lines: The number of text lines (safelisted 1-4).
+
+example_prompts:
+  - "Add a loading skeleton card."
+  - "Add a content shimmer placeholder."
+
+lifecycle: experimental
+content_model: A card-shaped loading skeleton.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Match the skeleton to the real card's shape; announce loading for assistive tech.
+
+categorization:
+  category: Onboarding
+  subcategory: States
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" with a visually-hidden "Loading…" text so the state is announced; the shimmer is decorative.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

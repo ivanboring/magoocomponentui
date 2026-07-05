@@ -1,0 +1,16 @@
+<section class="upgrade-prompt rounded-card border border-primary/30 bg-gradient-to-br from-primary/10 to-surface p-(--space-card) shadow-card">
+  <div class="flex items-start gap-3">
+    <span class="upgrade-prompt__icon flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-contrast" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l2.5 5 5.5.5-4 4 1 5.5L10 14.5 5 17l1-5.5-4-4 5.5-.5z"/></svg>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="upgrade-prompt__title font-heading text-on-surface">{{ title }}</p>
+      <p data-if="description" class="upgrade-prompt__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+    </div>
+  </div>
+  <div data-if="limit" class="upgrade-prompt__usage mt-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted"><span>Usage</span><span class="tabular-nums">{{ used }} / {{ limit }}</span></div>
+    <div class="mt-1 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Usage"><div class="h-full rounded-pill bg-primary" style="width: {{ pct }}%"></div></div>
+  </div>
+  <button type="button" class="upgrade-prompt__cta mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</section>

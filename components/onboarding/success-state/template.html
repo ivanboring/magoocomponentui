@@ -1,0 +1,17 @@
+<section class="success-state mx-auto max-w-md rounded-card border border-border bg-surface p-(--space-section) text-center shadow-card">
+  <span class="success-state__badge mx-auto flex size-16 items-center justify-center rounded-full bg-success/15 text-success" aria-hidden="true">
+    <svg class="size-9" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-8"/></svg>
+  </span>
+  <h2 class="success-state__title mt-4 font-heading text-2xl text-on-surface">{{ title }}</h2>
+  <p data-if="description" class="success-state__description mt-2 text-on-surface-muted">{{ description }}</p>
+  <dl data-if="summary" class="success-state__summary mt-5 flex flex-col divide-y divide-border rounded-card border border-border text-left text-sm">
+    <div data-for="row in summary" class="flex items-center justify-between px-4 py-2.5">
+      <dt class="text-on-surface-muted">{{ row.label }}</dt>
+      <dd class="font-medium text-on-surface">{{ row.value }}</dd>
+    </div>
+  </dl>
+  <div class="success-state__actions mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center">
+    <button type="button" class="rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ primary_label }}</button>
+    <button data-if="secondary_label" type="button" class="rounded-button border border-border px-5 py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ secondary_label }}</button>
+  </div>
+</section>

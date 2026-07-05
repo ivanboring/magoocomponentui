@@ -1,0 +1,61 @@
+name: "Offline Banner"
+short_description: A no-connection notice with a retry action.
+long_visual_description: >
+  A dark banner with an offline icon, a "You're offline" message, a sync-when-reconnected
+  detail, and a retry button.
+
+use_cases:
+  - Offline notice.
+  - No-connection banner.
+  - Network error strip.
+  - Sync-pending notice.
+  - Connectivity alert.
+
+recommended_for:
+  - A no-connection notice with retry.
+avoid_for:
+  - A maintenance page (use maintenance-mode).
+
+markets:
+  - Global
+
+example_usage: >
+  Reassure that changes will sync; offer a retry.
+
+props:
+  message: The status message.
+  detail: The reassurance detail.
+  retry_label: The retry button text.
+
+example_prompts:
+  - "Add an offline banner with retry."
+  - "Add a no-connection notice."
+
+lifecycle: experimental
+content_model: An offline notice with retry.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-surface
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Reassure users their work is safe; make retry available.
+
+categorization:
+  category: Onboarding
+  subcategory: States
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status"; message and detail are real text; retry is a real button; the icon is decorative.
+  keyboard_support: The retry button is focusable and activates on Enter/Space.
+  seo_score: 15
+  text_direction: both

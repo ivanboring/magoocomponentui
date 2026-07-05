@@ -1,0 +1,12 @@
+<section class="error-404 flex flex-col items-center justify-center gap-4 p-(--space-section) text-center">
+  <p class="error-404__code font-heading text-7xl font-bold text-primary/30 sm:text-8xl">{{ code }}</p>
+  <div>
+    <h1 class="error-404__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+    <p class="error-404__description mx-auto mt-2 max-w-md text-on-surface-muted">{{ description }}</p>
+  </div>
+  <form data-if="search" class="error-404__search mt-2 flex w-full max-w-sm items-center gap-2 rounded-pill border border-border bg-surface px-4 py-2.5">
+    <svg class="size-5 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+    <input type="search" class="w-full bg-transparent text-sm text-on-surface outline-none placeholder:text-on-surface-muted" placeholder="Search the site" aria-label="Search">
+  </form>
+  <a class="error-404__home mt-2 inline-flex items-center rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="#">{{ home_label }}</a>
+</section>

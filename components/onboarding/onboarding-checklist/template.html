@@ -1,0 +1,21 @@
+<section class="onboarding-checklist rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="onboarding-checklist__head flex items-baseline justify-between gap-2">
+    <h3 class="font-heading text-lg text-on-surface">{{ title }}</h3>
+    <span data-if="progress_label" class="text-xs text-on-surface-muted">{{ progress_label }}</span>
+  </div>
+  <div class="onboarding-checklist__bar mt-2 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Setup progress">
+    <div class="h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+  </div>
+  <ul class="onboarding-checklist__tasks mt-4 flex flex-col divide-y divide-border">
+    <li data-for="task in tasks" class="onboarding-checklist__task flex items-center gap-3 py-3 first:pt-0 last:pb-0" data-done="{{ task.done }}">
+      <span class="onboarding-checklist__check flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-on-surface-muted data-[done=true]:border-success data-[done=true]:bg-success data-[done=true]:text-success-contrast" data-done="{{ task.done }}" aria-hidden="true">
+        <svg class="hidden size-3.5 data-[done=true]:block" data-done="{{ task.done }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 10l4 4 8-8"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-medium text-on-surface data-[done=true]:text-on-surface-muted data-[done=true]:line-through" data-done="{{ task.done }}">{{ task.label }}</p>
+        <p data-if="task.detail" class="text-xs text-on-surface-muted">{{ task.detail }}</p>
+      </div>
+      <button data-if="task.cta" type="button" class="shrink-0 rounded-button border border-border px-3 py-1.5 text-xs font-heading text-primary transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ task.cta }}</button>
+    </li>
+  </ul>
+</section>

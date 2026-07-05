@@ -1,0 +1,14 @@
+name: empty-inbox
+props:
+  title:
+    type: string
+    default: "You're all caught up"
+    title: Title
+  description:
+    type: string
+    default: "No new messages. Enjoy the quiet."
+    title: Description
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Compose message"

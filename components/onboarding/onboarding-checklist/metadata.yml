@@ -1,0 +1,70 @@
+name: "Onboarding Checklist"
+short_description: A setup task list with progress and per-task actions.
+long_visual_description: >
+  A card with a title, progress bar and count, and a list of setup tasks each with a
+  check/incomplete marker, detail, and an action for incomplete ones.
+
+use_cases:
+  - Setup checklist.
+  - Getting-started tasks.
+  - Onboarding progress.
+  - Activation checklist.
+  - Setup guide.
+
+recommended_for:
+  - A setup task checklist with progress.
+avoid_for:
+  - A welcome modal (use welcome-modal).
+
+markets:
+  - Global
+
+example_usage: >
+  Show completed and pending setup tasks with a progress bar; pending tasks have an action.
+
+props:
+  title: The checklist title.
+  progress_label: The progress count.
+  pct: The completion percentage.
+  tasks: The setup tasks.
+
+example_prompts:
+  - "Add an onboarding checklist with progress."
+  - "Add a getting-started task list."
+
+lifecycle: experimental
+content_model: A setup task checklist with progress.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-success-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Order tasks by value; show progress to motivate completion.
+
+categorization:
+  category: Onboarding
+  subcategory: Setup
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar has a role and label; done state is shown by a check and strikethrough (not colour alone); actions are real buttons.
+  keyboard_support: Task actions are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

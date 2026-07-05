@@ -1,0 +1,14 @@
+<section class="error-500 flex flex-col items-center justify-center gap-4 p-(--space-section) text-center">
+  <span class="error-500__icon flex size-16 items-center justify-center rounded-full bg-danger/10 text-danger" aria-hidden="true">
+    <svg class="size-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2l8 15H2z"/><path d="M10 8v4M10 15h.01" stroke-width="1.8"/></svg>
+  </span>
+  <div>
+    <h1 class="error-500__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+    <p class="error-500__description mx-auto mt-2 max-w-md text-on-surface-muted">{{ description }}</p>
+  </div>
+  <div class="error-500__actions mt-2 flex gap-2">
+    <button type="button" class="rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ retry_label }}</button>
+    <a class="rounded-button border border-border px-5 py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" href="#">Go home</a>
+  </div>
+  <p data-if="incident_id" class="error-500__incident mt-2 font-mono text-xs text-on-surface-muted">Error {{ code }} · {{ incident_id }}</p>
+</section>

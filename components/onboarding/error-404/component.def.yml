@@ -1,0 +1,22 @@
+name: error-404
+props:
+  code:
+    type: string
+    default: "404"
+    title: Code
+  title:
+    type: string
+    default: "Page not found"
+    title: Title
+  description:
+    type: string
+    default: "The page you're looking for doesn't exist or has moved."
+    title: Description
+  home_label:
+    type: string
+    default: "Back to home"
+    title: Home label
+  search:
+    type: boolean
+    default: true
+    title: Show search

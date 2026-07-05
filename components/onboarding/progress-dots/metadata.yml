@@ -1,0 +1,56 @@
+name: "Progress Dots"
+short_description: Step/carousel dots with an elongated active dot.
+long_visual_description: >
+  A row of small dots where the active step is an elongated pill in the primary colour.
+
+use_cases:
+  - Carousel position dots.
+  - Onboarding step dots.
+  - Slide indicators.
+  - Wizard progress.
+  - Pagination dots.
+
+recommended_for:
+  - Step/slide position indicators.
+avoid_for:
+  - A labeled stepper (use a stepper).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark the active dot; provide a label for screen readers.
+
+props:
+  dots: The dots with active state.
+  label: The accessible step label.
+
+example_prompts:
+  - "Add carousel progress dots."
+  - "Add onboarding step indicators."
+
+lifecycle: experimental
+content_model: Step position dots.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Provide a text label for accessibility since the dots are decorative.
+
+categorization:
+  category: Onboarding
+  subcategory: Navigation
+  atomic_type: atom
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The dots are decorative; a visually-hidden label conveys the step position.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both
