@@ -1,0 +1,12 @@
+<div class="group-stage-grid grid grid-cols-1 gap-(--space-card) sm:grid-cols-2 lg:grid-cols-4">
+  <section data-for="group in groups" class="group-stage-grid__group overflow-hidden rounded-card border border-border bg-surface shadow-card">
+    <h3 class="group-stage-grid__name border-b border-border px-3 py-2 text-sm font-heading text-on-surface">{{ group.name }}</h3>
+    <ol class="group-stage-grid__teams divide-y divide-border">
+      <li data-for="team in group.teams" class="flex items-center gap-2 px-3 py-2 text-sm data-[qualified=true]:bg-success/10" data-qualified="{{ team.qualified }}">
+        <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-surface-raised text-[10px] text-on-surface">{{ team.code }}</span>
+        <span class="min-w-0 flex-1 truncate text-on-surface">{{ team.name }}</span>
+        <span class="font-heading text-on-surface tabular-nums">{{ team.pts }}</span>
+      </li>
+    </ol>
+  </section>
+</div>

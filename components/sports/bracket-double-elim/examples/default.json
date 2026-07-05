@@ -1,0 +1,27 @@
+{
+  "brackets": [
+    {
+      "label": "Winners bracket",
+      "rounds": [
+        { "name": "Semi-final", "matches": [
+          { "home": "Falcons", "home_code": "FLC", "home_score": "2", "home_winner": true, "away": "Titans", "away_code": "TTN", "away_score": "1", "away_winner": false },
+          { "home": "Wolves", "home_code": "WLV", "home_score": "0", "home_winner": false, "away": "Dragons", "away_code": "DRG", "away_score": "2", "away_winner": true }
+        ]},
+        { "name": "Final", "matches": [
+          { "home": "Falcons", "home_code": "FLC", "home_score": "3", "home_winner": true, "away": "Dragons", "away_code": "DRG", "away_score": "1", "away_winner": false }
+        ]}
+      ]
+    },
+    {
+      "label": "Losers bracket",
+      "rounds": [
+        { "name": "Round 1", "matches": [
+          { "home": "Titans", "home_code": "TTN", "home_score": "2", "home_winner": true, "away": "Wolves", "away_code": "WLV", "away_score": "0", "away_winner": false }
+        ]},
+        { "name": "Final", "matches": [
+          { "home": "Titans", "home_code": "TTN", "home_score": "1", "home_winner": false, "away": "Dragons", "away_code": "DRG", "away_score": "2", "away_winner": true }
+        ]}
+      ]
+    }
+  ]
+}

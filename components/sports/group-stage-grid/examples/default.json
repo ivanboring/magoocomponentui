@@ -1,0 +1,28 @@
+{
+  "groups": [
+    { "name": "Group A", "teams": [
+      { "code": "NED", "name": "Netherlands", "pts": 7, "qualified": true },
+      { "code": "SEN", "name": "Senegal", "pts": 6, "qualified": true },
+      { "code": "ECU", "name": "Ecuador", "pts": 4, "qualified": false },
+      { "code": "QAT", "name": "Qatar", "pts": 0, "qualified": false }
+    ]},
+    { "name": "Group B", "teams": [
+      { "code": "ENG", "name": "England", "pts": 7, "qualified": true },
+      { "code": "USA", "name": "USA", "pts": 5, "qualified": true },
+      { "code": "IRN", "name": "Iran", "pts": 3, "qualified": false },
+      { "code": "WAL", "name": "Wales", "pts": 1, "qualified": false }
+    ]},
+    { "name": "Group C", "teams": [
+      { "code": "ARG", "name": "Argentina", "pts": 6, "qualified": true },
+      { "code": "POL", "name": "Poland", "pts": 4, "qualified": true },
+      { "code": "MEX", "name": "Mexico", "pts": 4, "qualified": false },
+      { "code": "KSA", "name": "Saudi Arabia", "pts": 3, "qualified": false }
+    ]},
+    { "name": "Group D", "teams": [
+      { "code": "FRA", "name": "France", "pts": 6, "qualified": true },
+      { "code": "AUS", "name": "Australia", "pts": 6, "qualified": true },
+      { "code": "TUN", "name": "Tunisia", "pts": 4, "qualified": false },
+      { "code": "DEN", "name": "Denmark", "pts": 1, "qualified": false }
+    ]}
+  ]
+}

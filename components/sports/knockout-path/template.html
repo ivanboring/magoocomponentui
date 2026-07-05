@@ -1,0 +1,16 @@
+<section class="knockout-path rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ team }} knockout path">
+  <h3 class="knockout-path__title mb-3 font-heading text-on-surface">{{ team }} · Road to the final</h3>
+  <ol class="knockout-path__steps relative flex flex-col gap-3 before:absolute before:inset-y-2 before:left-[7px] before:w-px before:bg-border">
+    <li data-for="step in steps" class="knockout-path__step flex items-start gap-3">
+      <span class="knockout-path__dot relative z-10 mt-1 size-3.5 shrink-0 rounded-full ring-2 ring-surface data-[won=true]:bg-success data-[won=false]:bg-danger" data-won="{{ step.won }}" aria-hidden="true"></span>
+      <div class="min-w-0 flex-1">
+        <p class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ step.round }}</p>
+        <p class="mt-0.5 flex items-center gap-2 text-sm text-on-surface">
+          <span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ step.opponent_code }}</span>
+          <span class="font-medium">{{ step.opponent }}</span>
+          <span class="ml-auto font-heading tabular-nums">{{ step.result }}</span>
+        </p>
+      </div>
+    </li>
+  </ol>
+</section>

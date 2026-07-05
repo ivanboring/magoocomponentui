@@ -1,0 +1,22 @@
+<div class="bracket-double-elim flex flex-col gap-6">
+  <section data-for="bracket in brackets" class="bracket-double-elim__bracket">
+    <h3 class="bracket-double-elim__label mb-3 text-sm font-semibold uppercase tracking-wide text-on-surface-muted">{{ bracket.label }}</h3>
+    <div class="overflow-x-auto">
+      <div class="flex gap-6">
+        <div data-for="round in bracket.rounds" class="bracket-double-elim__round flex min-w-52 flex-col justify-around gap-4">
+          <h4 class="text-center text-xs font-medium text-on-surface-muted">{{ round.name }}</h4>
+          <div data-for="match in round.matches" class="bracket-double-elim__match overflow-hidden rounded-card border border-border bg-surface shadow-card">
+            <div class="flex items-center justify-between gap-2 border-b border-border px-3 py-2 data-[winner=true]:bg-success/10" data-winner="{{ match.home_winner }}">
+              <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.home_winner }}"><span class="flex size-5 items-center justify-center rounded-full bg-surface-raised text-[9px]">{{ match.home_code }}</span>{{ match.home }}</span>
+              <span class="font-heading text-sm text-on-surface tabular-nums">{{ match.home_score }}</span>
+            </div>
+            <div class="flex items-center justify-between gap-2 px-3 py-2 data-[winner=true]:bg-success/10" data-winner="{{ match.away_winner }}">
+              <span class="flex items-center gap-2 text-sm text-on-surface data-[winner=true]:font-semibold" data-winner="{{ match.away_winner }}"><span class="flex size-5 items-center justify-center rounded-full bg-surface-raised text-[9px]">{{ match.away_code }}</span>{{ match.away }}</span>
+              <span class="font-heading text-sm text-on-surface tabular-nums">{{ match.away_score }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

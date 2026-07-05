@@ -1,0 +1,17 @@
+name: knockout-path
+props:
+  team:
+    type: string
+    required: true
+    title: Team
+    example: "Argentina"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: >
+      Each step: { round, opponent, opponent_code, result, won } — the team's route through
+      the knockout stage.
+    example:
+      - { round: "Round of 16", opponent: "Australia", opponent_code: "AUS", result: "2–1", won: true }

@@ -1,0 +1,67 @@
+name: "Lineup Formation"
+short_description: A pitch with players positioned by formation lines from goalkeeper to forwards.
+long_visual_description: >
+  A green pitch panel with the team and formation labels above; players are arranged in
+  horizontal lines from the goalkeeper at the back to the forwards at the front, each a
+  numbered disc with a name label.
+
+use_cases:
+  - Starting XI in a match preview.
+  - Formation visualization for a team.
+  - Tactical lineup on a match page.
+  - Squad selection display.
+  - Lineup comparison between teams.
+
+recommended_for:
+  - Showing a starting lineup arranged by formation.
+avoid_for:
+  - A flat squad list (use a list of player rows).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rows from goalkeeper to forwards (they render back-to-front); each row's players
+  spread across the pitch width. Set the formation label to match the rows.
+
+props:
+  formation: The formation string (e.g. 4-3-3).
+  team: The team name.
+  rows: The lines of players from GK to forwards.
+
+example_prompts:
+  - "Add a 4-3-3 lineup formation on a pitch."
+  - "Add a starting XI arranged by formation."
+
+lifecycle: experimental
+content_model: A team formation with players positioned in lines on a pitch.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order rows GK-first; keep names to surnames so labels fit; match the formation label to
+  the row structure.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: organism
+  usage_type: [media, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Player numbers and names are real text; the pitch styling is decorative. A production build could add per-position labels.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

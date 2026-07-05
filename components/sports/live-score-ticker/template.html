@@ -1,0 +1,12 @@
+<div class="live-score-ticker flex items-stretch gap-2 overflow-x-auto rounded-card border border-border bg-surface p-2 shadow-card" role="marquee" aria-label="Live scores">
+  <div data-for="item in items" class="live-score-ticker__item flex shrink-0 items-center gap-2 rounded-control bg-surface-raised px-3 py-1.5">
+    <span class="flex flex-col text-xs font-medium text-on-surface">
+      <span class="flex items-center justify-between gap-2"><span>{{ item.home_code }}</span><span class="font-heading tabular-nums">{{ item.home_score }}</span></span>
+      <span class="flex items-center justify-between gap-2"><span>{{ item.away_code }}</span><span class="font-heading tabular-nums">{{ item.away_score }}</span></span>
+    </span>
+    <span class="live-score-ticker__minute flex items-center gap-1 border-l border-border pl-2 text-[10px] font-semibold text-danger data-[live=false]:text-on-surface-muted" data-live="{{ item.live }}">
+      <span data-if="item.live" class="size-1.5 animate-pulse rounded-full bg-danger" aria-hidden="true"></span>
+      {{ item.minute }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+name: live-score-ticker
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Matches
+    description: "Each item: { home_code, home_score, away_code, away_score, minute, live }."
+    example:
+      - { home_code: "BRA", home_score: "2", away_code: "ESP", away_score: "1", minute: "67'", live: true }

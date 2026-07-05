@@ -1,0 +1,65 @@
+name: "Knockout Path"
+short_description: A team's route through the knockout stage as a vertical timeline of ties.
+long_visual_description: >
+  A vertical timeline of a team's knockout ties, each with a win/loss dot, the round, the
+  opponent (code + name), and the result.
+
+use_cases:
+  - A team's road to the final.
+  - Knockout run summary.
+  - Cup run visualization.
+  - Path-to-glory recap.
+  - Team progress through rounds.
+
+recommended_for:
+  - Showing one team's sequence of knockout results.
+avoid_for:
+  - The full bracket (use bracket-single-elim).
+
+markets:
+  - Global
+
+example_usage: >
+  List steps from the first knockout round to the final; mark each won/lost and show the
+  result (including penalties where relevant).
+
+props:
+  team: The team whose path is shown.
+  steps: The ordered knockout ties with opponent and result.
+
+example_prompts:
+  - "Add a knockout path showing a team's road to the final."
+  - "Add a cup-run timeline with results per round."
+
+lifecycle: experimental
+content_model: A team's ordered knockout ties with results.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order rounds chronologically; include the shootout result where a tie went to penalties.
+
+categorization:
+  category: Sports
+  subcategory: Brackets
+  atomic_type: organism
+  usage_type: [timeline, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Win/loss dots are decorative; the round, opponent, and result are real text so the path reads without colour.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

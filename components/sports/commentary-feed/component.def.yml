@@ -1,0 +1,11 @@
+name: commentary-feed
+props:
+  entries:
+    type: array
+    items: object
+    required: true
+    title: Entries
+    description: "Each entry: { minute, text, highlight } — highlight true emphasizes a key moment."
+    example:
+      - { minute: "90+3'", text: "Full time! A dramatic finish.", highlight: true }
+      - { minute: "88'", text: "Substitution to shore up the midfield.", highlight: false }

@@ -1,0 +1,14 @@
+name: group-stage-grid
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Each group: { name, teams: [{ code, name, pts, qualified }] }. Rendered as a
+      responsive grid of mini group tables (top-N qualified shaded).
+    example:
+      - name: "Group A"
+        teams:
+          - { code: "NED", name: "Netherlands", pts: 7, qualified: true }

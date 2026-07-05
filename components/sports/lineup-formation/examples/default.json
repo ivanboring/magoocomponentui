@@ -1,0 +1,10 @@
+{
+  "formation": "4-3-3",
+  "team": "Argentina",
+  "rows": [
+    { "players": [{ "number": "23", "name": "Martínez" }] },
+    { "players": [{ "number": "4", "name": "Molina" }, { "number": "13", "name": "Romero" }, { "number": "19", "name": "Otamendi" }, { "number": "3", "name": "Tagliafico" }] },
+    { "players": [{ "number": "7", "name": "De Paul" }, { "number": "5", "name": "Paredes" }, { "number": "20", "name": "Mac Allister" }] },
+    { "players": [{ "number": "11", "name": "Di María" }, { "number": "9", "name": "Álvarez" }, { "number": "10", "name": "Messi" }] }
+  ]
+}

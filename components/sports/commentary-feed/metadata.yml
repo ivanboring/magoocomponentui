@@ -1,0 +1,58 @@
+name: "Commentary Feed"
+short_description: A live text-commentary stream with minute stamps and highlighted key moments.
+long_visual_description: >
+  A reverse-chronological list of commentary lines, each with a minute stamp and text; key
+  moments (goals, full time) are emphasized with a raised background and bolder text.
+
+use_cases:
+  - Live text commentary for a match.
+  - Minute-by-minute updates.
+  - Key-moments recap feed.
+  - Liveblog for a game.
+  - Play-by-play stream.
+
+recommended_for:
+  - A running text commentary of a match.
+avoid_for:
+  - Structured event markers (use match-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  List entries newest-first with a minute and text; flag goals and full time as highlights
+  so they stand out.
+
+props:
+  entries: The commentary entries with minute, text, and highlight flag.
+
+example_prompts:
+  - "Add a live commentary feed with highlighted goals."
+  - "Add a minute-by-minute text commentary stream."
+
+lifecycle: experimental
+content_model: A chronological stream of commentary lines with highlights.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-border
+    - --space-card
+
+editorial_guidance: >
+  Keep entries to a sentence; reserve highlights for genuine key moments.
+
+categorization:
+  category: Sports
+  subcategory: Live
+  atomic_type: organism
+  usage_type: [list-item, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; highlights are conveyed by weight and background plus the text itself, not colour alone.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

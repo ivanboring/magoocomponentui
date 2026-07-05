@@ -1,0 +1,11 @@
+{
+  "entries": [
+    { "minute": "90+3'", "text": "Full time! Argentina hold on to win a thriller.", "highlight": true },
+    { "minute": "81'", "text": "GOAL! Mbappé completes his hat-trick from the spot.", "highlight": true },
+    { "minute": "80'", "text": "GOAL! Mbappé pulls one back with a fierce strike.", "highlight": true },
+    { "minute": "64'", "text": "Substitution — fresh legs brought on for the final push.", "highlight": false },
+    { "minute": "36'", "text": "GOAL! Di María doubles the lead on the counter.", "highlight": true },
+    { "minute": "23'", "text": "GOAL! Messi converts the penalty coolly.", "highlight": true },
+    { "minute": "1'", "text": "We're underway in the final.", "highlight": false }
+  ]
+}

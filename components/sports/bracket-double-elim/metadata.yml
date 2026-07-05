@@ -1,0 +1,62 @@
+name: "Double-elimination Bracket"
+short_description: A double-elimination bracket with separate winners and losers paths.
+long_visual_description: >
+  Two labelled bracket sections — winners and losers — each a set of round columns with
+  match boxes and highlighted winners, so teams can be tracked through both paths.
+
+use_cases:
+  - Esports double-elimination tournament.
+  - Cup with a losers bracket.
+  - Playoff format with a second-chance path.
+  - Round-robin-to-bracket playoff.
+  - Any double-elimination visualization.
+
+recommended_for:
+  - Visualizing a double-elimination format with winners and losers brackets.
+avoid_for:
+  - Single-elimination knockouts (use bracket-single-elim).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide two bracket sections labelled Winners and Losers, each with ordered rounds and
+  matches; mark the winner of each match.
+
+props:
+  brackets: The bracket sections (winners/losers), each with rounds and matches.
+
+example_prompts:
+  - "Add a double-elimination bracket with winners and losers paths."
+  - "Add an esports bracket with a losers bracket."
+
+lifecycle: experimental
+content_model: Winners and losers bracket sections, each with rounds and results.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Label the two sections clearly; emphasize winners by weight and shading, not colour alone.
+
+categorization:
+  category: Sports
+  subcategory: Brackets
+  atomic_type: full
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Winners are emphasized by weight and shading; scores and names are real text; sections use real headings.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

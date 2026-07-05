@@ -1,0 +1,63 @@
+name: "Group Stage Grid"
+short_description: A responsive overview grid of all groups with mini standings and qualification shading.
+long_visual_description: >
+  A responsive grid of compact group cards, each listing its teams with points and shading
+  the qualifying places — an at-a-glance view of an entire group stage.
+
+use_cases:
+  - Tournament group-stage overview.
+  - All-groups summary page.
+  - Qualification snapshot across groups.
+  - Compact standings for many groups.
+  - Group draw overview.
+
+recommended_for:
+  - An at-a-glance overview of every group at once.
+avoid_for:
+  - A single detailed group table (use group-standings-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide each group with its teams ordered by standing and mark qualifying places; the
+  grid steps from 1 to 4 columns responsively.
+
+props:
+  groups: The groups, each with ranked teams and qualified flags.
+
+example_prompts:
+  - "Add a group stage overview grid of all groups."
+  - "Add a compact all-groups standings grid with qualification shading."
+
+lifecycle: experimental
+content_model: A responsive grid of compact group standings.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order teams within each group by standing; keep the qualifying-place count consistent
+  across groups.
+
+categorization:
+  category: Sports
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [grid, table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each group uses a heading and ordered list; qualification is shaded but points/order also convey standing.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

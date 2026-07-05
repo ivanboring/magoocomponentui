@@ -1,0 +1,17 @@
+name: bracket-double-elim
+props:
+  brackets:
+    type: array
+    items: object
+    required: true
+    title: Brackets
+    description: >
+      Each bracket section: { label, rounds: [{ name, matches: [{ home, home_code,
+      home_score, home_winner, away, away_code, away_score, away_winner }] }] }. Use two
+      sections labelled "Winners" and "Losers".
+    example:
+      - label: "Winners bracket"
+        rounds:
+          - name: "Semi-final"
+            matches:
+              - { home: "Team A", home_code: "TA", home_score: "2", home_winner: true, away: "Team B", away_code: "TB", away_score: "1", away_winner: false }

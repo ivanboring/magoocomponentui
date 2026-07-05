@@ -1,0 +1,22 @@
+name: lineup-formation
+props:
+  formation:
+    type: string
+    required: true
+    title: Formation
+    example: "4-3-3"
+  team:
+    type: string
+    title: Team
+    example: "Argentina"
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each row is a line on the pitch (GK → forwards): { players: [{ number, name }] }.
+      Rendered bottom-to-top so the goalkeeper's row appears at the back.
+    example:
+      - { players: [{ number: "23", name: "Martínez" }] }
+      - { players: [{ number: "4", name: "Molina" }, { number: "13", name: "Romero" }] }

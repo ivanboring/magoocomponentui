@@ -1,0 +1,14 @@
+<figure class="lineup-formation overflow-hidden rounded-card border border-border bg-success/15 shadow-card">
+  <figcaption class="lineup-formation__head flex items-center justify-between bg-surface px-(--space-card) py-2 text-sm">
+    <span class="font-heading text-on-surface">{{ team }}</span>
+    <span class="font-medium text-on-surface-muted tabular-nums">{{ formation }}</span>
+  </figcaption>
+  <div class="lineup-formation__pitch relative flex flex-col-reverse gap-2 p-4" style="min-height: 24rem; background-image: repeating-linear-gradient(var(--color-success) 0 2px, transparent 2px 3rem)">
+    <div data-for="row in rows" class="lineup-formation__row flex flex-1 items-center justify-around">
+      <span data-for="player in row.players" class="lineup-formation__player flex flex-col items-center gap-1 text-center">
+        <span class="flex size-9 items-center justify-center rounded-full bg-surface font-heading text-sm text-on-surface shadow-card tabular-nums">{{ player.number }}</span>
+        <span class="rounded-control bg-black/50 px-1.5 text-[10px] font-medium text-white">{{ player.name }}</span>
+      </span>
+    </div>
+  </div>
+</figure>

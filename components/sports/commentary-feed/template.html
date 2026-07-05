@@ -1,0 +1,6 @@
+<ol class="commentary-feed flex flex-col" aria-label="Live commentary">
+  <li data-for="entry in entries" class="commentary-feed__entry flex gap-3 border-b border-border py-3 last:border-0 data-[highlight=true]:bg-surface-raised data-[highlight=true]:-mx-(--space-card) data-[highlight=true]:px-(--space-card)" data-highlight="{{ entry.highlight }}">
+    <span class="commentary-feed__minute w-10 shrink-0 font-mono text-xs text-primary tabular-nums">{{ entry.minute }}</span>
+    <p class="commentary-feed__text text-sm text-on-surface data-[highlight=true]:font-medium" data-highlight="{{ entry.highlight }}">{{ entry.text }}</p>
+  </li>
+</ol>

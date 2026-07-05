@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "home_code": "BRA", "home_score": "2", "away_code": "ESP", "away_score": "1", "minute": "67'", "live": true },
+    { "home_code": "ARG", "home_score": "0", "away_code": "MEX", "away_score": "0", "minute": "34'", "live": true },
+    { "home_code": "FRA", "home_score": "3", "away_code": "DEN", "away_score": "1", "minute": "FT", "live": false },
+    { "home_code": "ENG", "home_score": "1", "away_code": "USA", "away_score": "1", "minute": "81'", "live": true },
+    { "home_code": "GER", "home_score": "2", "away_code": "JPN", "away_score": "2", "minute": "HT", "live": false }
+  ]
+}

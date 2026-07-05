@@ -1,0 +1,63 @@
+name: "Live Score Ticker"
+short_description: A horizontal strip of compact live scores with minute and a live indicator.
+long_visual_description: >
+  A scrollable row of compact score tiles, each stacking the two teams' codes and scores
+  with a minute (pulsing red when live, muted for HT/FT) on the trailing edge.
+
+use_cases:
+  - Live scores strip across the top of a page.
+  - Multi-match live tracker.
+  - Scoreboard ticker for a matchday.
+  - Competition-wide live scores.
+  - Sports homepage score bar.
+
+recommended_for:
+  - A compact strip of many simultaneous scores.
+avoid_for:
+  - A single detailed match card (use match-card-live).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide compact matches with codes, scores, and minute; set live true for in-progress
+  games so their minute pulses.
+
+props:
+  items: The matches with codes, scores, minute, and live flag.
+
+example_prompts:
+  - "Add a live score ticker strip with several matches."
+  - "Add a scores bar with live minutes and HT/FT states."
+
+lifecycle: experimental
+content_model: A horizontal set of compact live/finished scores.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Use official team codes; keep the minute concise (67', HT, FT).
+
+categorization:
+  category: Sports
+  subcategory: Live
+  atomic_type: organism
+  usage_type: [banner, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Scores and minute are real text; the pulsing dot is decorative and the live state is also conveyed by the minute value.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both
