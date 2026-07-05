@@ -1,0 +1,7 @@
+<ol class="match-timeline relative mx-auto flex max-w-md flex-col gap-2 before:absolute before:inset-y-0 before:left-1/2 before:w-px before:-translate-x-1/2 before:bg-border" aria-label="Match events">
+  <li data-for="event in events" class="match-timeline__event grid grid-cols-[1fr_auto_1fr] items-center gap-3" data-side="{{ event.side }}">
+    <span class="match-timeline__home flex items-center justify-end gap-2 text-right text-sm font-medium text-on-surface data-[side=away]:invisible" data-side="{{ event.side }}">{{ event.text }}<span class="text-xs text-on-surface-muted tabular-nums">{{ event.minute }}</span></span>
+    <span class="match-timeline__marker relative z-10 flex size-7 shrink-0 items-center justify-center rounded-full bg-surface text-sm font-semibold uppercase ring-2 ring-border data-[type=yellow]:bg-warning data-[type=yellow]:text-warning-contrast data-[type=red]:bg-danger data-[type=red]:text-danger-contrast data-[type=sub]:text-primary data-[type=goal]:text-on-surface" data-type="{{ event.type }}" aria-hidden="true">{{ event.icon }}</span>
+    <span class="match-timeline__away flex items-center gap-2 text-sm font-medium text-on-surface data-[side=home]:invisible" data-side="{{ event.side }}"><span class="text-xs text-on-surface-muted tabular-nums">{{ event.minute }}</span>{{ event.text }}</span>
+  </li>
+</ol>

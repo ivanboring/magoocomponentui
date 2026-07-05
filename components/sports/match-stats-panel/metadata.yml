@@ -1,0 +1,66 @@
+name: "Match Stats Panel"
+short_description: A head-to-head match statistics panel with comparison bars.
+long_visual_description: >
+  A panel comparing both teams across stats (possession, shots, corners, fouls); each row
+  shows the two values with a mirrored bar pair growing from the center outward.
+
+use_cases:
+  - Post-match or live match statistics.
+  - Head-to-head team comparison.
+  - Match report stats section.
+  - Broadcast-style stat overlay.
+  - Analytics summary for a game.
+
+recommended_for:
+  - Comparing two teams across a set of match stats.
+avoid_for:
+  - A single team's stats (use a plain stat list).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide display values and precomputed percentage widths per stat so the mirrored bars
+  reflect the split.
+
+props:
+  home_code: Home team code.
+  away_code: Away team code.
+  stats: The stat rows with values and bar percentages.
+
+example_prompts:
+  - "Add a match stats panel comparing possession, shots, and corners."
+  - "Add a head-to-head stats comparison with bars."
+
+lifecycle: experimental
+content_model: A set of paired team stats with comparison bars.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep stat labels standard; ensure the values and bar percentages agree.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each stat's values are real text alongside the bars, so meaning isn't bar-only; labels are centered between the two values.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

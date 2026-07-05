@@ -1,0 +1,12 @@
+<section class="top-scorers-list overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <h3 class="top-scorers-list__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ol class="top-scorers-list__rows divide-y divide-border">
+    <li data-for="row in rows" class="flex items-center gap-3 px-(--space-card) py-2.5">
+      <span class="top-scorers-list__rank w-5 shrink-0 text-center font-heading text-sm text-on-surface-muted tabular-nums">{{ row.rank }}</span>
+      <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-raised text-[10px] text-on-surface">{{ row.team_code }}</span>
+      <span class="top-scorers-list__name min-w-0 flex-1 truncate text-sm font-medium text-on-surface">{{ row.name }}</span>
+      <span class="top-scorers-list__goals flex items-center gap-1 text-sm text-on-surface"><svg class="size-3.5 text-on-surface-muted" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="7"/></svg><span class="font-heading tabular-nums">{{ row.goals }}</span></span>
+      <span class="top-scorers-list__assists w-10 text-right text-xs text-on-surface-muted tabular-nums">{{ row.assists }} A</span>
+    </li>
+  </ol>
+</section>

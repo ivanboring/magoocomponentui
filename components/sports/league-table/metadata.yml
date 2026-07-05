@@ -1,0 +1,68 @@
+name: "League Table"
+short_description: A full standings table with a form guide and qualification-zone markers.
+long_visual_description: >
+  A standings table with position (marked by a coloured zone bar for
+  champions/europe/relegation), team, played/won/drawn/lost, goal difference, points, and a
+  last-5 form guide of W/D/L chips.
+
+use_cases:
+  - Full league standings.
+  - Division table with European and relegation zones.
+  - Season-long standings with form.
+  - Competition league phase table.
+  - Standings widget on a club page.
+
+recommended_for:
+  - A full league table with zones and a form guide.
+avoid_for:
+  - A single tournament group (use group-standings-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Set each row's zone for the qualification/relegation bar and provide the last-5 form
+  results; keep the standard column order.
+
+props:
+  title: The competition name.
+  rows: The ranked team rows with stats, zone, and form.
+
+example_prompts:
+  - "Add a league table with a form guide and European/relegation zones."
+  - "Add full standings with points and last-5 form."
+
+lifecycle: experimental
+content_model: A titled league table with stats, zone markers, and form guides.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-info
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use official team codes; keep the form guide to the last five results, most recent last.
+
+categorization:
+  category: Sports
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers; zones are marked by a colour bar but position/points also convey standing; form chips include the W/D/L letter, not colour only.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

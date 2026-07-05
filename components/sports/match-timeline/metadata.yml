@@ -1,0 +1,63 @@
+name: "Match Timeline"
+short_description: A goals/cards/subs event timeline with home and away events on either side of a center line.
+long_visual_description: >
+  A vertical center line with match events aligned to the home (left) or away (right) side;
+  each event has a marker (goal icon, yellow/red card colour, or sub glyph), the player,
+  and the minute.
+
+use_cases:
+  - Match events timeline in a report.
+  - Live event feed for a game.
+  - Goals and cards summary.
+  - Substitutions and key moments.
+  - Broadcast-style match timeline.
+
+recommended_for:
+  - A chronological timeline of match events split by team.
+avoid_for:
+  - Text commentary (use commentary-feed).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide events with minute, type (goal/yellow/red/sub), a short icon glyph, the player,
+  and the side to align to.
+
+props:
+  events: The match events with minute, type, icon, text, and side.
+
+example_prompts:
+  - "Add a match timeline with goals and cards on each side."
+  - "Add a two-sided event timeline for a match."
+
+lifecycle: experimental
+content_model: A chronological list of match events aligned by team.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-warning
+    - --color-warning-contrast
+    - --color-danger
+    - --color-danger-contrast
+
+editorial_guidance: >
+  Order events by minute; use consistent icons/colours for goal, card, and substitution.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: organism
+  usage_type: [timeline, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Event markers are decorative; the player name and minute are real text so events read without colour. Card type is also encoded in the marker text where present.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

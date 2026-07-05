@@ -1,0 +1,10 @@
+{
+  "title": "Premier League",
+  "rows": [
+    { "pos": 1, "team": "Arsenal", "code": "ARS", "p": 20, "w": 15, "d": 3, "l": 2, "gd": "+28", "pts": 48, "zone": "champions", "form": [{ "result": "w" }, { "result": "w" }, { "result": "d" }, { "result": "w" }, { "result": "l" }] },
+    { "pos": 2, "team": "Man City", "code": "MCI", "p": 20, "w": 14, "d": 4, "l": 2, "gd": "+31", "pts": 46, "zone": "champions", "form": [{ "result": "w" }, { "result": "w" }, { "result": "w" }, { "result": "d" }, { "result": "w" }] },
+    { "pos": 4, "team": "Tottenham", "code": "TOT", "p": 20, "w": 12, "d": 3, "l": 5, "gd": "+10", "pts": 39, "zone": "champions", "form": [{ "result": "l" }, { "result": "w" }, { "result": "w" }, { "result": "l" }, { "result": "w" }] },
+    { "pos": 6, "team": "Man United", "code": "MUN", "p": 20, "w": 11, "d": 3, "l": 6, "gd": "+6", "pts": 36, "zone": "europe", "form": [{ "result": "w" }, { "result": "d" }, { "result": "l" }, { "result": "w" }, { "result": "d" }] },
+    { "pos": 18, "team": "Everton", "code": "EVE", "p": 20, "w": 4, "d": 5, "l": 11, "gd": "-14", "pts": 17, "zone": "relegation", "form": [{ "result": "l" }, { "result": "l" }, { "result": "d" }, { "result": "l" }, { "result": "w" }] }
+  ]
+}

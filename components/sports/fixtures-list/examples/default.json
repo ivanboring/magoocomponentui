@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "date": "Saturday, 14 July",
+      "matches": [
+        { "home": "Spain", "home_code": "ESP", "away": "Germany", "away_code": "GER", "time": "17:00", "status": "", "home_score": "", "away_score": "", "finished": false },
+        { "home": "Brazil", "home_code": "BRA", "away": "England", "away_code": "ENG", "time": "20:00", "status": "", "home_score": "", "away_score": "", "finished": false }
+      ]
+    },
+    {
+      "date": "Friday, 13 July",
+      "matches": [
+        { "home": "Argentina", "home_code": "ARG", "away": "Croatia", "away_code": "CRO", "time": "", "status": "FT", "home_score": "3", "away_score": "0", "finished": true },
+        { "home": "France", "home_code": "FRA", "away": "Morocco", "away_code": "MAR", "time": "", "status": "FT", "home_score": "2", "away_score": "0", "finished": true }
+      ]
+    }
+  ]
+}

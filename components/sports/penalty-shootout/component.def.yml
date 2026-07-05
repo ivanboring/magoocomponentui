@@ -1,0 +1,46 @@
+name: penalty-shootout
+props:
+  home_team:
+    type: string
+    required: true
+    title: Home team
+    example: "Argentina"
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "ARG"
+  home_score:
+    type: string
+    required: true
+    title: Home score
+    example: "4"
+  home_kicks:
+    type: array
+    items: object
+    required: true
+    title: Home kicks
+    description: "Each kick: { result } where result is scored | missed | pending."
+    example:
+      - { result: "scored" }
+      - { result: "missed" }
+  away_team:
+    type: string
+    required: true
+    title: Away team
+    example: "France"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "FRA"
+  away_score:
+    type: string
+    required: true
+    title: Away score
+    example: "2"
+  away_kicks:
+    type: array
+    items: object
+    required: true
+    title: Away kicks

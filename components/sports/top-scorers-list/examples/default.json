@@ -1,0 +1,10 @@
+{
+  "title": "Top scorers",
+  "rows": [
+    { "rank": 1, "name": "Kylian Mbappé", "team_code": "FRA", "goals": "8", "assists": "2" },
+    { "rank": 2, "name": "Lionel Messi", "team_code": "ARG", "goals": "7", "assists": "3" },
+    { "rank": 3, "name": "Julián Álvarez", "team_code": "ARG", "goals": "4", "assists": "1" },
+    { "rank": 4, "name": "Olivier Giroud", "team_code": "FRA", "goals": "4", "assists": "0" },
+    { "rank": 5, "name": "Cody Gakpo", "team_code": "NED", "goals": "3", "assists": "0" }
+  ]
+}

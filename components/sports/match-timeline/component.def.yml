@@ -1,0 +1,13 @@
+name: match-timeline
+props:
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: >
+      Each event: { minute, type, text, side } where type is goal | yellow | red | sub,
+      side is home | away (which edge to align to).
+    example:
+      - { minute: "23'", type: "goal", text: "Messi", side: "home" }
+      - { minute: "39'", type: "yellow", text: "Rabiot", side: "away" }

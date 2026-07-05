@@ -1,0 +1,24 @@
+name: venue-card
+props:
+  name:
+    type: string
+    required: true
+    title: Stadium name
+    example: "Estadio Monumental"
+  city:
+    type: string
+    required: true
+    title: City
+    example: "Buenos Aires"
+  capacity:
+    type: string
+    required: true
+    title: Capacity
+    example: "83,214"
+  image:
+    type: image
+    title: Image
+    example: "/stock/property-house.jpg"
+  href:
+    type: link
+    title: Link

@@ -1,0 +1,15 @@
+<div class="fixtures-list flex flex-col gap-5">
+  <section data-for="group in groups" class="fixtures-list__group">
+    <h3 class="fixtures-list__date mb-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ group.date }}</h3>
+    <div class="overflow-hidden rounded-card border border-border bg-surface shadow-card">
+      <div data-for="match in group.matches" class="fixtures-list__match flex items-center gap-3 border-b border-border px-(--space-card) py-2.5 last:border-0">
+        <span class="fixtures-list__home flex flex-1 items-center justify-end gap-2 text-right text-sm font-medium text-on-surface">{{ match.home }}<span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ match.home_code }}</span></span>
+        <span class="fixtures-list__center flex w-20 shrink-0 items-center justify-center">
+          <span data-if="match.finished" class="rounded-control bg-surface-raised px-2 py-0.5 font-heading text-sm text-on-surface tabular-nums">{{ match.home_score }}–{{ match.away_score }}</span>
+          <span data-if="!match.finished" class="text-sm text-on-surface-muted tabular-nums">{{ match.time }}</span>
+        </span>
+        <span class="fixtures-list__away flex flex-1 items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ match.away_code }}</span>{{ match.away }}</span>
+      </div>
+    </div>
+  </section>
+</div>

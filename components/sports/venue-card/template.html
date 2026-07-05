@@ -1,0 +1,13 @@
+<article class="venue-card group flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card transition-shadow duration-(--duration-token) hover:shadow-raised">
+  <a data-if="image" class="venue-card__media block aspect-[3/2] overflow-hidden" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ name }}">
+  </a>
+  <div class="venue-card__body p-(--space-card)">
+    <h3 class="venue-card__name font-heading text-on-surface">{{ name }}</h3>
+    <p class="venue-card__city mt-1 flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg>
+      {{ city }}
+    </p>
+    <p class="venue-card__capacity mt-1 text-sm text-on-surface-muted">Capacity {{ capacity }}</p>
+  </div>
+</article>

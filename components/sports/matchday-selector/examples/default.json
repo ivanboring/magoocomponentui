@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "label": "MD 1", "value": "1", "active": false },
+    { "label": "MD 2", "value": "2", "active": true },
+    { "label": "MD 3", "value": "3", "active": false },
+    { "label": "R16", "value": "r16", "active": false },
+    { "label": "QF", "value": "qf", "active": false }
+  ]
+}

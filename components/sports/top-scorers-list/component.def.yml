@@ -1,0 +1,14 @@
+name: top-scorers-list
+props:
+  title:
+    type: string
+    default: "Top scorers"
+    title: Title
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each row: { rank, name, team_code, goals, assists }."
+    example:
+      - { rank: 1, name: "Kylian Mbappé", team_code: "FRA", goals: "8", assists: "2" }

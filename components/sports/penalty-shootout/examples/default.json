@@ -1,0 +1,14 @@
+{
+  "home_team": "Argentina",
+  "home_code": "ARG",
+  "home_score": "4",
+  "home_kicks": [
+    { "result": "scored" }, { "result": "scored" }, { "result": "scored" }, { "result": "scored" }
+  ],
+  "away_team": "France",
+  "away_code": "FRA",
+  "away_score": "2",
+  "away_kicks": [
+    { "result": "scored" }, { "result": "missed" }, { "result": "scored" }, { "result": "missed" }
+  ]
+}

@@ -1,0 +1,14 @@
+name: fixtures-list
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Each group: { date, matches: [{ home, home_code, away, away_code, time, status,
+      home_score, away_score, finished }] }. Finished matches show scores; others show time.
+    example:
+      - date: "Saturday, 14 July"
+        matches:
+          - { home: "Spain", home_code: "ESP", away: "Germany", away_code: "GER", time: "17:00", status: "", home_score: "", away_score: "", finished: false }

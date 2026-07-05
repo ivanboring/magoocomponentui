@@ -1,0 +1,33 @@
+<section class="league-table overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <h3 class="league-table__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <div class="overflow-x-auto">
+    <table class="league-table__table w-full text-sm">
+      <thead>
+        <tr class="border-b border-border text-xs text-on-surface-muted">
+          <th class="px-3 py-2 text-left font-medium" scope="col">#</th>
+          <th class="px-3 py-2 text-left font-medium" scope="col">Team</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">P</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">W</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">D</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">L</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">GD</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">Pts</th>
+          <th class="hidden px-3 py-2 text-left font-medium sm:table-cell" scope="col">Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="row in rows" class="border-b border-border last:border-0">
+          <td class="px-3 py-2.5"><span class="inline-flex items-center"><span class="mr-2 h-4 w-1 rounded-pill bg-transparent data-[zone=champions]:bg-success data-[zone=europe]:bg-info data-[zone=relegation]:bg-danger" data-zone="{{ row.zone }}"></span><span class="text-on-surface-muted tabular-nums">{{ row.pos }}</span></span></td>
+          <td class="px-3 py-2.5"><span class="flex items-center gap-2 font-medium text-on-surface"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ row.code }}</span>{{ row.team }}</span></td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.p }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.w }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.d }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.l }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.gd }}</td>
+          <td class="px-2 py-2.5 text-center font-heading text-on-surface tabular-nums">{{ row.pts }}</td>
+          <td class="hidden px-3 py-2.5 sm:table-cell"><span class="flex items-center gap-1"><span data-for="f in row.form" class="flex size-4 items-center justify-center rounded-sm text-[9px] font-bold uppercase text-white data-[result=w]:bg-success data-[result=d]:bg-on-surface-muted data-[result=l]:bg-danger" data-result="{{ f.result }}">{{ f.result }}</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

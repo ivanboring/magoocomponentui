@@ -1,0 +1,63 @@
+name: "Fixtures List"
+short_description: Fixtures grouped by date, showing kickoff times or final scores.
+long_visual_description: >
+  Date-headed groups of match rows; each row centers a kickoff time (upcoming) or a final
+  score pill (finished) between the two teams with their crest badges.
+
+use_cases:
+  - Fixtures and results schedule.
+  - Team or competition calendar.
+  - Matchday fixtures grouped by day.
+  - Results archive by date.
+  - Upcoming games list.
+
+recommended_for:
+  - A dated schedule mixing upcoming and finished matches.
+avoid_for:
+  - A live-only scores strip (use live-score-ticker).
+
+markets:
+  - Global
+
+example_usage: >
+  Group matches under date headings; set finished true with scores for completed games,
+  else show the kickoff time.
+
+props:
+  groups: Date-grouped matches with teams, time, and score.
+
+example_prompts:
+  - "Add a fixtures list grouped by date with times and results."
+  - "Add a schedule showing upcoming kickoffs and finished scores."
+
+lifecycle: experimental
+content_model: Date-grouped match rows with times or final scores.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use a consistent date and time format; group chronologically.
+
+categorization:
+  category: Sports
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Date groups use real headings; scores and times are real text; team badges carry codes as text.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

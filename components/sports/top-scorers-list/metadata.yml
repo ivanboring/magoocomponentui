@@ -1,0 +1,63 @@
+name: "Top Scorers List"
+short_description: A ranked list of top scorers with goals and assists.
+long_visual_description: >
+  A titled list of ranked players, each row showing rank, team code badge, name, a goals
+  count with a ball icon, and an assists tally.
+
+use_cases:
+  - Golden Boot / top scorers standings.
+  - Assist leaders list.
+  - Player leaderboard for a competition.
+  - Team's top scorers.
+  - Season stats leaders.
+
+recommended_for:
+  - A ranked scorer/assist leaderboard.
+avoid_for:
+  - A generic leaderboard (use leaderboard-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Order rows by goals (then assists); show the team code and both goals and assists per
+  player.
+
+props:
+  title: The list title.
+  rows: The ranked scorer rows.
+
+example_prompts:
+  - "Add a top scorers list with goals and assists."
+  - "Add a Golden Boot standings list."
+
+lifecycle: experimental
+content_model: A ranked list of scorers with goals and assists.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use official team codes; keep the ranking consistent with the competition's tiebreakers.
+
+categorization:
+  category: Sports
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list for ranking; team badges carry codes as text; the ball icon is decorative.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

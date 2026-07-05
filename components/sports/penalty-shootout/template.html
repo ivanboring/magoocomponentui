@@ -1,0 +1,20 @@
+<section class="penalty-shootout rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Penalty shootout">
+  <div class="penalty-shootout__row flex items-center gap-3 py-1">
+    <span class="flex w-24 shrink-0 items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ home_code }}</span>{{ home_code }}</span>
+    <span class="penalty-shootout__kicks flex flex-1 items-center gap-1.5">
+      <span data-for="kick in home_kicks" class="size-3.5 rounded-full border border-border data-[result=scored]:border-success data-[result=scored]:bg-success data-[result=missed]:border-danger data-[result=missed]:bg-danger" data-result="{{ kick.result }}" aria-hidden="true"></span>
+    </span>
+    <span class="penalty-shootout__score shrink-0 font-heading text-lg text-on-surface tabular-nums">{{ home_score }}</span>
+  </div>
+  <div class="penalty-shootout__row mt-1 flex items-center gap-3 py-1">
+    <span class="flex w-24 shrink-0 items-center gap-2 text-sm font-medium text-on-surface"><span class="flex size-6 items-center justify-center rounded-full bg-surface-raised text-[10px]">{{ away_code }}</span>{{ away_code }}</span>
+    <span class="penalty-shootout__kicks flex flex-1 items-center gap-1.5">
+      <span data-for="kick in away_kicks" class="size-3.5 rounded-full border border-border data-[result=scored]:border-success data-[result=scored]:bg-success data-[result=missed]:border-danger data-[result=missed]:bg-danger" data-result="{{ kick.result }}" aria-hidden="true"></span>
+    </span>
+    <span class="penalty-shootout__score shrink-0 font-heading text-lg text-on-surface tabular-nums">{{ away_score }}</span>
+  </div>
+  <p class="penalty-shootout__legend mt-3 flex items-center gap-4 border-t border-border pt-2 text-xs text-on-surface-muted">
+    <span class="flex items-center gap-1.5"><span class="size-3 rounded-full bg-success"></span>Scored</span>
+    <span class="flex items-center gap-1.5"><span class="size-3 rounded-full bg-danger"></span>Missed</span>
+  </p>
+</section>

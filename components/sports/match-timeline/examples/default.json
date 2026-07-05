@@ -1,0 +1,10 @@
+{
+  "events": [
+    { "minute": "23'", "type": "goal", "icon": "⚽", "text": "Messi", "side": "home" },
+    { "minute": "36'", "type": "goal", "icon": "⚽", "text": "Di María", "side": "home" },
+    { "minute": "39'", "type": "yellow", "icon": "", "text": "Rabiot", "side": "away" },
+    { "minute": "41'", "type": "sub", "icon": "↔", "text": "Kolo Muani", "side": "away" },
+    { "minute": "80'", "type": "goal", "icon": "⚽", "text": "Mbappé", "side": "away" },
+    { "minute": "81'", "type": "goal", "icon": "⚽", "text": "Mbappé", "side": "away" }
+  ]
+}

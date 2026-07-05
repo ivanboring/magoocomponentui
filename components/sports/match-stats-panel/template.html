@@ -1,0 +1,23 @@
+<section class="match-stats-panel rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Match statistics">
+  <div class="match-stats-panel__head mb-3 flex items-center justify-between text-sm font-heading text-on-surface">
+    <span>{{ home_code }}</span>
+    <span>{{ away_code }}</span>
+  </div>
+  <div class="match-stats-panel__rows flex flex-col gap-3">
+    <div data-for="stat in stats" class="match-stats-panel__row">
+      <div class="flex items-center justify-between text-sm text-on-surface">
+        <span class="font-medium tabular-nums">{{ stat.home }}</span>
+        <span class="text-xs text-on-surface-muted">{{ stat.label }}</span>
+        <span class="font-medium tabular-nums">{{ stat.away }}</span>
+      </div>
+      <div class="mt-1 flex items-center gap-1">
+        <div class="flex h-1.5 flex-1 justify-end overflow-hidden rounded-pill bg-surface-raised">
+          <div class="h-full rounded-pill bg-primary" style="width: {{ stat.home_pct }}%"></div>
+        </div>
+        <div class="flex h-1.5 flex-1 overflow-hidden rounded-pill bg-surface-raised">
+          <div class="h-full rounded-pill bg-on-surface-muted" style="width: {{ stat.away_pct }}%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+name: "Venue Card"
+short_description: A stadium card with image, name, city, and capacity.
+long_visual_description: >
+  A vertical card with a stadium photo, the venue name, a city line with a pin icon, and
+  the capacity beneath.
+
+use_cases:
+  - Tournament venue listing.
+  - Stadium guide card.
+  - Match venue reference.
+  - Host-city venue grid.
+  - Venue picker in a schedule.
+
+recommended_for:
+  - A single stadium/venue summary with image and key facts.
+avoid_for:
+  - A full venue detail page.
+
+markets:
+  - Global
+
+example_usage: >
+  Show a representative photo and the key facts (city, capacity); the image and card link
+  to the venue page.
+
+props:
+  name: The stadium name.
+  city: The host city.
+  capacity: The seating capacity.
+  image: The venue photo.
+  href: The venue page URL.
+
+example_prompts:
+  - "Add a venue card for a stadium with city and capacity."
+  - "Add a tournament venue card with a photo."
+
+lifecycle: experimental
+content_model: A venue photo, name, city, and capacity.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Use the official venue name and a consistent capacity format.
+
+categorization:
+  category: Sports
+  subcategory: Teams
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The image alt is the venue name; the city icon is decorative.
+  keyboard_support: The card link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

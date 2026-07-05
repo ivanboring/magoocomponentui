@@ -1,0 +1,22 @@
+name: match-stats-panel
+props:
+  home_code:
+    type: string
+    required: true
+    title: Home code
+    example: "ARG"
+  away_code:
+    type: string
+    required: true
+    title: Away code
+    example: "FRA"
+  stats:
+    type: array
+    items: object
+    required: true
+    title: Stats
+    description: >
+      Each stat: { label, home, away, home_pct, away_pct } where home/away are display
+      values and home_pct/away_pct are 0-100 widths for the comparison bars.
+    example:
+      - { label: "Possession", home: "54%", away: "46%", home_pct: 54, away_pct: 46 }

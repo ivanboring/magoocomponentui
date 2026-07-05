@@ -1,0 +1,12 @@
+name: matchday-selector
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Matchdays
+    description: "Each item: { label, value, active }."
+    example:
+      - { label: "MD 1", value: "1", active: false }
+      - { label: "MD 2", value: "2", active: true }
+      - { label: "MD 3", value: "3", active: false }

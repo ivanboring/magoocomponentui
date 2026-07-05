@@ -1,0 +1,18 @@
+name: league-table
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Premier League"
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each row: { pos, team, code, p, w, d, l, gd, pts, form: [{ result }], zone }.
+      form is the last-5 results (w/d/l); zone is champions | europe | relegation | "" for
+      qualification-band shading of the position cell.
+    example:
+      - { pos: 1, team: "Arsenal", code: "ARS", p: 20, w: 15, d: 3, l: 2, gd: "+28", pts: 48, zone: "champions", form: [{ result: "w" }, { result: "w" }, { result: "d" }, { result: "w" }, { result: "l" }] }

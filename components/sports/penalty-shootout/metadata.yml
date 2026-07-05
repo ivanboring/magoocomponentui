@@ -1,0 +1,71 @@
+name: "Penalty Shootout"
+short_description: A shootout tracker showing scored/missed kicks per team with the running score.
+long_visual_description: >
+  Two rows (one per team) of kick dots — filled green for scored, red for missed, outlined
+  for pending — with the team code and running shootout score, plus a legend.
+
+use_cases:
+  - Penalty shootout result in a knockout match.
+  - Live shootout tracker.
+  - Shootout summary in a match report.
+  - Historic shootout record.
+  - Cup tie decider visualization.
+
+recommended_for:
+  - Tracking a penalty shootout's kicks and score.
+avoid_for:
+  - General match events (use match-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide each team's kicks in order with scored/missed/pending; the running score sits at
+  the end of each row.
+
+props:
+  home_team: Home team name.
+  home_code: Home team code.
+  home_score: Home shootout score.
+  home_kicks: Home kicks in order.
+  away_team: Away team name.
+  away_code: Away team code.
+  away_score: Away shootout score.
+  away_kicks: Away kicks in order.
+
+example_prompts:
+  - "Add a penalty shootout tracker Argentina 4–2 France."
+  - "Add a shootout visualization with scored and missed kicks."
+
+lifecycle: experimental
+content_model: Two teams' penalty kicks and the running shootout score.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order kicks as taken; the legend clarifies the colour coding for non-experts.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Kick dots are decorative but a legend explains the colours and the running score conveys the outcome as text; a production build could add per-kick aria-labels.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,60 @@
+name: "Matchday Selector"
+short_description: A horizontal date/round selector for switching between matchdays.
+long_visual_description: >
+  A scrollable row of pill buttons for matchdays or rounds; the active one is filled with
+  the primary colour and the rest highlight on hover.
+
+use_cases:
+  - Switch between matchdays in a fixtures view.
+  - Round selector for a tournament.
+  - Gameweek picker in a fantasy app.
+  - Stage navigation (group → knockout).
+  - Date navigation for a schedule.
+
+recommended_for:
+  - Switching a fixtures/results view between matchdays or rounds.
+avoid_for:
+  - General tab navigation (use tabs or pill-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark the current matchday active; listen for matchday:change to load that matchday's
+  fixtures.
+
+props:
+  items: The matchdays/rounds, one active.
+
+example_prompts:
+  - "Add a matchday selector with MD1–3 and knockout rounds."
+  - "Add a round picker highlighting the current matchday."
+
+lifecycle: experimental
+content_model: A horizontal set of matchday/round options with one active.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short (MD 1, R16, QF); order chronologically.
+
+categorization:
+  category: Sports
+  subcategory: Match
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active item sets aria-current; state is not colour-only (the active pill is filled).
+  keyboard_support: Each item is a focusable button activating on Enter/Space.
+  seo_score: 30
+  text_direction: both
