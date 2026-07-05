@@ -1,0 +1,29 @@
+name: portfolio-summary
+props:
+  total:
+    type: string
+    required: true
+    title: Total value
+    example: "$48,210"
+  change:
+    type: string
+    title: Change
+    example: "+$1,240 (2.6%) today"
+  direction:
+    type: enum
+    values: [up, down, flat]
+    default: up
+    title: Direction
+  allocation:
+    type: array
+    items: object
+    required: true
+    title: Allocation
+    description: "Each: { label, pct, tone } — tone is primary|accent|success|warning."
+    example:
+      - { label: "Stocks", pct: 62, tone: "primary" }
+variants:
+  direction:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

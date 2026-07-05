@@ -1,0 +1,13 @@
+name: transaction-list
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Each group: { date, items: [{ merchant, category, icon, amount, positive }] }.
+    example:
+      - date: "Today"
+        items:
+          - { merchant: "Blue Bottle Coffee", category: "Dining", icon: "☕", amount: "-$4.75", positive: false }

@@ -1,0 +1,9 @@
+<div class="budget-progress">
+  <div class="flex items-baseline justify-between gap-2 text-sm">
+    <span class="budget-progress__category font-medium text-on-surface">{{ category }}</span>
+    <span class="budget-progress__figures text-on-surface-muted tabular-nums"><span class="font-medium text-on-surface">{{ spent }}</span> of {{ budget }}</span>
+  </div>
+  <div class="budget-progress__track mt-1.5 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ category }} budget">
+    <div class="budget-progress__bar h-full rounded-pill {{ status@class }}" style="width: {{ pct }}%"></div>
+  </div>
+</div>

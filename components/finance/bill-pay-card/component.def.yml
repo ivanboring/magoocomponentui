@@ -1,0 +1,29 @@
+name: bill-pay-card
+props:
+  payee:
+    type: string
+    required: true
+    title: Payee
+    example: "City Power & Light"
+  category:
+    type: string
+    title: Category
+    example: "Utilities"
+  icon:
+    type: string
+    title: Icon
+    example: "⚡"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    example: "$128.40"
+  due:
+    type: string
+    required: true
+    title: Due
+    example: "Due Aug 20"
+  urgent:
+    type: boolean
+    default: false
+    title: Due soon

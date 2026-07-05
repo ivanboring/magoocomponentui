@@ -1,0 +1,20 @@
+name: fraud-alert-banner
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Did you make this purchase?"
+  detail:
+    type: string
+    required: true
+    title: Detail
+    example: "$482.00 at TechMart Online · Today 2:41 PM"
+  yes_label:
+    type: string
+    default: "Yes, it was me"
+    title: Confirm label
+  no_label:
+    type: string
+    default: "No, freeze my card"
+    title: Dispute label

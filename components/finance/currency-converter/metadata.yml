@@ -1,0 +1,69 @@
+name: "Currency Converter"
+short_description: A currency converter with an amount, rate, and live converted result.
+long_visual_description: >
+  A converter with an amount + currency field, the exchange rate line, and a converted result
+  in the target currency; the result updates live.
+
+use_cases:
+  - Convert between currencies.
+  - FX rate calculator.
+  - Travel money converter.
+  - Multi-currency amount.
+  - Exchange estimate.
+
+recommended_for:
+  - Converting an amount at a given rate.
+avoid_for:
+  - A full trading terminal.
+
+markets:
+  - Global
+
+example_usage: >
+  The behavior multiplies the amount by data-rate live; the initial result is the
+  server-precomputed value.
+
+props:
+  amount: The amount to convert.
+  from_code: The source currency.
+  to_code: The target currency.
+  rate: Units of target per 1 source.
+  result: The initial converted result.
+
+example_prompts:
+  - "Add a USD to EUR currency converter."
+  - "Add an FX rate converter with a live result."
+
+lifecycle: experimental
+content_model: An amount, rate, and converted result.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the rate used; the result recalculates as the amount changes.
+
+categorization:
+  category: Finance
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The amount input is keyboard-operable; the rate and result are real text. Add labels for the currency fields in production.
+  keyboard_support: The amount field is focusable and editable; the result updates live.
+  seo_score: 25
+  text_direction: both

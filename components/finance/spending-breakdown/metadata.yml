@@ -1,0 +1,69 @@
+name: "Spending Breakdown"
+short_description: A category spending donut with a total and a legend of amounts and shares.
+long_visual_description: >
+  A donut chart of spending by category with the total in the center, beside a legend listing
+  each category's amount and share.
+
+use_cases:
+  - Monthly spending by category.
+  - Budget breakdown donut.
+  - Expense composition.
+  - Spending analysis widget.
+  - Category split.
+
+recommended_for:
+  - A category spending breakdown with a legend.
+avoid_for:
+  - A single budget bar (use budget-progress).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each segment's dash and cumulative offset on a r=45 circle; the legend carries
+  the amounts and shares.
+
+props:
+  title: The section title.
+  total: The total spending.
+  segments: The category segments with tone, dash, offset, amount, and share.
+
+example_prompts:
+  - "Add a spending breakdown donut by category."
+  - "Add an expense composition widget."
+
+lifecycle: experimental
+content_model: A category spending donut with a legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep to a handful of categories; the legend carries the exact amounts so the donut is a cue.
+
+categorization:
+  category: Finance
+  subcategory: Budgeting
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The legend provides each category's amount and share as text, so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

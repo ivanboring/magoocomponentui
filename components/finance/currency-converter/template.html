@@ -1,0 +1,15 @@
+<form class="currency-converter rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-rate="{{ rate }}">
+  <div class="currency-converter__row flex items-center gap-2 rounded-control border border-border bg-surface px-3 focus-within:border-ring">
+    <input type="text" inputmode="decimal" class="currency-converter__amount w-full bg-transparent py-2.5 font-heading text-lg text-on-surface outline-none tabular-nums" value="{{ amount }}">
+    <span class="currency-converter__from shrink-0 rounded-control bg-surface-raised px-2 py-1 text-sm font-medium text-on-surface">{{ from_code }}</span>
+  </div>
+  <div class="currency-converter__eq my-2 flex items-center gap-2 text-xs text-on-surface-muted">
+    <span class="h-px flex-1 bg-border"></span>
+    <span>1 {{ from_code }} = <span class="currency-converter__rate tabular-nums">{{ rate }}</span> {{ to_code }}</span>
+    <span class="h-px flex-1 bg-border"></span>
+  </div>
+  <div class="currency-converter__row flex items-center gap-2 rounded-control bg-surface-raised px-3">
+    <span class="currency-converter__result w-full py-2.5 font-heading text-lg text-primary tabular-nums">{{ result }}</span>
+    <span class="currency-converter__to shrink-0 rounded-control bg-surface px-2 py-1 text-sm font-medium text-on-surface">{{ to_code }}</span>
+  </div>
+</form>

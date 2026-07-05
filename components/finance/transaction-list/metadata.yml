@@ -1,0 +1,62 @@
+name: "Transaction List"
+short_description: Transactions grouped by date, each with merchant, category, and amount.
+long_visual_description: >
+  Date-headed groups of transaction rows, each with a category icon, merchant, category, and
+  signed amount (credits coloured).
+
+use_cases:
+  - Account activity feed.
+  - Grouped transaction history.
+  - Spending list by day.
+  - Statement detail.
+  - Recent transactions.
+
+recommended_for:
+  - A dated list of transactions.
+avoid_for:
+  - A single transaction (use transaction-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Group transactions under date headings; sign amounts and colour credits.
+
+props:
+  groups: Date-grouped transactions.
+
+example_prompts:
+  - "Add a transaction list grouped by date."
+  - "Add an account activity feed."
+
+lifecycle: experimental
+content_model: Date-grouped transaction rows.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group by day; sign amounts consistently.
+
+categorization:
+  category: Finance
+  subcategory: Transactions
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Date groups use headings; signed amounts convey debit/credit, not colour alone.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

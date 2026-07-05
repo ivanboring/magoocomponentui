@@ -1,0 +1,35 @@
+name: card-wallet
+props:
+  brand:
+    type: string
+    default: "VISA"
+    title: Brand
+  label:
+    type: string
+    title: Card label
+    example: "Rewards Platinum"
+  number:
+    type: string
+    required: true
+    title: Number
+    example: "•••• •••• •••• 4821"
+  holder:
+    type: string
+    required: true
+    title: Holder
+    example: "JANE DOE"
+  expiry:
+    type: string
+    required: true
+    title: Expiry
+    example: "09/28"
+  tone:
+    type: enum
+    values: [primary, dark, accent]
+    default: primary
+    title: Card tone
+variants:
+  tone:
+    primary: "bg-primary text-primary-contrast"
+    dark: "bg-on-surface text-surface"
+    accent: "bg-accent text-primary-contrast"

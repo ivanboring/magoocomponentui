@@ -1,0 +1,23 @@
+<section class="spending-breakdown flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card sm:flex-row sm:items-center" aria-label="{{ title }}">
+  <div class="spending-breakdown__chart relative mx-auto size-40 shrink-0">
+    <svg class="size-full -rotate-90" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" class="text-surface-raised" stroke="currentColor" stroke-width="10"></circle>
+      <circle data-for="segment in segments" cx="50" cy="50" r="45" class="data-[tone=primary]:text-primary data-[tone=accent]:text-accent data-[tone=success]:text-success data-[tone=warning]:text-warning data-[tone=info]:text-info" data-tone="{{ segment.tone }}" stroke="currentColor" stroke-width="10" stroke-dasharray="{{ segment.dash }}" stroke-dashoffset="{{ segment.offset }}"></circle>
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <span class="text-xs text-on-surface-muted">Total</span>
+      <span class="font-heading text-xl text-on-surface tabular-nums">{{ total }}</span>
+    </div>
+  </div>
+  <div class="spending-breakdown__body min-w-0 flex-1">
+    <h3 class="spending-breakdown__title font-heading text-on-surface">{{ title }}</h3>
+    <ul class="spending-breakdown__legend mt-3 flex flex-col gap-2 text-sm">
+      <li data-for="segment in segments" class="flex items-center gap-2">
+        <span class="size-2.5 rounded-full bg-current data-[tone=primary]:text-primary data-[tone=accent]:text-accent data-[tone=success]:text-success data-[tone=warning]:text-warning data-[tone=info]:text-info" data-tone="{{ segment.tone }}" aria-hidden="true"></span>
+        <span class="flex-1 text-on-surface">{{ segment.label }}</span>
+        <span class="font-medium text-on-surface tabular-nums">{{ segment.amount }}</span>
+        <span class="w-10 text-right text-xs text-on-surface-muted tabular-nums">{{ segment.pct }}</span>
+      </li>
+    </ul>
+  </div>
+</section>

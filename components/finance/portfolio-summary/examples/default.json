@@ -1,0 +1,11 @@
+{
+  "total": "$48,210",
+  "change": "+$1,240 (2.6%) today",
+  "direction": "up",
+  "allocation": [
+    { "label": "Stocks", "pct": 62, "tone": "primary" },
+    { "label": "Bonds", "pct": 20, "tone": "accent" },
+    { "label": "Cash", "pct": 10, "tone": "success" },
+    { "label": "Crypto", "pct": 8, "tone": "warning" }
+  ]
+}

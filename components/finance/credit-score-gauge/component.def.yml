@@ -1,0 +1,33 @@
+name: credit-score-gauge
+props:
+  score:
+    type: string
+    required: true
+    title: Score
+    example: "742"
+  band:
+    type: string
+    required: true
+    title: Band
+    example: "Very good"
+  range:
+    type: string
+    title: Range
+    example: "300–850"
+  dash:
+    type: string
+    required: true
+    title: Arc dash
+    description: Precomputed stroke-dasharray for a semicircle (circumference ~126, r=40).
+    example: "82 126"
+  tone:
+    type: enum
+    values: [danger, warning, success, primary]
+    default: success
+    title: Tone
+variants:
+  tone:
+    danger: "text-danger"
+    warning: "text-warning"
+    success: "text-success"
+    primary: "text-primary"

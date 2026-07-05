@@ -1,0 +1,30 @@
+name: account-balance-card
+props:
+  account:
+    type: string
+    required: true
+    title: Account
+    example: "Everyday Checking"
+  account_number:
+    type: string
+    title: Account number
+    example: "•••• 4821"
+  balance:
+    type: string
+    required: true
+    title: Balance
+    example: "$4,382.19"
+  delta:
+    type: string
+    title: Delta
+    example: "+$240 this month"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: up
+    title: Trend
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

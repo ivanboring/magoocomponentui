@@ -1,0 +1,70 @@
+name: "Portfolio Summary"
+short_description: A portfolio total with today's change and an allocation bar + legend.
+long_visual_description: >
+  A panel with the total portfolio value, today's change (coloured by direction), and an
+  allocation bar with a legend of asset classes and shares.
+
+use_cases:
+  - Investment portfolio overview.
+  - Total value + allocation.
+  - Portfolio dashboard header.
+  - Asset allocation summary.
+  - Investing home tile.
+
+recommended_for:
+  - A portfolio total with allocation breakdown.
+avoid_for:
+  - A single holding (use holding-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the total and today's change; the allocation bar and legend split by asset class.
+
+props:
+  total: The total portfolio value.
+  change: Today's change.
+  direction: up, down, or flat.
+  allocation: The asset-class allocation with tones and shares.
+
+example_prompts:
+  - "Add a portfolio summary with total and allocation."
+  - "Add an investing overview with asset split."
+
+lifecycle: experimental
+content_model: A portfolio total, change, and allocation.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The legend carries the allocation shares as text; direction colours the change but the sign
+  carries the meaning.
+
+categorization:
+  category: Finance
+  subcategory: Investing
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Total and change are real text (change sign conveys direction); the allocation legend gives shares as text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

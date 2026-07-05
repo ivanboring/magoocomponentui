@@ -1,0 +1,65 @@
+name: "Card Wallet"
+short_description: A payment card visual with brand, masked number, holder, and expiry.
+long_visual_description: >
+  A credit-card-shaped panel with a chip, brand, masked number, and holder/expiry, in a
+  choice of colour tones.
+
+use_cases:
+  - Payment card visual.
+  - Wallet card display.
+  - Saved card in checkout.
+  - Card management tile.
+  - Virtual card preview.
+
+recommended_for:
+  - A visual representation of a payment card.
+avoid_for:
+  - An account balance (use account-balance-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Mask the card number; choose a tone. Never render full card details in production.
+
+props:
+  brand: The card brand.
+  label: An optional card label.
+  number: The masked card number.
+  holder: The card holder name.
+  expiry: The expiry date.
+  tone: The card colour tone.
+
+example_prompts:
+  - "Add a payment card wallet visual."
+  - "Add a saved card display with masked number."
+
+lifecycle: experimental
+content_model: A payment card's brand, masked number, holder, and expiry.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-on-surface
+    - --color-surface
+    - --color-accent
+    - --radius-card
+    - --shadow-raised
+    - --font-heading
+
+editorial_guidance: >
+  Always mask the number; ensure the tone/contrast pair is legible in every theme.
+
+categorization:
+  category: Finance
+  subcategory: Cards
+  atomic_type: molecule
+  usage_type: [card, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All values are real text; the chip is decorative. Verify each tone's contrast per theme.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,21 @@
+name: spending-breakdown
+props:
+  title:
+    type: string
+    default: "Spending this month"
+    title: Title
+  total:
+    type: string
+    required: true
+    title: Total
+    example: "$2,140"
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Segments
+    description: >
+      Each segment: { label, amount, pct, tone, dash, offset } — dash/offset are precomputed
+      on a r=45 circle (circumference ~283); tone is primary|accent|success|warning|info.
+    example:
+      - { label: "Housing", amount: "$920", pct: "43%", tone: "primary", dash: "122 283", offset: "0" }

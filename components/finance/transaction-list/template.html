@@ -1,0 +1,15 @@
+<div class="transaction-list flex flex-col gap-5">
+  <section data-for="group in groups" class="transaction-list__group">
+    <h3 class="transaction-list__date mb-1 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ group.date }}</h3>
+    <div class="transaction-list__items divide-y divide-border rounded-card border border-border bg-surface px-(--space-card) shadow-card">
+      <div data-for="item in group.items" class="transaction-list__item flex items-center gap-3 py-3">
+        <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-raised text-lg" aria-hidden="true">{{ item.icon }}</span>
+        <div class="min-w-0 flex-1">
+          <p class="text-sm font-medium text-on-surface">{{ item.merchant }}</p>
+          <p class="text-xs text-on-surface-muted">{{ item.category }}</p>
+        </div>
+        <span class="shrink-0 font-heading text-on-surface tabular-nums data-[positive=true]:text-success" data-positive="{{ item.positive }}">{{ item.amount }}</span>
+      </div>
+    </div>
+  </section>
+</div>

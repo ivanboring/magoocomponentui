@@ -1,0 +1,8 @@
+<div class="transaction-row flex items-center gap-3 py-3">
+  <span class="transaction-row__icon flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-raised text-lg" aria-hidden="true">{{ icon }}</span>
+  <div class="transaction-row__body min-w-0 flex-1">
+    <p class="transaction-row__merchant text-sm font-medium text-on-surface">{{ merchant }}</p>
+    <p class="transaction-row__meta text-xs text-on-surface-muted"><span data-if="category">{{ category }} · </span>{{ date }}</p>
+  </div>
+  <span class="transaction-row__amount shrink-0 font-heading text-on-surface tabular-nums data-[positive=true]:text-success" data-positive="{{ positive }}">{{ amount }}</span>
+</div>

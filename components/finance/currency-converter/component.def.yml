@@ -1,0 +1,25 @@
+name: currency-converter
+props:
+  amount:
+    type: string
+    default: "100"
+    title: Amount
+  from_code:
+    type: string
+    default: "USD"
+    title: From currency
+  to_code:
+    type: string
+    default: "EUR"
+    title: To currency
+  rate:
+    type: string
+    required: true
+    title: Rate
+    description: Units of "to" per 1 "from".
+    example: "0.92"
+  result:
+    type: string
+    required: true
+    title: Result
+    example: "92.00"

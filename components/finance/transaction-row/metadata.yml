@@ -1,0 +1,62 @@
+name: "Transaction Row"
+short_description: A transaction line with merchant, category, date, and amount.
+long_visual_description: >
+  A row with a category icon, the merchant and category/date meta, and the amount (credits
+  shown in success colour).
+
+use_cases:
+  - Transaction list entry.
+  - Statement line.
+  - Spending feed row.
+  - Account activity item.
+  - Payment history line.
+
+recommended_for:
+  - A single transaction with merchant and amount.
+avoid_for:
+  - A grouped transaction list (use transaction-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the merchant, category, and date; mark credits with positive to colour them.
+
+props:
+  merchant: The merchant name.
+  category: The transaction category.
+  icon: A category icon glyph.
+  date: The transaction date.
+  amount: The signed amount.
+  positive: Whether it's a credit (coloured).
+
+example_prompts:
+  - "Add a coffee-shop transaction row."
+  - "Add a transaction line with category and amount."
+
+lifecycle: experimental
+content_model: A transaction's merchant, category, date, and amount.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --font-heading
+
+editorial_guidance: >
+  Sign amounts consistently; credits can be coloured but the sign carries the meaning.
+
+categorization:
+  category: Finance
+  subcategory: Transactions
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The signed amount conveys debit/credit, not colour alone; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

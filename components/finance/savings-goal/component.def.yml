@@ -1,0 +1,28 @@
+name: savings-goal
+props:
+  name:
+    type: string
+    required: true
+    title: Goal name
+    example: "Emergency fund"
+  saved:
+    type: string
+    required: true
+    title: Saved
+    example: "$6,400"
+  target:
+    type: string
+    required: true
+    title: Target
+    example: "$10,000"
+  pct:
+    type: string
+    required: true
+    title: Percent
+    example: "64%"
+  dash:
+    type: string
+    required: true
+    title: Ring dash
+    description: Precomputed stroke-dasharray on a r=45 circle (circumference ~283).
+    example: "181 283"

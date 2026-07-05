@@ -1,0 +1,14 @@
+<article class="savings-goal flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="savings-goal__ring relative size-20 shrink-0">
+    <svg class="size-full -rotate-90" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" class="text-surface-raised" stroke="currentColor" stroke-width="9"></circle>
+      <circle cx="50" cy="50" r="45" class="text-primary" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="{{ dash }}"></circle>
+    </svg>
+    <span class="savings-goal__pct absolute inset-0 flex items-center justify-center font-heading text-sm text-on-surface tabular-nums">{{ pct }}</span>
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="savings-goal__name font-heading text-on-surface">{{ name }}</p>
+    <p class="savings-goal__figures mt-1 text-sm text-on-surface-muted"><span class="font-medium text-on-surface tabular-nums">{{ saved }}</span> of {{ target }}</p>
+    <button type="button" class="savings-goal__add mt-2 rounded-button border border-border px-3 py-1 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Add funds</button>
+  </div>
+</article>

@@ -1,0 +1,60 @@
+name: "Statement Row"
+short_description: A statement period row with closing balance and a download action.
+long_visual_description: >
+  A row with a document icon, the statement period and status/balance, and a download button.
+
+use_cases:
+  - Statements list entry.
+  - Downloadable statement row.
+  - Document library for banking.
+  - Monthly statement item.
+  - Records download.
+
+recommended_for:
+  - A downloadable statement period row.
+avoid_for:
+  - A transaction line (use transaction-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the period and closing balance; the download action fetches the statement file.
+
+props:
+  period: The statement period.
+  balance: The closing balance.
+  status: The availability status.
+  href: The download URL.
+
+example_prompts:
+  - "Add a monthly statement row with download."
+  - "Add a bank statement list entry."
+
+lifecycle: experimental
+content_model: A statement period with balance and a download.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show the closing balance for quick scanning; the download uses the download attribute.
+
+categorization:
+  category: Finance
+  subcategory: Statements
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The download control has an accessible label naming the period; the icon is decorative.
+  keyboard_support: The download link is focusable and activates on Enter.
+  seo_score: 20
+  text_direction: both

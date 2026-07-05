@@ -1,0 +1,70 @@
+name: "Transfer Form"
+short_description: A money transfer form with from/to account selects and an amount.
+long_visual_description: >
+  A form with From and To account selects (with a swap indicator between them) and an amount
+  field, plus a review-transfer button.
+
+use_cases:
+  - Transfer between accounts.
+  - Move money form.
+  - Internal transfer.
+  - Send to savings.
+  - Banking transfer.
+
+recommended_for:
+  - A from/to/amount money transfer form.
+avoid_for:
+  - A bill payment (use bill-pay-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide from/to account options with balances and an amount; submit reviews the transfer.
+
+props:
+  from_options: The source accounts.
+  to_options: The destination accounts.
+  amount: The transfer amount.
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a transfer form between accounts."
+  - "Add a move-money form with amount."
+
+lifecycle: experimental
+content_model: A from/to/amount transfer with a review action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show account balances in the options; review before executing the transfer.
+
+categorization:
+  category: Finance
+  subcategory: Transfers
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses native selects with labels and a labelled amount input; submit is a real button. The swap icon is decorative.
+  keyboard_support: All fields are focusable and keyboard-operable; submit via Enter.
+  seo_score: 30
+  text_direction: both

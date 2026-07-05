@@ -1,0 +1,66 @@
+name: "Account Balance Card"
+short_description: A bank account card with balance, masked number, and a trend delta.
+long_visual_description: >
+  A card with the account name and masked number, a large balance, and a trend-coloured delta
+  with a direction arrow.
+
+use_cases:
+  - Account balance overview.
+  - Banking dashboard tile.
+  - Account summary card.
+  - Balance with monthly trend.
+  - Multi-account list entry.
+
+recommended_for:
+  - A single account's balance with a trend.
+avoid_for:
+  - A payment card visual (use card-wallet).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the balance and a monthly delta; set trend to colour it. Mask the account number.
+
+props:
+  account: The account name.
+  account_number: The masked account number.
+  balance: The current balance.
+  delta: The change over a period.
+  trend: up, down, or flat.
+
+example_prompts:
+  - "Add a checking account balance card with a monthly trend."
+  - "Add a bank account tile with balance and delta."
+
+lifecycle: experimental
+content_model: An account's balance and trend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Mask account numbers; always say what the delta compares to (this month, etc.).
+
+categorization:
+  category: Finance
+  subcategory: Accounts
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is shown by the arrow and delta text, not colour alone; balance is real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

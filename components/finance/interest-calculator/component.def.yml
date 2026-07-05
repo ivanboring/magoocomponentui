@@ -1,0 +1,20 @@
+name: interest-calculator
+props:
+  principal:
+    type: integer
+    default: 10000
+    title: Principal
+  rate:
+    type: string
+    default: "5.0"
+    title: Annual rate %
+  years:
+    type: integer
+    default: 10
+    title: Years
+  result:
+    type: string
+    required: true
+    title: Result
+    description: Precomputed final balance (behavior recalculates live).
+    example: "$16,289"

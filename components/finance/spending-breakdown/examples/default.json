@@ -1,0 +1,11 @@
+{
+  "title": "Spending this month",
+  "total": "$2,140",
+  "segments": [
+    { "label": "Housing", "amount": "$920", "pct": "43%", "tone": "primary", "dash": "122 283", "offset": "0" },
+    { "label": "Food", "amount": "$385", "pct": "18%", "tone": "accent", "dash": "51 283", "offset": "-122" },
+    { "label": "Shopping", "amount": "$321", "pct": "15%", "tone": "warning", "dash": "42 283", "offset": "-173" },
+    { "label": "Transport", "amount": "$257", "pct": "12%", "tone": "info", "dash": "34 283", "offset": "-215" },
+    { "label": "Other", "amount": "$257", "pct": "12%", "tone": "success", "dash": "34 283", "offset": "-249" }
+  ]
+}

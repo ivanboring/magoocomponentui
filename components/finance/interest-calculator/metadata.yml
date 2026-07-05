@@ -1,0 +1,67 @@
+name: "Interest Calculator"
+short_description: A compound-interest calculator with principal, rate, and term inputs.
+long_visual_description: >
+  A panel with a prominent final-balance result and inputs for principal (slider), rate, and
+  years; the balance updates live.
+
+use_cases:
+  - Compound interest estimate.
+  - Savings growth calculator.
+  - Investment projection.
+  - Return calculator.
+  - Growth-over-time tool.
+
+recommended_for:
+  - A compound-interest / growth calculator.
+avoid_for:
+  - A loan payment calculator (use mortgage-calculator).
+
+markets:
+  - Global
+
+example_usage: >
+  The behavior compounds annually (P(1+r)^n) live; the initial result is the server-precomputed
+  value.
+
+props:
+  principal: The starting principal.
+  rate: The annual rate percent.
+  years: The term in years.
+  result: The initial final balance.
+
+example_prompts:
+  - "Add a compound interest calculator."
+  - "Add a savings growth projection tool."
+
+lifecycle: experimental
+content_model: Interest inputs and a live final-balance result.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Default to representative values; show the final balance prominently.
+
+categorization:
+  category: Finance
+  subcategory: Tools
+  atomic_type: organism
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inputs have associated labels; the result updates live. Native fields are keyboard-operable.
+  keyboard_support: All inputs are focusable and adjustable via the keyboard.
+  seo_score: 30
+  text_direction: both

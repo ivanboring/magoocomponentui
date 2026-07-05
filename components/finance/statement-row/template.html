@@ -1,0 +1,12 @@
+<div class="statement-row flex items-center gap-3 py-3">
+  <span class="statement-row__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h6l3 3v11H6z"/><path d="M12 3v3h3M8 10h5M8 13h5"/></svg>
+  </span>
+  <div class="statement-row__body min-w-0 flex-1">
+    <p class="statement-row__period text-sm font-medium text-on-surface">{{ period }}</p>
+    <p class="statement-row__meta text-xs text-on-surface-muted"><span data-if="status">{{ status }}</span><span data-if="balance"> · {{ balance }}</span></p>
+  </div>
+  <a class="statement-row__download flex size-9 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="{{ href }}" aria-label="Download {{ period }} statement" download>
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12"/></svg>
+  </a>
+</div>

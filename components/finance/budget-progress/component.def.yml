@@ -1,0 +1,32 @@
+name: budget-progress
+props:
+  category:
+    type: string
+    required: true
+    title: Category
+    example: "Dining"
+  spent:
+    type: string
+    required: true
+    title: Spent
+    example: "$380"
+  budget:
+    type: string
+    required: true
+    title: Budget
+    example: "$500"
+  pct:
+    type: integer
+    default: 0
+    title: Percent
+    description: 0-100 spent percentage.
+  status:
+    type: enum
+    values: [ok, warning, over]
+    default: ok
+    title: Status
+variants:
+  status:
+    ok: "bg-success"
+    warning: "bg-warning"
+    over: "bg-danger"

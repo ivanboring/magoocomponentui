@@ -1,0 +1,13 @@
+<div class="credit-score-gauge inline-flex flex-col items-center rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="credit-score-gauge__dial relative">
+    <svg class="w-44" viewBox="0 0 100 56" fill="none">
+      <path class="text-surface-raised" d="M10 50 A40 40 0 0 1 90 50" stroke="currentColor" stroke-width="8" stroke-linecap="round"></path>
+      <path class="credit-score-gauge__arc {{ tone@class }}" d="M10 50 A40 40 0 0 1 90 50" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-dasharray="{{ dash }}"></path>
+    </svg>
+    <div class="credit-score-gauge__center absolute inset-x-0 bottom-0 text-center">
+      <span class="credit-score-gauge__score block font-heading text-3xl text-on-surface tabular-nums">{{ score }}</span>
+      <span class="credit-score-gauge__band block text-sm font-medium {{ tone@class }}">{{ band }}</span>
+    </div>
+  </div>
+  <p data-if="range" class="credit-score-gauge__range mt-2 text-xs text-on-surface-muted">Range {{ range }}</p>
+</div>

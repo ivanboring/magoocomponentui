@@ -1,0 +1,64 @@
+name: "Budget Progress"
+short_description: A spent-vs-budget bar for a category with an over/warning status colour.
+long_visual_description: >
+  A category label with spent-of-budget figures above a progress bar coloured by status (ok
+  green, warning amber, over red).
+
+use_cases:
+  - Category budget tracking.
+  - Spending vs budget bar.
+  - Monthly budget item.
+  - Envelope budgeting.
+  - Budget overview row.
+
+recommended_for:
+  - A single category's spend against its budget.
+avoid_for:
+  - A full spending breakdown (use spending-breakdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Show spent of budget with a precomputed percentage; set status to colour the bar (warning
+  near limit, over when exceeded).
+
+props:
+  category: The budget category.
+  spent: The amount spent.
+  budget: The budget amount.
+  pct: The spent percentage.
+  status: ok, warning, or over.
+
+example_prompts:
+  - "Add a dining budget progress bar at 76%."
+  - "Add a spent-vs-budget category bar."
+
+lifecycle: experimental
+content_model: A category's spend against budget with status.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+
+editorial_guidance: >
+  Show the raw spent/budget figures; the status colour reinforces the numbers.
+
+categorization:
+  category: Finance
+  subcategory: Budgeting
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with a label and aria-valuenow; spent/budget figures are real text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

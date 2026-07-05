@@ -1,0 +1,12 @@
+{
+  "from_options": [
+    { "label": "Everyday Checking · $4,382.19", "selected": true },
+    { "label": "Savings · $12,940.00", "selected": false }
+  ],
+  "to_options": [
+    { "label": "Savings · $12,940.00", "selected": true },
+    { "label": "Everyday Checking · $4,382.19", "selected": false }
+  ],
+  "amount": "500.00",
+  "cta_label": "Review transfer"
+}

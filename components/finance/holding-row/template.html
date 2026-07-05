@@ -1,0 +1,11 @@
+<div class="holding-row flex items-center gap-3 py-3">
+  <span class="holding-row__ticker flex size-10 shrink-0 items-center justify-center rounded-full bg-surface-raised font-heading text-xs text-on-surface">{{ ticker }}</span>
+  <div class="holding-row__body min-w-0 flex-1">
+    <p class="holding-row__name text-sm font-medium text-on-surface">{{ name }}</p>
+    <p class="holding-row__shares text-xs text-on-surface-muted">{{ shares }}</p>
+  </div>
+  <div class="holding-row__figures shrink-0 text-right">
+    <p class="holding-row__value font-heading text-on-surface tabular-nums">{{ value }}</p>
+    <p class="holding-row__change text-xs font-medium {{ direction@class }}" data-direction="{{ direction }}">{{ change }}</p>
+  </div>
+</div>

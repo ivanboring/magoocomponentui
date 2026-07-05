@@ -1,0 +1,70 @@
+name: "Credit Score Gauge"
+short_description: A semicircle credit-score dial with the score, band, and range.
+long_visual_description: >
+  A half-circle gauge with a coloured arc filling to the score, the score and band centered
+  below the arc, and the range beneath.
+
+use_cases:
+  - Credit score display.
+  - Score with band (good/very good).
+  - Financial health dial.
+  - Creditworthiness gauge.
+  - Score summary.
+
+recommended_for:
+  - A credit score shown as a banded gauge.
+avoid_for:
+  - A generic percentage ring (use progress-ring-stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the arc dash for the score position; set the tone to the band and show the score
+  and range.
+
+props:
+  score: The credit score.
+  band: The qualitative band.
+  range: The score range.
+  dash: Precomputed arc stroke-dasharray.
+  tone: The band colour tone.
+
+example_prompts:
+  - "Add a credit score gauge showing 742 Very good."
+  - "Add a banded credit-score dial."
+
+lifecycle: experimental
+content_model: A credit score with band and range on a gauge.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-warning
+    - --color-success
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Map the band and tone to the score consistently; show the range so the score is contextual.
+
+categorization:
+  category: Finance
+  subcategory: Credit
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The score, band, and range are real text; the arc is supplementary. The band word conveys quality, not colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

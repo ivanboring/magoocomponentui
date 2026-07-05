@@ -1,0 +1,69 @@
+name: "Fraud Alert Banner"
+short_description: A suspicious-activity notice with confirm and freeze-card actions.
+long_visual_description: >
+  A danger-accented banner with a shield icon, a question about a transaction, the
+  transaction detail, and confirm/freeze actions.
+
+use_cases:
+  - Suspicious transaction alert.
+  - Card fraud verification.
+  - Unusual-activity notice.
+  - Confirm-or-freeze prompt.
+  - Security alert banner.
+
+recommended_for:
+  - Prompting the user to verify a suspicious transaction.
+avoid_for:
+  - A general alert (use alert).
+
+markets:
+  - Global
+
+example_usage: >
+  State the transaction in question; offer confirm (it was me) and a prominent freeze-card
+  action.
+
+props:
+  title: The verification question.
+  detail: The transaction detail.
+  yes_label: The confirm action.
+  no_label: The freeze/dispute action.
+
+example_prompts:
+  - "Add a fraud alert banner verifying a purchase."
+  - "Add a suspicious-activity confirm-or-freeze prompt."
+
+lifecycle: experimental
+content_model: A fraud verification prompt with confirm/freeze actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-danger-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the exact transaction so the user can decide; make freeze-card clearly available.
+
+categorization:
+  category: Finance
+  subcategory: Security
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces it; actions are real buttons; the shield icon is decorative.
+  keyboard_support: Both actions are focusable and activate on Enter/Space.
+  seo_score: 25
+  text_direction: both

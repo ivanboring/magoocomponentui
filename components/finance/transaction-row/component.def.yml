@@ -1,0 +1,29 @@
+name: transaction-row
+props:
+  merchant:
+    type: string
+    required: true
+    title: Merchant
+    example: "Blue Bottle Coffee"
+  category:
+    type: string
+    title: Category
+    example: "Dining"
+  icon:
+    type: string
+    title: Icon
+    example: "☕"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Aug 12"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    example: "-$4.75"
+  positive:
+    type: boolean
+    default: false
+    title: Positive (credit)

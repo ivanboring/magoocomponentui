@@ -1,0 +1,68 @@
+name: "Savings Goal"
+short_description: A savings goal with a progress ring, saved-of-target figures, and add-funds.
+long_visual_description: >
+  A card with a progress ring showing the percent saved, the goal name, saved-of-target
+  figures, and an add-funds button.
+
+use_cases:
+  - Savings goal tracker.
+  - Goal progress with ring.
+  - Sinking fund display.
+  - Savings target card.
+  - Money goal widget.
+
+recommended_for:
+  - A savings goal with a progress ring and add-funds.
+avoid_for:
+  - A budget category bar (use budget-progress).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the ring dash for the percentage; show saved-of-target and an add-funds action.
+
+props:
+  name: The goal name.
+  saved: The amount saved.
+  target: The target amount.
+  pct: The percentage saved.
+  dash: Precomputed ring stroke-dasharray.
+
+example_prompts:
+  - "Add an emergency-fund savings goal at 64%."
+  - "Add a savings goal ring with add-funds."
+
+lifecycle: experimental
+content_model: A savings goal's progress toward a target.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the raw saved/target figures; the ring gives an at-a-glance sense of progress.
+
+categorization:
+  category: Finance
+  subcategory: Savings
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The percentage and figures are real text; the ring is supplementary; add-funds is a real button.
+  keyboard_support: The add-funds button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,11 @@
+<article class="account-balance-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-2">
+    <p class="account-balance-card__account text-sm text-on-surface-muted">{{ account }}</p>
+    <span data-if="account_number" class="account-balance-card__number font-mono text-xs text-on-surface-muted">{{ account_number }}</span>
+  </div>
+  <p class="account-balance-card__balance mt-2 font-heading text-3xl text-on-surface tabular-nums">{{ balance }}</p>
+  <p data-if="delta" class="account-balance-card__delta mt-1 flex items-center gap-1 text-sm font-medium {{ trend@class }}" data-trend="{{ trend }}">
+    <svg data-if="trend" class="size-3.5 data-[trend=down]:rotate-180 data-[trend=flat]:hidden" data-trend="{{ trend }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+    {{ delta }}
+  </p>
+</article>

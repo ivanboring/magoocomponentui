@@ -1,0 +1,13 @@
+{
+  "groups": [
+    { "date": "Today", "items": [
+      { "merchant": "Blue Bottle Coffee", "category": "Dining", "icon": "☕", "amount": "-$4.75", "positive": false },
+      { "merchant": "Payroll deposit", "category": "Income", "icon": "💵", "amount": "+$2,840.00", "positive": true }
+    ]},
+    { "date": "Yesterday", "items": [
+      { "merchant": "GreenMart Grocery", "category": "Groceries", "icon": "🛒", "amount": "-$62.18", "positive": false },
+      { "merchant": "City Transit", "category": "Transport", "icon": "🚆", "amount": "-$2.90", "positive": false },
+      { "merchant": "StreamFlix", "category": "Subscriptions", "icon": "🎬", "amount": "-$15.99", "positive": false }
+    ]}
+  ]
+}

@@ -1,0 +1,11 @@
+<article class="bill-pay-card flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="bill-pay-card__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised text-lg" aria-hidden="true">{{ icon }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="bill-pay-card__payee font-heading text-on-surface">{{ payee }}</p>
+    <p class="bill-pay-card__due mt-0.5 text-xs font-medium data-[urgent=true]:text-danger data-[urgent=false]:text-on-surface-muted" data-urgent="{{ urgent }}"><span data-if="category">{{ category }} · </span>{{ due }}</p>
+  </div>
+  <div class="flex flex-col items-end gap-1">
+    <span class="bill-pay-card__amount font-heading text-on-surface tabular-nums">{{ amount }}</span>
+    <button type="button" class="bill-pay-card__pay rounded-button bg-primary px-3 py-1 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Pay</button>
+  </div>
+</article>

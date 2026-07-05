@@ -1,0 +1,15 @@
+<div class="fraud-alert-banner rounded-card border border-l-4 border-border border-l-danger bg-surface p-(--space-card) shadow-card" role="alert">
+  <div class="flex items-start gap-3">
+    <span class="fraud-alert-banner__icon flex size-9 shrink-0 items-center justify-center rounded-full bg-danger/15 text-danger" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2l7 4v4c0 4-3 7-7 8-4-1-7-4-7-8V6z"/><path d="M10 7v3M10 13h.01"/></svg>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="fraud-alert-banner__title font-heading text-on-surface">{{ title }}</p>
+      <p class="fraud-alert-banner__detail mt-1 text-sm text-on-surface-muted">{{ detail }}</p>
+      <div class="fraud-alert-banner__actions mt-3 flex flex-wrap gap-2">
+        <button type="button" class="rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ yes_label }}</button>
+        <button type="button" class="rounded-button bg-danger px-4 py-2 text-sm font-heading text-danger-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ no_label }}</button>
+      </div>
+    </div>
+  </div>
+</div>

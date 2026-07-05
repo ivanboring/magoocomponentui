@@ -1,0 +1,22 @@
+name: transfer-form
+props:
+  from_options:
+    type: array
+    items: object
+    required: true
+    title: From accounts
+    description: "Each: { label, selected }."
+  to_options:
+    type: array
+    items: object
+    required: true
+    title: To accounts
+    description: "Each: { label, selected }."
+  amount:
+    type: string
+    default: "0.00"
+    title: Amount
+  cta_label:
+    type: string
+    default: "Review transfer"
+    title: CTA label

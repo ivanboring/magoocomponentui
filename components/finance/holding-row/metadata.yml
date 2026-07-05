@@ -1,0 +1,63 @@
+name: "Holding Row"
+short_description: A portfolio holding row with ticker, shares, value, and change.
+long_visual_description: >
+  A row with a ticker badge, the security name and share count, and the position value with a
+  colour-coded change.
+
+use_cases:
+  - Portfolio holding entry.
+  - Stock position row.
+  - Watchlist item.
+  - Investment list line.
+  - Holdings table row.
+
+recommended_for:
+  - A single portfolio holding with value and change.
+avoid_for:
+  - A portfolio total (use portfolio-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the ticker, shares, value, and signed change; direction colours the change.
+
+props:
+  ticker: The ticker symbol.
+  name: The security name.
+  shares: The share count.
+  value: The position value.
+  change: The signed change.
+  direction: up, down, or flat.
+
+example_prompts:
+  - "Add a stock holding row for AAPL up 1.4%."
+  - "Add a portfolio position line."
+
+lifecycle: experimental
+content_model: A holding's ticker, shares, value, and change.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --font-heading
+
+editorial_guidance: >
+  Sign the change; direction colour reinforces the signed percentage.
+
+categorization:
+  category: Finance
+  subcategory: Investing
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The signed change conveys direction, not colour alone; value and shares are real text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

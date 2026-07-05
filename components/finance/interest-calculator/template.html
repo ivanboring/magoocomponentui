@@ -1,0 +1,17 @@
+<form class="interest-calculator rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="interest-calculator__title font-heading text-on-surface">Compound interest</h3>
+  <div class="interest-calculator__result mt-2 flex items-baseline justify-between rounded-card bg-surface-raised px-4 py-3">
+    <span class="text-sm text-on-surface-muted">Final balance</span>
+    <span class="interest-calculator__out font-heading text-2xl text-primary tabular-nums">{{ result }}</span>
+  </div>
+  <div class="interest-calculator__fields mt-4 flex flex-col gap-4">
+    <label class="block">
+      <span class="flex items-center justify-between text-sm text-on-surface"><span>Principal</span><span class="interest-calculator__principal-out font-medium tabular-nums">${{ principal }}</span></span>
+      <input type="range" name="principal" class="interest-calculator__principal mt-1 w-full accent-primary" min="500" max="200000" step="500" value="{{ principal }}">
+    </label>
+    <div class="grid grid-cols-2 gap-3 text-sm">
+      <label class="block"><span class="text-on-surface">Rate (%)</span><input type="number" class="interest-calculator__rate mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" step="0.1" value="{{ rate }}"></label>
+      <label class="block"><span class="text-on-surface">Years</span><input type="number" class="interest-calculator__years mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" value="{{ years }}"></label>
+    </div>
+  </div>
+</form>
