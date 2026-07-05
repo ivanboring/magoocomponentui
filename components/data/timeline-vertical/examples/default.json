@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "date": "Jul 1", "title": "Project kicked off", "body": "Scope, goals, and success metrics agreed with stakeholders.", "is_last": false },
+    { "date": "Jul 8", "title": "Design system drafted", "body": "Token contract and four theme value sets defined.", "is_last": false },
+    { "date": "Jul 15", "title": "Generator shipped", "body": "SDC, React, Vue, and Storybook emitted from one source.", "is_last": false },
+    { "date": "Jul 22", "title": "Catalog underway", "body": "First domains authored and verified in the preview.", "is_last": true }
+  ]
+}

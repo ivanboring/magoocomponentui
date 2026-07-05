@@ -1,0 +1,10 @@
+<ol class="progress-steps flex items-center gap-2" aria-label="Progress">
+  <li data-for="step in steps" class="progress-steps__step group flex flex-1 items-center gap-2" data-status="{{ step.status }}">
+    <span class="progress-steps__marker flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-xs font-medium text-on-surface-muted group-data-[status=complete]:border-primary group-data-[status=complete]:bg-primary group-data-[status=complete]:text-primary-contrast group-data-[status=current]:border-primary group-data-[status=current]:text-primary">
+      <svg class="hidden size-3.5 group-data-[status=complete]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <span class="size-1.5 rounded-full bg-current group-data-[status=complete]:hidden"></span>
+    </span>
+    <span class="progress-steps__label whitespace-nowrap text-sm text-on-surface-muted group-data-[status=complete]:text-on-surface group-data-[status=current]:font-medium group-data-[status=current]:text-on-surface">{{ step.label }}</span>
+    <span class="progress-steps__bar h-0.5 flex-1 bg-border group-data-[status=complete]:bg-primary group-last:hidden"></span>
+  </li>
+</ol>

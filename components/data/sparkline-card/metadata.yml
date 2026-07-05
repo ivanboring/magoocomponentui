@@ -1,0 +1,67 @@
+name: "Sparkline Card"
+short_description: A metric card with a value, delta, and an inline sparkline trend line.
+long_visual_description: >
+  A card with a label, value, and coloured delta on the left and a small trend-coloured
+  sparkline polyline on the right.
+
+use_cases:
+  - Metric with a trend at a glance.
+  - Dashboard KPI with mini chart.
+  - Time-series summary tile.
+  - Growth indicator card.
+  - Compact analytics card.
+
+recommended_for:
+  - A metric paired with a small inline trend line.
+avoid_for:
+  - A full chart (use a chart card).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the polyline points on a 100×32 viewBox; the sparkline and delta share the
+  trend colour.
+
+props:
+  label: The metric label.
+  value: The metric value.
+  delta: The change value.
+  trend: up, down, or flat (colours the delta and sparkline).
+  points: Precomputed SVG polyline points.
+
+example_prompts:
+  - "Add a sparkline card for signups trending up."
+  - "Add a metric card with an inline trend line."
+
+lifecycle: experimental
+content_model: A metric value, delta, and a sparkline trend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the sparkline representative of the period; say what the delta compares to.
+
+categorization:
+  category: Data
+  subcategory: Charts
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The sparkline is decorative (aria-hidden); the value and delta carry the meaning as text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

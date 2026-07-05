@@ -1,0 +1,58 @@
+name: "Horizontal Timeline"
+short_description: A horizontal milestone timeline with done/upcoming markers.
+long_visual_description: >
+  A horizontal row of milestone markers connected by a line; completed milestones fill with
+  the primary colour and a checkmark, and each shows a date and label.
+
+use_cases:
+  - Roadmap milestones.
+  - Quarterly plan timeline.
+  - Release schedule.
+  - Program phases.
+  - Journey milestones.
+
+recommended_for:
+  - A horizontal sequence of milestones with done/upcoming state.
+avoid_for:
+  - A detailed dated event log (use timeline-vertical).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark completed milestones done; the connector fills between completed ones.
+
+props:
+  milestones: The milestones with date, label, and done state.
+
+example_prompts:
+  - "Add a horizontal roadmap timeline by quarter."
+  - "Add a milestone timeline with done markers."
+
+lifecycle: experimental
+content_model: A horizontal sequence of dated milestones with completion state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+
+editorial_guidance: >
+  Keep labels to one word; order chronologically.
+
+categorization:
+  category: Data
+  subcategory: Time
+  atomic_type: organism
+  usage_type: [timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; done state is shown by the checkmark plus fill, with date/label as text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

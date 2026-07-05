@@ -1,0 +1,20 @@
+<div class="data-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="data-table__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th data-for="column in columns" class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col" aria-sort="{{ column.sorted }}">
+          <button data-if="column.sortable" type="button" class="data-table__sort inline-flex items-center gap-1 hover:text-on-surface" data-sorted="{{ column.sorted }}">
+            {{ column.label }}
+            <svg class="size-3.5 opacity-0 data-[sorted=asc]:opacity-100 data-[sorted=desc]:rotate-180 data-[sorted=desc]:opacity-100" data-sorted="{{ column.sorted }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+          </button>
+          <span data-if="!column.sortable">{{ column.label }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border transition-colors duration-(--duration-token) last:border-0 hover:bg-surface-raised">
+        <td data-for="cell in row.cells" class="px-4 py-3 text-on-surface">{{ cell.text }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

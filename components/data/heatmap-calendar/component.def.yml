@@ -1,0 +1,16 @@
+name: heatmap-calendar
+props:
+  title:
+    type: string
+    default: "Activity"
+    title: Title
+  weeks:
+    type: array
+    items: object
+    required: true
+    title: Weeks
+    description: >
+      Each week is a column: { days: [{ level }] } where level is 0-4 (intensity). Rendered
+      as a GitHub-style contribution grid (weeks as columns, 7 days per column).
+    example:
+      - { days: [{ level: 0 }, { level: 2 }, { level: 4 }, { level: 1 }, { level: 0 }, { level: 3 }, { level: 2 }] }

@@ -1,0 +1,14 @@
+{
+  "columns": [
+    { "label": "Company", "sortable": true, "sorted": "asc" },
+    { "label": "Plan", "sortable": true, "sorted": "" },
+    { "label": "Seats", "sortable": true, "sorted": "" },
+    { "label": "Status", "sortable": false, "sorted": "" }
+  ],
+  "rows": [
+    { "cells": [{ "text": "Acme Corp" }, { "text": "Pro" }, { "text": "24" }, { "text": "Active" }] },
+    { "cells": [{ "text": "Globex" }, { "text": "Enterprise" }, { "text": "120" }, { "text": "Active" }] },
+    { "cells": [{ "text": "Initech" }, { "text": "Starter" }, { "text": "3" }, { "text": "Trialing" }] },
+    { "cells": [{ "text": "Umbrella" }, { "text": "Pro" }, { "text": "48" }, { "text": "Past due" }] }
+  ]
+}

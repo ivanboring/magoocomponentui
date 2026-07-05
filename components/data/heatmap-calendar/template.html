@@ -1,0 +1,18 @@
+<section class="heatmap-calendar rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="heatmap-calendar__head mb-3 flex items-center justify-between">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <div class="flex items-center gap-1 text-xs text-on-surface-muted">
+      Less
+      <span class="size-2.5 rounded-sm bg-surface-raised"></span>
+      <span class="size-2.5 rounded-sm bg-primary/30"></span>
+      <span class="size-2.5 rounded-sm bg-primary/60"></span>
+      <span class="size-2.5 rounded-sm bg-primary"></span>
+      More
+    </div>
+  </div>
+  <div class="heatmap-calendar__grid flex gap-1 overflow-x-auto">
+    <div data-for="week in weeks" class="heatmap-calendar__week flex flex-col gap-1">
+      <span data-for="day in week.days" class="heatmap-calendar__cell size-3 rounded-sm bg-surface-raised data-[level=1]:bg-primary/30 data-[level=2]:bg-primary/50 data-[level=3]:bg-primary/70 data-[level=4]:bg-primary" data-level="{{ day.level }}" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

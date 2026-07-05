@@ -1,0 +1,5 @@
+<div class="kpi-tile rounded-card bg-surface p-4">
+  <p class="kpi-tile__label text-xs uppercase tracking-wide text-on-surface-muted">{{ label }}</p>
+  <p class="kpi-tile__value mt-1 font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+  <p data-if="delta" class="kpi-tile__delta mt-1 text-xs font-medium {{ trend@class }}">{{ delta }}</p>
+</div>

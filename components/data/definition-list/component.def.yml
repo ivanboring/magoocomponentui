@@ -1,0 +1,11 @@
+name: definition-list
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { term, description }."
+    example:
+      - { term: "Plan", description: "Pro (annual)" }
+      - { term: "Seats", description: "24 of 50" }

@@ -1,0 +1,64 @@
+name: "Gauge"
+short_description: A radial semicircle gauge for a single value against a threshold tone.
+long_visual_description: >
+  A half-circle gauge with a muted track and a coloured arc filling to the value, with the
+  value centered below the arc and an optional label.
+
+use_cases:
+  - Health or quality score.
+  - Utilization or capacity gauge.
+  - Performance rating.
+  - Threshold indicator.
+  - Single-metric dial.
+
+recommended_for:
+  - A single value shown as a semicircular gauge with a threshold tone.
+avoid_for:
+  - A full-circle progress ring (use progress-circle or progress-ring-stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the arc dash for the semicircle (circumference ~126); set the tone to reflect
+  the threshold (success/warning/danger).
+
+props:
+  value: The centered value.
+  label: An optional label.
+  dash: Precomputed stroke-dasharray for the arc.
+  tone: The arc colour tone.
+
+example_prompts:
+  - "Add a gauge showing a health score of 72."
+  - "Add a semicircle gauge tinted by threshold."
+
+lifecycle: experimental
+content_model: A single value shown on a semicircular gauge.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --font-heading
+
+editorial_guidance: >
+  Choose the tone by the value's threshold band so colour matches meaning.
+
+categorization:
+  category: Data
+  subcategory: Charts
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The value and label are real text; the arc is supplementary. Choose the tone to match the value's band rather than relying on colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

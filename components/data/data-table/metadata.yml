@@ -1,0 +1,62 @@
+name: "Data Table"
+short_description: A sortable data table with clickable column headers and hover rows.
+long_visual_description: >
+  A bordered table with column headers (sortable ones show a direction arrow on click) and
+  rows that highlight on hover.
+
+use_cases:
+  - Admin data listing.
+  - Records or entities table.
+  - Reports and analytics table.
+  - Account or user management grid.
+  - Any tabular dataset.
+
+recommended_for:
+  - Displaying rows of structured data with sortable columns.
+avoid_for:
+  - Standings with domain columns (use league-table/group-standings-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark columns sortable and set one sorted asc/desc; clicking a header cycles its sort and
+  emits data-table:sort for the app/server to reorder.
+
+props:
+  columns: The column definitions (label, sortable, sorted).
+  rows: The rows, each a list of cells.
+
+example_prompts:
+  - "Add a sortable data table of companies and plans."
+  - "Add an admin table with sortable columns."
+
+lifecycle: experimental
+content_model: Column headers and data rows with per-column sort state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep column labels short; indicate the default sort so the order is predictable.
+
+categorization:
+  category: Data
+  subcategory: Tables
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped column headers and aria-sort on sortable columns; sort controls are real buttons.
+  keyboard_support: Sortable headers are focusable buttons that cycle sort on Enter/Space.
+  seo_score: 45
+  text_direction: both

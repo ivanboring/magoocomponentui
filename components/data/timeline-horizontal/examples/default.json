@@ -1,0 +1,8 @@
+{
+  "milestones": [
+    { "date": "Q1", "label": "Research", "done": true },
+    { "date": "Q2", "label": "Build", "done": true },
+    { "date": "Q3", "label": "Beta", "done": false },
+    { "date": "Q4", "label": "Launch", "done": false }
+  ]
+}

@@ -1,0 +1,11 @@
+name: timeline-horizontal
+props:
+  milestones:
+    type: array
+    items: object
+    required: true
+    title: Milestones
+    description: "Each milestone: { date, label, done }."
+    example:
+      - { date: "Q1", label: "Research", done: true }
+      - { date: "Q2", label: "Build", done: false }

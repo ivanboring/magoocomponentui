@@ -1,0 +1,18 @@
+<div class="calendar-month rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="calendar-month__head mb-3 flex items-center justify-between">
+    <h3 class="calendar-month__title font-heading text-on-surface">{{ month }}</h3>
+    <div class="flex items-center gap-1">
+      <button type="button" class="flex size-8 items-center justify-center rounded-control text-on-surface-muted hover:bg-surface-raised hover:text-on-surface" aria-label="Previous month"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+      <button type="button" class="flex size-8 items-center justify-center rounded-control text-on-surface-muted hover:bg-surface-raised hover:text-on-surface" aria-label="Next month"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="calendar-month__weekdays grid grid-cols-7 gap-1 text-center text-xs text-on-surface-muted">
+    <span data-for="weekday in weekdays">{{ weekday.label }}</span>
+  </div>
+  <div class="calendar-month__grid mt-1 grid grid-cols-7 gap-1">
+    <span data-for="day in days" class="calendar-month__day relative flex aspect-square items-center justify-center rounded-control text-sm text-on-surface data-[muted=true]:text-on-surface-muted/50 data-[today=true]:bg-primary data-[today=true]:font-medium data-[today=true]:text-primary-contrast" data-muted="{{ day.muted }}" data-today="{{ day.today }}">
+      {{ day.number }}
+      <span data-if="day.event" class="absolute bottom-1 size-1 rounded-full bg-primary data-[today=true]:bg-primary-contrast" data-today="{{ day.today }}" aria-hidden="true"></span>
+    </span>
+  </div>
+</div>

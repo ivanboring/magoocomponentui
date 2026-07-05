@@ -1,0 +1,13 @@
+name: calendar-agenda
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Day groups
+    description: "Each group: { day, weekday, events: [{ time, title, tone }] }. tone colours the time chip."
+    example:
+      - day: "14"
+        weekday: "Tue"
+        events:
+          - { time: "09:00", title: "Standup", tone: "primary" }

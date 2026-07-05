@@ -1,0 +1,10 @@
+name: timeline-vertical
+props:
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: "Each event: { date, title, body, is_last }."
+    example:
+      - { date: "Jul 1", title: "Project kicked off", body: "Scope and goals agreed.", is_last: false }

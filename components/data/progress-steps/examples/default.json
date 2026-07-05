@@ -1,0 +1,7 @@
+{
+  "steps": [
+    { "label": "Details", "status": "complete" },
+    { "label": "Review", "status": "current" },
+    { "label": "Publish", "status": "upcoming" }
+  ]
+}

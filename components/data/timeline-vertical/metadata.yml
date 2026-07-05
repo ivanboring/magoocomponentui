@@ -1,0 +1,59 @@
+name: "Vertical Timeline"
+short_description: A vertical event timeline with dated entries down a connecting line.
+long_visual_description: >
+  A vertical line with dots marking dated events; each entry shows a date, a title, and a
+  short body, with the connecting line hidden after the last event.
+
+use_cases:
+  - Project or product history.
+  - Changelog or milestone timeline.
+  - Order or shipment history.
+  - Company or roadmap timeline.
+  - Activity history.
+
+recommended_for:
+  - A chronological vertical list of dated events.
+avoid_for:
+  - A horizontal milestone strip (use timeline-horizontal).
+
+markets:
+  - Global
+
+example_usage: >
+  List events chronologically with a date, title, and body; set is_last on the final one to
+  end the line cleanly.
+
+props:
+  events: The dated timeline events.
+
+example_prompts:
+  - "Add a vertical timeline of project milestones."
+  - "Add a dated event timeline."
+
+lifecycle: experimental
+content_model: A chronological list of dated events.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Order events chronologically; keep bodies to a sentence.
+
+categorization:
+  category: Data
+  subcategory: Time
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list with real headings; the line and dots are decorative.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

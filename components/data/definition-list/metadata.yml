@@ -1,0 +1,58 @@
+name: "Definition List"
+short_description: A term/description key-value list.
+long_visual_description: >
+  A bordered list of term/description rows, the term muted on the left and the value bold on
+  the right, divided by hairlines.
+
+use_cases:
+  - Key-value details panel.
+  - Account or order summary facts.
+  - Metadata display.
+  - Spec sheet fields.
+  - Settings summary.
+
+recommended_for:
+  - Displaying labeled key-value pairs.
+avoid_for:
+  - Tabular multi-column data (use data-table).
+
+markets:
+  - Global
+
+example_usage: >
+  List term/description pairs; keep values right-aligned and concise.
+
+props:
+  items: The term/description pairs.
+
+example_prompts:
+  - "Add a definition list of account details."
+  - "Add a key-value facts panel."
+
+lifecycle: experimental
+content_model: A set of term/description pairs.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --space-card
+
+editorial_guidance: >
+  Keep terms short and consistent; format values (dates, counts) uniformly.
+
+categorization:
+  category: Data
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real definition list (dl/dt/dd) so pairs are semantically associated.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,61 @@
+name: "KPI Tile"
+short_description: A compact KPI tile with a label, value, and colored delta.
+long_visual_description: >
+  A minimal tile with an uppercase label, a large value, and a small trend-coloured delta —
+  designed to sit in a dense KPI row.
+
+use_cases:
+  - Compact KPI in a dashboard row.
+  - Metric summary tile.
+  - Quick-glance figure.
+  - Overview stat.
+  - Report headline number.
+
+recommended_for:
+  - A dense, minimal metric tile without chrome.
+avoid_for:
+  - A bordered stat card with an icon (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pair the value with a delta and set trend to colour it; keep the label to a short code.
+
+props:
+  label: The metric label.
+  value: The metric value.
+  delta: The change value.
+  trend: up, down, or flat.
+
+example_prompts:
+  - "Add a KPI tile for MRR up 6.4%."
+  - "Add a compact metric tile with a delta."
+
+lifecycle: experimental
+content_model: A label, value, and trend delta.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --radius-card
+
+editorial_guidance: >
+  Keep labels short; always say what the delta compares to elsewhere in the dashboard.
+
+categorization:
+  category: Data
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is conveyed by the delta text plus colour, not colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

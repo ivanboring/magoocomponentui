@@ -1,0 +1,19 @@
+name: data-table
+props:
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: "Each column: { label, sortable, sorted } — sorted is asc | desc | ''."
+    example:
+      - { label: "Name", sortable: true, sorted: "asc" }
+      - { label: "Status", sortable: true, sorted: "" }
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each row: { cells: [{ text }] } — one cell per column."
+    example:
+      - { cells: [{ text: "Acme Corp" }, { text: "Active" }] }

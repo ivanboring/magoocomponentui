@@ -1,0 +1,63 @@
+name: "Heatmap Calendar"
+short_description: A GitHub-style contribution heatmap of activity intensity over time.
+long_visual_description: >
+  A grid of small cells (weeks as columns, seven days each) shaded by intensity from muted
+  to primary, with a less→more legend — a contribution/activity heatmap.
+
+use_cases:
+  - Contribution activity graph.
+  - Streak or habit tracker.
+  - Usage intensity over time.
+  - Engagement heatmap.
+  - Commit or publish history.
+
+recommended_for:
+  - Showing activity intensity across many days at a glance.
+avoid_for:
+  - A month calendar with events (use calendar-month).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide weeks (columns) of 7 day cells with a level 0-4; the shade scales with the level.
+
+props:
+  title: The heatmap title.
+  weeks: The week columns, each 7 day cells with an intensity level.
+
+example_prompts:
+  - "Add a contribution-style activity heatmap."
+  - "Add a habit-streak heatmap calendar."
+
+lifecycle: experimental
+content_model: A grid of day cells shaded by activity intensity.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Map levels to a consistent scale; include the legend so intensity is interpretable.
+
+categorization:
+  category: Data
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The legend explains the colour scale; cells are decorative. A production build should add per-cell aria-labels (date + count) for non-visual access.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

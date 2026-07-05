@@ -1,0 +1,12 @@
+<div class="sparkline-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <p class="sparkline-card__label text-xs uppercase tracking-wide text-on-surface-muted">{{ label }}</p>
+      <p class="sparkline-card__value mt-1 font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+      <p data-if="delta" class="sparkline-card__delta mt-0.5 text-xs font-medium {{ trend@class }}">{{ delta }}</p>
+    </div>
+    <svg class="sparkline-card__spark h-10 w-24 shrink-0 {{ trend@class }}" viewBox="0 0 100 32" fill="none" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="{{ points }}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+    </svg>
+  </div>
+</div>

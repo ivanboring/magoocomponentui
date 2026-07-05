@@ -1,0 +1,32 @@
+name: sparkline-card
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Signups"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "1,284"
+  delta:
+    type: string
+    title: Delta
+    example: "+12%"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: up
+    title: Trend
+  points:
+    type: string
+    required: true
+    title: Sparkline points
+    description: Precomputed SVG polyline points on a 100×32 viewBox (e.g. "0,28 20,20 40,24 ...").
+    example: "0,28 20,22 40,26 60,14 80,18 100,6"
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

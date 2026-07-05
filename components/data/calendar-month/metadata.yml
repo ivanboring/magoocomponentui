@@ -1,0 +1,68 @@
+name: "Month Calendar"
+short_description: A month grid calendar with weekday headers, today, and event dots.
+long_visual_description: >
+  A month grid with weekday headers and day cells; other-month days are muted, today is
+  filled with the primary colour, and days with events show a dot. Prev/next controls
+  header the calendar.
+
+use_cases:
+  - Month view calendar.
+  - Event or booking calendar.
+  - Availability calendar.
+  - Schedule overview.
+  - Date picker month grid.
+
+recommended_for:
+  - A month grid showing days, today, and which days have events.
+avoid_for:
+  - A day/agenda list (use calendar-agenda).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the full grid of day cells (leading/trailing muted days included); mark today
+  and event days.
+
+props:
+  month: The month/year label.
+  weekdays: The weekday header labels.
+  days: The day cells with number, muted, today, and event flags.
+
+example_prompts:
+  - "Add a month calendar with event dots and today highlighted."
+  - "Add a July calendar grid."
+
+lifecycle: experimental
+content_model: A month grid of day cells with today and event markers.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Include leading/trailing muted days so weeks align; mark only real event days.
+
+categorization:
+  category: Data
+  subcategory: Time
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Weekday headers and day numbers are real text; today and events are shown by fill/dot plus position. Prev/next are labelled buttons. A production build should mark up days as a real grid/table with dates.
+  keyboard_support: Prev/next month controls are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

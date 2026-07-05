@@ -1,0 +1,26 @@
+name: kpi-tile
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "MRR"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "$48.2k"
+  delta:
+    type: string
+    title: Delta
+    example: "+6.4%"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: flat
+    title: Trend
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

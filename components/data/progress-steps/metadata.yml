@@ -1,0 +1,59 @@
+name: "Progress Steps"
+short_description: A compact labeled multi-step progress indicator with connectors.
+long_visual_description: >
+  A horizontal row of small step markers with labels and connecting bars; completed steps
+  fill with the primary colour and a checkmark, the current step is outlined, and the
+  connector fills up to the current step.
+
+use_cases:
+  - Compact wizard progress.
+  - Multi-step form indicator.
+  - Publishing or approval steps.
+  - Setup progress.
+  - Inline process indicator.
+
+recommended_for:
+  - A compact labeled step indicator inline.
+avoid_for:
+  - A larger stepper with descriptions (use stepper).
+  - Order fulfilment (use order-tracker).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark steps complete/current/upcoming; the connector fills up to the current step.
+
+props:
+  steps: The steps with labels and status.
+
+example_prompts:
+  - "Add a compact progress steps indicator."
+  - "Add a labeled multi-step progress bar."
+
+lifecycle: experimental
+content_model: An ordered set of labeled steps with status.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+
+editorial_guidance: >
+  Keep step labels to one word; order in the completion sequence.
+
+categorization:
+  category: Data
+  subcategory: Time
+  atomic_type: molecule
+  usage_type: [nav, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; status is shown by icon/outline plus label emphasis, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

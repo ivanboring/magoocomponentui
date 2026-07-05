@@ -1,0 +1,8 @@
+{
+  "items": [
+    { "term": "Plan", "description": "Pro (annual)" },
+    { "term": "Seats", "description": "24 of 50" },
+    { "term": "Renews", "description": "Jan 1, 2027" },
+    { "term": "Owner", "description": "jane@acme.com" }
+  ]
+}

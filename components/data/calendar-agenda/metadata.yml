@@ -1,0 +1,63 @@
+name: "Agenda Calendar"
+short_description: An agenda/list day view grouping events under each date.
+long_visual_description: >
+  A vertical agenda where each day shows its date on the left and a list of time-stamped
+  events on the right, with tone-coloured time chips.
+
+use_cases:
+  - Agenda or schedule list view.
+  - Day-by-day event list.
+  - Upcoming events feed.
+  - Booking or itinerary list.
+  - Meeting schedule.
+
+recommended_for:
+  - A list-style agenda grouped by day.
+avoid_for:
+  - A month grid (use calendar-month).
+
+markets:
+  - Global
+
+example_usage: >
+  Group events under each day; use tones to distinguish event types.
+
+props:
+  groups: The day groups, each with a date and its events.
+
+example_prompts:
+  - "Add an agenda calendar grouping events by day."
+  - "Add a schedule list with time-stamped events."
+
+lifecycle: experimental
+content_model: Day-grouped, time-stamped events.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order events chronologically within each day; use tones consistently by event type.
+
+categorization:
+  category: Data
+  subcategory: Time
+  atomic_type: organism
+  usage_type: [list-item, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Days use headings/sections and events are real list items with text times; tone chips add colour but the time text carries meaning.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

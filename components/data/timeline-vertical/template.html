@@ -1,0 +1,13 @@
+<ol class="timeline-vertical flex flex-col" aria-label="Timeline">
+  <li data-for="event in events" class="timeline-vertical__event flex gap-4" data-last="{{ event.is_last }}">
+    <div class="timeline-vertical__rail flex flex-col items-center">
+      <span class="timeline-vertical__dot mt-1 size-3 shrink-0 rounded-full bg-primary ring-4 ring-surface" aria-hidden="true"></span>
+      <span data-if="!event.is_last" class="timeline-vertical__line mt-1 w-px flex-1 bg-border" aria-hidden="true"></span>
+    </div>
+    <div class="timeline-vertical__body min-w-0 flex-1 pb-6">
+      <p class="timeline-vertical__date text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ event.date }}</p>
+      <h3 class="timeline-vertical__title mt-0.5 font-heading text-on-surface">{{ event.title }}</h3>
+      <p data-if="event.body" class="timeline-vertical__text mt-1 text-sm text-on-surface-muted">{{ event.body }}</p>
+    </div>
+  </li>
+</ol>

@@ -1,0 +1,13 @@
+{
+  "groups": [
+    { "day": "14", "weekday": "Tue", "events": [
+      { "time": "09:00", "title": "Team standup", "tone": "primary" },
+      { "time": "11:30", "title": "Design review", "tone": "success" },
+      { "time": "15:00", "title": "1:1 with Sam", "tone": "warning" }
+    ]},
+    { "day": "15", "weekday": "Wed", "events": [
+      { "time": "10:00", "title": "Sprint planning", "tone": "primary" },
+      { "time": "14:00", "title": "Customer call", "tone": "success" }
+    ]}
+  ]
+}

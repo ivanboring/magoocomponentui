@@ -1,0 +1,11 @@
+name: progress-steps
+props:
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, status } where status is complete | current | upcoming."
+    example:
+      - { label: "Details", status: "complete" }
+      - { label: "Review", status: "current" }

@@ -1,0 +1,10 @@
+<ol class="timeline-horizontal flex items-start" aria-label="Milestones">
+  <li data-for="milestone in milestones" class="timeline-horizontal__item group relative flex flex-1 flex-col items-center text-center" data-done="{{ milestone.done }}">
+    <span class="timeline-horizontal__bar absolute left-0 top-3 h-0.5 w-full bg-border group-first:hidden group-data-[done=true]:bg-primary" style="left: -50%; width: 100%"></span>
+    <span class="timeline-horizontal__dot relative z-10 flex size-6 items-center justify-center rounded-full border-2 border-border bg-surface ring-2 ring-surface group-data-[done=true]:border-primary group-data-[done=true]:bg-primary" aria-hidden="true">
+      <svg class="hidden size-3.5 text-primary-contrast group-data-[done=true]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 10l4 4 8-8"/></svg>
+    </span>
+    <span class="timeline-horizontal__date mt-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ milestone.date }}</span>
+    <span class="timeline-horizontal__label text-sm text-on-surface">{{ milestone.label }}</span>
+  </li>
+</ol>
