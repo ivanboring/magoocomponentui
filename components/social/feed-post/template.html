@@ -1,0 +1,28 @@
+<article class="feed-post overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="feed-post__head flex items-center gap-3 p-(--space-card)">
+    <span class="feed-post__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ author }}">
+      <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+      <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0">
+      <p class="feed-post__author text-sm font-medium text-on-surface">{{ author }}</p>
+      <p data-if="handle" class="feed-post__handle text-xs text-on-surface-muted">{{ handle }}</p>
+    </div>
+  </div>
+  <p class="feed-post__body px-(--space-card) pb-3 text-sm text-on-surface">{{ body }}</p>
+  <img data-if="image" class="feed-post__image w-full object-cover" src="{{ image }}" alt="">
+  <div class="feed-post__actions flex items-center gap-1 border-t border-border p-2 text-sm text-on-surface-muted">
+    <button type="button" class="feed-post__like flex flex-1 items-center justify-center gap-2 rounded-control py-1.5 transition-colors duration-(--duration-token) hover:bg-surface-raised data-[liked=true]:text-danger" data-liked="{{ liked }}" aria-pressed="{{ liked }}">
+      <svg class="size-4 data-[liked=true]:fill-current" data-liked="{{ liked }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 17s-6-4-6-8a3.5 3.5 0 016-2.4A3.5 3.5 0 0116 9c0 4-6 8-6 8z"/></svg>
+      <span class="feed-post__likes">{{ likes }}</span>
+    </button>
+    <button type="button" class="feed-post__comment flex flex-1 items-center justify-center gap-2 rounded-control py-1.5 transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h12v8H8l-4 3z"/></svg>
+      {{ comments }}
+    </button>
+    <button type="button" class="feed-post__share flex flex-1 items-center justify-center gap-2 rounded-control py-1.5 transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10v5h12v-5M10 3v9m0-9L7 6m3-3l3 3"/></svg>
+      {{ shares }}
+    </button>
+  </div>
+</article>

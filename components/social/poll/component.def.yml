@@ -1,0 +1,25 @@
+name: poll
+props:
+  question:
+    type: string
+    required: true
+    title: Question
+    example: "Which target should we generate next?"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, pct, voted } — pct is the result bar width (0-100)."
+    example:
+      - { label: "Svelte", pct: 48, voted: true }
+      - { label: "Angular", pct: 32, voted: false }
+  total:
+    type: string
+    title: Total votes
+    example: "1,204 votes"
+  voted:
+    type: boolean
+    default: true
+    title: Show results
+    description: When true, show result bars; otherwise show votable options.

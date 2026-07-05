@@ -1,0 +1,11 @@
+{
+  "question": "Which framework target should we add next?",
+  "options": [
+    { "label": "Svelte", "pct": 48, "voted": true },
+    { "label": "Angular", "pct": 32, "voted": false },
+    { "label": "Solid", "pct": 12, "voted": false },
+    { "label": "Web Components", "pct": 8, "voted": false }
+  ],
+  "total": "1,204 votes",
+  "voted": true
+}

@@ -1,0 +1,14 @@
+name: comment-thread
+props:
+  count:
+    type: string
+    required: true
+    title: Comment count
+    example: "12 comments"
+slots:
+  composer:
+    title: Composer
+    description: Optional comment input at the top.
+  comments:
+    title: Comments
+    description: The comment-item elements (with their nested replies).

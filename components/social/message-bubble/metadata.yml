@@ -1,0 +1,60 @@
+name: "Message Bubble"
+short_description: A chat message bubble aligned by sent/received with a timestamp.
+long_visual_description: >
+  A rounded chat bubble — filled primary and right-aligned when sent, muted surface and
+  left-aligned when received — with a small timestamp beneath.
+
+use_cases:
+  - Chat or messaging thread bubble.
+  - Support conversation message.
+  - Comment-style chat.
+  - DM thread entry.
+  - Bot/agent conversation turn.
+
+recommended_for:
+  - A single chat message aligned by direction.
+avoid_for:
+  - Threaded comments (use comment-item).
+
+markets:
+  - Global
+
+example_usage: >
+  Set direction to sent or received to align and colour the bubble; include a timestamp.
+
+props:
+  text: The message text.
+  time: The timestamp.
+  direction: sent or received.
+
+example_prompts:
+  - "Add a sent chat bubble with a timestamp."
+  - "Add a received message bubble."
+
+lifecycle: experimental
+content_model: A chat message with direction and timestamp.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+
+editorial_guidance: >
+  Keep messages as written; align sent to the trailing edge and received to the leading edge.
+
+categorization:
+  category: Social
+  subcategory: Chat
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Direction is conveyed by alignment and text; the timestamp is real text. In a full thread, mark who sent each message for non-visual users.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

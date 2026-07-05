@@ -1,0 +1,73 @@
+name: "Comment Item"
+short_description: A comment with avatar, author, timestamp, body, like/reply actions, and nested replies.
+long_visual_description: >
+  A comment with an avatar, a bubble containing the author, time, and body, and a like/reply
+  action row beneath. Nested replies indent under a left border.
+
+use_cases:
+  - Single comment in a thread.
+  - Reply within a discussion.
+  - Feedback comment.
+  - Review response.
+  - Nested conversation entry.
+
+recommended_for:
+  - A single comment, optionally with nested replies.
+avoid_for:
+  - A chat message (use message-bubble).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; put nested replies (more comment-items) in the replies slot. The like
+  toggle adjusts its count.
+
+props:
+  author: The commenter's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional avatar.
+  time: The timestamp.
+  body: The comment text.
+  likes: The like count.
+  liked: Whether the viewer liked it.
+
+slots:
+  replies: Nested reply comments.
+
+example_prompts:
+  - "Add a comment with a like toggle and a nested reply."
+  - "Add a threaded comment item."
+
+relationships:
+  parents:
+    - social/comment-thread
+
+lifecycle: experimental
+content_model: A comment with author, body, actions, and nested replies.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the timestamp relative; indent replies to show hierarchy.
+
+categorization:
+  category: Social
+  subcategory: Comments
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the author name; like uses aria-pressed; reply is a real button; nested replies are semantically inside the comment.
+  keyboard_support: Like and reply are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

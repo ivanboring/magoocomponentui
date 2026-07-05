@@ -1,0 +1,16 @@
+<div class="poll rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-voted="{{ voted }}">
+  <p class="poll__question font-heading text-on-surface">{{ question }}</p>
+  <div class="poll__options mt-3 flex flex-col gap-2">
+    <button data-for="option in options" type="button" class="poll__option relative w-full overflow-hidden rounded-control border border-border px-3 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-voted="{{ option.voted }}">
+      <span class="poll__bar absolute inset-y-0 left-0 bg-primary/15 group-data-[voted=true]:bg-primary/25" style="width: {{ option.pct }}%"></span>
+      <span class="relative flex items-center justify-between gap-2">
+        <span class="flex items-center gap-2 font-medium data-[voted=true]:text-primary" data-voted="{{ option.voted }}">
+          <svg data-if="option.voted" class="size-4 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          {{ option.label }}
+        </span>
+        <span class="poll__pct text-xs font-medium text-on-surface-muted tabular-nums">{{ option.pct }}%</span>
+      </span>
+    </button>
+  </div>
+  <p data-if="total" class="poll__total mt-3 text-xs text-on-surface-muted">{{ total }}</p>
+</div>

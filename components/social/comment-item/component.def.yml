@@ -1,0 +1,37 @@
+name: comment-item
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  image:
+    type: image
+    title: Avatar
+  time:
+    type: string
+    required: true
+    title: Timestamp
+    example: "2h ago"
+  body:
+    type: string
+    required: true
+    title: Body
+    example: "This is exactly what we needed — great work."
+  likes:
+    type: string
+    title: Like count
+    example: "8"
+  liked:
+    type: boolean
+    default: false
+    title: Liked
+slots:
+  replies:
+    title: Replies
+    description: Optional nested reply comments.

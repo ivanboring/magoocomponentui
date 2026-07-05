@@ -1,0 +1,12 @@
+<div class="leaderboard-row flex items-center gap-3 px-(--space-card) py-2.5">
+  <span class="leaderboard-row__rank w-6 shrink-0 text-center font-heading text-on-surface tabular-nums">{{ rank }}</span>
+  <span class="leaderboard-row__change shrink-0 {{ change@class }}" data-change="{{ change }}" aria-hidden="true">
+    <svg data-if="change" class="size-3.5 data-[change=down]:rotate-180 data-[change=same]:hidden" data-change="{{ change }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+  </span>
+  <span class="leaderboard-row__avatar relative inline-flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <span class="leaderboard-row__name min-w-0 flex-1 truncate text-sm font-medium text-on-surface">{{ name }}</span>
+  <span class="leaderboard-row__score shrink-0 font-heading text-on-surface tabular-nums">{{ score }}</span>
+</div>

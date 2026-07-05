@@ -1,0 +1,20 @@
+name: message-bubble
+props:
+  text:
+    type: string
+    required: true
+    title: Message
+    example: "Sounds good — see you at 3pm!"
+  time:
+    type: string
+    title: Timestamp
+    example: "3:41 PM"
+  direction:
+    type: enum
+    values: [received, sent]
+    default: received
+    title: Direction
+variants:
+  direction:
+    received: "self-start bg-surface-raised text-on-surface rounded-bl-sm"
+    sent: "self-end bg-primary text-primary-contrast rounded-br-sm"

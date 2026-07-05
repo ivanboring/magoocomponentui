@@ -1,0 +1,63 @@
+name: "Comment Thread"
+short_description: A comment section with a count, an optional composer, and a list of comments.
+long_visual_description: >
+  A titled comments section showing the comment count, an optional composer at the top, and a
+  stack of comment items (each with its own nested replies).
+
+use_cases:
+  - Comments section under a post or article.
+  - Discussion thread.
+  - Feedback section.
+  - Review discussion.
+  - Community conversation.
+
+recommended_for:
+  - Wrapping a set of comments with a count and composer.
+avoid_for:
+  - A chat conversation (use message-bubbles).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the count and a composer; fill the comments slot with comment-item elements (which
+  carry their own nested replies).
+
+props:
+  count: The comment count label.
+
+slots:
+  composer: The comment input.
+  comments: The comment items.
+
+relationships:
+  children:
+    - social/comment-item
+
+lifecycle: experimental
+content_model: A titled comments section wrapping a composer and comment items.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-control
+    - --font-heading
+
+editorial_guidance: >
+  Show the count and keep the composer prominent; order comments by recency or relevance.
+
+categorization:
+  category: Social
+  subcategory: Comments
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The section is labelled; the composer and comments carry their own semantics.
+  keyboard_support: Composer and comment controls are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

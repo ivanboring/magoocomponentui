@@ -1,0 +1,65 @@
+name: "Follow Button"
+short_description: A follow/unfollow toggle with an optional follower count.
+long_visual_description: >
+  A pill button that reads Follow (filled) or Following (outlined) depending on state, with
+  an optional follower count beside it.
+
+use_cases:
+  - Follow a user or channel.
+  - Subscribe to an author.
+  - Follow a topic or tag.
+  - Connect on a profile.
+  - Follow with a live count.
+
+recommended_for:
+  - A follow/unfollow toggle, optionally with a count.
+avoid_for:
+  - A channel subscribe with avatar/banner (use channel-header).
+
+markets:
+  - Global
+
+example_usage: >
+  Reflect the following state; the label swaps between Follow and Following. Listen for
+  follow:toggle.
+
+props:
+  following: Whether the viewer follows.
+  count: Optional follower count.
+  label: The follow label.
+  following_label: The following label.
+
+example_prompts:
+  - "Add a follow button with a follower count."
+  - "Add a follow/unfollow toggle."
+
+lifecycle: experimental
+content_model: A follow toggle with an optional count.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use Follow/Following consistently; show the count only where it adds social proof.
+
+categorization:
+  category: Social
+  subcategory: Profiles
+  atomic_type: atom
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses aria-pressed and swaps the visible label with state, not colour alone.
+  keyboard_support: Focusable and toggles on Enter/Space.
+  seo_score: 20
+  text_direction: both

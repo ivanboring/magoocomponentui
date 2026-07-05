@@ -1,0 +1,14 @@
+<section class="presence-list" aria-label="{{ title }}">
+  <h3 class="presence-list__title mb-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ title }}</h3>
+  <ul class="presence-list__people flex flex-col gap-2">
+    <li data-for="person in people" class="presence-list__person flex items-center gap-3">
+      <span class="presence-list__avatar relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ person.name }}">
+        <img data-if="person.image" class="size-full object-cover" src="{{ person.image }}" alt="">
+        <span data-if="!person.image" aria-hidden="true">{{ person.initials }}</span>
+        <span class="presence-list__dot absolute -bottom-0.5 -right-0.5 size-3 rounded-full ring-2 ring-surface data-[status=online]:bg-success data-[status=away]:bg-warning data-[status=busy]:bg-danger data-[status=offline]:bg-on-surface-muted" data-status="{{ person.status }}" aria-hidden="true"></span>
+      </span>
+      <span class="presence-list__name text-sm text-on-surface">{{ person.name }}</span>
+      <span class="presence-list__status ml-auto text-xs capitalize text-on-surface-muted">{{ person.status }}</span>
+    </li>
+  </ul>
+</section>

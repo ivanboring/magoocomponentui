@@ -1,0 +1,4 @@
+<div class="message-bubble flex flex-col" data-direction="{{ direction }}">
+  <div class="message-bubble__body max-w-xs rounded-card px-3 py-2 text-sm {{ direction@class }}">{{ text }}</div>
+  <span data-if="time" class="message-bubble__time mt-1 px-1 text-[11px] text-on-surface-muted data-[direction=sent]:self-end data-[direction=received]:self-start" data-direction="{{ direction }}">{{ time }}</span>
+</div>

@@ -1,0 +1,9 @@
+{
+  "reactions": [
+    { "emoji": "👍", "count": "12", "reacted": true },
+    { "emoji": "❤️", "count": "5", "reacted": false },
+    { "emoji": "🎉", "count": "3", "reacted": false },
+    { "emoji": "😄", "count": "2", "reacted": false }
+  ],
+  "allow_add": true
+}

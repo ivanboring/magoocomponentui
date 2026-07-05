@@ -1,0 +1,12 @@
+{
+  "author": "Jane Doe",
+  "initials": "JD",
+  "image": "/stock/avatar-woman-1.jpg",
+  "time": "2h ago",
+  "body": "This is exactly what we needed — great work on the token contract.",
+  "likes": "8",
+  "liked": true,
+  "$slots": {
+    "replies": "<article class=\"flex gap-3\"><span class=\"relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface\" role=\"img\" aria-label=\"Sam Lee\"><img class=\"size-full object-cover\" src=\"/stock/avatar-man-1.jpg\" alt=\"\"></span><div class=\"min-w-0 flex-1\"><div class=\"rounded-card bg-surface-raised px-3 py-2\"><div class=\"flex items-baseline gap-2\"><span class=\"text-sm font-medium text-on-surface\">Sam Lee</span><span class=\"text-xs text-on-surface-muted\">1h ago</span></div><p class=\"mt-1 text-sm text-on-surface\">Agreed — the generated Vue output looks clean too.</p></div></div></article>"
+  }
+}

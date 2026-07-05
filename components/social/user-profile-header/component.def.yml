@@ -1,0 +1,36 @@
+name: user-profile-header
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Jane Doe"
+  handle:
+    type: string
+    title: Handle
+    example: "@janedoe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  avatar:
+    type: image
+    title: Avatar
+  banner:
+    type: image
+    title: Banner
+    example: "/stock/cover-workspace.jpg"
+  bio:
+    type: string
+    title: Bio
+    example: "Design systems, front-end tooling, and the occasional long walk."
+  stats:
+    type: array
+    items: object
+    required: true
+    title: Stats
+    description: "Each stat: { value, label } — e.g. posts, followers, following."
+    example:
+      - { value: "128", label: "Posts" }
+      - { value: "4.2k", label: "Followers" }

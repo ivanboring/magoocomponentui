@@ -1,0 +1,7 @@
+<span class="follow-button inline-flex items-center gap-2">
+  <button type="button" class="follow-button__btn rounded-pill px-4 py-1.5 text-sm font-heading transition-colors duration-(--duration-token) data-[following=false]:bg-primary data-[following=false]:text-primary-contrast data-[following=false]:hover:opacity-90 data-[following=true]:border data-[following=true]:border-border data-[following=true]:text-on-surface data-[following=true]:hover:bg-surface-raised" data-following="{{ following }}" aria-pressed="{{ following }}">
+    <span class="data-[following=true]:hidden" data-following="{{ following }}">{{ label }}</span>
+    <span class="hidden data-[following=true]:inline" data-following="{{ following }}">{{ following_label }}</span>
+  </button>
+  <span data-if="count" class="follow-button__count text-sm text-on-surface-muted"><span class="follow-button__count-value font-medium text-on-surface">{{ count }}</span> followers</span>
+</span>

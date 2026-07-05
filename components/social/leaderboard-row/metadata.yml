@@ -1,0 +1,63 @@
+name: "Leaderboard Row"
+short_description: A ranked leaderboard row with avatar, name, score, and a rank-change arrow.
+long_visual_description: >
+  A row with a rank number, a coloured rank-change arrow (up/down/none), an avatar, the
+  name, and a score on the trailing edge.
+
+use_cases:
+  - Leaderboard or ranking row.
+  - Top-users list entry.
+  - Competition standings row.
+  - Gamified points list.
+  - Sales or activity ranking.
+
+recommended_for:
+  - A single ranked participant with score and movement.
+avoid_for:
+  - Sports standings with domain columns (use top-scorers-list/league-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; set change to show the rank movement arrow and colour.
+
+props:
+  rank: The rank number.
+  name: The participant name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional avatar.
+  score: The score.
+  change: up, down, or same (rank movement).
+
+example_prompts:
+  - "Add a leaderboard row with a rank-up arrow."
+  - "Add a ranked user row with avatar and score."
+
+lifecycle: experimental
+content_model: A ranked participant with score and rank movement.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --font-heading
+
+editorial_guidance: >
+  Keep score formatting consistent; use the change arrow only when movement is known.
+
+categorization:
+  category: Social
+  subcategory: Feed
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the name; rank and score are real text; the change arrow is decorative with direction encoded in the icon.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

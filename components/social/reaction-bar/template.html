@@ -1,0 +1,9 @@
+<div class="reaction-bar flex flex-wrap items-center gap-1.5" role="group" aria-label="Reactions">
+  <button data-for="reaction in reactions" type="button" class="reaction-bar__pill inline-flex items-center gap-1 rounded-pill border border-border px-2 py-0.5 text-sm transition-colors duration-(--duration-token) hover:bg-surface-raised data-[reacted=true]:border-primary data-[reacted=true]:bg-primary/10" data-reacted="{{ reaction.reacted }}" aria-pressed="{{ reaction.reacted }}">
+    <span aria-hidden="true">{{ reaction.emoji }}</span>
+    <span class="reaction-bar__count text-xs font-medium text-on-surface-muted tabular-nums">{{ reaction.count }}</span>
+  </button>
+  <button data-if="allow_add" type="button" class="reaction-bar__add flex size-7 items-center justify-center rounded-pill border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Add reaction">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M7.5 8.5h.01M12.5 8.5h.01M7 12a3.5 3.5 0 006 0"/></svg>
+  </button>
+</div>

@@ -1,0 +1,74 @@
+name: "Feed Post"
+short_description: A social post with author, body, optional media, and like/comment/share actions.
+long_visual_description: >
+  A card with the author row (avatar, name, handle), the post body, an optional image, and an
+  action bar with like, comment, and share counts.
+
+use_cases:
+  - Social feed post.
+  - Timeline entry.
+  - Community post card.
+  - Microblog post.
+  - Activity post with media.
+
+recommended_for:
+  - A single social post with engagement actions.
+avoid_for:
+  - An editorial article (use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; include an optional image and the engagement counts. The like toggle
+  adjusts its count.
+
+props:
+  author: The poster's name.
+  handle: The handle and relative time.
+  initials: 1-2 char avatar fallback, precomputed.
+  avatar: Optional avatar.
+  body: The post text.
+  image: Optional post image.
+  likes: Like count.
+  comments: Comment count.
+  shares: Share count.
+  liked: Whether the viewer liked it.
+
+example_prompts:
+  - "Add a social feed post with an image and engagement actions."
+  - "Add a timeline post with like, comment, and share."
+
+lifecycle: experimental
+content_model: A post with author, body, media, and engagement actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the handle + time compact; show engagement counts consistently.
+
+categorization:
+  category: Social
+  subcategory: Feed
+  atomic_type: organism
+  usage_type: [card, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the author name; the post image is decorative; like uses aria-pressed; actions are real buttons.
+  keyboard_support: Like, comment, and share are focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

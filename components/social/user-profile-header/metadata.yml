@@ -1,0 +1,72 @@
+name: "User Profile Header"
+short_description: A profile header with banner, avatar, name, handle, bio, stats, and follow.
+long_visual_description: >
+  A banner with the avatar overlapping its lower edge, a follow button, then the name, handle,
+  bio, and a row of stats (posts, followers, following).
+
+use_cases:
+  - Social profile page header.
+  - User or creator profile.
+  - Community member header.
+  - Author profile top.
+  - Account overview header.
+
+recommended_for:
+  - The header of a social user profile with stats and follow.
+avoid_for:
+  - A media channel header with subscribe (use channel-header).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show a few stats and the follow action. Use the banner and avatar for
+  identity.
+
+props:
+  name: The user's name.
+  handle: The user's handle.
+  initials: 1-2 char avatar fallback, precomputed.
+  avatar: Optional avatar.
+  banner: The banner image.
+  bio: A short bio.
+  stats: Profile stats (value + label).
+
+example_prompts:
+  - "Add a social profile header with stats and follow."
+  - "Add a user profile banner with bio and follower counts."
+
+lifecycle: experimental
+content_model: A profile identity block with banner, avatar, bio, stats, and follow.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the bio to a line or two; show the most relevant stats first.
+
+categorization:
+  category: Social
+  subcategory: Profiles
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and a definition list for stats; the avatar carries the name; follow is a real button.
+  keyboard_support: The follow button is focusable and activates on Enter/Space.
+  seo_score: 55
+  text_direction: both

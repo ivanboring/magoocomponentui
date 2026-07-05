@@ -1,0 +1,21 @@
+<header class="user-profile-header overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="user-profile-header__banner h-32 bg-cover bg-center bg-surface-raised" style="background-image: url({{ banner }})" aria-hidden="true"></div>
+  <div class="user-profile-header__body p-(--space-card)">
+    <div class="flex items-end justify-between gap-4">
+      <span class="user-profile-header__avatar relative -mt-14 inline-flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-full border-4 border-surface bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+        <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+        <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+      </span>
+      <button type="button" class="user-profile-header__follow shrink-0 rounded-pill bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Follow</button>
+    </div>
+    <h1 class="user-profile-header__name mt-3 font-heading text-xl text-on-surface">{{ name }}</h1>
+    <p data-if="handle" class="user-profile-header__handle text-sm text-on-surface-muted">{{ handle }}</p>
+    <p data-if="bio" class="user-profile-header__bio mt-2 text-sm text-on-surface">{{ bio }}</p>
+    <dl class="user-profile-header__stats mt-4 flex gap-6">
+      <div data-for="stat in stats" class="flex items-baseline gap-1">
+        <dd class="font-heading text-on-surface tabular-nums">{{ stat.value }}</dd>
+        <dt class="text-sm text-on-surface-muted">{{ stat.label }}</dt>
+      </div>
+    </dl>
+  </div>
+</header>

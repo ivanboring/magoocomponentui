@@ -1,0 +1,13 @@
+{
+  "name": "Jane Doe",
+  "handle": "@janedoe",
+  "initials": "JD",
+  "avatar": "/stock/avatar-woman-1.jpg",
+  "banner": "/stock/cover-workspace.jpg",
+  "bio": "Design systems, front-end tooling, and the occasional long walk.",
+  "stats": [
+    { "value": "128", "label": "Posts" },
+    { "value": "4.2k", "label": "Followers" },
+    { "value": "312", "label": "Following" }
+  ]
+}

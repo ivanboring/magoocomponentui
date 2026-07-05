@@ -1,0 +1,61 @@
+name: "Presence List"
+short_description: A list of people with avatars and colored presence status dots.
+long_visual_description: >
+  A titled list of people, each with an avatar carrying a presence dot (online/away/busy/
+  offline), their name, and a status label.
+
+use_cases:
+  - Online members list.
+  - Team presence sidebar.
+  - Chat participants list.
+  - Collaborators currently active.
+  - Roster with availability.
+
+recommended_for:
+  - Showing who's online and their status.
+avoid_for:
+  - A single presence dot (use status-indicator).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show each person's status both by the dot colour and the status label.
+
+props:
+  title: The list title.
+  people: The people with name, initials, image, and status.
+
+example_prompts:
+  - "Add an online members presence list."
+  - "Add a team presence sidebar with status dots."
+
+lifecycle: experimental
+content_model: A list of people with presence status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --font-heading
+
+editorial_guidance: >
+  Order by relevance (online first); always include the status label alongside the dot.
+
+categorization:
+  category: Social
+  subcategory: Profiles
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the person's name; the status is shown by the dot and a text label (not colour alone).
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,43 @@
+name: feed-post
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  handle:
+    type: string
+    title: Handle
+    example: "@janedoe · 2h"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  avatar:
+    type: image
+    title: Avatar
+  body:
+    type: string
+    required: true
+    title: Body
+    example: "Shipped the token contract today. One authored source, every framework target."
+  image:
+    type: image
+    title: Post image
+  likes:
+    type: string
+    default: "0"
+    title: Likes
+  comments:
+    type: string
+    default: "0"
+    title: Comments
+  shares:
+    type: string
+    default: "0"
+    title: Shares
+  liked:
+    type: boolean
+    default: false
+    title: Liked

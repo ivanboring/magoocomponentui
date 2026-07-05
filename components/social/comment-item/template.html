@@ -1,0 +1,23 @@
+<article class="comment-item flex gap-3">
+  <span class="comment-item__avatar relative inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ author }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <div class="comment-item__bubble rounded-card bg-surface-raised px-3 py-2">
+      <div class="flex items-baseline gap-2">
+        <span class="comment-item__author text-sm font-medium text-on-surface">{{ author }}</span>
+        <span class="comment-item__time text-xs text-on-surface-muted">{{ time }}</span>
+      </div>
+      <p class="comment-item__body mt-1 text-sm text-on-surface">{{ body }}</p>
+    </div>
+    <div class="comment-item__actions mt-1 flex items-center gap-4 pl-1 text-xs text-on-surface-muted">
+      <button type="button" class="comment-item__like inline-flex items-center gap-1 hover:text-on-surface data-[liked=true]:text-danger" data-liked="{{ liked }}" aria-pressed="{{ liked }}">
+        <svg class="size-3.5 data-[liked=true]:fill-current" data-liked="{{ liked }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 17s-6-4-6-8a3.5 3.5 0 016-2.4A3.5 3.5 0 0116 9c0 4-6 8-6 8z"/></svg>
+        <span class="comment-item__likes">{{ likes }}</span>
+      </button>
+      <button type="button" class="comment-item__reply hover:text-on-surface">Reply</button>
+    </div>
+    <div class="comment-item__replies mt-3 flex flex-col gap-3 border-l border-border pl-3 empty:hidden"><slot name="replies"></slot></div>
+  </div>
+</article>

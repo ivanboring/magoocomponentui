@@ -1,0 +1,9 @@
+{
+  "title": "Online now",
+  "people": [
+    { "name": "Jane Doe", "initials": "JD", "image": "/stock/avatar-woman-1.jpg", "status": "online" },
+    { "name": "Sam Lee", "initials": "SL", "image": "/stock/avatar-man-1.jpg", "status": "busy" },
+    { "name": "Ari Cohen", "initials": "AC", "image": "", "status": "away" },
+    { "name": "Priya Nair", "initials": "PN", "image": "", "status": "offline" }
+  ]
+}

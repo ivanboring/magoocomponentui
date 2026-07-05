@@ -1,0 +1,15 @@
+name: reaction-bar
+props:
+  reactions:
+    type: array
+    items: object
+    required: true
+    title: Reactions
+    description: "Each reaction: { emoji, count, reacted }."
+    example:
+      - { emoji: "👍", count: "12", reacted: true }
+      - { emoji: "❤️", count: "5", reacted: false }
+  allow_add:
+    type: boolean
+    default: true
+    title: Show add-reaction

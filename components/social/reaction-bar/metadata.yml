@@ -1,0 +1,60 @@
+name: "Reaction Bar"
+short_description: An emoji reaction selector with per-emoji counts and an add-reaction control.
+long_visual_description: >
+  A row of emoji reaction pills with counts; reacted ones highlight with a primary tint, and
+  an add-reaction button sits at the end.
+
+use_cases:
+  - React to a post or comment.
+  - Emoji reactions on a message.
+  - Quick feedback on content.
+  - Reactions on an activity item.
+  - Lightweight engagement control.
+
+recommended_for:
+  - Emoji reactions with counts and toggling.
+avoid_for:
+  - A single like toggle (use follow-button pattern or a like button).
+
+markets:
+  - Global
+
+example_usage: >
+  Show reactions with counts and reacted state; toggling adjusts the count. Listen for
+  reaction:toggle.
+
+props:
+  reactions: The emoji reactions with counts and reacted state.
+  allow_add: Whether to show the add-reaction control.
+
+example_prompts:
+  - "Add an emoji reaction bar with counts."
+  - "Add reactions with an add-reaction button."
+
+lifecycle: experimental
+content_model: A set of emoji reactions with counts and toggling.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep a small, consistent emoji set; show counts only when non-zero if you prefer a cleaner look.
+
+categorization:
+  category: Social
+  subcategory: Feed
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Reaction pills use aria-pressed; the emoji is aria-hidden with the count as text; the add control is labelled. Provide accessible names per reaction in a production build.
+  keyboard_support: Reaction pills and the add control are focusable and toggle/activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,67 @@
+name: "Poll"
+short_description: A vote poll with options and live result bars.
+long_visual_description: >
+  A question with option buttons; each shows a result bar filling to its percentage, a check
+  on the chosen option, and the percentage, plus a total-votes line.
+
+use_cases:
+  - Community or audience poll.
+  - Quick vote on a post.
+  - Feedback poll.
+  - Feature-request vote.
+  - Opinion poll with results.
+
+recommended_for:
+  - A single-choice poll showing live results.
+avoid_for:
+  - A form radio group without results (use form-field-radio-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each option's percentage; mark the voted option. Clicking votes (single choice)
+  and emits poll:vote.
+
+props:
+  question: The poll question.
+  options: The options with percentages and voted state.
+  total: The total votes label.
+  voted: Whether to show results.
+
+example_prompts:
+  - "Add a poll with result bars and a total vote count."
+  - "Add a single-choice poll showing percentages."
+
+lifecycle: experimental
+content_model: A question, options with result bars, and a vote total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep options short; ensure percentages reflect the total and sum to ~100.
+
+categorization:
+  category: Social
+  subcategory: Feed
+  atomic_type: molecule
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are real buttons; the chosen option shows a check plus text, not colour alone; percentages are real text. A production build should mark the voted option with aria-pressed.
+  keyboard_support: Options are focusable and vote on Enter/Space.
+  seo_score: 30
+  text_direction: both

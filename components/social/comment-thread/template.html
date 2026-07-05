@@ -1,0 +1,5 @@
+<section class="comment-thread" aria-label="Comments">
+  <h2 class="comment-thread__count mb-4 font-heading text-on-surface">{{ count }}</h2>
+  <div class="comment-thread__composer mb-6 empty:hidden"><slot name="composer"></slot></div>
+  <div class="comment-thread__comments flex flex-col gap-5"><slot name="comments"></slot></div>
+</section>

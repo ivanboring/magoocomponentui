@@ -1,0 +1,14 @@
+name: presence-list
+props:
+  title:
+    type: string
+    default: "Online now"
+    title: Title
+  people:
+    type: array
+    items: object
+    required: true
+    title: People
+    description: "Each person: { name, initials, image, status } where status is online | away | busy | offline."
+    example:
+      - { name: "Jane Doe", initials: "JD", image: "", status: "online" }
