@@ -117,6 +117,17 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   `name: "Mega-menu Navbar"` for machine-name `navbar-mega`). It's optional in the schema — the
   catalog falls back to a title-cased machine name — but author it so the preview reads well. The
   preview shows this `display_name` as the heading with the kebab machine name in a mono chip below.
+- **Container vs leaf-card convention (drives the preview's "show inside a container" dropdown).**
+  A **container** exposes an `items` or `plans` **slot** (card-grid, product-grid, card-slider,
+  masonry-grid, card-rail, pricing-tiers, cart-drawer, notification-inbox, …) — that slot is the
+  reliable signal, NOT `usage_type: grid` (leaf cards are tagged `grid` to mean "shown in a grid").
+  A **leaf card** has `usage_type` including `card` and no items/plans slot. On leaf-card detail
+  pages only, the preview shows a dropdown that renders the card inside real generic containers
+  (Card grid ×1–4, Card slider, Masonry grid, Card rail) plus any specific container whose
+  `relationships.children` lists this card AND which has an items/plans slot (e.g. card-pricing →
+  Pricing Tiers). So: give a new container an `items` slot; declare `relationships.children` on it
+  to auto-wire the specific-container option; keep leaf cards slot-free. The full-width toggle and
+  the compact one-row-per-theme screenshots live on the same detail page.
 - **Multiple examples all render now**: the build writes `dist/<id>/examples.json` (the full
   `examples/*.json` map), and the preview detail page renders **every** named example as its own
   theme-switchable stage (not just Default). This is how alternate states become visible (an
