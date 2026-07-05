@@ -1,0 +1,72 @@
+{
+  "date_label": "Wednesday, August 13",
+  "hours": [
+    {
+      "label": "8 AM"
+    },
+    {
+      "label": "9 AM"
+    },
+    {
+      "label": "10 AM"
+    },
+    {
+      "label": "11 AM"
+    },
+    {
+      "label": "12 PM"
+    },
+    {
+      "label": "1 PM"
+    },
+    {
+      "label": "2 PM"
+    },
+    {
+      "label": "3 PM"
+    },
+    {
+      "label": "4 PM"
+    },
+    {
+      "label": "5 PM"
+    }
+  ],
+  "events": [
+    {
+      "title": "Standup",
+      "time": "9:00 – 9:15",
+      "top": "3.5rem",
+      "height": "0.875rem",
+      "tone": "primary"
+    },
+    {
+      "title": "Design review",
+      "time": "10:00 – 11:00",
+      "top": "7rem",
+      "height": "3.5rem",
+      "tone": "accent"
+    },
+    {
+      "title": "Lunch",
+      "time": "12:00 – 1:00",
+      "top": "14rem",
+      "height": "3.5rem",
+      "tone": "success"
+    },
+    {
+      "title": "1:1 with Sam",
+      "time": "2:30 – 3:00",
+      "top": "15.75rem",
+      "height": "1.75rem",
+      "tone": "warning"
+    },
+    {
+      "title": "Focus block",
+      "time": "3:30 – 5:00",
+      "top": "26.25rem",
+      "height": "5.25rem",
+      "tone": "primary"
+    }
+  ]
+}

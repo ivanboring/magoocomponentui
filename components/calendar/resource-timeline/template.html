@@ -1,0 +1,26 @@
+<section class="resource-timeline overflow-x-auto rounded-card border border-border bg-surface shadow-card" aria-label="Resource bookings">
+  <div class="resource-timeline__inner" style="min-width: 48rem">
+    <div class="resource-timeline__header flex border-b border-border">
+      <div class="w-40 shrink-0 border-r border-border px-3 py-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Resource</div>
+      <div class="flex flex-1">
+        <div data-for="hour in hours" class="flex-1 border-l border-border px-1 py-2 text-center text-[10px] text-on-surface-muted">{{ hour.label }}</div>
+      </div>
+    </div>
+    <ul class="resource-timeline__rows divide-y divide-border">
+      <li data-for="resource in resources" class="resource-timeline__row flex">
+        <div class="w-40 shrink-0 border-r border-border px-3 py-3">
+          <p class="text-sm font-medium text-on-surface">{{ resource.name }}</p>
+          <p data-if="resource.detail" class="text-xs text-on-surface-muted">{{ resource.detail }}</p>
+        </div>
+        <div class="resource-timeline__track relative flex-1 py-2">
+          <div class="absolute inset-0 flex">
+            <span data-for="hour in hours" class="flex-1 border-l border-border"></span>
+          </div>
+          <div data-for="booking in resource.bookings" class="resource-timeline__booking absolute top-2 flex h-8 items-center overflow-hidden rounded-control px-2 text-xs font-medium data-[tone=primary]:bg-primary/20 data-[tone=primary]:text-primary data-[tone=accent]:bg-accent/20 data-[tone=accent]:text-accent data-[tone=success]:bg-success/20 data-[tone=success]:text-success data-[tone=warning]:bg-warning/20 data-[tone=warning]:text-warning" data-tone="{{ booking.tone }}" style="left: {{ booking.left }}%; width: {{ booking.width }}%">
+            <span class="truncate">{{ booking.title }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+name: "Event Quick Create"
+short_description: An inline new-event popover with title, time, and color.
+long_visual_description: >
+  A compact popover with a title input, the selected date/time, event-color swatches, and
+  cancel/save actions.
+
+use_cases:
+  - Quick-add event.
+  - Inline event popover.
+  - New-event bubble.
+  - Calendar quick create.
+  - Time-slot event.
+
+recommended_for:
+  - An inline quick-create event popover.
+avoid_for:
+  - A full event form (build one).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the pre-selected time; capture a title and color. Position near the clicked slot in
+  production.
+
+props:
+  date_label: The selected date/time.
+  color_options: The event-color options.
+
+example_prompts:
+  - "Add an inline quick-create event popover."
+  - "Add a calendar new-event bubble."
+
+lifecycle: experimental
+content_model: An inline quick-create event popover.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep it minimal; the pre-filled time reflects the clicked slot.
+
+categorization:
+  category: Calendar
+  subcategory: Events
+  atomic_type: molecule
+  usage_type: [form, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" with a label; the title field is labelled; colors are a radiogroup; save/cancel are real buttons.
+  keyboard_support: Fields and actions are focusable and keyboard-operable.
+  seo_score: 15
+  text_direction: both

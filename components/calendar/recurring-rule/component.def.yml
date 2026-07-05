@@ -1,0 +1,21 @@
+name: recurring-rule
+props:
+  frequencies:
+    type: array
+    items: object
+    required: true
+    title: Frequencies
+    description: "Each: { label, active }."
+  interval:
+    type: string
+    default: "1"
+    title: Interval
+  weekdays:
+    type: array
+    items: object
+    title: Weekdays
+    description: "Each: { label, active }."
+  summary:
+    type: string
+    title: Summary
+    example: "Repeats weekly on Mon, Wed, Fri"

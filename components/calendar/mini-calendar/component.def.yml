@@ -1,0 +1,21 @@
+name: mini-calendar
+props:
+  month:
+    type: string
+    required: true
+    title: Month
+    example: "August 2026"
+  weekdays:
+    type: array
+    items: object
+    required: true
+    title: Weekday headers
+    description: "Each: { label }."
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      Each: { number, muted, today, selected, has_event } for the month grid (leading/trailing
+      days muted).

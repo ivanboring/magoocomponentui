@@ -1,0 +1,17 @@
+name: timezone-picker
+props:
+  label:
+    type: string
+    default: "Timezone"
+    title: Label
+  selected:
+    type: string
+    required: true
+    title: Selected
+    example: "(GMT-08:00) Pacific Time — Los Angeles"
+  zones:
+    type: array
+    items: object
+    required: true
+    title: Zones
+    description: "Each: { label, offset, active }."

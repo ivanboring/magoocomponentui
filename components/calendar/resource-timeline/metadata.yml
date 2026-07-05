@@ -1,0 +1,62 @@
+name: "Resource Timeline"
+short_description: A per-resource booking timeline across the day.
+long_visual_description: >
+  A timeline with resources down the side (rooms, equipment) and hour columns across, with
+  bookings placed by start/duration and colour-coded.
+
+use_cases:
+  - Room booking timeline.
+  - Resource scheduling.
+  - Equipment bookings.
+  - Facility utilization.
+  - Booking overview.
+
+recommended_for:
+  - A per-resource booking timeline.
+avoid_for:
+  - A staff shift grid (use shift-planner).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide resources with bookings positioned by left/width percentages across the hour
+  columns. Scrolls horizontally.
+
+props:
+  hours: The hour headers.
+  resources: The resources with their bookings.
+
+lifecycle: experimental
+content_model: A per-resource booking timeline.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Precompute booking left/width as percentages; tone by booking type.
+
+categorization:
+  category: Calendar
+  subcategory: Views
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Bookings carry titles as text; colour is a category cue; resources are labelled. Scrolls horizontally.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

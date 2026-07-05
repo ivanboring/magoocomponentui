@@ -1,0 +1,6 @@
+{
+  "frequencies": [ { "label": "Daily", "active": false }, { "label": "Weekly", "active": true }, { "label": "Monthly", "active": false }, { "label": "Yearly", "active": false } ],
+  "interval": "1",
+  "weekdays": [ { "label": "M", "active": true }, { "label": "T", "active": false }, { "label": "W", "active": true }, { "label": "T", "active": false }, { "label": "F", "active": true }, { "label": "S", "active": false }, { "label": "S", "active": false } ],
+  "summary": "Repeats weekly on Mon, Wed, Fri"
+}

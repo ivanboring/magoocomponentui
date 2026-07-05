@@ -1,0 +1,15 @@
+<div class="recurring-rule rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="recurring-rule__label text-sm font-medium text-on-surface">Repeat</p>
+  <div class="recurring-rule__freq mt-2 inline-flex rounded-control border border-border p-0.5 text-sm" role="radiogroup" aria-label="Frequency">
+    <button data-for="freq in frequencies" type="button" class="recurring-rule__freq-btn rounded-control px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ freq.active }}" role="radio" aria-checked="{{ freq.active }}">{{ freq.label }}</button>
+  </div>
+  <label class="recurring-rule__interval mt-4 flex items-center gap-2 text-sm text-on-surface">
+    Every
+    <input type="number" class="w-16 rounded-control border border-border bg-surface px-2 py-1.5 text-center text-on-surface" min="1" value="{{ interval }}">
+    week(s)
+  </label>
+  <div data-if="weekdays" class="recurring-rule__weekdays mt-3 flex gap-1.5" role="group" aria-label="On days">
+    <button data-for="day in weekdays" type="button" class="recurring-rule__day flex size-8 items-center justify-center rounded-full border border-border text-xs font-medium text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ day.active }}" aria-pressed="{{ day.active }}">{{ day.label }}</button>
+  </div>
+  <p data-if="summary" class="recurring-rule__summary mt-3 text-xs text-on-surface-muted">{{ summary }}</p>
+</div>

@@ -1,0 +1,234 @@
+{
+  "month": "August 2026",
+  "summary": "Aug 12 – Aug 19 · 7 nights",
+  "weekdays": [
+    {
+      "label": "M"
+    },
+    {
+      "label": "T"
+    },
+    {
+      "label": "W"
+    },
+    {
+      "label": "T"
+    },
+    {
+      "label": "F"
+    },
+    {
+      "label": "S"
+    },
+    {
+      "label": "S"
+    }
+  ],
+  "days": [
+    {
+      "number": "27",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "28",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "29",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "30",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "31",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "1",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "2",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "3",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "4",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "5",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "6",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "7",
+      "muted": false,
+      "state": "disabled"
+    },
+    {
+      "number": "8",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "9",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "10",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "11",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "12",
+      "muted": false,
+      "state": "start"
+    },
+    {
+      "number": "13",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "14",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "15",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "16",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "17",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "18",
+      "muted": false,
+      "state": "in-range"
+    },
+    {
+      "number": "19",
+      "muted": false,
+      "state": "end"
+    },
+    {
+      "number": "20",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "21",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "22",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "23",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "24",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "25",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "26",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "27",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "28",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "29",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "30",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "31",
+      "muted": false,
+      "state": "idle"
+    },
+    {
+      "number": "1",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "2",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "3",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "4",
+      "muted": true,
+      "state": "idle"
+    },
+    {
+      "number": "5",
+      "muted": true,
+      "state": "idle"
+    }
+  ]
+}

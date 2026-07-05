@@ -1,0 +1,23 @@
+name: calendar-event-chip
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Standup"
+  time:
+    type: string
+    title: Time
+    example: "9:00"
+  tone:
+    type: enum
+    values: [primary, accent, success, warning, info]
+    default: primary
+    title: Tone
+variants:
+  tone:
+    primary: "bg-primary/15 text-primary border-l-primary"
+    accent: "bg-accent/15 text-accent border-l-accent"
+    success: "bg-success/15 text-success border-l-success"
+    warning: "bg-warning/15 text-warning border-l-warning"
+    info: "bg-info/15 text-info border-l-info"

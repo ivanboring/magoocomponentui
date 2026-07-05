@@ -1,0 +1,24 @@
+<section class="shift-planner overflow-x-auto rounded-card border border-border bg-surface shadow-card" aria-label="Shift planner">
+  <table class="shift-planner__table w-full text-sm" style="min-width: 44rem">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="w-40 px-3 py-3 text-left font-medium text-on-surface-muted" scope="col">{{ week_label }}</th>
+        <th data-for="day in days" class="border-l border-border px-2 py-3 text-center" scope="col">
+          <span class="block text-[11px] uppercase text-on-surface-muted">{{ day.label }}</span>
+          <span class="block font-heading text-on-surface tabular-nums">{{ day.date }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="member in staff" class="border-b border-border last:border-0">
+        <th class="px-3 py-2.5 text-left font-normal" scope="row">
+          <span class="flex items-center gap-2"><span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-surface-raised text-[10px] font-heading uppercase text-on-surface" role="img" aria-label="{{ member.name }}">{{ member.initials }}</span><span class="text-on-surface">{{ member.name }}</span></span>
+        </th>
+        <td data-for="shift in member.shifts" class="border-l border-border p-1 text-center align-middle">
+          <span data-if="shift.label" class="block rounded-control px-1 py-1.5 text-xs font-medium data-[tone=primary]:bg-primary/15 data-[tone=primary]:text-primary data-[tone=accent]:bg-accent/15 data-[tone=accent]:text-accent data-[tone=success]:bg-success/15 data-[tone=success]:text-success data-[tone=warning]:bg-warning/15 data-[tone=warning]:text-warning" data-tone="{{ shift.tone }}">{{ shift.label }}</span>
+          <span data-if="!shift.label" class="block py-1.5 text-xs text-on-surface-muted/40">—</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

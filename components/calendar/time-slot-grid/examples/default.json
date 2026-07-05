@@ -1,0 +1,21 @@
+{
+  "date_label": "Wednesday, August 13",
+  "periods": [
+    { "label": "Morning", "slots": [
+      { "time": "9:00 AM", "status": "available" },
+      { "time": "9:30 AM", "status": "booked" },
+      { "time": "10:00 AM", "status": "available" },
+      { "time": "10:30 AM", "status": "selected" },
+      { "time": "11:00 AM", "status": "available" },
+      { "time": "11:30 AM", "status": "booked" }
+    ]},
+    { "label": "Afternoon", "slots": [
+      { "time": "1:00 PM", "status": "available" },
+      { "time": "1:30 PM", "status": "available" },
+      { "time": "2:00 PM", "status": "booked" },
+      { "time": "2:30 PM", "status": "available" },
+      { "time": "3:00 PM", "status": "available" },
+      { "time": "3:30 PM", "status": "available" }
+    ]}
+  ]
+}

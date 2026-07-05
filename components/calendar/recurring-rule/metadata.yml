@@ -1,0 +1,68 @@
+name: "Recurring Rule"
+short_description: A repeat-frequency builder with interval and weekday selection.
+long_visual_description: >
+  A panel with a frequency toggle (daily/weekly/monthly/yearly), an interval number, weekday
+  buttons, and a plain-language summary.
+
+use_cases:
+  - Recurrence builder.
+  - Repeat rule (RRULE).
+  - Recurring event setup.
+  - Frequency picker.
+  - Schedule repetition.
+
+recommended_for:
+  - Building a recurrence rule for an event.
+avoid_for:
+  - A single date pick (use mini-calendar).
+
+markets:
+  - Global
+
+example_usage: >
+  Choose frequency, interval, and (for weekly) weekdays; the summary describes the rule in
+  plain language.
+
+props:
+  frequencies: The frequency options.
+  interval: The repeat interval.
+  weekdays: The weekday toggles.
+  summary: The plain-language summary.
+
+example_prompts:
+  - "Add a recurring event rule builder."
+  - "Add a repeat-frequency picker with weekdays."
+
+lifecycle: experimental
+content_model: A recurrence rule builder.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show a plain-language summary so the rule is clear.
+
+categorization:
+  category: Calendar
+  subcategory: Scheduling
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Frequency is a radiogroup; weekdays use aria-pressed; the interval field is labelled; the summary is real text.
+  keyboard_support: All controls are focusable and keyboard-operable.
+  seo_score: 20
+  text_direction: both

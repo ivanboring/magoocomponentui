@@ -1,0 +1,20 @@
+<section class="availability-scheduler rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="availability-scheduler__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="availability-scheduler__days divide-y divide-border">
+    <li data-for="day in days" class="availability-scheduler__day flex flex-col gap-2 px-(--space-card) py-3 sm:flex-row sm:items-start" data-enabled="{{ day.enabled }}">
+      <div class="availability-scheduler__toggle flex w-32 shrink-0 items-center gap-2">
+        <button type="button" class="relative inline-flex h-5 w-9 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[on=true]:bg-primary" data-on="{{ day.enabled }}" role="switch" aria-checked="{{ day.enabled }}" aria-label="Toggle {{ day.label }}"><span class="ml-0.5 inline-block size-4 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[on=true]:translate-x-4" data-on="{{ day.enabled }}"></span></button>
+        <span class="text-sm font-medium text-on-surface data-[enabled=false]:text-on-surface-muted" data-enabled="{{ day.enabled }}">{{ day.label }}</span>
+      </div>
+      <div data-if="day.enabled" class="availability-scheduler__ranges flex flex-1 flex-col gap-2">
+        <div data-for="range in day.ranges" class="flex items-center gap-2 text-sm">
+          <span class="rounded-control border border-border bg-surface px-2.5 py-1 text-on-surface tabular-nums">{{ range.from }}</span>
+          <span class="text-on-surface-muted">–</span>
+          <span class="rounded-control border border-border bg-surface px-2.5 py-1 text-on-surface tabular-nums">{{ range.to }}</span>
+        </div>
+        <button type="button" class="w-fit text-xs font-medium text-primary hover:underline">+ Add range</button>
+      </div>
+      <span data-if="!day.enabled" class="flex-1 text-sm text-on-surface-muted">Unavailable</span>
+    </li>
+  </ul>
+</section>

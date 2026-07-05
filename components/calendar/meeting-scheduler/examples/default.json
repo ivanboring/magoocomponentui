@@ -1,0 +1,15 @@
+{
+  "title": "Find a time",
+  "attendees": [
+    { "name": "Jane Doe", "initials": "JD" },
+    { "name": "Marcus Reed", "initials": "MR" },
+    { "name": "Priya Nair", "initials": "PN" },
+    { "name": "Sam Lee", "initials": "SL" }
+  ],
+  "proposals": [
+    { "day": "WED", "date": "13", "time": "10:00 – 10:30 AM", "availability": "3 of 4 free", "all_free": false, "votes": "" },
+    { "day": "WED", "date": "13", "time": "2:00 – 2:30 PM", "availability": "", "all_free": true, "votes": "" },
+    { "day": "THU", "date": "14", "time": "11:00 – 11:30 AM", "availability": "", "all_free": true, "votes": "" },
+    { "day": "FRI", "date": "15", "time": "9:00 – 9:30 AM", "availability": "2 of 4 free", "all_free": false, "votes": "" }
+  ]
+}

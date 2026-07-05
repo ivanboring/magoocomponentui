@@ -1,0 +1,205 @@
+{
+  "week_label": "Week of Aug 11",
+  "days": [
+    {
+      "label": "Mon",
+      "date": "11"
+    },
+    {
+      "label": "Tue",
+      "date": "12"
+    },
+    {
+      "label": "Wed",
+      "date": "13"
+    },
+    {
+      "label": "Thu",
+      "date": "14"
+    },
+    {
+      "label": "Fri",
+      "date": "15"
+    },
+    {
+      "label": "Sat",
+      "date": "16"
+    },
+    {
+      "label": "Sun",
+      "date": "17"
+    }
+  ],
+  "staff": [
+    {
+      "name": "Ana Silva",
+      "initials": "AS",
+      "shifts": [
+        {
+          "label": "8a–4p",
+          "tone": "primary"
+        },
+        {
+          "label": "8a–4p",
+          "tone": "primary"
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "8a–4p",
+          "tone": "primary"
+        },
+        {
+          "label": "8a–4p",
+          "tone": "primary"
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "",
+          "tone": ""
+        }
+      ]
+    },
+    {
+      "name": "Ben Cole",
+      "initials": "BC",
+      "shifts": [
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        }
+      ]
+    },
+    {
+      "name": "Cara Diaz",
+      "initials": "CD",
+      "shifts": [
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "8a–4p",
+          "tone": "success"
+        }
+      ]
+    },
+    {
+      "name": "Dev Rao",
+      "initials": "DR",
+      "shifts": [
+        {
+          "label": "8a–4p",
+          "tone": "success"
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "8a–4p",
+          "tone": "primary"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "2p–10p",
+          "tone": "accent"
+        },
+        {
+          "label": "",
+          "tone": ""
+        }
+      ]
+    },
+    {
+      "name": "Eve Kim",
+      "initials": "EK",
+      "shifts": [
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "",
+          "tone": ""
+        },
+        {
+          "label": "8a–4p",
+          "tone": "success"
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        },
+        {
+          "label": "10p–6a",
+          "tone": "warning"
+        }
+      ]
+    }
+  ]
+}

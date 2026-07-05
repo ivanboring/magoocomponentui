@@ -1,0 +1,9 @@
+{
+  "date_label": "Wed, Aug 13 · 2:00–3:00 PM",
+  "color_options": [
+    { "swatch": "#6366f1", "active": true },
+    { "swatch": "#10b981", "active": false },
+    { "swatch": "#f59e0b", "active": false },
+    { "swatch": "#ef4444", "active": false }
+  ]
+}

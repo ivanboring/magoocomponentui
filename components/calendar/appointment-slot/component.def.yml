@@ -1,0 +1,21 @@
+name: appointment-slot
+props:
+  time:
+    type: string
+    required: true
+    title: Time
+    example: "2:30 PM"
+  duration:
+    type: string
+    title: Duration
+    example: "30 min"
+  status:
+    type: enum
+    values: [available, selected, booked]
+    default: available
+    title: Status
+variants:
+  status:
+    available: "border-border text-on-surface hover:border-primary"
+    selected: "border-primary bg-primary text-primary-contrast"
+    booked: "border-border bg-surface-raised text-on-surface-muted/50 line-through cursor-not-allowed"

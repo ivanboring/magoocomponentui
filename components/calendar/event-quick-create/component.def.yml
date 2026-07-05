@@ -1,0 +1,12 @@
+name: event-quick-create
+props:
+  date_label:
+    type: string
+    required: true
+    title: Date label
+    example: "Wed, Aug 13 · 2:00–3:00 PM"
+  color_options:
+    type: array
+    items: object
+    title: Color options
+    description: "Each: { swatch, active } where swatch is a CSS color."

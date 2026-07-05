@@ -1,0 +1,24 @@
+<section class="meeting-scheduler rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <div class="meeting-scheduler__head flex items-center justify-between gap-3 border-b border-border px-(--space-card) py-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <div class="meeting-scheduler__attendees flex -space-x-2">
+      <span data-for="attendee in attendees" class="flex size-7 items-center justify-center rounded-full border-2 border-surface bg-surface-raised text-[10px] font-heading uppercase text-on-surface" role="img" aria-label="{{ attendee.name }}">{{ attendee.initials }}</span>
+    </div>
+  </div>
+  <ul class="meeting-scheduler__proposals divide-y divide-border">
+    <li data-for="proposal in proposals" class="meeting-scheduler__proposal flex items-center gap-3 px-(--space-card) py-3" data-free="{{ proposal.all_free }}">
+      <div class="flex size-12 shrink-0 flex-col items-center justify-center rounded-control bg-surface-raised">
+        <span class="text-[10px] uppercase text-on-surface-muted">{{ proposal.day }}</span>
+        <span class="font-heading text-sm text-on-surface tabular-nums">{{ proposal.date }}</span>
+      </div>
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-medium text-on-surface">{{ proposal.time }}</p>
+        <p class="flex items-center gap-1.5 text-xs text-on-surface-muted">
+          <span data-if="proposal.all_free" class="inline-flex items-center gap-1 font-medium text-success"><svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>Everyone free</span>
+          <span data-if="!proposal.all_free">{{ proposal.availability }}</span>
+        </p>
+      </div>
+      <button type="button" class="meeting-scheduler__pick shrink-0 rounded-button border border-border px-3 py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[free=true]:border-primary data-[free=true]:bg-primary data-[free=true]:text-primary-contrast" data-free="{{ proposal.all_free }}">Pick</button>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,68 @@
+name: "Booking Date Range"
+short_description: A start/end date-range picker with a highlighted range and summary.
+long_visual_description: >
+  A month grid where the start and end dates are filled and the days between are highlighted;
+  past days are disabled and a summary shows the range.
+
+use_cases:
+  - Date range selection.
+  - Check-in/check-out picker.
+  - Booking dates.
+  - Trip date range.
+  - Reservation range.
+
+recommended_for:
+  - A start/end date-range picker.
+avoid_for:
+  - A single date pick (use mini-calendar).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the grid with per-day state (start/end/in-range/disabled); the summary shows the
+  selected range.
+
+props:
+  month: The month/year label.
+  summary: The range summary.
+  weekdays: The weekday headers.
+  days: The day cells with range state.
+
+example_prompts:
+  - "Add a check-in/check-out date range picker."
+  - "Add a booking date range calendar."
+
+lifecycle: experimental
+content_model: A start/end date-range picker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Highlight the range clearly; disable unavailable days and show a summary.
+
+categorization:
+  category: Calendar
+  subcategory: Booking
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Day cells are real buttons; disabled days are struck through and inert; the summary states the range in text. Add per-day aria-labels in production.
+  keyboard_support: Selectable day cells are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both

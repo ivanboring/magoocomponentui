@@ -1,0 +1,12 @@
+{
+  "title": "Weekly availability",
+  "days": [
+    { "label": "Monday", "enabled": true, "ranges": [ { "from": "9:00 AM", "to": "5:00 PM" } ] },
+    { "label": "Tuesday", "enabled": true, "ranges": [ { "from": "9:00 AM", "to": "12:00 PM" }, { "from": "1:00 PM", "to": "5:00 PM" } ] },
+    { "label": "Wednesday", "enabled": true, "ranges": [ { "from": "9:00 AM", "to": "5:00 PM" } ] },
+    { "label": "Thursday", "enabled": true, "ranges": [ { "from": "10:00 AM", "to": "4:00 PM" } ] },
+    { "label": "Friday", "enabled": true, "ranges": [ { "from": "9:00 AM", "to": "3:00 PM" } ] },
+    { "label": "Saturday", "enabled": false, "ranges": [] },
+    { "label": "Sunday", "enabled": false, "ranges": [] }
+  ]
+}

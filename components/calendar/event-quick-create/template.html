@@ -1,0 +1,17 @@
+<form class="event-quick-create w-72 rounded-card border border-border bg-surface p-3 shadow-raised" role="dialog" aria-label="New event">
+  <input type="text" class="event-quick-create__title w-full border-b-2 border-border bg-transparent pb-1.5 font-heading text-on-surface outline-none placeholder:text-on-surface-muted focus:border-primary" placeholder="Add title" aria-label="Event title">
+  <p class="event-quick-create__when mt-3 flex items-center gap-2 text-sm text-on-surface-muted">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>
+    {{ date_label }}
+  </p>
+  <div data-if="color_options" class="event-quick-create__colors mt-3 flex items-center gap-2">
+    <span class="text-xs text-on-surface-muted">Color</span>
+    <div class="flex gap-1.5" role="radiogroup" aria-label="Event color">
+      <button data-for="color in color_options" type="button" class="event-quick-create__color size-5 rounded-full ring-2 ring-transparent ring-offset-1 ring-offset-surface data-[active=true]:ring-primary" data-active="{{ color.active }}" style="background: {{ color.swatch }}" role="radio" aria-checked="{{ color.active }}" aria-label="Event color"></button>
+    </div>
+  </div>
+  <div class="event-quick-create__actions mt-4 flex justify-end gap-2">
+    <button type="button" class="rounded-button px-3 py-1.5 text-sm font-heading text-on-surface-muted hover:text-on-surface">Cancel</button>
+    <button type="submit" class="rounded-button bg-primary px-4 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Save</button>
+  </div>
+</form>

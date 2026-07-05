@@ -1,0 +1,14 @@
+<div class="booking-date-range inline-block rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="booking-date-range__head mb-3 flex items-center justify-between gap-4">
+    <span class="font-heading text-on-surface">{{ month }}</span>
+    <span data-if="summary" class="text-sm text-on-surface-muted">{{ summary }}</span>
+  </div>
+  <div class="booking-date-range__weekdays grid grid-cols-7 text-center text-[11px] font-medium text-on-surface-muted">
+    <span data-for="weekday in weekdays">{{ weekday.label }}</span>
+  </div>
+  <div class="booking-date-range__grid mt-1 grid grid-cols-7 gap-y-1">
+    <div data-for="day in days" class="booking-date-range__cell flex justify-center data-[state=in-range]:bg-primary/10 data-[state=start]:rounded-l-full data-[state=start]:bg-primary/10 data-[state=end]:rounded-r-full data-[state=end]:bg-primary/10" data-state="{{ day.state }}">
+      <button type="button" class="booking-date-range__day flex aspect-square w-9 items-center justify-center rounded-full text-sm tabular-nums transition-colors duration-(--duration-token) data-[muted=true]:text-on-surface-muted/40 data-[muted=false]:text-on-surface data-[state=idle]:hover:bg-surface-raised data-[state=start]:bg-primary data-[state=start]:text-primary-contrast data-[state=end]:bg-primary data-[state=end]:text-primary-contrast data-[state=disabled]:cursor-not-allowed data-[state=disabled]:text-on-surface-muted/30 data-[state=disabled]:line-through" data-muted="{{ day.muted }}" data-state="{{ day.state }}">{{ day.number }}</button>
+    </div>
+  </div>
+</div>

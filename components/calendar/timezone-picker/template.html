@@ -1,0 +1,15 @@
+<div class="timezone-picker relative inline-block w-full max-w-sm">
+  <label class="timezone-picker__label block text-sm font-medium text-on-surface" for="timezone-picker-toggle">{{ label }}</label>
+  <button id="timezone-picker-toggle" type="button" class="timezone-picker__toggle mt-1 flex w-full items-center justify-between gap-2 rounded-control border border-border bg-surface px-3 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="listbox" aria-expanded="false">
+    <span class="timezone-picker__selected flex items-center gap-2 truncate"><svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2 2 2 13 0 15M10 2.5c-2 2-2 13 0 15"/></svg><span class="truncate">{{ selected }}</span></span>
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <ul class="timezone-picker__menu absolute z-20 mt-1 hidden max-h-60 w-full flex-col overflow-y-auto rounded-card border border-border bg-surface p-1 shadow-raised" role="listbox">
+    <li data-for="zone in zones" role="none">
+      <button type="button" class="timezone-picker__zone flex w-full items-center justify-between gap-2 rounded-control px-3 py-2 text-left text-sm text-on-surface hover:bg-surface-raised data-[active=true]:bg-primary/10 data-[active=true]:text-primary" role="option" aria-selected="{{ zone.active }}" data-active="{{ zone.active }}">
+        <span class="truncate">{{ zone.label }}</span>
+        <span class="shrink-0 font-mono text-xs text-on-surface-muted">{{ zone.offset }}</span>
+      </button>
+    </li>
+  </ul>
+</div>

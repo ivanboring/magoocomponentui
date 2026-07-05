@@ -1,0 +1,16 @@
+name: resource-timeline
+props:
+  hours:
+    type: array
+    items: object
+    required: true
+    title: Hour headers
+    description: "Each: { label }."
+  resources:
+    type: array
+    items: object
+    required: true
+    title: Resources
+    description: >
+      Each: { name, detail, bookings: [{ title, left, width, tone }] } where left/width are
+      percentages across the timeline and tone is primary|accent|success|warning.

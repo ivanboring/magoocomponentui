@@ -1,0 +1,13 @@
+{
+  "label": "Timezone",
+  "selected": "(GMT-08:00) Pacific Time — Los Angeles",
+  "zones": [
+    { "label": "Pacific Time — Los Angeles", "offset": "GMT-8", "active": true },
+    { "label": "Mountain Time — Denver", "offset": "GMT-7", "active": false },
+    { "label": "Central Time — Chicago", "offset": "GMT-6", "active": false },
+    { "label": "Eastern Time — New York", "offset": "GMT-5", "active": false },
+    { "label": "London", "offset": "GMT+0", "active": false },
+    { "label": "Central European — Paris", "offset": "GMT+1", "active": false },
+    { "label": "Japan — Tokyo", "offset": "GMT+9", "active": false }
+  ]
+}

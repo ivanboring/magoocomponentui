@@ -1,0 +1,59 @@
+name: "Calendar Event Chip"
+short_description: A colored event pill for a calendar grid cell.
+long_visual_description: >
+  A small event pill with a left accent, a time, and the event title, colour-coded by tone.
+
+use_cases:
+  - Event in a calendar cell.
+  - Timetable event pill.
+  - Agenda chip.
+  - Schedule event.
+  - Grid event marker.
+
+recommended_for:
+  - An event pill inside a calendar grid.
+avoid_for:
+  - A session card (use session-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the tone by category; show the time and title. Truncates in narrow cells.
+
+props:
+  title: The event title.
+  time: The event time.
+  tone: The colour tone.
+
+example_prompts:
+  - "Add a calendar event chip for a standup."
+  - "Add a colored event pill."
+
+lifecycle: experimental
+content_model: An event pill for a calendar grid.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --radius-control
+
+editorial_guidance: >
+  Use tone by calendar/category; the title carries the meaning.
+
+categorization:
+  category: Calendar
+  subcategory: Events
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The time and title are real text; colour is a category cue, not the only signal.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

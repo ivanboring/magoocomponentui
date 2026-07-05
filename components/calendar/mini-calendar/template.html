@@ -1,0 +1,16 @@
+<div class="mini-calendar inline-block rounded-card border border-border bg-surface p-3 shadow-card">
+  <div class="mini-calendar__head mb-2 flex items-center justify-between">
+    <button type="button" class="flex size-7 items-center justify-center rounded-control text-on-surface-muted hover:bg-surface-raised" aria-label="Previous month"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5l-5 5 5 5"/></svg></button>
+    <span class="mini-calendar__month font-heading text-sm text-on-surface">{{ month }}</span>
+    <button type="button" class="flex size-7 items-center justify-center rounded-control text-on-surface-muted hover:bg-surface-raised" aria-label="Next month"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5l5 5-5 5"/></svg></button>
+  </div>
+  <div class="mini-calendar__weekdays grid grid-cols-7 text-center text-[10px] font-medium text-on-surface-muted">
+    <span data-for="weekday in weekdays">{{ weekday.label }}</span>
+  </div>
+  <div class="mini-calendar__grid mt-1 grid grid-cols-7 gap-0.5">
+    <button data-for="day in days" type="button" class="mini-calendar__day relative flex aspect-square items-center justify-center rounded-full text-xs tabular-nums transition-colors duration-(--duration-token) data-[muted=true]:text-on-surface-muted/40 data-[muted=false]:text-on-surface hover:bg-surface-raised data-[today=true]:font-bold data-[today=true]:text-primary data-[selected=true]:bg-primary data-[selected=true]:text-primary-contrast data-[selected=true]:hover:bg-primary" data-muted="{{ day.muted }}" data-today="{{ day.today }}" data-selected="{{ day.selected }}">
+      {{ day.number }}
+      <span data-if="day.has_event" class="absolute bottom-0.5 size-1 rounded-full bg-primary data-[selected=true]:bg-primary-contrast" data-selected="{{ day.selected }}" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>

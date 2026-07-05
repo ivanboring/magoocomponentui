@@ -1,0 +1,62 @@
+name: "Appointment Slot"
+short_description: A single bookable time slot with available/selected/booked states.
+long_visual_description: >
+  A slot button showing the time and duration, styled for available, selected (filled), or
+  booked (struck-through, disabled) states.
+
+use_cases:
+  - Bookable time slot.
+  - Appointment time.
+  - Slot picker cell.
+  - Reservation time.
+  - Scheduling slot.
+
+recommended_for:
+  - A single bookable time slot.
+avoid_for:
+  - A grid of slots (use time-slot-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Set status to available/selected/booked; booked slots are struck-through and disabled.
+
+props:
+  time: The slot time.
+  duration: The slot duration.
+  status: available, selected, or booked.
+
+example_prompts:
+  - "Add a bookable appointment slot."
+  - "Add a selected time slot cell."
+
+lifecycle: experimental
+content_model: A single bookable time slot.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-surface-raised
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Booked slots are struck-through and inert; the time carries the meaning.
+
+categorization:
+  category: Calendar
+  subcategory: Booking
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Booked is shown by strikethrough (not colour alone) and is inert; the time is real text; it's a real button.
+  keyboard_support: Available/selected slots are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

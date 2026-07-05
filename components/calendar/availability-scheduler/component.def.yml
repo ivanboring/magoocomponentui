@@ -1,0 +1,19 @@
+name: availability-scheduler
+props:
+  title:
+    type: string
+    default: "Weekly availability"
+    title: Title
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      Each: { label, enabled, ranges: [{ from, to }] } — a weekday with an on/off toggle and
+      time ranges.
+    example:
+      - label: "Monday"
+        enabled: true
+        ranges:
+          - { from: "9:00 AM", to: "5:00 PM" }

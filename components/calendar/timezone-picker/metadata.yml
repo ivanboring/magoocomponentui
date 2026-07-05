@@ -1,0 +1,64 @@
+name: "Timezone Picker"
+short_description: A timezone select dropdown with offsets.
+long_visual_description: >
+  A labelled dropdown showing the selected timezone with a globe icon; opening lists timezones
+  with their GMT offsets.
+
+use_cases:
+  - Timezone selection.
+  - Meeting timezone.
+  - Locale timezone.
+  - Schedule timezone.
+  - Availability timezone.
+
+recommended_for:
+  - Selecting a timezone from a list.
+avoid_for:
+  - A generic select (use a select).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide zones with labels and offsets; selecting updates the toggle. Emits timezone:change.
+
+props:
+  label: The picker label.
+  selected: The selected timezone.
+  zones: The timezone options.
+
+example_prompts:
+  - "Add a timezone picker dropdown with offsets."
+  - "Add a meeting timezone select."
+
+lifecycle: experimental
+content_model: A timezone select dropdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Show GMT offsets; group by region in production for long lists.
+
+categorization:
+  category: Calendar
+  subcategory: Scheduling
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle exposes aria-haspopup/aria-expanded; options use role="option"/aria-selected; Escape closes and refocuses; a label is associated.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes; options are focusable.
+  seo_score: 20
+  text_direction: both

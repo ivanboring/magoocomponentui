@@ -1,0 +1,17 @@
+name: time-slot-grid
+props:
+  date_label:
+    type: string
+    title: Date label
+    example: "Wednesday, August 13"
+  periods:
+    type: array
+    items: object
+    required: true
+    title: Periods
+    description: >
+      Each: { label, slots: [{ time, status }] } where status is available | selected | booked.
+    example:
+      - label: "Morning"
+        slots:
+          - { time: "9:00 AM", status: "available" }

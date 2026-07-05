@@ -1,0 +1,17 @@
+<section class="calendar-day-view rounded-card border border-border bg-surface shadow-card" aria-label="{{ date_label }}">
+  <header class="calendar-day-view__head border-b border-border px-(--space-card) py-3">
+    <p class="font-heading text-on-surface">{{ date_label }}</p>
+  </header>
+  <div class="calendar-day-view__body relative flex">
+    <div class="calendar-day-view__hours w-16 shrink-0">
+      <div data-for="hour in hours" class="calendar-day-view__hour h-14 border-b border-r border-border px-2 pt-1 text-right text-[11px] text-on-surface-muted">{{ hour.label }}</div>
+    </div>
+    <div class="calendar-day-view__track relative flex-1">
+      <div data-for="hour in hours" class="h-14 border-b border-border"></div>
+      <article data-for="event in events" class="calendar-day-view__event absolute inset-x-2 overflow-hidden rounded-control border-l-2 px-2 py-1 text-xs data-[tone=primary]:border-l-primary data-[tone=primary]:bg-primary/15 data-[tone=primary]:text-primary data-[tone=accent]:border-l-accent data-[tone=accent]:bg-accent/15 data-[tone=accent]:text-accent data-[tone=success]:border-l-success data-[tone=success]:bg-success/15 data-[tone=success]:text-success data-[tone=warning]:border-l-warning data-[tone=warning]:bg-warning/15 data-[tone=warning]:text-warning" data-tone="{{ event.tone }}" style="top: {{ event.top }}; height: {{ event.height }}">
+        <p class="font-medium">{{ event.title }}</p>
+        <p class="opacity-80">{{ event.time }}</p>
+      </article>
+    </div>
+  </div>
+</section>

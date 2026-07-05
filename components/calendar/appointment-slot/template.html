@@ -1,0 +1,4 @@
+<button type="button" class="appointment-slot flex w-full flex-col items-center rounded-control border py-2 text-sm font-medium transition-colors duration-(--duration-token) {{ status@class }}" data-status="{{ status }}">
+  <span class="appointment-slot__time tabular-nums">{{ time }}</span>
+  <span data-if="duration" class="appointment-slot__duration text-[10px] opacity-70">{{ duration }}</span>
+</button>

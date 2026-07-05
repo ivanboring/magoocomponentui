@@ -1,0 +1,66 @@
+name: "Meeting Scheduler"
+short_description: A propose-and-confirm time picker showing when everyone is free.
+long_visual_description: >
+  A panel with attendee avatars and a list of proposed times, each showing availability
+  (everyone-free highlighted) with a pick action.
+
+use_cases:
+  - Find-a-meeting-time.
+  - Propose meeting slots.
+  - Group scheduling.
+  - When-are-you-free.
+  - Meeting poll.
+
+recommended_for:
+  - Proposing times and picking when everyone's free.
+avoid_for:
+  - A single booking (use appointment-slot).
+
+markets:
+  - Global
+
+example_usage: >
+  Show attendees and proposed times with availability; everyone-free slots are highlighted for
+  easy picking.
+
+props:
+  title: The section title.
+  attendees: The attendees.
+  proposals: The proposed time slots with availability.
+
+lifecycle: experimental
+content_model: A meeting time proposal picker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Highlight everyone-free slots; show partial availability for the rest.
+
+categorization:
+  category: Calendar
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [form, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Everyone-free is shown by a check and "Everyone free" text (not colour alone); avatars carry names; pick is a real button.
+  keyboard_support: Pick buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,63 @@
+name: "Shift Planner"
+short_description: A staff × days grid of work shifts.
+long_visual_description: >
+  A table with staff down the rows and days across the columns, each cell a shift chip
+  (colour-coded by shift type) or off (—).
+
+use_cases:
+  - Staff shift schedule.
+  - Rota / roster.
+  - Weekly shift grid.
+  - Team scheduling.
+  - Workforce planner.
+
+recommended_for:
+  - A staff × days shift grid.
+avoid_for:
+  - A resource booking timeline (use resource-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide day headers and staff with a shift per day (empty = off); tone by shift type.
+
+props:
+  week_label: The week label.
+  days: The day headers.
+  staff: The staff rows with per-day shifts.
+
+lifecycle: experimental
+content_model: A staff × days shift grid.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Label shift times in the chip; tone by shift type; off days show a dash.
+
+categorization:
+  category: Calendar
+  subcategory: Workforce
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers; shift chips carry the time as text (colour is a type cue); off days show a dash. Scrolls horizontally.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

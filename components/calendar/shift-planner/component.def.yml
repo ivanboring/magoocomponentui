@@ -1,0 +1,20 @@
+name: shift-planner
+props:
+  week_label:
+    type: string
+    title: Week label
+    example: "Week of Aug 11"
+  days:
+    type: array
+    items: object
+    required: true
+    title: Day headers
+    description: "Each: { label, date }."
+  staff:
+    type: array
+    items: object
+    required: true
+    title: Staff
+    description: >
+      Each: { name, initials, shifts: [{ label, tone }] } — one entry per day (empty label =
+      off), tone is primary|accent|success|warning.

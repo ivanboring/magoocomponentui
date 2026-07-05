@@ -1,0 +1,67 @@
+name: "Time Slot Grid"
+short_description: A bookable time-slot grid grouped by period with available/booked states.
+long_visual_description: >
+  A day's bookable slots grouped by period (morning/afternoon), each a button styled for
+  available, selected, or booked (struck-through) states.
+
+use_cases:
+  - Bookable time slots.
+  - Appointment slot grid.
+  - Availability picker.
+  - Scheduling grid.
+  - Reservation times.
+
+recommended_for:
+  - A grouped grid of bookable time slots.
+avoid_for:
+  - A single slot (use appointment-slot).
+
+markets:
+  - Global
+
+example_usage: >
+  Group slots by period with statuses; booked are struck-through and inert. Selecting is
+  single-choice. Emits slot:select.
+
+props:
+  date_label: The date.
+  periods: The periods, each with its slots.
+
+relationships:
+  children:
+    - calendar/appointment-slot
+
+lifecycle: experimental
+content_model: A grouped grid of bookable time slots.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Group by period; booked slots are struck-through and clearly inert.
+
+categorization:
+  category: Calendar
+  subcategory: Booking
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Slots are real buttons; booked is struck-through (not colour alone) and inert; times are real text.
+  keyboard_support: Available slots are focusable and select on Enter/Space.
+  seo_score: 30
+  text_direction: both

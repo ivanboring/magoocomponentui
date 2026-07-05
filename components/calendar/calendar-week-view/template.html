@@ -1,0 +1,26 @@
+<section class="calendar-week-view overflow-x-auto rounded-card border border-border bg-surface shadow-card" aria-label="Week view">
+  <div class="calendar-week-view__inner" style="min-width: 44rem">
+    <div class="calendar-week-view__header grid border-b border-border" style="grid-template-columns: 4rem repeat(7, 1fr)">
+      <div class="px-2 py-2 text-xs text-on-surface-muted">{{ range_label }}</div>
+      <div data-for="day in days" class="calendar-week-view__day-head border-l border-border px-2 py-2 text-center" data-today="{{ day.today }}">
+        <p class="text-[11px] uppercase text-on-surface-muted">{{ day.weekday }}</p>
+        <p class="font-heading text-on-surface data-[today=true]:text-primary" data-today="{{ day.today }}">{{ day.date }}</p>
+      </div>
+    </div>
+    <div class="calendar-week-view__body grid" style="grid-template-columns: 4rem repeat(7, 1fr)">
+      <div class="calendar-week-view__hours">
+        <div data-for="hour in hours" class="h-12 border-b border-r border-border px-2 pt-0.5 text-right text-[10px] text-on-surface-muted">{{ hour.label }}</div>
+      </div>
+      <div class="calendar-week-view__grid relative col-span-7" style="grid-column: 2 / -1">
+        <div class="absolute inset-0 grid" style="grid-template-columns: repeat(7, 1fr)">
+          <div data-for="day in days" class="border-l border-border"></div>
+        </div>
+        <div data-for="hour in hours" class="h-12 border-b border-border"></div>
+        <article data-for="event in events" class="calendar-week-view__event absolute overflow-hidden rounded-control border-l-2 px-1.5 py-0.5 text-[10px] leading-tight data-[tone=primary]:border-l-primary data-[tone=primary]:bg-primary/15 data-[tone=primary]:text-primary data-[tone=accent]:border-l-accent data-[tone=accent]:bg-accent/15 data-[tone=accent]:text-accent data-[tone=success]:border-l-success data-[tone=success]:bg-success/15 data-[tone=success]:text-success data-[tone=warning]:border-l-warning data-[tone=warning]:bg-warning/15 data-[tone=warning]:text-warning" data-tone="{{ event.tone }}" style="top: {{ event.top }}; height: {{ event.height }}; left: calc((100% / 7) * ({{ event.col }} - 1) + 2px); width: calc((100% / 7) - 4px)">
+          <p class="truncate font-medium">{{ event.title }}</p>
+          <p class="truncate opacity-80">{{ event.time }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

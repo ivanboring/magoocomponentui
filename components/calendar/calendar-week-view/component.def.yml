@@ -1,0 +1,26 @@
+name: calendar-week-view
+props:
+  range_label:
+    type: string
+    title: Range label
+    example: "Aug 11 – 17, 2026"
+  days:
+    type: array
+    items: object
+    required: true
+    title: Day headers
+    description: "Each: { weekday, date, today }."
+  hours:
+    type: array
+    items: object
+    required: true
+    title: Hours
+    description: "Each: { label }."
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: >
+      Each: { title, time, col, top, height, tone } where col is 1-7 (day column),
+      top/height are rem values, tone is primary|accent|success|warning.

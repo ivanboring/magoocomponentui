@@ -1,0 +1,68 @@
+name: "Calendar Week View"
+short_description: A 7-day time grid with positioned events per day column.
+long_visual_description: >
+  A week grid with day-column headers (today highlighted), an hour column, and events
+  absolutely positioned by day column and start/duration, colour-coded.
+
+use_cases:
+  - Week calendar view.
+  - 7-day schedule.
+  - Weekly timetable.
+  - Team week view.
+  - Weekly planner.
+
+recommended_for:
+  - A 7-day time grid with events.
+avoid_for:
+  - A single day (use calendar-day-view).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide day headers, hour rows, and events with col (1-7) and precomputed top/height (rem).
+  Scrolls horizontally on small screens.
+
+props:
+  range_label: The week range.
+  days: The day headers.
+  hours: The hour rows.
+  events: The positioned events with day column.
+
+relationships:
+  children:
+    - calendar/calendar-event-chip
+
+lifecycle: experimental
+content_model: A 7-day time grid with events.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Precompute event top/height/column; today is highlighted in the header.
+
+categorization:
+  category: Calendar
+  subcategory: Views
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Events carry title/time as text; colour is a category cue. Provide an agenda alternative for non-visual users in production. Scrolls horizontally.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

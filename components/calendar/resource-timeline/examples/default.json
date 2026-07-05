@@ -1,0 +1,108 @@
+{
+  "hours": [
+    {
+      "label": "8"
+    },
+    {
+      "label": "9"
+    },
+    {
+      "label": "10"
+    },
+    {
+      "label": "11"
+    },
+    {
+      "label": "12"
+    },
+    {
+      "label": "1"
+    },
+    {
+      "label": "2"
+    },
+    {
+      "label": "3"
+    },
+    {
+      "label": "4"
+    },
+    {
+      "label": "5"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Conf Room A",
+      "detail": "Seats 12",
+      "bookings": [
+        {
+          "title": "Design review",
+          "left": "20.0",
+          "width": "10.0",
+          "tone": "accent"
+        },
+        {
+          "title": "Client call",
+          "left": "50.0",
+          "width": "15.0",
+          "tone": "warning"
+        }
+      ]
+    },
+    {
+      "name": "Conf Room B",
+      "detail": "Seats 6",
+      "bookings": [
+        {
+          "title": "1:1",
+          "left": "10.0",
+          "width": "5.0",
+          "tone": "primary"
+        },
+        {
+          "title": "Interview",
+          "left": "30.0",
+          "width": "10.0",
+          "tone": "success"
+        },
+        {
+          "title": "Standup",
+          "left": "65.0",
+          "width": "5.0",
+          "tone": "primary"
+        }
+      ]
+    },
+    {
+      "name": "Zoom Room",
+      "detail": "Virtual",
+      "bookings": [
+        {
+          "title": "All-hands",
+          "left": "40.0",
+          "width": "10.0",
+          "tone": "accent"
+        }
+      ]
+    },
+    {
+      "name": "Studio",
+      "detail": "Recording",
+      "bookings": [
+        {
+          "title": "Podcast",
+          "left": "15.0",
+          "width": "20.0",
+          "tone": "warning"
+        },
+        {
+          "title": "Edit",
+          "left": "70.0",
+          "width": "20.0",
+          "tone": "success"
+        }
+      ]
+    }
+  ]
+}

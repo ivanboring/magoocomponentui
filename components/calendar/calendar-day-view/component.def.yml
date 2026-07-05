@@ -1,0 +1,21 @@
+name: calendar-day-view
+props:
+  date_label:
+    type: string
+    required: true
+    title: Date label
+    example: "Wednesday, August 13"
+  hours:
+    type: array
+    items: object
+    required: true
+    title: Hours
+    description: "Each hour row: { label }."
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: >
+      Each: { title, time, top, height, tone } where top/height are rem values positioning
+      the event over the hour grid; tone is primary|accent|success|warning.

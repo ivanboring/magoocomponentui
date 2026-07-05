@@ -1,0 +1,24 @@
+name: booking-date-range
+props:
+  month:
+    type: string
+    required: true
+    title: Month
+    example: "August 2026"
+  summary:
+    type: string
+    title: Summary
+    example: "Aug 12 – Aug 19 · 7 nights"
+  weekdays:
+    type: array
+    items: object
+    required: true
+    title: Weekday headers
+    description: "Each: { label }."
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      Each: { number, muted, state } where state is idle | start | end | in-range | disabled.

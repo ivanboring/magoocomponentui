@@ -1,0 +1,66 @@
+name: "Mini Calendar"
+short_description: A compact month picker with today, selected, and event dots.
+long_visual_description: >
+  A small month grid with prev/next, weekday headers, and day cells marked for today,
+  selected, and days with events (a dot).
+
+use_cases:
+  - Compact date picker.
+  - Sidebar month calendar.
+  - Date navigation.
+  - Mini month view.
+  - Date jump.
+
+recommended_for:
+  - A compact month picker with event indicators.
+avoid_for:
+  - A full week/day view (use calendar-week-view).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the month grid (leading/trailing muted days) with today/selected/has_event flags.
+
+props:
+  month: The month/year label.
+  weekdays: The weekday headers.
+  days: The day cells with flags.
+
+example_prompts:
+  - "Add a mini month calendar with event dots."
+  - "Add a compact date picker."
+
+lifecycle: experimental
+content_model: A compact month picker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Mark today distinctly from the selected day; event dots indicate busy days.
+
+categorization:
+  category: Calendar
+  subcategory: Navigation
+  atomic_type: molecule
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Day cells are real buttons; today/selected are shown by weight/fill; prev/next have labels. Add per-day aria-labels (full date) in production.
+  keyboard_support: Day cells and nav are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both

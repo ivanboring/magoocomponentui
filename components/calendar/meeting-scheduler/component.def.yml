@@ -1,0 +1,20 @@
+name: meeting-scheduler
+props:
+  title:
+    type: string
+    default: "Find a time"
+    title: Title
+  attendees:
+    type: array
+    items: object
+    required: true
+    title: Attendees
+    description: "Each: { name, initials }."
+  proposals:
+    type: array
+    items: object
+    required: true
+    title: Time proposals
+    description: >
+      Each: { day, date, time, availability, all_free, votes } where availability is a short
+      text and all_free marks a slot where everyone is free.

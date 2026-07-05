@@ -1,0 +1,138 @@
+{
+  "range_label": "Aug 11 – 17",
+  "days": [
+    {
+      "weekday": "Mon",
+      "date": "11",
+      "today": false
+    },
+    {
+      "weekday": "Tue",
+      "date": "12",
+      "today": false
+    },
+    {
+      "weekday": "Wed",
+      "date": "13",
+      "today": true
+    },
+    {
+      "weekday": "Thu",
+      "date": "14",
+      "today": false
+    },
+    {
+      "weekday": "Fri",
+      "date": "15",
+      "today": false
+    },
+    {
+      "weekday": "Sat",
+      "date": "16",
+      "today": false
+    },
+    {
+      "weekday": "Sun",
+      "date": "17",
+      "today": false
+    }
+  ],
+  "hours": [
+    {
+      "label": "8"
+    },
+    {
+      "label": "9"
+    },
+    {
+      "label": "10"
+    },
+    {
+      "label": "11"
+    },
+    {
+      "label": "12"
+    },
+    {
+      "label": "1"
+    },
+    {
+      "label": "2"
+    },
+    {
+      "label": "3"
+    },
+    {
+      "label": "4"
+    },
+    {
+      "label": "5"
+    }
+  ],
+  "events": [
+    {
+      "title": "Standup",
+      "time": "9:00",
+      "col": 1,
+      "top": "3rem",
+      "height": "1.5rem",
+      "tone": "primary"
+    },
+    {
+      "title": "Standup",
+      "time": "9:00",
+      "col": 2,
+      "top": "3rem",
+      "height": "1.5rem",
+      "tone": "primary"
+    },
+    {
+      "title": "Design review",
+      "time": "10–11",
+      "col": 3,
+      "top": "6rem",
+      "height": "3rem",
+      "tone": "accent"
+    },
+    {
+      "title": "Client call",
+      "time": "11:30",
+      "col": 1,
+      "top": "10.5rem",
+      "height": "3rem",
+      "tone": "warning"
+    },
+    {
+      "title": "Lunch",
+      "time": "12–1",
+      "col": 3,
+      "top": "12rem",
+      "height": "3rem",
+      "tone": "success"
+    },
+    {
+      "title": "1:1",
+      "time": "2:30",
+      "col": 5,
+      "top": "19.5rem",
+      "height": "1.5rem",
+      "tone": "warning"
+    },
+    {
+      "title": "Focus",
+      "time": "3:30–5",
+      "col": 3,
+      "top": "22.5rem",
+      "height": "4.5rem",
+      "tone": "primary"
+    },
+    {
+      "title": "Retro",
+      "time": "4–5",
+      "col": 6,
+      "top": "24rem",
+      "height": "3rem",
+      "tone": "accent"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+name: "Calendar Day View"
+short_description: A single-day hour grid with positioned events.
+long_visual_description: >
+  A day view with an hour column and a track where events are absolutely positioned by
+  start/duration, colour-coded by calendar.
+
+use_cases:
+  - Day calendar view.
+  - Single-day schedule.
+  - Agenda hour grid.
+  - Daily timetable.
+  - Day planner.
+
+recommended_for:
+  - A single-day time grid with events.
+avoid_for:
+  - A week view (use calendar-week-view).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide hour rows and events with precomputed top/height (rem) over the grid; tone colours
+  each event.
+
+props:
+  date_label: The day label.
+  hours: The hour rows.
+  events: The positioned events.
+
+relationships:
+  children:
+    - calendar/calendar-event-chip
+
+lifecycle: experimental
+content_model: A single-day time grid with events.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Precompute event positions in rem to match the hour-row height; tone by calendar.
+
+categorization:
+  category: Calendar
+  subcategory: Views
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Events carry title/time as text; colour is a category cue. Provide an agenda list alternative for non-visual users in production.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

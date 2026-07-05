@@ -1,0 +1,11 @@
+<section class="time-slot-grid rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Available times">
+  <p data-if="date_label" class="time-slot-grid__date font-heading text-on-surface">{{ date_label }}</p>
+  <div class="time-slot-grid__periods mt-4 flex flex-col gap-4">
+    <div data-for="period in periods" class="time-slot-grid__period">
+      <p class="time-slot-grid__period-label text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ period.label }}</p>
+      <div class="time-slot-grid__slots mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4">
+        <button data-for="slot in period.slots" type="button" class="time-slot-grid__slot rounded-control border py-2 text-sm font-medium transition-colors duration-(--duration-token) data-[status=available]:border-border data-[status=available]:text-on-surface data-[status=available]:hover:border-primary data-[status=selected]:border-primary data-[status=selected]:bg-primary data-[status=selected]:text-primary-contrast data-[status=booked]:cursor-not-allowed data-[status=booked]:border-border data-[status=booked]:bg-surface-raised data-[status=booked]:text-on-surface-muted/50 data-[status=booked]:line-through" data-status="{{ slot.status }}">{{ slot.time }}</button>
+      </div>
+    </div>
+  </div>
+</section>

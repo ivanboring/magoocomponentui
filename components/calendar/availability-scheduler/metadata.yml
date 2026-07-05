@@ -1,0 +1,63 @@
+name: "Availability Scheduler"
+short_description: A weekly availability editor with per-day toggles and time ranges.
+long_visual_description: >
+  A list of weekdays, each with an on/off toggle and one or more time ranges (add-range),
+  disabled days show "Unavailable".
+
+use_cases:
+  - Set weekly availability.
+  - Working hours editor.
+  - Booking availability.
+  - Office hours setup.
+  - Schedule availability.
+
+recommended_for:
+  - Editing weekly availability with time ranges.
+avoid_for:
+  - A single recurrence rule (use recurring-rule).
+
+markets:
+  - Global
+
+example_usage: >
+  Toggle days on/off and set time ranges; disabled days are marked unavailable. Emits
+  availability:toggle.
+
+props:
+  title: The section title.
+  days: The weekdays with enabled flag and ranges.
+
+lifecycle: experimental
+content_model: A weekly availability editor.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Support multiple ranges per day; disabled days clearly show unavailable.
+
+categorization:
+  category: Calendar
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Day toggles use role="switch"/aria-checked with labels; disabled days show "Unavailable" text; ranges are real text.
+  keyboard_support: Toggles and add-range are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both
