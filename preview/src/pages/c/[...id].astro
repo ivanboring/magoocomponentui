@@ -14,6 +14,9 @@ const examples = names.map((ex) => ({ ...ex, html: renderToHtml(ast, ex.args) })
 // Every example's behaviors, de-duplicated, loaded once for the whole page.
 const behaviors = [...new Set(examples.flatMap((ex) => ex.behaviors))];
 const cat = entry.categorization || {};
+// Card-like components can be previewed inside a responsive grid (×2/×3/×4).
+const usageTypes = cat.usage_type || [];
+const isGridEligible = usageTypes.includes("card") || usageTypes.includes("grid") || cat.category === "Cards";
 
 const catalog = loadCatalog();
 const byId = new Map(catalog.components.map((c) => [c.id, c]));
@@ -36,8 +39,8 @@ const relGroups = [
   </div>
   <p class="mt-2 max-w-2xl text-slate-600">{entry.short_description}</p>
 
-  <!-- Live stage with theme switch -->
-  <div class="mt-6 flex gap-2">
+  <!-- Live stage with theme switch + optional grid-layout dropdown -->
+  <div class="mt-6 flex flex-wrap items-center gap-2">
     {THEMES.map((t, i) => (
       <button
         class="theme-btn rounded-md border border-slate-300 px-3 py-1 text-sm hover:bg-slate-100 aria-[current=true]:border-slate-900 aria-[current=true]:bg-slate-900 aria-[current=true]:text-white"
@@ -45,6 +48,14 @@ const relGroups = [
         aria-current={i === 0 ? "true" : "false"}
       >{t.label}</button>
     ))}
+    {isGridEligible && (
+      <select id="layout" title="Preview layout" class="ml-auto rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+        <option value="1">Single</option>
+        <option value="2">Grid × 2</option>
+        <option value="3">Grid × 3</option>
+        <option value="4">Grid × 4</option>
+      </select>
+    )}
   </div>
   <div class="mt-3 space-y-4">
     {examples.map((ex) => (
@@ -53,7 +64,7 @@ const relGroups = [
           <div class="mb-1 text-xs font-medium uppercase tracking-wide text-slate-400">{ex.name}</div>
         )}
         <div data-theme="simple" class="stage rounded-xl border border-slate-200 p-8">
-          <div set:html={ex.html} />
+          <div class="stage-content" set:html={ex.html} />
         </div>
       </div>
     ))}
@@ -161,13 +172,45 @@ const relGroups = [
   </section>
 
   <script is:inline define:vars={{ behaviors }}>
+    const THEME_KEY = "magoo-theme";
+    function applyTheme(themeId) {
+      document.querySelectorAll(".stage").forEach((s) => { s.dataset.theme = themeId; });
+      document.querySelectorAll(".theme-btn").forEach((b) => b.setAttribute("aria-current", String(b.dataset.themeId === themeId)));
+    }
     document.querySelectorAll(".theme-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll(".stage").forEach((s) => { s.dataset.theme = btn.dataset.themeId; });
-        document.querySelectorAll(".theme-btn").forEach((b) => b.setAttribute("aria-current", "false"));
-        btn.setAttribute("aria-current", "true");
+        applyTheme(btn.dataset.themeId);
+        try { localStorage.setItem(THEME_KEY, btn.dataset.themeId); } catch {}
       });
     });
+    // Restore the last-picked theme (persists across pages).
+    try {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved && document.querySelector(`.theme-btn[data-theme-id="${saved}"]`)) applyTheme(saved);
+    } catch {}
+
+    // Grid-layout preview: duplicate each card into an N-column responsive grid.
+    const layout = document.getElementById("layout");
+    if (layout) {
+      const stages = [...document.querySelectorAll(".stage-content")].map((el) => ({ el, single: el.innerHTML }));
+      const LAYOUT_KEY = "magoo-layout";
+      function applyLayout(cols) {
+        for (const { el, single } of stages) {
+          if (cols === "1") { el.innerHTML = single; continue; }
+          const n = Number(cols) * 2; // two rows so the grid reads clearly
+          el.innerHTML = `<div class="grid gap-4 grid-cols-${cols}">${Array.from({ length: n }, () => single).join("")}</div>`;
+        }
+      }
+      layout.addEventListener("change", () => {
+        applyLayout(layout.value);
+        try { localStorage.setItem(LAYOUT_KEY, layout.value); } catch {}
+      });
+      try {
+        const savedLayout = localStorage.getItem(LAYOUT_KEY);
+        if (savedLayout && ["1", "2", "3", "4"].includes(savedLayout)) { layout.value = savedLayout; applyLayout(savedLayout); }
+      } catch {}
+    }
+
     // The viewed component's own behavior, plus any slotted children's, so
     // composed demos (e.g. ticket-card steppers inside ticket-selector) are live.
     for (const js of behaviors || []) {

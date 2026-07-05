@@ -122,9 +122,18 @@ const BP_OPTS = [
     const bpSel = document.getElementById("bp");
     const cards = Array.from(document.querySelectorAll(".card"));
 
+    // Restore the last-picked theme (shared with the detail page) and breakpoint.
+    try {
+      const savedTheme = localStorage.getItem("magoo-theme");
+      if (savedTheme && [...themeSel.options].some((o) => o.value === savedTheme)) themeSel.value = savedTheme;
+      const savedBp = localStorage.getItem("magoo-bp");
+      if (savedBp && [...bpSel.options].some((o) => o.value === savedBp)) bpSel.value = savedBp;
+    } catch {}
+
     function applyPreview() {
       const theme = themeSel.value;
       const bp = bpSel.value;
+      try { localStorage.setItem("magoo-theme", theme); localStorage.setItem("magoo-bp", bp); } catch {}
       // Swap each card's single screenshot to the chosen theme + breakpoint.
       document.querySelectorAll(".card-shot").forEach((img) => {
         let shots = {};
