@@ -1,0 +1,67 @@
+name: "Quiz Result"
+short_description: A quiz score summary with pass/fail and a per-question answer review.
+long_visual_description: >
+  A result panel with a pass/fail badge, the score and percentage, and a per-question review
+  listing correct answers and correcting wrong ones.
+
+use_cases:
+  - Quiz completion result.
+  - Test score summary.
+  - Assessment feedback.
+  - Practice review.
+  - Graded quiz outcome.
+
+recommended_for:
+  - A quiz score with per-answer review.
+avoid_for:
+  - A single question (use quiz-question).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the score, pass/fail, and a review of each answer (correcting wrong ones).
+
+props:
+  score: The score fraction.
+  pct: The percentage.
+  passed: Whether the learner passed.
+  message: A result message.
+  reviews: The per-question review.
+
+example_prompts:
+  - "Add a quiz result with score and answer review."
+  - "Add a pass/fail quiz summary."
+
+lifecycle: experimental
+content_model: A quiz score, pass/fail, and answer review.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --space-section
+
+editorial_guidance: >
+  Show which answers were wrong and the correct ones; the pass/fail badge summarizes.
+
+categorization:
+  category: Education
+  subcategory: Assessment
+  atomic_type: organism
+  usage_type: [stat, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Pass/fail and per-answer correctness are shown by icon plus text (You/Correct), not colour alone; score is real text.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

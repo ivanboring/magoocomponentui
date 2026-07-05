@@ -1,0 +1,15 @@
+name: lesson-list
+props:
+  modules:
+    type: array
+    items: object
+    required: true
+    title: Modules
+    description: >
+      Each module: { title, meta, lessons: [{ number, title, duration, state }] } where
+      state is complete | current | locked | available.
+    example:
+      - title: "Getting started"
+        meta: "3 lessons · 24 min"
+        lessons:
+          - { number: "1", title: "Introduction", duration: "5 min", state: "complete" }

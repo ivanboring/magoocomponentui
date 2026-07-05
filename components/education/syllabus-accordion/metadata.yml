@@ -1,0 +1,60 @@
+name: "Syllabus Accordion"
+short_description: An expandable course syllabus grouped into sections of lessons.
+long_visual_description: >
+  An accordion of syllabus sections (weeks/units), each expandable to show its lessons with
+  durations.
+
+use_cases:
+  - Course syllabus.
+  - Curriculum outline.
+  - Expandable course content.
+  - Week-by-week breakdown.
+  - Program schedule.
+
+recommended_for:
+  - An expandable, sectioned course syllabus.
+avoid_for:
+  - A progress-tracking lesson list (use lesson-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Group lessons into sections with meta (count/time); open key sections by default.
+
+props:
+  sections: The syllabus sections, each with its lessons.
+
+example_prompts:
+  - "Add an expandable course syllabus by week."
+  - "Add a curriculum accordion."
+
+lifecycle: experimental
+content_model: An expandable sectioned syllabus of lessons.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show section meta (lessons/time); open the first section by default.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Triggers are real buttons within headings with aria-expanded; panels hide/show accordingly.
+  keyboard_support: Section headers toggle on Enter/Space.
+  seo_score: 50
+  text_direction: both

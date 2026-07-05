@@ -1,0 +1,22 @@
+<section class="discussion-thread-edu rounded-card border border-border bg-surface shadow-card" aria-label="Course discussion">
+  <div class="discussion-thread-edu__question border-b border-border p-(--space-card)">
+    <h3 class="font-heading text-on-surface">{{ question }}</h3>
+    <p class="mt-1 text-xs text-on-surface-muted">Asked by {{ asker }}<span data-if="answer_count"> · {{ answer_count }}</span></p>
+  </div>
+  <ul class="discussion-thread-edu__answers divide-y divide-border">
+    <li data-for="answer in answers" class="discussion-thread-edu__answer flex gap-3 p-(--space-card)">
+      <div class="discussion-thread-edu__votes flex flex-col items-center gap-0.5 text-on-surface-muted">
+        <button type="button" class="hover:text-primary" aria-label="Upvote"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5l5 6H5z"/></svg></button>
+        <span class="text-xs font-medium text-on-surface tabular-nums">{{ answer.votes }}</span>
+      </div>
+      <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-2">
+          <span class="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised text-[10px] font-heading uppercase text-on-surface" role="img" aria-label="{{ answer.author }}">{{ answer.initials }}</span>
+          <span class="text-sm font-medium text-on-surface">{{ answer.author }}</span>
+          <span data-if="answer.instructor" class="rounded-pill bg-primary/15 px-1.5 py-0.5 text-[10px] font-semibold text-primary">Instructor</span>
+        </div>
+        <p class="mt-1.5 text-sm text-on-surface-muted">{{ answer.body }}</p>
+      </div>
+    </li>
+  </ul>
+</section>

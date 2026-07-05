@@ -1,0 +1,28 @@
+name: instructor-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Alex Rivera"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "AR"
+  image:
+    type: image
+    title: Photo
+  title:
+    type: string
+    title: Title
+    example: "Senior Engineer & Educator"
+  bio:
+    type: string
+    title: Bio
+    example: "Teaching web development to 200k+ students worldwide."
+  stats:
+    type: array
+    items: object
+    title: Stats
+    description: "Each: { value, label } — e.g. rating, students, courses."

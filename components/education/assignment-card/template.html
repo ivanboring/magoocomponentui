@@ -1,0 +1,16 @@
+<article class="assignment-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="assignment-card__title font-heading text-on-surface">{{ title }}</h3>
+      <p data-if="course" class="assignment-card__course text-xs text-on-surface-muted">{{ course }}</p>
+    </div>
+    <span class="assignment-card__status shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-semibold {{ status@class }}">{{ status_label }}</span>
+  </div>
+  <div class="assignment-card__foot mt-3 flex items-center justify-between gap-3">
+    <p class="assignment-card__due flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>
+      {{ due }}
+    </p>
+    <button type="button" class="assignment-card__submit rounded-button bg-primary px-4 py-1.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Submit</button>
+  </div>
+</article>

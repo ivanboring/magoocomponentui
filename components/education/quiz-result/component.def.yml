@@ -1,0 +1,28 @@
+name: quiz-result
+props:
+  score:
+    type: string
+    required: true
+    title: Score
+    example: "8 / 10"
+  pct:
+    type: string
+    required: true
+    title: Percent
+    example: "80%"
+  passed:
+    type: boolean
+    default: true
+    title: Passed
+  message:
+    type: string
+    title: Message
+    example: "Great work — you passed!"
+  reviews:
+    type: array
+    items: object
+    required: true
+    title: Answer reviews
+    description: "Each: { question, correct, your_answer, right_answer }."
+    example:
+      - { question: "typeof null", correct: false, your_answer: "\"undefined\"", right_answer: "\"object\"" }

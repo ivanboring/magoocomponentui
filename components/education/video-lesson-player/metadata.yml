@@ -1,0 +1,66 @@
+name: "Video Lesson Player"
+short_description: A lesson video player with notes/transcript/resources tabs.
+long_visual_description: >
+  A player over a poster with a play control, the lesson title, and tabs for notes,
+  transcript, and resources with the active panel below.
+
+use_cases:
+  - Course lesson player.
+  - Video with notes and transcript.
+  - Lesson viewer.
+  - LMS video page.
+  - Tabbed lesson content.
+
+recommended_for:
+  - A lesson video with tabbed notes/transcript.
+avoid_for:
+  - A standalone video player (use video-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the poster and tabs (one active); the panel shows the active tab's content. Guard a
+  real video source so an empty src doesn't resolve to the page URL.
+
+props:
+  title: The lesson title.
+  poster: The video poster.
+  tabs: The panel tabs (one active).
+  notes: The active panel content.
+
+example_prompts:
+  - "Add a lesson video player with notes and transcript tabs."
+  - "Add an LMS video page with tabs."
+
+lifecycle: experimental
+content_model: A lesson video with tabbed supporting content.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Provide notes and a transcript for accessibility; keep the poster representative.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: organism
+  usage_type: [player, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Tabs use role="tab"/aria-selected and a role="tabpanel"; the play control is labelled. Provide a transcript tab for non-visual access.
+  keyboard_support: Tabs are focusable and switch on Enter/Space; the play control activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

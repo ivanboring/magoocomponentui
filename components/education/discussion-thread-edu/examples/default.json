@@ -1,0 +1,9 @@
+{
+  "question": "Why does typeof null return \"object\"?",
+  "asker": "Sam · 2 days ago",
+  "answer_count": "2 answers",
+  "answers": [
+    { "author": "Alex Rivera", "initials": "AR", "body": "It's a long-standing bug kept for backwards compatibility with early JavaScript. It won't be fixed to avoid breaking the web.", "votes": "12", "instructor": true },
+    { "author": "Priya N.", "initials": "PN", "body": "To add: you can check for null explicitly with `value === null`.", "votes": "4", "instructor": false }
+  ]
+}

@@ -1,0 +1,62 @@
+name: "Lesson Row"
+short_description: A lesson row with number, title, duration, and complete/current/locked state.
+long_visual_description: >
+  A row with a state marker (check when complete, number, or lock), the lesson title and
+  duration, and a play affordance for available lessons.
+
+use_cases:
+  - Lesson in a course list.
+  - Module lesson entry.
+  - Curriculum item.
+  - Lesson with progress state.
+  - Playlist-style lesson.
+
+recommended_for:
+  - A single lesson with a completion/lock state.
+avoid_for:
+  - A whole module list (use lesson-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Set state to complete/current/locked/available; the marker and play affordance reflect it.
+
+props:
+  number: The lesson number.
+  title: The lesson title.
+  duration: The lesson duration.
+  state: complete, current, locked, or available.
+
+example_prompts:
+  - "Add a current lesson row with duration."
+  - "Add a locked lesson entry."
+
+lifecycle: experimental
+content_model: A lesson with a completion/lock state.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-primary
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Show duration so learners can plan; state is shown by icon/emphasis, not colour alone.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: State is shown by icon (check/lock) and emphasis, not colour alone; title and duration are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

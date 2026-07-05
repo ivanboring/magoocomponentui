@@ -1,0 +1,11 @@
+{
+  "title": "Grades",
+  "overall": "A− (91%)",
+  "rows": [
+    { "assignment": "Project 1: To-do app", "weight": "20%", "score": "92/100", "grade": "A", "tone": "success" },
+    { "assignment": "Quiz: Fundamentals", "weight": "10%", "score": "80/100", "grade": "B−", "tone": "warning" },
+    { "assignment": "Midterm", "weight": "30%", "score": "94/100", "grade": "A", "tone": "success" },
+    { "assignment": "Project 2: API client", "weight": "20%", "score": "88/100", "grade": "B+", "tone": "success" },
+    { "assignment": "Participation", "weight": "20%", "score": "96/100", "grade": "A", "tone": "success" }
+  ]
+}

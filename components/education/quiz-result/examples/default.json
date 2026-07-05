@@ -1,0 +1,11 @@
+{
+  "score": "8 / 10",
+  "pct": "80%",
+  "passed": true,
+  "message": "Great work — you passed!",
+  "reviews": [
+    { "question": "What does typeof null return?", "correct": false, "your_answer": "\"undefined\"", "right_answer": "\"object\"" },
+    { "question": "Which keyword declares a block-scoped variable?", "correct": true, "your_answer": "let", "right_answer": "let" },
+    { "question": "What is a closure?", "correct": true, "your_answer": "Function + lexical scope", "right_answer": "Function + lexical scope" }
+  ]
+}

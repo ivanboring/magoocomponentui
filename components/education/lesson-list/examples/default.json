@@ -1,0 +1,14 @@
+{
+  "modules": [
+    { "title": "Getting started", "meta": "3 lessons · 24 min", "lessons": [
+      { "number": "1", "title": "Introduction & setup", "duration": "5 min", "state": "complete" },
+      { "number": "2", "title": "Variables and types", "duration": "9 min", "state": "complete" },
+      { "number": "3", "title": "Working with async/await", "duration": "12 min", "state": "current" }
+    ]},
+    { "title": "Core concepts", "meta": "3 lessons · 41 min", "lessons": [
+      { "number": "4", "title": "Functions and scope", "duration": "14 min", "state": "available" },
+      { "number": "5", "title": "The DOM", "duration": "16 min", "state": "locked" },
+      { "number": "6", "title": "Events", "duration": "11 min", "state": "locked" }
+    ]}
+  ]
+}

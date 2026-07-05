@@ -1,0 +1,70 @@
+name: "Course Progress"
+short_description: A course progress card with percent complete and a continue-to-next action.
+long_visual_description: >
+  A card with the course name, percent complete, a progress bar, a lessons-completed count,
+  and a next-lesson row with a continue button.
+
+use_cases:
+  - Course progress on a dashboard.
+  - Continue-learning card.
+  - Enrolled course progress.
+  - Learning path progress.
+  - Resume-course prompt.
+
+recommended_for:
+  - A course's progress with a resume action.
+avoid_for:
+  - A single lesson (use lesson-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the percent complete and lessons count; the continue action resumes the next lesson.
+
+props:
+  course: The course name.
+  pct: Percent complete.
+  completed: Lessons-completed summary.
+  next_lesson: The next lesson label.
+
+example_prompts:
+  - "Add a course progress card at 58% with continue."
+  - "Add a continue-learning card."
+
+lifecycle: experimental
+content_model: A course's progress and next-lesson action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the lessons count for context; the continue action reduces friction to resume.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with a label; the continue action is a real button.
+  keyboard_support: The continue button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

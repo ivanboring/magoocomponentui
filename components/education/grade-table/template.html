@@ -1,0 +1,26 @@
+<section class="grade-table overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="grade-table__head flex items-center justify-between border-b border-border px-(--space-card) py-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="overall" class="grade-table__overall rounded-pill bg-primary/15 px-2.5 py-0.5 text-sm font-semibold text-primary">{{ overall }}</span>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="grade-table__table w-full text-sm">
+      <thead>
+        <tr class="border-b border-border text-xs text-on-surface-muted">
+          <th class="px-4 py-2 text-left font-medium" scope="col">Assignment</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">Weight</th>
+          <th class="px-2 py-2 text-center font-medium" scope="col">Score</th>
+          <th class="px-4 py-2 text-right font-medium" scope="col">Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="row in rows" class="border-b border-border last:border-0">
+          <th class="px-4 py-2.5 text-left font-medium text-on-surface" scope="row">{{ row.assignment }}</th>
+          <td class="px-2 py-2.5 text-center text-on-surface-muted tabular-nums">{{ row.weight }}</td>
+          <td class="px-2 py-2.5 text-center text-on-surface tabular-nums">{{ row.score }}</td>
+          <td class="px-4 py-2.5 text-right"><span class="inline-flex items-center rounded-control px-2 py-0.5 text-xs font-bold data-[tone=success]:bg-success/15 data-[tone=success]:text-success data-[tone=warning]:bg-warning/15 data-[tone=warning]:text-warning data-[tone=danger]:bg-danger/15 data-[tone=danger]:text-danger" data-tone="{{ row.tone }}">{{ row.grade }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

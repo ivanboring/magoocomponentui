@@ -1,0 +1,33 @@
+name: assignment-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Build a to-do app"
+  course:
+    type: string
+    title: Course
+    example: "Modern JavaScript"
+  due:
+    type: string
+    required: true
+    title: Due
+    example: "Due Aug 20 · 11:59 PM"
+  status:
+    type: enum
+    values: [not-started, in-progress, submitted, graded, overdue]
+    default: not-started
+    title: Status
+  status_label:
+    type: string
+    required: true
+    title: Status label
+    example: "Not started"
+variants:
+  status:
+    not-started: "bg-surface-raised text-on-surface-muted"
+    in-progress: "bg-info/15 text-info"
+    submitted: "bg-primary/15 text-primary"
+    graded: "bg-success/15 text-success"
+    overdue: "bg-danger/15 text-danger"

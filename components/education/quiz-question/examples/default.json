@@ -1,0 +1,10 @@
+{
+  "number": "Question 3 of 10",
+  "question": "What does the `typeof null` expression return?",
+  "options": [
+    { "label": "\"object\"", "key": "A", "state": "correct" },
+    { "label": "\"null\"", "key": "B", "state": "idle" },
+    { "label": "\"undefined\"", "key": "C", "state": "wrong" },
+    { "label": "\"number\"", "key": "D", "state": "idle" }
+  ]
+}

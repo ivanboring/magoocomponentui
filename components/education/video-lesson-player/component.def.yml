@@ -1,0 +1,24 @@
+name: video-lesson-player
+props:
+  title:
+    type: string
+    required: true
+    title: Lesson title
+    example: "Working with async/await"
+  poster:
+    type: image
+    title: Poster
+    example: "/stock/cover-workspace.jpg"
+  tabs:
+    type: array
+    items: object
+    required: true
+    title: Tabs
+    description: "Each tab: { label, active }."
+    example:
+      - { label: "Notes", active: true }
+      - { label: "Transcript", active: false }
+  notes:
+    type: string
+    title: Notes content
+    example: "async functions always return a Promise. await pauses until it resolves."

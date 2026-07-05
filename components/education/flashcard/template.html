@@ -1,0 +1,11 @@
+<button type="button" class="flashcard group relative block aspect-[3/2] w-full max-w-sm [perspective:1000px]" aria-label="Flip flashcard" aria-pressed="false">
+  <span class="flashcard__inner relative block size-full transition-transform duration-500 [transform-style:preserve-3d] group-aria-pressed:[transform:rotateY(180deg)]">
+    <span class="flashcard__front absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-card border border-border bg-surface p-6 text-center shadow-card [backface-visibility:hidden]">
+      <span class="flashcard__term font-heading text-2xl text-on-surface">{{ term }}</span>
+      <span data-if="hint" class="flashcard__hint text-xs text-on-surface-muted">{{ hint }}</span>
+    </span>
+    <span class="flashcard__back absolute inset-0 flex items-center justify-center rounded-card border border-primary bg-primary p-6 text-center text-primary-contrast shadow-card [backface-visibility:hidden] [transform:rotateY(180deg)]">
+      <span class="flashcard__definition text-sm">{{ definition }}</span>
+    </span>
+  </span>
+</button>

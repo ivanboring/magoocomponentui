@@ -1,0 +1,10 @@
+{
+  "title": "Working with async/await",
+  "poster": "/stock/cover-workspace.jpg",
+  "tabs": [
+    { "label": "Notes", "active": true },
+    { "label": "Transcript", "active": false },
+    { "label": "Resources", "active": false }
+  ],
+  "notes": "async functions always return a Promise. await pauses execution until the Promise resolves, letting you write asynchronous code that reads synchronously."
+}

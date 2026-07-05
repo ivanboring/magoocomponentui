@@ -1,0 +1,68 @@
+name: "Course Hero"
+short_description: A course header with title, instructor, stats, and enroll, plus media.
+long_visual_description: >
+  A dark hero with a category eyebrow, course title, subtitle, instructor, a stats row
+  (rating, students, lessons, hours), and an enroll CTA beside a course image.
+
+use_cases:
+  - Top of a course page.
+  - Course landing header.
+  - Enroll hero with stats.
+  - Course detail intro.
+  - LMS course banner.
+
+recommended_for:
+  - The hero of a course detail page with stats and enroll.
+avoid_for:
+  - A course preview card (use card-course).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the title, instructor, and social-proof stats; the enroll CTA is the primary action.
+
+props:
+  category: The course category.
+  title: The course title.
+  subtitle: A supporting line.
+  instructor: The instructor name.
+  image: The course image.
+  stats: Course stats (value + label).
+  cta_label: The enroll button text.
+
+example_prompts:
+  - "Add a course hero with stats and enroll."
+  - "Add a course landing header."
+
+lifecycle: experimental
+content_model: A course header with stats, instructor, and enroll.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the outcome-focused title and social-proof stats; the enroll CTA is primary.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and a definition list for stats; the image is decorative; enroll is a real button. Verify the on-surface/surface pair meets contrast per theme.
+  keyboard_support: The enroll button is focusable and activates on Enter/Space.
+  seo_score: 65
+  text_direction: both

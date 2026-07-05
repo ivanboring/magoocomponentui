@@ -1,0 +1,67 @@
+name: "Instructor Card"
+short_description: An instructor profile with bio, rating, and teaching stats.
+long_visual_description: >
+  A card with the instructor's photo, name, title, a short bio, and a stat strip (rating,
+  students, courses).
+
+use_cases:
+  - Course instructor profile.
+  - Meet-the-instructor card.
+  - Teacher bio with stats.
+  - Educator profile.
+  - Instructor credibility card.
+
+recommended_for:
+  - An instructor profile with teaching stats.
+avoid_for:
+  - A generic person profile (use card-profile).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the bio and teaching stats (rating, students, courses).
+
+props:
+  name: The instructor's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional instructor photo.
+  title: The instructor's title.
+  bio: A short bio.
+  stats: Teaching stats (value + label).
+
+example_prompts:
+  - "Add an instructor card with rating and student count."
+  - "Add a course teacher profile with stats."
+
+lifecycle: experimental
+content_model: An instructor's identity, bio, and teaching stats.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show credibility stats (rating, students); keep the bio to a sentence.
+
+categorization:
+  category: Education
+  subcategory: Instructors
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the name; stats use a definition list; all values are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

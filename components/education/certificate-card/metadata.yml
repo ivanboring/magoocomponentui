@@ -1,0 +1,65 @@
+name: "Certificate Card"
+short_description: A completion certificate with recipient, course, date, and credential ID.
+long_visual_description: >
+  A bordered certificate with a seal, "Certificate of completion", the recipient and course,
+  and a footer with the date, issuer, and credential ID.
+
+use_cases:
+  - Course completion certificate.
+  - Credential display.
+  - Achievement certificate.
+  - Verifiable completion.
+  - Shareable certificate.
+
+recommended_for:
+  - A completion certificate display.
+avoid_for:
+  - A skill token (use skill-badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the recipient and course prominently; the footer carries the date, issuer, and
+  credential ID for verification.
+
+props:
+  course: The course name.
+  recipient: The recipient's name.
+  date: The issue date.
+  issuer: The issuing organization.
+  credential_id: The credential ID.
+
+example_prompts:
+  - "Add a course completion certificate card."
+  - "Add a credential certificate with ID."
+
+lifecycle: experimental
+content_model: A completion certificate with recipient, course, and credential.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Include a verifiable credential ID; keep the recipient and course names prominent.
+
+categorization:
+  category: Education
+  subcategory: Achievements
+  atomic_type: molecule
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All text is real; the seal is decorative. The credential ID enables verification.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

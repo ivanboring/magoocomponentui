@@ -1,0 +1,1 @@
+{ "term": "Closure", "definition": "A function bundled with references to its surrounding state (its lexical environment).", "hint": "Tap to flip" }

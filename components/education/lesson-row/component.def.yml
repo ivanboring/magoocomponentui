@@ -1,0 +1,21 @@
+name: lesson-row
+props:
+  number:
+    type: string
+    required: true
+    title: Number
+    example: "3"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Working with async/await"
+  duration:
+    type: string
+    title: Duration
+    example: "12 min"
+  state:
+    type: enum
+    values: [complete, current, locked, available]
+    default: available
+    title: State

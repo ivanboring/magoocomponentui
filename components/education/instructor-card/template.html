@@ -1,0 +1,16 @@
+<article class="instructor-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="instructor-card__head flex items-center gap-3">
+    <span class="instructor-card__avatar relative inline-flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-lg uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0">
+      <p class="instructor-card__name font-heading text-on-surface">{{ name }}</p>
+      <p data-if="title" class="instructor-card__title text-sm text-primary">{{ title }}</p>
+    </div>
+  </div>
+  <p data-if="bio" class="instructor-card__bio mt-3 text-sm text-on-surface-muted">{{ bio }}</p>
+  <dl data-if="stats" class="instructor-card__stats mt-3 flex gap-6 border-t border-border pt-3">
+    <div data-for="stat in stats"><dd class="font-heading text-on-surface tabular-nums">{{ stat.value }}</dd><dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt></div>
+  </dl>
+</article>

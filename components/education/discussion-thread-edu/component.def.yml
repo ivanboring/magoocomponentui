@@ -1,0 +1,24 @@
+name: discussion-thread-edu
+props:
+  question:
+    type: string
+    required: true
+    title: Question
+    example: "Why does typeof null return \"object\"?"
+  asker:
+    type: string
+    required: true
+    title: Asker
+    example: "Sam · 2 days ago"
+  answer_count:
+    type: string
+    title: Answer count
+    example: "3 answers"
+  answers:
+    type: array
+    items: object
+    required: true
+    title: Answers
+    description: "Each answer: { author, initials, body, votes, instructor }."
+    example:
+      - { author: "Alex Rivera", initials: "AR", body: "It's a long-standing bug kept for backwards compatibility.", votes: "12", instructor: true }

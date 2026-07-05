@@ -1,0 +1,20 @@
+name: quiz-question
+props:
+  number:
+    type: string
+    title: Number
+    example: "Question 3 of 10"
+  question:
+    type: string
+    required: true
+    title: Question
+    example: "What does the `typeof null` expression return?"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, key, state } where state is idle | selected | correct | wrong."
+    example:
+      - { label: "\"object\"", key: "A", state: "correct" }
+      - { label: "\"null\"", key: "B", state: "idle" }

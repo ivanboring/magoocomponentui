@@ -1,0 +1,25 @@
+name: certificate-card
+props:
+  course:
+    type: string
+    required: true
+    title: Course
+    example: "Modern JavaScript"
+  recipient:
+    type: string
+    required: true
+    title: Recipient
+    example: "Jane Doe"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Issued Aug 12, 2026"
+  issuer:
+    type: string
+    title: Issuer
+    example: "Acme Academy"
+  credential_id:
+    type: string
+    title: Credential ID
+    example: "AC-2026-004821"

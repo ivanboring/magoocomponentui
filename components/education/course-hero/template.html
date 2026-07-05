@@ -1,0 +1,15 @@
+<section class="course-hero grid grid-cols-1 items-center gap-8 rounded-card bg-on-surface p-(--space-section) text-surface lg:grid-cols-2">
+  <div class="course-hero__text">
+    <p data-if="category" class="course-hero__category text-xs font-semibold uppercase tracking-wide text-primary">{{ category }}</p>
+    <h1 class="course-hero__title mt-2 font-heading text-3xl leading-tight">{{ title }}</h1>
+    <p data-if="subtitle" class="course-hero__subtitle mt-3 text-surface/80">{{ subtitle }}</p>
+    <p class="course-hero__instructor mt-3 text-sm text-surface/70">Taught by <span class="font-medium text-surface">{{ instructor }}</span></p>
+    <dl class="course-hero__stats mt-5 flex flex-wrap gap-x-6 gap-y-2">
+      <div data-for="stat in stats"><dd class="font-heading text-lg">{{ stat.value }}</dd><dt class="text-xs text-surface/60">{{ stat.label }}</dt></div>
+    </dl>
+    <button type="button" class="course-hero__cta mt-6 rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  </div>
+  <div class="course-hero__media">
+    <img data-if="image" class="w-full rounded-card object-cover shadow-raised" src="{{ image }}" alt="">
+  </div>
+</section>

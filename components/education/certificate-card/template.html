@@ -1,0 +1,15 @@
+<article class="certificate-card rounded-card border-2 border-primary/30 bg-surface p-(--space-section) text-center shadow-card">
+  <span class="certificate-card__seal mx-auto flex size-12 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
+    <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="6"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
+  </span>
+  <p class="certificate-card__label mt-3 text-xs font-semibold uppercase tracking-widest text-on-surface-muted">Certificate of completion</p>
+  <p class="certificate-card__intro mt-3 text-sm text-on-surface-muted">This certifies that</p>
+  <p class="certificate-card__recipient font-heading text-2xl text-on-surface">{{ recipient }}</p>
+  <p class="certificate-card__intro mt-2 text-sm text-on-surface-muted">has successfully completed</p>
+  <p class="certificate-card__course font-heading text-lg text-primary">{{ course }}</p>
+  <div class="certificate-card__footer mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-on-surface-muted">
+    <span>{{ date }}</span>
+    <span data-if="issuer">{{ issuer }}</span>
+    <span data-if="credential_id" class="font-mono">ID {{ credential_id }}</span>
+  </div>
+</article>

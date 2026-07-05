@@ -1,0 +1,15 @@
+name: skill-badge
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "JavaScript"
+  level:
+    type: string
+    title: Level
+    example: "Advanced"
+  icon:
+    type: string
+    title: Icon
+    example: "🏅"

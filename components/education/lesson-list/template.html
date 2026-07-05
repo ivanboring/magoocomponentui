@@ -1,0 +1,19 @@
+<div class="lesson-list flex flex-col gap-4">
+  <section data-for="module in modules" class="lesson-list__module overflow-hidden rounded-card border border-border bg-surface shadow-card">
+    <header class="lesson-list__module-head flex items-center justify-between gap-3 border-b border-border px-(--space-card) py-3">
+      <h3 class="font-heading text-on-surface">{{ module.title }}</h3>
+      <span class="text-xs text-on-surface-muted">{{ module.meta }}</span>
+    </header>
+    <div class="lesson-list__lessons divide-y divide-border px-(--space-card)">
+      <div data-for="lesson in module.lessons" class="lesson-list__lesson flex items-center gap-3 py-3" data-state="{{ lesson.state }}">
+        <span class="lesson-list__marker flex size-7 shrink-0 items-center justify-center rounded-full border-2 border-border text-xs font-medium text-on-surface-muted data-[state=complete]:border-success data-[state=complete]:bg-success data-[state=complete]:text-success-contrast data-[state=current]:border-primary data-[state=current]:text-primary" data-state="{{ lesson.state }}">
+          <svg class="hidden size-3.5 data-[state=complete]:block" data-state="{{ lesson.state }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          <svg class="hidden size-3 data-[state=locked]:block" data-state="{{ lesson.state }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 9V6a4 4 0 018 0v3h1v8H5V9zm2 0h4V6a2 2 0 10-4 0z"/></svg>
+          <span class="data-[state=complete]:hidden data-[state=locked]:hidden" data-state="{{ lesson.state }}">{{ lesson.number }}</span>
+        </span>
+        <span class="min-w-0 flex-1 text-sm text-on-surface data-[state=locked]:text-on-surface-muted data-[state=current]:font-medium" data-state="{{ lesson.state }}">{{ lesson.title }}</span>
+        <span class="shrink-0 text-xs text-on-surface-muted">{{ lesson.duration }}</span>
+      </div>
+    </div>
+  </section>
+</div>

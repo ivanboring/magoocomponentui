@@ -1,0 +1,15 @@
+{
+  "sections": [
+    { "title": "Week 1 — Foundations", "meta": "4 lessons · 52 min", "open": true, "items": [
+      { "label": "Introduction & setup", "duration": "8 min" },
+      { "label": "Variables and types", "duration": "14 min" },
+      { "label": "Operators", "duration": "12 min" },
+      { "label": "Control flow", "duration": "18 min" }
+    ]},
+    { "title": "Week 2 — Functions", "meta": "3 lessons · 44 min", "open": false, "items": [
+      { "label": "Declaring functions", "duration": "13 min" },
+      { "label": "Scope and closures", "duration": "16 min" },
+      { "label": "Higher-order functions", "duration": "15 min" }
+    ]}
+  ]
+}

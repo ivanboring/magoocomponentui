@@ -1,0 +1,66 @@
+name: "Course Discussion Thread"
+short_description: A course Q&A thread with a question and voted answers, flagging instructors.
+long_visual_description: >
+  A question header with the asker, above answers each with a vote control, author (with an
+  instructor tag where relevant), and the answer body.
+
+use_cases:
+  - Course Q&A.
+  - Student discussion thread.
+  - Lesson question and answers.
+  - Instructor-answered question.
+  - LMS discussion.
+
+recommended_for:
+  - A course Q&A thread with voting and instructor answers.
+avoid_for:
+  - General comments (use comment-thread).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the question and answers ordered by votes; flag instructor answers.
+
+props:
+  question: The question.
+  asker: Who asked and when.
+  answer_count: The answer count.
+  answers: The answers with author, body, votes, and instructor flag.
+
+example_prompts:
+  - "Add a course Q&A thread with an instructor answer."
+  - "Add a discussion thread with voted answers."
+
+lifecycle: experimental
+content_model: A course question with voted answers.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order answers by votes; the instructor tag surfaces authoritative answers.
+
+categorization:
+  category: Education
+  subcategory: Community
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Vote controls have accessible labels; avatars carry author names; the instructor tag is text.
+  keyboard_support: Vote controls are focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

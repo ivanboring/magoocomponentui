@@ -1,0 +1,15 @@
+name: syllabus-accordion
+props:
+  sections:
+    type: array
+    items: object
+    required: true
+    title: Sections
+    description: >
+      Each section: { title, meta, open, items: [{ label, duration }] }.
+    example:
+      - title: "Week 1 — Foundations"
+        meta: "4 lessons · 52 min"
+        open: true
+        items:
+          - { label: "Introduction", duration: "8 min" }

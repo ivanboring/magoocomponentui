@@ -1,0 +1,69 @@
+name: "Quiz Question"
+short_description: A quiz question with lettered answer options and correct/wrong states.
+long_visual_description: >
+  A card with a question number, the question, and lettered answer options; selected, correct
+  (green), and wrong (red) states are shown after grading.
+
+use_cases:
+  - Quiz or test question.
+  - Assessment item.
+  - Practice question.
+  - Graded MCQ.
+  - Knowledge check.
+
+recommended_for:
+  - A single multiple-choice quiz question with grading states.
+avoid_for:
+  - A symptom/questionnaire step (use symptom-checker-step).
+
+markets:
+  - Global
+
+example_usage: >
+  Options are single-select; after submission the host sets correct/wrong states on options.
+
+props:
+  number: The question number label.
+  question: The question text.
+  options: The answer options with key and state.
+
+example_prompts:
+  - "Add a graded multiple-choice quiz question."
+  - "Add a quiz question with correct/wrong feedback."
+
+lifecycle: experimental
+content_model: A question with lettered options and grading states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-success
+    - --color-success-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep options concise; correct/wrong are shown by border/fill and the letter chip, not colour
+  alone (add an icon in production for full clarity).
+
+categorization:
+  category: Education
+  subcategory: Assessment
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are a radiogroup with role="radio"/aria-checked; correct/wrong add border and chip fill. A production build should add a text/icon marker for correctness beyond colour.
+  keyboard_support: Options are focusable and select on Enter/Space.
+  seo_score: 30
+  text_direction: both

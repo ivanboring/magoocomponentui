@@ -1,0 +1,14 @@
+<aside class="enrollment-cta rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="enrollment-cta__price flex items-baseline gap-2">
+    <span class="font-heading text-3xl text-on-surface">{{ price }}</span>
+    <span data-if="original_price" class="text-lg text-on-surface-muted line-through">{{ original_price }}</span>
+  </div>
+  <button type="button" class="enrollment-cta__cta mt-4 w-full rounded-button bg-primary py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  <p data-if="note" class="enrollment-cta__note mt-2 text-center text-xs text-on-surface-muted">{{ note }}</p>
+  <ul data-if="perks" class="enrollment-cta__perks mt-4 flex flex-col gap-2 text-sm text-on-surface">
+    <li data-for="perk in perks" class="flex items-center gap-2">
+      <svg class="size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      {{ perk.label }}
+    </li>
+  </ul>
+</aside>

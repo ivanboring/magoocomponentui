@@ -1,0 +1,10 @@
+<fieldset class="quiz-question rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="number" class="quiz-question__number text-xs font-semibold uppercase tracking-wide text-primary">{{ number }}</p>
+  <legend class="quiz-question__question mt-1 font-heading text-lg text-on-surface">{{ question }}</legend>
+  <div class="quiz-question__options mt-4 flex flex-col gap-2" role="radiogroup" aria-label="Answer">
+    <button data-for="option in options" type="button" class="quiz-question__option flex items-center gap-3 rounded-card border border-border p-3 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised data-[state=selected]:border-primary data-[state=selected]:bg-primary/5 data-[state=correct]:border-success data-[state=correct]:bg-success/10 data-[state=wrong]:border-danger data-[state=wrong]:bg-danger/10" data-state="{{ option.state }}" role="radio" aria-checked="false">
+      <span class="quiz-question__key flex size-7 shrink-0 items-center justify-center rounded-full border border-border text-xs font-medium text-on-surface data-[state=correct]:border-success data-[state=correct]:bg-success data-[state=correct]:text-success-contrast data-[state=wrong]:border-danger data-[state=wrong]:bg-danger data-[state=wrong]:text-danger-contrast data-[state=selected]:border-primary data-[state=selected]:text-primary" data-state="{{ option.state }}">{{ option.key }}</span>
+      <span class="text-sm text-on-surface">{{ option.label }}</span>
+    </button>
+  </div>
+</fieldset>

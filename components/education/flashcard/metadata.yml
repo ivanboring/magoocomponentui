@@ -1,0 +1,64 @@
+name: "Flashcard"
+short_description: A flippable term/definition card for study and recall.
+long_visual_description: >
+  A card showing a term on the front; clicking flips it (3D) to reveal the definition on the
+  primary-coloured back.
+
+use_cases:
+  - Study flashcard.
+  - Term/definition recall.
+  - Vocabulary practice.
+  - Spaced-repetition card.
+  - Quiz prep card.
+
+recommended_for:
+  - A single flippable study card.
+avoid_for:
+  - A quiz question (use quiz-question).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the term on the front and the definition on the back; clicking flips it. Keep the
+  definition concise.
+
+props:
+  term: The term (front).
+  definition: The definition (back).
+  hint: An optional flip hint.
+
+example_prompts:
+  - "Add a flashcard for Closure that flips to its definition."
+  - "Add a flippable term/definition card."
+
+lifecycle: experimental
+content_model: A term and its definition on a flippable card.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep terms and definitions concise; one concept per card.
+
+categorization:
+  category: Education
+  subcategory: Study
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The whole card is a labelled button with aria-pressed reflecting the flip; both faces are real text.
+  keyboard_support: Focusable and flips on Enter/Space.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,14 @@
+{
+  "category": "Web Development",
+  "title": "Modern JavaScript: From Zero to Expert",
+  "subtitle": "Master the language that powers the web with hands-on projects.",
+  "instructor": "Alex Rivera",
+  "image": "/stock/cover-workspace.jpg",
+  "stats": [
+    { "value": "4.8 ★", "label": "12,400 ratings" },
+    { "value": "212k", "label": "Students" },
+    { "value": "24", "label": "Lessons" },
+    { "value": "6h", "label": "Total" }
+  ],
+  "cta_label": "Enroll now"
+}

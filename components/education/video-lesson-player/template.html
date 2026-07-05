@@ -1,0 +1,15 @@
+<div class="video-lesson-player rounded-card border border-border bg-surface shadow-card">
+  <figure class="video-lesson-player__stage relative flex aspect-video items-center justify-center overflow-hidden rounded-t-card bg-black">
+    <div class="absolute inset-0 bg-cover bg-center opacity-70" style="background-image: url({{ poster }})" aria-hidden="true"></div>
+    <button type="button" class="relative flex size-16 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-colors duration-(--duration-token) hover:bg-white/30" aria-label="Play lesson">
+      <svg class="size-7" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+    </button>
+  </figure>
+  <div class="video-lesson-player__body p-(--space-card)">
+    <h3 class="video-lesson-player__title font-heading text-lg text-on-surface">{{ title }}</h3>
+    <div class="video-lesson-player__tabs mt-3 flex gap-1 border-b border-border" role="tablist" aria-label="Lesson panels">
+      <button data-for="tab in tabs" type="button" class="video-lesson-player__tab -mb-px border-b-2 border-transparent px-3 py-2 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" data-active="{{ tab.active }}" role="tab" aria-selected="{{ tab.active }}">{{ tab.label }}</button>
+    </div>
+    <div class="video-lesson-player__panel mt-3 text-sm text-on-surface-muted" role="tabpanel">{{ notes }}</div>
+  </div>
+</div>

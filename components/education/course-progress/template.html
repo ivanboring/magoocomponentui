@@ -1,0 +1,14 @@
+<article class="course-progress rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-2">
+    <p class="course-progress__course font-heading text-on-surface">{{ course }}</p>
+    <span class="course-progress__pct font-heading text-primary tabular-nums">{{ pct }}%</span>
+  </div>
+  <div class="course-progress__track mt-2 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Course progress">
+    <div class="h-full rounded-pill bg-primary" style="width: {{ pct }}%"></div>
+  </div>
+  <p data-if="completed" class="course-progress__completed mt-1.5 text-xs text-on-surface-muted">{{ completed }}</p>
+  <div data-if="next_lesson" class="course-progress__next mt-4 flex items-center justify-between gap-3 rounded-control bg-surface-raised p-3">
+    <span class="min-w-0 truncate text-sm text-on-surface">{{ next_lesson }}</span>
+    <button type="button" class="shrink-0 rounded-button bg-primary px-3 py-1.5 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Continue</button>
+  </div>
+</article>

@@ -1,0 +1,21 @@
+<div class="syllabus-accordion divide-y divide-border rounded-card border border-border bg-surface">
+  <div data-for="section in sections" class="syllabus-accordion__section">
+    <h3>
+      <button type="button" class="syllabus-accordion__trigger group flex w-full items-center justify-between gap-4 px-(--space-card) py-3.5 text-left" aria-expanded="{{ section.open }}">
+        <span>
+          <span class="block font-heading text-on-surface">{{ section.title }}</span>
+          <span data-if="section.meta" class="block text-xs text-on-surface-muted">{{ section.meta }}</span>
+        </span>
+        <svg class="size-5 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-aria-expanded:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </button>
+    </h3>
+    <div class="syllabus-accordion__panel px-(--space-card) pb-3 data-[open=false]:hidden" data-open="{{ section.open }}">
+      <ul class="flex flex-col gap-2">
+        <li data-for="item in section.items" class="flex items-center justify-between gap-3 text-sm">
+          <span class="flex items-center gap-2 text-on-surface"><svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>{{ item.label }}</span>
+          <span class="text-xs text-on-surface-muted">{{ item.duration }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

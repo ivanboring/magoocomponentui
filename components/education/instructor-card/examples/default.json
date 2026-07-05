@@ -1,0 +1,12 @@
+{
+  "name": "Alex Rivera",
+  "initials": "AR",
+  "image": "/stock/avatar-man-1.jpg",
+  "title": "Senior Engineer & Educator",
+  "bio": "Teaching web development to 200k+ students worldwide.",
+  "stats": [
+    { "value": "4.8", "label": "Rating" },
+    { "value": "212k", "label": "Students" },
+    { "value": "9", "label": "Courses" }
+  ]
+}

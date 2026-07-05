@@ -1,0 +1,19 @@
+name: course-progress
+props:
+  course:
+    type: string
+    required: true
+    title: Course
+    example: "Modern JavaScript"
+  pct:
+    type: integer
+    default: 0
+    title: Percent complete
+  completed:
+    type: string
+    title: Completed
+    example: "14 of 24 lessons"
+  next_lesson:
+    type: string
+    title: Next lesson
+    example: "Next: Working with async/await"

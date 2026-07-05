@@ -1,0 +1,73 @@
+name: "Assignment Card"
+short_description: An assignment card with due date, status pill, and a submit action.
+long_visual_description: >
+  A card with the assignment title and course, a colour-coded status pill (not started,
+  in progress, submitted, graded, overdue), a due date, and a submit button.
+
+use_cases:
+  - Course assignment entry.
+  - Homework with status.
+  - Submission card.
+  - Task due in a course.
+  - Assignment queue item.
+
+recommended_for:
+  - A single assignment with status and due date.
+avoid_for:
+  - A grade record (use grade-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Set status to drive the pill; show the due date and a submit action.
+
+props:
+  title: The assignment title.
+  course: The course name.
+  due: The due date.
+  status: The status (drives the pill colour).
+  status_label: The status text.
+
+example_prompts:
+  - "Add an assignment card in progress due soon."
+  - "Add a homework submission card."
+
+lifecycle: experimental
+content_model: An assignment's title, status, due date, and submit action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Surface the due date and status; overdue should be visually distinct but also labeled.
+
+categorization:
+  category: Education
+  subcategory: Assignments
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status pill carries a text label (not colour alone); submit is a real button; the calendar icon is decorative.
+  keyboard_support: The submit button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

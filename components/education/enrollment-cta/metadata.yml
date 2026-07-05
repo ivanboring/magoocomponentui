@@ -1,0 +1,69 @@
+name: "Enrollment CTA"
+short_description: A course enrollment panel with price, perks, and an enroll button.
+long_visual_description: >
+  A panel with the price (and strikethrough original), an enroll button, a guarantee note, and
+  a checklist of what's included.
+
+use_cases:
+  - Course enroll sidebar.
+  - Buy-this-course panel.
+  - Pricing + enroll CTA.
+  - Course purchase box.
+  - Enrollment prompt.
+
+recommended_for:
+  - A course enrollment box with price and perks.
+avoid_for:
+  - A product pricing card (use card-pricing).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the price with any discount, the enroll action, a guarantee, and the included perks.
+
+props:
+  price: The price.
+  original_price: The pre-discount price.
+  note: A guarantee/fine-print note.
+  perks: The included perks.
+  cta_label: The enroll button text.
+
+example_prompts:
+  - "Add a course enrollment CTA with price and perks."
+  - "Add a buy-this-course panel."
+
+lifecycle: experimental
+content_model: A course price, enroll action, and included perks.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the discount and guarantee; list the perks that drive the decision.
+
+categorization:
+  category: Education
+  subcategory: Enrollment
+  atomic_type: molecule
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Price and perks are real text; enroll is a real button; the discount uses strikethrough plus the new price.
+  keyboard_support: The enroll button is focusable and activates on Enter/Space.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,63 @@
+name: "Lesson List"
+short_description: A modular course curriculum with lessons and per-lesson progress.
+long_visual_description: >
+  Modules, each a card with a header and a list of lessons showing a state marker
+  (complete/current/locked), title, and duration.
+
+use_cases:
+  - Course curriculum.
+  - Modular lesson list.
+  - Syllabus with progress.
+  - Course content outline.
+  - Learning path.
+
+recommended_for:
+  - A modular course curriculum with lesson progress.
+avoid_for:
+  - A single lesson (use lesson-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Group lessons into modules; set each lesson's state (complete/current/locked/available).
+
+props:
+  modules: The modules, each with its lessons.
+
+relationships:
+  children:
+    - education/lesson-row
+
+lifecycle: experimental
+content_model: Modules of lessons with progress states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group logically into modules; show durations so learners can plan.
+
+categorization:
+  category: Education
+  subcategory: Courses
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Modules use headings; lesson state is shown by icon/emphasis, not colour alone; titles and durations are real text.
+  keyboard_support: "none"
+  seo_score: 50
+  text_direction: both

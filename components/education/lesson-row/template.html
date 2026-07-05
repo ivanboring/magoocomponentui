@@ -1,0 +1,17 @@
+<div class="lesson-row flex items-center gap-3 py-3" data-state="{{ state }}">
+  <span class="lesson-row__marker flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-border text-xs font-medium text-on-surface-muted data-[state=complete]:border-success data-[state=complete]:bg-success data-[state=complete]:text-success-contrast data-[state=current]:border-primary data-[state=current]:text-primary" data-state="{{ state }}">
+    <svg class="hidden size-4 data-[state=complete]:block" data-state="{{ state }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+    <svg class="hidden size-3.5 data-[state=locked]:block" data-state="{{ state }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 9V6a4 4 0 018 0v3h1v8H5V9zm2 0h4V6a2 2 0 10-4 0z"/></svg>
+    <span class="data-[state=complete]:hidden data-[state=locked]:hidden" data-state="{{ state }}">{{ number }}</span>
+  </span>
+  <div class="lesson-row__body min-w-0 flex-1">
+    <p class="lesson-row__title text-sm text-on-surface data-[state=locked]:text-on-surface-muted data-[state=current]:font-medium" data-state="{{ state }}">{{ title }}</p>
+    <p data-if="duration" class="lesson-row__duration flex items-center gap-1 text-xs text-on-surface-muted">
+      <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 6v4l3 2"/></svg>
+      {{ duration }}
+    </p>
+  </div>
+  <span data-if="state" class="lesson-row__play hidden text-on-surface-muted data-[state=available]:block data-[state=current]:block" data-state="{{ state }}" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M6 4l10 6-10 6z"/></svg>
+  </span>
+</div>

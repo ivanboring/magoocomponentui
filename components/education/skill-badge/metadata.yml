@@ -1,0 +1,58 @@
+name: "Skill Badge"
+short_description: An earned skill token with an optional level.
+long_visual_description: >
+  A pill badge with an optional icon, a skill name, and an optional level tag (e.g. Advanced).
+
+use_cases:
+  - Earned skill token.
+  - Skill tag on a profile.
+  - Competency badge.
+  - Course skill outcome.
+  - Skill level indicator.
+
+recommended_for:
+  - A single earned skill with an optional level.
+avoid_for:
+  - A generic tag (use tag).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the skill name with an optional level tag; the icon is decorative.
+
+props:
+  label: The skill name.
+  level: An optional level.
+  icon: An optional icon glyph.
+
+example_prompts:
+  - "Add a JavaScript Advanced skill badge."
+  - "Add an earned skill token."
+
+lifecycle: experimental
+content_model: A skill name with an optional level.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-border
+    - --radius-pill
+
+editorial_guidance: >
+  Keep skill names canonical; add a level only when meaningful.
+
+categorization:
+  category: Education
+  subcategory: Achievements
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The skill name and level are real text; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

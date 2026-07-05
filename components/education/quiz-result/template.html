@@ -1,0 +1,22 @@
+<section class="quiz-result rounded-card border border-border bg-surface shadow-card" aria-label="Quiz result">
+  <div class="quiz-result__head flex flex-col items-center gap-2 border-b border-border p-(--space-section) text-center" data-passed="{{ passed }}">
+    <span class="quiz-result__badge flex size-14 items-center justify-center rounded-full data-[passed=true]:bg-success/15 data-[passed=true]:text-success data-[passed=false]:bg-danger/15 data-[passed=false]:text-danger" data-passed="{{ passed }}" aria-hidden="true">
+      <svg data-if="passed" class="size-7" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-8"/></svg>
+      <svg data-if="!passed" class="size-7" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </span>
+    <p class="quiz-result__score font-heading text-3xl text-on-surface tabular-nums">{{ score }}</p>
+    <p class="quiz-result__pct text-sm text-on-surface-muted">{{ pct }}<span data-if="message"> · {{ message }}</span></p>
+  </div>
+  <ul class="quiz-result__reviews divide-y divide-border">
+    <li data-for="review in reviews" class="quiz-result__review flex items-start gap-3 px-(--space-card) py-3" data-correct="{{ review.correct }}">
+      <span class="mt-0.5 shrink-0 data-[correct=true]:text-success data-[correct=false]:text-danger" data-correct="{{ review.correct }}" aria-hidden="true">
+        <svg data-if="review.correct" class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-8"/></svg>
+        <svg data-if="!review.correct" class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-medium text-on-surface">{{ review.question }}</p>
+        <p data-if="!review.correct" class="mt-0.5 text-xs text-on-surface-muted">You: <span class="text-danger">{{ review.your_answer }}</span> · Correct: <span class="text-success">{{ review.right_answer }}</span></p>
+      </div>
+    </li>
+  </ul>
+</section>

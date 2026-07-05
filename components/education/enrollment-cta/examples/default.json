@@ -1,0 +1,12 @@
+{
+  "price": "$49",
+  "original_price": "$129",
+  "note": "30-day money-back guarantee",
+  "perks": [
+    { "label": "24 lessons · 6 hours" },
+    { "label": "Certificate of completion" },
+    { "label": "Lifetime access" },
+    { "label": "Downloadable resources" }
+  ],
+  "cta_label": "Enroll now"
+}

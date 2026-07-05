@@ -1,0 +1,34 @@
+name: course-hero
+props:
+  category:
+    type: string
+    title: Category
+    example: "Web Development"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Modern JavaScript: From Zero to Expert"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Master the language that powers the web with hands-on projects."
+  instructor:
+    type: string
+    required: true
+    title: Instructor
+    example: "Alex Rivera"
+  image:
+    type: image
+    title: Image
+    example: "/stock/cover-workspace.jpg"
+  stats:
+    type: array
+    items: object
+    required: true
+    title: Stats
+    description: "Each: { value, label } — rating, students, hours, lessons."
+  cta_label:
+    type: string
+    default: "Enroll now"
+    title: CTA label

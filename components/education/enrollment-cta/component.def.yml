@@ -1,0 +1,24 @@
+name: enrollment-cta
+props:
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$49"
+  original_price:
+    type: string
+    title: Original price
+    example: "$129"
+  note:
+    type: string
+    title: Note
+    example: "30-day money-back guarantee"
+  perks:
+    type: array
+    items: object
+    title: Perks
+    description: "Each: { label }."
+  cta_label:
+    type: string
+    default: "Enroll now"
+    title: CTA label

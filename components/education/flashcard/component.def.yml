@@ -1,0 +1,16 @@
+name: flashcard
+props:
+  term:
+    type: string
+    required: true
+    title: Term
+    example: "Closure"
+  definition:
+    type: string
+    required: true
+    title: Definition
+    example: "A function bundled with references to its surrounding state (lexical environment)."
+  hint:
+    type: string
+    title: Hint
+    example: "Tap to flip"
