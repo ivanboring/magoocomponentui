@@ -1,0 +1,8 @@
+{
+  "facts": [
+    { "icon": "🛏", "value": "4", "label": "Beds" },
+    { "icon": "🛁", "value": "3", "label": "Baths" },
+    { "icon": "📐", "value": "2,150", "label": "Sq ft" },
+    { "icon": "📅", "value": "2018", "label": "Built" }
+  ]
+}

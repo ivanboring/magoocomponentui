@@ -1,0 +1,15 @@
+<form class="tour-request-form rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="tour-request-form__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <p class="tour-request-form__label mt-3 text-sm font-medium text-on-surface">Choose a day</p>
+  <div class="tour-request-form__dates mt-2 flex gap-2 overflow-x-auto pb-1" role="radiogroup" aria-label="Tour day">
+    <button data-for="date in dates" type="button" class="tour-request-form__date flex w-16 shrink-0 flex-col items-center rounded-control border border-border py-2 text-sm transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ date.active }}" role="radio" aria-checked="{{ date.active }}">
+      <span class="text-[10px] uppercase opacity-80">{{ date.sub }}</span>
+      <span class="font-heading">{{ date.label }}</span>
+    </button>
+  </div>
+  <p class="tour-request-form__label mt-4 text-sm font-medium text-on-surface">Choose a time</p>
+  <div class="tour-request-form__times mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="Tour time">
+    <button data-for="time in times" type="button" class="tour-request-form__time rounded-control border border-border px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ time.active }}" role="radio" aria-checked="{{ time.active }}">{{ time.label }}</button>
+  </div>
+  <button type="submit" class="tour-request-form__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

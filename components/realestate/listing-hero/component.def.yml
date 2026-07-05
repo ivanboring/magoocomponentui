@@ -1,0 +1,39 @@
+name: listing-hero
+props:
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$589,000"
+  address:
+    type: string
+    required: true
+    title: Address
+    example: "142 Riverside Drive, Portland, OR"
+  beds:
+    type: string
+    required: true
+    title: Beds
+    example: "4"
+  baths:
+    type: string
+    required: true
+    title: Baths
+    example: "3"
+  area:
+    type: string
+    required: true
+    title: Area
+    example: "2,150 sq ft"
+  status_label:
+    type: string
+    title: Status
+    example: "For sale"
+  images:
+    type: array
+    items: object
+    required: true
+    title: Gallery images
+    description: "Each item: { src, alt }. The first is the large image."
+    example:
+      - { src: "/stock/property-house.jpg", alt: "Front" }

@@ -1,0 +1,69 @@
+name: "Floor Plan Viewer"
+short_description: A floor-plan panel with a level toggle and room tags with areas.
+long_visual_description: >
+  A panel with a level toggle (ground/upper), a floor-plan placeholder, and a set of room
+  tags showing each room's name and area.
+
+use_cases:
+  - Property floor plan display.
+  - Multi-level plan viewer.
+  - Room layout with areas.
+  - Listing floor plan section.
+  - Home layout overview.
+
+recommended_for:
+  - Showing a floor plan with a level switch and room areas.
+avoid_for:
+  - A 360 tour (use virtual-tour-embed).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide levels (one active) and room tags with areas; the plan area is a placeholder for a
+  real floor plan in production.
+
+props:
+  title: The section title.
+  levels: The level toggle options.
+  rooms: The room tags with name and area.
+
+example_prompts:
+  - "Add a floor plan viewer with a level toggle and rooms."
+  - "Add a multi-level floor plan section."
+
+lifecycle: experimental
+content_model: A floor-plan placeholder with levels and room areas.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  The plan is a placeholder — swap for a real floor plan image/SVG; the room tags carry the
+  areas as text.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The plan is decorative; the level toggle uses aria-pressed and room areas are real text.
+  keyboard_support: Level toggle buttons are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

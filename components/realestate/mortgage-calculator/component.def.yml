@@ -1,0 +1,24 @@
+name: mortgage-calculator
+props:
+  price:
+    type: integer
+    default: 450000
+    title: Home price
+  down_pct:
+    type: integer
+    default: 20
+    title: Down payment %
+  rate:
+    type: string
+    default: "6.5"
+    title: Interest rate %
+  term:
+    type: integer
+    default: 30
+    title: Term (years)
+  monthly:
+    type: string
+    required: true
+    title: Monthly payment
+    description: Precomputed monthly payment display (the caller computes it).
+    example: "$2,275"

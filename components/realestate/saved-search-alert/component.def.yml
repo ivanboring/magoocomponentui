@@ -1,0 +1,19 @@
+name: saved-search-alert
+props:
+  criteria:
+    type: string
+    required: true
+    title: Criteria
+    example: "3+ beds · Under $600k · Riverside"
+  frequency:
+    type: string
+    default: "Daily"
+    title: Frequency
+  enabled:
+    type: boolean
+    default: true
+    title: Alerts enabled
+  new_count:
+    type: string
+    title: New matches
+    example: "4 new"

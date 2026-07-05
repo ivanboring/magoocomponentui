@@ -1,0 +1,11 @@
+<figure class="virtual-tour-embed relative aspect-video w-full overflow-hidden rounded-card bg-black shadow-card">
+  <div class="virtual-tour-embed__poster absolute inset-0 bg-cover bg-center" style="background-image: url({{ poster }})" aria-hidden="true"></div>
+  <div class="virtual-tour-embed__scrim absolute inset-0 bg-black/40" aria-hidden="true"></div>
+  <figcaption class="virtual-tour-embed__body absolute inset-0 flex flex-col items-center justify-center gap-3 text-center text-white">
+    <button type="button" class="virtual-tour-embed__play flex size-16 items-center justify-center rounded-full bg-white/20 backdrop-blur transition-colors duration-(--duration-token) hover:bg-white/30" aria-label="Start virtual tour">
+      <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M4 12c3 2 13 2 16 0M12 3c-3 3-3 15 0 18M12 3c3 3 3 15 0 18"/></svg>
+    </button>
+    <p class="virtual-tour-embed__title font-heading text-lg">{{ title }}</p>
+    <p data-if="duration" class="virtual-tour-embed__duration text-sm text-white/85">{{ duration }}</p>
+  </figcaption>
+</figure>

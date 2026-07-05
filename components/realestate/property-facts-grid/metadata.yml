@@ -1,0 +1,59 @@
+name: "Property Facts Grid"
+short_description: A grid of key property facts (beds, baths, area, year) as icon tiles.
+long_visual_description: >
+  A responsive grid of fact tiles, each with an icon, a big value, and a label — beds, baths,
+  square footage, year built.
+
+use_cases:
+  - Property key facts panel.
+  - Listing at-a-glance stats.
+  - Home details summary.
+  - Spec tiles on a listing page.
+  - Quick facts grid.
+
+recommended_for:
+  - Displaying a property's headline facts as tiles.
+avoid_for:
+  - A single beds/baths line (use inline text).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the key facts with a short icon, value, and label; keep to four or so tiles.
+
+props:
+  facts: The property facts with icon, value, and label.
+
+example_prompts:
+  - "Add a property facts grid with beds, baths, area, and year."
+  - "Add a home key-facts panel."
+
+lifecycle: experimental
+content_model: A grid of labeled property fact tiles.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Use consistent icons and units; show the facts buyers scan for first.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: molecule
+  usage_type: [stat, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list; icons are decorative with the value and label as text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

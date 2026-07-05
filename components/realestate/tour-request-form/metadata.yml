@@ -1,0 +1,67 @@
+name: "Tour Request Form"
+short_description: A schedule-a-tour capture with selectable day and time chips.
+long_visual_description: >
+  A form with a scrollable row of day chips and a grid of time chips (single-select each) and
+  a request button.
+
+use_cases:
+  - Schedule a property tour.
+  - Request a viewing.
+  - Book a showing.
+  - Tour time capture.
+  - Viewing appointment form.
+
+recommended_for:
+  - Capturing a preferred tour day and time.
+avoid_for:
+  - Fixed open-house slots (use open-house-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide day and time chips with one active each; selecting is single-choice per group.
+
+props:
+  title: The form title.
+  dates: The day chips (single-select).
+  times: The time chips (single-select).
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a request-a-tour form with day and time chips."
+  - "Add a viewing scheduler."
+
+lifecycle: experimental
+content_model: A day/time selection and a request action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Default to the soonest available slot; keep the day/time options tidy.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Day/time chips are radiogroups with role="radio"/aria-checked; the submit is a real button.
+  keyboard_support: Chips are focusable and select on Enter/Space; submit works via Enter.
+  seo_score: 30
+  text_direction: both

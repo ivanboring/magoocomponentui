@@ -1,0 +1,70 @@
+name: "Affordability Meter"
+short_description: A gradient affordability gauge positioning a home against the buyer's budget.
+long_visual_description: >
+  A green→amber→red gradient bar with a marker positioned along a comfortable→stretch scale,
+  a verdict, and a supporting detail line.
+
+use_cases:
+  - Home affordability indicator.
+  - Budget-fit gauge on a listing.
+  - Income-vs-price meter.
+  - Buyer affordability check.
+  - Financing fit indicator.
+
+recommended_for:
+  - Showing how a home fits a buyer's budget at a glance.
+avoid_for:
+  - A full mortgage calculation (use mortgage-calculator).
+
+markets:
+  - Global
+
+example_usage: >
+  Position the marker along the gradient by the affordability percentage; the verdict and
+  detail explain the position.
+
+props:
+  label: The meter label.
+  verdict: The affordability verdict.
+  detail: A supporting explanation.
+  pct: The marker position 0-100.
+
+example_prompts:
+  - "Add an affordability meter showing a home is comfortably affordable."
+  - "Add an income-vs-price budget gauge."
+
+lifecycle: experimental
+content_model: A verdict and a positioned affordability marker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --shadow-raised
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The verdict and detail carry the meaning; the gradient is a visual cue. Explain the
+  income multiple in the detail.
+
+categorization:
+  category: Real Estate
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The verdict and detail are real text; the marker has an accessible label with its position, so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

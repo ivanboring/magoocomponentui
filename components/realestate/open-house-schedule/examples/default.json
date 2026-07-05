@@ -1,0 +1,8 @@
+{
+  "title": "Open houses",
+  "slots_list": [
+    { "day": "Sat", "date": "Aug 16", "time": "1:00–3:00 PM", "full": false },
+    { "day": "Sun", "date": "Aug 17", "time": "11:00 AM–1:00 PM", "full": false },
+    { "day": "Wed", "date": "Aug 20", "time": "5:30–7:00 PM", "full": true }
+  ]
+}

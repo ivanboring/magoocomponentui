@@ -1,0 +1,16 @@
+{
+  "title": "Request a tour",
+  "dates": [
+    { "label": "Sat 16", "sub": "Aug", "active": true },
+    { "label": "Sun 17", "sub": "Aug", "active": false },
+    { "label": "Mon 18", "sub": "Aug", "active": false },
+    { "label": "Tue 19", "sub": "Aug", "active": false }
+  ],
+  "times": [
+    { "label": "10:00 AM", "active": false },
+    { "label": "12:00 PM", "active": true },
+    { "label": "2:00 PM", "active": false },
+    { "label": "4:00 PM", "active": false }
+  ],
+  "cta_label": "Request this time"
+}

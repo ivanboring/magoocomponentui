@@ -1,0 +1,22 @@
+<section class="price-history rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="price-history__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <table class="price-history__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border text-xs text-on-surface-muted">
+        <th class="px-(--space-card) py-2 text-left font-medium" scope="col">Date</th>
+        <th class="px-2 py-2 text-left font-medium" scope="col">Event</th>
+        <th class="px-(--space-card) py-2 text-right font-medium" scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="event in events" class="border-b border-border last:border-0">
+        <td class="px-(--space-card) py-2.5 text-on-surface-muted">{{ event.date }}</td>
+        <td class="px-2 py-2.5 text-on-surface">{{ event.label }}</td>
+        <td class="px-(--space-card) py-2.5 text-right">
+          <span class="font-medium text-on-surface tabular-nums">{{ event.price }}</span>
+          <span data-if="event.change" class="ml-1 text-xs data-[direction=up]:text-success data-[direction=down]:text-danger data-[direction=none]:text-on-surface-muted" data-direction="{{ event.direction }}">{{ event.change }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,18 @@
+name: property-compare
+props:
+  properties:
+    type: array
+    items: object
+    required: true
+    title: Properties
+    description: "Each column: { address, price, image }."
+    example:
+      - { address: "142 Riverside Dr", price: "$589,000", image: "/stock/property-house.jpg" }
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Comparison rows
+    description: "Each row: { label, values: [{ text }] } — one value per property."
+    example:
+      - { label: "Beds", values: [{ text: "4" }, { text: "3" }] }

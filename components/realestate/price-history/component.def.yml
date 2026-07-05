@@ -1,0 +1,14 @@
+name: price-history
+props:
+  title:
+    type: string
+    default: "Price history"
+    title: Title
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: "Each event: { date, label, price, change, direction } — direction up|down|none."
+    example:
+      - { date: "Aug 2026", label: "Listed", price: "$589,000", change: "", direction: "none" }

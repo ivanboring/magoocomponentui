@@ -1,0 +1,19 @@
+name: listing-status-badge
+props:
+  status:
+    type: enum
+    values: [for-sale, pending, sold, new, price-cut]
+    default: for-sale
+    title: Status
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "For sale"
+variants:
+  status:
+    for-sale: "bg-success/15 text-success"
+    pending: "bg-warning/15 text-warning"
+    sold: "bg-on-surface-muted/20 text-on-surface-muted"
+    new: "bg-primary/15 text-primary"
+    price-cut: "bg-danger/15 text-danger"

@@ -1,0 +1,14 @@
+{
+  "properties": [
+    { "address": "142 Riverside Dr", "price": "$589,000", "image": "/stock/property-house.jpg" },
+    { "address": "88 Oak Lane", "price": "$545,000", "image": "/stock/property-house.jpg" },
+    { "address": "12 Maple Ct", "price": "$612,000", "image": "/stock/property-house.jpg" }
+  ],
+  "rows": [
+    { "label": "Beds", "values": [{ "text": "4" }, { "text": "3" }, { "text": "4" }] },
+    { "label": "Baths", "values": [{ "text": "3" }, { "text": "2" }, { "text": "3.5" }] },
+    { "label": "Area", "values": [{ "text": "2,150 sq ft" }, { "text": "1,840 sq ft" }, { "text": "2,420 sq ft" }] },
+    { "label": "Year built", "values": [{ "text": "2018" }, { "text": "2005" }, { "text": "2021" }] },
+    { "label": "$/sq ft", "values": [{ "text": "$274" }, { "text": "$296" }, { "text": "$253" }] }
+  ]
+}

@@ -1,0 +1,16 @@
+<section class="open-house-schedule rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="open-house-schedule__title font-heading text-on-surface">{{ title }}</h3>
+  <ul class="open-house-schedule__slots mt-3 flex flex-col gap-2">
+    <li data-for="slot in slots_list" class="open-house-schedule__slot flex items-center gap-3 rounded-control border border-border p-3" data-full="{{ slot.full }}">
+      <div class="flex size-12 shrink-0 flex-col items-center justify-center rounded-control bg-surface-raised">
+        <span class="text-[10px] uppercase text-on-surface-muted">{{ slot.day }}</span>
+        <span class="font-heading text-sm text-on-surface">{{ slot.date }}</span>
+      </div>
+      <span class="min-w-0 flex-1 text-sm text-on-surface">{{ slot.time }}</span>
+      <button type="button" class="shrink-0 rounded-button px-3 py-1.5 text-sm font-heading data-[full=true]:cursor-not-allowed data-[full=true]:bg-surface-raised data-[full=true]:text-on-surface-muted data-[full=false]:bg-primary data-[full=false]:text-primary-contrast data-[full=false]:hover:opacity-90" data-full="{{ slot.full }}">
+        <span data-if="slot.full">Full</span>
+        <span data-if="!slot.full">RSVP</span>
+      </button>
+    </li>
+  </ul>
+</section>

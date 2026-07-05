@@ -1,0 +1,64 @@
+name: "Neighborhood Stats"
+short_description: Walk/transit/bike/school scores for a property's neighborhood, with bars.
+long_visual_description: >
+  A panel of neighborhood scores (Walk, Transit, Bike, School), each with a value out of a
+  max and a progress bar.
+
+use_cases:
+  - Neighborhood scores on a listing.
+  - Walkability and transit panel.
+  - Area livability summary.
+  - Location scores widget.
+  - Property location context.
+
+recommended_for:
+  - Summarizing a property's neighborhood scores.
+avoid_for:
+  - School details (use school-district-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide each score with a value, max, and percentage for the bar.
+
+props:
+  title: The section title.
+  scores: The neighborhood scores with value, max, and bar percentage.
+
+example_prompts:
+  - "Add a neighborhood stats panel with walk and transit scores."
+  - "Add location scores with bars."
+
+lifecycle: experimental
+content_model: A set of neighborhood scores with bars.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the value out of its max so scores are interpretable; label each clearly.
+
+categorization:
+  category: Real Estate
+  subcategory: Location
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar uses role="progressbar" with aria-valuenow and a label; values are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

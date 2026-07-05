@@ -1,0 +1,23 @@
+name: floor-plan-viewer
+props:
+  title:
+    type: string
+    default: "Floor plan"
+    title: Title
+  levels:
+    type: array
+    items: object
+    required: true
+    title: Levels
+    description: "Each level: { label, active }."
+    example:
+      - { label: "Ground floor", active: true }
+      - { label: "Upper floor", active: false }
+  rooms:
+    type: array
+    items: object
+    required: true
+    title: Room tags
+    description: "Each room: { name, area }."
+    example:
+      - { name: "Living room", area: "24 m²" }

@@ -1,0 +1,14 @@
+name: virtual-tour-embed
+props:
+  title:
+    type: string
+    default: "3D virtual tour"
+    title: Title
+  poster:
+    type: image
+    title: Poster
+    example: "/stock/property-house.jpg"
+  duration:
+    type: string
+    title: Duration
+    example: "360° · self-guided"

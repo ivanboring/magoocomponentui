@@ -1,0 +1,12 @@
+<article class="saved-search-alert flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="saved-search-alert__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="saved-search-alert__criteria truncate text-sm font-medium text-on-surface">{{ criteria }}</p>
+    <p class="saved-search-alert__meta text-xs text-on-surface-muted">{{ frequency }} alerts<span data-if="new_count"> · <span class="font-medium text-primary">{{ new_count }}</span></span></p>
+  </div>
+  <button type="button" class="saved-search-alert__toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[on=true]:bg-primary" data-on="{{ enabled }}" role="switch" aria-checked="{{ enabled }}" aria-label="Toggle alerts">
+    <span class="ml-0.5 inline-block size-5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[on=true]:translate-x-5" data-on="{{ enabled }}"></span>
+  </button>
+</article>

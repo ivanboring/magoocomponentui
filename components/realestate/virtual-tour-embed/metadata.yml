@@ -1,0 +1,59 @@
+name: "Virtual Tour Embed"
+short_description: A 360/3D virtual tour player shell with a poster and start control.
+long_visual_description: >
+  A 16:9 panel with a scrimmed poster, a large play control, and the tour title/duration — a
+  shell for an embedded 360 or 3D tour.
+
+use_cases:
+  - 3D/360 property tour.
+  - Virtual walkthrough embed.
+  - Self-guided tour player.
+  - Matterport-style shell.
+  - Immersive listing media.
+
+recommended_for:
+  - A launch shell for an embedded virtual tour.
+avoid_for:
+  - A flat floor plan (use floor-plan-viewer).
+
+markets:
+  - Global
+
+example_usage: >
+  Show a representative poster and the tour title; the play control launches the real embed
+  in production.
+
+props:
+  title: The tour title.
+  poster: The poster image.
+  duration: The tour type/duration label.
+
+example_prompts:
+  - "Add a 3D virtual tour embed shell with a poster."
+  - "Add a 360 tour player placeholder."
+
+lifecycle: experimental
+content_model: A poster with a launch control for a virtual tour.
+
+theming:
+  tokens_used:
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a compelling poster; the play control launches the actual tour embed.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [media, player]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scrim keeps white text legible; the play control has an accessible label; the poster is decorative.
+  keyboard_support: The play control is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

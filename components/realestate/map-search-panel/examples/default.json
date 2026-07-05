@@ -1,0 +1,14 @@
+{
+  "result_count": "48 homes",
+  "results": [
+    { "price": "$589,000", "beds_baths": "4 bd · 3 ba · 2,150 sq ft", "address": "142 Riverside Dr, Portland", "image": "/stock/property-house.jpg" },
+    { "price": "$545,000", "beds_baths": "3 bd · 2 ba · 1,840 sq ft", "address": "88 Oak Lane, Portland", "image": "/stock/property-house.jpg" },
+    { "price": "$612,000", "beds_baths": "4 bd · 3.5 ba · 2,420 sq ft", "address": "12 Maple Ct, Portland", "image": "/stock/property-house.jpg" }
+  ],
+  "pins": [
+    { "price": "$589k", "x": 28, "y": 42 },
+    { "price": "$545k", "x": 62, "y": 58 },
+    { "price": "$612k", "x": 45, "y": 30 },
+    { "price": "$470k", "x": 78, "y": 40 }
+  ]
+}

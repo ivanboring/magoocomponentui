@@ -1,0 +1,9 @@
+{
+  "title": "Price history",
+  "events": [
+    { "date": "Aug 2026", "label": "Price reduced", "price": "$589,000", "change": "-3.4%", "direction": "down" },
+    { "date": "Jun 2026", "label": "Listed", "price": "$610,000", "change": "", "direction": "none" },
+    { "date": "Mar 2021", "label": "Sold", "price": "$448,000", "change": "+18%", "direction": "up" },
+    { "date": "Jan 2016", "label": "Sold", "price": "$379,000", "change": "", "direction": "none" }
+  ]
+}

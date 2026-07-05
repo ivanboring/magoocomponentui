@@ -1,0 +1,65 @@
+name: "Listing Hero"
+short_description: A property listing hero with a photo gallery mosaic and key facts.
+long_visual_description: >
+  A gallery mosaic (one large photo plus a grid of smaller ones) above the price, address,
+  status, and beds/baths/area specs.
+
+use_cases:
+  - Top of a property detail page.
+  - Listing hero with gallery.
+  - Property overview header.
+  - Home detail intro.
+  - Listing summary banner.
+
+recommended_for:
+  - The hero of a property detail page with a gallery and key facts.
+avoid_for:
+  - A compact listing card (use card-property).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide gallery images (first is the large one) and the key facts; show the status and
+  headline price.
+
+props:
+  price: The listing price.
+  address: The property address.
+  beds: Number of beds.
+  baths: Number of baths.
+  area: The floor area.
+  status_label: The listing status.
+  images: The gallery images (first is large).
+
+example_prompts:
+  - "Add a property listing hero with a photo mosaic and key facts."
+  - "Add a listing detail header with gallery."
+
+lifecycle: experimental
+content_model: A gallery mosaic with price, address, and specs.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Lead with the best photo; show the price, address, and headline specs prominently.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Gallery images carry descriptive alt; the price/address/specs are real text with a definition list for specs.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

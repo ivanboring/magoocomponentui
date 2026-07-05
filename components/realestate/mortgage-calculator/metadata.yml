@@ -1,0 +1,67 @@
+name: "Mortgage Calculator"
+short_description: A live mortgage calculator with price, down payment, rate, and term inputs.
+long_visual_description: >
+  A panel with a large monthly-payment result and inputs for home price and down payment
+  (sliders) plus rate and term (number fields); the payment updates live.
+
+use_cases:
+  - Estimate monthly mortgage payments.
+  - Affordability tool on a listing.
+  - Financing calculator.
+  - Buyer budgeting widget.
+  - Loan estimate tool.
+
+recommended_for:
+  - A live monthly-payment calculator for a home purchase.
+avoid_for:
+  - An affordability gauge (use affordability-meter).
+
+markets:
+  - Global
+
+example_usage: >
+  The behavior computes the monthly payment live via the amortization formula; the initial
+  monthly prop is the server-precomputed value. Adjusting any input recalculates.
+
+props:
+  price: The home price.
+  down_pct: The down payment percentage.
+  rate: The interest rate percent.
+  term: The loan term in years.
+  monthly: The initial monthly payment display.
+
+example_prompts:
+  - "Add a mortgage calculator with price and down payment sliders."
+  - "Add a live monthly-payment estimator."
+
+lifecycle: experimental
+content_model: Loan inputs and a live monthly-payment result.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Default to representative values; show the monthly payment prominently.
+
+categorization:
+  category: Real Estate
+  subcategory: Tools
+  atomic_type: organism
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inputs have associated labels; the result updates live. Sliders and number fields are native and keyboard-operable.
+  keyboard_support: All inputs are focusable and adjustable via the keyboard.
+  seo_score: 40
+  text_direction: both

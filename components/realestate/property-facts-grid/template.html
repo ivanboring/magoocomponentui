@@ -1,0 +1,7 @@
+<dl class="property-facts-grid grid grid-cols-2 gap-3 sm:grid-cols-4">
+  <div data-for="fact in facts" class="property-facts-grid__fact flex flex-col items-center gap-1 rounded-card border border-border bg-surface p-4 text-center shadow-card">
+    <span class="property-facts-grid__icon text-xl" aria-hidden="true">{{ fact.icon }}</span>
+    <dd class="property-facts-grid__value font-heading text-xl text-on-surface tabular-nums">{{ fact.value }}</dd>
+    <dt class="property-facts-grid__label text-xs text-on-surface-muted">{{ fact.label }}</dt>
+  </div>
+</dl>

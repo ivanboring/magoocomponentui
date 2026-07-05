@@ -1,0 +1,12 @@
+<div class="affordability-meter rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="affordability-meter__label text-sm text-on-surface-muted">{{ label }}</p>
+  <p class="affordability-meter__verdict mt-0.5 font-heading text-on-surface">{{ verdict }}</p>
+  <div class="affordability-meter__track relative mt-3 h-2 rounded-pill bg-gradient-to-r from-success via-warning to-danger">
+    <span class="affordability-meter__marker absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-on-surface shadow-raised" style="left: {{ pct }}%" role="img" aria-label="Affordability position {{ pct }} of 100"></span>
+  </div>
+  <div class="affordability-meter__scale mt-1 flex justify-between text-xs text-on-surface-muted">
+    <span>Comfortable</span>
+    <span>Stretch</span>
+  </div>
+  <p data-if="detail" class="affordability-meter__detail mt-3 text-sm text-on-surface-muted">{{ detail }}</p>
+</div>

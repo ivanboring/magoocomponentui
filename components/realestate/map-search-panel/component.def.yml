@@ -1,0 +1,23 @@
+name: map-search-panel
+props:
+  result_count:
+    type: string
+    required: true
+    title: Result count
+    example: "48 homes"
+  results:
+    type: array
+    items: object
+    required: true
+    title: Results
+    description: "Each result: { price, beds_baths, address, image }."
+    example:
+      - { price: "$589,000", beds_baths: "4 bd · 3 ba", address: "142 Riverside Dr", image: "/stock/property-house.jpg" }
+  pins:
+    type: array
+    items: object
+    required: true
+    title: Map pins
+    description: "Each pin: { price, x, y } where x/y are 0-100 percent positions."
+    example:
+      - { price: "$589k", x: 30, y: 40 }

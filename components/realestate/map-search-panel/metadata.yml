@@ -1,0 +1,68 @@
+name: "Map Search Panel"
+short_description: A split map + result list panel with price pins for property search.
+long_visual_description: >
+  A two-column layout with a map placeholder carrying price pins beside a scrollable list of
+  property results (photo, price, beds/baths, address).
+
+use_cases:
+  - Map-based property search.
+  - Split map + list results.
+  - Real-estate search results view.
+  - Location-first browsing.
+  - Map search results page.
+
+recommended_for:
+  - A combined map + list property search view.
+avoid_for:
+  - A single map with no list (embed a map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide results and price pins (positioned by percentage); the map area is a placeholder for
+  a real interactive map in production.
+
+props:
+  result_count: The result count label.
+  results: The property results.
+  pins: The map price pins with x/y positions.
+
+example_prompts:
+  - "Add a map search panel with price pins and a result list."
+  - "Add a split map + list property search."
+
+lifecycle: experimental
+content_model: A map placeholder with pins and a property result list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  The map is a placeholder — swap for a real map; pins and the list carry the real data.
+
+categorization:
+  category: Real Estate
+  subcategory: Search
+  atomic_type: full
+  usage_type: [media, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Pins are labelled buttons; results carry real text and property photos have address alt; the map backdrop is decorative.
+  keyboard_support: Price pins are focusable buttons and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

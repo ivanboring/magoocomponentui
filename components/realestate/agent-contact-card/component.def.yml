@@ -1,0 +1,27 @@
+name: agent-contact-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Maria Alvarez"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "MA"
+  image:
+    type: image
+    title: Photo
+  title:
+    type: string
+    title: Title
+    example: "Senior Agent · Coastal Realty"
+  phone:
+    type: string
+    title: Phone
+    example: "(555) 018-2245"
+  rating:
+    type: string
+    title: Rating
+    example: "4.9"

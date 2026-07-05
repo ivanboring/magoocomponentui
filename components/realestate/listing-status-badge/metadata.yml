@@ -1,0 +1,59 @@
+name: "Listing Status Badge"
+short_description: A colour-coded status pill for a property listing (for sale, pending, sold…).
+long_visual_description: >
+  A small pill with a status dot and label, colour-coded by listing status: for-sale, pending,
+  sold, new, or price-cut.
+
+use_cases:
+  - Mark a listing's status.
+  - Status pill on a property card.
+  - Search result status.
+  - Listing state indicator.
+  - Map pin status label.
+
+recommended_for:
+  - Indicating a property listing's current status.
+avoid_for:
+  - A generic badge (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Set status to drive the colour and provide a matching label.
+
+props:
+  status: The listing status (drives the colour).
+  label: The visible status text.
+
+example_prompts:
+  - "Add a For sale listing status badge."
+  - "Add a Sold status pill."
+
+lifecycle: experimental
+content_model: A property status label with a status colour.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-primary
+    - --color-on-surface-muted
+    - --radius-pill
+
+editorial_guidance: >
+  Use consistent status wording; the colour reinforces the text, which carries the meaning.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status text carries the meaning; the colour and dot reinforce it, not colour alone.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

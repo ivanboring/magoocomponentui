@@ -1,0 +1,11 @@
+name: property-facts-grid
+props:
+  facts:
+    type: array
+    items: object
+    required: true
+    title: Facts
+    description: "Each fact: { icon, value, label } where icon is a short glyph."
+    example:
+      - { icon: "🛏", value: "4", label: "Beds" }
+      - { icon: "🛁", value: "3", label: "Baths" }

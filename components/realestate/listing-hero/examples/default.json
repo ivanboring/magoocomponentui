@@ -1,0 +1,15 @@
+{
+  "price": "$589,000",
+  "address": "142 Riverside Drive, Portland, OR",
+  "beds": "4",
+  "baths": "3",
+  "area": "2,150 sq ft",
+  "status_label": "For sale",
+  "images": [
+    { "src": "/stock/property-house.jpg", "alt": "Front exterior" },
+    { "src": "/stock/cover-workspace.jpg", "alt": "Living room" },
+    { "src": "/stock/food-plate.jpg", "alt": "Kitchen" },
+    { "src": "/stock/property-house.jpg", "alt": "Backyard" },
+    { "src": "/stock/cover-workspace.jpg", "alt": "Bedroom" }
+  ]
+}

@@ -1,0 +1,24 @@
+<form class="mortgage-calculator rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-rate="{{ rate }}" data-term="{{ term }}">
+  <h3 class="mortgage-calculator__title font-heading text-lg text-on-surface">Monthly payment</h3>
+  <p class="mortgage-calculator__result mt-1 font-heading text-3xl text-primary tabular-nums">{{ monthly }}<span class="text-base font-normal text-on-surface-muted"> /mo</span></p>
+  <div class="mortgage-calculator__fields mt-4 flex flex-col gap-4">
+    <label class="block">
+      <span class="flex items-center justify-between text-sm text-on-surface"><span>Home price</span><span class="mortgage-calculator__price-out font-medium tabular-nums">${{ price }}</span></span>
+      <input type="range" name="price" class="mortgage-calculator__price mt-1 w-full accent-primary" min="100000" max="2000000" step="10000" value="{{ price }}">
+    </label>
+    <label class="block">
+      <span class="flex items-center justify-between text-sm text-on-surface"><span>Down payment</span><span class="mortgage-calculator__down-out font-medium tabular-nums">{{ down_pct }}%</span></span>
+      <input type="range" name="down" class="mortgage-calculator__down mt-1 w-full accent-primary" min="0" max="50" step="1" value="{{ down_pct }}">
+    </label>
+    <div class="grid grid-cols-2 gap-3">
+      <label class="block text-sm">
+        <span class="text-on-surface">Rate (%)</span>
+        <input type="number" name="rate" class="mortgage-calculator__rate mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" step="0.1" value="{{ rate }}">
+      </label>
+      <label class="block text-sm">
+        <span class="text-on-surface">Term (years)</span>
+        <input type="number" name="term" class="mortgage-calculator__term mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" value="{{ term }}">
+      </label>
+    </div>
+  </div>
+</form>

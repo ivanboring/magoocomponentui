@@ -1,0 +1,14 @@
+name: school-district-card
+props:
+  title:
+    type: string
+    default: "Nearby schools"
+    title: Title
+  schools:
+    type: array
+    items: object
+    required: true
+    title: Schools
+    description: "Each school: { name, level, rating, distance }."
+    example:
+      - { name: "Riverside Elementary", level: "Public · K–5", rating: "9", distance: "0.4 mi" }

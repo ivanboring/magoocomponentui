@@ -1,0 +1,14 @@
+<section class="floor-plan-viewer rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="floor-plan-viewer__head flex items-center justify-between gap-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <div class="floor-plan-viewer__levels inline-flex rounded-control border border-border p-0.5 text-xs" role="group" aria-label="Level">
+      <button data-for="level in levels" type="button" class="floor-plan-viewer__level rounded-control px-2.5 py-1 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ level.active }}" aria-pressed="{{ level.active }}">{{ level.label }}</button>
+    </div>
+  </div>
+  <div class="floor-plan-viewer__plan mt-4 flex aspect-[4/3] items-center justify-center rounded-card border-2 border-dashed border-border bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-16 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18"/><path d="M3 12h9M12 3v18M12 12h9M16 12v9"/></svg>
+  </div>
+  <ul class="floor-plan-viewer__rooms mt-3 flex flex-wrap gap-2">
+    <li data-for="room in rooms" class="floor-plan-viewer__room rounded-control bg-surface-raised px-2.5 py-1 text-xs text-on-surface"><span class="font-medium">{{ room.name }}</span> <span class="text-on-surface-muted">{{ room.area }}</span></li>
+  </ul>
+</section>

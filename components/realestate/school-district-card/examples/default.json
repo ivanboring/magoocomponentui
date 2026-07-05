@@ -1,0 +1,8 @@
+{
+  "title": "Nearby schools",
+  "schools": [
+    { "name": "Riverside Elementary", "level": "Public · K–5", "rating": "9", "distance": "0.4 mi" },
+    { "name": "Oakwood Middle School", "level": "Public · 6–8", "rating": "8", "distance": "0.9 mi" },
+    { "name": "Central High School", "level": "Public · 9–12", "rating": "7", "distance": "1.6 mi" }
+  ]
+}

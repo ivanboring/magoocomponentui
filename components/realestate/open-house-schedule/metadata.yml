@@ -1,0 +1,66 @@
+name: "Open House Schedule"
+short_description: A list of upcoming open-house viewing slots with RSVP and full states.
+long_visual_description: >
+  A list of open-house slots, each with a date block, a time range, and an RSVP button (or a
+  disabled "Full" state).
+
+use_cases:
+  - Open-house times on a listing.
+  - Viewing slot picker.
+  - Showing schedule.
+  - Appointment slots for a property.
+  - RSVP to a viewing.
+
+recommended_for:
+  - Listing upcoming open-house/viewing slots with RSVP.
+avoid_for:
+  - A general booking form (use tour-request-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each slot's day/date and time; mark full slots as disabled.
+
+props:
+  title: The section title.
+  slots_list: The viewing slots with day, date, time, and full flag.
+
+example_prompts:
+  - "Add an open house schedule with RSVP slots."
+  - "Add viewing time slots for a listing."
+
+lifecycle: experimental
+content_model: A list of open-house slots with RSVP state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show upcoming slots first; clearly disable full slots.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: molecule
+  usage_type: [list-item, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Full slots show a "Full" label (not colour alone) and are non-interactive; RSVP is a real button.
+  keyboard_support: RSVP buttons are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

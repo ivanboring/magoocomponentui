@@ -1,0 +1,70 @@
+name: "Agent Contact Card"
+short_description: A real-estate agent card with photo, rating, and call/message actions.
+long_visual_description: >
+  A card with the agent's photo, name, title, and rating, and call/message action buttons.
+
+use_cases:
+  - Listing agent contact.
+  - Agent card on a property page.
+  - Realtor profile with actions.
+  - Contact-the-agent panel.
+  - Agent directory entry.
+
+recommended_for:
+  - An agent contact card with quick call/message actions.
+avoid_for:
+  - A generic person profile (use card-profile).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the agent's title and rating with call and message actions.
+
+props:
+  name: The agent's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional agent photo.
+  title: The agent's title/agency.
+  phone: The phone number (used by the call link).
+  rating: The agent rating.
+
+example_prompts:
+  - "Add an agent contact card with call and message."
+  - "Add a listing agent card with rating."
+
+lifecycle: experimental
+content_model: An agent identity with contact actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the agent's rating for trust; the call link uses a real tel: URL.
+
+categorization:
+  category: Real Estate
+  subcategory: Agents
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the agent name; call uses a real tel URL; message is a real button; icons are decorative.
+  keyboard_support: Call and message are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,26 @@
+name: tour-request-form
+props:
+  title:
+    type: string
+    default: "Request a tour"
+    title: Title
+  dates:
+    type: array
+    items: object
+    required: true
+    title: Date chips
+    description: "Each: { label, sub, active }."
+    example:
+      - { label: "Sat 16", sub: "Aug", active: true }
+  times:
+    type: array
+    items: object
+    required: true
+    title: Time chips
+    description: "Each: { label, active }."
+    example:
+      - { label: "10:00 AM", active: false }
+  cta_label:
+    type: string
+    default: "Request this time"
+    title: CTA label

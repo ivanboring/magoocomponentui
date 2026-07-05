@@ -1,0 +1,63 @@
+name: "School District Card"
+short_description: A list of nearby schools with ratings, level, and distance.
+long_visual_description: >
+  A card listing nearby schools, each with a rating chip, name, level (public/grades), and
+  distance.
+
+use_cases:
+  - Nearby schools on a listing.
+  - School ratings panel.
+  - District information card.
+  - Family-buyer context.
+  - Education context for a property.
+
+recommended_for:
+  - Listing nearby schools with ratings and distance.
+avoid_for:
+  - General neighborhood scores (use neighborhood-stats).
+
+markets:
+  - Global
+
+example_usage: >
+  List schools with a rating, level, and distance from the property.
+
+props:
+  title: The section title.
+  schools: The schools with name, level, rating, and distance.
+
+example_prompts:
+  - "Add a nearby schools card with ratings and distance."
+  - "Add a school district panel for a listing."
+
+lifecycle: experimental
+content_model: A list of nearby schools with ratings.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the rating and distance; order by level or distance consistently.
+
+categorization:
+  category: Real Estate
+  subcategory: Location
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ratings, names, and distances are all real text; uses a real list.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

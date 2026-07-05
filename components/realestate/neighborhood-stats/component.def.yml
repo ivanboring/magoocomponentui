@@ -1,0 +1,14 @@
+name: neighborhood-stats
+props:
+  title:
+    type: string
+    default: "Neighborhood"
+    title: Title
+  scores:
+    type: array
+    items: object
+    required: true
+    title: Scores
+    description: "Each score: { label, value, out_of, pct } where pct is the bar width 0-100."
+    example:
+      - { label: "Walk Score", value: "92", out_of: "/100", pct: 92 }

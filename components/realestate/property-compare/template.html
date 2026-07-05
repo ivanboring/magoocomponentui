@@ -1,0 +1,22 @@
+<div class="property-compare overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="property-compare__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="w-32 px-4 py-3 text-left" scope="col"></th>
+        <th data-for="property in properties" class="px-4 py-3 text-left align-top" scope="col">
+          <span class="block h-24 overflow-hidden rounded-control bg-surface-raised">
+            <img data-if="property.image" class="size-full object-cover" src="{{ property.image }}" alt="{{ property.address }}">
+          </span>
+          <span class="mt-2 block font-heading text-on-surface">{{ property.price }}</span>
+          <span class="block text-xs text-on-surface-muted">{{ property.address }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border last:border-0">
+        <th class="px-4 py-2.5 text-left font-medium text-on-surface-muted" scope="row">{{ row.label }}</th>
+        <td data-for="value in row.values" class="px-4 py-2.5 text-on-surface">{{ value.text }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

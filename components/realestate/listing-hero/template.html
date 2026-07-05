@@ -1,0 +1,17 @@
+<section class="listing-hero">
+  <div class="listing-hero__gallery grid grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-card" style="height: 22rem">
+    <img data-for="image in images" class="listing-hero__image size-full object-cover first:col-span-2 first:row-span-2" src="{{ image.src }}" alt="{{ image.alt }}">
+  </div>
+  <div class="listing-hero__facts mt-4 flex flex-wrap items-end justify-between gap-4">
+    <div>
+      <span data-if="status_label" class="mb-1 inline-flex rounded-pill bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">{{ status_label }}</span>
+      <p class="listing-hero__price font-heading text-3xl text-on-surface">{{ price }}</p>
+      <p class="listing-hero__address mt-1 text-on-surface-muted">{{ address }}</p>
+    </div>
+    <dl class="listing-hero__specs flex gap-6 text-sm">
+      <div class="text-center"><dd class="font-heading text-xl text-on-surface">{{ beds }}</dd><dt class="text-xs text-on-surface-muted">Beds</dt></div>
+      <div class="text-center"><dd class="font-heading text-xl text-on-surface">{{ baths }}</dd><dt class="text-xs text-on-surface-muted">Baths</dt></div>
+      <div class="text-center"><dd class="font-heading text-xl text-on-surface">{{ area }}</dd><dt class="text-xs text-on-surface-muted">Area</dt></div>
+    </dl>
+  </div>
+</section>

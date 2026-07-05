@@ -1,0 +1,13 @@
+<section class="school-district-card rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="school-district-card__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="school-district-card__schools divide-y divide-border">
+    <li data-for="school in schools" class="school-district-card__school flex items-center gap-3 px-(--space-card) py-3">
+      <span class="school-district-card__rating flex size-9 shrink-0 items-center justify-center rounded-control bg-primary/10 font-heading text-sm text-primary tabular-nums">{{ school.rating }}</span>
+      <div class="min-w-0 flex-1">
+        <p class="school-district-card__name truncate text-sm font-medium text-on-surface">{{ school.name }}</p>
+        <p class="school-district-card__level text-xs text-on-surface-muted">{{ school.level }}</p>
+      </div>
+      <span class="school-district-card__distance shrink-0 text-xs text-on-surface-muted">{{ school.distance }}</span>
+    </li>
+  </ul>
+</section>

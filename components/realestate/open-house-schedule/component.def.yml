@@ -1,0 +1,14 @@
+name: open-house-schedule
+props:
+  title:
+    type: string
+    default: "Open houses"
+    title: Title
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Slots
+    description: "Each slot: { day, date, time, full }."
+    example:
+      - { day: "Sat", date: "Aug 16", time: "1:00–3:00 PM", full: false }

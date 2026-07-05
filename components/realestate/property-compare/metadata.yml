@@ -1,0 +1,63 @@
+name: "Property Compare"
+short_description: A side-by-side property comparison table with photo/price headers.
+long_visual_description: >
+  A table with a property (photo, price, address) per column and comparison rows (beds,
+  baths, area, year, $/sq ft) down the side.
+
+use_cases:
+  - Compare shortlisted properties.
+  - Side-by-side listing comparison.
+  - Home comparison tool.
+  - Feature-by-feature property table.
+  - Decision aid for buyers.
+
+recommended_for:
+  - Comparing a few properties across attributes.
+avoid_for:
+  - A single property's facts (use property-facts-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide property columns with photo/price/address and comparison rows with one value per
+  property.
+
+props:
+  properties: The property columns (address, price, image).
+  rows: The comparison rows with a value per property.
+
+example_prompts:
+  - "Add a side-by-side property comparison table."
+  - "Add a home compare tool for three listings."
+
+lifecycle: experimental
+content_model: Property columns and comparison rows.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep comparison rows parallel; include a $/sq ft row to normalize price.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped column and row headers; property photos carry the address as alt.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

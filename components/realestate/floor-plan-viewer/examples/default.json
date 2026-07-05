@@ -1,0 +1,14 @@
+{
+  "title": "Floor plan",
+  "levels": [
+    { "label": "Ground floor", "active": true },
+    { "label": "Upper floor", "active": false }
+  ],
+  "rooms": [
+    { "name": "Living room", "area": "24 m²" },
+    { "name": "Kitchen", "area": "16 m²" },
+    { "name": "Bedroom 1", "area": "18 m²" },
+    { "name": "Bathroom", "area": "6 m²" },
+    { "name": "Garage", "area": "20 m²" }
+  ]
+}

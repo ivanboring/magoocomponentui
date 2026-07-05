@@ -1,0 +1,20 @@
+name: affordability-meter
+props:
+  label:
+    type: string
+    default: "Affordability"
+    title: Label
+  verdict:
+    type: string
+    required: true
+    title: Verdict
+    example: "Comfortably affordable"
+  detail:
+    type: string
+    title: Detail
+    example: "This home is about 3.1× your annual income."
+  pct:
+    type: integer
+    default: 35
+    title: Position
+    description: 0-100 position of the marker along the affordable→stretch scale.

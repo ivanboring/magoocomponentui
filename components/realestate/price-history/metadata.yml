@@ -1,0 +1,63 @@
+name: "Price History"
+short_description: A table of a property's price events (listed, reduced, sold) with changes.
+long_visual_description: >
+  A table of dated price events (listed, price reduced, sold) each with the price and a
+  colour-coded percentage change.
+
+use_cases:
+  - Property price history.
+  - Listing price changes over time.
+  - Sold-price record.
+  - Value trend for a home.
+  - Pricing timeline.
+
+recommended_for:
+  - A property's dated price events with changes.
+avoid_for:
+  - A market chart (use a chart card).
+
+markets:
+  - Global
+
+example_usage: >
+  List events newest-first with the price and a signed change; direction colours the change.
+
+props:
+  title: The section title.
+  events: The price events with date, label, price, change, and direction.
+
+example_prompts:
+  - "Add a property price history table."
+  - "Add a listing price-changes timeline."
+
+lifecycle: experimental
+content_model: A table of dated property price events.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order newest-first; the change direction reinforces the signed percentage text.
+
+categorization:
+  category: Real Estate
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers; the change is signed text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

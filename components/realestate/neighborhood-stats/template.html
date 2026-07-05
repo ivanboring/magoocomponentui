@@ -1,0 +1,14 @@
+<section class="neighborhood-stats rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="neighborhood-stats__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="neighborhood-stats__scores mt-4 flex flex-col gap-4">
+    <div data-for="score in scores" class="neighborhood-stats__score">
+      <div class="flex items-baseline justify-between text-sm">
+        <span class="text-on-surface">{{ score.label }}</span>
+        <span class="text-on-surface"><span class="font-heading text-lg">{{ score.value }}</span><span class="text-xs text-on-surface-muted">{{ score.out_of }}</span></span>
+      </div>
+      <div class="mt-1 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ score.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ score.label }}">
+        <div class="h-full rounded-pill bg-primary" style="width: {{ score.pct }}%"></div>
+      </div>
+    </div>
+  </div>
+</section>
