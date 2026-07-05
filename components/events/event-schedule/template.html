@@ -1,0 +1,19 @@
+<section class="event-schedule" aria-label="Schedule">
+  <div data-if="tracks" class="event-schedule__filters mb-4 flex flex-wrap gap-2" role="group" aria-label="Tracks">
+    <button data-for="track in tracks" type="button" class="event-schedule__filter rounded-pill border border-border px-3 py-1.5 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ track.active }}" aria-pressed="{{ track.active }}">{{ track.label }}</button>
+  </div>
+  <div class="event-schedule__slots flex flex-col gap-4">
+    <div data-for="slot in slots_list" class="event-schedule__slot flex gap-4">
+      <div class="event-schedule__time w-16 shrink-0 pt-1 text-right font-heading text-on-surface tabular-nums">{{ slot.time }}</div>
+      <div class="min-w-0 flex-1 space-y-2 border-l border-border pl-4">
+        <article data-for="session in slot.sessions" class="event-schedule__session rounded-card border border-border bg-surface p-3 shadow-card">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-heading text-sm text-on-surface">{{ session.title }}</h3>
+            <span data-if="session.track" class="shrink-0 rounded-pill px-2 py-0.5 text-xs font-medium data-[tone=primary]:bg-primary/15 data-[tone=primary]:text-primary data-[tone=accent]:bg-accent/15 data-[tone=accent]:text-accent data-[tone=success]:bg-success/15 data-[tone=success]:text-success data-[tone=warning]:bg-warning/15 data-[tone=warning]:text-warning" data-tone="{{ session.tone }}">{{ session.track }}</span>
+          </div>
+          <p data-if="session.speaker" class="mt-0.5 text-xs text-on-surface-muted">{{ session.speaker }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

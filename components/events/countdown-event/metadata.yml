@@ -1,0 +1,58 @@
+name: "Event Countdown"
+short_description: A large day/hour/minute/second countdown to an event start.
+long_visual_description: >
+  A centered set of four cells (days, hours, minutes, seconds) counting down live to an event
+  deadline, with an optional title above.
+
+use_cases:
+  - Countdown to an event.
+  - Doors-open timer.
+  - Festival start countdown.
+  - Launch/premiere countdown.
+  - Registration deadline timer.
+
+recommended_for:
+  - A prominent countdown to an event start.
+avoid_for:
+  - A promo countdown with a CTA (use countdown-banner).
+
+markets:
+  - Global
+
+example_usage: >
+  Set deadline to an ISO datetime; the cells tick down each second and stop at zero.
+
+props:
+  title: The countdown title.
+  deadline: The ISO datetime to count down to.
+
+example_prompts:
+  - "Add an event countdown to the doors-open time."
+  - "Add a days/hours/minutes/seconds event timer."
+
+lifecycle: experimental
+content_model: A live countdown to an event start.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Use a real event datetime in the viewer's timezone.
+
+categorization:
+  category: Events
+  subcategory: Utilities
+  atomic_type: molecule
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The timer uses role="timer" aria-live="polite"; units are labelled.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

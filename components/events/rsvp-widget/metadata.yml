@@ -1,0 +1,67 @@
+name: "RSVP Widget"
+short_description: A going/maybe/no RSVP selector with an attendee count.
+long_visual_description: >
+  A prompt with an attendee count above three RSVP buttons (going, maybe, can't go); the
+  selected one fills with the primary colour.
+
+use_cases:
+  - Event RSVP.
+  - Going/maybe/no response.
+  - Attendance capture.
+  - Invite response.
+  - Meetup RSVP.
+
+recommended_for:
+  - Capturing an RSVP with an attendee count.
+avoid_for:
+  - A full registration form (use waitlist-form/reservation).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the going count; the three options are single-select. Listen for rsvp:change.
+
+props:
+  prompt: The RSVP prompt.
+  going_count: The attendee count.
+  options: The RSVP options.
+
+example_prompts:
+  - "Add an RSVP widget with going/maybe/no."
+  - "Add an event attendance selector with count."
+
+lifecycle: experimental
+content_model: A single-select RSVP with an attendee count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the going count for social proof; the selection is single-choice.
+
+categorization:
+  category: Events
+  subcategory: Engagement
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are a radiogroup with role="radio"/aria-checked; the count is real text.
+  keyboard_support: Options are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

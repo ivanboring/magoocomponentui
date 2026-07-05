@@ -1,0 +1,68 @@
+name: "E-ticket"
+short_description: A digital event ticket with details and a scannable QR stub.
+long_visual_description: >
+  A ticket-style card with the tier, event, attendee, date, and seat, and a perforated stub
+  with a QR-code placeholder for scanning at the door.
+
+use_cases:
+  - Digital event ticket.
+  - Mobile ticket display.
+  - Wallet ticket.
+  - Admission pass.
+  - Scannable entry.
+
+recommended_for:
+  - A digital event ticket with a QR stub.
+avoid_for:
+  - Ticket tier selection (use ticket-selector).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the event, attendee, date, and seat; the stub carries a QR placeholder (swap for a real
+  code in production).
+
+props:
+  event: The event name.
+  holder: The attendee name.
+  tier: The ticket tier.
+  date: The event date/time.
+  seat: The seat/section.
+  order_id: The order ID.
+
+example_prompts:
+  - "Add a digital e-ticket with a QR stub."
+  - "Add a mobile event ticket."
+
+lifecycle: experimental
+content_model: An event ticket with details and a QR stub.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the attendee and date clearly; the QR is illustrative — use a real code in production.
+
+categorization:
+  category: Events
+  subcategory: Tickets
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Details use a definition list; the QR has an accessible label; all values are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

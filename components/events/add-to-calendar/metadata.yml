@@ -1,0 +1,65 @@
+name: "Add to Calendar"
+short_description: A dropdown button to add an event to Google/Apple/Outlook or download .ics.
+long_visual_description: >
+  A button with a calendar icon that opens a menu of calendar providers (Google, Apple,
+  Outlook) plus an .ics download.
+
+use_cases:
+  - Add an event to a calendar.
+  - Save-the-date button.
+  - Event reminder add.
+  - Calendar export.
+  - Multi-provider add.
+
+recommended_for:
+  - Adding an event to the user's calendar of choice.
+avoid_for:
+  - A generic dropdown (use menu-dropdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide per-provider links (each generating the right calendar URL); include an .ics
+  download.
+
+props:
+  label: The button label.
+  options: The calendar provider options.
+
+example_prompts:
+  - "Add an add-to-calendar dropdown button."
+  - "Add a save-to-calendar menu with providers."
+
+lifecycle: experimental
+content_model: A calendar-provider dropdown for an event.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-button
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Offer the calendars your audience uses plus an .ics fallback.
+
+categorization:
+  category: Events
+  subcategory: Utilities
+  atomic_type: atom
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle exposes aria-haspopup/aria-expanded; options are role="menuitem" links; Escape closes and refocuses.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes; options are focusable.
+  seo_score: 20
+  text_direction: both

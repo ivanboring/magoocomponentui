@@ -1,0 +1,12 @@
+name: countdown-event
+props:
+  title:
+    type: string
+    title: Title
+    example: "Doors open in"
+  deadline:
+    type: string
+    required: true
+    title: Deadline
+    description: ISO datetime the event starts.
+    example: "2026-09-18T18:00:00Z"

@@ -1,0 +1,69 @@
+name: "Venue Info"
+short_description: A venue panel with a map placeholder, address, details, and directions.
+long_visual_description: >
+  A card with a map placeholder and pin, the venue name and address, a list of practical
+  details (transit, parking, accessibility), and a directions button.
+
+use_cases:
+  - Event venue information.
+  - Getting-there panel.
+  - Location + logistics.
+  - Venue details card.
+  - Directions and access.
+
+recommended_for:
+  - A venue's location and practical details.
+avoid_for:
+  - A venue listing card (use card-property style).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the address and practical details (transit, parking, access); the directions link opens
+  a map.
+
+props:
+  name: The venue name.
+  address: The address.
+  details: Practical detail items with icons.
+  directions_href: The directions link.
+
+example_prompts:
+  - "Add a venue info panel with directions."
+  - "Add an event location card with transit and parking."
+
+lifecycle: experimental
+content_model: A venue's location and practical details.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Include transit, parking, and accessibility; the map is a placeholder for a real map.
+
+categorization:
+  category: Events
+  subcategory: Logistics
+  atomic_type: molecule
+  usage_type: [media, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The map is decorative; address and details are real text; directions is a real link. Detail icons are decorative.
+  keyboard_support: The directions link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

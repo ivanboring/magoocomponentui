@@ -1,0 +1,9 @@
+<div class="rsvp-widget rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-2">
+    <p class="rsvp-widget__prompt font-heading text-on-surface">{{ prompt }}</p>
+    <span data-if="going_count" class="rsvp-widget__count text-sm text-on-surface-muted">{{ going_count }}</span>
+  </div>
+  <div class="rsvp-widget__options mt-3 grid grid-cols-3 gap-2" role="radiogroup" aria-label="{{ prompt }}">
+    <button data-for="option in options" type="button" class="rsvp-widget__option rounded-control border border-border py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ option.active }}" data-value="{{ option.value }}" role="radio" aria-checked="{{ option.active }}">{{ option.label }}</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="add-to-calendar relative inline-block">
+  <button type="button" class="add-to-calendar__toggle inline-flex items-center gap-2 rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="false">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3M10 11v3M8.5 12.5h3"/></svg>
+    {{ label }}
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <ul class="add-to-calendar__menu absolute left-0 z-20 mt-1 hidden min-w-48 flex-col rounded-card border border-border bg-surface p-1 shadow-raised" role="menu">
+    <li data-for="option in options" role="none">
+      <a class="add-to-calendar__option block rounded-control px-3 py-2 text-sm text-on-surface hover:bg-surface-raised" role="menuitem" href="{{ option.href }}">{{ option.label }}</a>
+    </li>
+  </ul>
+</div>

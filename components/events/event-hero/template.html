@@ -1,0 +1,13 @@
+<section class="event-hero relative flex min-h-96 items-end overflow-hidden rounded-card">
+  <div class="event-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="event-hero__scrim absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/10" aria-hidden="true"></div>
+  <div class="event-hero__body relative max-w-2xl p-(--space-section) text-white">
+    <h1 class="event-hero__title font-heading text-4xl leading-tight sm:text-5xl">{{ title }}</h1>
+    <p data-if="tagline" class="event-hero__tagline mt-3 text-lg text-white/85">{{ tagline }}</p>
+    <div class="event-hero__meta mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm text-white/90">
+      <span class="flex items-center gap-1.5"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>{{ date }}</span>
+      <span class="flex items-center gap-1.5"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg>{{ venue }}</span>
+    </div>
+    <a class="event-hero__cta mt-6 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="#">{{ cta_label }}</a>
+  </div>
+</section>

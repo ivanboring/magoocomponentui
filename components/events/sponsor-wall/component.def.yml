@@ -1,0 +1,12 @@
+name: sponsor-wall
+props:
+  tiers:
+    type: array
+    items: object
+    required: true
+    title: Tiers
+    description: "Each tier: { label, sponsors: [{ name }] }."
+    example:
+      - label: "Platinum"
+        sponsors:
+          - { name: "Northwind" }

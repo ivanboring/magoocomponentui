@@ -1,0 +1,73 @@
+name: "Order Confirmation"
+short_description: A ticket purchase confirmation with order lines, total, and view-tickets.
+long_visual_description: >
+  A confirmation panel with a success check and "You're going!", the event, an order-line
+  breakdown, the total, the order ID/email, and a view-tickets button.
+
+use_cases:
+  - Ticket purchase confirmation.
+  - Order success screen.
+  - Registration confirmation.
+  - Checkout complete.
+  - Booking receipt.
+
+recommended_for:
+  - Confirming an event ticket purchase.
+avoid_for:
+  - A generic checkout summary (use checkout-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Confirm the purchase with a success state; show the order lines, total, order ID, and a
+  view-tickets action.
+
+props:
+  event: The event name/date.
+  order_id: The order ID.
+  email: The confirmation email.
+  lines: The order lines.
+  total: The order total.
+
+example_prompts:
+  - "Add a ticket order confirmation with total and view tickets."
+  - "Add an event purchase success screen."
+
+lifecycle: experimental
+content_model: A confirmed ticket order with lines, total, and view action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Confirm clearly ("You're going!"); show the order ID and where tickets were sent.
+
+categorization:
+  category: Events
+  subcategory: Tickets
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list for lines; the success check is decorative with a text heading; view-tickets is a real button.
+  keyboard_support: The view-tickets button is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

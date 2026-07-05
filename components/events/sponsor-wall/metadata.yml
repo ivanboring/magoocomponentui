@@ -1,0 +1,57 @@
+name: "Sponsor Wall"
+short_description: Tiered sponsor logos (platinum/gold/silver) as wordmarks.
+long_visual_description: >
+  Sections by sponsor tier (platinum, gold, silver), each with a row of sponsor wordmarks
+  that brighten on hover.
+
+use_cases:
+  - Event sponsors display.
+  - Tiered sponsor logos.
+  - Thank-you-to-sponsors wall.
+  - Partner tiers.
+  - Sponsorship recognition.
+
+recommended_for:
+  - Recognizing sponsors grouped by tier.
+avoid_for:
+  - A single social-proof logo band (use logo-cloud).
+
+markets:
+  - Global
+
+example_usage: >
+  Group sponsors by tier; the skeleton renders wordmarks (swap for real logo images in
+  production, sized by tier).
+
+props:
+  tiers: The sponsor tiers with their sponsors.
+
+example_prompts:
+  - "Add a tiered sponsor wall."
+  - "Add platinum/gold/silver sponsor logos."
+
+lifecycle: experimental
+content_model: Tiered sponsor wordmarks.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Size logos by tier in production; the tier labels convey prominence.
+
+categorization:
+  category: Events
+  subcategory: Sponsors
+  atomic_type: molecule
+  usage_type: [grid, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Wordmarks are real text; when swapping for images give each an alt of the sponsor name; tier labels are headings.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

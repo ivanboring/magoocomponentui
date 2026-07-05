@@ -1,0 +1,9 @@
+<article class="speaker-card flex flex-col items-center rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+  <span class="speaker-card__avatar relative inline-flex size-20 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <h3 class="speaker-card__name mt-3 font-heading text-on-surface">{{ name }}</h3>
+  <p data-if="role" class="speaker-card__role text-sm text-on-surface-muted">{{ role }}</p>
+  <p data-if="session" class="speaker-card__session mt-2 rounded-control bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">{{ session }}</p>
+</article>

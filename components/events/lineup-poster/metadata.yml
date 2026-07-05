@@ -1,0 +1,62 @@
+name: "Lineup Poster"
+short_description: A festival lineup poster with headliners and supporting acts.
+long_visual_description: >
+  A bold poster with the festival name and date, large headliner names, a divider, and a
+  wrapping list of supporting acts.
+
+use_cases:
+  - Festival lineup poster.
+  - Concert bill.
+  - Event lineup display.
+  - Music festival acts.
+  - Poster-style lineup.
+
+recommended_for:
+  - A festival/concert lineup in poster style.
+avoid_for:
+  - A schedule by time (use event-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  List headliners large and supporting acts smaller; the poster reads top-to-bottom by
+  prominence.
+
+props:
+  title: The festival title.
+  date: The dates.
+  headliners: The headline acts.
+  supporting: The supporting acts.
+
+example_prompts:
+  - "Add a festival lineup poster with headliners."
+  - "Add a concert bill poster."
+
+lifecycle: experimental
+content_model: A festival lineup by prominence.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-surface
+    - --color-primary
+    - --radius-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Size acts by prominence; keep the poster bold and legible.
+
+categorization:
+  category: Events
+  subcategory: Lineup
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All act names are real text; verify the on-surface/surface pair meets contrast per theme.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

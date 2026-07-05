@@ -1,0 +1,31 @@
+name: e-ticket
+props:
+  event:
+    type: string
+    required: true
+    title: Event
+    example: "Frontend Conf 2026"
+  holder:
+    type: string
+    required: true
+    title: Holder
+    example: "Jane Doe"
+  tier:
+    type: string
+    required: true
+    title: Tier
+    example: "General Admission"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Sep 18 · 6:00 PM"
+  seat:
+    type: string
+    title: Seat
+    example: "Gen · Standing"
+  order_id:
+    type: string
+    required: true
+    title: Order ID
+    example: "FC-2026-04821"

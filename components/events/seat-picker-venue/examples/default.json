@@ -1,0 +1,375 @@
+{
+  "stage_label": "STAGE",
+  "sections": [
+    {
+      "label": "Floor A",
+      "rows": [
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "available"
+            },
+            {
+              "label": "3",
+              "status": "available"
+            },
+            {
+              "label": "4",
+              "status": "taken"
+            },
+            {
+              "label": "5",
+              "status": "available"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "6",
+              "status": "available"
+            },
+            {
+              "label": "7",
+              "status": "available"
+            },
+            {
+              "label": "8",
+              "status": "available"
+            },
+            {
+              "label": "9",
+              "status": "taken"
+            },
+            {
+              "label": "10",
+              "status": "available"
+            }
+          ]
+        },
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "taken"
+            },
+            {
+              "label": "3",
+              "status": "selected"
+            },
+            {
+              "label": "4",
+              "status": "selected"
+            },
+            {
+              "label": "5",
+              "status": "available"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "6",
+              "status": "available"
+            },
+            {
+              "label": "7",
+              "status": "taken"
+            },
+            {
+              "label": "8",
+              "status": "available"
+            },
+            {
+              "label": "9",
+              "status": "available"
+            },
+            {
+              "label": "10",
+              "status": "available"
+            }
+          ]
+        },
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "available"
+            },
+            {
+              "label": "3",
+              "status": "taken"
+            },
+            {
+              "label": "4",
+              "status": "available"
+            },
+            {
+              "label": "5",
+              "status": "available"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "6",
+              "status": "available"
+            },
+            {
+              "label": "7",
+              "status": "available"
+            },
+            {
+              "label": "8",
+              "status": "taken"
+            },
+            {
+              "label": "9",
+              "status": "taken"
+            },
+            {
+              "label": "10",
+              "status": "available"
+            }
+          ]
+        },
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "taken"
+            },
+            {
+              "label": "3",
+              "status": "taken"
+            },
+            {
+              "label": "4",
+              "status": "taken"
+            },
+            {
+              "label": "5",
+              "status": "available"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "6",
+              "status": "available"
+            },
+            {
+              "label": "7",
+              "status": "taken"
+            },
+            {
+              "label": "8",
+              "status": "taken"
+            },
+            {
+              "label": "9",
+              "status": "taken"
+            },
+            {
+              "label": "10",
+              "status": "available"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Balcony",
+      "rows": [
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "taken"
+            },
+            {
+              "label": "3",
+              "status": "taken"
+            },
+            {
+              "label": "4",
+              "status": "taken"
+            },
+            {
+              "label": "5",
+              "status": "available"
+            },
+            {
+              "label": "6",
+              "status": "taken"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "7",
+              "status": "taken"
+            },
+            {
+              "label": "8",
+              "status": "taken"
+            },
+            {
+              "label": "9",
+              "status": "available"
+            },
+            {
+              "label": "10",
+              "status": "taken"
+            },
+            {
+              "label": "11",
+              "status": "available"
+            },
+            {
+              "label": "12",
+              "status": "available"
+            }
+          ]
+        },
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "available"
+            },
+            {
+              "label": "3",
+              "status": "available"
+            },
+            {
+              "label": "4",
+              "status": "taken"
+            },
+            {
+              "label": "5",
+              "status": "taken"
+            },
+            {
+              "label": "6",
+              "status": "taken"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "7",
+              "status": "taken"
+            },
+            {
+              "label": "8",
+              "status": "taken"
+            },
+            {
+              "label": "9",
+              "status": "available"
+            },
+            {
+              "label": "10",
+              "status": "taken"
+            },
+            {
+              "label": "11",
+              "status": "available"
+            },
+            {
+              "label": "12",
+              "status": "available"
+            }
+          ]
+        },
+        {
+          "seats": [
+            {
+              "label": "1",
+              "status": "available"
+            },
+            {
+              "label": "2",
+              "status": "available"
+            },
+            {
+              "label": "3",
+              "status": "taken"
+            },
+            {
+              "label": "4",
+              "status": "taken"
+            },
+            {
+              "label": "5",
+              "status": "taken"
+            },
+            {
+              "label": "6",
+              "status": "available"
+            },
+            {
+              "label": "",
+              "status": "aisle"
+            },
+            {
+              "label": "7",
+              "status": "taken"
+            },
+            {
+              "label": "8",
+              "status": "available"
+            },
+            {
+              "label": "9",
+              "status": "taken"
+            },
+            {
+              "label": "10",
+              "status": "available"
+            },
+            {
+              "label": "11",
+              "status": "taken"
+            },
+            {
+              "label": "12",
+              "status": "taken"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

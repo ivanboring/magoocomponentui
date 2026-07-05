@@ -1,0 +1,19 @@
+name: event-schedule
+props:
+  tracks:
+    type: array
+    items: object
+    title: Track filters
+    description: "Each: { label, active }."
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Time slots
+    description: >
+      Each slot: { time, sessions: [{ title, speaker, track, tone }] } — tone tints the
+      track chip (primary|accent|success|warning).
+    example:
+      - time: "09:00"
+        sessions:
+          - { title: "Opening keynote", speaker: "Dr. Nina Patel", track: "Main", tone: "primary" }

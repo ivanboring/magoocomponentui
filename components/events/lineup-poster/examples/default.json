@@ -1,0 +1,9 @@
+{
+  "title": "Summer Sound Fest",
+  "date": "Aug 22–24",
+  "headliners": [ { "name": "The Meridians" }, { "name": "Neon Harbor" }, { "name": "Wildfire" } ],
+  "supporting": [
+    { "name": "Coastline" }, { "name": "Paper Kites" }, { "name": "Violet Hour" }, { "name": "Northbound" },
+    { "name": "Echo Park" }, { "name": "Slow Dakota" }, { "name": "The Gardens" }, { "name": "Marlowe" }
+  ]
+}

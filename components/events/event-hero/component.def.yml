@@ -1,0 +1,30 @@
+name: event-hero
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Frontend Conf 2026"
+  tagline:
+    type: string
+    title: Tagline
+    example: "Two days of talks, workshops, and the people who build the web."
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Sep 18–19, 2026"
+  venue:
+    type: string
+    required: true
+    title: Venue
+    example: "Metropolitan Convention Center, SF"
+  image:
+    type: image
+    required: true
+    title: Background
+    example: "/stock/cover-workspace.jpg"
+  cta_label:
+    type: string
+    default: "Get tickets"
+    title: CTA label

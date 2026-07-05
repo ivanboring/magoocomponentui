@@ -1,0 +1,23 @@
+name: lineup-poster
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "SUMMER SOUND FEST"
+  date:
+    type: string
+    title: Date
+    example: "AUG 22–24"
+  headliners:
+    type: array
+    items: object
+    required: true
+    title: Headliners
+    description: "Each: { name }."
+  supporting:
+    type: array
+    items: object
+    required: true
+    title: Supporting acts
+    description: "Each: { name }."

@@ -1,0 +1,20 @@
+{
+  "tracks": [
+    { "label": "All", "active": true },
+    { "label": "Main", "active": false },
+    { "label": "Design", "active": false },
+    { "label": "Workshops", "active": false }
+  ],
+  "slots_list": [
+    { "time": "09:00", "sessions": [
+      { "title": "Opening keynote: The future of interfaces", "speaker": "Dr. Nina Patel", "track": "Main", "tone": "primary" }
+    ]},
+    { "time": "10:30", "sessions": [
+      { "title": "Designing for a thousand components", "speaker": "Alex Rivera", "track": "Design", "tone": "accent" },
+      { "title": "Hands-on: build a design system", "speaker": "Sam Lee", "track": "Workshops", "tone": "success" }
+    ]},
+    { "time": "13:00", "sessions": [
+      { "title": "Performance at scale", "speaker": "Priya Nair", "track": "Main", "tone": "primary" }
+    ]}
+  ]
+}

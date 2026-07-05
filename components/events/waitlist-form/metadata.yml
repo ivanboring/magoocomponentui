@@ -1,0 +1,70 @@
+name: "Waitlist Form"
+short_description: A join-the-waitlist email capture with a position note.
+long_visual_description: >
+  A panel with a title, a sold-out explanation, an email field with a join button, and a note
+  about the position on the list.
+
+use_cases:
+  - Sold-out event waitlist.
+  - Join-waitlist capture.
+  - Notify-me for a full event.
+  - Waitlist signup.
+  - Overflow interest capture.
+
+recommended_for:
+  - Capturing waitlist interest for a full event.
+avoid_for:
+  - A general newsletter signup (use newsletter-signup).
+
+markets:
+  - Global
+
+example_usage: >
+  Explain the event is full and add the email field; the position note nudges the signup.
+
+props:
+  title: The form title.
+  description: The explanation.
+  placeholder: The email placeholder.
+  position_note: The waitlist position note.
+  cta_label: The join button text.
+
+example_prompts:
+  - "Add a join-the-waitlist form for a sold-out event."
+  - "Add a waitlist email capture with position."
+
+lifecycle: experimental
+content_model: A waitlist email capture with a position note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Explain why it's a waitlist; the position note sets expectations.
+
+categorization:
+  category: Events
+  subcategory: Tickets
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The email field has an accessible label and required; submit is a real button in a form.
+  keyboard_support: The field and join button are focusable; submit works via Enter.
+  seo_score: 30
+  text_direction: both

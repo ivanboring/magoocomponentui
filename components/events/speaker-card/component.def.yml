@@ -1,0 +1,23 @@
+name: speaker-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dr. Nina Patel"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "NP"
+  image:
+    type: image
+    title: Photo
+  role:
+    type: string
+    title: Role
+    example: "Principal Researcher, Acme Labs"
+  session:
+    type: string
+    title: Session
+    example: "Keynote · The future of interfaces"

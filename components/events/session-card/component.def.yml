@@ -1,0 +1,24 @@
+name: session-card
+props:
+  time:
+    type: string
+    required: true
+    title: Time
+    example: "10:30 – 11:15"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Designing for a thousand components"
+  speaker:
+    type: string
+    title: Speaker
+    example: "Dr. Nina Patel"
+  track:
+    type: string
+    title: Track
+    example: "Design"
+  room:
+    type: string
+    title: Room
+    example: "Hall B"

@@ -1,0 +1,21 @@
+<article class="e-ticket mx-auto flex max-w-md overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="e-ticket__main flex-1 p-(--space-card)">
+    <p class="e-ticket__tier text-xs font-semibold uppercase tracking-wide text-primary">{{ tier }}</p>
+    <h3 class="e-ticket__event mt-0.5 font-heading text-lg text-on-surface">{{ event }}</h3>
+    <dl class="e-ticket__details mt-4 grid grid-cols-2 gap-3 text-sm">
+      <div class="col-span-2"><dt class="text-xs text-on-surface-muted">Attendee</dt><dd class="font-medium text-on-surface">{{ holder }}</dd></div>
+      <div><dt class="text-xs text-on-surface-muted">When</dt><dd class="font-medium text-on-surface">{{ date }}</dd></div>
+      <div data-if="seat"><dt class="text-xs text-on-surface-muted">Seat</dt><dd class="font-medium text-on-surface">{{ seat }}</dd></div>
+    </dl>
+    <p class="e-ticket__order mt-3 font-mono text-xs text-on-surface-muted">Order {{ order_id }}</p>
+  </div>
+  <div class="e-ticket__stub flex flex-col items-center justify-center gap-2 border-l border-dashed border-border bg-surface-raised p-4">
+    <span class="grid size-16 grid-cols-4 grid-rows-4 gap-0.5" role="img" aria-label="QR code">
+      <span class="bg-on-surface"></span><span></span><span class="bg-on-surface"></span><span class="bg-on-surface"></span>
+      <span></span><span class="bg-on-surface"></span><span></span><span class="bg-on-surface"></span>
+      <span class="bg-on-surface"></span><span></span><span class="bg-on-surface"></span><span></span>
+      <span class="bg-on-surface"></span><span class="bg-on-surface"></span><span></span><span class="bg-on-surface"></span>
+    </span>
+    <span class="text-[10px] uppercase text-on-surface-muted">Scan at door</span>
+  </div>
+</article>

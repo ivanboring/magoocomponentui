@@ -1,0 +1,9 @@
+<section class="waitlist-form rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="waitlist-form__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <p data-if="description" class="waitlist-form__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  <form class="waitlist-form__form mt-4 flex flex-col gap-2 sm:flex-row">
+    <input type="email" class="waitlist-form__input flex-1 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" aria-label="Email address" required>
+    <button type="submit" class="waitlist-form__cta shrink-0 rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  </form>
+  <p data-if="position_note" class="waitlist-form__position mt-2 text-xs text-on-surface-muted">{{ position_note }}</p>
+</section>

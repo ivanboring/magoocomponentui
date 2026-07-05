@@ -1,0 +1,66 @@
+name: "Speaker Card"
+short_description: An event speaker card with photo, role, and their session.
+long_visual_description: >
+  A centered card with the speaker's photo, name, role, and a session pill.
+
+use_cases:
+  - Conference speaker.
+  - Event lineup speaker.
+  - Session presenter card.
+  - Speakers grid entry.
+  - Keynote speaker highlight.
+
+recommended_for:
+  - A speaker profile tied to their session.
+avoid_for:
+  - A generic team member (use card-team-member).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the speaker's role and their session.
+
+props:
+  name: The speaker's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional speaker photo.
+  role: The speaker's role/company.
+  session: Their session.
+
+example_prompts:
+  - "Add a conference speaker card with their session."
+  - "Add a keynote speaker profile."
+
+lifecycle: experimental
+content_model: A speaker's identity, role, and session.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the session so attendees connect speakers to talks; keep the role concise.
+
+categorization:
+  category: Events
+  subcategory: Lineup
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the speaker name; role and session are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

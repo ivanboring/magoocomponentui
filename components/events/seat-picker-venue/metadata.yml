@@ -1,0 +1,66 @@
+name: "Venue Seat Picker"
+short_description: A venue seat map with a stage, sections, and selectable seats.
+long_visual_description: >
+  A stage arc above sections of seat rows (with aisle gaps); available seats are outlined,
+  taken seats are muted and inert, and selecting fills a seat with the primary colour. A
+  legend explains states.
+
+use_cases:
+  - Concert or theatre seat selection.
+  - Assigned-seating venue.
+  - Reserved seat picker.
+  - Section + seat selection.
+  - Ticketing seat map.
+
+recommended_for:
+  - Selecting seats in a sectioned venue with a stage.
+avoid_for:
+  - Aircraft seats (use travel/seat-map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide sections of seat rows with statuses; clicking an available seat toggles selection
+  and emits seat:select. The stage arc orients the map.
+
+props:
+  stage_label: The stage label.
+  sections: The venue sections, each with seat rows.
+
+example_prompts:
+  - "Add a venue seat picker with a stage and sections."
+  - "Add a concert seat selection map."
+
+lifecycle: experimental
+content_model: A sectioned venue seat map with selectable seats.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the legend visible; the stage arc orients the map. Taken seats are clearly inert.
+
+categorization:
+  category: Events
+  subcategory: Tickets
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Seats are real buttons with per-seat aria-labels and aria-pressed; a legend explains states; taken seats are inert. State is shown by fill plus the legend.
+  keyboard_support: Available seats are focusable and toggle on Enter/Space.
+  seo_score: 30
+  text_direction: both

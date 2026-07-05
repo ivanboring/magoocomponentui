@@ -1,0 +1,22 @@
+name: waitlist-form
+props:
+  title:
+    type: string
+    default: "Join the waitlist"
+    title: Title
+  description:
+    type: string
+    title: Description
+    example: "This event is sold out. Add your email and we'll let you know if a spot opens."
+  placeholder:
+    type: string
+    default: "you@example.com"
+    title: Placeholder
+  position_note:
+    type: string
+    title: Position note
+    example: "You'd be #24 on the list"
+  cta_label:
+    type: string
+    default: "Join waitlist"
+    title: CTA label

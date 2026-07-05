@@ -1,0 +1,9 @@
+{
+  "label": "Add to calendar",
+  "options": [
+    { "label": "Google Calendar", "href": "#" },
+    { "label": "Apple Calendar", "href": "#" },
+    { "label": "Outlook", "href": "#" },
+    { "label": "Download .ics", "href": "#" }
+  ]
+}

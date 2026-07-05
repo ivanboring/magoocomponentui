@@ -1,0 +1,66 @@
+name: "Session Card"
+short_description: An agenda session with time, title, speaker, track, and room.
+long_visual_description: >
+  A card with the session time on the leading edge, and the title, track pill, speaker, and
+  room on the right.
+
+use_cases:
+  - Conference agenda session.
+  - Talk in a schedule.
+  - Track session card.
+  - Program entry.
+  - Timetable item.
+
+recommended_for:
+  - A single agenda session with time and speaker.
+avoid_for:
+  - A full schedule (use event-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the time prominently and the track/room; the speaker gives context.
+
+props:
+  time: The session time range.
+  title: The session title.
+  speaker: The speaker.
+  track: The track (pill).
+  room: The room.
+
+example_prompts:
+  - "Add an agenda session card with time and speaker."
+  - "Add a conference talk card with track."
+
+lifecycle: experimental
+content_model: A session's time, title, speaker, and track.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use a consistent time format; the track pill helps attendees plan across tracks.
+
+categorization:
+  category: Events
+  subcategory: Schedule
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Time, title, speaker, and room are all real text; the track is a labelled pill.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

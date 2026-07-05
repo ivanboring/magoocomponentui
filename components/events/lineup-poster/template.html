@@ -1,0 +1,11 @@
+<section class="lineup-poster overflow-hidden rounded-card bg-on-surface p-(--space-section) text-center text-surface" aria-label="Festival lineup">
+  <h2 class="lineup-poster__title font-heading text-4xl uppercase tracking-tight sm:text-5xl">{{ title }}</h2>
+  <p data-if="date" class="lineup-poster__date mt-1 text-sm font-semibold uppercase tracking-widest text-primary">{{ date }}</p>
+  <ul class="lineup-poster__headliners mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+    <li data-for="act in headliners" class="lineup-poster__headliner font-heading text-2xl uppercase sm:text-3xl">{{ act.name }}</li>
+  </ul>
+  <div class="lineup-poster__divider mx-auto my-4 h-px w-24 bg-surface/30"></div>
+  <ul class="lineup-poster__supporting flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm uppercase text-surface/70">
+    <li data-for="act in supporting" class="lineup-poster__act">{{ act.name }}</li>
+  </ul>
+</section>

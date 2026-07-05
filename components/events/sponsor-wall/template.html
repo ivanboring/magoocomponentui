@@ -1,0 +1,8 @@
+<section class="sponsor-wall flex flex-col gap-8 text-center" aria-label="Sponsors">
+  <div data-for="tier in tiers" class="sponsor-wall__tier">
+    <p class="sponsor-wall__label text-xs font-semibold uppercase tracking-widest text-on-surface-muted">{{ tier.label }}</p>
+    <div class="sponsor-wall__logos mt-3 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+      <span data-for="sponsor in tier.sponsors" class="sponsor-wall__logo font-heading text-xl font-semibold text-on-surface-muted opacity-80 transition-opacity duration-(--duration-token) hover:opacity-100">{{ sponsor.name }}</span>
+    </div>
+  </div>
+</section>

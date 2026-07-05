@@ -1,0 +1,9 @@
+{
+  "prompt": "Are you going?",
+  "going_count": "142 going",
+  "options": [
+    { "label": "Going", "value": "yes", "active": true },
+    { "label": "Maybe", "value": "maybe", "active": false },
+    { "label": "Can't go", "value": "no", "active": false }
+  ]
+}

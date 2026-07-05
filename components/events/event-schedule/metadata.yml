@@ -1,0 +1,68 @@
+name: "Event Schedule"
+short_description: An agenda by time with track filters and parallel sessions per slot.
+long_visual_description: >
+  Track filter chips above a timeline of slots; each time slot lists its parallel sessions
+  with a track-tinted pill and speaker.
+
+use_cases:
+  - Conference agenda.
+  - Multi-track schedule.
+  - Event timetable.
+  - Program by time.
+  - Session grid.
+
+recommended_for:
+  - A time-based agenda with track filtering.
+avoid_for:
+  - A single session (use session-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Group sessions under time slots; the track chips filter. Listen for schedule:filter.
+
+props:
+  tracks: The track filter chips.
+  slots_list: The time slots, each with parallel sessions.
+
+relationships:
+  children:
+    - events/session-card
+
+lifecycle: experimental
+content_model: A time-based agenda with track filters.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Order by time; the track chips help attendees filter across parallel sessions.
+
+categorization:
+  category: Events
+  subcategory: Schedule
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Track filters use aria-pressed; times and sessions are real text; track chips carry a text label, not colour alone.
+  keyboard_support: Track filter chips are focusable and toggle on Enter/Space.
+  seo_score: 50
+  text_direction: both

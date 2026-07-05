@@ -1,0 +1,19 @@
+name: rsvp-widget
+props:
+  prompt:
+    type: string
+    default: "Are you going?"
+    title: Prompt
+  going_count:
+    type: string
+    title: Going count
+    example: "142 going"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each: { label, value, active }."
+    example:
+      - { label: "Going", value: "yes", active: true }
+      - { label: "Maybe", value: "maybe", active: false }

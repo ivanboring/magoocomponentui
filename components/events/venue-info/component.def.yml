@@ -1,0 +1,23 @@
+name: venue-info
+props:
+  name:
+    type: string
+    required: true
+    title: Venue name
+    example: "Metropolitan Convention Center"
+  address:
+    type: string
+    required: true
+    title: Address
+    example: "500 Harbor Blvd, San Francisco, CA"
+  details:
+    type: array
+    items: object
+    required: true
+    title: Details
+    description: "Each: { icon, label }."
+    example:
+      - { icon: "🚇", label: "2 min from Harbor station" }
+  directions_href:
+    type: link
+    title: Directions link

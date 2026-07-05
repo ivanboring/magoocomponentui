@@ -1,0 +1,66 @@
+name: "Event Hero"
+short_description: An event banner with title, date, venue, and a get-tickets CTA over an image.
+long_visual_description: >
+  A full-bleed image hero with a dark scrim, the event title and tagline, a date and venue
+  meta row, and a get-tickets CTA.
+
+use_cases:
+  - Event landing hero.
+  - Conference banner.
+  - Festival hero.
+  - Event detail header.
+  - Ticket-driving hero.
+
+recommended_for:
+  - The hero of an event page with date, venue, and tickets CTA.
+avoid_for:
+  - A compact event card (use card-event).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a strong image; the scrim keeps text legible. Show the date and venue with a tickets
+  CTA.
+
+props:
+  title: The event title.
+  tagline: A one-line tagline.
+  date: The event dates.
+  venue: The venue.
+  image: The background image (required).
+  cta_label: The tickets CTA text.
+
+example_prompts:
+  - "Add an event hero with date, venue, and get tickets."
+  - "Add a conference banner hero."
+
+lifecycle: experimental
+content_model: An event's title, date, venue, and tickets CTA over an image.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Show date and venue prominently; the tickets CTA is the primary action. The dark scrim +
+  white text is fixed for legibility.
+
+categorization:
+  category: Events
+  subcategory: Hero
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the scrim keeps white text legible; meta icons are decorative; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 65
+  text_direction: both

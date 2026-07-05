@@ -1,0 +1,14 @@
+<section class="venue-info overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="Venue">
+  <div class="venue-info__map relative flex aspect-[2/1] items-center justify-center bg-surface-raised" aria-hidden="true">
+    <svg class="absolute inset-0 size-full opacity-30 text-on-surface-muted" viewBox="0 0 320 160" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 60h320M0 110h320M120 0v160M220 0v160"/></svg>
+    <span class="relative flex size-10 items-center justify-center rounded-full bg-primary text-primary-contrast shadow-card"><svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 18s6-5 6-9a6 6 0 10-12 0c0 4 6 9 6 9z"/><circle cx="10" cy="9" r="2"/></svg></span>
+  </div>
+  <div class="venue-info__body p-(--space-card)">
+    <h3 class="venue-info__name font-heading text-on-surface">{{ name }}</h3>
+    <p class="venue-info__address text-sm text-on-surface-muted">{{ address }}</p>
+    <ul class="venue-info__details mt-3 flex flex-col gap-2 text-sm text-on-surface">
+      <li data-for="detail in details" class="flex items-center gap-2"><span aria-hidden="true">{{ detail.icon }}</span>{{ detail.label }}</li>
+    </ul>
+    <a data-if="directions_href" class="venue-info__directions mt-4 inline-flex items-center gap-1.5 rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" href="{{ directions_href }}">Get directions</a>
+  </div>
+</section>

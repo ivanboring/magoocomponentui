@@ -1,0 +1,9 @@
+{
+  "event": "Frontend Conf 2026 · Sep 18–19",
+  "order_id": "FC-2026-04821",
+  "email": "jane@example.com",
+  "lines": [
+    { "label": "General Admission", "qty": "2", "amount": "$180.00" }
+  ],
+  "total": "$180.00"
+}

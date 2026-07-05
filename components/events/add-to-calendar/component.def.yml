@@ -1,0 +1,15 @@
+name: add-to-calendar
+props:
+  label:
+    type: string
+    default: "Add to calendar"
+    title: Label
+  options:
+    type: array
+    items: object
+    required: true
+    title: Calendar options
+    description: "Each: { label, href }."
+    example:
+      - { label: "Google Calendar", href: "#" }
+      - { label: "Apple Calendar", href: "#" }

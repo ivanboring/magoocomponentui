@@ -1,0 +1,10 @@
+{
+  "name": "Metropolitan Convention Center",
+  "address": "500 Harbor Blvd, San Francisco, CA",
+  "details": [
+    { "icon": "🚇", "label": "2 min walk from Harbor station" },
+    { "icon": "🅿️", "label": "Paid parking on-site" },
+    { "icon": "♿", "label": "Fully accessible" }
+  ],
+  "directions_href": "#"
+}

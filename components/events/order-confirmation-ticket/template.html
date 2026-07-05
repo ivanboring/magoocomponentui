@@ -1,0 +1,26 @@
+<section class="order-confirmation-ticket mx-auto max-w-md overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="Order confirmation">
+  <div class="order-confirmation-ticket__head flex flex-col items-center gap-2 border-b border-border p-(--space-section) text-center">
+    <span class="flex size-12 items-center justify-center rounded-full bg-success/15 text-success" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-8"/></svg>
+    </span>
+    <p class="order-confirmation-ticket__title font-heading text-lg text-on-surface">You're going!</p>
+    <p class="order-confirmation-ticket__event text-sm text-on-surface-muted">{{ event }}</p>
+  </div>
+  <div class="order-confirmation-ticket__body p-(--space-card)">
+    <dl class="order-confirmation-ticket__lines flex flex-col gap-2 text-sm">
+      <div data-for="line in lines" class="flex items-center justify-between">
+        <dt class="text-on-surface">{{ line.qty }} × {{ line.label }}</dt>
+        <dd class="text-on-surface tabular-nums">{{ line.amount }}</dd>
+      </div>
+    </dl>
+    <div class="order-confirmation-ticket__total mt-3 flex items-center justify-between border-t border-border pt-3">
+      <span class="font-heading text-on-surface">Total</span>
+      <span class="font-heading text-lg text-on-surface tabular-nums">{{ total }}</span>
+    </div>
+    <div class="order-confirmation-ticket__meta mt-4 rounded-control bg-surface-raised p-3 text-xs text-on-surface-muted">
+      <p>Order <span class="font-mono text-on-surface">{{ order_id }}</span></p>
+      <p data-if="email" class="mt-0.5">Tickets sent to {{ email }}</p>
+    </div>
+    <button type="button" class="order-confirmation-ticket__view mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">View tickets</button>
+  </div>
+</section>

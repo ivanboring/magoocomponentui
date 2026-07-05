@@ -1,0 +1,7 @@
+{
+  "tiers": [
+    { "label": "Platinum", "sponsors": [ { "name": "Northwind" }, { "name": "Acme" } ] },
+    { "label": "Gold", "sponsors": [ { "name": "Globex" }, { "name": "Initech" }, { "name": "Umbrella" } ] },
+    { "label": "Silver", "sponsors": [ { "name": "Hooli" }, { "name": "Vandelay" }, { "name": "Soylent" }, { "name": "Massive Dynamic" } ] }
+  ]
+}
