@@ -1,0 +1,16 @@
+name: chart-card-bar
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Signups by channel"
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: "Each bar: { label, height, value } — height is 0-100 (%)."
+    example:
+      - { label: "Organic", height: 80, value: "1,240" }
+      - { label: "Referral", height: 55, value: "860" }

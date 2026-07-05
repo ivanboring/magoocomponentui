@@ -1,0 +1,64 @@
+name: "Bar Chart Card"
+short_description: A categorical bar-chart widget with hover values and category labels.
+long_visual_description: >
+  A widget card with a title and a row of vertical bars scaled by value, each with a label
+  and a value that reveals on hover.
+
+use_cases:
+  - Compare categories (channels, sources).
+  - Breakdown by segment.
+  - Categorical metric comparison.
+  - Distribution across groups.
+  - Simple bar breakdown widget.
+
+recommended_for:
+  - Comparing values across a handful of categories.
+avoid_for:
+  - A time trend (use chart-card-line).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each bar's height (0-100) and provide labels and values; values reveal on hover.
+
+props:
+  title: The chart title.
+  bars: The bars with label, height, and value.
+
+example_prompts:
+  - "Add a bar chart card of signups by channel."
+  - "Add a categorical bar breakdown widget."
+
+lifecycle: experimental
+content_model: A titled bar-chart widget comparing categories.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep category labels short; scale bars from a consistent maximum.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Labels and values are real text (values reveal on hover but exist in the DOM); bars are illustrative. Provide a data table alternative in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

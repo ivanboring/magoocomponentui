@@ -1,0 +1,66 @@
+name: "Area Chart Card"
+short_description: An area-chart widget with a gradient fill under a trend line.
+long_visual_description: >
+  A widget card with a title, headline value and delta, and an area chart — a trend line
+  above a soft gradient fill.
+
+use_cases:
+  - Cumulative or volume trend.
+  - Active users over time.
+  - Filled time-series metric.
+  - Growth area widget.
+  - Any single-series area trend.
+
+recommended_for:
+  - A single-series trend emphasizing volume under the line.
+avoid_for:
+  - Categorical comparison (use chart-card-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the closed area polygon and the top line polyline on a 300×120 viewBox; keep
+  the headline value and delta in sync.
+
+props:
+  title: The chart title.
+  value: The headline value.
+  delta: The change value.
+  area_points: Precomputed closed-area polygon points.
+  line_points: Precomputed top-line polyline points.
+
+example_prompts:
+  - "Add an active-users area chart card with a gradient fill."
+  - "Add a filled area trend widget."
+
+lifecycle: experimental
+content_model: A titled area-chart widget with a headline value.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the value and delta in sync with the plotted series; the chart illustrates the trend.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The chart is decorative (aria-hidden); the title, value, and delta carry the meaning. Provide a data table alternative in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

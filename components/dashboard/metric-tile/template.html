@@ -1,0 +1,11 @@
+<div class="metric-tile flex items-start gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span data-if="icon_slot" class="metric-tile__icon flex size-11 shrink-0 items-center justify-center rounded-card bg-primary/10 text-primary"><slot name="icon"></slot></span>
+  <div class="min-w-0">
+    <p class="metric-tile__label text-sm text-on-surface-muted">{{ label }}</p>
+    <p class="metric-tile__value mt-1 font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+    <p data-if="delta" class="metric-tile__delta mt-1 flex items-center gap-1 text-xs font-medium {{ trend@class }}" data-trend="{{ trend }}">
+      <svg data-if="trend" class="size-3.5 data-[trend=down]:rotate-180 data-[trend=flat]:hidden" data-trend="{{ trend }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+      {{ delta }}
+    </p>
+  </div>
+</div>

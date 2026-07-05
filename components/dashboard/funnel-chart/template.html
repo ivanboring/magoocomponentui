@@ -1,0 +1,17 @@
+<section class="funnel-chart rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="funnel-chart__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="funnel-chart__stages mt-4 flex flex-col gap-2">
+    <div data-for="stage in stages" class="funnel-chart__stage">
+      <div class="flex items-baseline justify-between gap-2 text-sm">
+        <span class="funnel-chart__label text-on-surface">{{ stage.label }}</span>
+        <span class="funnel-chart__value font-heading text-on-surface tabular-nums">{{ stage.value }}</span>
+      </div>
+      <div class="funnel-chart__bar-wrap mt-1 flex items-center gap-2">
+        <div class="h-6 flex-1 overflow-hidden rounded-control bg-surface-raised">
+          <div class="funnel-chart__bar h-full rounded-control bg-primary" style="width: {{ stage.pct }}%"></div>
+        </div>
+        <span data-if="stage.rate" class="funnel-chart__rate w-12 shrink-0 text-right text-xs text-on-surface-muted tabular-nums">{{ stage.rate }}</span>
+      </div>
+    </div>
+  </div>
+</section>

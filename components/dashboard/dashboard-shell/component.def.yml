@@ -1,0 +1,23 @@
+name: dashboard-shell
+props:
+  brand:
+    type: string
+    required: true
+    title: Brand
+    example: "Acme"
+  nav:
+    type: array
+    items: object
+    required: true
+    title: Nav items
+    description: "Each item: { label, href, active }."
+    example:
+      - { label: "Overview", href: "#", active: true }
+      - { label: "Reports", href: "#", active: false }
+slots:
+  topbar:
+    title: Topbar actions
+    description: Trailing topbar content (search, user menu).
+  content:
+    title: Content
+    description: The main dashboard content.

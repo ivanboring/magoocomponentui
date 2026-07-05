@@ -1,0 +1,54 @@
+name: "Dashboard Toolbar"
+short_description: A dashboard page header with a title, filter controls, and actions.
+long_visual_description: >
+  A header row with the page title and filter controls on the left and action buttons
+  (export, add) on the right; wraps responsively.
+
+use_cases:
+  - Dashboard page header.
+  - Report toolbar with filters.
+  - Analytics view header.
+  - List page toolbar.
+  - Section controls bar.
+
+recommended_for:
+  - A dashboard header with filters and actions.
+avoid_for:
+  - A site header (use sticky-header).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot the filter controls (date range, segment) and the trailing actions (export, add).
+
+props:
+  title: The page/section title.
+
+slots:
+  filters: Leading filter controls.
+  actions: Trailing actions.
+
+lifecycle: experimental
+content_model: A title with filter controls and actions.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --font-heading
+
+editorial_guidance: >
+  Keep the title short; group filters on the left and primary actions on the right.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; slotted controls carry their own semantics.
+  keyboard_support: Slotted controls are focusable.
+  seo_score: 30
+  text_direction: both

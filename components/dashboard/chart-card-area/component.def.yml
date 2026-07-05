@@ -1,0 +1,26 @@
+name: chart-card-area
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Active users"
+  value:
+    type: string
+    title: Headline value
+    example: "12,480"
+  delta:
+    type: string
+    title: Delta
+    example: "+8.2%"
+  area_points:
+    type: string
+    required: true
+    title: Area points
+    description: Precomputed SVG polygon points (closed area) on a 300×120 viewBox.
+    example: "0,90 50,70 100,80 150,45 200,55 250,25 300,30 300,120 0,120"
+  line_points:
+    type: string
+    required: true
+    title: Line points
+    description: Precomputed SVG polyline points for the top edge.

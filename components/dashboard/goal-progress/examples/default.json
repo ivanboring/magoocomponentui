@@ -1,0 +1,7 @@
+{
+  "goals": [
+    { "label": "New customers", "current": "180", "target": "250", "pct": 72, "tone": "primary" },
+    { "label": "Revenue", "current": "$84k", "target": "$100k", "pct": 84, "tone": "success" },
+    { "label": "Churn", "current": "3.2%", "target": "2.0%", "pct": 40, "tone": "warning" }
+  ]
+}

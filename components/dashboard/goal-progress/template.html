@@ -1,0 +1,11 @@
+<div class="goal-progress flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div data-for="goal in goals" class="goal-progress__goal">
+    <div class="flex items-baseline justify-between gap-2 text-sm">
+      <span class="goal-progress__label font-medium text-on-surface">{{ goal.label }}</span>
+      <span class="goal-progress__figures text-on-surface-muted tabular-nums"><span class="font-medium text-on-surface">{{ goal.current }}</span> / {{ goal.target }}</span>
+    </div>
+    <div class="goal-progress__track mt-1.5 h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ goal.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ goal.label }}">
+      <div class="goal-progress__bar h-full rounded-pill data-[tone=primary]:bg-primary data-[tone=success]:bg-success data-[tone=warning]:bg-warning data-[tone=danger]:bg-danger" data-tone="{{ goal.tone }}" style="width: {{ goal.pct }}%"></div>
+    </div>
+  </div>
+</div>

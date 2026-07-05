@@ -1,0 +1,10 @@
+<section class="widget-card flex flex-col rounded-card border border-border bg-surface shadow-card">
+  <header class="widget-card__head flex items-start justify-between gap-3 border-b border-border p-(--space-card)">
+    <div class="min-w-0">
+      <h3 class="widget-card__title font-heading text-on-surface">{{ title }}</h3>
+      <p data-if="subtitle" class="widget-card__subtitle text-xs text-on-surface-muted">{{ subtitle }}</p>
+    </div>
+    <div class="widget-card__actions flex shrink-0 items-center gap-1"><slot name="actions"></slot></div>
+  </header>
+  <div class="widget-card__body flex-1 p-(--space-card)"><slot name="body"></slot></div>
+</section>

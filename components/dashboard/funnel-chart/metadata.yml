@@ -1,0 +1,65 @@
+name: "Funnel Chart"
+short_description: A conversion funnel with per-stage counts, bars, and step conversion rates.
+long_visual_description: >
+  A widget listing funnel stages top to bottom, each with a count, a proportional bar, and
+  the step-to-step conversion rate.
+
+use_cases:
+  - Conversion or signup funnel.
+  - Onboarding drop-off analysis.
+  - Sales pipeline stages.
+  - Checkout funnel.
+  - Any staged conversion metric.
+
+recommended_for:
+  - Visualizing drop-off across sequential stages.
+avoid_for:
+  - Categorical comparison (use chart-card-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide stages with counts, a bar width relative to the top stage, and the step conversion
+  rate.
+
+props:
+  title: The funnel title.
+  stages: The funnel stages with value, bar width, and rate.
+
+example_prompts:
+  - "Add a conversion funnel from visited to paid."
+  - "Add an onboarding drop-off funnel widget."
+
+lifecycle: experimental
+content_model: A sequence of funnel stages with counts and conversion rates.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order stages by the funnel sequence; show both counts and step conversion rates.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Counts and rates are real text alongside the bars, so meaning isn't bar-only.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,26 @@
+name: donut-chart-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Traffic sources"
+  center_value:
+    type: string
+    title: Center value
+    example: "18.4k"
+  center_label:
+    type: string
+    title: Center label
+    example: "visits"
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Segments
+    description: >
+      Each segment: { label, value, tone, dash, offset } where dash/offset are precomputed
+      stroke-dasharray/dashoffset on a circle (circumference ~283, r=45), tone is
+      primary|accent|success|warning.
+    example:
+      - { label: "Organic", value: "48%", tone: "primary", dash: "136 283", offset: "0" }

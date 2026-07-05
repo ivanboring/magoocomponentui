@@ -1,0 +1,62 @@
+name: "Top List Widget"
+short_description: A ranked top-N list with values and subtle inline bars.
+long_visual_description: >
+  A widget listing top items (pages, products, referrers), each with a value and a faint
+  background bar scaled to its share.
+
+use_cases:
+  - Top pages, products, or referrers.
+  - Ranked list of items by metric.
+  - Leaderboard-style dashboard list.
+  - Most-active entities.
+  - Top-N breakdown widget.
+
+recommended_for:
+  - A ranked list of items by a single metric.
+avoid_for:
+  - A user leaderboard with avatars (use leaderboard-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rows ordered by value with a percentage relative to the top item for the inline bar.
+
+props:
+  title: The widget title.
+  rows: The ranked rows with label, value, and bar percentage.
+
+example_prompts:
+  - "Add a top pages widget with inline bars."
+  - "Add a ranked top-N list by metric."
+
+lifecycle: experimental
+content_model: A ranked list of items with values and inline bars.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order by the metric; scale bars from the top item so ranking reads at a glance.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; labels and values are real text and the bar is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

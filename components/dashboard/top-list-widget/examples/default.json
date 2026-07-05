@@ -1,0 +1,10 @@
+{
+  "title": "Top pages",
+  "rows": [
+    { "label": "/pricing", "value": "4,120", "pct": 100 },
+    { "label": "/docs/getting-started", "value": "3,540", "pct": 86 },
+    { "label": "/features", "value": "2,980", "pct": 72 },
+    { "label": "/blog/scaling-ui", "value": "1,760", "pct": 43 },
+    { "label": "/changelog", "value": "1,240", "pct": 30 }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Recent activity",
+  "items": [
+    { "actor": "Jane", "action": "created", "target": "Project Atlas", "time": "2m ago", "tone": "primary" },
+    { "actor": "Sam", "action": "deployed", "target": "v2.4.0", "time": "18m ago", "tone": "success" },
+    { "actor": "Ari", "action": "flagged", "target": "billing issue", "time": "1h ago", "tone": "warning" },
+    { "actor": "Priya", "action": "closed", "target": "#482", "time": "3h ago", "tone": "danger" }
+  ]
+}

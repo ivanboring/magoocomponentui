@@ -1,0 +1,10 @@
+{
+  "title": "Signups by channel",
+  "bars": [
+    { "label": "Organic", "height": 88, "value": "1,240" },
+    { "label": "Referral", "height": 55, "value": "860" },
+    { "label": "Paid", "height": 42, "value": "620" },
+    { "label": "Social", "height": 68, "value": "980" },
+    { "label": "Direct", "height": 30, "value": "410" }
+  ]
+}

@@ -1,0 +1,15 @@
+<div class="date-range-picker relative inline-block">
+  <button type="button" class="date-range-picker__toggle inline-flex items-center gap-2 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="false">
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>
+    <span class="date-range-picker__current font-medium">{{ current }}</span>
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <ul class="date-range-picker__menu absolute right-0 z-20 mt-1 hidden min-w-44 flex-col rounded-card border border-border bg-surface p-1 shadow-raised" role="menu">
+    <li data-for="preset in presets" role="none">
+      <button type="button" class="date-range-picker__preset flex w-full items-center justify-between gap-2 rounded-control px-3 py-2 text-left text-sm text-on-surface hover:bg-surface-raised data-[active=true]:font-medium" role="menuitemradio" data-value="{{ preset.value }}" data-active="{{ preset.active }}" aria-checked="{{ preset.active }}">
+        {{ preset.label }}
+        <svg data-if="preset.active" class="size-4 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      </button>
+    </li>
+  </ul>
+</div>

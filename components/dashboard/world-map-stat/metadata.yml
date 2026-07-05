@@ -1,0 +1,66 @@
+name: "World Map Stat"
+short_description: A geographic stat widget with a map placeholder and a ranked country list.
+long_visual_description: >
+  A widget with a world-map placeholder above a ranked list of countries, each with a code,
+  name, a small share bar, and a value.
+
+use_cases:
+  - Users or sales by country.
+  - Geographic distribution widget.
+  - Regional breakdown.
+  - Traffic by region.
+  - Country ranking with a map.
+
+recommended_for:
+  - A country ranking paired with a geographic placeholder.
+avoid_for:
+  - A pure ranked list (use top-list-widget).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide countries ranked by value with a bar percentage relative to the top; the map area
+  is a placeholder for a real map in production.
+
+props:
+  title: The widget title.
+  rows: The country rows with code, name, value, and bar percentage.
+
+example_prompts:
+  - "Add a users-by-country widget with a map and ranked list."
+  - "Add a geographic breakdown stat."
+
+lifecycle: experimental
+content_model: A geographic placeholder with a ranked country list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Rank by the metric; the list carries the exact figures so the map can be illustrative.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The map is decorative; the ranked list provides the data as text with country names and values.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

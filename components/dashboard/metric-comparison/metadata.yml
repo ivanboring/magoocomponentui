@@ -1,0 +1,67 @@
+name: "Metric Comparison"
+short_description: A metric card comparing the current value to a previous period.
+long_visual_description: >
+  A card with a label, the current value beside a trend-coloured delta, and a previous-period
+  value for context.
+
+use_cases:
+  - Period-over-period comparison.
+  - This-vs-last metric.
+  - Benchmark against a prior value.
+  - Change with context.
+  - Comparative KPI.
+
+recommended_for:
+  - A metric shown against its previous-period value.
+avoid_for:
+  - A metric with a mini chart (use sparkline-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current value with a delta and the previous-period value beneath for context.
+
+props:
+  label: The metric label.
+  current: The current value.
+  previous: The previous-period value.
+  previous_label: The previous-period label.
+  delta: The change value.
+  trend: up, down, or flat.
+
+example_prompts:
+  - "Add a revenue metric comparing this period to last."
+  - "Add a period-over-period comparison card."
+
+lifecycle: experimental
+content_model: A current value, a delta, and a previous-period value.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Label the comparison period clearly; the delta should reflect current vs previous.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is shown by the arrow and delta text, not colour alone; the previous value gives context as text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

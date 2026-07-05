@@ -1,0 +1,69 @@
+name: "Line Chart Card"
+short_description: A line-chart widget with a headline value, period toggle, and a filled trend line.
+long_visual_description: >
+  A widget card with a title and headline value, a period toggle (7D/30D/90D), and a line
+  chart with a soft area fill and optional x-axis labels.
+
+use_cases:
+  - Revenue or growth trend over time.
+  - Time-series metric on a dashboard.
+  - Traffic or usage line chart.
+  - Any single-series trend widget.
+  - KPI with a period selector.
+
+recommended_for:
+  - A single-series time trend with a period selector.
+avoid_for:
+  - Categorical comparison (use chart-card-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the polyline points on a 300×120 viewBox; provide period toggles and optional
+  x-axis labels. Swap the points when the period changes.
+
+props:
+  title: The chart title.
+  value: The headline value.
+  periods: The period toggles (one active).
+  points: Precomputed SVG polyline points.
+  x_labels: Optional x-axis labels.
+
+example_prompts:
+  - "Add a revenue line chart card with a 7D/30D/90D toggle."
+  - "Add a time-series line widget with a headline value."
+
+lifecycle: experimental
+content_model: A titled line-chart widget with a period selector.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the headline value in sync with the active period; the chart is illustrative of the trend.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The chart is decorative (aria-hidden); the title, value, and period toggles are real text/controls. Provide a data table alternative for non-visual users in production.
+  keyboard_support: Period toggle buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

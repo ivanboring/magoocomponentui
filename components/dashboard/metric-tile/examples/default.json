@@ -1,0 +1,10 @@
+{
+  "label": "Revenue",
+  "value": "$84,200",
+  "delta": "+12.5% vs last month",
+  "trend": "up",
+  "icon_slot": true,
+  "$slots": {
+    "icon": "<svg class=\"size-5\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M10 3v14M6 7h5a2 2 0 010 4H8a2 2 0 000 4h6\"/></svg>"
+  }
+}

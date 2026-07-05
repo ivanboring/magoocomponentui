@@ -1,0 +1,15 @@
+name: funnel-chart
+props:
+  title:
+    type: string
+    default: "Conversion funnel"
+    title: Title
+  stages:
+    type: array
+    items: object
+    required: true
+    title: Stages
+    description: "Each stage: { label, value, pct, rate } where pct is the bar width 0-100 and rate is the step conversion."
+    example:
+      - { label: "Visited", value: "18,400", pct: 100, rate: "" }
+      - { label: "Signed up", value: "6,120", pct: 33, rate: "33%" }

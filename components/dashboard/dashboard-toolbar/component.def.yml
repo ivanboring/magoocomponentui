@@ -1,0 +1,14 @@
+name: dashboard-toolbar
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Overview"
+slots:
+  filters:
+    title: Filters
+    description: Leading filter controls (date range, segment).
+  actions:
+    title: Actions
+    description: Trailing actions (export, add).

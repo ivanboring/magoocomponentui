@@ -1,0 +1,14 @@
+name: activity-summary
+props:
+  title:
+    type: string
+    default: "Recent activity"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { actor, action, target, time, tone } where tone colours the dot (primary|success|warning|danger)."
+    example:
+      - { actor: "Jane", action: "created", target: "Project Atlas", time: "2m ago", tone: "primary" }

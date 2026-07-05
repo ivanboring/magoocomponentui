@@ -1,0 +1,11 @@
+{
+  "title": "Traffic sources",
+  "center_value": "18.4k",
+  "center_label": "visits",
+  "segments": [
+    { "label": "Organic", "value": "48%", "tone": "primary", "dash": "136 283", "offset": "0" },
+    { "label": "Referral", "value": "30%", "tone": "accent", "dash": "85 283", "offset": "-136" },
+    { "label": "Paid", "value": "14%", "tone": "success", "dash": "40 283", "offset": "-221" },
+    { "label": "Direct", "value": "8%", "tone": "warning", "dash": "22 283", "offset": "-261" }
+  ]
+}

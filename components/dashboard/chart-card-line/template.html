@@ -1,0 +1,18 @@
+<section class="chart-card-line flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="chart-card-line__head flex items-start justify-between gap-3">
+    <div>
+      <h3 class="chart-card-line__title font-heading text-on-surface">{{ title }}</h3>
+      <p data-if="value" class="chart-card-line__value mt-0.5 font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+    </div>
+    <div class="chart-card-line__periods inline-flex rounded-control border border-border p-0.5 text-xs" role="group" aria-label="Period">
+      <button data-for="period in periods" type="button" class="rounded-control px-2 py-1 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ period.active }}" aria-pressed="{{ period.active }}">{{ period.label }}</button>
+    </div>
+  </header>
+  <svg class="chart-card-line__chart mt-4 h-32 w-full" viewBox="0 0 300 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <polyline points="{{ points }} 300,120 0,120" class="text-primary" fill="currentColor" fill-opacity="0.08"></polyline>
+    <polyline points="{{ points }}" class="text-primary" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+  </svg>
+  <div data-if="x_labels" class="chart-card-line__axis mt-1 flex justify-between text-[11px] text-on-surface-muted">
+    <span data-for="x in x_labels">{{ x.label }}</span>
+  </div>
+</section>

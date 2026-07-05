@@ -1,0 +1,34 @@
+name: metric-tile
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Revenue"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "$84,200"
+  delta:
+    type: string
+    title: Delta
+    example: "+12.5%"
+  trend:
+    type: enum
+    values: [up, down, flat]
+    default: up
+    title: Trend
+  icon_slot:
+    type: boolean
+    default: true
+    title: Show icon
+slots:
+  icon:
+    title: Icon
+    description: A leading metric icon.
+variants:
+  trend:
+    up: "text-success"
+    down: "text-danger"
+    flat: "text-on-surface-muted"

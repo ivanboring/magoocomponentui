@@ -1,0 +1,71 @@
+name: "Progress Ring Stat"
+short_description: A circular progress ring with a center percentage and a label/caption.
+long_visual_description: >
+  A full-circle progress ring with the percentage in the center, beside a label and a
+  caption (e.g. usage of a quota).
+
+use_cases:
+  - Storage or quota usage.
+  - Goal or completion percentage.
+  - Capacity indicator.
+  - Utilization stat.
+  - Single-value progress ring.
+
+recommended_for:
+  - A single percentage shown as a full-circle ring.
+avoid_for:
+  - A parts-of-a-whole breakdown (use donut-chart-card).
+  - A semicircle gauge (use gauge).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the ring's stroke-dasharray for the percentage on a r=45 circle; set the tone
+  to reflect the threshold.
+
+props:
+  value: The center percentage.
+  label: The stat label.
+  caption: A supporting caption.
+  dash: Precomputed ring stroke-dasharray.
+  tone: The ring colour tone.
+
+example_prompts:
+  - "Add a storage-used progress ring at 68%."
+  - "Add a completion ring stat with a caption."
+
+lifecycle: experimental
+content_model: A percentage ring with a label and caption.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Choose the tone by threshold; the caption should give the raw figures behind the percentage.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The percentage and caption are real text; the ring is illustrative. Choose the tone by threshold rather than relying on colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

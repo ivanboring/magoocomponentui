@@ -1,0 +1,22 @@
+name: widget-empty-state
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "No data yet"
+  description:
+    type: string
+    title: Description
+    example: "Once you start collecting events, they'll show up here."
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Connect a source"
+  cta_href:
+    type: link
+    title: CTA link
+slots:
+  icon:
+    title: Icon
+    description: An illustrative icon.

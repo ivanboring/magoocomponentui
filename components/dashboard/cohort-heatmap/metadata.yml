@@ -1,0 +1,67 @@
+name: "Cohort Heatmap"
+short_description: A retention cohort table shaded by value, cohorts as rows and weeks as columns.
+long_visual_description: >
+  A table with cohorts down the rows and week offsets across the columns; each cell shows a
+  retention percentage shaded from muted to primary by intensity.
+
+use_cases:
+  - Retention cohort analysis.
+  - Engagement-over-time heatmap.
+  - Churn cohort table.
+  - Activation-by-cohort view.
+  - Any cohort-vs-period matrix.
+
+recommended_for:
+  - A cohort × period retention matrix shaded by value.
+avoid_for:
+  - A contribution activity grid (use heatmap-calendar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide week column labels and cohort rows with per-cell value and intensity level; cells
+  shade from muted (low) to primary (high).
+
+props:
+  title: The heatmap title.
+  week_labels: The week column labels.
+  rows: The cohort rows with per-cell value and level.
+
+example_prompts:
+  - "Add a retention cohort heatmap by week."
+  - "Add a cohort-vs-period retention table."
+
+lifecycle: experimental
+content_model: A cohort × period matrix of shaded retention values.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the intensity scale consistent; the cell values are the source of truth, colour is a cue.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [table, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped row/column headers; each cell shows the value as text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

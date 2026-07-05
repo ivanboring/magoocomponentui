@@ -1,0 +1,13 @@
+{
+  "title": "Revenue",
+  "value": "$84.2k",
+  "periods": [
+    { "label": "7D", "active": false },
+    { "label": "30D", "active": true },
+    { "label": "90D", "active": false }
+  ],
+  "points": "0,95 43,72 86,82 129,50 171,60 214,32 257,40 300,20",
+  "x_labels": [
+    { "label": "Wk 1" }, { "label": "Wk 2" }, { "label": "Wk 3" }, { "label": "Wk 4" }
+  ]
+}

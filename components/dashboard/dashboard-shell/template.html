@@ -1,0 +1,15 @@
+<div class="dashboard-shell flex min-h-96 overflow-hidden rounded-card border border-border bg-surface">
+  <aside class="dashboard-shell__sidebar hidden w-56 shrink-0 flex-col border-r border-border bg-surface-raised p-3 sm:flex">
+    <div class="dashboard-shell__brand px-2 py-2 font-heading text-lg text-on-surface">{{ brand }}</div>
+    <nav class="dashboard-shell__nav mt-3 flex flex-col gap-1" aria-label="Dashboard">
+      <a data-for="item in nav" class="rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface hover:text-on-surface data-[active=true]:bg-surface data-[active=true]:font-medium data-[active=true]:text-on-surface" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">{{ item.label }}</a>
+    </nav>
+  </aside>
+  <div class="dashboard-shell__main flex min-w-0 flex-1 flex-col">
+    <header class="dashboard-shell__topbar flex items-center justify-between gap-4 border-b border-border px-(--space-card) py-3">
+      <span class="font-heading text-on-surface sm:hidden">{{ brand }}</span>
+      <div class="dashboard-shell__topbar-actions ml-auto flex items-center gap-3"><slot name="topbar"></slot></div>
+    </header>
+    <main class="dashboard-shell__content flex-1 overflow-y-auto bg-background p-(--space-card)"><slot name="content"></slot></main>
+  </div>
+</div>

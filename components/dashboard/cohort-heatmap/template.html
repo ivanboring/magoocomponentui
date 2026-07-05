@@ -1,0 +1,19 @@
+<section class="cohort-heatmap rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="cohort-heatmap__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="cohort-heatmap__scroll mt-4 overflow-x-auto">
+    <table class="cohort-heatmap__table w-full border-separate border-spacing-1 text-center text-xs">
+      <thead>
+        <tr>
+          <th class="text-left font-medium text-on-surface-muted" scope="col">Cohort</th>
+          <th data-for="week in week_labels" class="font-medium text-on-surface-muted" scope="col">{{ week.label }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="row in rows">
+          <th class="whitespace-nowrap pr-2 text-left font-medium text-on-surface" scope="row">{{ row.cohort }}</th>
+          <td data-for="cell in row.cells" class="rounded-control px-2 py-1.5 font-medium tabular-nums data-[level=0]:bg-surface-raised data-[level=0]:text-on-surface-muted data-[level=1]:bg-primary/20 data-[level=1]:text-on-surface data-[level=2]:bg-primary/40 data-[level=2]:text-on-surface data-[level=3]:bg-primary/60 data-[level=3]:text-primary-contrast data-[level=4]:bg-primary data-[level=4]:text-primary-contrast" data-level="{{ cell.level }}">{{ cell.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

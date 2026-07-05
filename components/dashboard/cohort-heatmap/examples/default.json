@@ -1,0 +1,170 @@
+{
+  "title": "Retention by cohort",
+  "week_labels": [
+    {
+      "label": "W0"
+    },
+    {
+      "label": "W1"
+    },
+    {
+      "label": "W2"
+    },
+    {
+      "label": "W3"
+    },
+    {
+      "label": "W4"
+    },
+    {
+      "label": "W5"
+    }
+  ],
+  "rows": [
+    {
+      "cohort": "Jul 01",
+      "cells": [
+        {
+          "value": "100%",
+          "level": 4
+        },
+        {
+          "value": "62%",
+          "level": 3
+        },
+        {
+          "value": "48%",
+          "level": 2
+        },
+        {
+          "value": "40%",
+          "level": 2
+        },
+        {
+          "value": "35%",
+          "level": 2
+        },
+        {
+          "value": "31%",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "cohort": "Jul 08",
+      "cells": [
+        {
+          "value": "97%",
+          "level": 4
+        },
+        {
+          "value": "59%",
+          "level": 3
+        },
+        {
+          "value": "45%",
+          "level": 2
+        },
+        {
+          "value": "36%",
+          "level": 2
+        },
+        {
+          "value": "31%",
+          "level": 1
+        },
+        {
+          "value": "27%",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "cohort": "Jul 15",
+      "cells": [
+        {
+          "value": "94%",
+          "level": 4
+        },
+        {
+          "value": "56%",
+          "level": 3
+        },
+        {
+          "value": "41%",
+          "level": 2
+        },
+        {
+          "value": "32%",
+          "level": 1
+        },
+        {
+          "value": "27%",
+          "level": 1
+        },
+        {
+          "value": "22%",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "cohort": "Jul 22",
+      "cells": [
+        {
+          "value": "91%",
+          "level": 4
+        },
+        {
+          "value": "52%",
+          "level": 3
+        },
+        {
+          "value": "37%",
+          "level": 2
+        },
+        {
+          "value": "28%",
+          "level": 1
+        },
+        {
+          "value": "22%",
+          "level": 1
+        },
+        {
+          "value": "17%",
+          "level": 0
+        }
+      ]
+    },
+    {
+      "cohort": "Jul 29",
+      "cells": [
+        {
+          "value": "88%",
+          "level": 4
+        },
+        {
+          "value": "49%",
+          "level": 2
+        },
+        {
+          "value": "34%",
+          "level": 1
+        },
+        {
+          "value": "24%",
+          "level": 1
+        },
+        {
+          "value": "18%",
+          "level": 0
+        },
+        {
+          "value": "13%",
+          "level": 0
+        }
+      ]
+    }
+  ]
+}

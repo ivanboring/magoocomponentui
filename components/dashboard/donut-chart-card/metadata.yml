@@ -1,0 +1,69 @@
+name: "Donut Chart Card"
+short_description: A donut/pie breakdown widget with a center value and a legend.
+long_visual_description: >
+  A widget with a donut chart (coloured segments) and a center value/label, beside a legend
+  listing each segment with its share.
+
+use_cases:
+  - Traffic-source or category breakdown.
+  - Share-of-total distribution.
+  - Composition of a metric.
+  - Budget or spend split.
+  - Proportional breakdown widget.
+
+recommended_for:
+  - A parts-of-a-whole breakdown with a legend.
+avoid_for:
+  - A single progress value (use progress-ring-stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each segment's stroke-dasharray and cumulative dashoffset on a r=45 circle
+  (circumference ~283); assign tones and list shares in the legend.
+
+props:
+  title: The chart title.
+  center_value: The center value.
+  center_label: The center label.
+  segments: The segments with tone, dash, offset, and share.
+
+example_prompts:
+  - "Add a donut chart card of traffic sources with a legend."
+  - "Add a share-of-total breakdown widget."
+
+lifecycle: experimental
+content_model: A donut breakdown with a center value and a legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep to a few segments; the legend carries the exact shares so the chart can be illustrative.
+
+categorization:
+  category: Dashboard
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The legend provides each segment's label and share as text, so meaning isn't colour-only; the donut is illustrative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

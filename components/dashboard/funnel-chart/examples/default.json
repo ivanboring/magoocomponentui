@@ -1,0 +1,9 @@
+{
+  "title": "Conversion funnel",
+  "stages": [
+    { "label": "Visited", "value": "18,400", "pct": 100, "rate": "" },
+    { "label": "Signed up", "value": "6,120", "pct": 33, "rate": "33%" },
+    { "label": "Activated", "value": "3,480", "pct": 19, "rate": "57%" },
+    { "label": "Paid", "value": "1,240", "pct": 7, "rate": "36%" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "current": "Last 30 days",
+  "presets": [
+    { "label": "Today", "value": "1d", "active": false },
+    { "label": "Last 7 days", "value": "7d", "active": false },
+    { "label": "Last 30 days", "value": "30d", "active": true },
+    { "label": "Last 90 days", "value": "90d", "active": false },
+    { "label": "Year to date", "value": "ytd", "active": false }
+  ]
+}

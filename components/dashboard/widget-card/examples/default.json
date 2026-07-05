@@ -1,0 +1,8 @@
+{
+  "title": "Recent activity",
+  "subtitle": "Last 7 days",
+  "$slots": {
+    "actions": "<button class=\"flex size-8 items-center justify-center rounded-control text-on-surface-muted hover:bg-surface-raised\" aria-label=\"Widget menu\">⋯</button>",
+    "body": "<ul class=\"flex flex-col gap-3 text-sm\"><li class=\"flex items-center justify-between\"><span class=\"text-on-surface\">New signups</span><span class=\"font-heading text-on-surface\">+42</span></li><li class=\"flex items-center justify-between\"><span class=\"text-on-surface\">Active projects</span><span class=\"font-heading text-on-surface\">18</span></li><li class=\"flex items-center justify-between\"><span class=\"text-on-surface\">Support tickets</span><span class=\"font-heading text-on-surface\">7</span></li></ul>"
+  }
+}

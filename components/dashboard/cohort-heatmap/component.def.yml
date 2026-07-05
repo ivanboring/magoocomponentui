@@ -1,0 +1,24 @@
+name: cohort-heatmap
+props:
+  title:
+    type: string
+    default: "Retention by cohort"
+    title: Title
+  week_labels:
+    type: array
+    items: object
+    required: true
+    title: Week column labels
+    description: "Each: { label } — e.g. W0, W1, …"
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      Each cohort row: { cohort, cells: [{ value, level }] } where level is 0-4 (intensity)
+      and value is the display percentage; empty level for absent cells.
+    example:
+      - cohort: "Jul 01"
+        cells:
+          - { value: "100%", level: 4 }

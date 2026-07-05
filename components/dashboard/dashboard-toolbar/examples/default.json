@@ -1,0 +1,7 @@
+{
+  "title": "Overview",
+  "$slots": {
+    "filters": "<button class=\"inline-flex items-center gap-2 rounded-control border border-border px-3 py-1.5 text-sm text-on-surface\">Last 30 days <span class=\"text-on-surface-muted\">▾</span></button><button class=\"rounded-control border border-border px-3 py-1.5 text-sm text-on-surface-muted\">All segments</button>",
+    "actions": "<button class=\"rounded-button border border-border px-3 py-1.5 text-sm text-on-surface\">Export</button><button class=\"rounded-button bg-primary px-4 py-1.5 text-sm font-heading text-primary-contrast\">Add widget</button>"
+  }
+}

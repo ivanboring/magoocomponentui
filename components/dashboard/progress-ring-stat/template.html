@@ -1,0 +1,13 @@
+<div class="progress-ring-stat flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="progress-ring-stat__ring relative size-24 shrink-0">
+    <svg class="size-full -rotate-90" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="45" class="text-surface-raised" stroke="currentColor" stroke-width="9"></circle>
+      <circle cx="50" cy="50" r="45" class="{{ tone@class }}" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="{{ dash }}"></circle>
+    </svg>
+    <span class="progress-ring-stat__value absolute inset-0 flex items-center justify-center font-heading text-lg text-on-surface tabular-nums">{{ value }}</span>
+  </div>
+  <div class="min-w-0">
+    <p data-if="label" class="progress-ring-stat__label font-heading text-on-surface">{{ label }}</p>
+    <p data-if="caption" class="progress-ring-stat__caption text-sm text-on-surface-muted">{{ caption }}</p>
+  </div>
+</div>

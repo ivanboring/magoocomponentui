@@ -1,0 +1,65 @@
+name: "Goal Progress"
+short_description: A widget of goals each with a current/target figure and a progress bar.
+long_visual_description: >
+  A card listing goals, each with a label, a current/target figure, and a coloured progress
+  bar toward the target.
+
+use_cases:
+  - Quarterly goals tracking.
+  - Targets vs actuals widget.
+  - OKR progress.
+  - Campaign goal progress.
+  - Multi-goal dashboard panel.
+
+recommended_for:
+  - Tracking several goals against targets with progress bars.
+avoid_for:
+  - A single circular progress (use progress-ring-stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide each goal's current/target and precomputed percentage; set the tone per goal.
+
+props:
+  goals: The goals with label, current, target, pct, and tone.
+
+example_prompts:
+  - "Add a goal progress widget with current/target bars."
+  - "Add a targets-vs-actuals panel."
+
+lifecycle: experimental
+content_model: A set of goals with progress toward targets.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Show the raw current/target figures alongside the bar; choose tones by health.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar uses role="progressbar" with aria-valuenow and a label; current/target figures are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,70 @@
+name: "Metric Tile"
+short_description: A dashboard metric tile with an icon, value, and colored trend delta.
+long_visual_description: >
+  A bordered tile with a tinted icon on the left and the label, large value, and a
+  trend-coloured delta with a direction arrow on the right.
+
+use_cases:
+  - Headline metric in a dashboard.
+  - KPI tile with an icon.
+  - Overview stat with trend.
+  - Summary figure card.
+  - Metric in a stats row.
+
+recommended_for:
+  - A single dashboard metric with an icon and trend.
+avoid_for:
+  - A metric with an inline chart (use sparkline-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot an icon; pair the value with a delta and set trend to colour it.
+
+props:
+  label: The metric label.
+  value: The metric value.
+  delta: The change value.
+  trend: up, down, or flat.
+  icon_slot: Whether to show the icon.
+
+slots:
+  icon: The leading metric icon.
+
+example_prompts:
+  - "Add a revenue metric tile trending up with an icon."
+  - "Add a dashboard KPI tile with a trend delta."
+
+lifecycle: experimental
+content_model: A label, value, trend delta, and icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the label short; always say what the delta compares to.
+
+categorization:
+  category: Dashboard
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trend is conveyed by the arrow and delta text, not colour alone; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,65 @@
+name: "Dashboard Shell"
+short_description: A full app shell with a sidebar nav, a topbar, and a scrollable content area.
+long_visual_description: >
+  An application layout with a branded left sidebar navigation, a topbar with search and user
+  actions, and a scrollable main content region.
+
+use_cases:
+  - Admin or analytics app shell.
+  - Dashboard page scaffold.
+  - Back-office layout.
+  - SaaS app frame.
+  - Console layout.
+
+recommended_for:
+  - The overall frame of a dashboard/admin app.
+avoid_for:
+  - A simple content + sidebar page (use sidebar-layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the brand and nav; slot the topbar actions and the main content (widgets, tables).
+  The sidebar collapses on small screens.
+
+props:
+  brand: The brand/app name.
+  nav: The sidebar navigation items.
+
+slots:
+  topbar: Trailing topbar content.
+  content: The main content.
+
+lifecycle: experimental
+content_model: A sidebar nav, a topbar, and a main content region.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-background
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the nav concise and mark the current section; the content area holds the page's widgets.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: full
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses aside/header/main landmarks and a labelled nav; the active item sets aria-current. Provide a mobile nav toggle in production.
+  keyboard_support: Nav links and slotted controls are focusable and keyboard-operable.
+  seo_score: 40
+  text_direction: both

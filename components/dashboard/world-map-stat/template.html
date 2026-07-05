@@ -1,0 +1,14 @@
+<section class="world-map-stat rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="world-map-stat__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="world-map-stat__map mt-4 flex aspect-[2/1] items-center justify-center rounded-card bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-16 opacity-40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2c2.5 2 2.5 14 0 16M10 2c-2.5 2-2.5 14 0 16"/></svg>
+  </div>
+  <ul class="world-map-stat__rows mt-4 flex flex-col gap-2">
+    <li data-for="row in rows" class="world-map-stat__row flex items-center gap-3 text-sm">
+      <span class="world-map-stat__code flex size-6 shrink-0 items-center justify-center rounded-control bg-surface-raised text-[10px] font-semibold text-on-surface">{{ row.code }}</span>
+      <span class="world-map-stat__country min-w-0 flex-1 truncate text-on-surface">{{ row.country }}</span>
+      <span class="world-map-stat__bar h-1.5 w-20 shrink-0 overflow-hidden rounded-pill bg-surface-raised"><span class="block h-full rounded-pill bg-primary" style="width: {{ row.pct }}%"></span></span>
+      <span class="world-map-stat__value w-14 shrink-0 text-right font-medium text-on-surface tabular-nums">{{ row.value }}</span>
+    </li>
+  </ul>
+</section>

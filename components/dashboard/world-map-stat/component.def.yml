@@ -1,0 +1,14 @@
+name: world-map-stat
+props:
+  title:
+    type: string
+    default: "Users by country"
+    title: Title
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each row: { code, country, value, pct } where pct is a bar width 0-100."
+    example:
+      - { code: "US", country: "United States", value: "8,420", pct: 100 }

@@ -1,0 +1,10 @@
+{
+  "title": "Users by country",
+  "rows": [
+    { "code": "US", "country": "United States", "value": "8,420", "pct": 100 },
+    { "code": "GB", "country": "United Kingdom", "value": "3,180", "pct": 62 },
+    { "code": "DE", "country": "Germany", "value": "2,640", "pct": 51 },
+    { "code": "JP", "country": "Japan", "value": "1,920", "pct": 37 },
+    { "code": "BR", "country": "Brazil", "value": "1,340", "pct": 26 }
+  ]
+}

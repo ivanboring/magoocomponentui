@@ -1,0 +1,65 @@
+name: "Activity Summary"
+short_description: A compact recent-activity feed with actor/action/target lines and timestamps.
+long_visual_description: >
+  A widget listing recent activity, each line with a coloured status dot, an actor + action +
+  target sentence, and a relative timestamp.
+
+use_cases:
+  - Recent activity widget.
+  - Audit or event feed.
+  - Team activity summary.
+  - Changelog-style updates.
+  - Notifications digest.
+
+recommended_for:
+  - A compact activity/event feed on a dashboard.
+avoid_for:
+  - A full notification inbox (use notification-inbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide actor/action/target items with a tone and relative time; keep each to one line.
+
+props:
+  title: The widget title.
+  items: The activity items with actor, action, target, time, and tone.
+
+example_prompts:
+  - "Add a recent activity summary widget."
+  - "Add a team activity feed with timestamps."
+
+lifecycle: experimental
+content_model: A list of recent activity events with timestamps.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep lines to one sentence; use relative times and consistent tones by event type.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; the dot is decorative and each event reads as a full sentence with a time.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

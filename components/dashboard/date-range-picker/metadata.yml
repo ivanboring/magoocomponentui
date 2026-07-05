@@ -1,0 +1,64 @@
+name: "Date Range Picker"
+short_description: A date-range selector with quick presets and the current range shown.
+long_visual_description: >
+  A button showing the current range with a calendar icon; clicking opens a menu of preset
+  ranges (Today, Last 7/30/90 days, YTD) with the active one checked.
+
+use_cases:
+  - Dashboard date range control.
+  - Report period selector.
+  - Analytics time filter.
+  - Metric window picker.
+  - Preset range chooser.
+
+recommended_for:
+  - Selecting a reporting period from quick presets.
+avoid_for:
+  - Picking an arbitrary single date (use a date field).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current range on the toggle; mark one preset active. Listen for daterange:change
+  to reload the dashboard.
+
+props:
+  current: The current range label.
+  presets: The preset ranges, one active.
+
+example_prompts:
+  - "Add a date range picker with Last 7/30/90 day presets."
+  - "Add a dashboard period selector."
+
+lifecycle: experimental
+content_model: A current range and a set of preset ranges.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Offer the periods your users need; show the current selection on the toggle.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle exposes aria-haspopup/aria-expanded; presets use role="menuitemradio" with aria-checked; Escape closes and refocuses.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes and refocuses; presets are focusable.
+  seo_score: 25
+  text_direction: both

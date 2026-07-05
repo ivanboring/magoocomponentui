@@ -1,0 +1,61 @@
+name: "Widget Card"
+short_description: A generic dashboard widget shell with a header, actions slot, and body slot.
+long_visual_description: >
+  A bordered card with a header (title, subtitle, trailing actions) and a body region for
+  any widget content — the base shell for dashboard widgets.
+
+use_cases:
+  - Wrap any dashboard widget.
+  - Chart or list container with a header.
+  - Metric group panel.
+  - Configurable dashboard tile.
+  - Consistent widget chrome.
+
+recommended_for:
+  - A consistent header + body shell for dashboard widgets.
+avoid_for:
+  - A single metric (use metric-tile/stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot header actions (menu/filter) and the widget body (chart, list, table).
+
+props:
+  title: The widget title.
+  subtitle: An optional subtitle (period, scope).
+
+slots:
+  actions: Header actions.
+  body: The widget content.
+
+lifecycle: experimental
+content_model: A titled widget shell with header actions and a body.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the title short; use the subtitle for the period or scope.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: organism
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; body/actions semantics come from the slotted content.
+  keyboard_support: Slotted controls are focusable.
+  seo_score: 30
+  text_direction: both

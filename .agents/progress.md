@@ -30,7 +30,10 @@
 Structure is done. **Authoring the 218-component catalog is deferred to another model/session** per the user. To add a component: create `components/<category>/<name>/` with `component.def.yml` + `template.html` + `metadata.yml` (+ optional `behavior.js` / `examples/`), then `pnpm build`. Copy `components/notifications/alert/` as the template. Read `docs/authoring-guide.md`, `docs/template-directives.md`, `docs/theming.md`.
 
 ### CATALOG AUTHORING — in progress (2026-07-04/05)
-Authoring the 218 catalog components directly (per CLAUDE.md, no superpowers loop). **177 built so far.** Completed domains, in `docs/catalog/first-200.md` order:
+**CATALOG COMPLETE — 223 components built** (all 218 planned + card-slider/masonry-grid/card-rail containers + video-premiere). All 11 first-200 domains done: Atoms, Navigation, Overlays, Notifications, Cards, Video/Media, Sports, Commerce, Editorial, Marketing, Data, Forms, Social, Layout, Dashboard. Skipped as machine-name dup: Data #162 stat-card, Marketing #155 stats-band (exist under dashboard/). Next: `docs/catalog/next-500.md` (500 more) when resumed.
+
+---
+(historical) Authoring the 218 catalog components directly (per CLAUDE.md, no superpowers loop). **177 built so far.** Completed domains, in `docs/catalog/first-200.md` order:
 - **Atoms (1–16)** ✅ · **Navigation (17–30)** ✅ · **Overlays (31–42)** ✅ · **Notifications (43–56)** ✅ · **Cards (57–76)** ✅ · **Video/Media (77–94)** ✅ · **Sports/World Cup (95–116)** ✅ · **Commerce (117–132)** ✅ · **Editorial (133–144)** ✅ · **Marketing (145–160)** ✅ · **Data (161–172)** ✅.
 - **Extra container components** (Layout/Grids, for the preview "show inside a container" dropdown): `layout/card-slider`, `layout/masonry-grid`, `layout/card-rail` (+ existing `cards/card-grid`, `commerce/product-grid`).
 - Pre-existing / dedup-skipped (machine-name collisions avoided): `marketing/feature-grid`, `dashboard/stat-card` (Data #162 stat-card skipped), `dashboard/stats-band` (Marketing #155 skipped), `events/*`.

@@ -1,0 +1,70 @@
+name: "Widget Empty State"
+short_description: An empty-state placeholder for a dashboard widget with an icon, message, and CTA.
+long_visual_description: >
+  A dashed-border placeholder centered with an illustrative icon, a title and description,
+  and an optional call-to-action to get started.
+
+use_cases:
+  - Empty dashboard widget.
+  - No-data placeholder.
+  - First-run / onboarding prompt.
+  - Zero-results state.
+  - Connect-a-source prompt.
+
+recommended_for:
+  - The empty/zero state of a dashboard widget with a next step.
+avoid_for:
+  - A full-page empty state (use empty-state).
+
+markets:
+  - Global
+
+example_usage: >
+  Explain why it's empty and offer a clear next step; slot an illustrative icon.
+
+props:
+  title: The empty-state title.
+  description: A supporting explanation.
+  cta_label: The action text.
+  cta_href: The action link.
+
+slots:
+  icon: An illustrative icon.
+
+example_prompts:
+  - "Add an empty-state for a dashboard widget with a connect CTA."
+  - "Add a no-data placeholder with an icon and message."
+
+lifecycle: experimental
+content_model: An empty-state message with an icon and a next-step action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Say why it's empty and what to do next; keep the CTA to one clear action.
+
+categorization:
+  category: Dashboard
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The icon is decorative; the title, description, and CTA carry the meaning; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 20
+  text_direction: both

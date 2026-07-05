@@ -1,0 +1,11 @@
+<div class="metric-comparison rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="metric-comparison__label text-sm text-on-surface-muted">{{ label }}</p>
+  <div class="metric-comparison__row mt-1 flex items-baseline gap-3">
+    <span class="metric-comparison__current font-heading text-2xl text-on-surface tabular-nums">{{ current }}</span>
+    <span data-if="delta" class="metric-comparison__delta flex items-center gap-1 text-sm font-medium {{ trend@class }}" data-trend="{{ trend }}">
+      <svg data-if="trend" class="size-3.5 data-[trend=down]:rotate-180 data-[trend=flat]:hidden" data-trend="{{ trend }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+      {{ delta }}
+    </span>
+  </div>
+  <p class="metric-comparison__previous mt-2 text-xs text-on-surface-muted">{{ previous_label }}: <span class="tabular-nums">{{ previous }}</span></p>
+</div>

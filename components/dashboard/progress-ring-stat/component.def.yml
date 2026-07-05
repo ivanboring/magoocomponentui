@@ -1,0 +1,32 @@
+name: progress-ring-stat
+props:
+  value:
+    type: string
+    required: true
+    title: Center value
+    example: "68%"
+  label:
+    type: string
+    title: Label
+    example: "Storage used"
+  caption:
+    type: string
+    title: Caption
+    example: "6.8 GB of 10 GB"
+  dash:
+    type: string
+    required: true
+    title: Ring dash
+    description: Precomputed stroke-dasharray on a r=45 circle (circumference ~283), e.g. "192 283".
+    example: "192 283"
+  tone:
+    type: enum
+    values: [primary, success, warning, danger]
+    default: primary
+    title: Tone
+variants:
+  tone:
+    primary: "text-primary"
+    success: "text-success"
+    warning: "text-warning"
+    danger: "text-danger"

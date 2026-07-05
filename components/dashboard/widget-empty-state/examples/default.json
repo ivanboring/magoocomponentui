@@ -1,0 +1,9 @@
+{
+  "title": "No data yet",
+  "description": "Once you start collecting events, your metrics will show up here.",
+  "cta_label": "Connect a source",
+  "cta_href": "#",
+  "$slots": {
+    "icon": "<svg class=\"size-6\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 15V9m4 6V5m4 10v-4m4 4V7\"/></svg>"
+  }
+}

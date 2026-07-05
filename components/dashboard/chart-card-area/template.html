@@ -1,0 +1,17 @@
+<section class="chart-card-area flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="chart-card-area__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="chart-card-area__head mt-0.5 flex items-baseline gap-2">
+    <p data-if="value" class="chart-card-area__value font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+    <span data-if="delta" class="chart-card-area__delta text-xs font-medium text-success">{{ delta }}</span>
+  </div>
+  <svg class="chart-card-area__chart mt-4 h-32 w-full" viewBox="0 0 300 120" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="area-fade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="currentColor" stop-opacity="0.25" class="text-primary"></stop>
+        <stop offset="100%" stop-color="currentColor" stop-opacity="0" class="text-primary"></stop>
+      </linearGradient>
+    </defs>
+    <polygon points="{{ area_points }}" class="text-primary" fill="url(#area-fade)"></polygon>
+    <polyline points="{{ line_points }}" class="text-primary" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+  </svg>
+</section>
