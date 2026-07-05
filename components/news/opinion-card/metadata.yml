@@ -1,0 +1,67 @@
+name: "Opinion Card"
+short_description: A columnist opinion piece card with kicker, headline, and byline.
+long_visual_description: >
+  A card with an "Opinion" kicker, an italic headline, and a byline with the columnist's
+  avatar and name.
+
+use_cases:
+  - Opinion section card.
+  - Columnist piece.
+  - Editorial teaser.
+  - Op-ed listing.
+  - Commentary card.
+
+recommended_for:
+  - An opinion/column teaser with a byline.
+avoid_for:
+  - A news story (use story-list-item).
+
+markets:
+  - Global
+
+example_usage: >
+  Use the "Opinion" kicker and an italic headline; attribute to the columnist.
+
+props:
+  kicker: The opinion kicker.
+  headline: The headline.
+  columnist: The columnist name.
+  columnist_initials: The avatar fallback.
+  columnist_image: Optional columnist photo.
+  href: The article link.
+
+example_prompts:
+  - "Add an opinion column card with a byline."
+  - "Add an op-ed teaser."
+
+lifecycle: experimental
+content_model: An opinion piece teaser with byline.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-accent
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Mark it clearly as opinion; the columnist byline builds trust.
+
+categorization:
+  category: News
+  subcategory: Opinion
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The "Opinion" kicker labels it as opinion (text); the headline is a real link; the avatar carries the columnist name.
+  keyboard_support: The headline link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

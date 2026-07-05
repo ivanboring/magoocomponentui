@@ -1,0 +1,28 @@
+name: article-lead
+props:
+  kicker:
+    type: string
+    title: Kicker
+    example: "Transportation"
+  headline:
+    type: string
+    required: true
+    title: Headline
+    example: "City council approves sweeping transit plan in landmark vote"
+  standfirst:
+    type: string
+    title: Standfirst
+    example: "The $2.4 billion plan adds three new lines and reshapes a decade of city investment."
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/cover-workspace.jpg"
+  caption:
+    type: string
+    title: Caption
+    example: "The council chamber ahead of Tuesday's vote. — Photo: Staff"
+  byline:
+    type: string
+    title: Byline
+    example: "By Dana Cole · Aug 12, 2026 · 6 min read"

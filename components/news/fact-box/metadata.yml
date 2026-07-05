@@ -1,0 +1,61 @@
+name: "Fact Box"
+short_description: A key-facts sidebar with label/value pairs.
+long_visual_description: >
+  An accented sidebar box titled "Key facts" listing label/value pairs (vote, cost, timeline).
+
+use_cases:
+  - Article key facts.
+  - At-a-glance sidebar.
+  - Quick reference box.
+  - Story facts panel.
+  - Data sidebar.
+
+recommended_for:
+  - A key-facts sidebar for an article.
+avoid_for:
+  - A pull quote (use quote-card-news).
+
+markets:
+  - Global
+
+example_usage: >
+  List the key facts as label/value pairs; keep values concise.
+
+props:
+  title: The box title.
+  facts: The label/value facts.
+
+example_prompts:
+  - "Add a key-facts sidebar for an article."
+  - "Add an at-a-glance fact box."
+
+lifecycle: experimental
+content_model: A key-facts sidebar.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep facts concise; use for at-a-glance context beside the article.
+
+categorization:
+  category: News
+  subcategory: Article
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list; all facts are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

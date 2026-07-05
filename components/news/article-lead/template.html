@@ -1,0 +1,12 @@
+<article class="article-lead mx-auto max-w-3xl">
+  <header class="article-lead__header text-center">
+    <p data-if="kicker" class="article-lead__kicker text-sm font-bold uppercase tracking-widest text-primary">{{ kicker }}</p>
+    <h1 class="article-lead__headline mt-2 font-heading text-4xl leading-tight text-on-surface sm:text-5xl">{{ headline }}</h1>
+    <p data-if="standfirst" class="article-lead__standfirst mx-auto mt-4 max-w-2xl text-lg text-on-surface-muted">{{ standfirst }}</p>
+    <p data-if="byline" class="article-lead__byline mt-4 text-sm text-on-surface-muted">{{ byline }}</p>
+  </header>
+  <figure class="article-lead__figure mt-8">
+    <img class="article-lead__image w-full rounded-card object-cover" src="{{ image }}" alt="{{ caption }}">
+    <figcaption data-if="caption" class="article-lead__caption mt-2 text-xs text-on-surface-muted">{{ caption }}</figcaption>
+  </figure>
+</article>

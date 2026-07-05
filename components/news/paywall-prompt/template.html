@@ -1,0 +1,11 @@
+<section class="paywall-prompt relative">
+  <div class="paywall-prompt__fade pointer-events-none absolute inset-x-0 -top-24 h-24 bg-gradient-to-t from-surface to-transparent" aria-hidden="true"></div>
+  <div class="paywall-prompt__card rounded-card border border-border bg-surface p-(--space-section) text-center shadow-card">
+    <p data-if="eyebrow" class="paywall-prompt__eyebrow text-xs font-bold uppercase tracking-widest text-primary">{{ eyebrow }}</p>
+    <h2 class="paywall-prompt__title mt-2 font-heading text-2xl text-on-surface">{{ title }}</h2>
+    <p data-if="description" class="paywall-prompt__description mx-auto mt-2 max-w-md text-on-surface-muted">{{ description }}</p>
+    <p data-if="price" class="paywall-prompt__price mt-4 font-heading text-lg text-on-surface">{{ price }}</p>
+    <button type="button" class="paywall-prompt__cta mt-4 w-full max-w-xs rounded-button bg-primary py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+    <p data-if="signin_label" class="paywall-prompt__signin mt-3 text-sm text-on-surface-muted"><a class="font-medium text-primary hover:underline" href="#">{{ signin_label }}</a></p>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<section class="photo-essay mx-auto max-w-3xl" aria-label="{{ title }}">
+  <h2 data-if="title" class="photo-essay__title mb-6 text-center font-heading text-3xl text-on-surface">{{ title }}</h2>
+  <div class="photo-essay__photos flex flex-col gap-8">
+    <figure data-for="photo in photos" class="photo-essay__figure data-[wide=true]:-mx-6 sm:data-[wide=true]:-mx-12" data-wide="{{ photo.wide }}">
+      <img class="photo-essay__image w-full rounded-card object-cover" src="{{ photo.src }}" alt="{{ photo.caption }}">
+      <figcaption class="photo-essay__caption mt-2 text-sm text-on-surface-muted">
+        {{ photo.caption }}<span data-if="photo.credit" class="text-xs"> — {{ photo.credit }}</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>

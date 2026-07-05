@@ -1,0 +1,62 @@
+name: "Article Lead"
+short_description: A lead story block with kicker, headline, standfirst, byline, and lead image.
+long_visual_description: >
+  A centered article opener with a kicker, large headline, standfirst, byline, and a full-width
+  lead image with a caption.
+
+use_cases:
+  - Article opener.
+  - Lead story block.
+  - Feature headline.
+  - Story hero.
+  - Editorial lead.
+
+recommended_for:
+  - The opening block of a feature article.
+avoid_for:
+  - A story list item (use story-list-item).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the kicker, headline, standfirst, and byline; the lead image has a descriptive caption.
+
+props:
+  kicker: The section kicker.
+  headline: The headline.
+  standfirst: The standfirst/subhead.
+  image: The lead image (required).
+  caption: The image caption.
+  byline: The byline line.
+
+example_prompts:
+  - "Add an article lead block with headline and lead image."
+  - "Add a feature story opener."
+
+lifecycle: experimental
+content_model: An article opener with headline and lead image.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the standfirst tight; the caption should credit the photo.
+
+categorization:
+  category: News
+  subcategory: Article
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and figure/figcaption; the image alt uses the caption; byline is real text.
+  keyboard_support: "none"
+  seo_score: 70
+  text_direction: both

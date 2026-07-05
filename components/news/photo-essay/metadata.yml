@@ -1,0 +1,57 @@
+name: "Photo Essay"
+short_description: A captioned image sequence for visual storytelling.
+long_visual_description: >
+  A vertical sequence of captioned photos (some full-bleed) with credits, for a photo-led
+  story.
+
+use_cases:
+  - Photo essay.
+  - Visual story.
+  - Captioned image sequence.
+  - Photojournalism piece.
+  - Gallery narrative.
+
+recommended_for:
+  - A captioned photo sequence for storytelling.
+avoid_for:
+  - A product gallery (use a gallery component).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide photos with captions and credits; mark hero photos as wide for full-bleed.
+
+props:
+  title: The essay title.
+  photos: The photos with caption, credit, and wide flag.
+
+example_prompts:
+  - "Add a photo essay with captioned images."
+  - "Add a visual story sequence."
+
+lifecycle: experimental
+content_model: A captioned photo sequence.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Caption every photo and credit the photographer; use wide sparingly for impact.
+
+categorization:
+  category: News
+  subcategory: Article
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each photo uses figure/figcaption with the caption as alt; credits are real text.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

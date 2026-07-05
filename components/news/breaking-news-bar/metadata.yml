@@ -1,0 +1,62 @@
+name: "Breaking News Bar"
+short_description: An urgent breaking-news strip with a label, headline, and time.
+long_visual_description: >
+  A danger-coloured strip with a pulsing "Breaking" label, the headline, and a timestamp,
+  linking to the story.
+
+use_cases:
+  - Breaking news alert.
+  - Urgent headline strip.
+  - Live news banner.
+  - Top-of-page alert.
+  - Developing story bar.
+
+recommended_for:
+  - An urgent breaking-news strip.
+avoid_for:
+  - A general alert (use alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the "Breaking" label, the headline, and how recent it is; the whole bar links to the
+  story.
+
+props:
+  label: The urgency label.
+  headline: The headline.
+  time: The relative time.
+  href: The story link.
+
+example_prompts:
+  - "Add a breaking news bar with a headline."
+  - "Add an urgent news strip."
+
+lifecycle: experimental
+content_model: An urgent headline strip.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-danger-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Reserve for genuinely urgent news; show how recent it is.
+
+categorization:
+  category: News
+  subcategory: Alerts
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces it; the whole bar is a link with the headline as text. Verify danger/contrast per theme.
+  keyboard_support: The bar is focusable and activates on Enter.
+  seo_score: 30
+  text_direction: both

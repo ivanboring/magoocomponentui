@@ -1,0 +1,13 @@
+<header class="topic-header border-b border-border">
+  <div class="topic-header__top flex flex-wrap items-end justify-between gap-4 pb-4">
+    <div class="max-w-2xl">
+      <h1 class="topic-header__title font-heading text-4xl text-on-surface">{{ title }}</h1>
+      <p data-if="description" class="topic-header__description mt-2 text-on-surface-muted">{{ description }}</p>
+      <p data-if="follower_count" class="topic-header__followers mt-1 text-sm text-on-surface-muted">{{ follower_count }}</p>
+    </div>
+    <button type="button" class="topic-header__follow rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Follow</button>
+  </div>
+  <nav data-if="tabs" class="topic-header__tabs flex gap-1 overflow-x-auto" aria-label="Topic sections">
+    <a data-for="tab in tabs" class="topic-header__tab -mb-px whitespace-nowrap border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" data-active="{{ tab.active }}" href="#" aria-current="{{ tab.active }}">{{ tab.label }}</a>
+  </nav>
+</header>

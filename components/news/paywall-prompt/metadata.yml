@@ -1,0 +1,70 @@
+name: "Paywall Prompt"
+short_description: A subscribe-to-read gate with a fade, offer, and subscribe/sign-in.
+long_visual_description: >
+  A gate with a fade from the article above, a subscriber-exclusive eyebrow, a title and
+  offer, a subscribe button, and a sign-in link.
+
+use_cases:
+  - Article paywall.
+  - Subscribe-to-read gate.
+  - Metered paywall.
+  - Premium content gate.
+  - Subscription prompt.
+
+recommended_for:
+  - A subscribe-to-read paywall gate.
+avoid_for:
+  - A newsletter signup (use newsletter-signup).
+
+markets:
+  - Global
+
+example_usage: >
+  The fade suggests the article continues behind the gate; show the offer and subscribe with a
+  sign-in link.
+
+props:
+  eyebrow: The exclusive eyebrow.
+  title: The gate title.
+  description: The value proposition.
+  price: The offer price.
+  cta_label: The subscribe button text.
+  signin_label: The sign-in link text.
+
+example_prompts:
+  - "Add a subscribe-to-read paywall prompt."
+  - "Add an article subscription gate."
+
+lifecycle: experimental
+content_model: A subscribe-to-read gate with an offer.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  State the value and the offer clearly; always offer a sign-in path for existing subscribers.
+
+categorization:
+  category: News
+  subcategory: Subscription
+  atomic_type: organism
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The fade is decorative; the offer and actions are real text/controls; subscribe is a button and sign-in is a link.
+  keyboard_support: Subscribe and sign-in are focusable and keyboard-operable.
+  seo_score: 40
+  text_direction: both

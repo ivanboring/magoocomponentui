@@ -1,0 +1,9 @@
+<article class="story-list-item flex gap-3 py-3">
+  <div class="story-list-item__body min-w-0 flex-1">
+    <p class="story-list-item__meta text-xs text-on-surface-muted"><span data-if="category" class="font-semibold uppercase tracking-wide text-primary">{{ category }}</span><span data-if="time"> · {{ time }}</span></p>
+    <h3 class="story-list-item__headline mt-0.5 font-heading text-on-surface"><a class="hover:underline" href="{{ href }}">{{ headline }}</a></h3>
+  </div>
+  <a data-if="image" class="story-list-item__thumb block size-20 shrink-0 overflow-hidden rounded-card" href="{{ href }}">
+    <img class="size-full object-cover" src="{{ image }}" alt="">
+  </a>
+</article>

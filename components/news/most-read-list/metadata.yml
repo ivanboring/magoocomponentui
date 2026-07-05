@@ -1,0 +1,61 @@
+name: "Most Read List"
+short_description: A ranked list of popular stories with big rank numbers.
+long_visual_description: >
+  A titled ranked list of stories, each with a large rank number, category, and headline.
+
+use_cases:
+  - Most-read sidebar.
+  - Trending stories.
+  - Popular now list.
+  - Top stories widget.
+  - Ranked headlines.
+
+recommended_for:
+  - A ranked list of popular stories.
+avoid_for:
+  - A general story feed (use story-list-item list).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide stories ranked by popularity with a rank number and category.
+
+props:
+  title: The section title.
+  stories: The ranked stories with rank, headline, and category.
+
+example_prompts:
+  - "Add a most-read stories list."
+  - "Add a trending headlines widget."
+
+lifecycle: experimental
+content_model: A ranked list of popular stories.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the rank prominently; keep to the top few stories.
+
+categorization:
+  category: News
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; the visible rank number is decorative (order conveyed by the list); headlines are real links.
+  keyboard_support: Headlines are focusable and activate on Enter.
+  seo_score: 40
+  text_direction: both

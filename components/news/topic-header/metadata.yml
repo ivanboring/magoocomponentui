@@ -1,0 +1,63 @@
+name: "Topic Header"
+short_description: A section masthead with title, description, follow, and section tabs.
+long_visual_description: >
+  A masthead with the topic title and description, a follower count and follow button, and a
+  row of section tabs.
+
+use_cases:
+  - Topic/section masthead.
+  - Category header.
+  - Follow-a-topic header.
+  - Section landing.
+  - Tag page header.
+
+recommended_for:
+  - A topic/section masthead with tabs and follow.
+avoid_for:
+  - An article opener (use article-lead).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the topic and description with a follow action and section tabs.
+
+props:
+  title: The topic title.
+  description: The topic description.
+  follower_count: The follower count.
+  tabs: The section tabs.
+
+example_prompts:
+  - "Add a topic masthead with follow and section tabs."
+  - "Add a news section header."
+
+lifecycle: experimental
+content_model: A topic masthead with tabs and follow.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Describe the topic clearly; the tabs organize the section.
+
+categorization:
+  category: News
+  subcategory: Navigation
+  atomic_type: organism
+  usage_type: [banner, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and a labelled nav; the active tab sets aria-current; follow is a real button.
+  keyboard_support: Tabs and follow are focusable and keyboard-operable.
+  seo_score: 55
+  text_direction: both

@@ -1,0 +1,7 @@
+<a class="breaking-news-bar flex items-center gap-3 rounded-card bg-danger px-(--space-card) py-2.5 text-danger-contrast shadow-card" href="{{ href }}" role="alert">
+  <span class="breaking-news-bar__label flex shrink-0 items-center gap-1.5 rounded-control bg-danger-contrast/20 px-2 py-0.5 text-xs font-bold uppercase tracking-wide">
+    <span class="size-1.5 rounded-full bg-current"></span>{{ label }}
+  </span>
+  <span class="breaking-news-bar__headline min-w-0 flex-1 truncate text-sm font-medium">{{ headline }}</span>
+  <span data-if="time" class="breaking-news-bar__time shrink-0 text-xs text-danger-contrast/80">{{ time }}</span>
+</a>

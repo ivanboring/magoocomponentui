@@ -1,0 +1,64 @@
+name: "Weather Strip"
+short_description: A compact current-conditions bar with a short forecast.
+long_visual_description: >
+  A bar with the current temperature, location, and condition on the left and a few forecast
+  days (icon, high/low) on the right.
+
+use_cases:
+  - Homepage weather bar.
+  - Compact forecast.
+  - News-site weather strip.
+  - Local conditions.
+  - Weather summary.
+
+recommended_for:
+  - A compact current + short forecast strip.
+avoid_for:
+  - A full weather widget (build a dedicated one).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current conditions and a few forecast days; icons are emoji placeholders.
+
+props:
+  location: The location.
+  temp: The current temperature.
+  condition: The current condition.
+  icon: The current icon.
+  days: The forecast days.
+
+example_prompts:
+  - "Add a compact weather strip with a 4-day forecast."
+  - "Add a news-site weather bar."
+
+lifecycle: experimental
+content_model: A current + short forecast strip.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep it compact; show high/low per day.
+
+categorization:
+  category: News
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Temperatures and conditions are real text; weather icons are decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

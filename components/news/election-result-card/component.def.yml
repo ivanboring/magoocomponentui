@@ -1,0 +1,20 @@
+name: election-result-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Mayoral Election"
+  status:
+    type: string
+    title: Status
+    example: "98% reporting · Projected winner"
+  candidates:
+    type: array
+    items: object
+    required: true
+    title: Candidates
+    description: >
+      Each: { name, party, votes, pct, tone, winner } where tone is primary|accent|warning|info.
+    example:
+      - { name: "Elena Ruiz", party: "Progressive", votes: "184,204", pct: 52, tone: "primary", winner: true }

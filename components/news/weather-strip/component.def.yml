@@ -1,0 +1,25 @@
+name: weather-strip
+props:
+  location:
+    type: string
+    required: true
+    title: Location
+    example: "San Francisco"
+  temp:
+    type: string
+    required: true
+    title: Temp
+    example: "62°"
+  condition:
+    type: string
+    title: Condition
+    example: "Partly cloudy"
+  icon:
+    type: string
+    default: "⛅"
+    title: Icon
+  days:
+    type: array
+    items: object
+    title: Days
+    description: "Each: { label, icon, high, low }."

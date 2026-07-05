@@ -1,0 +1,63 @@
+name: "Live Blog Entry"
+short_description: A timestamped live-blog update with an optional key-update flag.
+long_visual_description: >
+  A timeline entry with a timestamp (red dot + "Key update" tag when important), a title, the
+  update body, and an author.
+
+use_cases:
+  - Live blog update.
+  - Developing-story entry.
+  - Live coverage post.
+  - Timestamped update.
+  - Rolling news item.
+
+recommended_for:
+  - A single timestamped live-blog update.
+avoid_for:
+  - A finished article (use article-lead).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the time and update; flag important entries as key updates.
+
+props:
+  time: The timestamp.
+  title: The update title.
+  body: The update body.
+  author: The author.
+  key: Whether it's a key update.
+
+example_prompts:
+  - "Add a live blog entry marked as a key update."
+  - "Add a timestamped live coverage post."
+
+lifecycle: experimental
+content_model: A timestamped live-blog update.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-control
+    - --font-heading
+
+editorial_guidance: >
+  Timestamp every entry; flag genuinely important updates as key.
+
+categorization:
+  category: News
+  subcategory: Live
+  atomic_type: molecule
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Key updates show a "Key update" text tag (not colour alone); the timeline dot is decorative; text is real.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,27 @@
+name: opinion-card
+props:
+  kicker:
+    type: string
+    default: "Opinion"
+    title: Kicker
+  headline:
+    type: string
+    required: true
+    title: Headline
+    example: "The transit plan is bold. It's also the only responsible choice."
+  columnist:
+    type: string
+    required: true
+    title: Columnist
+    example: "Jordan Ellis"
+  columnist_initials:
+    type: string
+    required: true
+    title: Columnist initials
+    example: "JE"
+  columnist_image:
+    type: image
+    title: Columnist photo
+  href:
+    type: link
+    title: Link

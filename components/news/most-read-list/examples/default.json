@@ -1,0 +1,10 @@
+{
+  "title": "Most read",
+  "stories": [
+    { "rank": "1", "headline": "City council approves new transit plan after months of debate", "category": "Local" },
+    { "rank": "2", "headline": "Central bank cuts rates in surprise move", "category": "Business" },
+    { "rank": "3", "headline": "How the new plan will change your commute", "category": "Explainer" },
+    { "rank": "4", "headline": "Opinion: The bold choice was the right one", "category": "Opinion" },
+    { "rank": "5", "headline": "Five things to watch as implementation begins", "category": "Analysis" }
+  ]
+}

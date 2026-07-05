@@ -1,0 +1,21 @@
+<section class="election-result-card rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="election-result-card__head flex items-baseline justify-between gap-2">
+    <h3 class="election-result-card__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="status" class="election-result-card__status text-xs text-on-surface-muted">{{ status }}</span>
+  </div>
+  <ul class="election-result-card__candidates mt-4 flex flex-col gap-3">
+    <li data-for="candidate in candidates" class="election-result-card__candidate">
+      <div class="flex items-baseline justify-between gap-2 text-sm">
+        <span class="flex items-center gap-1.5">
+          <span data-if="candidate.winner" class="text-success" aria-label="Winner"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg></span>
+          <span class="font-medium text-on-surface">{{ candidate.name }}</span>
+          <span class="text-on-surface-muted">{{ candidate.party }}</span>
+        </span>
+        <span class="tabular-nums"><span class="font-heading text-on-surface">{{ candidate.pct }}%</span> <span class="text-xs text-on-surface-muted">{{ candidate.votes }}</span></span>
+      </div>
+      <div class="mt-1.5 h-2.5 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ candidate.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ candidate.name }}">
+        <div class="h-full rounded-pill data-[tone=primary]:bg-primary data-[tone=accent]:bg-accent data-[tone=warning]:bg-warning data-[tone=info]:bg-info" data-tone="{{ candidate.tone }}" style="width: {{ candidate.pct }}%"></div>
+      </div>
+    </li>
+  </ul>
+</section>

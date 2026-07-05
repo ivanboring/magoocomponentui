@@ -1,0 +1,15 @@
+<article class="live-blog-entry relative flex gap-4 pb-6" data-key="{{ key }}">
+  <div class="live-blog-entry__rail flex flex-col items-center">
+    <span class="live-blog-entry__dot mt-1 size-3 shrink-0 rounded-full bg-border ring-4 ring-surface data-[key=true]:bg-danger" data-key="{{ key }}" aria-hidden="true"></span>
+    <span class="live-blog-entry__line mt-1 w-px flex-1 bg-border"></span>
+  </div>
+  <div class="live-blog-entry__body min-w-0 flex-1">
+    <p class="live-blog-entry__time flex items-center gap-2 text-xs font-medium text-on-surface-muted tabular-nums">
+      {{ time }}
+      <span data-if="key" class="rounded-control bg-danger/15 px-1.5 py-0.5 text-[10px] font-bold uppercase text-danger">Key update</span>
+    </p>
+    <h3 data-if="title" class="live-blog-entry__title mt-1 font-heading text-on-surface">{{ title }}</h3>
+    <p class="live-blog-entry__text mt-1 text-sm text-on-surface-muted">{{ body }}</p>
+    <p data-if="author" class="live-blog-entry__author mt-1.5 text-xs text-on-surface-muted">— {{ author }}</p>
+  </div>
+</article>

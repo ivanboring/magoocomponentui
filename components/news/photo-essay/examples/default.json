@@ -1,0 +1,8 @@
+{
+  "title": "A city in transit",
+  "photos": [
+    { "src": "/stock/cover-workspace.jpg", "caption": "Dawn breaks over the newly opened line.", "credit": "Photo: Dana Cole", "wide": true },
+    { "src": "/stock/cover-workspace.jpg", "caption": "Commuters test the first trains during the preview week.", "credit": "Photo: Staff", "wide": false },
+    { "src": "/stock/cover-workspace.jpg", "caption": "Engineers make final checks along the elevated track.", "credit": "Photo: Staff", "wide": false }
+  ]
+}

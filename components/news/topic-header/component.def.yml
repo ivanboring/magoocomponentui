@@ -1,0 +1,20 @@
+name: topic-header
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Climate"
+  description:
+    type: string
+    title: Description
+    example: "Coverage of the climate crisis, policy, and the transition to clean energy."
+  follower_count:
+    type: string
+    title: Follower count
+    example: "142K following"
+  tabs:
+    type: array
+    items: object
+    title: Tabs
+    description: "Each: { label, active }."

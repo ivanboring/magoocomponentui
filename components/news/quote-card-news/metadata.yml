@@ -1,0 +1,58 @@
+name: "News Pull Quote"
+short_description: A pull quote with an attributed source and role.
+long_visual_description: >
+  A large pull quote with a quotation mark and a left accent rule, attributed to a source and
+  their role.
+
+use_cases:
+  - Article pull quote.
+  - Attributed quotation.
+  - Highlighted statement.
+  - Interview quote.
+  - Editorial callout.
+
+recommended_for:
+  - A pull quote with attribution in an article.
+avoid_for:
+  - A testimonial (use testimonial-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the quote and attribute it to a source and role/context.
+
+props:
+  quote: The quote text.
+  source: The source name.
+  role: The source role/context.
+
+example_prompts:
+  - "Add a news pull quote attributed to the mayor."
+  - "Add an article callout quotation."
+
+lifecycle: experimental
+content_model: An attributed pull quote.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Keep the quote punchy; always attribute the source and context.
+
+categorization:
+  category: News
+  subcategory: Article
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses figure/blockquote/figcaption; the quotation mark is decorative; text is real.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

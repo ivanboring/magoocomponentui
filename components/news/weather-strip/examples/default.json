@@ -1,0 +1,12 @@
+{
+  "location": "San Francisco",
+  "temp": "62°",
+  "condition": "Partly cloudy",
+  "icon": "⛅",
+  "days": [
+    { "label": "Wed", "icon": "☀️", "high": "68°", "low": "54°" },
+    { "label": "Thu", "icon": "⛅", "high": "65°", "low": "53°" },
+    { "label": "Fri", "icon": "🌧", "high": "60°", "low": "52°" },
+    { "label": "Sat", "icon": "☀️", "high": "70°", "low": "55°" }
+  ]
+}

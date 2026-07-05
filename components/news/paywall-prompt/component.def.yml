@@ -1,0 +1,27 @@
+name: paywall-prompt
+props:
+  eyebrow:
+    type: string
+    default: "Subscriber exclusive"
+    title: Eyebrow
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Read the full story"
+  description:
+    type: string
+    title: Description
+    example: "Support independent journalism. Get unlimited access to every article."
+  price:
+    type: string
+    title: Price
+    example: "$1/week for the first year"
+  cta_label:
+    type: string
+    default: "Subscribe now"
+    title: CTA label
+  signin_label:
+    type: string
+    default: "Already a subscriber? Sign in"
+    title: Sign-in label

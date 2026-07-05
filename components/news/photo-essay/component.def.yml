@@ -1,0 +1,14 @@
+name: photo-essay
+props:
+  title:
+    type: string
+    title: Title
+    example: "A city in transit"
+  photos:
+    type: array
+    items: object
+    required: true
+    title: Photos
+    description: "Each: { src, caption, credit, wide }."
+    example:
+      - { src: "/stock/cover-workspace.jpg", caption: "Dawn over the new line.", credit: "Staff", wide: true }

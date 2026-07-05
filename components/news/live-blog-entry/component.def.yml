@@ -1,0 +1,24 @@
+name: live-blog-entry
+props:
+  time:
+    type: string
+    required: true
+    title: Time
+    example: "3:42 PM"
+  title:
+    type: string
+    title: Title
+    example: "Council votes 7–4 to approve the plan"
+  body:
+    type: string
+    required: true
+    title: Body
+    example: "After a final round of public comment, the measure passed. Implementation begins next quarter."
+  author:
+    type: string
+    title: Author
+    example: "Dana Cole"
+  key:
+    type: boolean
+    default: false
+    title: Key update

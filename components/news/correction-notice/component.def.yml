@@ -1,0 +1,15 @@
+name: correction-notice
+props:
+  label:
+    type: string
+    default: "Correction"
+    title: Label
+  text:
+    type: string
+    required: true
+    title: Text
+    example: "An earlier version of this article misstated the vote count. The measure passed 7–4, not 6–5."
+  date:
+    type: string
+    title: Date
+    example: "Updated Aug 12, 2026"

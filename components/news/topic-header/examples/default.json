@@ -1,0 +1,11 @@
+{
+  "title": "Climate",
+  "description": "Coverage of the climate crisis, policy, and the transition to clean energy.",
+  "follower_count": "142K following",
+  "tabs": [
+    { "label": "Top", "active": true },
+    { "label": "Latest", "active": false },
+    { "label": "Explainers", "active": false },
+    { "label": "Opinion", "active": false }
+  ]
+}

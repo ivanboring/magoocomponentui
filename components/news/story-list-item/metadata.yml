@@ -1,0 +1,60 @@
+name: "Story List Item"
+short_description: A news list row with category, time, headline, and a thumbnail.
+long_visual_description: >
+  A row with the category and time, the headline, and a small thumbnail on the trailing edge.
+
+use_cases:
+  - News feed item.
+  - Story list row.
+  - Section listing entry.
+  - Related stories.
+  - Headline list.
+
+recommended_for:
+  - A news story in a list with a thumbnail.
+avoid_for:
+  - A lead story (use article-lead).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the category and time above the headline; the thumbnail is optional.
+
+props:
+  headline: The headline.
+  category: The section/category.
+  time: The relative time.
+  image: The thumbnail.
+  href: The story link.
+
+example_prompts:
+  - "Add a news story list item with thumbnail."
+  - "Add a headline list row."
+
+lifecycle: experimental
+content_model: A news story list row.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Show the category and time for context; keep the headline scannable.
+
+categorization:
+  category: News
+  subcategory: Lists
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The headline is a real link; the thumbnail is decorative; category and time are real text.
+  keyboard_support: Headline and thumbnail links are focusable and activate on Enter.
+  seo_score: 45
+  text_direction: both

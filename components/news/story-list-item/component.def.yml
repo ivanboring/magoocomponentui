@@ -1,0 +1,22 @@
+name: story-list-item
+props:
+  headline:
+    type: string
+    required: true
+    title: Headline
+    example: "City council approves new transit plan after months of debate"
+  category:
+    type: string
+    title: Category
+    example: "Local"
+  time:
+    type: string
+    title: Time
+    example: "3h ago"
+  image:
+    type: image
+    title: Thumbnail
+    example: "/stock/cover-workspace.jpg"
+  href:
+    type: link
+    title: Link

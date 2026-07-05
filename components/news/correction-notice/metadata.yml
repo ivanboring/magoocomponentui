@@ -1,0 +1,59 @@
+name: "Correction Notice"
+short_description: An editorial correction note with a label and update date.
+long_visual_description: >
+  A subtle inset note labelled "Correction" explaining what was fixed, with the update date.
+
+use_cases:
+  - Article correction.
+  - Editorial update note.
+  - Clarification.
+  - Retraction note.
+  - Accuracy update.
+
+recommended_for:
+  - An editorial correction on an article.
+avoid_for:
+  - A general note (use callout).
+
+markets:
+  - Global
+
+example_usage: >
+  State plainly what was wrong and what's correct; show the update date.
+
+props:
+  label: The label (Correction/Update).
+  text: The correction text.
+  date: The update date.
+
+example_prompts:
+  - "Add an editorial correction notice."
+  - "Add an article update note."
+
+lifecycle: experimental
+content_model: An editorial correction with a date.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+
+editorial_guidance: >
+  Be transparent about what changed; date the correction.
+
+categorization:
+  category: News
+  subcategory: Article
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="note"; the label and text are real; the label colour reinforces but the word carries meaning.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

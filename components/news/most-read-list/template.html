@@ -1,0 +1,12 @@
+<section class="most-read-list rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="most-read-list__title border-b border-border pb-2 font-heading text-on-surface">{{ title }}</h3>
+  <ol class="most-read-list__stories mt-2 flex flex-col divide-y divide-border">
+    <li data-for="story in stories" class="most-read-list__story flex items-start gap-3 py-3 first:pt-2 last:pb-0">
+      <span class="most-read-list__rank font-heading text-2xl leading-none text-primary/40 tabular-nums" aria-hidden="true">{{ story.rank }}</span>
+      <div class="min-w-0">
+        <p data-if="story.category" class="text-[10px] font-semibold uppercase tracking-wide text-on-surface-muted">{{ story.category }}</p>
+        <a class="most-read-list__headline text-sm font-medium text-on-surface hover:underline" href="#">{{ story.headline }}</a>
+      </div>
+    </li>
+  </ol>
+</section>

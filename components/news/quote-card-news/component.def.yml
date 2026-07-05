@@ -1,0 +1,16 @@
+name: quote-card-news
+props:
+  quote:
+    type: string
+    required: true
+    title: Quote
+    example: "This decision will reshape how our city moves for a generation."
+  source:
+    type: string
+    required: true
+    title: Source
+    example: "Mayor Elena Ruiz"
+  role:
+    type: string
+    title: Role
+    example: "on the transit vote"

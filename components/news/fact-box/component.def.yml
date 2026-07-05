@@ -1,0 +1,14 @@
+name: fact-box
+props:
+  title:
+    type: string
+    default: "Key facts"
+    title: Title
+  facts:
+    type: array
+    items: object
+    required: true
+    title: Facts
+    description: "Each: { label, value }."
+    example:
+      - { label: "Vote", value: "7–4 in favor" }

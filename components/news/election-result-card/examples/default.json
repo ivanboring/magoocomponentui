@@ -1,0 +1,9 @@
+{
+  "title": "Mayoral Election",
+  "status": "98% reporting · Projected winner",
+  "candidates": [
+    { "name": "Elena Ruiz", "party": "Progressive", "votes": "184,204", "pct": 52, "tone": "primary", "winner": true },
+    { "name": "Marcus Doyle", "party": "Unity", "votes": "142,880", "pct": 40, "tone": "info", "winner": false },
+    { "name": "Sara Kim", "party": "Independent", "votes": "28,410", "pct": 8, "tone": "warning", "winner": false }
+  ]
+}

@@ -1,0 +1,11 @@
+<article class="opinion-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="opinion-card__kicker text-xs font-bold uppercase tracking-wide text-accent">{{ kicker }}</p>
+  <h3 class="opinion-card__headline mt-1 font-heading text-lg italic leading-snug text-on-surface"><a class="hover:underline" href="{{ href }}">{{ headline }}</a></h3>
+  <div class="opinion-card__byline mt-3 flex items-center gap-2">
+    <span class="opinion-card__avatar relative inline-flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised text-xs font-heading uppercase text-on-surface" role="img" aria-label="{{ columnist }}">
+      <img data-if="columnist_image" class="size-full object-cover" src="{{ columnist_image }}" alt="">
+      <span data-if="!columnist_image" aria-hidden="true">{{ columnist_initials }}</span>
+    </span>
+    <span class="text-sm text-on-surface-muted">By <span class="font-medium text-on-surface">{{ columnist }}</span></span>
+  </div>
+</article>

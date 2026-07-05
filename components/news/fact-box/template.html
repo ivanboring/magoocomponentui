@@ -1,0 +1,9 @@
+<aside class="fact-box rounded-card border-t-4 border-primary bg-surface-raised p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="fact-box__title font-heading text-on-surface">{{ title }}</h3>
+  <dl class="fact-box__facts mt-3 flex flex-col divide-y divide-border text-sm">
+    <div data-for="fact in facts" class="flex justify-between gap-3 py-2 first:pt-0 last:pb-0">
+      <dt class="text-on-surface-muted">{{ fact.label }}</dt>
+      <dd class="font-medium text-on-surface text-right">{{ fact.value }}</dd>
+    </div>
+  </dl>
+</aside>

@@ -1,0 +1,14 @@
+name: most-read-list
+props:
+  title:
+    type: string
+    default: "Most read"
+    title: Title
+  stories:
+    type: array
+    items: object
+    required: true
+    title: Stories
+    description: "Each: { rank, headline, category }."
+    example:
+      - { rank: "1", headline: "City council approves new transit plan", category: "Local" }
