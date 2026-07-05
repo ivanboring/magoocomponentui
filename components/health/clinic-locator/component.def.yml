@@ -1,0 +1,23 @@
+name: clinic-locator
+props:
+  result_count:
+    type: string
+    required: true
+    title: Result count
+    example: "6 clinics near you"
+  clinics:
+    type: array
+    items: object
+    required: true
+    title: Clinics
+    description: "Each clinic: { name, address, distance, open, hours }."
+    example:
+      - { name: "Riverside Family Clinic", address: "142 Riverside Dr", distance: "0.6 mi", open: true, hours: "Open until 6 PM" }
+  pins:
+    type: array
+    items: object
+    required: true
+    title: Map pins
+    description: "Each pin: { label, x, y } — x/y are 0-100 percent."
+    example:
+      - { label: "1", x: 30, y: 40 }

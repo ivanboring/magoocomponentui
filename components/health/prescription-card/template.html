@@ -1,0 +1,13 @@
+<article class="prescription-card flex gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="prescription-card__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-primary/10 text-primary" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="16" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M9 9l6 6"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <div class="flex items-start justify-between gap-2">
+      <p class="prescription-card__medication font-heading text-on-surface">{{ medication }}</p>
+      <span data-if="refills" class="prescription-card__refills shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs text-on-surface-muted">{{ refills }}</span>
+    </div>
+    <p class="prescription-card__dosage mt-1 text-sm text-on-surface">{{ dosage }}</p>
+    <p class="prescription-card__meta mt-1 text-xs text-on-surface-muted"><span data-if="prescriber">{{ prescriber }}</span><span data-if="next_refill"> · {{ next_refill }}</span></p>
+  </div>
+</article>

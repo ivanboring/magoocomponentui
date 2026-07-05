@@ -1,0 +1,26 @@
+name: lab-result-row
+props:
+  test:
+    type: string
+    required: true
+    title: Test
+    example: "Total cholesterol"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "212 mg/dL"
+  range:
+    type: string
+    title: Reference range
+    example: "< 200 mg/dL"
+  flag:
+    type: enum
+    values: [normal, high, low]
+    default: normal
+    title: Flag
+variants:
+  flag:
+    normal: "bg-success/15 text-success"
+    high: "bg-danger/15 text-danger"
+    low: "bg-info/15 text-info"

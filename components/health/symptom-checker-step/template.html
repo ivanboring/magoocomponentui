@@ -1,0 +1,11 @@
+<fieldset class="symptom-checker-step rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="step_label" class="symptom-checker-step__step text-xs font-semibold uppercase tracking-wide text-primary">{{ step_label }}</p>
+  <legend class="symptom-checker-step__question mt-1 font-heading text-lg text-on-surface">{{ question }}</legend>
+  <p data-if="help" class="symptom-checker-step__help text-sm text-on-surface-muted">{{ help }}</p>
+  <div class="symptom-checker-step__options mt-4 flex flex-col gap-2" role="radiogroup" aria-label="Answer">
+    <label data-for="option in options" class="symptom-checker-step__option flex cursor-pointer items-center gap-3 rounded-card border border-border p-3 transition-colors duration-(--duration-token) has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+      <input type="radio" name="symptom" class="size-4 border-border text-primary" checked="{{ option.selected }}">
+      <span class="text-sm text-on-surface">{{ option.label }}</span>
+    </label>
+  </div>
+</fieldset>

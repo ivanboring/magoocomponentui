@@ -1,0 +1,18 @@
+name: medication-schedule
+props:
+  title:
+    type: string
+    default: "Today's medications"
+    title: Title
+  times:
+    type: array
+    items: object
+    required: true
+    title: Times
+    description: >
+      Each time block: { time, period, meds: [{ name, dose, taken }] } — period like Morning.
+    example:
+      - time: "8:00 AM"
+        period: "Morning"
+        meds:
+          - { name: "Atorvastatin", dose: "20mg", taken: true }

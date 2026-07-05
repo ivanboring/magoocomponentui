@@ -1,0 +1,21 @@
+<header class="patient-header rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="patient-header__top flex flex-wrap items-center gap-4">
+    <span class="patient-header__avatar relative inline-flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xl uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <h1 class="patient-header__name font-heading text-xl text-on-surface">{{ name }}</h1>
+      <p class="patient-header__meta text-sm text-on-surface-muted">{{ meta }}</p>
+    </div>
+    <ul data-if="alerts" class="patient-header__alerts flex flex-wrap gap-1.5">
+      <li data-for="alert in alerts" class="inline-flex items-center gap-1 rounded-pill bg-danger/15 px-2 py-0.5 text-xs font-medium text-danger">
+        <svg class="size-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z"/></svg>
+        {{ alert.label }}
+      </li>
+    </ul>
+  </div>
+  <dl class="patient-header__facts mt-4 grid grid-cols-2 gap-3 border-t border-border pt-4 sm:grid-cols-4">
+    <div data-for="fact in facts"><dt class="text-xs text-on-surface-muted">{{ fact.label }}</dt><dd class="font-medium text-on-surface">{{ fact.value }}</dd></div>
+  </dl>
+</header>

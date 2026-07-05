@@ -1,0 +1,8 @@
+{
+  "title": "Your care team",
+  "members": [
+    { "name": "Dr. Sarah Chen", "initials": "SC", "image": "/stock/avatar-woman-1.jpg", "role": "Primary care physician" },
+    { "name": "Dr. Marcus Reed", "initials": "MR", "image": "/stock/avatar-man-1.jpg", "role": "Cardiologist" },
+    { "name": "Ana Silva, RN", "initials": "AS", "image": "", "role": "Care coordinator" }
+  ]
+}

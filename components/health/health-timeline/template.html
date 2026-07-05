@@ -1,0 +1,15 @@
+<ol class="health-timeline flex flex-col" aria-label="Health history">
+  <li data-for="event in events" class="health-timeline__event flex gap-4">
+    <div class="health-timeline__rail flex flex-col items-center">
+      <span class="health-timeline__dot mt-1 flex size-8 shrink-0 items-center justify-center rounded-full data-[type=visit]:bg-primary/15 data-[type=visit]:text-primary data-[type=lab]:bg-info/15 data-[type=lab]:text-info data-[type=rx]:bg-success/15 data-[type=rx]:text-success data-[type=vaccine]:bg-warning/15 data-[type=vaccine]:text-warning" data-type="{{ event.type }}" aria-hidden="true">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 4v12M4 10h12"/></svg>
+      </span>
+      <span class="health-timeline__line mt-1 w-px flex-1 bg-border group-last:hidden"></span>
+    </div>
+    <div class="health-timeline__body min-w-0 flex-1 pb-6">
+      <p class="health-timeline__date text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ event.date }}</p>
+      <p class="health-timeline__title mt-0.5 font-medium text-on-surface">{{ event.title }}</p>
+      <p data-if="event.detail" class="health-timeline__detail text-sm text-on-surface-muted">{{ event.detail }}</p>
+    </div>
+  </li>
+</ol>

@@ -1,0 +1,67 @@
+name: "Dosage Calculator"
+short_description: A weight-based dose calculator that computes mg from mg/kg × weight.
+long_visual_description: >
+  A form with medication, dose-per-kg, and weight inputs, and a prominent recommended-dose
+  result that updates live.
+
+use_cases:
+  - Pediatric dose calculation.
+  - Weight-based dosing.
+  - Clinical dose tool.
+  - Medication dose estimate.
+  - Dosing reference.
+
+recommended_for:
+  - A weight-based dose calculation (illustrative).
+avoid_for:
+  - Definitive clinical dosing (defer to a validated system).
+
+markets:
+  - Global
+
+example_usage: >
+  Enter the dose per kg and the patient weight; the result recalculates live. The initial
+  result prop is the server-precomputed value.
+
+props:
+  medication: The medication name.
+  per_kg: The dose per kg (mg).
+  weight: The patient weight (kg).
+  result: The initial dose result.
+
+example_prompts:
+  - "Add a weight-based dosage calculator."
+  - "Add a pediatric dose tool."
+
+lifecycle: experimental
+content_model: Dose inputs and a live computed dose.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  This is illustrative — always defer to a validated clinical system for real dosing.
+
+categorization:
+  category: Healthcare
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [form, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inputs have associated labels; the result updates live. Native fields are keyboard-operable.
+  keyboard_support: All inputs are focusable and adjustable via the keyboard.
+  seo_score: 20
+  text_direction: both

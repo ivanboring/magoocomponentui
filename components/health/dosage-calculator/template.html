@@ -1,0 +1,21 @@
+<form class="dosage-calculator rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="dosage-calculator__title font-heading text-on-surface">Dosage calculator</h3>
+  <div class="dosage-calculator__fields mt-3 grid grid-cols-2 gap-3 text-sm">
+    <label class="col-span-2 block">
+      <span class="text-on-surface">Medication</span>
+      <input type="text" class="dosage-calculator__med mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" value="{{ medication }}">
+    </label>
+    <label class="block">
+      <span class="text-on-surface">Dose (mg/kg)</span>
+      <input type="number" class="dosage-calculator__perkg mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" step="0.5" value="{{ per_kg }}">
+    </label>
+    <label class="block">
+      <span class="text-on-surface">Weight (kg)</span>
+      <input type="number" class="dosage-calculator__weight mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface" value="{{ weight }}">
+    </label>
+  </div>
+  <div class="dosage-calculator__result mt-4 flex items-baseline justify-between rounded-card bg-surface-raised px-4 py-3">
+    <span class="text-sm text-on-surface-muted">Recommended dose</span>
+    <span class="dosage-calculator__out font-heading text-2xl text-primary tabular-nums">{{ result }}</span>
+  </div>
+</form>

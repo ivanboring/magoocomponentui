@@ -1,0 +1,65 @@
+name: "Insurance Card"
+short_description: A digital health insurance card with plan, member name, and member ID.
+long_visual_description: >
+  A primary-coloured wallet-style card with the provider and plan, and the member name,
+  member ID, and group in a details grid.
+
+use_cases:
+  - Digital insurance card.
+  - Member ID display.
+  - Coverage card in a wallet.
+  - Insurance details panel.
+  - Benefits card.
+
+recommended_for:
+  - A wallet-style health insurance card.
+avoid_for:
+  - A benefits breakdown (build a coverage panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the provider, plan, member, and member/group IDs in a card that reads like a physical
+  insurance card.
+
+props:
+  provider: The insurer.
+  plan: The plan name.
+  member_name: The member's name.
+  member_id: The member ID.
+  group: The group number.
+
+example_prompts:
+  - "Add a digital insurance card with member ID."
+  - "Add a health coverage wallet card."
+
+lifecycle: experimental
+content_model: An insurance provider, plan, and member identifiers.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use monospace for IDs so they're easy to read; ensure the primary/contrast pair meets
+  contrast in every theme.
+
+categorization:
+  category: Healthcare
+  subcategory: Insurance
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list; all values are real text. Verify the primary/contrast pair meets contrast per theme.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

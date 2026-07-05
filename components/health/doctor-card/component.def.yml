@@ -1,0 +1,32 @@
+name: doctor-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dr. Sarah Chen"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "SC"
+  image:
+    type: image
+    title: Photo
+  specialty:
+    type: string
+    required: true
+    title: Specialty
+    example: "Cardiologist"
+  rating:
+    type: string
+    title: Rating
+    example: "4.9"
+  reviews:
+    type: string
+    title: Reviews
+    example: "218"
+  next_available:
+    type: string
+    title: Next available
+    example: "Next: Tomorrow 9:00 AM"

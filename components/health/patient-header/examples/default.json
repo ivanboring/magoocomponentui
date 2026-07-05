@@ -1,0 +1,13 @@
+{
+  "name": "Jane Doe",
+  "initials": "JD",
+  "image": "/stock/avatar-woman-1.jpg",
+  "meta": "42 yrs · Female · MRN 00482215",
+  "facts": [
+    { "label": "Blood type", "value": "O+" },
+    { "label": "Height", "value": "168 cm" },
+    { "label": "Weight", "value": "64 kg" },
+    { "label": "PCP", "value": "Dr. S. Chen" }
+  ],
+  "alerts": [ { "label": "Penicillin allergy" }, { "label": "Latex allergy" } ]
+}

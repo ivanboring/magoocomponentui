@@ -1,0 +1,69 @@
+name: "Consent Form"
+short_description: A consent panel with scrollable terms, an agree checkbox, and a signature area.
+long_visual_description: >
+  A form with a title, a scrollable consent text box, an agree checkbox, a signature area, and
+  a sign-and-continue button that enables only after agreeing.
+
+use_cases:
+  - Treatment consent.
+  - Procedure consent form.
+  - Telehealth consent.
+  - Research participation consent.
+  - Terms acknowledgment with signature.
+
+recommended_for:
+  - Capturing consent with an agree gate and signature.
+avoid_for:
+  - A simple checkbox (use form-field-checkbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the consent text; the submit button enables only after the agree checkbox is ticked.
+
+props:
+  title: The consent title.
+  body: The consent text.
+  agree_label: The agreement checkbox label.
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a treatment consent form with signature."
+  - "Add a consent panel gated by an agree checkbox."
+
+lifecycle: experimental
+content_model: Consent text, an agreement gate, and a signature.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the consent text plain-language; the submit gate reinforces informed consent.
+
+categorization:
+  category: Healthcare
+  subcategory: Forms
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The checkbox has an associated label and gates the submit; the signature area is a placeholder for a real signature pad.
+  keyboard_support: The checkbox and submit are focusable; submit enables on agreement.
+  seo_score: 25
+  text_direction: both

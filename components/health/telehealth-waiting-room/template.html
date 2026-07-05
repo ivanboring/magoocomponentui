@@ -1,0 +1,20 @@
+<section class="telehealth-waiting-room overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="Telehealth waiting room">
+  <div class="telehealth-waiting-room__stage relative flex aspect-video items-center justify-center bg-on-surface/90 text-primary-contrast">
+    <div class="text-center">
+      <span class="mx-auto flex size-16 items-center justify-center rounded-full bg-primary-contrast/15" aria-hidden="true">
+        <svg class="size-8 animate-pulse" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="7" r="3"/><path d="M4 17a6 6 0 0112 0"/></svg>
+      </span>
+      <p class="telehealth-waiting-room__status mt-3 font-heading">{{ status }}</p>
+      <p data-if="wait_note" class="telehealth-waiting-room__wait text-sm text-primary-contrast/80">{{ wait_note }}</p>
+    </div>
+    <span class="telehealth-waiting-room__self absolute bottom-3 right-3 flex h-16 w-24 items-center justify-center rounded-control bg-black/60 text-xs text-white" aria-hidden="true">You</span>
+  </div>
+  <div class="telehealth-waiting-room__controls flex items-center justify-between gap-3 p-(--space-card)">
+    <p class="text-sm text-on-surface"><span class="font-medium">{{ provider }}</span></p>
+    <p class="telehealth-waiting-room__ready flex items-center gap-1.5 text-xs font-medium data-[ok=true]:text-success data-[ok=false]:text-danger" data-ok="{{ self_ok }}">
+      <span class="size-1.5 rounded-full bg-current"></span>
+      <span data-if="self_ok">Camera & mic ready</span>
+      <span data-if="!self_ok">Check camera & mic</span>
+    </p>
+  </div>
+</section>

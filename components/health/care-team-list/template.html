@@ -1,0 +1,18 @@
+<section class="care-team-list rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="care-team-list__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="care-team-list__members divide-y divide-border">
+    <li data-for="member in members" class="care-team-list__member flex items-center gap-3 px-(--space-card) py-3">
+      <span class="care-team-list__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ member.name }}">
+        <img data-if="member.image" class="size-full object-cover" src="{{ member.image }}" alt="">
+        <span data-if="!member.image" aria-hidden="true">{{ member.initials }}</span>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="care-team-list__name text-sm font-medium text-on-surface">{{ member.name }}</p>
+        <p class="care-team-list__role text-xs text-on-surface-muted">{{ member.role }}</p>
+      </div>
+      <button type="button" class="care-team-list__message flex size-8 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Message {{ member.name }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h12v8H8l-4 3z"/></svg>
+      </button>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,74 @@
+name: "Doctor Card"
+short_description: A provider card with photo, specialty, rating, next availability, and book.
+long_visual_description: >
+  A card with the doctor's photo, name, specialty, and rating, a next-available slot in a
+  success tint, and a book-appointment button.
+
+use_cases:
+  - Provider search result.
+  - Doctor listing card.
+  - Specialist directory entry.
+  - Book-a-doctor card.
+  - Care provider profile.
+
+recommended_for:
+  - A provider card with rating and a book action.
+avoid_for:
+  - A full care team list (use care-team-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the specialty, rating, and next availability with a book action.
+
+props:
+  name: The doctor's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional doctor photo.
+  specialty: The medical specialty.
+  rating: The rating value.
+  reviews: The review count.
+  next_available: The next available slot.
+
+example_prompts:
+  - "Add a cardiologist doctor card with rating and book."
+  - "Add a provider card with next availability."
+
+lifecycle: experimental
+content_model: A provider's identity, rating, availability, and a book action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the specialty and next availability prominently; the book CTA is the primary action.
+
+categorization:
+  category: Healthcare
+  subcategory: Providers
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the doctor name; rating and availability are real text; book is a real button.
+  keyboard_support: The book button is focusable and activates on Enter/Space.
+  seo_score: 45
+  text_direction: both

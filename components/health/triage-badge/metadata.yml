@@ -1,0 +1,57 @@
+name: "Triage Badge"
+short_description: A severity-level pill for triage (routine, urgent, emergency).
+long_visual_description: >
+  A small pill with a dot and uppercase label, colour-coded by triage severity: routine
+  (green), urgent (amber), emergency (red).
+
+use_cases:
+  - Triage severity indicator.
+  - Case priority label.
+  - Symptom urgency badge.
+  - Queue priority pill.
+  - Clinical severity marker.
+
+recommended_for:
+  - Indicating a triage/severity level.
+avoid_for:
+  - A generic status badge (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Set level to drive the colour and provide a matching label.
+
+props:
+  level: The triage level (drives colour).
+  label: The visible label.
+
+example_prompts:
+  - "Add an urgent triage badge."
+  - "Add an emergency severity pill."
+
+lifecycle: experimental
+content_model: A triage severity label with a level colour.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+
+editorial_guidance: >
+  Use consistent level wording; the label carries the meaning, colour reinforces it.
+
+categorization:
+  category: Healthcare
+  subcategory: Clinical
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The label text carries the severity; colour and the dot reinforce it, not colour alone.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

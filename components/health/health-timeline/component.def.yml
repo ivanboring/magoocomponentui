@@ -1,0 +1,10 @@
+name: health-timeline
+props:
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: "Each event: { date, type, title, detail } where type is visit | lab | rx | vaccine."
+    example:
+      - { date: "Aug 5, 2026", type: "visit", title: "Annual physical", detail: "Dr. Sarah Chen" }

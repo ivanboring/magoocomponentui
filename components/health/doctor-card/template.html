@@ -1,0 +1,15 @@
+<article class="doctor-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="doctor-card__head flex items-center gap-3">
+    <span class="doctor-card__avatar relative inline-flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-lg uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0">
+      <p class="doctor-card__name font-heading text-on-surface">{{ name }}</p>
+      <p class="doctor-card__specialty text-sm text-primary">{{ specialty }}</p>
+      <p data-if="rating" class="doctor-card__rating mt-0.5 flex items-center gap-1 text-xs text-on-surface"><svg class="size-3.5 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg><span class="font-medium">{{ rating }}</span><span data-if="reviews" class="text-on-surface-muted">({{ reviews }})</span></p>
+    </div>
+  </div>
+  <p data-if="next_available" class="doctor-card__next mt-3 rounded-control bg-success/10 px-3 py-1.5 text-xs font-medium text-success">{{ next_available }}</p>
+  <button type="button" class="doctor-card__book mt-3 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Book appointment</button>
+</article>

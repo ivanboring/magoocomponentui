@@ -1,0 +1,21 @@
+{
+  "provider": "Dr. Sarah Chen · Cardiology",
+  "days": [
+    { "label": "Mon", "date": "12", "active": false },
+    { "label": "Tue", "date": "13", "active": true },
+    { "label": "Wed", "date": "14", "active": false },
+    { "label": "Thu", "date": "15", "active": false },
+    { "label": "Fri", "date": "16", "active": false }
+  ],
+  "slots_list": [
+    { "time": "9:00", "available": true },
+    { "time": "9:30", "available": false },
+    { "time": "10:00", "available": true },
+    { "time": "10:30", "available": true },
+    { "time": "11:00", "available": false },
+    { "time": "2:00", "available": true },
+    { "time": "2:30", "available": true },
+    { "time": "3:00", "available": true }
+  ],
+  "cta_label": "Confirm appointment"
+}

@@ -1,0 +1,69 @@
+name: "Appointment Booker"
+short_description: A provider appointment booker with day and time-slot selection.
+long_visual_description: >
+  A form showing the provider, a scrollable row of day chips, a grid of time slots (available
+  and disabled), and a confirm button.
+
+use_cases:
+  - Book a medical appointment.
+  - Provider slot picker.
+  - Telehealth scheduling.
+  - Clinic appointment booking.
+  - Visit scheduler.
+
+recommended_for:
+  - Booking an appointment by day and time with a provider.
+avoid_for:
+  - A single provider card (use doctor-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide days (one active) and time slots with availability; unavailable slots are disabled.
+  Confirm books the slot.
+
+props:
+  provider: The provider and specialty.
+  days: The day chips.
+  slots_list: The time slots with availability.
+  cta_label: The confirm button text.
+
+example_prompts:
+  - "Add an appointment booker with day and time selection."
+  - "Add a provider slot picker."
+
+lifecycle: experimental
+content_model: Day/time selection for a provider with a confirm action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Default to the soonest day; clearly disable unavailable time slots.
+
+categorization:
+  category: Healthcare
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Day/time are radiogroups with role="radio"/aria-checked; unavailable slots are struck through and inert.
+  keyboard_support: Chips select on Enter/Space; unavailable slots are skipped; submit via Enter.
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,67 @@
+name: "Vitals Tile"
+short_description: A vital-sign tile with value, unit, normal range, and status.
+long_visual_description: >
+  A tile showing a vital's label and a status pill, a large value with unit, and the normal
+  range beneath.
+
+use_cases:
+  - Vital sign display (HR, BP, temp).
+  - Patient monitoring tile.
+  - Health metric with range.
+  - Wearable vitals readout.
+  - Clinical measurement card.
+
+recommended_for:
+  - A single vital sign with its normal range and status.
+avoid_for:
+  - A lab result row (use lab-result-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the value with unit and the normal range; set status to normal/high/low.
+
+props:
+  label: The vital name.
+  value: The measured value.
+  unit: The unit.
+  range: The normal range.
+  status: normal, high, or low.
+
+example_prompts:
+  - "Add a heart rate vitals tile in normal range."
+  - "Add a blood pressure tile flagged high."
+
+lifecycle: experimental
+content_model: A vital sign value with unit, range, and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Always show the normal range so the value is interpretable; the status word carries meaning.
+
+categorization:
+  category: Healthcare
+  subcategory: Vitals
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status word conveys normal/high/low (not colour alone); value, unit, and range are real text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

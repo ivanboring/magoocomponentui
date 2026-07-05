@@ -1,0 +1,63 @@
+name: "Care Team List"
+short_description: A list of care-team providers with roles and a message action.
+long_visual_description: >
+  A titled list of care-team members, each with an avatar, name, role, and a message button.
+
+use_cases:
+  - Patient care team overview.
+  - Providers with roles.
+  - Message-your-team panel.
+  - Coordinated care list.
+  - Care circle display.
+
+recommended_for:
+  - Listing a patient's care team with roles and contact.
+avoid_for:
+  - A single provider (use doctor-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show each member's role and a message action.
+
+props:
+  title: The section title.
+  members: The care team members with name, initials, image, and role.
+
+example_prompts:
+  - "Add a care team list with roles and message actions."
+  - "Add a patient's providers list."
+
+lifecycle: experimental
+content_model: A list of care-team members with roles.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show each member's role clearly; the message action enables coordinated care.
+
+categorization:
+  category: Healthcare
+  subcategory: Providers
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Avatars carry member names; roles are real text; message controls have accessible labels.
+  keyboard_support: Message buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,60 @@
+name: "Health Timeline"
+short_description: A patient history timeline of visits, labs, prescriptions, and vaccines.
+long_visual_description: >
+  A vertical timeline of health events, each with a type-coloured icon, date, title, and
+  detail — visits, labs, prescriptions, and vaccines.
+
+use_cases:
+  - Patient health history.
+  - Visits and events log.
+  - Medical record timeline.
+  - Care history overview.
+  - Chronological health record.
+
+recommended_for:
+  - A chronological history of a patient's health events.
+avoid_for:
+  - A dose schedule (use medication-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  List events newest-first with a type (visit/lab/rx/vaccine), title, and detail.
+
+props:
+  events: The health events with date, type, title, and detail.
+
+example_prompts:
+  - "Add a health history timeline of visits and labs."
+  - "Add a patient medical record timeline."
+
+lifecycle: experimental
+content_model: A chronological list of typed health events.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Order newest-first; the type icon reinforces the event category, which is also in the title.
+
+categorization:
+  category: Healthcare
+  subcategory: Records
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; the type icon is decorative with the category conveyed in the title text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

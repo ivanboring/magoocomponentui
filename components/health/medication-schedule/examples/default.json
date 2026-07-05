@@ -1,0 +1,16 @@
+{
+  "title": "Today's medications",
+  "times": [
+    { "time": "8:00 AM", "period": "Morning", "meds": [
+      { "name": "Atorvastatin", "dose": "20mg", "taken": true },
+      { "name": "Metformin", "dose": "500mg", "taken": true }
+    ]},
+    { "time": "1:00 PM", "period": "Midday", "meds": [
+      { "name": "Metformin", "dose": "500mg", "taken": false }
+    ]},
+    { "time": "9:00 PM", "period": "Night", "meds": [
+      { "name": "Atorvastatin", "dose": "20mg", "taken": false },
+      { "name": "Vitamin D", "dose": "1000 IU", "taken": false }
+    ]}
+  ]
+}

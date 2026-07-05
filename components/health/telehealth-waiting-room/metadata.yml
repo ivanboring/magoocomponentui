@@ -1,0 +1,67 @@
+name: "Telehealth Waiting Room"
+short_description: A pre-call waiting screen with provider status, wait time, and self-preview.
+long_visual_description: >
+  A video-call-style panel with a waiting status, estimated wait, a self-view thumbnail, and a
+  camera/mic readiness indicator.
+
+use_cases:
+  - Telehealth pre-call room.
+  - Video visit waiting screen.
+  - Provider-joining status.
+  - Virtual clinic lobby.
+  - Pre-appointment check.
+
+recommended_for:
+  - The waiting state before a telehealth video call.
+avoid_for:
+  - An in-call player (build a call UI).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the provider and waiting status, the estimated wait, and a camera/mic readiness
+  indicator.
+
+props:
+  provider: The provider name/specialty.
+  status: The waiting status message.
+  wait_note: The estimated wait.
+  self_ok: Whether camera/mic are ready.
+
+example_prompts:
+  - "Add a telehealth waiting room with provider status."
+  - "Add a video visit pre-call screen."
+
+lifecycle: experimental
+content_model: A waiting status, wait time, and device-readiness for a telehealth call.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary-contrast
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Reassure with a clear status and wait estimate; the readiness indicator prevents surprises.
+
+categorization:
+  category: Healthcare
+  subcategory: Telehealth
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The readiness state is shown by text ("ready"/"check"), not colour alone; status is real text; the self-view is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

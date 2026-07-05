@@ -1,0 +1,26 @@
+name: insurance-card
+props:
+  provider:
+    type: string
+    required: true
+    title: Provider
+    example: "BlueShield Health"
+  plan:
+    type: string
+    required: true
+    title: Plan
+    example: "PPO Gold"
+  member_name:
+    type: string
+    required: true
+    title: Member
+    example: "Jane Doe"
+  member_id:
+    type: string
+    required: true
+    title: Member ID
+    example: "XZ 984 221 006"
+  group:
+    type: string
+    title: Group
+    example: "GRP 40218"

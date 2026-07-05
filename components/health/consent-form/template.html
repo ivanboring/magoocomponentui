@@ -1,0 +1,13 @@
+<form class="consent-form rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="consent-form__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <div class="consent-form__body mt-3 max-h-40 overflow-y-auto rounded-control border border-border bg-surface-raised p-3 text-sm text-on-surface-muted">{{ body }}</div>
+  <label class="consent-form__agree mt-4 flex items-start gap-2.5">
+    <input type="checkbox" class="consent-form__checkbox mt-0.5 size-4 rounded border-border text-primary">
+    <span class="text-sm text-on-surface">{{ agree_label }}</span>
+  </label>
+  <div class="consent-form__signature mt-4">
+    <span class="text-sm font-medium text-on-surface">Signature</span>
+    <div class="mt-1 flex h-20 items-center justify-center rounded-control border-2 border-dashed border-border text-sm text-on-surface-muted">Sign here</div>
+  </div>
+  <button type="submit" class="consent-form__cta mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 disabled:opacity-50" disabled>{{ cta_label }}</button>
+</form>

@@ -1,0 +1,24 @@
+name: prescription-card
+props:
+  medication:
+    type: string
+    required: true
+    title: Medication
+    example: "Atorvastatin 20mg"
+  dosage:
+    type: string
+    required: true
+    title: Dosage
+    example: "1 tablet daily at night"
+  refills:
+    type: string
+    title: Refills
+    example: "2 refills left"
+  prescriber:
+    type: string
+    title: Prescriber
+    example: "Dr. Sarah Chen"
+  next_refill:
+    type: string
+    title: Next refill
+    example: "Ready Aug 20"

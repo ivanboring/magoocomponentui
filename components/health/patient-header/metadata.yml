@@ -1,0 +1,68 @@
+name: "Patient Header"
+short_description: A patient banner with identity, key facts, and allergy alerts.
+long_visual_description: >
+  A header with the patient's avatar, name, and demographics, allergy alert pills, and a grid
+  of key facts (blood type, height, weight, PCP).
+
+use_cases:
+  - EHR patient banner.
+  - Chart header.
+  - Patient summary top.
+  - Clinical record header.
+  - Encounter banner.
+
+recommended_for:
+  - A patient identity banner with key facts and alerts.
+avoid_for:
+  - A patient list row (build a row).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show demographics, allergy alerts, and the key clinical facts.
+
+props:
+  name: The patient's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional patient photo.
+  meta: The demographics line.
+  facts: The key facts (label + value).
+  alerts: Allergy or safety alerts.
+
+example_prompts:
+  - "Add a patient header banner with allergy alerts."
+  - "Add an EHR chart header with key facts."
+
+lifecycle: experimental
+content_model: A patient identity, key facts, and alerts.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Surface allergy alerts prominently; keep the facts grid to the most clinically relevant items.
+
+categorization:
+  category: Healthcare
+  subcategory: Records
+  atomic_type: organism
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1 and a definition list; allergy alerts include text (not colour alone); the avatar carries the name.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

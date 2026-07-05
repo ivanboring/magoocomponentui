@@ -1,0 +1,11 @@
+<div class="vitals-tile rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-2">
+    <p class="vitals-tile__label text-sm text-on-surface-muted">{{ label }}</p>
+    <span class="vitals-tile__status inline-flex items-center gap-1 text-xs font-medium {{ status@class }}" data-status="{{ status }}">
+      <span class="size-1.5 rounded-full bg-current" aria-hidden="true"></span>
+      {{ status }}
+    </span>
+  </div>
+  <p class="vitals-tile__value mt-1 font-heading text-2xl text-on-surface tabular-nums">{{ value }}<span data-if="unit" class="ml-1 text-sm font-normal text-on-surface-muted">{{ unit }}</span></p>
+  <p data-if="range" class="vitals-tile__range mt-0.5 text-xs text-on-surface-muted">Normal: {{ range }}</p>
+</div>

@@ -1,0 +1,8 @@
+<div class="lab-result-row flex items-center gap-3 py-3">
+  <div class="lab-result-row__body min-w-0 flex-1">
+    <p class="lab-result-row__test text-sm font-medium text-on-surface">{{ test }}</p>
+    <p data-if="range" class="lab-result-row__range text-xs text-on-surface-muted">Ref: {{ range }}</p>
+  </div>
+  <span class="lab-result-row__value shrink-0 font-heading text-on-surface tabular-nums">{{ value }}</span>
+  <span class="lab-result-row__flag shrink-0 rounded-pill px-2 py-0.5 text-xs font-semibold uppercase {{ flag@class }}">{{ flag }}</span>
+</div>

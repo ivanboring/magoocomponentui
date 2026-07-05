@@ -1,0 +1,23 @@
+name: appointment-booker
+props:
+  provider:
+    type: string
+    required: true
+    title: Provider
+    example: "Dr. Sarah Chen · Cardiology"
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: "Each day: { label, date, active }."
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Slots
+    description: "Each slot: { time, available }."
+  cta_label:
+    type: string
+    default: "Confirm appointment"
+    title: CTA label

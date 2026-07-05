@@ -1,0 +1,20 @@
+name: consent-form
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Consent to treatment"
+  body:
+    type: string
+    required: true
+    title: Body
+    example: "I authorize the care team to provide medical treatment I consent to, and I understand the risks explained to me."
+  agree_label:
+    type: string
+    default: "I have read and agree to the above"
+    title: Agree label
+  cta_label:
+    type: string
+    default: "Sign & continue"
+    title: CTA label

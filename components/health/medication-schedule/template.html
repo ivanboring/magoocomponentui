@@ -1,0 +1,19 @@
+<section class="medication-schedule rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="medication-schedule__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <div class="medication-schedule__blocks divide-y divide-border">
+    <div data-for="block in times" class="medication-schedule__block px-(--space-card) py-3">
+      <div class="flex items-baseline gap-2">
+        <span class="medication-schedule__time font-heading text-on-surface tabular-nums">{{ block.time }}</span>
+        <span class="text-xs uppercase tracking-wide text-on-surface-muted">{{ block.period }}</span>
+      </div>
+      <ul class="medication-schedule__meds mt-2 flex flex-col gap-2">
+        <li data-for="med in block.meds" class="medication-schedule__med flex items-center gap-3" data-taken="{{ med.taken }}">
+          <span class="medication-schedule__check flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-on-surface-muted data-[taken=true]:border-success data-[taken=true]:bg-success data-[taken=true]:text-success-contrast" data-taken="{{ med.taken }}" aria-hidden="true">
+            <svg class="hidden size-3.5 data-[taken=true]:block" data-taken="{{ med.taken }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 10l4 4 8-8"/></svg>
+          </span>
+          <span class="min-w-0 flex-1 text-sm text-on-surface data-[taken=true]:text-on-surface-muted data-[taken=true]:line-through" data-taken="{{ med.taken }}"><span class="font-medium">{{ med.name }}</span> {{ med.dose }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

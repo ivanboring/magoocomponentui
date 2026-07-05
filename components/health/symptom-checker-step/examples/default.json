@@ -1,0 +1,11 @@
+{
+  "step_label": "Step 2 of 5",
+  "question": "How would you describe your chest pain?",
+  "help": "Choose the option that best fits.",
+  "options": [
+    { "label": "Sharp and stabbing", "selected": false },
+    { "label": "Dull and aching", "selected": true },
+    { "label": "Pressure or tightness", "selected": false },
+    { "label": "Burning", "selected": false }
+  ]
+}

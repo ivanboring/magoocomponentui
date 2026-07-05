@@ -1,0 +1,65 @@
+name: "Symptom Checker Step"
+short_description: A single symptom-checker question with selectable answer options.
+long_visual_description: >
+  A card with a step label, a question, optional help, and a set of selectable answer options
+  as radio cards.
+
+use_cases:
+  - Symptom checker flow.
+  - Triage questionnaire step.
+  - Health assessment question.
+  - Guided symptom intake.
+  - Medical questionnaire.
+
+recommended_for:
+  - A single step in a symptom-checker questionnaire.
+avoid_for:
+  - A generic form radio group (use form-field-radio-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the step, question, and options (single-select); one option may be pre-selected.
+
+props:
+  step_label: The step indicator.
+  question: The question.
+  help: Optional help text.
+  options: The answer options.
+
+example_prompts:
+  - "Add a symptom checker step with answer options."
+  - "Add a triage questionnaire question."
+
+lifecycle: experimental
+content_model: A question with single-select answer options.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep questions plain-language; ensure options are mutually exclusive.
+
+categorization:
+  category: Healthcare
+  subcategory: Assessment
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a fieldset/legend with native radios inside labels; selection uses has-[:checked] plus the radio state.
+  keyboard_support: Options are keyboard-selectable via arrow keys within the group.
+  seo_score: 25
+  text_direction: both

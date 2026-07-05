@@ -1,0 +1,24 @@
+name: symptom-checker-step
+props:
+  step_label:
+    type: string
+    title: Step label
+    example: "Step 2 of 5"
+  question:
+    type: string
+    required: true
+    title: Question
+    example: "How would you describe your chest pain?"
+  help:
+    type: string
+    title: Help
+    example: "Choose the option that best fits."
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, selected }."
+    example:
+      - { label: "Sharp and stabbing", selected: false }
+      - { label: "Dull and aching", selected: true }

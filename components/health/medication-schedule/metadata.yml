@@ -1,0 +1,63 @@
+name: "Medication Schedule"
+short_description: A daily dose timeline grouped by time of day with taken/pending states.
+long_visual_description: >
+  A schedule grouped by time blocks (morning, midday, night), each listing medications with a
+  taken checkmark or pending state.
+
+use_cases:
+  - Daily medication schedule.
+  - Dose reminder timeline.
+  - Med adherence tracker.
+  - Pill schedule.
+  - Treatment plan doses.
+
+recommended_for:
+  - A day's medication doses grouped by time.
+avoid_for:
+  - A single prescription (use prescription-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Group meds by time block; mark taken doses with a check and pending doses plain.
+
+props:
+  title: The schedule title.
+  times: The time blocks, each with its medications.
+
+example_prompts:
+  - "Add a daily medication schedule with taken states."
+  - "Add a dose timeline grouped by time of day."
+
+lifecycle: experimental
+content_model: Time-grouped medication doses with taken state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group by time of day; a taken check and strikethrough show what's already been taken.
+
+categorization:
+  category: Healthcare
+  subcategory: Medications
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Taken state is shown by a check and strikethrough, not colour alone; meds and doses are real text.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

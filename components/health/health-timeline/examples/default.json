@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "date": "Aug 5, 2026", "type": "visit", "title": "Annual physical", "detail": "Dr. Sarah Chen · all normal" },
+    { "date": "Aug 5, 2026", "type": "lab", "title": "Lipid panel", "detail": "Cholesterol slightly elevated" },
+    { "date": "Jul 2, 2026", "type": "rx", "title": "Atorvastatin prescribed", "detail": "20mg nightly" },
+    { "date": "Apr 18, 2026", "type": "vaccine", "title": "Flu vaccine", "detail": "Administered at clinic" }
+  ]
+}

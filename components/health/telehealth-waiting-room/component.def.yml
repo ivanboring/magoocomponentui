@@ -1,0 +1,20 @@
+name: telehealth-waiting-room
+props:
+  provider:
+    type: string
+    required: true
+    title: Provider
+    example: "Dr. Sarah Chen"
+  status:
+    type: string
+    required: true
+    title: Status
+    example: "Dr. Chen will join shortly"
+  wait_note:
+    type: string
+    title: Wait note
+    example: "Estimated wait: 3 min"
+  self_ok:
+    type: boolean
+    default: true
+    title: Camera/mic ready

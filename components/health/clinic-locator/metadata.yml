@@ -1,0 +1,67 @@
+name: "Clinic Locator"
+short_description: A map + clinic list panel with open/closed status and distance.
+long_visual_description: >
+  A two-column layout with a map placeholder carrying numbered pins beside a list of clinics
+  with address, distance, and an open/closed hours pill.
+
+use_cases:
+  - Find a clinic near you.
+  - Urgent care locator.
+  - Pharmacy or provider map.
+  - Nearby facilities list.
+  - Care location search.
+
+recommended_for:
+  - A combined map + clinic list locator.
+avoid_for:
+  - A single facility card (make a dedicated card).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide clinics with open/closed status and distance, plus numbered map pins; the map is a
+  placeholder for a real map in production.
+
+props:
+  result_count: The result count label.
+  clinics: The clinics with name, address, distance, and hours.
+  pins: The map pins with positions.
+
+example_prompts:
+  - "Add a clinic locator with a map and open/closed list."
+  - "Add an urgent-care finder panel."
+
+lifecycle: experimental
+content_model: A map placeholder with pins and a clinic list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Show open/closed status and distance; the map is a placeholder for a real interactive map.
+
+categorization:
+  category: Healthcare
+  subcategory: Providers
+  atomic_type: organism
+  usage_type: [media, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Open/closed is shown by the hours text plus a pill, not colour alone; pins are labelled buttons; the map is decorative.
+  keyboard_support: Map pins are focusable buttons and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

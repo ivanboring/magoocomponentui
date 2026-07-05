@@ -1,0 +1,17 @@
+name: triage-badge
+props:
+  level:
+    type: enum
+    values: [routine, urgent, emergency]
+    default: routine
+    title: Level
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Routine"
+variants:
+  level:
+    routine: "bg-success/15 text-success"
+    urgent: "bg-warning/15 text-warning"
+    emergency: "bg-danger/15 text-danger"

@@ -1,0 +1,68 @@
+name: "Prescription Card"
+short_description: A medication card with dosage, refills, prescriber, and next refill.
+long_visual_description: >
+  A card with a pill icon, the medication and refills-left pill, the dosage instructions, and
+  a prescriber/next-refill meta line.
+
+use_cases:
+  - Medication list entry.
+  - Prescription detail card.
+  - Refill reminder card.
+  - Pharmacy medication.
+  - Meds management.
+
+recommended_for:
+  - A single prescription with dosage and refill info.
+avoid_for:
+  - A dosing schedule (use medication-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the medication, dosage, refills left, and next refill; the prescriber gives context.
+
+props:
+  medication: The medication and strength.
+  dosage: The dosage instructions.
+  refills: The refills remaining.
+  prescriber: The prescriber.
+  next_refill: The next refill readiness.
+
+example_prompts:
+  - "Add a prescription card with dosage and refills."
+  - "Add a medication card with next refill."
+
+lifecycle: experimental
+content_model: A medication with dosage, refills, and prescriber.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  State the dosage plainly; surface refills-left and next-refill so patients act in time.
+
+categorization:
+  category: Healthcare
+  subcategory: Medications
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The medication, dosage, and refill info are all real text; the pill icon is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

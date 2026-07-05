@@ -1,0 +1,30 @@
+name: vitals-tile
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Heart rate"
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "72"
+  unit:
+    type: string
+    title: Unit
+    example: "bpm"
+  range:
+    type: string
+    title: Normal range
+    example: "60–100 bpm"
+  status:
+    type: enum
+    values: [normal, high, low]
+    default: normal
+    title: Status
+variants:
+  status:
+    normal: "text-success"
+    high: "text-danger"
+    low: "text-info"

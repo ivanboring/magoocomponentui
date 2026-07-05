@@ -1,0 +1,20 @@
+name: dosage-calculator
+props:
+  medication:
+    type: string
+    default: "Amoxicillin"
+    title: Medication
+  per_kg:
+    type: string
+    default: "25"
+    title: Dose per kg (mg)
+  weight:
+    type: integer
+    default: 18
+    title: Weight (kg)
+  result:
+    type: string
+    required: true
+    title: Result
+    description: Precomputed dose result (the behavior recalculates live).
+    example: "450 mg"

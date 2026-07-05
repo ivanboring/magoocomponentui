@@ -1,0 +1,11 @@
+<article class="insurance-card mx-auto max-w-sm overflow-hidden rounded-card bg-primary text-primary-contrast shadow-card">
+  <div class="insurance-card__head flex items-center justify-between p-(--space-card)">
+    <span class="insurance-card__provider font-heading text-lg">{{ provider }}</span>
+    <span class="insurance-card__plan rounded-pill bg-primary-contrast/20 px-2 py-0.5 text-xs font-semibold">{{ plan }}</span>
+  </div>
+  <dl class="insurance-card__details grid grid-cols-2 gap-3 p-(--space-card) pt-0 text-sm">
+    <div class="col-span-2"><dt class="text-xs uppercase opacity-80">Member</dt><dd class="font-medium">{{ member_name }}</dd></div>
+    <div><dt class="text-xs uppercase opacity-80">Member ID</dt><dd class="font-mono">{{ member_id }}</dd></div>
+    <div data-if="group"><dt class="text-xs uppercase opacity-80">Group</dt><dd class="font-mono">{{ group }}</dd></div>
+  </dl>
+</article>

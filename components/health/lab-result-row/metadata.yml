@@ -1,0 +1,62 @@
+name: "Lab Result Row"
+short_description: A lab test row with value, reference range, and a normal/high/low flag.
+long_visual_description: >
+  A row with the test name and reference range, the measured value, and a flag pill (normal,
+  high, low).
+
+use_cases:
+  - Lab report result line.
+  - Blood test result.
+  - Diagnostic result row.
+  - Lab panel entry.
+  - Test result with flag.
+
+recommended_for:
+  - A single lab test result with range and flag.
+avoid_for:
+  - A vital sign tile (use vitals-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the value and reference range; the flag marks out-of-range results.
+
+props:
+  test: The test name.
+  value: The measured value.
+  range: The reference range.
+  flag: normal, high, or low.
+
+example_prompts:
+  - "Add a cholesterol lab result flagged high."
+  - "Add a lab test result row with reference range."
+
+lifecycle: experimental
+content_model: A lab test with value, range, and flag.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-info
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Always show the reference range; the flag word carries the out-of-range meaning.
+
+categorization:
+  category: Healthcare
+  subcategory: Labs
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The flag word (normal/high/low) conveys status, not colour alone; value and range are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

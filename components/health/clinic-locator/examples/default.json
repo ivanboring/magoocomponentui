@@ -1,0 +1,13 @@
+{
+  "result_count": "6 clinics near you",
+  "clinics": [
+    { "name": "Riverside Family Clinic", "address": "142 Riverside Dr", "distance": "0.6 mi", "open": true, "hours": "Open until 6 PM" },
+    { "name": "Oakwood Urgent Care", "address": "88 Oak Lane", "distance": "1.2 mi", "open": true, "hours": "Open 24h" },
+    { "name": "Central Medical Center", "address": "12 Main St", "distance": "2.1 mi", "open": false, "hours": "Closed · opens 8 AM" }
+  ],
+  "pins": [
+    { "label": "1", "x": 28, "y": 42 },
+    { "label": "2", "x": 62, "y": 55 },
+    { "label": "3", "x": 45, "y": 30 }
+  ]
+}

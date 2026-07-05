@@ -1,0 +1,14 @@
+name: care-team-list
+props:
+  title:
+    type: string
+    default: "Your care team"
+    title: Title
+  members:
+    type: array
+    items: object
+    required: true
+    title: Members
+    description: "Each member: { name, initials, image, role }."
+    example:
+      - { name: "Dr. Sarah Chen", initials: "SC", image: "", role: "Primary care" }
