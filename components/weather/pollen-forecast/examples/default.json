@@ -1,0 +1,9 @@
+{
+  "title": "Pollen forecast",
+  "allergens": [
+    { "name": "Tree", "level": "Low", "pct": 25, "tone": "success" },
+    { "name": "Grass", "level": "High", "pct": 82, "tone": "danger" },
+    { "name": "Weed", "level": "Moderate", "pct": 55, "tone": "warning" },
+    { "name": "Mold", "level": "Low", "pct": 18, "tone": "success" }
+  ]
+}

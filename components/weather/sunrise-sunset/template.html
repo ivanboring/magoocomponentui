@@ -1,0 +1,14 @@
+<section class="sunrise-sunset rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Sunrise and sunset">
+  <div class="sunrise-sunset__arc relative">
+    <svg class="w-full" viewBox="0 0 200 96" fill="none" aria-hidden="true">
+      <path d="M8 90 A92 92 0 0 1 192 90" class="text-border" stroke="currentColor" stroke-width="2" stroke-dasharray="3 4"></path>
+      <line x1="0" y1="90" x2="200" y2="90" class="text-border" stroke="currentColor" stroke-width="1"></line>
+      <circle cx="{{ sun_x }}%" cy="{{ sun_y }}" r="7" class="text-warning" fill="currentColor"></circle>
+    </svg>
+    <span class="sunrise-sunset__daylight absolute inset-x-0 top-2 text-center text-xs text-on-surface-muted">{{ daylight }}</span>
+  </div>
+  <div class="sunrise-sunset__times mt-1 flex justify-between text-sm">
+    <div><p class="text-xs text-on-surface-muted">Sunrise</p><p class="font-heading text-on-surface tabular-nums">{{ sunrise }}</p></div>
+    <div class="text-right"><p class="text-xs text-on-surface-muted">Sunset</p><p class="font-heading text-on-surface tabular-nums">{{ sunset }}</p></div>
+  </div>
+</section>

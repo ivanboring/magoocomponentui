@@ -1,0 +1,21 @@
+name: wind-compass
+props:
+  speed:
+    type: string
+    required: true
+    title: Speed
+    example: "12 mph"
+  direction:
+    type: string
+    required: true
+    title: Direction
+    example: "NW"
+  rotation:
+    type: integer
+    default: 0
+    title: Rotation
+    description: Degrees to rotate the needle (0 = pointing N/from north).
+  gust:
+    type: string
+    title: Gust
+    example: "Gusts 22 mph"

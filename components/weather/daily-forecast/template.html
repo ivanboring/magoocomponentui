@@ -1,0 +1,15 @@
+<section class="daily-forecast rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="daily-forecast__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="daily-forecast__days divide-y divide-border">
+    <li data-for="day in days" class="daily-forecast__day flex items-center gap-3 px-(--space-card) py-2.5">
+      <span class="daily-forecast__label w-16 shrink-0 text-sm font-medium text-on-surface">{{ day.label }}</span>
+      <span class="daily-forecast__icon w-8 shrink-0 text-center text-lg" aria-hidden="true">{{ day.icon }}</span>
+      <span data-if="day.precip" class="daily-forecast__precip w-10 shrink-0 text-xs text-info tabular-nums">{{ day.precip }}</span>
+      <span class="daily-forecast__low w-8 shrink-0 text-right text-sm text-on-surface-muted tabular-nums">{{ day.low }}</span>
+      <span class="daily-forecast__range relative h-1.5 flex-1 rounded-pill bg-surface-raised">
+        <span class="absolute inset-y-0 rounded-pill bg-gradient-to-r from-info to-warning" style="left: {{ day.bar_left }}%; width: {{ day.bar_width }}%"></span>
+      </span>
+      <span class="daily-forecast__high w-8 shrink-0 text-sm font-medium text-on-surface tabular-nums">{{ day.high }}</span>
+    </li>
+  </ul>
+</section>

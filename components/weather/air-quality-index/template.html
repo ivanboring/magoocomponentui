@@ -1,0 +1,12 @@
+<section class="air-quality-index rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Air quality index">
+  <div class="flex items-baseline justify-between gap-2">
+    <p class="air-quality-index__label text-sm text-on-surface-muted">Air Quality Index</p>
+    <p class="air-quality-index__value font-heading text-2xl text-on-surface tabular-nums">{{ value }}</p>
+  </div>
+  <p class="air-quality-index__status mt-0.5 font-heading text-on-surface">{{ label }}</p>
+  <div class="air-quality-index__scale relative mt-3 h-2 rounded-pill" style="background:linear-gradient(90deg,#22c55e,#eab308,#f97316,#ef4444,#a21caf)">
+    <span class="air-quality-index__marker absolute top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-on-surface shadow-raised" style="left: {{ pct }}%" role="img" aria-label="AQI {{ value }} of the scale"></span>
+  </div>
+  <div class="mt-1 flex justify-between text-[10px] text-on-surface-muted"><span>Good</span><span>Hazardous</span></div>
+  <p data-if="advice" class="air-quality-index__advice mt-3 text-sm text-on-surface-muted">{{ advice }}</p>
+</section>

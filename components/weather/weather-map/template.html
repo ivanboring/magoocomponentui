@@ -1,0 +1,18 @@
+<section class="weather-map overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <div class="weather-map__head flex flex-wrap items-center justify-between gap-3 border-b border-border px-(--space-card) py-2.5">
+    <div class="weather-map__layers flex gap-1.5" role="group" aria-label="Map layers">
+      <button data-for="layer in layers" type="button" class="rounded-pill border border-border px-3 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ layer.active }}" aria-pressed="{{ layer.active }}">{{ layer.label }}</button>
+    </div>
+    <span data-if="timestamp" class="weather-map__timestamp text-xs text-on-surface-muted">{{ timestamp }}</span>
+  </div>
+  <div class="weather-map__canvas relative flex aspect-[16/9] items-center justify-center bg-surface-raised" aria-hidden="true">
+    <svg class="absolute inset-0 size-full opacity-30 text-on-surface-muted" viewBox="0 0 320 180" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 60h320M0 120h320M100 0v180M220 0v180"/></svg>
+    <svg class="absolute inset-0 size-full" viewBox="0 0 320 180" fill="none"><ellipse cx="140" cy="90" rx="60" ry="40" fill="#3b82f6" opacity="0.3"/><ellipse cx="150" cy="85" rx="35" ry="24" fill="#22c55e" opacity="0.4"/><ellipse cx="158" cy="82" rx="16" ry="12" fill="#eab308" opacity="0.5"/></svg>
+    <span class="relative rounded-pill bg-surface px-3 py-1 text-xs text-on-surface-muted">Radar preview</span>
+  </div>
+  <div class="weather-map__legend flex items-center gap-3 px-(--space-card) py-2 text-[10px] text-on-surface-muted">
+    <span class="flex items-center gap-1"><span class="size-2.5 rounded-full" style="background:#3b82f6"></span>Light</span>
+    <span class="flex items-center gap-1"><span class="size-2.5 rounded-full" style="background:#22c55e"></span>Moderate</span>
+    <span class="flex items-center gap-1"><span class="size-2.5 rounded-full" style="background:#eab308"></span>Heavy</span>
+  </div>
+</section>

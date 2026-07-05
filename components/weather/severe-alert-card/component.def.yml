@@ -1,0 +1,25 @@
+name: severe-alert-card
+props:
+  severity:
+    type: enum
+    values: [advisory, watch, warning]
+    default: warning
+    title: Severity
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Severe Thunderstorm Warning"
+  detail:
+    type: string
+    title: Detail
+    example: "Damaging winds and hail likely. Seek shelter indoors."
+  until:
+    type: string
+    title: Until
+    example: "Until 8:45 PM"
+variants:
+  severity:
+    advisory: "border-l-info bg-info/10"
+    watch: "border-l-warning bg-warning/10"
+    warning: "border-l-danger bg-danger/10"

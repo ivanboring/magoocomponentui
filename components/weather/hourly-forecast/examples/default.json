@@ -1,0 +1,65 @@
+{
+  "title": "Hourly",
+  "hours": [
+    {
+      "time": "Now",
+      "icon": "⛅",
+      "temp": "62°",
+      "precip": "10%"
+    },
+    {
+      "time": "1 PM",
+      "icon": "☀️",
+      "temp": "64°",
+      "precip": "5%"
+    },
+    {
+      "time": "2 PM",
+      "icon": "☀️",
+      "temp": "65°",
+      "precip": "5%"
+    },
+    {
+      "time": "3 PM",
+      "icon": "⛅",
+      "temp": "64°",
+      "precip": "20%"
+    },
+    {
+      "time": "4 PM",
+      "icon": "🌧",
+      "temp": "61°",
+      "precip": "60%"
+    },
+    {
+      "time": "5 PM",
+      "icon": "🌧",
+      "temp": "59°",
+      "precip": "55%"
+    },
+    {
+      "time": "6 PM",
+      "icon": "⛅",
+      "temp": "58°",
+      "precip": "25%"
+    },
+    {
+      "time": "7 PM",
+      "icon": "☀️",
+      "temp": "57°",
+      "precip": "10%"
+    },
+    {
+      "time": "8 PM",
+      "icon": "🌙",
+      "temp": "55°",
+      "precip": "5%"
+    },
+    {
+      "time": "9 PM",
+      "icon": "🌙",
+      "temp": "54°",
+      "precip": "0%"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "location": "San Francisco, CA",
+  "temp": "62°",
+  "condition": "Partly cloudy",
+  "icon": "⛅",
+  "high_low": "H:68° L:54°",
+  "feels_like": "Feels like 60°",
+  "stats": [
+    { "icon": "💧", "label": "Humidity", "value": "72%" },
+    { "icon": "💨", "label": "Wind", "value": "12 mph" },
+    { "icon": "🌡", "label": "Pressure", "value": "1014 mb" },
+    { "icon": "👁", "label": "Visibility", "value": "9 mi" }
+  ]
+}

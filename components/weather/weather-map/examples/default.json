@@ -1,0 +1,10 @@
+{
+  "title": "Radar",
+  "layers": [
+    { "label": "Radar", "active": true },
+    { "label": "Satellite", "active": false },
+    { "label": "Temp", "active": false },
+    { "label": "Wind", "active": false }
+  ],
+  "timestamp": "As of 4:30 PM"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Tides",
+  "location": "Ocean Beach",
+  "tides": [
+    { "type": "high", "time": "4:12 AM", "height": "5.8 ft" },
+    { "type": "low", "time": "10:38 AM", "height": "0.9 ft" },
+    { "type": "high", "time": "4:54 PM", "height": "6.2 ft" },
+    { "type": "low", "time": "11:20 PM", "height": "0.4 ft" }
+  ]
+}

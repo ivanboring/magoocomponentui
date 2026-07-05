@@ -1,0 +1,18 @@
+name: precipitation-chart
+props:
+  title:
+    type: string
+    default: "Chance of rain"
+    title: Title
+  summary:
+    type: string
+    title: Summary
+    example: "Showers likely this afternoon"
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: "Each: { label, pct } where pct is rain probability 0-100."
+    example:
+      - { label: "12p", pct: 20 }

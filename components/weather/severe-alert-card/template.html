@@ -1,0 +1,10 @@
+<aside class="severe-alert-card flex gap-3 rounded-card border border-l-4 border-border p-(--space-card) shadow-card {{ severity@class }}" role="alert">
+  <span class="severe-alert-card__icon shrink-0 data-[severity=advisory]:text-info data-[severity=watch]:text-warning data-[severity=warning]:text-danger" data-severity="{{ severity }}" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.8l8.5 15A1 1 0 0117.6 18H2.4a1 1 0 01-.9-1.5l8.5-15zM9 8v4h2V8H9zm0 5v2h2v-2H9z"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="severe-alert-card__title font-heading text-on-surface">{{ title }}</p>
+    <p data-if="detail" class="severe-alert-card__detail mt-0.5 text-sm text-on-surface-muted">{{ detail }}</p>
+    <p data-if="until" class="severe-alert-card__until mt-1 text-xs font-medium text-on-surface-muted">{{ until }}</p>
+  </div>
+</aside>

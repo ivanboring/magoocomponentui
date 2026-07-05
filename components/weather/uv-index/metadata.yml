@@ -1,0 +1,65 @@
+name: "UV Index"
+short_description: A UV level meter with the value, category, and sun-safety advice.
+long_visual_description: >
+  A panel with the UV value and category, a green-to-purple fill meter, a 0–11+ scale, and
+  sun-safety advice.
+
+use_cases:
+  - UV index display.
+  - Sun exposure level.
+  - UV meter.
+  - Sun-safety advice.
+  - Weather UV widget.
+
+recommended_for:
+  - A UV index reading with advice.
+avoid_for:
+  - An AQI gauge (use air-quality-index).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the value and category; the fill reflects the level and the advice gives sun safety.
+
+props:
+  value: The UV value.
+  label: The category (Low/High/…).
+  advice: The sun-safety advice.
+  pct: The meter fill 0-100.
+
+example_prompts:
+  - "Add a UV index meter with sun-safety advice."
+  - "Add a UV level widget."
+
+lifecycle: experimental
+content_model: A UV index reading with advice.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The value and category carry the meaning; the gradient is the fixed UV convention.
+
+categorization:
+  category: Weather
+  subcategory: Environment
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The value, category, and advice are real text so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

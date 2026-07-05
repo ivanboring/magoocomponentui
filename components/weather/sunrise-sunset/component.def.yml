@@ -1,0 +1,26 @@
+name: sunrise-sunset
+props:
+  sunrise:
+    type: string
+    required: true
+    title: Sunrise
+    example: "6:14 AM"
+  sunset:
+    type: string
+    required: true
+    title: Sunset
+    example: "8:02 PM"
+  daylight:
+    type: string
+    title: Daylight
+    example: "13h 48m of daylight"
+  sun_x:
+    type: integer
+    default: 50
+    title: Sun position X
+    description: 0-100 horizontal position of the sun along the arc.
+  sun_y:
+    type: integer
+    default: 20
+    title: Sun position Y
+    description: SVG y (0-90) height of the sun on the arc; lower = higher in the sky.

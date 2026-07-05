@@ -1,0 +1,14 @@
+name: hourly-forecast
+props:
+  title:
+    type: string
+    default: "Hourly"
+    title: Title
+  hours:
+    type: array
+    items: object
+    required: true
+    title: Hours
+    description: "Each: { time, icon, temp, precip }."
+    example:
+      - { time: "Now", icon: "⛅", temp: "62°", precip: "10%" }

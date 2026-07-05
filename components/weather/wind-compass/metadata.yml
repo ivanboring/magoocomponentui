@@ -1,0 +1,64 @@
+name: "Wind Compass"
+short_description: A wind direction dial with speed and gusts.
+long_visual_description: >
+  A compass dial with a needle pointing the wind direction, beside the wind speed, direction,
+  and gusts.
+
+use_cases:
+  - Wind direction and speed.
+  - Compass wind dial.
+  - Marine wind widget.
+  - Wind report.
+  - Weather wind display.
+
+recommended_for:
+  - A wind direction/speed dial.
+avoid_for:
+  - A generic gauge (use gauge).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the needle rotation in degrees; show the speed, direction, and gusts.
+
+props:
+  speed: The wind speed.
+  direction: The direction (compass point).
+  rotation: The needle rotation in degrees.
+  gust: The gust info.
+
+example_prompts:
+  - "Add a wind compass with speed and gusts."
+  - "Add a wind direction dial."
+
+lifecycle: experimental
+content_model: A wind direction dial with speed.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The direction word and speed carry the meaning; the needle is a visual reinforcement.
+
+categorization:
+  category: Weather
+  subcategory: Conditions
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Speed, direction, and gusts are real text (not needle-only); the dial/needle are decorative.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

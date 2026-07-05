@@ -1,0 +1,66 @@
+name: "Daily Forecast"
+short_description: A 7-day forecast list with icons, precip, and temperature range bars.
+long_visual_description: >
+  A list of days, each with the day, a weather icon, precip chance, low/high, and a
+  temperature-range bar positioned within the week's min/max.
+
+use_cases:
+  - 7-day forecast.
+  - Weekly outlook.
+  - Daily weather list.
+  - Extended forecast.
+  - Week-ahead weather.
+
+recommended_for:
+  - A multi-day forecast with range bars.
+avoid_for:
+  - An hourly forecast (use hourly-forecast).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each day's range bar position/width within the week's temperature range; show
+  low/high and precip.
+
+props:
+  title: The section title.
+  days: The days with icon, precip, low/high, and range bar.
+
+example_prompts:
+  - "Add a 7-day forecast with temperature range bars."
+  - "Add a weekly weather outlook."
+
+lifecycle: experimental
+content_model: A multi-day forecast with range bars.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show low/high as text; the range bar is a visual comparison across days.
+
+categorization:
+  category: Weather
+  subcategory: Forecast
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Low/high and precip are real text; the range bar is a supplementary visual; weather icons are decorative.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

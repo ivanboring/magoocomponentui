@@ -1,0 +1,65 @@
+name: "Air Quality Index"
+short_description: An AQI gauge with the value, category, and health advice.
+long_visual_description: >
+  A panel with the AQI value and category, a green-to-purple scale with a marker at the
+  current level, and a health advice line.
+
+use_cases:
+  - Air quality display.
+  - AQI gauge.
+  - Pollution level.
+  - Health advisory.
+  - Environmental widget.
+
+recommended_for:
+  - An AQI reading with category and advice.
+avoid_for:
+  - A UV index (use uv-index).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the value and category; position the marker along the scale and give health advice.
+
+props:
+  value: The AQI value.
+  label: The category (Good/Moderate/…).
+  advice: The health advice.
+  pct: The marker position 0-100.
+
+example_prompts:
+  - "Add an air quality index gauge with advice."
+  - "Add an AQI reading widget."
+
+lifecycle: experimental
+content_model: An AQI reading with category and advice.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --shadow-raised
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The value and category carry the meaning; the gradient scale is a fixed AQI convention.
+
+categorization:
+  category: Weather
+  subcategory: Environment
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The value, category, and advice are real text; the marker has an accessible label so it isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

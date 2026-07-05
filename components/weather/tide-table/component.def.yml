@@ -1,0 +1,18 @@
+name: tide-table
+props:
+  title:
+    type: string
+    default: "Tides"
+    title: Title
+  location:
+    type: string
+    title: Location
+    example: "Ocean Beach"
+  tides:
+    type: array
+    items: object
+    required: true
+    title: Tides
+    description: "Each: { type, time, height } where type is high | low."
+    example:
+      - { type: "high", time: "4:12 AM", height: "5.8 ft" }

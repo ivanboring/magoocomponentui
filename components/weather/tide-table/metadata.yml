@@ -1,0 +1,62 @@
+name: "Tide Table"
+short_description: A high/low tide schedule with times and heights.
+long_visual_description: >
+  A list of tides, each with an up/down arrow, high/low label, time, and height, for a
+  location.
+
+use_cases:
+  - Tide times.
+  - High/low tide table.
+  - Marine tide schedule.
+  - Coastal weather.
+  - Fishing/surf tides.
+
+recommended_for:
+  - A high/low tide schedule.
+avoid_for:
+  - A sunrise/sunset arc (use sunrise-sunset).
+
+markets:
+  - Global
+
+example_usage: >
+  List the day's tides with type, time, and height; the arrow reinforces high/low.
+
+props:
+  title: The section title.
+  location: The location.
+  tides: The tides with type, time, and height.
+
+example_prompts:
+  - "Add a tide table with high/low times."
+  - "Add a coastal tide schedule."
+
+lifecycle: experimental
+content_model: A high/low tide schedule.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show heights so tides are comparable; the arrow reinforces the high/low label.
+
+categorization:
+  category: Weather
+  subcategory: Marine
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: High/low is shown by a text label plus an arrow (not colour-only); times and heights are real text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

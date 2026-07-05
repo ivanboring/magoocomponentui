@@ -1,0 +1,65 @@
+name: "Severe Alert Card"
+short_description: A weather warning card with severity, detail, and expiry.
+long_visual_description: >
+  A left-accented alert with a warning triangle, the alert title, detail, and an "until" time,
+  colour-coded by severity (advisory/watch/warning).
+
+use_cases:
+  - Severe weather warning.
+  - Storm alert.
+  - Weather advisory.
+  - Emergency notice.
+  - Hazard warning.
+
+recommended_for:
+  - A severe weather warning with severity.
+avoid_for:
+  - A generic alert (use alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Set severity to drive the colour; state the hazard, safety advice, and expiry.
+
+props:
+  severity: The severity (drives colour).
+  title: The alert title.
+  detail: The hazard/safety detail.
+  until: The expiry time.
+
+example_prompts:
+  - "Add a severe thunderstorm warning card."
+  - "Add a weather advisory alert."
+
+lifecycle: experimental
+content_model: A weather warning with severity and expiry.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  State the hazard and safety action; the severity word carries the level (colour reinforces).
+
+categorization:
+  category: Weather
+  subcategory: Alerts
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert"; the title conveys the warning type (severity is not colour-only); the triangle icon is decorative.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

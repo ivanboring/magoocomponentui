@@ -1,0 +1,16 @@
+<section class="tide-table rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <div class="tide-table__head flex items-baseline justify-between gap-2 border-b border-border px-(--space-card) py-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="location" class="text-xs text-on-surface-muted">{{ location }}</span>
+  </div>
+  <ul class="tide-table__tides divide-y divide-border">
+    <li data-for="tide in tides" class="tide-table__tide flex items-center gap-3 px-(--space-card) py-2.5" data-type="{{ tide.type }}">
+      <span class="tide-table__icon shrink-0 text-on-surface-muted" aria-hidden="true">
+        <svg class="size-5 data-[type=low]:rotate-180" data-type="{{ tide.type }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 4v10M6 8l4-4 4 4"/></svg>
+      </span>
+      <span class="tide-table__type w-12 shrink-0 text-sm font-medium capitalize text-on-surface">{{ tide.type }}</span>
+      <span class="tide-table__time min-w-0 flex-1 text-sm text-on-surface tabular-nums">{{ tide.time }}</span>
+      <span class="tide-table__height shrink-0 text-sm text-on-surface-muted tabular-nums">{{ tide.height }}</span>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,14 @@
+<section class="pollen-forecast rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="pollen-forecast__title font-heading text-on-surface">{{ title }}</h3>
+  <ul class="pollen-forecast__allergens mt-4 flex flex-col gap-3">
+    <li data-for="allergen in allergens" class="pollen-forecast__allergen">
+      <div class="flex items-baseline justify-between text-sm">
+        <span class="text-on-surface">{{ allergen.name }}</span>
+        <span class="font-medium data-[tone=success]:text-success data-[tone=warning]:text-warning data-[tone=danger]:text-danger" data-tone="{{ allergen.tone }}">{{ allergen.level }}</span>
+      </div>
+      <div class="mt-1 h-1.5 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ allergen.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ allergen.name }} pollen">
+        <div class="h-full rounded-pill data-[tone=success]:bg-success data-[tone=warning]:bg-warning data-[tone=danger]:bg-danger" data-tone="{{ allergen.tone }}" style="width: {{ allergen.pct }}%"></div>
+      </div>
+    </li>
+  </ul>
+</section>

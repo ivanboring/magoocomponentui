@@ -1,0 +1,16 @@
+name: daily-forecast
+props:
+  title:
+    type: string
+    default: "7-day forecast"
+    title: Title
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      Each: { label, icon, condition, precip, low, high, bar_left, bar_width } where
+      bar_left/bar_width (0-100) position the temp range bar within the week's min/max.
+    example:
+      - { label: "Today", icon: "⛅", condition: "Partly cloudy", precip: "10%", low: "54°", high: "68°", bar_left: 20, bar_width: 55 }

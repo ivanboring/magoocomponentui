@@ -1,0 +1,13 @@
+<section class="precipitation-chart rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="flex items-baseline justify-between gap-2">
+    <h3 class="precipitation-chart__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="summary" class="precipitation-chart__summary text-xs text-on-surface-muted">{{ summary }}</span>
+  </div>
+  <div class="precipitation-chart__bars mt-4 flex h-28 items-end gap-2">
+    <div data-for="bar in bars" class="precipitation-chart__col group flex h-full flex-1 flex-col items-center justify-end gap-1">
+      <span class="text-[10px] font-medium text-info tabular-nums">{{ bar.pct }}%</span>
+      <div class="precipitation-chart__bar w-full rounded-t-control bg-info/70" style="height: {{ bar.pct }}%"></div>
+      <span class="text-[10px] text-on-surface-muted">{{ bar.label }}</span>
+    </div>
+  </div>
+</section>

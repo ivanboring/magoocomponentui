@@ -1,0 +1,21 @@
+name: uv-index
+props:
+  value:
+    type: string
+    required: true
+    title: UV value
+    example: "7"
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "High"
+  advice:
+    type: string
+    title: Advice
+    example: "Wear SPF 30+, sunglasses, and seek shade midday."
+  pct:
+    type: integer
+    default: 0
+    title: Fill
+    description: 0-100 fill of the UV scale (0-11+).

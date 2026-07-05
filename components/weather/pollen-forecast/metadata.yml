@@ -1,0 +1,64 @@
+name: "Pollen Forecast"
+short_description: Allergen pollen levels with per-allergen bars.
+long_visual_description: >
+  A list of allergens (tree, grass, weed, mold) each with a level word and a colour-coded bar.
+
+use_cases:
+  - Pollen/allergen levels.
+  - Allergy forecast.
+  - Hay-fever widget.
+  - Environmental allergen.
+  - Pollen count.
+
+recommended_for:
+  - Allergen pollen levels with bars.
+avoid_for:
+  - Air quality (use air-quality-index).
+
+markets:
+  - Global
+
+example_usage: >
+  List allergens with a level word and a precomputed percentage bar.
+
+props:
+  title: The section title.
+  allergens: The allergens with level, percentage, and tone.
+
+example_prompts:
+  - "Add a pollen forecast with allergen levels."
+  - "Add an allergy forecast widget."
+
+lifecycle: experimental
+content_model: Allergen pollen levels with bars.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The level word carries the meaning; the bar and colour reinforce it.
+
+categorization:
+  category: Weather
+  subcategory: Environment
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each allergen shows a level word (Low/High) and a labelled progressbar, so meaning isn't colour-only.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

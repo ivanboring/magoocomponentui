@@ -1,0 +1,12 @@
+{
+  "title": "Chance of rain",
+  "summary": "Showers likely this afternoon",
+  "bars": [
+    { "label": "9a", "pct": 10 },
+    { "label": "12p", "pct": 20 },
+    { "label": "3p", "pct": 60 },
+    { "label": "6p", "pct": 80 },
+    { "label": "9p", "pct": 45 },
+    { "label": "12a", "pct": 15 }
+  ]
+}

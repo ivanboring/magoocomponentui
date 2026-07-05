@@ -1,0 +1,66 @@
+name: "Sunrise / Sunset"
+short_description: A daylight arc with the sun's position, sunrise, and sunset times.
+long_visual_description: >
+  A dotted arc with the sun positioned along it, the daylight duration, and the sunrise and
+  sunset times below.
+
+use_cases:
+  - Sunrise/sunset times.
+  - Daylight arc.
+  - Golden hour widget.
+  - Day length display.
+  - Sun position.
+
+recommended_for:
+  - Sunrise/sunset with a daylight arc.
+avoid_for:
+  - A tide table (use tide-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the sun's x/y along the arc for the current time; show sunrise, sunset, and
+  daylight length.
+
+props:
+  sunrise: The sunrise time.
+  sunset: The sunset time.
+  daylight: The daylight duration.
+  sun_x: The sun's horizontal position 0-100.
+  sun_y: The sun's height on the arc.
+
+example_prompts:
+  - "Add a sunrise/sunset daylight arc."
+  - "Add a sun position widget."
+
+lifecycle: experimental
+content_model: Sunrise/sunset times with a daylight arc.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Position the sun for the current time; the times carry the meaning, the arc is illustrative.
+
+categorization:
+  category: Weather
+  subcategory: Conditions
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Sunrise, sunset, and daylight are real text; the arc and sun are decorative.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

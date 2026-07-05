@@ -1,0 +1,67 @@
+name: "Current Weather"
+short_description: A current-conditions panel with temp, condition, and detail stats.
+long_visual_description: >
+  A gradient panel with the location, a large temperature and weather icon, the condition,
+  high/low and feels-like, and a stats grid (humidity, wind, pressure, visibility).
+
+use_cases:
+  - Current weather panel.
+  - Today's conditions.
+  - Weather app header.
+  - Now conditions.
+  - Location weather.
+
+recommended_for:
+  - The current-conditions panel of a weather view.
+avoid_for:
+  - A compact strip (use weather-strip).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the temp and condition large; the stats grid gives humidity, wind, etc.
+
+props:
+  location: The location.
+  temp: The temperature.
+  condition: The condition.
+  icon: The weather icon.
+  high_low: The high/low.
+  feels_like: The feels-like.
+  stats: The detail stats.
+
+example_prompts:
+  - "Add a current weather panel with detail stats."
+  - "Add today's conditions header."
+
+lifecycle: experimental
+content_model: A current-conditions panel with stats.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Lead with temp and condition; the stats grid gives the supporting detail.
+
+categorization:
+  category: Weather
+  subcategory: Conditions
+  atomic_type: organism
+  usage_type: [stat, hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Temp, condition, and stats are real text; the weather/stat icons are decorative. Uses a definition list for stats.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

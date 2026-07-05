@@ -1,0 +1,62 @@
+name: "Hourly Forecast"
+short_description: A scrollable hourly forecast strip with icon, temp, and precip.
+long_visual_description: >
+  A horizontally scrollable strip of hours, each with the time, a weather icon, temperature,
+  and precipitation chance.
+
+use_cases:
+  - Hourly weather strip.
+  - Next-hours forecast.
+  - Scrollable forecast.
+  - Hour-by-hour outlook.
+  - Weather app hourly.
+
+recommended_for:
+  - A scrollable hour-by-hour forecast.
+avoid_for:
+  - A daily forecast (use daily-forecast).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the coming hours with icon, temp, and precip; the strip scrolls horizontally.
+
+props:
+  title: The section title.
+  hours: The hourly entries.
+
+example_prompts:
+  - "Add an hourly forecast strip."
+  - "Add a scrollable hour-by-hour weather row."
+
+lifecycle: experimental
+content_model: A scrollable hourly forecast.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show precip chance where relevant; the strip scrolls for more hours.
+
+categorization:
+  category: Weather
+  subcategory: Forecast
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Time, temp, and precip are real text; weather icons are decorative. The strip scrolls with the keyboard.
+  keyboard_support: The strip is scrollable via the keyboard.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,34 @@
+name: current-weather
+props:
+  location:
+    type: string
+    required: true
+    title: Location
+    example: "San Francisco, CA"
+  temp:
+    type: string
+    required: true
+    title: Temp
+    example: "62°"
+  condition:
+    type: string
+    required: true
+    title: Condition
+    example: "Partly cloudy"
+  icon:
+    type: string
+    default: "⛅"
+    title: Icon
+  high_low:
+    type: string
+    title: High/low
+    example: "H:68° L:54°"
+  feels_like:
+    type: string
+    title: Feels like
+    example: "Feels like 60°"
+  stats:
+    type: array
+    items: object
+    title: Stats
+    description: "Each: { icon, label, value }."

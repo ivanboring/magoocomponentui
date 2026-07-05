@@ -1,0 +1,21 @@
+name: air-quality-index
+props:
+  value:
+    type: string
+    required: true
+    title: AQI value
+    example: "82"
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Moderate"
+  advice:
+    type: string
+    title: Advice
+    example: "Sensitive groups should limit prolonged outdoor exertion."
+  pct:
+    type: integer
+    default: 0
+    title: Position
+    description: 0-100 marker position along the AQI scale.

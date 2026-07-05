@@ -1,0 +1,16 @@
+<section class="wind-compass flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Wind">
+  <div class="wind-compass__dial relative size-24 shrink-0 rounded-full border-2 border-border">
+    <span class="absolute left-1/2 top-1 -translate-x-1/2 text-[10px] font-semibold text-on-surface-muted">N</span>
+    <span class="absolute bottom-1 left-1/2 -translate-x-1/2 text-[10px] text-on-surface-muted">S</span>
+    <span class="absolute left-1.5 top-1/2 -translate-y-1/2 text-[10px] text-on-surface-muted">W</span>
+    <span class="absolute right-1.5 top-1/2 -translate-y-1/2 text-[10px] text-on-surface-muted">E</span>
+    <span class="wind-compass__needle absolute inset-0 flex items-center justify-center" style="transform: rotate({{ rotation }}deg)" aria-hidden="true">
+      <svg class="size-16 text-primary" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l4 9h-3v9h-2v-9H8z"/></svg>
+    </span>
+  </div>
+  <div>
+    <p class="wind-compass__speed font-heading text-2xl text-on-surface tabular-nums">{{ speed }}</p>
+    <p class="wind-compass__direction text-sm text-on-surface-muted">From the {{ direction }}</p>
+    <p data-if="gust" class="wind-compass__gust text-xs text-on-surface-muted">{{ gust }}</p>
+  </div>
+</section>

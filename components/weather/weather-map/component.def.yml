@@ -1,0 +1,16 @@
+name: weather-map
+props:
+  title:
+    type: string
+    default: "Radar"
+    title: Title
+  layers:
+    type: array
+    items: object
+    required: true
+    title: Layers
+    description: "Each: { label, active }."
+  timestamp:
+    type: string
+    title: Timestamp
+    example: "As of 4:30 PM"

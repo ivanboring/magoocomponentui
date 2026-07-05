@@ -1,0 +1,14 @@
+name: pollen-forecast
+props:
+  title:
+    type: string
+    default: "Pollen forecast"
+    title: Title
+  allergens:
+    type: array
+    items: object
+    required: true
+    title: Allergens
+    description: "Each: { name, level, pct, tone } where tone is success|warning|danger and pct is 0-100."
+    example:
+      - { name: "Tree", level: "Low", pct: 25, tone: "success" }

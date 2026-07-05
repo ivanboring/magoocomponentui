@@ -1,0 +1,11 @@
+<section class="uv-index rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="UV index">
+  <div class="flex items-baseline justify-between gap-2">
+    <p class="text-sm text-on-surface-muted">UV Index</p>
+    <p class="uv-index__value font-heading text-2xl text-on-surface tabular-nums">{{ value }}<span class="uv-index__label ml-2 align-middle text-base font-medium text-on-surface-muted">{{ label }}</span></p>
+  </div>
+  <div class="uv-index__track relative mt-3 h-2 overflow-hidden rounded-pill bg-surface-raised">
+    <div class="h-full rounded-pill" style="width: {{ pct }}%; background:linear-gradient(90deg,#22c55e,#eab308,#f97316,#ef4444,#a21caf)"></div>
+  </div>
+  <div class="mt-1 flex justify-between text-[10px] text-on-surface-muted"><span>0</span><span>Low</span><span>Mod</span><span>High</span><span>11+</span></div>
+  <p data-if="advice" class="uv-index__advice mt-3 text-sm text-on-surface-muted">{{ advice }}</p>
+</section>

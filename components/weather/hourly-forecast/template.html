@@ -1,0 +1,11 @@
+<section class="hourly-forecast rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="hourly-forecast__title font-heading text-on-surface">{{ title }}</h3>
+  <ul class="hourly-forecast__hours mt-3 flex gap-4 overflow-x-auto pb-1">
+    <li data-for="hour in hours" class="hourly-forecast__hour flex shrink-0 flex-col items-center gap-1.5 text-center">
+      <span class="hourly-forecast__time text-xs font-medium text-on-surface-muted">{{ hour.time }}</span>
+      <span class="hourly-forecast__icon text-2xl" aria-hidden="true">{{ hour.icon }}</span>
+      <span class="hourly-forecast__temp font-heading text-on-surface tabular-nums">{{ hour.temp }}</span>
+      <span data-if="hour.precip" class="hourly-forecast__precip text-[11px] text-info tabular-nums">{{ hour.precip }}</span>
+    </li>
+  </ul>
+</section>

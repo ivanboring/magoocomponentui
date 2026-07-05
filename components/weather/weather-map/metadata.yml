@@ -1,0 +1,66 @@
+name: "Weather Map"
+short_description: A radar map shell with layer toggles and an intensity legend.
+long_visual_description: >
+  A panel with layer toggle chips (radar/satellite/temp/wind) and a timestamp, a map
+  placeholder with illustrative radar blobs, and an intensity legend.
+
+use_cases:
+  - Weather radar.
+  - Precipitation map.
+  - Satellite/temp layers.
+  - Radar shell.
+  - Storm tracking map.
+
+recommended_for:
+  - A radar map shell with layer toggles.
+avoid_for:
+  - A location map (use trip-map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide layers (one active); the canvas is a placeholder for a real radar tile layer in
+  production.
+
+props:
+  title: The section title.
+  layers: The map layer toggles.
+  timestamp: The data timestamp.
+
+example_prompts:
+  - "Add a weather radar map with layer toggles."
+  - "Add a precipitation radar shell."
+
+lifecycle: experimental
+content_model: A radar map shell with layers and legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  The map is a placeholder — swap for a real radar layer; the legend explains intensity.
+
+categorization:
+  category: Weather
+  subcategory: Maps
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Layer toggles use aria-pressed; the radar canvas is decorative with a text legend; the timestamp is real text.
+  keyboard_support: Layer toggles are focusable and toggle on Enter/Space.
+  seo_score: 30
+  text_direction: both

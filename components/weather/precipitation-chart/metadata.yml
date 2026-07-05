@@ -1,0 +1,63 @@
+name: "Precipitation Chart"
+short_description: Hourly rain-probability bars with percentages.
+long_visual_description: >
+  A titled bar chart of rain probability by hour, each bar labelled with its percentage.
+
+use_cases:
+  - Rain probability chart.
+  - Precipitation forecast.
+  - Chance-of-rain bars.
+  - Hourly rain outlook.
+  - Weather precip widget.
+
+recommended_for:
+  - An hourly rain-probability chart.
+avoid_for:
+  - A daily forecast (use daily-forecast).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide hourly bars with rain probabilities; each bar shows its percentage.
+
+props:
+  title: The chart title.
+  summary: A short summary.
+  bars: The hourly bars with probabilities.
+
+example_prompts:
+  - "Add a chance-of-rain bar chart by hour."
+  - "Add a precipitation probability widget."
+
+lifecycle: experimental
+content_model: An hourly rain-probability chart.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Label each bar with its percentage so the chart is readable without colour.
+
+categorization:
+  category: Weather
+  subcategory: Forecast
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar shows its percentage as text, so meaning isn't bar/colour-only.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both
