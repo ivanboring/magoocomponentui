@@ -1,0 +1,19 @@
+name: outfit-builder
+props:
+  slots_list:
+    type: array
+    items: object
+    required: true
+    title: Outfit slots
+    description: "Each slot: { label, item, price, image, filled }."
+    example:
+      - { label: "Top", item: "Linen Camp Shirt", price: "$68", image: "/stock/product-sneaker.jpg", filled: true }
+  total:
+    type: string
+    required: true
+    title: Total
+    example: "$228"
+  cta_label:
+    type: string
+    default: "Add outfit to bag"
+    title: CTA label

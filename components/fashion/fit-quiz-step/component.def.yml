@@ -1,0 +1,19 @@
+name: fit-quiz-step
+props:
+  step_label:
+    type: string
+    title: Step label
+    example: "Step 1 of 4"
+  question:
+    type: string
+    required: true
+    title: Question
+    example: "How do you like your fit?"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each: { label, detail, icon, selected }."
+    example:
+      - { label: "Fitted", detail: "Close to the body", icon: "📏", selected: false }

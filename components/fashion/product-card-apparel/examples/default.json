@@ -1,0 +1,10 @@
+{
+  "name": "Linen Camp Shirt",
+  "brand": "Coastline",
+  "image": "/stock/product-sneaker.jpg",
+  "price": "$68",
+  "original_price": "$95",
+  "colors": [ { "swatch": "#e8e2d5" }, { "swatch": "#3a4a5a" }, { "swatch": "#7a5c3e" } ],
+  "badge": "New",
+  "href": "#"
+}

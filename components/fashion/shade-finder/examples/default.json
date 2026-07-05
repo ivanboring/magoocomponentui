@@ -1,0 +1,19 @@
+{
+  "title": "Find your shade",
+  "undertone_label": "Undertone",
+  "undertones": [
+    { "label": "Cool", "active": false },
+    { "label": "Neutral", "active": true },
+    { "label": "Warm", "active": false }
+  ],
+  "depth_label": "Depth",
+  "shades": [
+    { "name": "110 Porcelain", "swatch": "#f0d9c4", "active": false },
+    { "name": "170 Ivory", "swatch": "#e6c4a8", "active": false },
+    { "name": "230 Warm Sand", "swatch": "#d1a583", "active": true },
+    { "name": "310 Amber", "swatch": "#b07d54", "active": false },
+    { "name": "420 Chestnut", "swatch": "#8a5a38", "active": false },
+    { "name": "510 Espresso", "swatch": "#5c3a24", "active": false }
+  ],
+  "match_name": "230 Warm Sand"
+}

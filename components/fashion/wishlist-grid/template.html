@@ -1,0 +1,9 @@
+<section class="wishlist-grid" aria-label="{{ title }}">
+  <div class="wishlist-grid__head mb-4 flex items-baseline gap-2">
+    <h2 class="wishlist-grid__title font-heading text-xl text-on-surface">{{ title }}</h2>
+    <span data-if="count" class="wishlist-grid__count text-sm text-on-surface-muted">{{ count }}</span>
+  </div>
+  <div class="wishlist-grid__grid grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <slot name="items"></slot>
+  </div>
+</section>

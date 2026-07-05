@@ -1,0 +1,20 @@
+<article class="product-card-apparel group flex flex-col">
+  <a data-if="image" class="product-card-apparel__media relative block aspect-[3/4] overflow-hidden rounded-card bg-surface-raised" href="{{ href }}">
+    <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ image }}" alt="{{ name }}">
+    <span data-if="badge" class="product-card-apparel__badge absolute left-3 top-3 rounded-pill bg-surface px-2.5 py-0.5 text-xs font-semibold text-on-surface shadow-card">{{ badge }}</span>
+    <button type="button" class="product-card-apparel__wish absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-surface/90 text-on-surface-muted opacity-0 shadow-card transition-opacity duration-(--duration-token) hover:text-danger group-hover:opacity-100" aria-label="Add to wishlist">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 17s-6-4-6-9a3 3 0 016-1 3 3 0 016 1c0 5-6 9-6 9z"/></svg>
+    </button>
+  </a>
+  <div class="product-card-apparel__body mt-3">
+    <p data-if="brand" class="product-card-apparel__brand text-xs uppercase tracking-wide text-on-surface-muted">{{ brand }}</p>
+    <h3 class="product-card-apparel__name text-sm text-on-surface"><a class="hover:underline" href="{{ href }}">{{ name }}</a></h3>
+    <p class="product-card-apparel__price mt-1 flex items-center gap-2 text-sm">
+      <span class="font-heading text-on-surface tabular-nums">{{ price }}</span>
+      <span data-if="original_price" class="text-on-surface-muted line-through">{{ original_price }}</span>
+    </p>
+    <div data-if="colors" class="product-card-apparel__colors mt-2 flex gap-1.5">
+      <span data-for="color in colors" class="size-4 rounded-full ring-1 ring-inset ring-black/10" style="background: {{ color.swatch }}" aria-hidden="true"></span>
+    </div>
+  </div>
+</article>

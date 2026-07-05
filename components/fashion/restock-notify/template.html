@@ -1,0 +1,16 @@
+<section class="restock-notify rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="restock-notify__head flex items-center gap-2">
+    <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-raised text-on-surface-muted" aria-hidden="true">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3a4 4 0 014 4v3l2 3H4l2-3V7a4 4 0 014-4zM8 16a2 2 0 004 0"/></svg>
+    </span>
+    <div class="min-w-0">
+      <p class="restock-notify__title font-heading text-on-surface">{{ title }}</p>
+      <p data-if="detail" class="restock-notify__detail text-xs text-on-surface-muted">{{ detail }}</p>
+    </div>
+  </div>
+  <p data-if="description" class="restock-notify__description mt-3 text-sm text-on-surface-muted">{{ description }}</p>
+  <form class="restock-notify__form mt-3 flex flex-col gap-2 sm:flex-row">
+    <input type="email" class="restock-notify__input flex-1 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" aria-label="Email address" required>
+    <button type="submit" class="restock-notify__cta shrink-0 rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  </form>
+</section>

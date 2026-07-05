@@ -1,0 +1,11 @@
+{
+  "label": "Color",
+  "selected_name": "Sage",
+  "swatches": [
+    { "name": "Sand", "swatch": "#e8e2d5", "active": false, "soldout": false },
+    { "name": "Sage", "swatch": "#8a9a7b", "active": true, "soldout": false },
+    { "name": "Navy", "swatch": "#2c3a52", "active": false, "soldout": false },
+    { "name": "Rust", "swatch": "#a5563a", "active": false, "soldout": true },
+    { "name": "Black", "swatch": "#1a1a1a", "active": false, "soldout": false }
+  ]
+}

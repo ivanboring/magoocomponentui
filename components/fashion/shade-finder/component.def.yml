@@ -1,0 +1,30 @@
+name: shade-finder
+props:
+  title:
+    type: string
+    default: "Find your shade"
+    title: Title
+  undertone_label:
+    type: string
+    default: "Undertone"
+    title: Undertone label
+  undertones:
+    type: array
+    items: object
+    required: true
+    title: Undertones
+    description: "Each: { label, active }."
+  depth_label:
+    type: string
+    default: "Depth"
+    title: Depth label
+  shades:
+    type: array
+    items: object
+    required: true
+    title: Shades
+    description: "Each: { name, swatch, active } where swatch is a CSS color."
+  match_name:
+    type: string
+    title: Match name
+    example: "230 Warm Sand"

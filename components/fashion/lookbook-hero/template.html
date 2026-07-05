@@ -1,0 +1,10 @@
+<section class="lookbook-hero relative flex min-h-[28rem] overflow-hidden rounded-card {{ align@class }} justify-end flex-col">
+  <div class="lookbook-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="lookbook-hero__scrim absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" aria-hidden="true"></div>
+  <div class="lookbook-hero__body relative flex max-w-lg flex-col p-(--space-section) text-white {{ align@class }}">
+    <p data-if="eyebrow" class="lookbook-hero__eyebrow text-xs font-semibold uppercase tracking-[0.2em] text-white/80">{{ eyebrow }}</p>
+    <h1 class="lookbook-hero__title mt-2 font-heading text-4xl leading-tight sm:text-5xl">{{ title }}</h1>
+    <p data-if="subtitle" class="lookbook-hero__subtitle mt-3 text-white/85">{{ subtitle }}</p>
+    <a class="lookbook-hero__cta mt-6 inline-flex w-fit items-center rounded-button bg-white px-6 py-3 text-sm font-heading text-black transition-opacity duration-(--duration-token) hover:opacity-90" href="#">{{ cta_label }}</a>
+  </div>
+</section>

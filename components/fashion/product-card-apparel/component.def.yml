@@ -1,0 +1,37 @@
+name: product-card-apparel
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Linen Camp Shirt"
+  brand:
+    type: string
+    title: Brand
+    example: "Coastline"
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$68"
+  original_price:
+    type: string
+    title: Original price
+    example: "$95"
+  colors:
+    type: array
+    items: object
+    title: Colors
+    description: "Each: { swatch } — a CSS color."
+  badge:
+    type: string
+    title: Badge
+    example: "New"
+  href:
+    type: link
+    title: Link

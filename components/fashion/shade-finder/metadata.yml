@@ -1,0 +1,72 @@
+name: "Shade Finder"
+short_description: A beauty shade matcher with undertone and depth selection plus a match card.
+long_visual_description: >
+  A panel with undertone chips (cool/neutral/warm), a row of depth swatches, and a match card
+  showing the selected shade's name and colour.
+
+use_cases:
+  - Foundation shade finder.
+  - Beauty shade matcher.
+  - Concealer shade picker.
+  - Makeup match tool.
+  - Complexion selector.
+
+recommended_for:
+  - Matching a beauty product shade by undertone and depth.
+avoid_for:
+  - Apparel color selection (use color-swatch-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide undertone options and depth swatches; selecting a shade updates the match card.
+  Emits shade:change.
+
+props:
+  title: The finder title.
+  undertone_label: The undertone group label.
+  undertones: The undertone options.
+  depth_label: The depth group label.
+  shades: The shade swatches with name and color.
+  match_name: The matched shade name.
+
+example_prompts:
+  - "Add a foundation shade finder with undertone and depth."
+  - "Add a beauty shade matcher."
+
+lifecycle: experimental
+content_model: A beauty shade matcher with a result.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  The match card names the shade so the choice isn't colour-only; swatches use real shade
+  colours.
+
+categorization:
+  category: Fashion
+  subcategory: Beauty
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Undertone and shade are radiogroups with role="radio"/aria-checked and per-shade aria-labels; the match card names the shade so it isn't colour-only.
+  keyboard_support: Options and swatches are focusable and select on Enter/Space.
+  seo_score: 30
+  text_direction: both

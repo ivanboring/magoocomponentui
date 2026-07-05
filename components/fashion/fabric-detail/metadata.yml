@@ -1,0 +1,59 @@
+name: "Fabric Detail"
+short_description: A garment material composition and care instructions panel.
+long_visual_description: >
+  A panel listing the fabric composition (material and percentage) and care instructions with
+  icons.
+
+use_cases:
+  - Garment material and care.
+  - Fabric composition panel.
+  - Care instructions.
+  - Product material detail.
+  - Sustainability info.
+
+recommended_for:
+  - A garment's composition and care details.
+avoid_for:
+  - A size guide (use size-guide).
+
+markets:
+  - Global
+
+example_usage: >
+  List the composition percentages and the care instructions with clear icons.
+
+props:
+  composition: The material breakdown.
+  care: The care instructions with icons.
+
+example_prompts:
+  - "Add a fabric composition and care panel."
+  - "Add garment material details."
+
+lifecycle: experimental
+content_model: A garment's composition and care.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+
+editorial_guidance: >
+  Show exact composition percentages; care icons support the text labels.
+
+categorization:
+  category: Fashion
+  subcategory: Product
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Composition and care are real text; care icons are decorative alongside labels.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

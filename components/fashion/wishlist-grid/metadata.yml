@@ -1,0 +1,59 @@
+name: "Wishlist Grid"
+short_description: A grid of saved fashion items with per-item remove controls.
+long_visual_description: >
+  A titled grid (with an item count) of saved product tiles, each with a filled heart to
+  remove it from the wishlist.
+
+use_cases:
+  - Fashion wishlist.
+  - Saved items grid.
+  - Favorites gallery.
+  - Saved-for-later.
+  - Wishlist page.
+
+recommended_for:
+  - A grid of saved fashion items with remove.
+avoid_for:
+  - A shop grid (use lookbook-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot saved product tiles with a remove control; show the item count.
+
+props:
+  title: The section title.
+  count: The item count.
+
+slots:
+  items: The saved product tiles.
+
+relationships:
+  children:
+    - fashion/product-card-apparel
+
+lifecycle: experimental
+content_model: A grid of saved fashion items.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+
+editorial_guidance: >
+  Show the item count; each tile has a clear remove affordance.
+
+categorization:
+  category: Fashion
+  subcategory: Shop
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; remove controls have accessible labels naming the item.
+  keyboard_support: Remove controls are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

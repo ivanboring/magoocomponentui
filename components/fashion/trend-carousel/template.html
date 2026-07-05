@@ -1,0 +1,19 @@
+<section class="trend-carousel" aria-label="{{ title }}">
+  <div class="trend-carousel__head mb-4 flex items-center justify-between gap-3">
+    <h2 class="trend-carousel__title font-heading text-xl text-on-surface">{{ title }}</h2>
+    <div class="trend-carousel__nav flex gap-2">
+      <button type="button" class="trend-carousel__prev flex size-9 items-center justify-center rounded-full border border-border text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Previous"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+      <button type="button" class="trend-carousel__next flex size-9 items-center justify-center rounded-full border border-border text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Next"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="trend-carousel__track flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none]">
+    <a data-for="look in looks" class="trend-carousel__look group relative block aspect-[3/4] w-56 shrink-0 snap-start overflow-hidden rounded-card" href="#">
+      <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ look.image }}" alt="">
+      <span class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" aria-hidden="true"></span>
+      <span class="absolute inset-x-0 bottom-0 p-4 text-white">
+        <span class="block font-heading text-lg">{{ look.name }}</span>
+        <span data-if="look.tag" class="block text-xs text-white/80">{{ look.tag }}</span>
+      </span>
+    </a>
+  </div>
+</section>

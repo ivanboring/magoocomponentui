@@ -1,0 +1,11 @@
+{
+  "label": "Size",
+  "guide_href": "#",
+  "sizes": [
+    { "label": "XS", "status": "available" },
+    { "label": "S", "status": "available" },
+    { "label": "M", "status": "selected" },
+    { "label": "L", "status": "soldout" },
+    { "label": "XL", "status": "available" }
+  ]
+}

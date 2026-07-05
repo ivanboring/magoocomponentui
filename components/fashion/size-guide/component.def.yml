@@ -1,0 +1,24 @@
+name: size-guide
+props:
+  title:
+    type: string
+    default: "Size guide"
+    title: Title
+  unit_note:
+    type: string
+    title: Unit note
+    example: "Measurements in inches"
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: "Each: { label } — first is the size column, rest are measurements."
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each: { size, values: [{ text }] }."
+    example:
+      - { size: "S", values: [{ text: "36" }, { text: "30" }] }

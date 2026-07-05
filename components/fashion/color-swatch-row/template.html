@@ -1,0 +1,8 @@
+<div class="color-swatch-row">
+  <p class="color-swatch-row__label text-sm text-on-surface"><span class="font-medium">{{ label }}:</span> <span class="color-swatch-row__name text-on-surface-muted">{{ selected_name }}</span></p>
+  <div class="color-swatch-row__swatches mt-2 flex flex-wrap gap-2.5" role="radiogroup" aria-label="{{ label }}">
+    <button data-for="swatch in swatches" type="button" class="color-swatch-row__swatch relative size-9 rounded-full ring-2 ring-transparent ring-offset-2 ring-offset-surface transition-shadow duration-(--duration-token) data-[active=true]:ring-primary data-[soldout=true]:cursor-not-allowed data-[soldout=true]:opacity-50" data-active="{{ swatch.active }}" data-soldout="{{ swatch.soldout }}" data-name="{{ swatch.name }}" style="background: {{ swatch.swatch }}; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.1)" role="radio" aria-checked="{{ swatch.active }}" aria-label="{{ swatch.name }}">
+      <span data-if="swatch.soldout" class="absolute inset-0 flex items-center justify-center" aria-hidden="true"><span class="h-px w-full rotate-45 bg-on-surface-muted"></span></span>
+    </button>
+  </div>
+</div>

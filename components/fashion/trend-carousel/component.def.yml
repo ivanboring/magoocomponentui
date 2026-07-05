@@ -1,0 +1,14 @@
+name: trend-carousel
+props:
+  title:
+    type: string
+    default: "Trending now"
+    title: Title
+  looks:
+    type: array
+    items: object
+    required: true
+    title: Looks
+    description: "Each look: { name, tag, image }."
+    example:
+      - { name: "Quiet Luxury", tag: "128 items", image: "/stock/product-sneaker.jpg" }

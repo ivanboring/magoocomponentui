@@ -1,0 +1,12 @@
+{
+  "title": "Size guide",
+  "unit_note": "Measurements in inches",
+  "columns": [ { "label": "Size" }, { "label": "Chest" }, { "label": "Waist" }, { "label": "Length" }, { "label": "Sleeve" } ],
+  "rows": [
+    { "size": "XS", "values": [ { "text": "34" }, { "text": "28" }, { "text": "27" }, { "text": "23" } ] },
+    { "size": "S", "values": [ { "text": "36" }, { "text": "30" }, { "text": "28" }, { "text": "24" } ] },
+    { "size": "M", "values": [ { "text": "40" }, { "text": "33" }, { "text": "29" }, { "text": "25" } ] },
+    { "size": "L", "values": [ { "text": "44" }, { "text": "36" }, { "text": "30" }, { "text": "26" } ] },
+    { "size": "XL", "values": [ { "text": "48" }, { "text": "40" }, { "text": "31" }, { "text": "27" } ] }
+  ]
+}

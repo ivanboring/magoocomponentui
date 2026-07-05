@@ -1,0 +1,21 @@
+<section class="outfit-builder rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="outfit-builder__title font-heading text-lg text-on-surface">Build your outfit</h3>
+  <ul class="outfit-builder__slots mt-3 flex flex-col gap-2">
+    <li data-for="slot in slots_list" class="outfit-builder__slot flex items-center gap-3 rounded-control border border-border p-2" data-filled="{{ slot.filled }}">
+      <span class="outfit-builder__thumb flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-control bg-surface-raised text-on-surface-muted">
+        <img data-if="slot.filled" class="size-full object-cover" src="{{ slot.image }}" alt="{{ slot.item }}">
+        <svg data-if="!slot.filled" class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="text-xs uppercase tracking-wide text-on-surface-muted">{{ slot.label }}</p>
+        <p class="text-sm font-medium text-on-surface data-[filled=false]:text-on-surface-muted" data-filled="{{ slot.filled }}">{{ slot.item }}</p>
+      </div>
+      <span data-if="slot.price" class="outfit-builder__price shrink-0 text-sm text-on-surface tabular-nums">{{ slot.price }}</span>
+    </li>
+  </ul>
+  <div class="outfit-builder__total mt-4 flex items-center justify-between border-t border-border pt-3">
+    <span class="font-heading text-on-surface">Total</span>
+    <span class="font-heading text-xl text-on-surface tabular-nums">{{ total }}</span>
+  </div>
+  <button type="button" class="outfit-builder__cta mt-4 w-full rounded-button bg-primary py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</section>

@@ -1,0 +1,10 @@
+{
+  "slots_list": [
+    { "label": "Top", "item": "Linen Camp Shirt", "price": "$68", "image": "/stock/product-sneaker.jpg", "filled": true },
+    { "label": "Bottom", "item": "Wide-Leg Trouser", "price": "$92", "image": "/stock/product-sneaker.jpg", "filled": true },
+    { "label": "Shoes", "item": "Leather Loafer", "price": "$140", "image": "/stock/product-sneaker.jpg", "filled": true },
+    { "label": "Accessory", "item": "Add an accessory", "price": "", "image": "", "filled": false }
+  ],
+  "total": "$300",
+  "cta_label": "Add outfit to bag"
+}

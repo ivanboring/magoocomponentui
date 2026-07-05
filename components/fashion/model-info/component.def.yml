@@ -1,0 +1,7 @@
+name: model-info
+props:
+  text:
+    type: string
+    required: true
+    title: Text
+    example: "Model is 5'10\" and wears size S"

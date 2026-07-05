@@ -1,0 +1,12 @@
+{
+  "composition": [
+    { "material": "Linen", "pct": "70%" },
+    { "material": "Cotton", "pct": "30%" }
+  ],
+  "care": [
+    { "icon": "🌡", "label": "Cold wash" },
+    { "icon": "🚫", "label": "Do not bleach" },
+    { "icon": "🌀", "label": "Tumble dry low" },
+    { "icon": "♨️", "label": "Warm iron" }
+  ]
+}

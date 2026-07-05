@@ -1,0 +1,9 @@
+<div class="size-selector">
+  <div class="flex items-baseline justify-between gap-2">
+    <span class="size-selector__label text-sm font-medium text-on-surface">{{ label }}</span>
+    <a data-if="guide_href" class="size-selector__guide text-xs font-medium text-primary hover:underline" href="{{ guide_href }}">Size guide</a>
+  </div>
+  <div class="size-selector__sizes mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label="{{ label }}">
+    <button data-for="size in sizes" type="button" class="size-selector__size flex h-10 min-w-10 items-center justify-center rounded-control border px-2 text-sm font-medium transition-colors duration-(--duration-token) data-[status=available]:border-border data-[status=available]:text-on-surface data-[status=available]:hover:border-primary data-[status=selected]:border-primary data-[status=selected]:bg-primary data-[status=selected]:text-primary-contrast data-[status=soldout]:cursor-not-allowed data-[status=soldout]:border-border data-[status=soldout]:text-on-surface-muted/40 data-[status=soldout]:line-through" data-status="{{ size.status }}" role="radio" aria-checked="false" aria-label="Size {{ size.label }}">{{ size.label }}</button>
+  </div>
+</div>

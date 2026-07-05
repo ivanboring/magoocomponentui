@@ -1,0 +1,69 @@
+name: "Apparel Product Card"
+short_description: A fashion product card with image, price, color dots, and a wishlist button.
+long_visual_description: >
+  A tall product card with the garment photo (badge + hover wishlist), the brand and name, the
+  price (with strikethrough original), and color swatch dots.
+
+use_cases:
+  - Fashion product listing.
+  - Apparel shop grid.
+  - Clothing catalog card.
+  - Storefront product tile.
+  - Fashion search result.
+
+recommended_for:
+  - A clothing product tile in a shop grid.
+avoid_for:
+  - A generic product card (use card-product).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a portrait garment photo; show the price, any discount, and color options as dots.
+
+props:
+  name: The product name.
+  brand: The brand.
+  image: The garment photo (required).
+  price: The price.
+  original_price: The pre-discount price.
+  colors: The color swatch dots.
+  badge: A status badge (New, Sale).
+  href: The product link.
+
+example_prompts:
+  - "Add an apparel product card with color dots and sale price."
+  - "Add a clothing shop tile."
+
+lifecycle: experimental
+content_model: A garment photo, price, colors, and wishlist.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a strong portrait photo; show color options and any discount clearly.
+
+categorization:
+  category: Fashion
+  subcategory: Shop
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo alt is the product name; price/brand are real text; the wishlist control has an accessible label; color dots are decorative (names should appear on the detail page).
+  keyboard_support: Name, image, and wishlist are focusable and keyboard-operable.
+  seo_score: 50
+  text_direction: both

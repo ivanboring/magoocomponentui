@@ -1,0 +1,62 @@
+name: "Lookbook Hero"
+short_description: A fashion campaign hero with an eyebrow, title, and shop CTA over an image.
+long_visual_description: >
+  A tall image hero with a bottom scrim and overlaid campaign eyebrow, title, subtitle, and a
+  white shop CTA; alignment can be left or center.
+
+use_cases:
+  - Fashion campaign hero.
+  - Collection landing.
+  - Lookbook cover.
+  - Seasonal hero.
+  - Editorial banner.
+
+recommended_for:
+  - A fashion campaign/collection hero.
+avoid_for:
+  - A product detail hero (use product-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Use an editorial image; the scrim keeps text legible. Choose left or center alignment.
+
+props:
+  eyebrow: The campaign eyebrow.
+  title: The campaign title.
+  subtitle: A supporting line.
+  image: The hero image (required).
+  cta_label: The shop CTA text.
+  align: left or center.
+
+example_prompts:
+  - "Add a fashion lookbook hero for a collection."
+  - "Add a seasonal campaign banner."
+
+lifecycle: experimental
+content_model: A campaign hero with a shop CTA over an image.
+
+theming:
+  tokens_used:
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep copy minimal and editorial; the scrim + white text is fixed for legibility.
+
+categorization:
+  category: Fashion
+  subcategory: Editorial
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the scrim keeps white text legible; the CTA is a real link. Verify contrast against your image.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 55
+  text_direction: both

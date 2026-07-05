@@ -1,0 +1,18 @@
+name: color-swatch-row
+props:
+  label:
+    type: string
+    default: "Color"
+    title: Label
+  selected_name:
+    type: string
+    title: Selected name
+    example: "Sage"
+  swatches:
+    type: array
+    items: object
+    required: true
+    title: Swatches
+    description: "Each: { name, swatch, active, soldout } where swatch is a CSS color."
+    example:
+      - { name: "Sand", swatch: "#e8e2d5", active: false, soldout: false }

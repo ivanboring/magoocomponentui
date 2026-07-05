@@ -1,0 +1,18 @@
+name: size-selector
+props:
+  label:
+    type: string
+    default: "Size"
+    title: Label
+  guide_href:
+    type: link
+    title: Size guide link
+  sizes:
+    type: array
+    items: object
+    required: true
+    title: Sizes
+    description: "Each: { label, status } where status is available | selected | soldout."
+    example:
+      - { label: "S", status: "available" }
+      - { label: "M", status: "selected" }

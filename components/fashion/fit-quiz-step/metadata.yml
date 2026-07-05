@@ -1,0 +1,61 @@
+name: "Fit Quiz Step"
+short_description: A sizing/fit quiz question with selectable option cards.
+long_visual_description: >
+  A card with a step label, a fit question, and a set of option cards (icon, label, detail)
+  that highlight when selected.
+
+use_cases:
+  - Fit finder quiz.
+  - Sizing questionnaire.
+  - Style preference step.
+  - Fit recommendation flow.
+  - Size quiz.
+
+recommended_for:
+  - A single step in a fit/sizing quiz.
+avoid_for:
+  - A general form radio group (use form-field-radio-group).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the question and option cards (single-select); one may be pre-selected.
+
+props:
+  step_label: The step indicator.
+  question: The question.
+  options: The option cards with icon, label, and detail.
+
+example_prompts:
+  - "Add a fit quiz step with fitted/regular/relaxed options."
+  - "Add a sizing quiz question."
+
+lifecycle: experimental
+content_model: A fit question with option cards.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep options mutually exclusive; the detail line clarifies each fit.
+
+categorization:
+  category: Fashion
+  subcategory: Sizing
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a fieldset/legend with native radios (visually hidden) inside labels; selection uses has-[:checked] plus the radio state; icons are decorative.
+  keyboard_support: Options are keyboard-selectable via arrow keys within the group.
+  seo_score: 25
+  text_direction: both

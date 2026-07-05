@@ -1,0 +1,62 @@
+name: "Size Selector"
+short_description: Selectable size chips with sold-out states and a size-guide link.
+long_visual_description: >
+  A label with a size-guide link above a row of size chips; the selected size fills with the
+  primary colour and sold-out sizes are struck through.
+
+use_cases:
+  - Product size selection.
+  - Apparel size chips.
+  - Size picker with guide.
+  - Sold-out size states.
+  - Variant size choice.
+
+recommended_for:
+  - Selecting a garment size with sold-out awareness.
+avoid_for:
+  - A measurement table (use size-guide).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide sizes with statuses; sold-out sizes are struck through and inert. The guide link
+  opens the size-guide.
+
+props:
+  label: The selector label.
+  guide_href: The size-guide link.
+  sizes: The sizes with statuses.
+
+example_prompts:
+  - "Add a size selector with a sold-out size and guide link."
+  - "Add apparel size chips."
+
+lifecycle: experimental
+content_model: A single-select size picker with sold-out states.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Link the size guide; sold-out sizes are struck through and clearly inert.
+
+categorization:
+  category: Fashion
+  subcategory: Sizing
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Sizes are a radiogroup with role="radio" and per-size aria-labels; sold-out is struck through (not colour alone) and inert.
+  keyboard_support: Available sizes are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

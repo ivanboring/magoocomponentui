@@ -1,0 +1,22 @@
+<section class="shade-finder rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="shade-finder__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <div class="shade-finder__undertone mt-4">
+    <span class="text-sm font-medium text-on-surface">{{ undertone_label }}</span>
+    <div class="mt-1.5 flex flex-wrap gap-2" role="radiogroup" aria-label="{{ undertone_label }}">
+      <button data-for="tone in undertones" type="button" class="shade-finder__undertone-btn rounded-control border border-border px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ tone.active }}" role="radio" aria-checked="{{ tone.active }}">{{ tone.label }}</button>
+    </div>
+  </div>
+  <div class="shade-finder__shades mt-4">
+    <span class="text-sm font-medium text-on-surface">{{ depth_label }}</span>
+    <div class="mt-1.5 flex flex-wrap gap-2" role="radiogroup" aria-label="{{ depth_label }}">
+      <button data-for="shade in shades" type="button" class="shade-finder__shade size-9 rounded-full ring-2 ring-transparent ring-offset-2 ring-offset-surface transition-shadow duration-(--duration-token) data-[active=true]:ring-primary" data-active="{{ shade.active }}" data-name="{{ shade.name }}" style="background: {{ shade.swatch }}; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.1)" role="radio" aria-checked="{{ shade.active }}" aria-label="{{ shade.name }}"></button>
+    </div>
+  </div>
+  <div data-if="match_name" class="shade-finder__match mt-4 flex items-center gap-3 rounded-control bg-surface-raised p-3">
+    <span class="shade-finder__match-swatch size-8 shrink-0 rounded-full" style="box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.1)" aria-hidden="true"></span>
+    <div>
+      <p class="text-xs text-on-surface-muted">Your match</p>
+      <p class="shade-finder__match-name font-medium text-on-surface">{{ match_name }}</p>
+    </div>
+  </div>
+</section>

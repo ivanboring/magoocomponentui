@@ -1,0 +1,33 @@
+name: lookbook-hero
+props:
+  eyebrow:
+    type: string
+    title: Eyebrow
+    example: "Fall 2026"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "The Linen Edit"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Effortless pieces for warm days and cool evenings."
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  cta_label:
+    type: string
+    default: "Shop the collection"
+    title: CTA label
+  align:
+    type: enum
+    values: [left, center]
+    default: left
+    title: Alignment
+variants:
+  align:
+    left: "items-start text-left"
+    center: "items-center text-center"

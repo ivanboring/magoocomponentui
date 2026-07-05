@@ -1,0 +1,63 @@
+name: "Size Guide"
+short_description: A measurement table mapping sizes to body/garment measurements.
+long_visual_description: >
+  A table with sizes down the side and measurement columns (chest, waist, length, sleeve); the
+  size column is sticky on horizontal scroll.
+
+use_cases:
+  - Apparel size guide.
+  - Measurement table.
+  - Fit reference chart.
+  - Size conversion.
+  - Garment measurements.
+
+recommended_for:
+  - A size-to-measurement reference table.
+avoid_for:
+  - A size picker (use size-selector).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the columns (first is the size column) and rows of measurements; note the unit.
+
+props:
+  title: The guide title.
+  unit_note: The measurement unit note.
+  columns: The table columns.
+  rows: The measurement rows.
+
+example_prompts:
+  - "Add an apparel size guide table."
+  - "Add a measurement chart with a sticky size column."
+
+lifecycle: experimental
+content_model: A size-to-measurement table.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  State the unit; keep the size column sticky so rows stay readable when scrolling.
+
+categorization:
+  category: Fashion
+  subcategory: Sizing
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped column and row headers; measurements are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

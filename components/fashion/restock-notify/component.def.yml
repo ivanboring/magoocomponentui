@@ -1,0 +1,22 @@
+name: restock-notify
+props:
+  title:
+    type: string
+    default: "Out of stock"
+    title: Title
+  detail:
+    type: string
+    title: Detail
+    example: "Linen Camp Shirt · Sage · M"
+  description:
+    type: string
+    default: "We'll email you the moment it's back."
+    title: Description
+  placeholder:
+    type: string
+    default: "you@example.com"
+    title: Placeholder
+  cta_label:
+    type: string
+    default: "Notify me"
+    title: CTA label

@@ -1,0 +1,57 @@
+name: "Lookbook Grid"
+short_description: An editorial outfit/product grid container for a lookbook.
+long_visual_description: >
+  A titled responsive grid (2→3→4 columns) that arranges outfit or product tiles for a
+  shop-the-look lookbook.
+
+use_cases:
+  - Shop-the-look grid.
+  - Editorial outfit grid.
+  - Lookbook layout.
+  - Collection grid.
+  - Curated product grid.
+
+recommended_for:
+  - A grid container for lookbook/outfit tiles.
+avoid_for:
+  - A single product tile (use product-card-apparel).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot apparel product tiles; the grid arranges them responsively.
+
+props:
+  title: The section title.
+
+slots:
+  items: The outfit/product tiles.
+
+relationships:
+  children:
+    - fashion/product-card-apparel
+
+lifecycle: experimental
+content_model: A responsive grid of lookbook tiles.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --font-heading
+
+editorial_guidance: >
+  Curate a cohesive set of pieces; the grid is image-forward.
+
+categorization:
+  category: Fashion
+  subcategory: Editorial
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; slotted tiles carry their own semantics.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

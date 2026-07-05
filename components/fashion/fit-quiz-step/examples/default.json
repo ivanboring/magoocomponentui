@@ -1,0 +1,9 @@
+{
+  "step_label": "Step 1 of 4",
+  "question": "How do you like your fit?",
+  "options": [
+    { "label": "Fitted", "detail": "Close to the body", "icon": "📏", "selected": false },
+    { "label": "Regular", "detail": "True to size", "icon": "👕", "selected": true },
+    { "label": "Relaxed", "detail": "Room to move", "icon": "🌬", "selected": false }
+  ]
+}

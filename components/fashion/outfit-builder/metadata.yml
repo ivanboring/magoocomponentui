@@ -1,0 +1,68 @@
+name: "Outfit Builder"
+short_description: A mix-and-match outfit builder with slots, prices, and a running total.
+long_visual_description: >
+  A list of outfit slots (top, bottom, shoes, accessory), each showing the chosen piece and
+  price or an empty add state, with a running total and add-to-bag button.
+
+use_cases:
+  - Mix-and-match outfit.
+  - Complete-the-look builder.
+  - Bundle outfit.
+  - Style-a-look tool.
+  - Shop-the-outfit.
+
+recommended_for:
+  - Building a multi-piece outfit with a total.
+avoid_for:
+  - A single product configurator (use build-your-own pattern).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each outfit slot filled or empty; the total updates as pieces are added.
+
+props:
+  slots_list: The outfit slots with item, price, image, filled.
+  total: The running total.
+  cta_label: The add-to-bag button text.
+
+example_prompts:
+  - "Add an outfit builder with top/bottom/shoes slots."
+  - "Add a complete-the-look builder."
+
+lifecycle: experimental
+content_model: A mix-and-match outfit with a running total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Prompt empty slots ("Add an accessory"); the total reflects the assembled outfit.
+
+categorization:
+  category: Fashion
+  subcategory: Shop
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Filled thumbnails carry the item name as alt; empty slots are prompted in text; the total and add button are real text/controls.
+  keyboard_support: The add-to-bag button is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

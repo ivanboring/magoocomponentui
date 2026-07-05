@@ -1,0 +1,18 @@
+name: fabric-detail
+props:
+  composition:
+    type: array
+    items: object
+    required: true
+    title: Composition
+    description: "Each: { material, pct }."
+    example:
+      - { material: "Linen", pct: "70%" }
+  care:
+    type: array
+    items: object
+    required: true
+    title: Care
+    description: "Each: { icon, label }."
+    example:
+      - { icon: "🌡", label: "Cold wash" }

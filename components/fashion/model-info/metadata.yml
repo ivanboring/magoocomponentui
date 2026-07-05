@@ -1,0 +1,52 @@
+name: "Model Info"
+short_description: A small "model wears size" fit note for a product photo.
+long_visual_description: >
+  A muted one-line note with a small person icon, e.g. "Model is 5'10" and wears size S".
+
+use_cases:
+  - Model fit reference.
+  - Model-wears-size note.
+  - Product photo caption.
+  - Fit context.
+  - Sizing reference.
+
+recommended_for:
+  - A fit reference note under a product photo.
+avoid_for:
+  - A size selector (use size-selector).
+
+markets:
+  - Global
+
+example_usage: >
+  State the model's height and the size they wear so shoppers can judge fit.
+
+props:
+  text: The fit note text.
+
+example_prompts:
+  - "Add a model-wears-size fit note."
+  - "Add a model fit reference caption."
+
+lifecycle: experimental
+content_model: A model fit reference note.
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+
+editorial_guidance: >
+  Include the model's height and the size shown for a useful fit reference.
+
+categorization:
+  category: Fashion
+  subcategory: Sizing
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The note is real text; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

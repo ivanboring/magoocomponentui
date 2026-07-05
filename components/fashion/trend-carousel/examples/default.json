@@ -1,0 +1,10 @@
+{
+  "title": "Trending now",
+  "looks": [
+    { "name": "Quiet Luxury", "tag": "128 items", "image": "/stock/product-sneaker.jpg" },
+    { "name": "Coastal Linen", "tag": "94 items", "image": "/stock/product-sneaker.jpg" },
+    { "name": "Monochrome", "tag": "76 items", "image": "/stock/product-sneaker.jpg" },
+    { "name": "Utility", "tag": "112 items", "image": "/stock/product-sneaker.jpg" },
+    { "name": "Soft Tailoring", "tag": "88 items", "image": "/stock/product-sneaker.jpg" }
+  ]
+}

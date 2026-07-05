@@ -1,0 +1,55 @@
+name: "Trend Carousel"
+short_description: A horizontally scrolling carousel of trending looks with prev/next.
+long_visual_description: >
+  A titled snap carousel of trend tiles (image, name, item count) with prev/next controls;
+  each tile has a scrim and overlaid label.
+
+use_cases:
+  - Trending looks slider.
+  - Shop-by-trend carousel.
+  - Curated collections.
+  - Editorial trends.
+  - Discover looks.
+
+recommended_for:
+  - A scrollable carousel of trending looks.
+avoid_for:
+  - A static grid (use lookbook-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide trend tiles with an image and label; prev/next scroll the snap track.
+
+props:
+  title: The section title.
+  looks: The trend tiles with name, tag, and image.
+
+lifecycle: experimental
+content_model: A carousel of trending looks.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-border
+    - --color-surface-raised
+    - --radius-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use strong editorial imagery; keep labels short.
+
+categorization:
+  category: Fashion
+  subcategory: Editorial
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Prev/next have accessible labels; each tile is a link; the scrim keeps white labels legible.
+  keyboard_support: Prev/next are focusable and activate on Enter/Space; the track scrolls with the keyboard.
+  seo_score: 40
+  text_direction: both

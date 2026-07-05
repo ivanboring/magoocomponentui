@@ -1,0 +1,14 @@
+name: wishlist-grid
+props:
+  title:
+    type: string
+    default: "Your wishlist"
+    title: Title
+  count:
+    type: string
+    title: Count
+    example: "6 items"
+slots:
+  items:
+    title: Items
+    description: The saved product tiles.

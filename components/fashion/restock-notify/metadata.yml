@@ -1,0 +1,71 @@
+name: "Restock Notify"
+short_description: A notify-when-available email capture for an out-of-stock variant.
+long_visual_description: >
+  A panel with an out-of-stock heading and the variant detail, an explanation, and an email
+  field with a notify button.
+
+use_cases:
+  - Back-in-stock notification.
+  - Out-of-stock email capture.
+  - Notify-me for a variant.
+  - Restock alert signup.
+  - Waitlist for a product.
+
+recommended_for:
+  - Capturing interest in an out-of-stock variant.
+avoid_for:
+  - An event waitlist (use waitlist-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the out-of-stock variant and capture an email for the restock alert.
+
+props:
+  title: The heading.
+  detail: The variant detail.
+  description: The explanation.
+  placeholder: The email placeholder.
+  cta_label: The notify button text.
+
+example_prompts:
+  - "Add a back-in-stock notify form for a variant."
+  - "Add an out-of-stock email capture."
+
+lifecycle: experimental
+content_model: A restock email capture for a variant.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name the exact variant that's out of stock; reassure on timing.
+
+categorization:
+  category: Fashion
+  subcategory: Shop
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The email field has an accessible label and required; submit is a real button; the bell icon is decorative.
+  keyboard_support: The field and notify button are focusable; submit via Enter.
+  seo_score: 25
+  text_direction: both

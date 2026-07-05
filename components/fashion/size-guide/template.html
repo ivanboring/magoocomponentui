@@ -1,0 +1,21 @@
+<section class="size-guide overflow-hidden rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <div class="size-guide__head flex items-baseline justify-between gap-2 border-b border-border px-(--space-card) py-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="unit_note" class="text-xs text-on-surface-muted">{{ unit_note }}</span>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="size-guide__table w-full text-sm">
+      <thead>
+        <tr class="border-b border-border text-xs text-on-surface-muted">
+          <th data-for="column in columns" class="px-4 py-2 text-left font-medium first:sticky first:left-0 first:bg-surface" scope="col">{{ column.label }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="row in rows" class="border-b border-border last:border-0">
+          <th class="sticky left-0 bg-surface px-4 py-2.5 text-left font-medium text-on-surface" scope="row">{{ row.size }}</th>
+          <td data-for="value in row.values" class="px-4 py-2.5 text-on-surface tabular-nums">{{ value.text }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

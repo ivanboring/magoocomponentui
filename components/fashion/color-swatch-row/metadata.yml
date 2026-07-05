@@ -1,0 +1,60 @@
+name: "Color Swatch Row"
+short_description: Selectable garment color swatches with names and sold-out states.
+long_visual_description: >
+  A label showing the selected color name above a row of round swatches; the selected one is
+  ringed and sold-out ones show a slash.
+
+use_cases:
+  - Garment color selection.
+  - Product color variants.
+  - Apparel swatch picker.
+  - Color choice with sold-out.
+  - Variant selector.
+
+recommended_for:
+  - Selecting a garment color with sold-out awareness.
+avoid_for:
+  - Vehicle paint (use color-picker-vehicle).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide swatches with a CSS color and name; selecting updates the shown name. Sold-out are
+  slashed and inert.
+
+props:
+  label: The row label.
+  selected_name: The selected color name.
+  swatches: The swatches with name, color, active, and soldout.
+
+example_prompts:
+  - "Add a garment color swatch row with a sold-out color."
+  - "Add apparel color variants."
+
+lifecycle: experimental
+content_model: A single-select garment color picker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --duration-token
+
+editorial_guidance: >
+  Always show the selected color's name; sold-out swatches are slashed and inert.
+
+categorization:
+  category: Fashion
+  subcategory: Shop
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Swatches are a radiogroup with per-swatch aria-labels naming the colour; selection isn't colour-only (the name updates); sold-out shows a slash and is inert.
+  keyboard_support: Available swatches are focusable and select on Enter/Space.
+  seo_score: 25
+  text_direction: both

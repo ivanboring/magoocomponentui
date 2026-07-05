@@ -1,0 +1,10 @@
+name: lookbook-grid
+props:
+  title:
+    type: string
+    title: Title
+    example: "Shop the look"
+slots:
+  items:
+    title: Items
+    description: The outfit/product tiles.
