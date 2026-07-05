@@ -1,0 +1,70 @@
+name: "Delete Account"
+short_description: A danger-zone account deletion confirm gated by typing a confirm word.
+long_visual_description: >
+  A danger-bordered panel with a warning, a field to type the confirm word, and a destructive
+  delete button that enables only on an exact match.
+
+use_cases:
+  - Delete account.
+  - Danger-zone confirm.
+  - Destructive action gate.
+  - Close account.
+  - Account removal.
+
+recommended_for:
+  - A gated destructive account-deletion confirm.
+avoid_for:
+  - A simple confirm dialog (use modal-confirm).
+
+markets:
+  - Global
+
+example_usage: >
+  The delete button enables only when the user types the confirm word exactly. Emits
+  account:delete.
+
+props:
+  title: The panel title.
+  warning: The consequences warning.
+  confirm_hint: The confirm hint.
+  confirm_word: The word to type.
+  cta_label: The delete button text.
+
+example_prompts:
+  - "Add a delete-account danger zone with a typed confirm."
+  - "Add a gated destructive account removal."
+
+lifecycle: experimental
+content_model: A gated destructive account-deletion confirm.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-danger-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the consequences plainly; the typed confirm prevents accidental deletion.
+
+categorization:
+  category: Auth
+  subcategory: Account
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The confirm field has a label; the destructive button is disabled until the exact word is typed; danger colour reinforces the warning text.
+  keyboard_support: The field and delete button are focusable; delete enables on an exact confirm match.
+  seo_score: 15
+  text_direction: both

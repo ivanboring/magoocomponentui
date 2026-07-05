@@ -1,0 +1,6 @@
+<div class="social-login-buttons flex gap-2 {{ layout@class }}">
+  <button data-for="provider in providers" type="button" class="social-login-buttons__btn flex flex-1 items-center justify-center gap-2.5 rounded-button border border-border bg-surface px-4 py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+    <span class="social-login-buttons__icon flex size-5 items-center justify-center rounded-full bg-surface-raised text-xs font-bold" aria-hidden="true">{{ provider.icon }}</span>
+    {{ provider.label }}
+  </button>
+</div>

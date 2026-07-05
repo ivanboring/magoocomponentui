@@ -1,0 +1,16 @@
+<div class="avatar-uploader flex items-center gap-4">
+  <span class="avatar-uploader__preview group relative inline-flex size-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-2xl uppercase text-on-surface" role="img" aria-label="Current avatar">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    <span class="absolute inset-0 flex items-center justify-center bg-black/40 text-white opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15l4-4 3 3 5-6M4 5h12v10H4z"/></svg>
+    </span>
+  </span>
+  <div class="min-w-0">
+    <div class="avatar-uploader__actions flex gap-2">
+      <button type="button" class="avatar-uploader__upload rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Upload</button>
+      <button type="button" class="avatar-uploader__remove rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Remove</button>
+    </div>
+    <p data-if="hint" class="avatar-uploader__hint mt-2 text-xs text-on-surface-muted">{{ hint }}</p>
+  </div>
+</div>

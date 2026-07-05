@@ -1,0 +1,69 @@
+name: "Account Menu"
+short_description: An avatar dropdown with account info and menu items.
+long_visual_description: >
+  An avatar pill that opens a dropdown with the user's name/email header and menu items
+  (profile, settings, billing, sign out).
+
+use_cases:
+  - Account avatar dropdown.
+  - User menu.
+  - Header account menu.
+  - Profile dropdown.
+  - App bar account.
+
+recommended_for:
+  - An avatar dropdown with account actions.
+avoid_for:
+  - A generic dropdown (use menu-dropdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; the dropdown shows the account header and menu items (sign out marked
+  danger).
+
+props:
+  name: The user's name.
+  email: The user's email.
+  initials: The avatar fallback.
+  image: Optional avatar.
+  items: The menu items.
+
+example_prompts:
+  - "Add an account avatar dropdown menu."
+  - "Add a header user menu."
+
+lifecycle: experimental
+content_model: An avatar dropdown with account items.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-pill
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show the account header; mark destructive items (sign out) distinctly.
+
+categorization:
+  category: Auth
+  subcategory: Account
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle exposes aria-haspopup/aria-expanded; items are role="menuitem"; Escape closes and refocuses; the avatar carries the name.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes; items are focusable.
+  seo_score: 25
+  text_direction: both

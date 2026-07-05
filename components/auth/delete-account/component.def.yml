@@ -1,0 +1,22 @@
+name: delete-account
+props:
+  title:
+    type: string
+    default: "Delete account"
+    title: Title
+  warning:
+    type: string
+    default: "This permanently deletes your account and all data. This cannot be undone."
+    title: Warning
+  confirm_hint:
+    type: string
+    default: "Type DELETE to confirm"
+    title: Confirm hint
+  confirm_word:
+    type: string
+    default: "DELETE"
+    title: Confirm word
+  cta_label:
+    type: string
+    default: "Delete my account"
+    title: CTA label

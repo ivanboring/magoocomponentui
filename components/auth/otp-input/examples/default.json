@@ -1,0 +1,6 @@
+{
+  "length": 6,
+  "label": "Enter the 6-digit code",
+  "help": "We sent a code to jane@example.com",
+  "cells": [ { "value": "4" }, { "value": "8" }, { "value": "2" }, { "value": "" }, { "value": "" }, { "value": "" } ]
+}

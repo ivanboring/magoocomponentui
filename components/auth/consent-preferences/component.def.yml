@@ -1,0 +1,22 @@
+name: consent-preferences
+props:
+  title:
+    type: string
+    default: "Privacy preferences"
+    title: Title
+  description:
+    type: string
+    title: Description
+    example: "Choose how we use your data. You can change these anytime."
+  categories:
+    type: array
+    items: object
+    required: true
+    title: Categories
+    description: "Each: { label, detail, enabled, required }."
+    example:
+      - { label: "Essential", detail: "Required for the site to work.", enabled: true, required: true }
+  cta_label:
+    type: string
+    default: "Save preferences"
+    title: CTA label

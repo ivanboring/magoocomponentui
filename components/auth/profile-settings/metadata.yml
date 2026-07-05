@@ -1,0 +1,69 @@
+name: "Profile Settings"
+short_description: An edit-profile form with fields, helper text, and save/cancel.
+long_visual_description: >
+  A form with labelled fields (name, username, email, bio) with helper text, and save/cancel
+  actions.
+
+use_cases:
+  - Edit profile.
+  - Account settings form.
+  - Profile edit page.
+  - User details form.
+  - Settings profile section.
+
+recommended_for:
+  - An edit-profile settings form.
+avoid_for:
+  - Consent/privacy toggles (use consent-preferences).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the profile fields with current values and helper text; save/cancel handle the edit.
+
+props:
+  title: The form title.
+  fields: The profile fields with values and help.
+  cta_label: The save button text.
+
+example_prompts:
+  - "Add an edit-profile settings form."
+  - "Add an account details form."
+
+lifecycle: experimental
+content_model: An edit-profile settings form.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Use helper text for constraints (username URL, bio length); save/cancel are explicit.
+
+categorization:
+  category: Auth
+  subcategory: Profile
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Fields have labels and helper text; save/cancel are real buttons.
+  keyboard_support: All fields and buttons are focusable and keyboard-operable.
+  seo_score: 30
+  text_direction: both

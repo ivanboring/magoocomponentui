@@ -1,0 +1,19 @@
+<div class="account-menu relative inline-block">
+  <button type="button" class="account-menu__toggle flex items-center gap-2 rounded-pill border border-border bg-surface p-0.5 pr-2.5 transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="false">
+    <span class="account-menu__avatar relative inline-flex size-8 items-center justify-center overflow-hidden rounded-full bg-surface-raised text-xs font-heading uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <div class="account-menu__menu absolute right-0 z-20 mt-1 hidden w-56 flex-col rounded-card border border-border bg-surface p-1 shadow-raised" role="menu">
+    <div class="account-menu__header border-b border-border px-3 py-2">
+      <p class="text-sm font-medium text-on-surface">{{ name }}</p>
+      <p data-if="email" class="truncate text-xs text-on-surface-muted">{{ email }}</p>
+    </div>
+    <a data-for="item in items" class="account-menu__item flex items-center gap-2.5 rounded-control px-3 py-2 text-sm text-on-surface hover:bg-surface-raised data-[danger=true]:text-danger" data-danger="{{ item.danger }}" role="menuitem" href="#">
+      <span class="w-5 text-center" aria-hidden="true">{{ item.icon }}</span>
+      {{ item.label }}
+    </a>
+  </div>
+</div>

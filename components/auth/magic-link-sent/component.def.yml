@@ -1,0 +1,19 @@
+name: magic-link-sent
+props:
+  email:
+    type: string
+    required: true
+    title: Email
+    example: "jane@example.com"
+  title:
+    type: string
+    default: "Check your email"
+    title: Title
+  description:
+    type: string
+    default: "We sent a magic link to sign you in. It expires in 15 minutes."
+    title: Description
+  resend_label:
+    type: string
+    default: "Resend link"
+    title: Resend label

@@ -1,0 +1,12 @@
+<section class="delete-account rounded-card border border-danger/40 bg-surface p-(--space-card) shadow-card" data-confirm="{{ confirm_word }}">
+  <h3 class="delete-account__title flex items-center gap-2 font-heading text-danger">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 7h8v10H6zM8 7V5h4v2M4 7h12"/></svg>
+    {{ title }}
+  </h3>
+  <p class="delete-account__warning mt-2 text-sm text-on-surface-muted">{{ warning }}</p>
+  <label class="delete-account__field mt-4 block">
+    <span class="text-sm font-medium text-on-surface">{{ confirm_hint }}</span>
+    <input type="text" class="delete-account__input mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-danger" placeholder="{{ confirm_word }}" autocomplete="off">
+  </label>
+  <button type="button" class="delete-account__cta mt-4 w-full rounded-button bg-danger py-2.5 text-sm font-heading text-danger-contrast transition-opacity duration-(--duration-token) hover:opacity-90 disabled:opacity-40" disabled>{{ cta_label }}</button>
+</section>

@@ -1,0 +1,70 @@
+name: "Consent Preferences"
+short_description: A privacy-consent panel with per-category toggles and locked essentials.
+long_visual_description: >
+  A panel with a title/description and a list of data categories (essential, analytics,
+  personalization, marketing), each with a toggle; essential is locked on.
+
+use_cases:
+  - Privacy consent panel.
+  - Cookie preferences.
+  - Data-use toggles.
+  - GDPR consent.
+  - Privacy settings.
+
+recommended_for:
+  - A privacy-consent preferences panel.
+avoid_for:
+  - A single consent checkbox (use consent-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide categories with toggles; essential is required and locked on. Save applies the
+  choices.
+
+props:
+  title: The panel title.
+  description: The explanation.
+  categories: The consent categories.
+  cta_label: The save button text.
+
+example_prompts:
+  - "Add a privacy consent preferences panel."
+  - "Add a cookie preferences toggle list."
+
+lifecycle: experimental
+content_model: A privacy-consent preferences panel.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Explain each category; essential is "Always on" and locked; save applies the rest.
+
+categorization:
+  category: Auth
+  subcategory: Privacy
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each toggle uses role="switch"/aria-checked with a label; required categories are marked "Always on" in text and locked; save is a real button.
+  keyboard_support: Non-required toggles switch on Enter/Space; save is keyboard-operable.
+  seo_score: 30
+  text_direction: both

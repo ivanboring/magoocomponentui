@@ -1,0 +1,17 @@
+<div class="password-strength" data-strength="{{ strength }}">
+  <label class="password-strength__label block text-sm font-medium text-on-surface" for="password-strength-input">{{ label }}</label>
+  <div class="password-strength__field mt-1 flex items-center rounded-control border border-border bg-surface px-3 focus-within:border-ring">
+    <input id="password-strength-input" type="password" class="w-full bg-transparent py-2 text-on-surface outline-none" value="correcthorsebattery">
+  </div>
+  <div class="password-strength__meter mt-2 flex gap-1.5" aria-hidden="true">
+    <span data-for="segment in segments" class="h-1.5 flex-1 rounded-pill bg-surface-raised data-[filled=true]:data-[strength=weak]:bg-danger data-[filled=true]:data-[strength=fair]:bg-warning data-[filled=true]:data-[strength=good]:bg-info data-[filled=true]:data-[strength=strong]:bg-success" data-filled="{{ segment.filled }}" data-strength="{{ strength }}"></span>
+  </div>
+  <p class="password-strength__status mt-1 text-xs">Strength: <span class="font-medium {{ strength@class }}">{{ strength_label }}</span></p>
+  <ul class="password-strength__rules mt-2 flex flex-col gap-1 text-xs">
+    <li data-for="rule in rules" class="flex items-center gap-1.5 data-[met=true]:text-on-surface data-[met=false]:text-on-surface-muted" data-met="{{ rule.met }}">
+      <svg data-if="rule.met" class="size-3.5 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <svg data-if="!rule.met" class="size-3.5 text-on-surface-muted/50" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/></svg>
+      {{ rule.label }}
+    </li>
+  </ul>
+</div>

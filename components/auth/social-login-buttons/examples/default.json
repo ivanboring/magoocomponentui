@@ -1,0 +1,8 @@
+{
+  "providers": [
+    { "label": "Continue with Google", "icon": "G" },
+    { "label": "Continue with Apple", "icon": "" },
+    { "label": "Continue with GitHub", "icon": "" }
+  ],
+  "layout": "stack"
+}

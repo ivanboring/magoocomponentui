@@ -1,0 +1,14 @@
+name: session-list
+props:
+  title:
+    type: string
+    default: "Active sessions"
+    title: Title
+  sessions:
+    type: array
+    items: object
+    required: true
+    title: Sessions
+    description: "Each: { device, icon, location, last_active, current }."
+    example:
+      - { device: "MacBook Pro · Chrome", icon: "💻", location: "San Francisco, US", last_active: "Active now", current: true }

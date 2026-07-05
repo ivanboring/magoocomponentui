@@ -1,0 +1,22 @@
+name: forgot-password
+props:
+  title:
+    type: string
+    default: "Reset your password"
+    title: Title
+  description:
+    type: string
+    default: "Enter your email and we'll send you a reset link."
+    title: Description
+  placeholder:
+    type: string
+    default: "you@example.com"
+    title: Placeholder
+  cta_label:
+    type: string
+    default: "Send reset link"
+    title: CTA label
+  back_label:
+    type: string
+    default: "Back to sign in"
+    title: Back label

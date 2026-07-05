@@ -1,0 +1,13 @@
+<section class="session-list rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="session-list__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="session-list__sessions divide-y divide-border">
+    <li data-for="session in sessions" class="session-list__session flex items-center gap-3 px-(--space-card) py-3">
+      <span class="session-list__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-lg" aria-hidden="true">{{ session.icon }}</span>
+      <div class="min-w-0 flex-1">
+        <p class="session-list__device flex items-center gap-2 text-sm font-medium text-on-surface">{{ session.device }}<span data-if="session.current" class="rounded-pill bg-success/15 px-1.5 py-0.5 text-[10px] font-semibold text-success">This device</span></p>
+        <p class="session-list__meta text-xs text-on-surface-muted">{{ session.location }} · {{ session.last_active }}</p>
+      </div>
+      <button data-if="!session.current" type="button" class="session-list__revoke shrink-0 rounded-button border border-border px-3 py-1.5 text-xs font-heading text-danger transition-colors duration-(--duration-token) hover:bg-danger/10">Revoke</button>
+    </li>
+  </ul>
+</section>

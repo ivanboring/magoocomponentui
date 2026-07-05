@@ -1,0 +1,24 @@
+name: signup-form
+props:
+  title:
+    type: string
+    default: "Create your account"
+    title: Title
+  fields:
+    type: array
+    items: object
+    required: true
+    title: Fields
+    description: "Each: { label, type, placeholder } — type text|email|password."
+  terms_label:
+    type: string
+    default: "I agree to the Terms and Privacy Policy"
+    title: Terms label
+  cta_label:
+    type: string
+    default: "Create account"
+    title: CTA label
+  login_label:
+    type: string
+    default: "Already have an account? Sign in"
+    title: Login label

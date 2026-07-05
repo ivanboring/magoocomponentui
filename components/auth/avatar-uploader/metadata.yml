@@ -1,0 +1,64 @@
+name: "Avatar Uploader"
+short_description: An avatar preview with upload and remove actions.
+long_visual_description: >
+  A circular avatar preview (with a hover edit overlay) beside upload/remove buttons and a
+  format/size hint.
+
+use_cases:
+  - Profile avatar upload.
+  - Change profile picture.
+  - Avatar crop + upload.
+  - Photo upload field.
+  - Account picture.
+
+recommended_for:
+  - An avatar upload with preview and remove.
+avoid_for:
+  - A generic file upload (use resume-upload pattern).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current avatar (or initials); upload/remove change it. Wire to a real file input +
+  crop in production.
+
+props:
+  initials: The avatar fallback.
+  image: The current avatar.
+  hint: The format/size hint.
+
+example_prompts:
+  - "Add an avatar uploader with upload and remove."
+  - "Add a change-profile-picture control."
+
+lifecycle: experimental
+content_model: An avatar preview with upload/remove.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  State accepted formats/size; connect to a real file input and cropper in production.
+
+categorization:
+  category: Auth
+  subcategory: Profile
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The preview has an accessible label; upload/remove are real buttons. Wire a native file input for keyboard/AT upload.
+  keyboard_support: Upload and remove are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

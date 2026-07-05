@@ -1,0 +1,10 @@
+<form class="forgot-password mx-auto max-w-sm rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h2 class="forgot-password__title font-heading text-xl text-on-surface">{{ title }}</h2>
+  <p data-if="description" class="forgot-password__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  <label class="forgot-password__field mt-4 block">
+    <span class="text-sm font-medium text-on-surface">Email</span>
+    <input type="email" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" required>
+  </label>
+  <button type="submit" class="forgot-password__cta mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  <p class="forgot-password__back mt-4 text-center text-sm"><a class="font-medium text-primary hover:underline" href="#">{{ back_label }}</a></p>
+</form>

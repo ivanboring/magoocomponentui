@@ -1,0 +1,22 @@
+<div class="role-permissions overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="role-permissions__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Permission</th>
+        <th data-for="role in roles" class="px-4 py-3 text-center font-heading text-on-surface" scope="col">{{ role.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border last:border-0">
+        <th class="px-4 py-2.5 text-left font-normal text-on-surface" scope="row">{{ row.label }}</th>
+        <td data-for="cell in row.cells" class="px-4 py-2.5 text-center">
+          <label class="inline-flex cursor-pointer items-center justify-center">
+            <input type="checkbox" class="peer sr-only" checked="{{ cell.allowed }}">
+            <span class="flex size-5 items-center justify-center rounded border border-border text-transparent peer-checked:border-primary peer-checked:bg-primary peer-checked:text-primary-contrast" aria-hidden="true"><svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-8"/></svg></span>
+            <span class="sr-only">{{ row.label }} allowed</span>
+          </label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

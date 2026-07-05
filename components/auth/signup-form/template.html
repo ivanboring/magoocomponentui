@@ -1,0 +1,15 @@
+<form class="signup-form mx-auto max-w-sm rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h1 class="signup-form__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+  <div class="signup-form__fields mt-5 flex flex-col gap-4">
+    <label data-for="field in fields" class="signup-form__field block">
+      <span class="text-sm font-medium text-on-surface">{{ field.label }}</span>
+      <input class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" type="{{ field.type }}" placeholder="{{ field.placeholder }}" required>
+    </label>
+  </div>
+  <label class="signup-form__terms mt-4 flex items-start gap-2.5 text-sm text-on-surface">
+    <input type="checkbox" class="mt-0.5 size-4 rounded border-border text-primary" required>
+    <span>{{ terms_label }}</span>
+  </label>
+  <button type="submit" class="signup-form__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  <p class="signup-form__login mt-4 text-center text-sm text-on-surface-muted"><a class="font-medium text-primary hover:underline" href="#">{{ login_label }}</a></p>
+</form>

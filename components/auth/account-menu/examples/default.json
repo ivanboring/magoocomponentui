@@ -1,0 +1,13 @@
+{
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "initials": "JD",
+  "image": "/stock/avatar-woman-1.jpg",
+  "items": [
+    { "label": "Profile", "icon": "👤", "danger": false },
+    { "label": "Settings", "icon": "⚙️", "danger": false },
+    { "label": "Billing", "icon": "💳", "danger": false },
+    { "label": "Help", "icon": "❓", "danger": false },
+    { "label": "Sign out", "icon": "↩", "danger": true }
+  ]
+}

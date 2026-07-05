@@ -1,0 +1,21 @@
+<form class="login-form mx-auto max-w-sm rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h1 class="login-form__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+  <p data-if="subtitle" class="login-form__subtitle mt-1 text-sm text-on-surface-muted">{{ subtitle }}</p>
+  <div data-if="providers" class="login-form__social mt-5 flex flex-col gap-2">
+    <button data-for="provider in providers" type="button" class="flex items-center justify-center gap-2.5 rounded-button border border-border bg-surface px-4 py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised"><span class="flex size-5 items-center justify-center rounded-full bg-surface-raised text-xs font-bold" aria-hidden="true">{{ provider.icon }}</span>{{ provider.label }}</button>
+  </div>
+  <div data-if="providers" class="login-form__divider my-5 flex items-center gap-3 text-xs text-on-surface-muted"><span class="h-px flex-1 bg-border"></span>or<span class="h-px flex-1 bg-border"></span></div>
+  <label class="login-form__field block">
+    <span class="text-sm font-medium text-on-surface">Email</span>
+    <input type="email" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="you@example.com" required>
+  </label>
+  <label class="login-form__field mt-4 block">
+    <span class="flex items-center justify-between text-sm font-medium text-on-surface">Password <a class="text-xs font-normal text-primary hover:underline" href="#">Forgot?</a></span>
+    <input type="password" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring" placeholder="••••••••" required>
+  </label>
+  <label class="login-form__remember mt-3 flex items-center gap-2 text-sm text-on-surface">
+    <input type="checkbox" class="size-4 rounded border-border text-primary"> Remember me
+  </label>
+  <button type="submit" class="login-form__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  <p class="login-form__signup mt-4 text-center text-sm text-on-surface-muted"><a class="font-medium text-primary hover:underline" href="#">{{ signup_label }}</a></p>
+</form>

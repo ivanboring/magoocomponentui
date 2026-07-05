@@ -1,0 +1,36 @@
+name: password-strength
+props:
+  label:
+    type: string
+    default: "Password"
+    title: Label
+  strength:
+    type: enum
+    values: [weak, fair, good, strong]
+    default: fair
+    title: Strength
+  strength_label:
+    type: string
+    required: true
+    title: Strength label
+    example: "Fair"
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Meter segments
+    description: "Each: { filled } — typically 4 segments, N filled for the strength."
+  rules:
+    type: array
+    items: object
+    required: true
+    title: Rules
+    description: "Each: { label, met }."
+    example:
+      - { label: "At least 8 characters", met: true }
+variants:
+  strength:
+    weak: "text-danger"
+    fair: "text-warning"
+    good: "text-info"
+    strong: "text-success"

@@ -1,0 +1,62 @@
+name: "Email Verify Banner"
+short_description: A verify-your-email prompt with a resend action.
+long_visual_description: >
+  A warning-tinted banner with an envelope icon, a verify-your-email message naming the
+  address, and a resend button.
+
+use_cases:
+  - Verify email prompt.
+  - Unverified account banner.
+  - Resend verification.
+  - Account verification nudge.
+  - Email confirmation reminder.
+
+recommended_for:
+  - A verify-your-email prompt with resend.
+avoid_for:
+  - A magic-link-sent state (use magic-link-sent).
+
+markets:
+  - Global
+
+example_usage: >
+  Name the address the link was sent to; the resend button re-triggers the email.
+
+props:
+  email: The email address.
+  message: The prompt message.
+  resend_label: The resend button text.
+
+example_prompts:
+  - "Add a verify-your-email banner with resend."
+  - "Add an unverified account prompt."
+
+lifecycle: experimental
+content_model: A verify-email prompt with resend.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-warning
+    - --color-warning-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name the exact address; make resend easy to find.
+
+categorization:
+  category: Auth
+  subcategory: Verification
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status"; the message and email are real text; resend is a real button; the envelope icon is decorative.
+  keyboard_support: The resend button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

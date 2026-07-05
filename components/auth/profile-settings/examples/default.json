@@ -1,0 +1,10 @@
+{
+  "title": "Profile",
+  "fields": [
+    { "label": "Display name", "type": "text", "value": "Jane Doe", "placeholder": "Your name", "help": "" },
+    { "label": "Username", "type": "text", "value": "janedoe", "placeholder": "username", "help": "acme.com/@janedoe" },
+    { "label": "Email", "type": "email", "value": "jane@example.com", "placeholder": "you@example.com", "help": "" },
+    { "label": "Bio", "type": "textarea", "value": "Design systems engineer. Building a thousand components.", "placeholder": "Tell us about yourself", "help": "Max 160 characters" }
+  ],
+  "cta_label": "Save changes"
+}

@@ -1,0 +1,16 @@
+name: role-permissions
+props:
+  roles:
+    type: array
+    items: object
+    required: true
+    title: Roles
+    description: "Each role column: { label }."
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Permission rows
+    description: "Each: { label, cells: [{ allowed }] } — one cell per role."
+    example:
+      - { label: "View content", cells: [{ allowed: true }, { allowed: true }] }

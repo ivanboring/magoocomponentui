@@ -1,0 +1,24 @@
+name: two-factor-setup
+props:
+  step_label:
+    type: string
+    default: "Step 2 of 3"
+    title: Step label
+  title:
+    type: string
+    default: "Set up authenticator app"
+    title: Title
+  instruction:
+    type: string
+    default: "Scan this QR code with your authenticator app, then enter the 6-digit code."
+    title: Instruction
+  secret:
+    type: string
+    title: Manual secret
+    example: "JBSW Y3DP EHPK 3PXP"
+  cells:
+    type: array
+    items: object
+    required: true
+    title: Code cells
+    description: "Each: { value }."

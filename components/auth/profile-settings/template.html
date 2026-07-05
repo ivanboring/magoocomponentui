@@ -1,0 +1,15 @@
+<form class="profile-settings rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h2 class="profile-settings__title font-heading text-xl text-on-surface">{{ title }}</h2>
+  <div class="profile-settings__fields mt-5 flex flex-col gap-4">
+    <label data-for="field in fields" class="profile-settings__field block">
+      <span class="text-sm font-medium text-on-surface">{{ field.label }}</span>
+      <textarea data-if="field.type" class="mt-1 hidden w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring data-[type=textarea]:block" data-type="{{ field.type }}" rows="3" placeholder="{{ field.placeholder }}">{{ field.value }}</textarea>
+      <input data-if="field.type" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-ring data-[type=textarea]:hidden" data-type="{{ field.type }}" type="{{ field.type }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}">
+      <span data-if="field.help" class="mt-1 block text-xs text-on-surface-muted">{{ field.help }}</span>
+    </label>
+  </div>
+  <div class="profile-settings__actions mt-6 flex justify-end gap-2">
+    <button type="button" class="rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Cancel</button>
+    <button type="submit" class="profile-settings__cta rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  </div>
+</form>

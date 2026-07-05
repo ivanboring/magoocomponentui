@@ -1,0 +1,10 @@
+{
+  "roles": [ { "label": "Viewer" }, { "label": "Editor" }, { "label": "Admin" } ],
+  "rows": [
+    { "label": "View content", "cells": [ { "allowed": true }, { "allowed": true }, { "allowed": true } ] },
+    { "label": "Create & edit", "cells": [ { "allowed": false }, { "allowed": true }, { "allowed": true } ] },
+    { "label": "Delete content", "cells": [ { "allowed": false }, { "allowed": false }, { "allowed": true } ] },
+    { "label": "Manage members", "cells": [ { "allowed": false }, { "allowed": false }, { "allowed": true } ] },
+    { "label": "Billing & settings", "cells": [ { "allowed": false }, { "allowed": false }, { "allowed": true } ] }
+  ]
+}

@@ -1,0 +1,61 @@
+name: "Social Login Buttons"
+short_description: Provider sign-in buttons (Google, Apple, GitHub) in a stack or row.
+long_visual_description: >
+  A set of provider buttons, each with a provider glyph and "Continue with …" label, laid out
+  stacked or in a row.
+
+use_cases:
+  - Social sign-in.
+  - OAuth provider buttons.
+  - Continue-with buttons.
+  - Third-party login.
+  - SSO options.
+
+recommended_for:
+  - Provider sign-in buttons on an auth screen.
+avoid_for:
+  - A single button (use button).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the OAuth providers; choose stack or row layout. Swap the glyph for a real provider
+  logo in production.
+
+props:
+  providers: The providers with label and icon.
+  layout: stack or row.
+
+example_prompts:
+  - "Add social login buttons for Google, Apple, GitHub."
+  - "Add OAuth provider sign-in buttons."
+
+lifecycle: experimental
+content_model: Provider sign-in buttons.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use the providers your users have; swap glyphs for real brand logos in production.
+
+categorization:
+  category: Auth
+  subcategory: Login
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each button's label names the provider; the glyph is decorative.
+  keyboard_support: Buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

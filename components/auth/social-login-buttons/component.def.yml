@@ -1,0 +1,19 @@
+name: social-login-buttons
+props:
+  providers:
+    type: array
+    items: object
+    required: true
+    title: Providers
+    description: "Each: { label, icon } where icon is a short glyph/letter."
+    example:
+      - { label: "Continue with Google", icon: "G" }
+  layout:
+    type: enum
+    values: [stack, row]
+    default: stack
+    title: Layout
+variants:
+  layout:
+    stack: "flex-col"
+    row: "flex-row"

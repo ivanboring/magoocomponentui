@@ -1,0 +1,23 @@
+name: login-form
+props:
+  title:
+    type: string
+    default: "Sign in"
+    title: Title
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Welcome back — sign in to continue."
+  providers:
+    type: array
+    items: object
+    title: Social providers
+    description: "Each: { label, icon }."
+  cta_label:
+    type: string
+    default: "Sign in"
+    title: CTA label
+  signup_label:
+    type: string
+    default: "Don't have an account? Sign up"
+    title: Sign-up label

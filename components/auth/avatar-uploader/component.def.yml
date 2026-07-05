@@ -1,0 +1,14 @@
+name: avatar-uploader
+props:
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  image:
+    type: image
+    title: Current avatar
+  hint:
+    type: string
+    default: "JPG, PNG or GIF · max 2 MB"
+    title: Hint

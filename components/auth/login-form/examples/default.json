@@ -1,0 +1,10 @@
+{
+  "title": "Sign in",
+  "subtitle": "Welcome back — sign in to continue.",
+  "providers": [
+    { "label": "Continue with Google", "icon": "G" },
+    { "label": "Continue with GitHub", "icon": "GH" }
+  ],
+  "cta_label": "Sign in",
+  "signup_label": "Don't have an account? Sign up"
+}

@@ -1,0 +1,63 @@
+name: "OTP Input"
+short_description: A one-time-code input with per-digit cells and auto-advance.
+long_visual_description: >
+  A label and helper text above a row of single-character cells for entering a one-time code;
+  cells auto-advance and accept a pasted code.
+
+use_cases:
+  - One-time passcode entry.
+  - 2FA code input.
+  - Email/SMS verification code.
+  - Confirmation code.
+  - OTP fields.
+
+recommended_for:
+  - Entering a one-time verification code.
+avoid_for:
+  - A regular text field (use a text input).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the cells; the behavior auto-advances, handles backspace, and distributes a pasted
+  code. Emits otp:complete when filled.
+
+props:
+  length: The code length.
+  label: The input label.
+  help: Where the code was sent.
+  cells: The per-digit cells (pre-filled optional).
+
+example_prompts:
+  - "Add a 6-digit OTP input with auto-advance."
+  - "Add a 2FA code entry field."
+
+lifecycle: experimental
+content_model: A one-time-code input with per-digit cells.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --font-heading
+
+editorial_guidance: >
+  Say where the code was sent; support paste for convenience.
+
+categorization:
+  category: Auth
+  subcategory: Verification
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Cells are grouped with a label; each cell has an aria-label; paste and auto-advance aid entry.
+  keyboard_support: Cells auto-advance on entry, backspace to previous, and accept a pasted code; all are keyboard-focusable.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,12 @@
+{
+  "label": "Password",
+  "strength": "fair",
+  "strength_label": "Fair",
+  "segments": [ { "filled": true }, { "filled": true }, { "filled": false }, { "filled": false } ],
+  "rules": [
+    { "label": "At least 8 characters", "met": true },
+    { "label": "One uppercase letter", "met": true },
+    { "label": "One number", "met": false },
+    { "label": "One symbol", "met": false }
+  ]
+}

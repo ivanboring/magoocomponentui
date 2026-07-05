@@ -1,0 +1,58 @@
+name: "Role Permissions"
+short_description: A role-by-permission matrix of checkboxes.
+long_visual_description: >
+  A table with roles across the columns and permissions down the rows, each cell a checkbox
+  indicating whether the role has the permission.
+
+use_cases:
+  - Role permission matrix.
+  - Access control table.
+  - Roles & permissions.
+  - RBAC editor.
+  - Permission grid.
+
+recommended_for:
+  - A role-by-permission access matrix.
+avoid_for:
+  - A single toggle (use toggle-switch).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide role columns and permission rows with a checkbox per role; toggling edits access.
+
+props:
+  roles: The role columns.
+  rows: The permission rows with a cell per role.
+
+lifecycle: experimental
+content_model: A role-by-permission access matrix.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep permission rows parallel; the checkbox state carries the meaning.
+
+categorization:
+  category: Auth
+  subcategory: Access
+  atomic_type: organism
+  usage_type: [table, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers; each checkbox has an accessible label; the check is a real input state.
+  keyboard_support: Checkboxes are focusable and toggle via the keyboard.
+  seo_score: 35
+  text_direction: both

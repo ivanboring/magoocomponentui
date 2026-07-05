@@ -1,0 +1,11 @@
+{
+  "title": "Privacy preferences",
+  "description": "Choose how we use your data. You can change these anytime.",
+  "categories": [
+    { "label": "Essential", "detail": "Required for the site to work.", "enabled": true, "required": true },
+    { "label": "Analytics", "detail": "Helps us understand how the site is used.", "enabled": true, "required": false },
+    { "label": "Personalization", "detail": "Tailors content and recommendations.", "enabled": false, "required": false },
+    { "label": "Marketing", "detail": "Lets us show you relevant offers.", "enabled": false, "required": false }
+  ],
+  "cta_label": "Save preferences"
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Active sessions",
+  "sessions": [
+    { "device": "MacBook Pro · Chrome", "icon": "💻", "location": "San Francisco, US", "last_active": "Active now", "current": true },
+    { "device": "iPhone 15 · Safari", "icon": "📱", "location": "San Francisco, US", "last_active": "2 hours ago", "current": false },
+    { "device": "Windows PC · Edge", "icon": "🖥", "location": "New York, US", "last_active": "3 days ago", "current": false }
+  ]
+}

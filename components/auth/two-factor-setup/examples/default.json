@@ -1,0 +1,7 @@
+{
+  "step_label": "Step 2 of 3",
+  "title": "Set up authenticator app",
+  "instruction": "Scan this QR code with your authenticator app, then enter the 6-digit code it shows.",
+  "secret": "JBSW Y3DP EHPK 3PXP",
+  "cells": [ { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" } ]
+}

@@ -1,0 +1,7 @@
+<div class="email-verify-banner flex flex-wrap items-center gap-3 rounded-card border border-warning/40 bg-warning/10 px-(--space-card) py-3" role="status">
+  <span class="email-verify-banner__icon flex size-8 shrink-0 items-center justify-center rounded-full bg-warning/20 text-warning" aria-hidden="true">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h12v9H4z"/><path d="M4 7l6 4 6-4"/></svg>
+  </span>
+  <p class="email-verify-banner__text min-w-0 flex-1 text-sm text-on-surface">{{ message }} <span class="font-medium">{{ email }}</span></p>
+  <button type="button" class="email-verify-banner__resend shrink-0 rounded-button bg-warning px-3 py-1.5 text-xs font-heading text-warning-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ resend_label }}</button>
+</div>

@@ -1,0 +1,18 @@
+<section class="two-factor-setup rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <p data-if="step_label" class="two-factor-setup__step text-xs font-semibold uppercase tracking-wide text-primary">{{ step_label }}</p>
+  <h2 class="two-factor-setup__title mt-1 font-heading text-xl text-on-surface">{{ title }}</h2>
+  <p class="two-factor-setup__instruction mt-2 text-sm text-on-surface-muted">{{ instruction }}</p>
+  <div class="two-factor-setup__qr mx-auto mt-4 grid size-40 grid-cols-8 grid-rows-8 gap-0.5 rounded-card border border-border bg-surface p-2" role="img" aria-label="Authenticator QR code">
+    <span class="col-span-3 row-span-3 border-4 border-on-surface"></span><span class="col-start-6 col-span-3 row-span-3 border-4 border-on-surface"></span>
+    <span class="col-start-1 row-start-6 row-span-3 col-span-3 border-4 border-on-surface"></span>
+    <span class="col-start-5 row-start-1 bg-on-surface"></span><span class="col-start-5 row-start-3 bg-on-surface"></span><span class="col-start-6 row-start-5 bg-on-surface"></span><span class="col-start-8 row-start-6 bg-on-surface"></span><span class="col-start-5 row-start-7 bg-on-surface"></span><span class="col-start-7 row-start-8 bg-on-surface"></span><span class="col-start-6 row-start-6 bg-on-surface"></span>
+  </div>
+  <p data-if="secret" class="two-factor-setup__secret mt-3 text-center text-xs text-on-surface-muted">Or enter manually: <span class="font-mono text-on-surface">{{ secret }}</span></p>
+  <div class="two-factor-setup__code mt-5">
+    <p class="text-sm font-medium text-on-surface">Enter the 6-digit code</p>
+    <div class="mt-2 flex justify-center gap-2" role="group" aria-label="Authentication code">
+      <input data-for="cell in cells" type="text" inputmode="numeric" maxlength="1" class="two-factor-setup__cell size-11 rounded-control border border-border bg-surface text-center font-heading text-lg text-on-surface outline-none focus:border-ring" value="{{ cell.value }}" aria-label="Code digit">
+    </div>
+  </div>
+  <button type="button" class="two-factor-setup__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Verify & enable</button>
+</section>

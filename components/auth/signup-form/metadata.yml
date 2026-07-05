@@ -1,0 +1,70 @@
+name: "Signup Form"
+short_description: A registration form with fields, a terms checkbox, and a sign-in link.
+long_visual_description: >
+  A card with the title, registration fields (name, email, password), a terms-agreement
+  checkbox, a create-account button, and a sign-in link.
+
+use_cases:
+  - Registration form.
+  - Create-account screen.
+  - Signup page.
+  - New user form.
+  - Onboarding register.
+
+recommended_for:
+  - A registration form with terms agreement.
+avoid_for:
+  - A sign-in form (use login-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the fields; the terms checkbox is required. Offer a sign-in link for existing users.
+
+props:
+  title: The form title.
+  fields: The registration fields.
+  terms_label: The terms agreement text.
+  cta_label: The create-account button text.
+  login_label: The sign-in link text.
+
+example_prompts:
+  - "Add a signup form with a terms checkbox."
+  - "Add a create-account screen."
+
+lifecycle: experimental
+content_model: A registration form with terms.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep the form short; the terms checkbox is required; link to sign-in for existing users.
+
+categorization:
+  category: Auth
+  subcategory: Signup
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; fields and the terms checkbox have labels and required; submit is a real button; sign-in is a link.
+  keyboard_support: All fields and controls are focusable and keyboard-operable.
+  seo_score: 40
+  text_direction: both

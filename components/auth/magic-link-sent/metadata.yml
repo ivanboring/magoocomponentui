@@ -1,0 +1,64 @@
+name: "Magic Link Sent"
+short_description: A check-your-email confirmation for a passwordless sign-in link.
+long_visual_description: >
+  A centered card with an envelope icon, "Check your email", the explanation, the address, and
+  a resend link.
+
+use_cases:
+  - Passwordless sign-in.
+  - Magic-link sent state.
+  - Check-your-email screen.
+  - Email link confirmation.
+  - Login link sent.
+
+recommended_for:
+  - The confirmation after sending a magic link.
+avoid_for:
+  - A verify-email banner (use email-verify-banner).
+
+markets:
+  - Global
+
+example_usage: >
+  Confirm the link was sent and to which address; offer resend and note the expiry.
+
+props:
+  email: The email address.
+  title: The confirmation title.
+  description: The explanation.
+  resend_label: The resend link text.
+
+example_prompts:
+  - "Add a magic-link-sent confirmation screen."
+  - "Add a check-your-email state."
+
+lifecycle: experimental
+content_model: A magic-link-sent confirmation.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Name the address and expiry; make resend obvious.
+
+categorization:
+  category: Auth
+  subcategory: Login
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All text is real; the envelope icon is decorative; resend is a real control.
+  keyboard_support: The resend link is focusable and activates on Enter.
+  seo_score: 20
+  text_direction: both

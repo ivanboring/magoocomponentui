@@ -1,0 +1,11 @@
+{
+  "title": "Create your account",
+  "fields": [
+    { "label": "Full name", "type": "text", "placeholder": "Jane Doe" },
+    { "label": "Email", "type": "email", "placeholder": "you@example.com" },
+    { "label": "Password", "type": "password", "placeholder": "At least 8 characters" }
+  ],
+  "terms_label": "I agree to the Terms and Privacy Policy",
+  "cta_label": "Create account",
+  "login_label": "Already have an account? Sign in"
+}

@@ -1,0 +1,69 @@
+name: "Password Strength"
+short_description: A password field with a strength meter and a live rules checklist.
+long_visual_description: >
+  A password field above a four-segment strength meter, a strength label, and a checklist of
+  requirements (length, uppercase, number, symbol) with met/unmet marks.
+
+use_cases:
+  - Password strength meter.
+  - Signup password field.
+  - Requirements checklist.
+  - Reset-password strength.
+  - Create-password field.
+
+recommended_for:
+  - A password field with strength and rules.
+avoid_for:
+  - A plain password field (use a text input).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the strength and filled segments; mark each rule met/unmet. The host recomputes on
+  input.
+
+props:
+  label: The field label.
+  strength: The strength (drives colour).
+  strength_label: The strength text.
+  segments: The meter segments (filled flags).
+  rules: The requirement rules with met flags.
+
+example_prompts:
+  - "Add a password field with a strength meter and rules."
+  - "Add a create-password strength checklist."
+
+lifecycle: experimental
+content_model: A password field with strength and rules.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-danger
+    - --color-warning
+    - --color-info
+    - --color-success
+    - --radius-control
+    - --radius-pill
+
+editorial_guidance: >
+  The strength label and rules text carry the meaning; the meter colour reinforces.
+
+categorization:
+  category: Auth
+  subcategory: Password
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The strength label and rule text convey status (not colour/meter-only); rules use met/unmet icons plus text.
+  keyboard_support: The password field is focusable and editable.
+  seo_score: 20
+  text_direction: both

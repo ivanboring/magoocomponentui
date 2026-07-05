@@ -1,0 +1,16 @@
+name: profile-settings
+props:
+  title:
+    type: string
+    default: "Profile"
+    title: Title
+  fields:
+    type: array
+    items: object
+    required: true
+    title: Fields
+    description: "Each: { label, type, value, placeholder, help } — type text|email|textarea."
+  cta_label:
+    type: string
+    default: "Save changes"
+    title: CTA label

@@ -1,0 +1,15 @@
+name: email-verify-banner
+props:
+  email:
+    type: string
+    required: true
+    title: Email
+    example: "jane@example.com"
+  message:
+    type: string
+    default: "Please verify your email to unlock all features."
+    title: Message
+  resend_label:
+    type: string
+    default: "Resend email"
+    title: Resend label

@@ -1,0 +1,20 @@
+name: otp-input
+props:
+  length:
+    type: integer
+    default: 6
+    title: Length
+  label:
+    type: string
+    default: "Enter the 6-digit code"
+    title: Label
+  help:
+    type: string
+    title: Help
+    example: "We sent a code to jane@example.com"
+  cells:
+    type: array
+    items: object
+    required: true
+    title: Cells
+    description: "Each: { value } — pre-filled digits (empty for blank)."
