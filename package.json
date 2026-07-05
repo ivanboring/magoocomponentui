@@ -10,6 +10,7 @@
     "build": "node scripts/build.mjs && node scripts/build-catalog.mjs",
     "catalog": "node scripts/build-catalog.mjs",
     "screenshots": "node scripts/build.mjs && pnpm preview:build && node scripts/screenshot.mjs && node scripts/build-catalog.mjs",
+    "screenshots:mirror": "node scripts/mirror-screenshots.mjs",
     "audit": "node scripts/build.mjs && pnpm preview:build && node scripts/audit.mjs",
     "test": "node --test 'packages/**/*.test.mjs'",
     "typecheck": "tsc -p tsconfig.json",

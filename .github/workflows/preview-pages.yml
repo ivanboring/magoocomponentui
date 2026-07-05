@@ -30,6 +30,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       # Generate dist/ (variants + catalog.json) so the preview has data to render.
       - run: pnpm build
+      # Mirror the committed component screenshots into preview/public/ (that mirror is
+      # gitignored, so CI must recreate it before the static build or images 404).
+      - run: pnpm screenshots:mirror
       # enablement: true turns Pages on via the API on the first run, so no manual
       # Settings → Pages toggle is needed (the pages: write permission below covers it).
       - uses: actions/configure-pages@v5
