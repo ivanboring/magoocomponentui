@@ -1,0 +1,15 @@
+name: application-status
+props:
+  role:
+    type: string
+    title: Role
+    example: "Senior Frontend Engineer · Northwind"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, status } where status is complete | current | upcoming | rejected."
+    example:
+      - { label: "Applied", status: "complete" }
+      - { label: "Screening", status: "current" }

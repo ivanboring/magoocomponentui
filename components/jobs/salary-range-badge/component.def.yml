@@ -1,0 +1,15 @@
+name: salary-range-badge
+props:
+  range:
+    type: string
+    required: true
+    title: Range
+    example: "$120k – $150k"
+  period:
+    type: string
+    default: "/yr"
+    title: Period
+  note:
+    type: string
+    title: Note
+    example: "+ equity"

@@ -1,0 +1,7 @@
+{
+  "title": "Upcoming interviews",
+  "interviews": [
+    { "role": "Technical interview", "company": "Northwind", "date": "Aug 18", "time": "2:00 PM", "format": "Video · 60 min", "initials": "NW" },
+    { "role": "Team fit chat", "company": "Northwind", "date": "Aug 21", "time": "11:00 AM", "format": "Video · 30 min", "initials": "NW" }
+  ]
+}

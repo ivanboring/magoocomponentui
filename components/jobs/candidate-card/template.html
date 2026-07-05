@@ -1,0 +1,23 @@
+<article class="candidate-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="candidate-card__head flex items-center gap-3">
+    <span class="candidate-card__avatar relative inline-flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+      <span data-if="!image" aria-hidden="true">{{ initials }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="candidate-card__name font-heading text-on-surface">{{ name }}</p>
+      <p data-if="headline" class="candidate-card__headline text-sm text-on-surface-muted">{{ headline }}</p>
+    </div>
+    <span data-if="match" class="candidate-card__match shrink-0 rounded-pill bg-success/15 px-2 py-0.5 text-xs font-semibold text-success">{{ match }}</span>
+  </div>
+  <div data-if="tags" class="candidate-card__tags mt-3 flex flex-wrap gap-1.5">
+    <span data-for="tag in tags" class="rounded-control border border-border px-2 py-0.5 text-xs text-on-surface-muted">{{ tag.label }}</span>
+  </div>
+  <div class="candidate-card__foot mt-3 flex items-center justify-between gap-3 border-t border-border pt-3">
+    <span data-if="stage" class="text-xs text-on-surface-muted">Stage: <span class="font-medium text-on-surface">{{ stage }}</span></span>
+    <div class="flex gap-2">
+      <button type="button" class="rounded-button border border-border px-3 py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Reject</button>
+      <button type="button" class="rounded-button bg-primary px-3 py-1.5 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Advance</button>
+    </div>
+  </div>
+</article>

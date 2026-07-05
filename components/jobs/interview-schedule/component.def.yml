@@ -1,0 +1,14 @@
+name: interview-schedule
+props:
+  title:
+    type: string
+    default: "Upcoming interviews"
+    title: Title
+  interviews:
+    type: array
+    items: object
+    required: true
+    title: Interviews
+    description: "Each: { role, company, date, time, format, initials }."
+    example:
+      - { role: "Technical interview", company: "Northwind", date: "Aug 18", time: "2:00 PM", format: "Video · 60 min", initials: "NW" }

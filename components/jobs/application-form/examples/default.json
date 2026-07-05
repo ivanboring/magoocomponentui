@@ -1,0 +1,11 @@
+{
+  "title": "Apply for this role",
+  "fields": [
+    { "label": "Full name", "type": "text", "placeholder": "Jane Doe", "required": true },
+    { "label": "Email", "type": "email", "placeholder": "jane@example.com", "required": true },
+    { "label": "Phone", "type": "tel", "placeholder": "(555) 000-0000", "required": false },
+    { "label": "Why do you want to join us?", "type": "textarea", "placeholder": "Tell us a bit about yourself…", "required": false }
+  ],
+  "resume_file": "jane-doe-resume.pdf",
+  "cta_label": "Submit application"
+}

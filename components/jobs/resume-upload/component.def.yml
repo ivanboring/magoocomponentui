@@ -1,0 +1,19 @@
+name: resume-upload
+props:
+  label:
+    type: string
+    default: "Upload your resume"
+    title: Label
+  hint:
+    type: string
+    default: "PDF, DOC or DOCX · up to 5 MB"
+    title: Hint
+  file_name:
+    type: string
+    title: Uploaded file name
+    description: When set, the component shows the uploaded-file state.
+    example: "jane-doe-resume.pdf"
+  file_size:
+    type: string
+    title: Uploaded file size
+    example: "248 KB"

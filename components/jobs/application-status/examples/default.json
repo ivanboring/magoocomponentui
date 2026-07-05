@@ -1,0 +1,9 @@
+{
+  "role": "Senior Frontend Engineer · Northwind",
+  "steps": [
+    { "label": "Applied", "status": "complete" },
+    { "label": "Screening", "status": "complete" },
+    { "label": "Interview", "status": "current" },
+    { "label": "Offer", "status": "upcoming" }
+  ]
+}

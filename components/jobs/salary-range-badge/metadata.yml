@@ -1,0 +1,56 @@
+name: "Salary Range Badge"
+short_description: A compensation range pill with period and an optional note.
+long_visual_description: >
+  A success-tinted pill with a currency icon, the salary range, the period (/yr), and an
+  optional note (e.g. + equity).
+
+use_cases:
+  - Salary range on a job.
+  - Comp range pill.
+  - Pay transparency badge.
+  - Job listing salary.
+  - Offer range indicator.
+
+recommended_for:
+  - Showing a compensation range compactly.
+avoid_for:
+  - A generic badge (use badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the range with the period; add a note for equity/bonus where relevant.
+
+props:
+  range: The salary range.
+  period: The period (/yr, /hr).
+  note: An optional note.
+
+example_prompts:
+  - "Add a salary range badge with equity note."
+  - "Add a comp range pill."
+
+lifecycle: experimental
+content_model: A compensation range with period.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --radius-pill
+
+editorial_guidance: >
+  Support pay transparency with a real range; note equity/bonus separately.
+
+categorization:
+  category: Jobs
+  subcategory: Compensation
+  atomic_type: atom
+  usage_type: [highlight, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The range and note are real text; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

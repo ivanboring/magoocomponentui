@@ -1,0 +1,9 @@
+{
+  "name": "Jordan Blake",
+  "initials": "JB",
+  "image": "/stock/avatar-man-1.jpg",
+  "headline": "Senior Frontend Engineer · 7 yrs",
+  "match": "88% match",
+  "tags": [ { "label": "React" }, { "label": "TypeScript" }, { "label": "Remote" } ],
+  "stage": "Interview"
+}

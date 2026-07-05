@@ -1,0 +1,22 @@
+name: application-form
+props:
+  title:
+    type: string
+    default: "Apply for this role"
+    title: Title
+  fields:
+    type: array
+    items: object
+    required: true
+    title: Fields
+    description: "Each field: { label, type, placeholder, required } — type text|email|tel|textarea."
+    example:
+      - { label: "Full name", type: "text", placeholder: "Jane Doe", required: true }
+  resume_file:
+    type: string
+    title: Resume file name
+    example: "jane-doe-resume.pdf"
+  cta_label:
+    type: string
+    default: "Submit application"
+    title: CTA label

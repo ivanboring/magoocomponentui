@@ -1,0 +1,19 @@
+name: job-filter-panel
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Filter groups
+    description: >
+      Each group: { label, type, options: [{ label, count, checked }] } where type is
+      checkbox or radio.
+    example:
+      - label: "Job type"
+        type: "checkbox"
+        options:
+          - { label: "Full-time", count: "128", checked: true }
+  cta_label:
+    type: string
+    default: "Apply filters"
+    title: CTA label

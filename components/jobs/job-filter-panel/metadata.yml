@@ -1,0 +1,61 @@
+name: "Job Filter Panel"
+short_description: A faceted filter sidebar for job search (type, location, experience).
+long_visual_description: >
+  A sidebar with a clear-all action and grouped checkbox facets (job type, location,
+  experience) with counts, plus an apply-filters button.
+
+use_cases:
+  - Job search filters.
+  - Faceted role filtering.
+  - Careers search sidebar.
+  - Filter by type/location.
+  - Job board filters.
+
+recommended_for:
+  - A faceted filter sidebar for a job search.
+avoid_for:
+  - A single filter chip bar (use filter-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide filter groups with options and result counts; apply triggers the filtered search.
+
+props:
+  groups: The filter groups with options and counts.
+  cta_label: The apply button text.
+
+lifecycle: experimental
+content_model: Faceted job filters with counts and an apply action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show result counts per option; group facets logically and keep them scannable.
+
+categorization:
+  category: Jobs
+  subcategory: Search
+  atomic_type: organism
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Facet groups use fieldset/legend with native checkboxes and labels; apply/clear are real buttons.
+  keyboard_support: All checkboxes and buttons are focusable and keyboard-operable.
+  seo_score: 35
+  text_direction: both

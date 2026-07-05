@@ -1,0 +1,62 @@
+name: "Job Detail"
+short_description: A job description with a summary and titled requirement/benefit sections.
+long_visual_description: >
+  A panel with an intro summary and sections (what you'll do, what we're looking for, nice to
+  have), each a heading over a checkmarked list.
+
+use_cases:
+  - Job description body.
+  - Role requirements and duties.
+  - Responsibilities list.
+  - Job posting detail.
+  - Qualifications section.
+
+recommended_for:
+  - The description body of a job posting.
+avoid_for:
+  - The job header (use job-hero).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the summary and titled sections of bulleted items (duties, requirements, nice-to-have).
+
+props:
+  summary: The intro summary.
+  sections: The titled sections with their items.
+
+example_prompts:
+  - "Add a job detail with responsibilities and requirements."
+  - "Add a job description body."
+
+lifecycle: experimental
+content_model: A job description with titled requirement sections.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Use clear section headings; keep bullets outcome-focused and concise.
+
+categorization:
+  category: Jobs
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Sections use headings and real lists; checkmark icons are decorative; text is real.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

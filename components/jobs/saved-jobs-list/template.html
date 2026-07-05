@@ -1,0 +1,16 @@
+<section class="saved-jobs-list rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="saved-jobs-list__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="saved-jobs-list__items divide-y divide-border">
+    <li data-for="job in jobs" class="saved-jobs-list__item flex items-center gap-3 px-(--space-card) py-3">
+      <span class="saved-jobs-list__logo flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised font-heading text-xs uppercase text-on-surface" role="img" aria-label="{{ job.company }}">{{ job.initials }}</span>
+      <div class="min-w-0 flex-1">
+        <p class="saved-jobs-list__role text-sm font-medium text-on-surface">{{ job.role }}</p>
+        <p class="saved-jobs-list__meta text-xs text-on-surface-muted">{{ job.company }} · {{ job.tags }}<span data-if="job.salary"> · {{ job.salary }}</span></p>
+      </div>
+      <span data-if="job.posted" class="saved-jobs-list__posted shrink-0 text-xs text-on-surface-muted">{{ job.posted }}</span>
+      <button type="button" class="saved-jobs-list__remove flex size-8 shrink-0 items-center justify-center rounded-control text-primary transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Remove {{ job.role }} from saved">
+        <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3h10v14l-5-4-5 4z"/></svg>
+      </button>
+    </li>
+  </ul>
+</section>

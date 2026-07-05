@@ -1,0 +1,70 @@
+name: "Resume Upload"
+short_description: A drag-drop resume uploader with a dropzone and an uploaded-file state.
+long_visual_description: >
+  A dashed dropzone with an upload icon prompting drag-and-drop or browse; once a file is set,
+  it shows the file name, size, and a remove control.
+
+use_cases:
+  - Resume upload in an application.
+  - CV drag-drop.
+  - Document upload field.
+  - File attach with preview.
+  - Application file input.
+
+recommended_for:
+  - Uploading a resume with a dropzone and file state.
+avoid_for:
+  - A multi-file gallery uploader.
+
+markets:
+  - Global
+
+example_usage: >
+  Show the dropzone by default; when file_name is set, show the uploaded-file state with a
+  remove control. Two examples show both states.
+
+props:
+  label: The dropzone label.
+  hint: The accepted formats/size.
+  file_name: The uploaded file name (shows the file state).
+  file_size: The uploaded file size.
+
+example_prompts:
+  - "Add a resume upload dropzone with an uploaded state."
+  - "Add a drag-drop CV uploader."
+
+lifecycle: experimental
+content_model: A resume upload with dropzone and file states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  State accepted formats and size limits; the uploaded state shows the file with a remove
+  option.
+
+categorization:
+  category: Jobs
+  subcategory: Applications
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The remove control has an accessible label; icons are decorative. Wire the dropzone to a real file input in production for keyboard/AT support.
+  keyboard_support: The remove control is focusable; connect a native file input for keyboard upload.
+  seo_score: 20
+  text_direction: both

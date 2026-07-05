@@ -1,0 +1,17 @@
+name: job-detail
+props:
+  summary:
+    type: string
+    required: true
+    title: Summary
+    example: "We're looking for a senior frontend engineer to help build our design system and component platform."
+  sections:
+    type: array
+    items: object
+    required: true
+    title: Sections
+    description: "Each section: { title, items: [{ text }] }."
+    example:
+      - title: "What you'll do"
+        items:
+          - { text: "Build and maintain our component library." }

@@ -1,0 +1,23 @@
+<section class="job-hero rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <div class="job-hero__head flex flex-wrap items-start gap-4">
+    <span class="job-hero__logo relative flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-card bg-surface-raised font-heading text-lg uppercase text-on-surface" role="img" aria-label="{{ company }}">
+      <img data-if="logo" class="size-full object-cover" src="{{ logo }}" alt="">
+      <span data-if="!logo" aria-hidden="true">{{ company_initials }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <h1 class="job-hero__role font-heading text-2xl text-on-surface">{{ role }}</h1>
+      <p class="job-hero__company text-on-surface-muted">{{ company }}<span data-if="posted"> · {{ posted }}</span></p>
+      <div class="job-hero__tags mt-3 flex flex-wrap gap-1.5">
+        <span data-for="tag in tags" class="rounded-pill bg-surface-raised px-2.5 py-0.5 text-xs font-medium text-on-surface-muted">{{ tag.label }}</span>
+        <span data-if="salary" class="rounded-pill bg-success/15 px-2.5 py-0.5 text-xs font-semibold text-success">{{ salary }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="job-hero__actions mt-5 flex flex-wrap gap-2">
+    <button type="button" class="rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Apply now</button>
+    <button type="button" class="flex items-center gap-2 rounded-button border border-border px-4 py-2.5 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h10v14l-5-4-5 4z"/></svg>
+      Save
+    </button>
+  </div>
+</section>

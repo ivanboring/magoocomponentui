@@ -1,0 +1,67 @@
+name: "Application Status"
+short_description: A hiring pipeline tracker showing an application's stage.
+long_visual_description: >
+  A horizontal stepper of hiring stages (applied → offer); completed stages fill with the
+  primary colour and a check, the current stage is outlined, and a rejected stage shows a red
+  cross.
+
+use_cases:
+  - Application pipeline tracker.
+  - Hiring stage progress.
+  - Candidate status.
+  - Recruitment stage display.
+  - Application timeline.
+
+recommended_for:
+  - Tracking an application through hiring stages.
+avoid_for:
+  - Order fulfilment (use order-tracker).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark each stage complete/current/upcoming/rejected; the connector fills up to the current
+  stage.
+
+props:
+  role: The role and company.
+  steps: The hiring stages with status.
+
+example_prompts:
+  - "Add an application status tracker at the interview stage."
+  - "Add a hiring pipeline stepper."
+
+lifecycle: experimental
+content_model: A hiring pipeline with stage status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use clear stage names; rejected is shown by a cross and label, not colour alone.
+
+categorization:
+  category: Jobs
+  subcategory: Applications
+  atomic_type: molecule
+  usage_type: [timeline, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; status is shown by icon and label emphasis, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

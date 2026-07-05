@@ -1,0 +1,73 @@
+name: "Job Hero"
+short_description: A job posting header with role, company, tags, salary, and apply/save.
+long_visual_description: >
+  A header with the company logo, the role and company, tag pills (location, type) plus a
+  salary pill, and apply/save actions.
+
+use_cases:
+  - Top of a job posting.
+  - Job detail header.
+  - Role banner with apply.
+  - Listing hero.
+  - Careers page job header.
+
+recommended_for:
+  - The header of a job detail page with apply/save.
+avoid_for:
+  - A compact job list item (use card-job).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute company initials; show tags and salary with apply/save actions.
+
+props:
+  role: The role title.
+  company: The company name.
+  company_initials: 1-2 char logo fallback, precomputed.
+  logo: Optional company logo.
+  tags: The job tags (location, type).
+  salary: The salary range.
+  posted: The posted date.
+
+example_prompts:
+  - "Add a job hero with salary and apply button."
+  - "Add a job posting header."
+
+lifecycle: experimental
+content_model: A job's role, company, tags, salary, and actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Show the salary for transparency; apply is the primary action, save the secondary.
+
+categorization:
+  category: Jobs
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the logo carries the company name; tags/salary are real text; apply/save are real buttons.
+  keyboard_support: Apply and save are focusable and activate on Enter/Space.
+  seo_score: 60
+  text_direction: both

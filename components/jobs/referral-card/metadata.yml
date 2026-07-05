@@ -1,0 +1,70 @@
+name: "Referral Card"
+short_description: A refer-a-friend widget with a reward and a copyable referral link.
+long_visual_description: >
+  A card with an icon, title, reward line, description, and a referral link with a copy
+  button that confirms on click.
+
+use_cases:
+  - Employee referral program.
+  - Refer-a-friend widget.
+  - Referral link share.
+  - Reward-for-referral card.
+  - Talent referral.
+
+recommended_for:
+  - A referral program prompt with a copyable link.
+avoid_for:
+  - A generic share sheet (use share-sheet).
+
+markets:
+  - Global
+
+example_usage: >
+  State the reward and provide the referral link; copy puts it on the clipboard.
+
+props:
+  title: The card title.
+  reward: The reward line.
+  description: The supporting text.
+  link: The referral link.
+  cta_label: The copy button text.
+
+example_prompts:
+  - "Add a refer-a-friend card with a copyable link."
+  - "Add a referral reward widget."
+
+lifecycle: experimental
+content_model: A referral prompt with a copyable link.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the reward clearly; the copy button confirms with a brief "Copied!".
+
+categorization:
+  category: Jobs
+  subcategory: Employer
+  atomic_type: molecule
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The link is real text; the copy button is a real button and confirms in text; the icon is decorative.
+  keyboard_support: The copy button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

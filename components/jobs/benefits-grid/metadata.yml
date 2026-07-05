@@ -1,0 +1,60 @@
+name: "Benefits Grid"
+short_description: An icon+label grid of job benefits and perks.
+long_visual_description: >
+  A titled responsive grid of benefit tiles, each an icon beside a benefit label.
+
+use_cases:
+  - Job benefits and perks.
+  - Compensation & benefits grid.
+  - Perks overview on a listing.
+  - Why-join benefits.
+  - Total-rewards grid.
+
+recommended_for:
+  - A structured grid of job benefits.
+avoid_for:
+  - Culture/values narrative (use company-culture-card).
+
+markets:
+  - Global
+
+example_usage: >
+  List the concrete benefits with an icon and short label.
+
+props:
+  title: The section title.
+  benefits: The benefits with icon and label.
+
+example_prompts:
+  - "Add a benefits grid for a job posting."
+  - "Add a perks grid with icons."
+
+lifecycle: experimental
+content_model: A grid of job benefits.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  List concrete benefits; keep labels short and scannable.
+
+categorization:
+  category: Jobs
+  subcategory: Employer
+  atomic_type: organism
+  usage_type: [grid, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Icons are decorative; labels are real text; uses a real list.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

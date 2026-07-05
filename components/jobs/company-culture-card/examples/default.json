@@ -1,0 +1,9 @@
+{
+  "title": "Life at Northwind",
+  "values": [
+    { "icon": "🌍", "label": "Remote-first", "detail": "Work from anywhere in your timezone." },
+    { "icon": "📚", "label": "Learning budget", "detail": "$2,000/yr for courses and conferences." },
+    { "icon": "⚖️", "label": "Work-life balance", "detail": "Flexible hours and unlimited PTO." },
+    { "icon": "🤝", "label": "Ownership", "detail": "Small teams, real impact, equity for all." }
+  ]
+}

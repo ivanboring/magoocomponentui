@@ -1,0 +1,11 @@
+{
+  "title": "Benefits & perks",
+  "benefits": [
+    { "icon": "🏥", "label": "Health, dental & vision" },
+    { "icon": "🏖️", "label": "Unlimited PTO" },
+    { "icon": "🏠", "label": "Remote-friendly" },
+    { "icon": "💰", "label": "401(k) matching" },
+    { "icon": "📚", "label": "Learning budget" },
+    { "icon": "🍼", "label": "Paid parental leave" }
+  ]
+}

@@ -1,0 +1,66 @@
+name: "Skills Match Meter"
+short_description: A fit-percentage ring with matched and missing skills for a job.
+long_visual_description: >
+  A progress ring showing the match percentage beside a list of skill chips, matched ones
+  ticked in green and missing ones muted.
+
+use_cases:
+  - Job fit indicator.
+  - Skills match for a role.
+  - Candidate-to-job fit.
+  - Requirement coverage.
+  - Application readiness.
+
+recommended_for:
+  - Showing a candidate's fit to a job's required skills.
+avoid_for:
+  - A generic progress ring (use progress-ring-stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the ring dash for the match percent; mark each skill matched/missing.
+
+props:
+  pct: The match percentage.
+  dash: Precomputed ring stroke-dasharray.
+  skills: The skills with matched state.
+
+example_prompts:
+  - "Add a skills match meter at 82% with matched skills."
+  - "Add a job-fit ring with skill chips."
+
+lifecycle: experimental
+content_model: A match percentage with matched/missing skills.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show which skills are matched vs missing so the percentage is actionable.
+
+categorization:
+  category: Jobs
+  subcategory: Applications
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The percentage is real text; matched skills use a check plus text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

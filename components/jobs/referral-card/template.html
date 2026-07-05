@@ -1,0 +1,12 @@
+<article class="referral-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="referral-card__icon flex size-11 items-center justify-center rounded-control bg-primary/10 text-primary" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="2.5"/><path d="M2 16a5 5 0 0110 0M13 4l2 2 3-3"/></svg>
+  </span>
+  <h3 class="referral-card__title mt-3 font-heading text-lg text-on-surface">{{ title }}</h3>
+  <p data-if="reward" class="referral-card__reward mt-0.5 text-sm font-medium text-primary">{{ reward }}</p>
+  <p data-if="description" class="referral-card__description mt-2 text-sm text-on-surface-muted">{{ description }}</p>
+  <div data-if="link" class="referral-card__link mt-4 flex items-center gap-2 rounded-control border border-border bg-surface-raised p-1.5">
+    <span class="referral-card__url min-w-0 flex-1 truncate px-2 font-mono text-sm text-on-surface">{{ link }}</span>
+    <button type="button" class="referral-card__copy shrink-0 rounded-button bg-primary px-3 py-1.5 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" data-copy="{{ link }}">{{ cta_label }}</button>
+  </div>
+</article>

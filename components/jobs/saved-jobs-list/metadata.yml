@@ -1,0 +1,61 @@
+name: "Saved Jobs List"
+short_description: A list of bookmarked roles with company, tags, salary, and a remove action.
+long_visual_description: >
+  A titled list of saved jobs, each with a company logo, role, meta (company/tags/salary),
+  posted time, and a filled bookmark to remove.
+
+use_cases:
+  - Saved/bookmarked jobs.
+  - Shortlist of roles.
+  - Favorites list.
+  - Job seeker's saved list.
+  - Watchlist of jobs.
+
+recommended_for:
+  - A list of bookmarked job roles.
+avoid_for:
+  - Search results with filters (use job-filter-panel + cards).
+
+markets:
+  - Global
+
+example_usage: >
+  List saved jobs with company, tags, and salary; the filled bookmark removes from saved.
+
+props:
+  title: The section title.
+  jobs: The saved jobs.
+
+lifecycle: experimental
+content_model: A list of bookmarked jobs.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show salary and posted time for quick scanning; the bookmark toggles saved state.
+
+categorization:
+  category: Jobs
+  subcategory: Listings
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The remove control has an accessible label naming the role; logos carry the company name; text is real.
+  keyboard_support: Remove controls are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

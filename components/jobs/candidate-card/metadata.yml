@@ -1,0 +1,74 @@
+name: "Candidate Card"
+short_description: A recruiter-view applicant card with match, tags, stage, and advance/reject.
+long_visual_description: >
+  A card with the candidate's avatar, name, headline, a match pill, skill/attribute tags, and
+  a footer with the pipeline stage and advance/reject actions.
+
+use_cases:
+  - Recruiter candidate view.
+  - Applicant in a pipeline.
+  - ATS candidate card.
+  - Hiring review card.
+  - Talent pool entry.
+
+recommended_for:
+  - A recruiter-facing applicant card with actions.
+avoid_for:
+  - A candidate's own profile (use card-profile).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials; show the match, tags, and stage with advance/reject actions.
+
+props:
+  name: The candidate's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  image: Optional candidate photo.
+  headline: The candidate headline.
+  match: The match percentage.
+  tags: Skill/attribute tags.
+  stage: The pipeline stage.
+
+example_prompts:
+  - "Add a recruiter candidate card with match and actions."
+  - "Add an ATS applicant card."
+
+lifecycle: experimental
+content_model: An applicant's summary with match, tags, and actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Surface the match and stage; advance/reject are the primary recruiter actions.
+
+categorization:
+  category: Jobs
+  subcategory: Recruiting
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the name; match and stage are real text; advance/reject are real buttons.
+  keyboard_support: Advance and reject are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,14 @@
+name: benefits-grid
+props:
+  title:
+    type: string
+    default: "Benefits & perks"
+    title: Title
+  benefits:
+    type: array
+    items: object
+    required: true
+    title: Benefits
+    description: "Each: { icon, label }."
+    example:
+      - { icon: "🏥", label: "Health, dental & vision" }

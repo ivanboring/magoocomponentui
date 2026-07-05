@@ -1,0 +1,12 @@
+<section class="company-culture-card rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="company-culture-card__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <ul class="company-culture-card__values mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <li data-for="value in values" class="company-culture-card__value flex gap-3">
+      <span class="company-culture-card__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-lg" aria-hidden="true">{{ value.icon }}</span>
+      <div class="min-w-0">
+        <p class="font-medium text-on-surface">{{ value.label }}</p>
+        <p data-if="value.detail" class="text-sm text-on-surface-muted">{{ value.detail }}</p>
+      </div>
+    </li>
+  </ul>
+</section>

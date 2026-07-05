@@ -1,0 +1,72 @@
+name: "Application Form"
+short_description: A job application form with fields, a resume attachment, and submit.
+long_visual_description: >
+  A form with labelled fields (name, email, phone, a cover-letter textarea), a resume
+  attachment row, and a submit button.
+
+use_cases:
+  - Job application form.
+  - Apply-now capture.
+  - Candidate submission.
+  - Role application.
+  - Careers apply form.
+
+recommended_for:
+  - Capturing a job application with a resume.
+avoid_for:
+  - Just the resume upload (use resume-upload).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the fields (text/email/tel/textarea); show the attached resume. Required fields are
+  marked.
+
+props:
+  title: The form title.
+  fields: The form fields with type and required flag.
+  resume_file: The attached resume file name.
+  cta_label: The submit button text.
+
+example_prompts:
+  - "Add a job application form with resume attachment."
+  - "Add an apply-now form."
+
+lifecycle: experimental
+content_model: A job application with fields and a resume.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Mark required fields; keep the form short; the resume attachment is prominent.
+
+categorization:
+  category: Jobs
+  subcategory: Applications
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Fields use associated labels with required markers; submit is a real button in a form.
+  keyboard_support: All fields and submit are focusable and keyboard-operable.
+  seo_score: 35
+  text_direction: both

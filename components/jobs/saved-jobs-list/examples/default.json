@@ -1,0 +1,8 @@
+{
+  "title": "Saved jobs",
+  "jobs": [
+    { "role": "Senior Frontend Engineer", "company": "Northwind", "initials": "NW", "tags": "Remote · Full-time", "salary": "$120k–$150k", "posted": "3d ago" },
+    { "role": "Design Systems Lead", "company": "Globex", "initials": "GX", "tags": "Hybrid · Full-time", "salary": "$140k–$170k", "posted": "1w ago" },
+    { "role": "Product Engineer", "company": "Initech", "initials": "IT", "tags": "Remote · Contract", "salary": "$90–$110/hr", "posted": "5d ago" }
+  ]
+}

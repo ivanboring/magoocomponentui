@@ -1,0 +1,22 @@
+<div class="resume-upload">
+  <div data-if="!file_name" class="resume-upload__drop flex flex-col items-center justify-center gap-2 rounded-card border-2 border-dashed border-border bg-surface-raised p-(--space-section) text-center transition-colors duration-(--duration-token) hover:border-primary">
+    <span class="flex size-12 items-center justify-center rounded-full bg-surface text-on-surface-muted" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 14V4m0 0L6 8m4-4l4 4M4 16h12"/></svg>
+    </span>
+    <p class="resume-upload__label font-medium text-on-surface">{{ label }}</p>
+    <p class="resume-upload__hint text-xs text-on-surface-muted">Drag &amp; drop or <span class="font-medium text-primary">browse</span></p>
+    <p class="text-[11px] text-on-surface-muted">{{ hint }}</p>
+  </div>
+  <div data-if="file_name" class="resume-upload__file flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+    <span class="flex size-10 shrink-0 items-center justify-center rounded-control bg-danger/10 text-danger" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h6l3 3v11H6z"/><path d="M12 3v3h3"/></svg>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="resume-upload__name truncate text-sm font-medium text-on-surface">{{ file_name }}</p>
+      <p data-if="file_size" class="resume-upload__size text-xs text-on-surface-muted">{{ file_size }} · Uploaded</p>
+    </div>
+    <button type="button" class="resume-upload__remove flex size-8 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-danger" aria-label="Remove resume">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+  </div>
+</div>

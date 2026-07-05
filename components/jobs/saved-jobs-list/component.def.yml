@@ -1,0 +1,14 @@
+name: saved-jobs-list
+props:
+  title:
+    type: string
+    default: "Saved jobs"
+    title: Title
+  jobs:
+    type: array
+    items: object
+    required: true
+    title: Jobs
+    description: "Each job: { role, company, initials, tags, salary, posted }."
+    example:
+      - { role: "Frontend Engineer", company: "Northwind", initials: "NW", tags: "Remote · Full-time", salary: "$120k–$150k", posted: "3d ago" }

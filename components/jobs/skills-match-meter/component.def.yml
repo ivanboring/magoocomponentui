@@ -1,0 +1,22 @@
+name: skills-match-meter
+props:
+  pct:
+    type: string
+    required: true
+    title: Match percent
+    example: "82%"
+  dash:
+    type: string
+    required: true
+    title: Ring dash
+    description: Precomputed stroke-dasharray on a r=45 circle (circumference ~283).
+    example: "232 283"
+  skills:
+    type: array
+    items: object
+    required: true
+    title: Skills
+    description: "Each skill: { label, matched }."
+    example:
+      - { label: "React", matched: true }
+      - { label: "GraphQL", matched: false }

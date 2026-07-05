@@ -1,0 +1,21 @@
+{
+  "groups": [
+    { "label": "Job type", "type": "checkbox", "options": [
+      { "label": "Full-time", "count": "128", "checked": true },
+      { "label": "Part-time", "count": "24", "checked": false },
+      { "label": "Contract", "count": "41", "checked": false },
+      { "label": "Internship", "count": "12", "checked": false }
+    ]},
+    { "label": "Location", "type": "checkbox", "options": [
+      { "label": "Remote", "count": "96", "checked": true },
+      { "label": "Hybrid", "count": "58", "checked": false },
+      { "label": "On-site", "count": "37", "checked": false }
+    ]},
+    { "label": "Experience", "type": "checkbox", "options": [
+      { "label": "Junior", "count": "34", "checked": false },
+      { "label": "Mid", "count": "72", "checked": false },
+      { "label": "Senior", "count": "61", "checked": true }
+    ]}
+  ],
+  "cta_label": "Apply filters"
+}

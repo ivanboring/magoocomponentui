@@ -1,0 +1,34 @@
+name: job-hero
+props:
+  role:
+    type: string
+    required: true
+    title: Role
+    example: "Senior Frontend Engineer"
+  company:
+    type: string
+    required: true
+    title: Company
+    example: "Northwind"
+  company_initials:
+    type: string
+    required: true
+    title: Company initials
+    example: "NW"
+  logo:
+    type: image
+    title: Logo
+  tags:
+    type: array
+    items: object
+    required: true
+    title: Tags
+    description: "Each: { label } — location, type, remote, etc."
+  salary:
+    type: string
+    title: Salary
+    example: "$120k – $150k"
+  posted:
+    type: string
+    title: Posted
+    example: "Posted 3 days ago"

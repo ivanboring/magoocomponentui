@@ -1,0 +1,19 @@
+<form class="application-form rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <h2 class="application-form__title font-heading text-xl text-on-surface">{{ title }}</h2>
+  <div class="application-form__fields mt-4 flex flex-col gap-4">
+    <label data-for="field in fields" class="application-form__field block text-sm">
+      <span class="text-on-surface">{{ field.label }}<span data-if="field.required" class="text-danger"> *</span></span>
+      <textarea data-if="field.type" class="mt-1 hidden w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus:border-ring data-[type=textarea]:block" data-type="{{ field.type }}" rows="4" placeholder="{{ field.placeholder }}"></textarea>
+      <input data-if="field.type" class="mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus:border-ring data-[type=textarea]:hidden" data-type="{{ field.type }}" type="{{ field.type }}" placeholder="{{ field.placeholder }}">
+    </label>
+    <div class="application-form__resume">
+      <span class="text-sm text-on-surface">Resume <span class="text-danger">*</span></span>
+      <div data-if="resume_file" class="mt-1 flex items-center gap-3 rounded-control border border-border bg-surface-raised p-2.5">
+        <svg class="size-5 shrink-0 text-danger" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3h6l3 3v11H6z"/><path d="M12 3v3h3"/></svg>
+        <span class="min-w-0 flex-1 truncate text-sm text-on-surface">{{ resume_file }}</span>
+        <button type="button" class="text-xs font-medium text-primary">Replace</button>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="application-form__cta mt-6 w-full rounded-button bg-primary py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

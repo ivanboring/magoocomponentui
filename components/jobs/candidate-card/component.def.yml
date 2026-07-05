@@ -1,0 +1,32 @@
+name: candidate-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Jordan Blake"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JB"
+  image:
+    type: image
+    title: Photo
+  headline:
+    type: string
+    title: Headline
+    example: "Senior Frontend Engineer · 7 yrs"
+  match:
+    type: string
+    title: Match
+    example: "88% match"
+  tags:
+    type: array
+    items: object
+    title: Tags
+    description: "Each: { label }."
+  stage:
+    type: string
+    title: Stage
+    example: "Interview"

@@ -1,0 +1,14 @@
+<section class="application-status rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Application status">
+  <p data-if="role" class="application-status__role mb-4 font-heading text-on-surface">{{ role }}</p>
+  <ol class="application-status__steps flex items-start">
+    <li data-for="step in steps" class="application-status__step group relative flex flex-1 flex-col items-center text-center" data-status="{{ step.status }}">
+      <span class="application-status__bar absolute left-0 top-3 h-0.5 w-full bg-border group-first:hidden group-data-[status=complete]:bg-primary group-data-[status=current]:bg-primary" style="right: 50%; left: -50%; width: 100%"></span>
+      <span class="application-status__dot relative z-10 flex size-7 items-center justify-center rounded-full border-2 border-border bg-surface text-on-surface-muted group-data-[status=complete]:border-primary group-data-[status=complete]:bg-primary group-data-[status=complete]:text-primary-contrast group-data-[status=current]:border-primary group-data-[status=current]:text-primary group-data-[status=rejected]:border-danger group-data-[status=rejected]:bg-danger group-data-[status=rejected]:text-danger-contrast" data-status="{{ step.status }}">
+        <svg class="hidden size-4 group-data-[status=complete]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        <svg class="hidden size-3.5 group-data-[status=rejected]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        <span class="size-1.5 rounded-full bg-current group-data-[status=complete]:hidden group-data-[status=rejected]:hidden"></span>
+      </span>
+      <span class="application-status__label mt-2 text-xs text-on-surface-muted group-data-[status=complete]:text-on-surface group-data-[status=current]:font-medium group-data-[status=current]:text-on-surface group-data-[status=rejected]:text-danger">{{ step.label }}</span>
+    </li>
+  </ol>
+</section>

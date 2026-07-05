@@ -1,0 +1,14 @@
+name: company-culture-card
+props:
+  title:
+    type: string
+    default: "Life at Northwind"
+    title: Title
+  values:
+    type: array
+    items: object
+    required: true
+    title: Values
+    description: "Each value: { icon, label, detail }."
+    example:
+      - { icon: "🌍", label: "Remote-first", detail: "Work from anywhere in your timezone." }

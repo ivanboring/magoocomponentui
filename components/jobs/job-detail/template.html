@@ -1,0 +1,14 @@
+<article class="job-detail rounded-card border border-border bg-surface p-(--space-section) shadow-card">
+  <p class="job-detail__summary text-on-surface-muted">{{ summary }}</p>
+  <div class="job-detail__sections mt-6 flex flex-col gap-6">
+    <section data-for="section in sections" class="job-detail__section">
+      <h2 class="job-detail__section-title font-heading text-lg text-on-surface">{{ section.title }}</h2>
+      <ul class="job-detail__list mt-2 flex flex-col gap-1.5">
+        <li data-for="item in section.items" class="flex items-start gap-2 text-sm text-on-surface">
+          <svg class="mt-1 size-3.5 shrink-0 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          {{ item.text }}
+        </li>
+      </ul>
+    </section>
+  </div>
+</article>

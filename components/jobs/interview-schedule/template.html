@@ -1,0 +1,16 @@
+<section class="interview-schedule rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <h3 class="interview-schedule__title border-b border-border px-(--space-card) py-3 font-heading text-on-surface">{{ title }}</h3>
+  <ul class="interview-schedule__items divide-y divide-border">
+    <li data-for="interview in interviews" class="interview-schedule__item flex items-center gap-3 px-(--space-card) py-3">
+      <div class="interview-schedule__date flex size-12 shrink-0 flex-col items-center justify-center rounded-control bg-surface-raised">
+        <span class="text-[10px] uppercase text-on-surface-muted">{{ interview.date }}</span>
+        <span class="font-heading text-sm text-on-surface tabular-nums">{{ interview.time }}</span>
+      </div>
+      <div class="min-w-0 flex-1">
+        <p class="interview-schedule__role text-sm font-medium text-on-surface">{{ interview.role }}</p>
+        <p class="interview-schedule__meta text-xs text-on-surface-muted">{{ interview.company }} · {{ interview.format }}</p>
+      </div>
+      <button type="button" class="interview-schedule__join shrink-0 rounded-button bg-primary px-3 py-1.5 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Join</button>
+    </li>
+  </ul>
+</section>

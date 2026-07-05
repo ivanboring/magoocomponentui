@@ -1,0 +1,22 @@
+name: referral-card
+props:
+  title:
+    type: string
+    default: "Refer a friend"
+    title: Title
+  reward:
+    type: string
+    title: Reward
+    example: "Earn $2,000 for every hire"
+  description:
+    type: string
+    title: Description
+    example: "Know someone great? Share your link and get rewarded when they're hired."
+  link:
+    type: string
+    title: Referral link
+    example: "acme.jobs/r/jane-d"
+  cta_label:
+    type: string
+    default: "Copy link"
+    title: CTA label

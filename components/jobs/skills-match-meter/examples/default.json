@@ -1,0 +1,11 @@
+{
+  "pct": "82%",
+  "dash": "232 283",
+  "skills": [
+    { "label": "React", "matched": true },
+    { "label": "TypeScript", "matched": true },
+    { "label": "Node.js", "matched": true },
+    { "label": "GraphQL", "matched": false },
+    { "label": "AWS", "matched": false }
+  ]
+}

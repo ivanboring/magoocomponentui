@@ -1,0 +1,67 @@
+name: "Interview Schedule"
+short_description: A list of upcoming interviews with date/time, format, and a join action.
+long_visual_description: >
+  A list of upcoming interviews, each with a date/time block, the role and company/format, and
+  a join button.
+
+use_cases:
+  - Upcoming interviews list.
+  - Candidate interview schedule.
+  - Interviewer's day.
+  - Scheduled calls.
+  - Interview reminders.
+
+recommended_for:
+  - A list of scheduled interviews with join actions.
+avoid_for:
+  - A booking form (use appointment-booker pattern).
+
+markets:
+  - Global
+
+example_usage: >
+  Show each interview's date/time, format, and a join action for video calls.
+
+props:
+  title: The section title.
+  interviews: The interviews with role, company, date/time, and format.
+
+example_prompts:
+  - "Add an upcoming interviews list with join actions."
+  - "Add a candidate interview schedule."
+
+lifecycle: experimental
+content_model: A list of scheduled interviews with join actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the format and duration; the join action appears for video interviews.
+
+categorization:
+  category: Jobs
+  subcategory: Applications
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Dates, roles, and formats are real text; join is a real button.
+  keyboard_support: Join buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

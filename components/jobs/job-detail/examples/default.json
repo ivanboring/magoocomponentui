@@ -1,0 +1,19 @@
+{
+  "summary": "We're looking for a senior frontend engineer to help build our design system and component platform used by hundreds of teams.",
+  "sections": [
+    { "title": "What you'll do", "items": [
+      { "text": "Build and maintain our component library." },
+      { "text": "Partner with design on the token system and theming." },
+      { "text": "Mentor engineers and raise the quality bar." }
+    ]},
+    { "title": "What we're looking for", "items": [
+      { "text": "5+ years of frontend experience with React and TypeScript." },
+      { "text": "A track record shipping accessible, reusable UI." },
+      { "text": "Strong communication and collaboration skills." }
+    ]},
+    { "title": "Nice to have", "items": [
+      { "text": "Experience with design systems at scale." },
+      { "text": "Contributions to open-source UI libraries." }
+    ]}
+  ]
+}

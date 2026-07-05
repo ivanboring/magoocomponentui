@@ -1,0 +1,19 @@
+<aside class="job-filter-panel rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="job-filter-panel__head flex items-center justify-between">
+    <h3 class="font-heading text-on-surface">Filters</h3>
+    <button type="button" class="job-filter-panel__clear text-xs font-medium text-primary hover:underline">Clear all</button>
+  </div>
+  <div class="job-filter-panel__groups mt-4 flex flex-col divide-y divide-border">
+    <fieldset data-for="group in groups" class="job-filter-panel__group py-4 first:pt-0">
+      <legend class="text-sm font-semibold text-on-surface">{{ group.label }}</legend>
+      <div class="mt-2 flex flex-col gap-1.5">
+        <label data-for="option in group.options" class="job-filter-panel__option flex cursor-pointer items-center gap-2.5 text-sm">
+          <input type="checkbox" class="size-4 rounded border-border text-primary" checked="{{ option.checked }}" name="{{ group.label }}">
+          <span class="flex-1 text-on-surface">{{ option.label }}</span>
+          <span data-if="option.count" class="text-xs text-on-surface-muted tabular-nums">{{ option.count }}</span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+  <button type="button" class="job-filter-panel__apply mt-4 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</aside>
