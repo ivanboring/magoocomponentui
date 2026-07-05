@@ -1,0 +1,17 @@
+<section class="retention-curve rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="flex items-baseline justify-between gap-2">
+    <h3 class="retention-curve__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="summary" class="retention-curve__summary text-sm font-medium text-primary">{{ summary }}</span>
+  </div>
+  <div class="retention-curve__chart mt-4">
+    <svg class="w-full" viewBox="0 0 300 110" preserveAspectRatio="none" role="img" aria-label="{{ title }} — {{ summary }}">
+      <line x1="0" y1="100" x2="300" y2="100" class="text-border" stroke="currentColor" stroke-width="1"></line>
+      <path d="{{ area_path }}" class="text-primary/15" fill="currentColor"></path>
+      <path d="{{ line_path }}" class="text-primary" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+      <circle data-for="point in points" cx="{{ point.x }}" cy="{{ point.y }}" r="2.5" class="text-primary" fill="currentColor"></circle>
+    </svg>
+    <div class="retention-curve__labels mt-1 flex justify-between text-[10px] text-on-surface-muted">
+      <span data-for="label in labels">{{ label.text }}</span>
+    </div>
+  </div>
+</section>

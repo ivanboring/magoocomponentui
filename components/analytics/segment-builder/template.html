@@ -1,0 +1,25 @@
+<section class="segment-builder rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="segment-builder__head flex items-center justify-between gap-2">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="estimate" class="segment-builder__estimate rounded-pill bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">{{ estimate }}</span>
+  </div>
+  <div class="segment-builder__match mt-3 flex items-center gap-2 text-sm text-on-surface-muted">
+    Match
+    <div class="inline-flex rounded-control border border-border p-0.5" role="radiogroup" aria-label="Match type">
+      <button data-for="option in match_options" type="button" class="segment-builder__match-btn rounded-control px-3 py-1 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ option.active }}" role="radio" aria-checked="{{ option.active }}">{{ option.label }}</button>
+    </div>
+    of the following:
+  </div>
+  <ul class="segment-builder__rules mt-3 flex flex-col gap-2">
+    <li data-for="rule in rules" class="segment-builder__rule flex flex-wrap items-center gap-2 rounded-control bg-surface-raised p-2">
+      <span class="rounded-control border border-border bg-surface px-2.5 py-1.5 text-sm text-on-surface">{{ rule.field }}</span>
+      <span class="text-sm text-on-surface-muted">{{ rule.operator }}</span>
+      <span class="min-w-0 flex-1 rounded-control border border-border bg-surface px-2.5 py-1.5 text-sm text-on-surface">{{ rule.value }}</span>
+      <button type="button" class="flex size-7 shrink-0 items-center justify-center rounded-control text-on-surface-muted hover:text-danger" aria-label="Remove rule"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    </li>
+  </ul>
+  <button type="button" class="segment-builder__add mt-3 flex items-center gap-1.5 rounded-button border border-dashed border-border px-3 py-2 text-sm font-medium text-primary transition-colors duration-(--duration-token) hover:bg-surface-raised">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg>
+    Add rule
+  </button>
+</section>

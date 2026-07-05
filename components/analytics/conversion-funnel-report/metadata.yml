@@ -1,0 +1,66 @@
+name: "Conversion Funnel Report"
+short_description: A funnel with per-stage counts, rates, and step drop-off.
+long_visual_description: >
+  A funnel of stages, each with a proportional bar, the count and cumulative rate, and the
+  step drop-off beneath.
+
+use_cases:
+  - Conversion funnel.
+  - Signup/checkout funnel.
+  - Stage drop-off report.
+  - Funnel analysis.
+  - Activation funnel.
+
+recommended_for:
+  - A conversion funnel with drop-off per stage.
+avoid_for:
+  - A simple top list (use top-events-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide stages with precomputed bar widths, cumulative rates, and step drop-off text.
+
+props:
+  title: The funnel title.
+  overall: The overall conversion.
+  stages: The funnel stages.
+
+example_prompts:
+  - "Add a signup conversion funnel with drop-off."
+  - "Add a funnel analysis report."
+
+lifecycle: experimental
+content_model: A conversion funnel with drop-off.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show counts and rates as text; the bar is a proportional cue; call out drop-off per step.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; counts, rates, and drop-off are real text; bars are proportional cues.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,17 @@
+<div class="period-comparison rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="period-comparison__label text-sm text-on-surface-muted">{{ label }}</p>
+  <div class="period-comparison__values mt-2 flex items-end gap-4">
+    <div>
+      <p class="period-comparison__current font-heading text-2xl text-on-surface tabular-nums">{{ current }}</p>
+      <p class="text-xs text-on-surface-muted">{{ current_label }}</p>
+    </div>
+    <span data-if="delta" class="period-comparison__delta mb-1 flex items-center gap-1 text-sm font-medium {{ direction@class }}" data-direction="{{ direction }}">
+      <svg data-if="direction" class="size-3.5 data-[direction=down]:rotate-180 data-[direction=flat]:hidden" data-direction="{{ direction }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+      {{ delta }}
+    </span>
+  </div>
+  <div class="period-comparison__previous mt-3 flex items-center justify-between border-t border-border pt-2 text-sm">
+    <span class="text-on-surface-muted">{{ previous_label }}</span>
+    <span class="text-on-surface tabular-nums">{{ previous }}</span>
+  </div>
+</div>

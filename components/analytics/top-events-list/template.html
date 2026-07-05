@@ -1,0 +1,10 @@
+<section class="top-events-list rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="top-events-list__title font-heading text-on-surface">{{ title }}</h3>
+  <ol class="top-events-list__rows mt-3 flex flex-col gap-2">
+    <li data-for="row in rows" class="top-events-list__row relative flex items-center justify-between gap-3 overflow-hidden rounded-control px-2 py-1.5 text-sm">
+      <span class="top-events-list__bar absolute inset-y-0 left-0 bg-primary/10" style="width: {{ row.pct }}%" aria-hidden="true"></span>
+      <span class="relative min-w-0 flex-1 truncate font-mono text-on-surface">{{ row.label }}</span>
+      <span class="relative shrink-0 font-medium text-on-surface tabular-nums">{{ row.count }}</span>
+    </li>
+  </ol>
+</section>

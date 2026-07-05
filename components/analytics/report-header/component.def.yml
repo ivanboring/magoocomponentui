@@ -1,0 +1,21 @@
+name: report-header
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Growth overview"
+  description:
+    type: string
+    title: Description
+    example: "Signups, activation, and retention across all channels."
+  range_options:
+    type: array
+    items: object
+    required: true
+    title: Range options
+    description: "Each: { label, active }."
+  updated:
+    type: string
+    title: Updated
+    example: "Updated 4 min ago"

@@ -1,0 +1,68 @@
+name: "Export Panel"
+short_description: A format + schedule export popover with a run action.
+long_visual_description: >
+  A popover with format options (CSV/Excel/PDF), a now/schedule delivery toggle, and an export
+  button.
+
+use_cases:
+  - Export report.
+  - Download data.
+  - Format + schedule export.
+  - Data export popover.
+  - Report download.
+
+recommended_for:
+  - An export popover with format and delivery.
+avoid_for:
+  - A scheduled report list (use scheduled-report-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Choose a format and delivery (now/schedule); export runs or schedules it.
+
+props:
+  title: The panel title.
+  formats: The format options.
+  schedule_options: The delivery options.
+  cta_label: The export button text.
+
+example_prompts:
+  - "Add an export panel with format and schedule."
+  - "Add a data export popover."
+
+lifecycle: experimental
+content_model: An export popover with format and delivery.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Offer common formats; schedule enables recurring delivery.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: molecule
+  usage_type: [form, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Format and delivery are radiogroups with role="radio"/aria-checked; export is a real button; icons are decorative.
+  keyboard_support: Options and export are focusable and keyboard-operable.
+  seo_score: 15
+  text_direction: both

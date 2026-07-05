@@ -1,0 +1,11 @@
+{
+  "title": "Channel attribution",
+  "total": "5,894 conversions",
+  "channels": [
+    { "label": "Organic search", "value": "2,140", "pct": 36, "tone": "primary" },
+    { "label": "Paid ads", "value": "1,590", "pct": 27, "tone": "accent" },
+    { "label": "Referral", "value": "1,060", "pct": 18, "tone": "success" },
+    { "label": "Email", "value": "710", "pct": 12, "tone": "info" },
+    { "label": "Direct", "value": "394", "pct": 7, "tone": "warning" }
+  ]
+}

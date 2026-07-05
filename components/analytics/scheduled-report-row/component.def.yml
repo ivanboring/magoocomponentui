@@ -1,0 +1,24 @@
+name: scheduled-report-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Weekly growth summary"
+  frequency:
+    type: string
+    required: true
+    title: Frequency
+    example: "Every Monday at 9:00 AM"
+  format:
+    type: string
+    title: Format
+    example: "PDF"
+  recipients:
+    type: string
+    title: Recipients
+    example: "4 recipients"
+  enabled:
+    type: boolean
+    default: true
+    title: Enabled

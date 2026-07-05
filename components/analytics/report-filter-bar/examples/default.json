@@ -1,0 +1,17 @@
+{
+  "dimensions": [
+    { "label": "Country", "value": "All" },
+    { "label": "Device", "value": "Mobile" },
+    { "label": "Channel", "value": "Organic" }
+  ],
+  "measures": [
+    { "label": "Sessions", "active": true },
+    { "label": "Conversions", "active": true },
+    { "label": "Revenue", "active": false },
+    { "label": "Bounce rate", "active": false }
+  ],
+  "active_filters": [
+    { "label": "Device: Mobile" },
+    { "label": "Channel: Organic" }
+  ]
+}

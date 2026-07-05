@@ -1,0 +1,21 @@
+name: export-panel
+props:
+  title:
+    type: string
+    default: "Export report"
+    title: Title
+  formats:
+    type: array
+    items: object
+    required: true
+    title: Formats
+    description: "Each: { label, icon, active }."
+  schedule_options:
+    type: array
+    items: object
+    title: Schedule options
+    description: "Each: { label, active }."
+  cta_label:
+    type: string
+    default: "Export"
+    title: CTA label

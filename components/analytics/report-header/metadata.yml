@@ -1,0 +1,65 @@
+name: "Report Header"
+short_description: A report masthead with title, date-range switch, and export.
+long_visual_description: >
+  A header with the report title/description and last-updated, a date-range segmented switch,
+  and an export button.
+
+use_cases:
+  - Analytics report header.
+  - Dashboard masthead.
+  - Report title + range.
+  - Data view header.
+  - Reporting toolbar.
+
+recommended_for:
+  - The header of an analytics report with range/export.
+avoid_for:
+  - A filter bar (use report-filter-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the title and last-updated; the range switch and export drive the report.
+
+props:
+  title: The report title.
+  description: The description.
+  range_options: The date-range options.
+  updated: The last-updated text.
+
+example_prompts:
+  - "Add an analytics report header with a date-range switch and export."
+  - "Add a dashboard masthead."
+
+lifecycle: experimental
+content_model: A report header with range and export.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface-raised
+    - --color-border
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show when the data was last updated; the range switch scopes the whole report.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [banner, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the range is a radiogroup with role="radio"/aria-checked; export is a real button.
+  keyboard_support: Range options and export are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

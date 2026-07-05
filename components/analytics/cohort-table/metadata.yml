@@ -1,0 +1,60 @@
+name: "Cohort Table"
+short_description: A retention cohort grid with a heatmap of per-period retention.
+long_visual_description: >
+  A table with cohorts down the side and periods across, each cell a heat-shaded retention
+  percentage.
+
+use_cases:
+  - Retention cohort grid.
+  - Cohort heatmap.
+  - Weekly retention.
+  - Cohort analysis.
+  - Retention by signup week.
+
+recommended_for:
+  - A cohort retention heatmap grid.
+avoid_for:
+  - A retention curve (use retention-curve).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide period headers and cohort rows with per-cell retention percent and a precomputed
+  heat tone (0-5).
+
+props:
+  title: The table title.
+  periods: The period headers.
+  rows: The cohort rows with heat cells.
+
+lifecycle: experimental
+content_model: A retention cohort heatmap grid.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --shadow-card
+
+editorial_guidance: >
+  The percentage text is the source of truth; the heat shade is a secondary cue.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with scoped headers; each cell shows the retention percent as text (not colour-only). Scrolls horizontally.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,67 @@
+name: "Report Filter Bar"
+short_description: A dimensions/measures filter bar with active-filter chips.
+long_visual_description: >
+  A bar with dimension dropdown pills, measure toggle chips, and a row of active filter chips
+  with remove and clear-all.
+
+use_cases:
+  - Report filters.
+  - Dimensions/measures selector.
+  - Analytics filter bar.
+  - Query builder controls.
+  - Data view filters.
+
+recommended_for:
+  - A dimensions/measures filter bar for a report.
+avoid_for:
+  - A search facet sidebar (use job-filter-panel pattern).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide dimension filters (with current values), measure toggles, and the active filter
+  chips.
+
+props:
+  dimensions: The dimension filters.
+  measures: The measure toggle chips.
+  active_filters: The active filter chips.
+
+example_prompts:
+  - "Add a report filter bar with dimensions and measures."
+  - "Add an analytics filter toolbar."
+
+lifecycle: experimental
+content_model: A dimensions/measures filter bar.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Show active filters as removable chips; measures toggle which series appear.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Measures use aria-pressed; active filter chips have accessible remove labels; dimensions are real buttons.
+  keyboard_support: All controls are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both

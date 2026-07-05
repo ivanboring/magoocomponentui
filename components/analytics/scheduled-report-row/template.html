@@ -1,0 +1,10 @@
+<div class="scheduled-report-row flex items-center gap-3 py-3" data-enabled="{{ enabled }}">
+  <span class="scheduled-report-row__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="scheduled-report-row__name text-sm font-medium text-on-surface data-[enabled=false]:text-on-surface-muted" data-enabled="{{ enabled }}">{{ name }}</p>
+    <p class="scheduled-report-row__meta text-xs text-on-surface-muted">{{ frequency }}<span data-if="format"> · {{ format }}</span><span data-if="recipients"> · {{ recipients }}</span></p>
+  </div>
+  <button type="button" class="scheduled-report-row__toggle relative inline-flex h-6 w-11 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[on=true]:bg-primary" data-on="{{ enabled }}" role="switch" aria-checked="{{ enabled }}" aria-label="Toggle {{ name }}"><span class="ml-0.5 inline-block size-5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[on=true]:translate-x-5" data-on="{{ enabled }}"></span></button>
+</div>

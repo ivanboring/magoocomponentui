@@ -1,0 +1,32 @@
+name: retention-curve
+props:
+  title:
+    type: string
+    default: "Retention curve"
+    title: Title
+  summary:
+    type: string
+    title: Summary
+    example: "38% retained at day 30"
+  points:
+    type: array
+    items: object
+    required: true
+    title: Points
+    description: "Each: { x, y } — SVG coords (0-300 x, 0-100 y) tracing the curve."
+  area_path:
+    type: string
+    required: true
+    title: Area path
+    description: Precomputed SVG path for the filled area under the curve.
+  line_path:
+    type: string
+    required: true
+    title: Line path
+    description: Precomputed SVG path for the curve line.
+  labels:
+    type: array
+    items: object
+    required: true
+    title: X labels
+    description: "Each: { text }."

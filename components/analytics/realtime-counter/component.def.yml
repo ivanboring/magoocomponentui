@@ -1,0 +1,16 @@
+name: realtime-counter
+props:
+  value:
+    type: string
+    required: true
+    title: Value
+    example: "1,284"
+  label:
+    type: string
+    default: "Active users right now"
+    title: Label
+  sparkbars:
+    type: array
+    items: object
+    title: Spark bars
+    description: "Each: { height } — 0-100, last-N-minutes activity."

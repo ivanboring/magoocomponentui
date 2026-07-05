@@ -1,0 +1,64 @@
+name: "Scheduled Report Row"
+short_description: A recurring report entry with schedule, format, and an enable toggle.
+long_visual_description: >
+  A row with a calendar icon, the report name, its schedule/format/recipients, and an on/off
+  toggle.
+
+use_cases:
+  - Scheduled report entry.
+  - Recurring report row.
+  - Report subscription.
+  - Automated report.
+  - Report schedule item.
+
+recommended_for:
+  - A recurring report with an enable toggle.
+avoid_for:
+  - A one-off export (use export-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the schedule, format, and recipients; the toggle enables/disables the schedule.
+
+props:
+  name: The report name.
+  frequency: The schedule.
+  format: The output format.
+  recipients: The recipient count.
+  enabled: Whether it's enabled.
+
+example_prompts:
+  - "Add a scheduled report row with an enable toggle."
+  - "Add a recurring report entry."
+
+lifecycle: experimental
+content_model: A recurring report entry with a toggle.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-control
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Show the schedule and recipients; the toggle controls the schedule.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: molecule
+  usage_type: [list-item, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle uses role="switch"/aria-checked with a label; schedule/format are real text; the icon is decorative.
+  keyboard_support: The toggle is focusable and switches on Enter/Space.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,205 @@
+{
+  "title": "Retention by cohort",
+  "periods": [
+    {
+      "label": "Week 0"
+    },
+    {
+      "label": "Week 1"
+    },
+    {
+      "label": "Week 2"
+    },
+    {
+      "label": "Week 3"
+    },
+    {
+      "label": "Week 4"
+    },
+    {
+      "label": "Week 5"
+    }
+  ],
+  "rows": [
+    {
+      "cohort": "Aug 1",
+      "size": "4,204",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "62%",
+          "tone": 4
+        },
+        {
+          "value": "48%",
+          "tone": 3
+        },
+        {
+          "value": "41%",
+          "tone": 3
+        },
+        {
+          "value": "38%",
+          "tone": 2
+        },
+        {
+          "value": "35%",
+          "tone": 2
+        }
+      ]
+    },
+    {
+      "cohort": "Aug 8",
+      "size": "3,880",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "58%",
+          "tone": 3
+        },
+        {
+          "value": "44%",
+          "tone": 3
+        },
+        {
+          "value": "39%",
+          "tone": 2
+        },
+        {
+          "value": "34%",
+          "tone": 2
+        },
+        {
+          "value": "",
+          "tone": 0
+        }
+      ]
+    },
+    {
+      "cohort": "Aug 15",
+      "size": "4,510",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "64%",
+          "tone": 4
+        },
+        {
+          "value": "51%",
+          "tone": 3
+        },
+        {
+          "value": "45%",
+          "tone": 3
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        }
+      ]
+    },
+    {
+      "cohort": "Aug 22",
+      "size": "3,240",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "60%",
+          "tone": 4
+        },
+        {
+          "value": "47%",
+          "tone": 3
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        }
+      ]
+    },
+    {
+      "cohort": "Aug 29",
+      "size": "2,980",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "55%",
+          "tone": 3
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        }
+      ]
+    },
+    {
+      "cohort": "Sep 5",
+      "size": "3,120",
+      "cells": [
+        {
+          "value": "100%",
+          "tone": 5
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        },
+        {
+          "value": "",
+          "tone": 0
+        }
+      ]
+    }
+  ]
+}

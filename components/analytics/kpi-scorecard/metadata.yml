@@ -1,0 +1,62 @@
+name: "KPI Scorecard"
+short_description: A grid of KPIs with value, target progress, and ahead/behind status.
+long_visual_description: >
+  A responsive grid of KPI cards, each with a status pill, the value and delta, and a
+  progress-to-target bar coloured by status.
+
+use_cases:
+  - KPI scorecard.
+  - Target vs actual grid.
+  - OKR dashboard.
+  - Metrics overview.
+  - Goals scorecard.
+
+recommended_for:
+  - A grid of KPIs against targets.
+avoid_for:
+  - A single metric (use metric-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide KPIs with value, target, progress percent, and status; the bar colours by status.
+
+props:
+  title: The scorecard title.
+  kpis: The KPI cards.
+
+lifecycle: experimental
+content_model: A grid of KPIs against targets.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-info
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Status is shown by a text pill (ahead/on-track/behind), not colour alone; show target and delta.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [grid, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status has a text pill (not colour-only); each bar has role="progressbar" with a label; values are real text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,11 @@
+{
+  "title": "Growth overview",
+  "description": "Signups, activation, and retention across all channels.",
+  "range_options": [
+    { "label": "7d", "active": false },
+    { "label": "30d", "active": true },
+    { "label": "90d", "active": false },
+    { "label": "12m", "active": false }
+  ],
+  "updated": "Updated 4 min ago"
+}

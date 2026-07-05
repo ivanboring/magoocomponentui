@@ -1,0 +1,20 @@
+name: cohort-table
+props:
+  title:
+    type: string
+    default: "Retention by cohort"
+    title: Title
+  periods:
+    type: array
+    items: object
+    required: true
+    title: Period headers
+    description: "Each: { label } — e.g. Week 0, Week 1, …"
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Cohort rows
+    description: >
+      Each: { cohort, size, cells: [{ value, tone }] } where tone is a 0-5 heat step (0 empty)
+      and value is the retention percent text.

@@ -1,0 +1,14 @@
+name: top-events-list
+props:
+  title:
+    type: string
+    default: "Top events"
+    title: Title
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each: { label, count, pct } where pct is a bar width 0-100."
+    example:
+      - { label: "page_view", count: "184,204", pct: 100 }

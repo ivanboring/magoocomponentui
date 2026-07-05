@@ -1,0 +1,68 @@
+name: "Period Comparison"
+short_description: A this-vs-previous-period metric with a delta.
+long_visual_description: >
+  A card with the current value and a trend delta, and the previous-period value beneath for
+  comparison.
+
+use_cases:
+  - Period-over-period metric.
+  - This vs previous.
+  - Comparison stat.
+  - Trend vs baseline.
+  - Report comparison.
+
+recommended_for:
+  - A metric compared to its previous period.
+avoid_for:
+  - A dashboard metric tile (use metric-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current value with a delta and the previous period for comparison.
+
+props:
+  label: The metric label.
+  current: The current value.
+  previous: The previous value.
+  current_label: The current period label.
+  previous_label: The previous period label.
+  delta: The change.
+  direction: up, down, or flat.
+
+example_prompts:
+  - "Add a this-vs-previous period comparison for revenue."
+  - "Add a period-over-period metric."
+
+lifecycle: experimental
+content_model: A this-vs-previous period metric.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Label both periods; direction colours the delta but the arrow/sign carry the meaning.
+
+categorization:
+  category: Analytics
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The delta uses an arrow and signed text (not colour alone); both period values are labelled text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

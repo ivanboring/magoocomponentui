@@ -1,0 +1,67 @@
+name: "Retention Curve"
+short_description: A retention-over-time curve shell with a filled area and day labels.
+long_visual_description: >
+  A line-and-area chart tracing retention percentage over days, with point markers and x-axis
+  day labels.
+
+use_cases:
+  - Retention over time.
+  - Retention curve.
+  - Day-N retention.
+  - Cohort decay curve.
+  - Churn curve.
+
+recommended_for:
+  - A retention-over-time curve.
+avoid_for:
+  - A cohort heatmap (use cohort-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the SVG line/area paths and point coordinates from your retention series; the
+  summary states the key figure.
+
+props:
+  title: The chart title.
+  summary: The headline retention figure.
+  points: The point coordinates.
+  area_path: The precomputed area SVG path.
+  line_path: The precomputed line SVG path.
+  labels: The x-axis labels.
+
+example_prompts:
+  - "Add a retention curve with a day-30 summary."
+  - "Add a retention-over-time chart shell."
+
+lifecycle: experimental
+content_model: A retention-over-time curve shell.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The summary carries the key figure as text; the curve is a visual trend. Precompute paths.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [stat, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The chart has an aria-label with the summary; the key retention figure is stated as text (not chart-only).
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

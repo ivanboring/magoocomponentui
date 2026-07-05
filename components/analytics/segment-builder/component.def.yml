@@ -1,0 +1,24 @@
+name: segment-builder
+props:
+  title:
+    type: string
+    default: "Audience segment"
+    title: Title
+  match_options:
+    type: array
+    items: object
+    required: true
+    title: Match options
+    description: "Each: { label, active } — e.g. All (AND), Any (OR)."
+  rules:
+    type: array
+    items: object
+    required: true
+    title: Rules
+    description: "Each: { field, operator, value }."
+    example:
+      - { field: "Country", operator: "is", value: "United States" }
+  estimate:
+    type: string
+    title: Estimate
+    example: "≈ 48,200 users match"

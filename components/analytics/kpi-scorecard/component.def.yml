@@ -1,0 +1,16 @@
+name: kpi-scorecard
+props:
+  title:
+    type: string
+    default: "KPI scorecard"
+    title: Title
+  kpis:
+    type: array
+    items: object
+    required: true
+    title: KPIs
+    description: >
+      Each: { label, value, target, pct, status, delta } where pct is progress-to-target
+      0-100, status is ahead|on-track|behind.
+    example:
+      - { label: "MRR", value: "$84.2k", target: "$90k", pct: 94, status: "on-track", delta: "+12%" }

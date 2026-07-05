@@ -1,0 +1,17 @@
+<section class="attribution-breakdown rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="flex items-baseline justify-between gap-2">
+    <h3 class="attribution-breakdown__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="total" class="attribution-breakdown__total text-sm text-on-surface-muted">{{ total }}</span>
+  </div>
+  <div class="attribution-breakdown__stacked mt-4 flex h-3 overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Channel share">
+    <span data-for="channel in channels" class="h-full data-[tone=primary]:bg-primary data-[tone=accent]:bg-accent data-[tone=success]:bg-success data-[tone=warning]:bg-warning data-[tone=info]:bg-info" data-tone="{{ channel.tone }}" style="width: {{ channel.pct }}%"></span>
+  </div>
+  <ul class="attribution-breakdown__list mt-4 flex flex-col gap-2.5">
+    <li data-for="channel in channels" class="attribution-breakdown__channel flex items-center gap-3 text-sm">
+      <span class="size-2.5 shrink-0 rounded-full data-[tone=primary]:bg-primary data-[tone=accent]:bg-accent data-[tone=success]:bg-success data-[tone=warning]:bg-warning data-[tone=info]:bg-info" data-tone="{{ channel.tone }}" aria-hidden="true"></span>
+      <span class="min-w-0 flex-1 truncate text-on-surface">{{ channel.label }}</span>
+      <span class="shrink-0 text-on-surface-muted tabular-nums">{{ channel.pct }}%</span>
+      <span class="w-16 shrink-0 text-right font-medium text-on-surface tabular-nums">{{ channel.value }}</span>
+    </li>
+  </ul>
+</section>

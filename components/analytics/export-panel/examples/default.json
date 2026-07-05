@@ -1,0 +1,13 @@
+{
+  "title": "Export report",
+  "formats": [
+    { "label": "CSV", "icon": "📄", "active": true },
+    { "label": "Excel", "icon": "📊", "active": false },
+    { "label": "PDF", "icon": "📕", "active": false }
+  ],
+  "schedule_options": [
+    { "label": "Now", "active": true },
+    { "label": "Schedule", "active": false }
+  ],
+  "cta_label": "Export"
+}

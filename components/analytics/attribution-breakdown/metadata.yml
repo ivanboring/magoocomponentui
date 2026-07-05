@@ -1,0 +1,70 @@
+name: "Attribution Breakdown"
+short_description: A channel-contribution breakdown with a stacked bar and legend.
+long_visual_description: >
+  A stacked share bar over a legend listing each channel's share percentage and conversion
+  count, colour-coded.
+
+use_cases:
+  - Channel attribution.
+  - Marketing contribution.
+  - Source breakdown.
+  - Conversion by channel.
+  - Attribution report.
+
+recommended_for:
+  - A channel-contribution breakdown.
+avoid_for:
+  - A funnel (use conversion-funnel-report).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide channels with precomputed share percentages; the stacked bar and legend both reflect
+  them.
+
+props:
+  title: The section title.
+  total: The total conversions.
+  channels: The channels with share and count.
+
+example_prompts:
+  - "Add a channel attribution breakdown with a stacked bar."
+  - "Add a marketing contribution report."
+
+lifecycle: experimental
+content_model: A channel-contribution breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The legend gives each channel's percentage and count in text; the bar is a proportional cue.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The legend states each channel's share and count as text (not colour-only); the stacked bar has a label.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

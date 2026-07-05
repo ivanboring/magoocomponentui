@@ -1,0 +1,16 @@
+<header class="report-header flex flex-col gap-4 border-b border-border pb-5 md:flex-row md:items-end md:justify-between">
+  <div class="min-w-0">
+    <h1 class="report-header__title font-heading text-2xl text-on-surface">{{ title }}</h1>
+    <p data-if="description" class="report-header__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+    <p data-if="updated" class="report-header__updated mt-1 text-xs text-on-surface-muted">{{ updated }}</p>
+  </div>
+  <div class="report-header__actions flex items-center gap-2">
+    <div class="report-header__range inline-flex rounded-control border border-border p-0.5 text-sm" role="radiogroup" aria-label="Date range">
+      <button data-for="option in range_options" type="button" class="report-header__range-btn rounded-control px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ option.active }}" role="radio" aria-checked="{{ option.active }}">{{ option.label }}</button>
+    </div>
+    <button type="button" class="report-header__export flex items-center gap-1.5 rounded-button border border-border px-3 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3v10m0 0l-4-4m4 4l4-4M4 17h12"/></svg>
+      Export
+    </button>
+  </div>
+</header>

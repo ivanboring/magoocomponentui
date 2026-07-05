@@ -1,0 +1,13 @@
+{
+  "title": "Audience segment",
+  "match_options": [
+    { "label": "All", "active": true },
+    { "label": "Any", "active": false }
+  ],
+  "rules": [
+    { "field": "Country", "operator": "is", "value": "United States" },
+    { "field": "Plan", "operator": "is not", "value": "Free" },
+    { "field": "Sessions (30d)", "operator": "≥", "value": "5" }
+  ],
+  "estimate": "≈ 48,200 users match"
+}

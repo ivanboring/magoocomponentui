@@ -1,0 +1,20 @@
+<section class="cohort-table overflow-x-auto rounded-card border border-border bg-surface shadow-card" aria-label="{{ title }}">
+  <table class="cohort-table__table w-full text-sm" style="min-width: 40rem">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-3 py-2.5 text-left text-xs font-medium text-on-surface-muted" scope="col">Cohort</th>
+        <th class="px-3 py-2.5 text-right text-xs font-medium text-on-surface-muted" scope="col">Users</th>
+        <th data-for="period in periods" class="px-3 py-2.5 text-center text-xs font-medium text-on-surface-muted" scope="col">{{ period.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border last:border-0">
+        <th class="whitespace-nowrap px-3 py-2 text-left font-normal text-on-surface" scope="row">{{ row.cohort }}</th>
+        <td class="px-3 py-2 text-right text-on-surface-muted tabular-nums">{{ row.size }}</td>
+        <td data-for="cell in row.cells" class="px-1 py-1">
+          <div data-if="cell.value" class="cohort-table__cell rounded py-1.5 text-center text-xs font-medium tabular-nums data-[tone=0]:bg-surface-raised data-[tone=0]:text-on-surface-muted data-[tone=1]:bg-primary/10 data-[tone=1]:text-on-surface data-[tone=2]:bg-primary/25 data-[tone=2]:text-on-surface data-[tone=3]:bg-primary/45 data-[tone=3]:text-primary-contrast data-[tone=4]:bg-primary/70 data-[tone=4]:text-primary-contrast data-[tone=5]:bg-primary data-[tone=5]:text-primary-contrast" data-tone="{{ cell.tone }}">{{ cell.value }}</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

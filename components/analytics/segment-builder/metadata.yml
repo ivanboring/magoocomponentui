@@ -1,0 +1,72 @@
+name: "Segment Builder"
+short_description: An audience rule builder with match logic and a live size estimate.
+long_visual_description: >
+  A panel with a match-all/any toggle, a list of field/operator/value rules with remove, an
+  add-rule button, and a live audience-size estimate.
+
+use_cases:
+  - Audience segment builder.
+  - Rule-based segment.
+  - Cohort definition.
+  - Filter rule builder.
+  - Targeting rules.
+
+recommended_for:
+  - An audience rule builder with a size estimate.
+avoid_for:
+  - A report filter bar (use report-filter-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Choose all/any match; add field/operator/value rules; the estimate reflects the segment
+  size.
+
+props:
+  title: The panel title.
+  match_options: The match-type options.
+  rules: The segment rules.
+  estimate: The audience-size estimate.
+
+example_prompts:
+  - "Add an audience segment builder with rules and an estimate."
+  - "Add a rule-based cohort definition."
+
+lifecycle: experimental
+content_model: An audience rule builder with a size estimate.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show a live size estimate so users see the segment's reach as they build it.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Match type is a radiogroup; each rule's remove has an accessible label; add-rule is a real button; the estimate is real text.
+  keyboard_support: All controls are focusable and keyboard-operable.
+  seo_score: 25
+  text_direction: both

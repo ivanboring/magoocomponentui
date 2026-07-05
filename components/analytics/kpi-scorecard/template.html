@@ -1,0 +1,18 @@
+<section class="kpi-scorecard" aria-label="{{ title }}">
+  <h2 class="kpi-scorecard__title mb-4 font-heading text-xl text-on-surface">{{ title }}</h2>
+  <div class="kpi-scorecard__grid grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <article data-for="kpi in kpis" class="kpi-scorecard__kpi rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+      <div class="flex items-baseline justify-between gap-2">
+        <p class="kpi-scorecard__label text-sm text-on-surface-muted">{{ kpi.label }}</p>
+        <span data-if="kpi.status" class="kpi-scorecard__status rounded-pill px-2 py-0.5 text-[10px] font-semibold uppercase data-[status=ahead]:bg-success/15 data-[status=ahead]:text-success data-[status=on-track]:bg-info/15 data-[status=on-track]:text-info data-[status=behind]:bg-danger/15 data-[status=behind]:text-danger" data-status="{{ kpi.status }}">{{ kpi.status }}</span>
+      </div>
+      <p class="kpi-scorecard__value mt-1 flex items-baseline gap-2 font-heading text-2xl text-on-surface tabular-nums">{{ kpi.value }}<span data-if="kpi.delta" class="text-sm font-medium text-success">{{ kpi.delta }}</span></p>
+      <div class="kpi-scorecard__progress mt-3">
+        <div class="flex items-center justify-between text-xs text-on-surface-muted"><span>Target</span><span class="tabular-nums">{{ kpi.target }}</span></div>
+        <div class="mt-1 h-1.5 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ kpi.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ kpi.label }} to target">
+          <div class="h-full rounded-pill data-[status=ahead]:bg-success data-[status=on-track]:bg-info data-[status=behind]:bg-danger" data-status="{{ kpi.status }}" style="width: {{ kpi.pct }}%"></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

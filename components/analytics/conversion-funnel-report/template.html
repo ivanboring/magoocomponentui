@@ -1,0 +1,18 @@
+<section class="conversion-funnel-report rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="flex items-baseline justify-between gap-2">
+    <h3 class="conversion-funnel-report__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="overall" class="conversion-funnel-report__overall text-sm font-medium text-primary">{{ overall }}</span>
+  </div>
+  <ol class="conversion-funnel-report__stages mt-4 flex flex-col gap-3">
+    <li data-for="stage in stages" class="conversion-funnel-report__stage">
+      <div class="flex items-baseline justify-between gap-2 text-sm">
+        <span class="font-medium text-on-surface">{{ stage.label }}</span>
+        <span class="text-on-surface-muted tabular-nums"><span class="font-medium text-on-surface">{{ stage.count }}</span> · {{ stage.rate }}</span>
+      </div>
+      <div class="mt-1 h-6 overflow-hidden rounded-control bg-surface-raised">
+        <div class="flex h-full items-center rounded-control bg-primary/80 px-2" style="width: {{ stage.width }}%"></div>
+      </div>
+      <p data-if="stage.drop" class="mt-0.5 text-xs text-danger">↓ {{ stage.drop }}</p>
+    </li>
+  </ol>
+</section>

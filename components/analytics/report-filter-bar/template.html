@@ -1,0 +1,21 @@
+<div class="report-filter-bar rounded-card border border-border bg-surface p-3 shadow-card">
+  <div class="report-filter-bar__row flex flex-wrap items-center gap-2">
+    <span class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Dimensions</span>
+    <button data-for="dimension in dimensions" type="button" class="report-filter-bar__dimension flex items-center gap-1.5 rounded-control border border-border bg-surface-raised px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:border-primary">
+      {{ dimension.label }}<span class="text-on-surface-muted">: {{ dimension.value }}</span>
+      <svg class="size-3.5 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+    </button>
+  </div>
+  <div data-if="measures" class="report-filter-bar__row mt-2 flex flex-wrap items-center gap-2">
+    <span class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Measures</span>
+    <button data-for="measure in measures" type="button" class="report-filter-bar__measure rounded-pill border border-border px-3 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary/10 data-[active=true]:text-primary" data-active="{{ measure.active }}" aria-pressed="{{ measure.active }}">{{ measure.label }}</button>
+  </div>
+  <div data-if="active_filters" class="report-filter-bar__active mt-2 flex flex-wrap items-center gap-2 border-t border-border pt-2">
+    <span class="text-xs text-on-surface-muted">Active:</span>
+    <span data-for="filter in active_filters" class="report-filter-bar__chip flex items-center gap-1 rounded-pill bg-surface-raised px-2 py-0.5 text-xs text-on-surface">
+      {{ filter.label }}
+      <button type="button" class="text-on-surface-muted hover:text-danger" aria-label="Remove {{ filter.label }}"><svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    </span>
+    <button type="button" class="text-xs font-medium text-primary hover:underline">Clear all</button>
+  </div>
+</div>

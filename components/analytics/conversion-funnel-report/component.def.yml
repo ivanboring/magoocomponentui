@@ -1,0 +1,20 @@
+name: conversion-funnel-report
+props:
+  title:
+    type: string
+    default: "Conversion funnel"
+    title: Title
+  overall:
+    type: string
+    title: Overall rate
+    example: "3.2% overall conversion"
+  stages:
+    type: array
+    items: object
+    required: true
+    title: Stages
+    description: >
+      Each: { label, count, width, rate, drop } where width is 0-100 bar width, rate is the
+      cumulative %, drop is the step drop-off text.
+    example:
+      - { label: "Visited", count: "184,204", width: 100, rate: "100%", drop: "" }

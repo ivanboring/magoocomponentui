@@ -1,0 +1,11 @@
+<article class="realtime-counter rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="realtime-counter__label flex items-center gap-2 text-sm text-on-surface-muted">
+    <span class="relative flex size-2.5" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75"></span><span class="relative inline-flex size-2.5 rounded-full bg-success"></span></span>
+    {{ label }}
+  </p>
+  <p class="realtime-counter__value mt-1 font-heading text-4xl text-on-surface tabular-nums">{{ value }}</p>
+  <div data-if="sparkbars" class="realtime-counter__spark mt-3 flex h-10 items-end gap-0.5" aria-hidden="true">
+    <span data-for="bar in sparkbars" class="realtime-counter__bar flex-1 rounded-t bg-primary/60" style="height: {{ bar.height }}%"></span>
+  </div>
+  <p data-if="sparkbars" class="mt-1 text-[10px] text-on-surface-muted">Last 30 minutes</p>
+</article>

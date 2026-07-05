@@ -1,0 +1,62 @@
+name: "Top Events List"
+short_description: A ranked list of events/pages with counts and inline bars.
+long_visual_description: >
+  A titled ranked list of events, each row a monospace label and count with an inline
+  proportional background bar.
+
+use_cases:
+  - Top events by count.
+  - Most-visited pages.
+  - Ranked metrics list.
+  - Event breakdown.
+  - Popular pages.
+
+recommended_for:
+  - A ranked list of events/pages with counts.
+avoid_for:
+  - A funnel (use conversion-funnel-report).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide rows with counts and a precomputed bar width (relative to the top row).
+
+props:
+  title: The section title.
+  rows: The event rows with count and bar width.
+
+example_prompts:
+  - "Add a top events list with counts and bars."
+  - "Add a most-visited pages ranked list."
+
+lifecycle: experimental
+content_model: A ranked list of events with counts.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order by count; the inline bar is a proportional cue with the count as the source of truth.
+
+categorization:
+  category: Analytics
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; labels and counts are real text; the bar is decorative reinforcement.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

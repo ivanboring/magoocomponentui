@@ -1,0 +1,10 @@
+{
+  "title": "Top events",
+  "rows": [
+    { "label": "page_view", "count": "184,204", "pct": 100 },
+    { "label": "session_start", "count": "92,410", "pct": 50 },
+    { "label": "sign_up", "count": "8,240", "pct": 22 },
+    { "label": "add_to_cart", "count": "5,120", "pct": 14 },
+    { "label": "purchase", "count": "1,840", "pct": 8 }
+  ]
+}

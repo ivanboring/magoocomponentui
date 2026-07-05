@@ -1,0 +1,14 @@
+<form class="export-panel w-80 rounded-card border border-border bg-surface p-(--space-card) shadow-raised">
+  <h3 class="export-panel__title font-heading text-on-surface">{{ title }}</h3>
+  <p class="export-panel__label mt-3 text-sm font-medium text-on-surface">Format</p>
+  <div class="export-panel__formats mt-2 grid grid-cols-3 gap-2" role="radiogroup" aria-label="Format">
+    <button data-for="format in formats" type="button" class="export-panel__format flex flex-col items-center gap-1 rounded-control border border-border py-2 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary/5 data-[active=true]:text-primary" data-active="{{ format.active }}" role="radio" aria-checked="{{ format.active }}"><span class="text-lg" aria-hidden="true">{{ format.icon }}</span>{{ format.label }}</button>
+  </div>
+  <div data-if="schedule_options" class="export-panel__schedule mt-4">
+    <p class="text-sm font-medium text-on-surface">Delivery</p>
+    <div class="mt-2 inline-flex rounded-control border border-border p-0.5 text-sm" role="radiogroup" aria-label="Delivery">
+      <button data-for="option in schedule_options" type="button" class="export-panel__sched rounded-control px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ option.active }}" role="radio" aria-checked="{{ option.active }}">{{ option.label }}</button>
+    </div>
+  </div>
+  <button type="submit" class="export-panel__cta mt-5 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</form>

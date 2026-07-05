@@ -1,0 +1,68 @@
+name: "Anomaly Callout"
+short_description: A spike/drop flag on a metric with a change and investigate action.
+long_visual_description: >
+  A left-accented callout with a direction arrow, the metric and its change (green spike / red
+  drop), a detail line, and an investigate button.
+
+use_cases:
+  - Metric anomaly flag.
+  - Spike/drop alert.
+  - Analytics anomaly.
+  - Unusual activity.
+  - Trend deviation.
+
+recommended_for:
+  - Flagging a metric spike or drop.
+avoid_for:
+  - A generic alert (use alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Set kind to spike/drop; show the metric, change, and context, with an investigate action.
+
+props:
+  kind: spike or drop (drives colour/arrow).
+  metric: The metric name.
+  change: The change value.
+  detail: The comparison/context.
+
+example_prompts:
+  - "Add an anomaly callout for a signups spike."
+  - "Add a metric drop flag."
+
+lifecycle: experimental
+content_model: A metric anomaly flag with change.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  The metric and change carry the meaning; the arrow direction reinforces spike vs drop.
+
+categorization:
+  category: Analytics
+  subcategory: Alerts
+  atomic_type: molecule
+  usage_type: [banner, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="note"; the change and arrow direction convey spike/drop (not colour alone); investigate is a real button.
+  keyboard_support: The investigate button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

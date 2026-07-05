@@ -1,0 +1,25 @@
+name: anomaly-callout
+props:
+  kind:
+    type: enum
+    values: [spike, drop]
+    default: spike
+    title: Kind
+  metric:
+    type: string
+    required: true
+    title: Metric
+    example: "Signups"
+  change:
+    type: string
+    required: true
+    title: Change
+    example: "+248%"
+  detail:
+    type: string
+    title: Detail
+    example: "vs. same time last week · detected 2h ago"
+variants:
+  kind:
+    spike: "border-l-success bg-success/10"
+    drop: "border-l-danger bg-danger/10"

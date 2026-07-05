@@ -1,0 +1,64 @@
+name: "Realtime Counter"
+short_description: A live active-users number with a pulse and a mini activity spark.
+long_visual_description: >
+  A card with a pulsing live dot and label, a large live number, and a small activity spark of
+  the last 30 minutes.
+
+use_cases:
+  - Live active users.
+  - Realtime metric.
+  - Now-online counter.
+  - Live dashboard number.
+  - Concurrent users.
+
+recommended_for:
+  - A live counter with recent-activity spark.
+avoid_for:
+  - A static KPI (use metric-tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the live value with a pulse; the spark reflects recent activity (host updates it live).
+
+props:
+  value: The live value.
+  label: The metric label.
+  sparkbars: The recent-activity bars.
+
+example_prompts:
+  - "Add a live active-users counter with a spark."
+  - "Add a realtime metric with a pulse."
+
+lifecycle: experimental
+content_model: A live counter with a mini activity spark.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  The value carries the meaning; the pulse and spark signal it's live.
+
+categorization:
+  category: Analytics
+  subcategory: Realtime
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The value and label are real text; the pulse and spark are decorative (respect reduced-motion for the ping in production).
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

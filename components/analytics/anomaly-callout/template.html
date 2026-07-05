@@ -1,0 +1,10 @@
+<aside class="anomaly-callout flex items-center gap-3 rounded-card border border-l-4 border-border p-(--space-card) shadow-card {{ kind@class }}" role="note">
+  <span class="anomaly-callout__icon shrink-0 data-[kind=spike]:text-success data-[kind=drop]:text-danger" data-kind="{{ kind }}" aria-hidden="true">
+    <svg class="size-6 data-[kind=drop]:rotate-180" data-kind="{{ kind }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="anomaly-callout__headline text-sm text-on-surface"><span class="font-medium">{{ metric }}</span> <span data-if="kind" class="font-heading data-[kind=spike]:text-success data-[kind=drop]:text-danger" data-kind="{{ kind }}">{{ change }}</span></p>
+    <p data-if="detail" class="anomaly-callout__detail text-xs text-on-surface-muted">{{ detail }}</p>
+  </div>
+  <button type="button" class="anomaly-callout__investigate shrink-0 rounded-button border border-border bg-surface px-3 py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Investigate</button>
+</aside>

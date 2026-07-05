@@ -1,0 +1,11 @@
+{
+  "title": "KPI scorecard",
+  "kpis": [
+    { "label": "MRR", "value": "$84.2k", "target": "$90k", "pct": 94, "status": "on-track", "delta": "+12%" },
+    { "label": "Active users", "value": "12,480", "target": "12,000", "pct": 100, "status": "ahead", "delta": "+8%" },
+    { "label": "Churn", "value": "4.2%", "target": "3.0%", "pct": 60, "status": "behind", "delta": "+0.4%" },
+    { "label": "NPS", "value": "48", "target": "50", "pct": 96, "status": "on-track", "delta": "+3" },
+    { "label": "Activation", "value": "62%", "target": "65%", "pct": 95, "status": "on-track", "delta": "+2%" },
+    { "label": "CAC payback", "value": "8.1 mo", "target": "9 mo", "pct": 100, "status": "ahead", "delta": "-0.6 mo" }
+  ]
+}

@@ -1,0 +1,20 @@
+name: attribution-breakdown
+props:
+  title:
+    type: string
+    default: "Channel attribution"
+    title: Title
+  total:
+    type: string
+    title: Total
+    example: "5,894 conversions"
+  channels:
+    type: array
+    items: object
+    required: true
+    title: Channels
+    description: >
+      Each: { label, value, pct, tone } where pct is share 0-100 and tone is
+      primary|accent|success|warning|info.
+    example:
+      - { label: "Organic search", value: "2,140", pct: 36, tone: "primary" }
