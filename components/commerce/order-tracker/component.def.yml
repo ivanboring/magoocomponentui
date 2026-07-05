@@ -1,0 +1,12 @@
+name: order-tracker
+props:
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, date, status } where status is complete | current | upcoming."
+    example:
+      - { label: "Placed", date: "Jul 1", status: "complete" }
+      - { label: "Shipped", date: "Jul 3", status: "current" }
+      - { label: "Delivered", date: "Est. Jul 6", status: "upcoming" }

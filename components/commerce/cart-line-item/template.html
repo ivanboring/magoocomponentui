@@ -1,0 +1,18 @@
+<div class="cart-line-item flex items-start gap-3 py-3" data-quantity="{{ quantity }}">
+  <span class="cart-line-item__media size-16 shrink-0 overflow-hidden rounded-control bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="{{ name }}">
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="cart-line-item__name text-sm font-medium text-on-surface">{{ name }}</p>
+    <p data-if="variant" class="cart-line-item__variant text-xs text-on-surface-muted">{{ variant }}</p>
+    <div class="cart-line-item__stepper mt-2 inline-flex items-center gap-1 rounded-control border border-border">
+      <button type="button" class="cart-line-item__decrement flex size-7 items-center justify-center text-on-surface-muted hover:text-on-surface" aria-label="Decrease quantity">−</button>
+      <span class="cart-line-item__quantity w-6 text-center text-sm text-on-surface tabular-nums" aria-live="polite">{{ quantity }}</span>
+      <button type="button" class="cart-line-item__increment flex size-7 items-center justify-center text-on-surface-muted hover:text-on-surface" aria-label="Increase quantity">+</button>
+    </div>
+  </div>
+  <div class="flex flex-col items-end gap-2">
+    <span class="cart-line-item__price text-sm font-medium text-on-surface">{{ price }}</span>
+    <button type="button" class="cart-line-item__remove text-xs text-on-surface-muted underline hover:text-danger" aria-label="Remove {{ name }}">Remove</button>
+  </div>
+</div>

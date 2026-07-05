@@ -1,0 +1,19 @@
+name: price-table
+props:
+  features:
+    type: array
+    items: object
+    required: true
+    title: Feature rows
+    description: "Each feature: { label, values: [{ text, included }] } — one value per plan column."
+    example:
+      - { label: "Projects", values: [{ text: "3", included: true }, { text: "Unlimited", included: true }] }
+  plans:
+    type: array
+    items: object
+    required: true
+    title: Plans
+    description: "Each plan column header: { name, price, featured }."
+    example:
+      - { name: "Starter", price: "$0", featured: false }
+      - { name: "Pro", price: "$29", featured: true }

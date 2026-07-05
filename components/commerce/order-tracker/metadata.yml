@@ -1,0 +1,60 @@
+name: "Order Tracker"
+short_description: A horizontal order-status stepper from placed to delivered.
+long_visual_description: >
+  A horizontal set of status steps connected by a progress line; completed steps fill with
+  the primary colour and a checkmark, the current step is outlined, and upcoming steps stay
+  muted, each with a label and date.
+
+use_cases:
+  - Order fulfilment status (placed → delivered).
+  - Shipment tracking timeline.
+  - Return or refund progress.
+  - Delivery status on an order page.
+  - Fulfilment stage indicator.
+
+recommended_for:
+  - Showing an order's progress through fulfilment stages.
+avoid_for:
+  - A form wizard (use stepper).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark each step complete/current/upcoming and show its date; the connecting line fills up
+  to the current step.
+
+props:
+  steps: The fulfilment steps with label, date, and status.
+
+example_prompts:
+  - "Add an order tracker: Placed, Packed, Shipped, Delivered."
+  - "Add a shipment status stepper with dates."
+
+lifecycle: experimental
+content_model: An ordered set of fulfilment steps with dates and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+
+editorial_guidance: >
+  Use clear stage labels and show estimated dates for upcoming steps.
+
+categorization:
+  category: Commerce
+  subcategory: Checkout
+  atomic_type: organism
+  usage_type: [timeline, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Ordered list conveys sequence; status is shown by icon/outline plus label emphasis, not colour alone.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,24 @@
+name: checkout-summary
+props:
+  lines:
+    type: array
+    items: object
+    required: true
+    title: Lines
+    description: "Each line: { label, value, muted }. muted styles it as a sub/secondary line."
+    example:
+      - { label: "Subtotal", value: "$178.00", muted: true }
+      - { label: "Shipping", value: "Free", muted: true }
+  total_label:
+    type: string
+    default: "Total"
+    title: Total label
+  total_value:
+    type: string
+    required: true
+    title: Total value
+    example: "$178.00"
+  cta_label:
+    type: string
+    default: "Checkout"
+    title: CTA label

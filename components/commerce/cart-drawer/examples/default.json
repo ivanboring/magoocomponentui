@@ -1,0 +1,8 @@
+{
+  "count": 2,
+  "subtotal": "$178.00",
+  "open": true,
+  "$slots": {
+    "items": "<div class=\"flex items-start gap-3 py-3\"><span class=\"size-16 shrink-0 overflow-hidden rounded-control bg-surface-raised\"><img class=\"size-full object-cover\" src=\"/stock/product-sneaker.jpg\" alt=\"Court Classic Sneakers\"></span><div class=\"min-w-0 flex-1\"><p class=\"text-sm font-medium text-on-surface\">Court Classic Sneakers</p><p class=\"text-xs text-on-surface-muted\">White · UK 9</p><p class=\"mt-1 text-xs text-on-surface-muted\">Qty 1</p></div><span class=\"text-sm font-medium text-on-surface\">$89.00</span></div><div class=\"flex items-start gap-3 py-3\"><span class=\"size-16 shrink-0 overflow-hidden rounded-control bg-surface-raised\"><img class=\"size-full object-cover\" src=\"/stock/product-sneaker.jpg\" alt=\"Runner Pro\"></span><div class=\"min-w-0 flex-1\"><p class=\"text-sm font-medium text-on-surface\">Runner Pro</p><p class=\"text-xs text-on-surface-muted\">Black · UK 9</p><p class=\"mt-1 text-xs text-on-surface-muted\">Qty 1</p></div><span class=\"text-sm font-medium text-on-surface\">$89.00</span></div>"
+  }
+}

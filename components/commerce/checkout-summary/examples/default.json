@@ -1,0 +1,10 @@
+{
+  "lines": [
+    { "label": "Subtotal", "value": "$168.00", "muted": true },
+    { "label": "Shipping", "value": "Free", "muted": true },
+    { "label": "Tax", "value": "$10.00", "muted": true }
+  ],
+  "total_label": "Total",
+  "total_value": "$178.00",
+  "cta_label": "Proceed to checkout"
+}

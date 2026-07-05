@@ -1,0 +1,68 @@
+name: "Add to Cart Bar"
+short_description: A sticky bottom bar with product name, price, and an add-to-cart action.
+long_visual_description: >
+  A bar stuck to the bottom of the viewport with a small thumbnail, the product name and
+  price, and a prominent add-to-cart button — appears as the user scrolls a product page.
+
+use_cases:
+  - Sticky add-to-cart on a product page.
+  - Mobile buy bar for a listing.
+  - Persistent purchase action while scrolling.
+  - Quick-add bar in a quick view.
+  - Checkout nudge bar.
+
+recommended_for:
+  - A persistent purchase action on a product page.
+avoid_for:
+  - The full product detail section.
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the name and price compact; the CTA is the primary action. Typically revealed once
+  the main add-to-cart scrolls out of view.
+
+props:
+  name: The product name.
+  price: The product price.
+  cta_label: The action text.
+  image: Optional thumbnail.
+
+example_prompts:
+  - "Add a sticky add-to-cart bar with product name and price."
+  - "Add a mobile buy bar for a product page."
+
+lifecycle: experimental
+content_model: A product name, price, thumbnail, and add-to-cart action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-button
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the CTA a clear verb; show the exact current price.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The CTA is a real button; the thumbnail is decorative; name and price are real text.
+  keyboard_support: The add-to-cart button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

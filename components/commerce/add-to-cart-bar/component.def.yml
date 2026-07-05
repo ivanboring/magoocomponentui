@@ -1,0 +1,20 @@
+name: add-to-cart-bar
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Court Classic Sneakers"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$89.00"
+  cta_label:
+    type: string
+    default: "Add to cart"
+    title: CTA label
+  image:
+    type: image
+    title: Thumbnail
+    example: "/stock/product-sneaker.jpg"

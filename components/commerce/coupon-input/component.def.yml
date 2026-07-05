@@ -1,0 +1,25 @@
+name: coupon-input
+props:
+  placeholder:
+    type: string
+    default: "Promo code"
+    title: Placeholder
+  apply_label:
+    type: string
+    default: "Apply"
+    title: Apply label
+  message:
+    type: string
+    title: Feedback message
+    description: Optional feedback shown below the input.
+    example: "Code SAVE10 applied — 10% off"
+  status:
+    type: enum
+    values: [none, success, error]
+    default: none
+    title: Feedback status
+variants:
+  status:
+    none: "hidden"
+    success: "text-success"
+    error: "text-danger"

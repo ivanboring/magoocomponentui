@@ -1,0 +1,70 @@
+name: "Product Quick View"
+short_description: A modal product preview with image, price, description, and add-to-cart.
+long_visual_description: >
+  A centered modal split into a product image and a details column (name, price,
+  description, add-to-cart), over a dimmed backdrop, with a close button.
+
+use_cases:
+  - Quick view from a product grid.
+  - Peek at a product without leaving the listing.
+  - Fast add-to-cart from search results.
+  - Preview a recommended product.
+  - Lightweight product detail overlay.
+
+recommended_for:
+  - A fast product preview that keeps the listing context.
+avoid_for:
+  - The full product detail page.
+
+markets:
+  - Global
+
+example_usage: >
+  Show the key image, price, and a short description with an add-to-cart; Escape and the
+  backdrop close it.
+
+props:
+  name: The product name.
+  price: The product price.
+  description: A short description.
+  image: The product image.
+  open: Initial open state; the behavior toggles it closed.
+
+example_prompts:
+  - "Add a product quick-view modal with image, price, and add-to-cart."
+  - "Add a fast product preview overlay."
+
+lifecycle: experimental
+content_model: A product image, name, price, description, and add-to-cart in a modal.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the description short; the primary action is add-to-cart.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: organism
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal labelled by the name; Escape and backdrop close; the close control is labelled; the image carries the product name as alt.
+  keyboard_support: Escape closes; close and add-to-cart are focusable.
+  seo_score: 35
+  text_direction: both

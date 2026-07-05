@@ -1,0 +1,58 @@
+name: "Filter Sidebar"
+short_description: A faceted filter sidebar with grouped checkboxes, counts, and clear-all.
+long_visual_description: >
+  A sidebar titled "Filters" with a clear-all action and grouped sections (category, size,
+  colour…), each a list of checkbox facets with result counts.
+
+use_cases:
+  - Faceted filters for a product listing.
+  - Search refinement sidebar.
+  - Catalog filtering by attributes.
+  - Marketplace filters.
+  - Inventory filter panel.
+
+recommended_for:
+  - Multi-facet filtering of a product or search listing.
+avoid_for:
+  - A single sort control (use sort-dropdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Group facets under headings with result counts; pre-check applied filters. Listen for
+  filter:change and filter:clear.
+
+props:
+  groups: The filter groups, each with checkbox options and counts.
+
+example_prompts:
+  - "Add a filter sidebar with category, size, and colour facets."
+  - "Add a faceted filter panel with counts and clear-all."
+
+lifecycle: experimental
+content_model: Grouped, countable filter facets with a clear-all action.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Show result counts per facet; order groups by usefulness and options by popularity.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: organism
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Facets are real checkboxes inside labels; groups use headings; clear-all is a real button.
+  keyboard_support: Checkboxes and clear-all are focusable and toggle/activate via the keyboard.
+  seo_score: 40
+  text_direction: both

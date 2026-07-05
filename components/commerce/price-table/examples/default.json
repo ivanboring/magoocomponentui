@@ -1,0 +1,14 @@
+{
+  "plans": [
+    { "name": "Starter", "price": "$0", "featured": false },
+    { "name": "Pro", "price": "$29", "featured": true },
+    { "name": "Enterprise", "price": "Custom", "featured": false }
+  ],
+  "features": [
+    { "label": "Projects", "values": [{ "text": "3", "included": true }, { "text": "Unlimited", "included": true }, { "text": "Unlimited", "included": true }] },
+    { "label": "Team members", "values": [{ "text": "1", "included": true }, { "text": "10", "included": true }, { "text": "Unlimited", "included": true }] },
+    { "label": "Advanced analytics", "values": [{ "text": "", "included": false }, { "text": "Included", "included": true }, { "text": "Included", "included": true }] },
+    { "label": "SSO & SAML", "values": [{ "text": "", "included": false }, { "text": "", "included": false }, { "text": "Included", "included": true }] },
+    { "label": "Priority support", "values": [{ "text": "", "included": false }, { "text": "Included", "included": true }, { "text": "Dedicated", "included": true }] }
+  ]
+}

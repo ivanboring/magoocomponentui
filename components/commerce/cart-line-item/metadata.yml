@@ -1,0 +1,68 @@
+name: "Cart Line Item"
+short_description: A cart row with image, variant, quantity stepper, price, and remove.
+long_visual_description: >
+  A row with a product thumbnail, the name and variant, a quantity stepper, and the price
+  with a remove link on the trailing edge.
+
+use_cases:
+  - Line item inside a cart or drawer.
+  - Order summary item row.
+  - Mini-cart entry.
+  - Saved-for-later item.
+  - Checkout review line.
+
+recommended_for:
+  - A single editable cart line with quantity and remove.
+avoid_for:
+  - A product listing card (use card-product).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the chosen variant and price; the stepper clamps at 1 and remove clears the row.
+  Listen for cart-item:quantity and cart-item:remove.
+
+props:
+  name: The product name.
+  variant: The selected variant (colour/size).
+  price: The line price.
+  quantity: The current quantity.
+  image: The product thumbnail.
+
+example_prompts:
+  - "Add a cart line item with a quantity stepper and remove."
+  - "Add a mini-cart row with variant and price."
+
+relationships:
+  parents:
+    - commerce/cart-drawer
+
+lifecycle: experimental
+content_model: A product image, name, variant, quantity, price, and remove action.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-control
+    - --font-heading
+
+editorial_guidance: >
+  Show the exact variant purchased; keep the remove action clearly secondary.
+
+categorization:
+  category: Commerce
+  subcategory: Cart
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stepper buttons and remove carry accessible labels; quantity uses aria-live; the thumbnail alt is the product name.
+  keyboard_support: Stepper and remove buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

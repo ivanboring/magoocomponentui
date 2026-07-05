@@ -1,0 +1,67 @@
+name: "Coupon Input"
+short_description: A promo-code entry with an apply button and success/error feedback.
+long_visual_description: >
+  A text field with an Apply button beside it and an optional feedback line beneath in
+  success (green) or error (red) colour.
+
+use_cases:
+  - Apply a promo/discount code at checkout.
+  - Redeem a gift or voucher code.
+  - Enter a referral code.
+  - Apply a loyalty coupon.
+  - Redeem a campaign code.
+
+recommended_for:
+  - Entering and applying a discount code with feedback.
+avoid_for:
+  - General text input (use form-field-text).
+
+markets:
+  - Global
+
+example_usage: >
+  Show success/error feedback after applying; keep the message concise (what changed).
+
+props:
+  placeholder: The input placeholder.
+  apply_label: The apply button text.
+  message: The feedback message.
+  status: none, success, or error (drives the message colour).
+
+example_prompts:
+  - "Add a promo code input with an Apply button and success message."
+  - "Add a coupon field showing an error for an invalid code."
+
+lifecycle: experimental
+content_model: A code input, an apply action, and feedback.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-success
+    - --color-danger
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  State the outcome in the feedback ("10% off applied"), not just "valid".
+
+categorization:
+  category: Commerce
+  subcategory: Checkout
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The field has an accessible label; feedback uses role="status" and colour plus text (not colour alone).
+  keyboard_support: The field and apply button are focusable; apply activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

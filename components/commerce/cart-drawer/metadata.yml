@@ -1,0 +1,70 @@
+name: "Cart Drawer"
+short_description: A slide-in cart panel with line items, subtotal, and checkout.
+long_visual_description: >
+  A right-side panel over a dimmed backdrop with a header showing the item count, a
+  scrollable list of cart line items, and a footer with the subtotal and a checkout button.
+
+use_cases:
+  - Slide-in cart from a header cart icon.
+  - Mini-cart after adding an item.
+  - Quick cart review before checkout.
+  - Off-canvas basket on mobile.
+  - Cart preview drawer.
+
+recommended_for:
+  - A slide-in cart that keeps the shopping context.
+avoid_for:
+  - A full cart page (build a page layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Fill the items slot with cart-line-item rows; show the count and subtotal. Escape and
+  the backdrop close it.
+
+props:
+  count: The number of items.
+  subtotal: The cart subtotal.
+  open: Initial open state; the behavior toggles it closed.
+
+slots:
+  items: The cart line item rows.
+
+relationships:
+  children:
+    - commerce/cart-line-item
+
+lifecycle: experimental
+content_model: A titled cart panel with line items, subtotal, and checkout.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-button
+    - --radius-control
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show the subtotal prominently and keep the checkout CTA clear; label the count.
+
+categorization:
+  category: Commerce
+  subcategory: Cart
+  atomic_type: organism
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="dialog" aria-modal; Escape and backdrop close; the close control is labelled. Focus trapping is left to the integrating app.
+  keyboard_support: Escape closes; close and checkout are focusable.
+  seo_score: 30
+  text_direction: both

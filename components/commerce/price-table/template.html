@@ -1,0 +1,22 @@
+<div class="price-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="price-table__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-3 text-left font-heading text-on-surface-muted" scope="col">Features</th>
+        <th data-for="plan in plans" class="px-4 py-3 text-center data-[featured=true]:bg-primary/5" data-featured="{{ plan.featured }}" scope="col">
+          <span class="block font-heading text-on-surface">{{ plan.name }}</span>
+          <span class="block font-heading text-lg text-on-surface tabular-nums">{{ plan.price }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="feature in features" class="border-b border-border last:border-0">
+        <th class="px-4 py-3 text-left font-medium text-on-surface" scope="row">{{ feature.label }}</th>
+        <td data-for="value in feature.values" class="px-4 py-3 text-center text-on-surface-muted">
+          <span data-if="value.text">{{ value.text }}</span>
+          <svg data-if="!value.text" class="mx-auto size-4 text-on-surface-muted/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

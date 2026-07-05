@@ -1,0 +1,10 @@
+{
+  "title": "You might also like",
+  "items": [
+    { "name": "Runner Pro", "price": "$119", "image": "/stock/product-sneaker.jpg", "href": "#" },
+    { "name": "Trail Grip", "price": "$139", "image": "/stock/product-sneaker.jpg", "href": "#" },
+    { "name": "Street Low", "price": "$79", "image": "/stock/product-sneaker.jpg", "href": "#" },
+    { "name": "Court Mid", "price": "$99", "image": "/stock/product-sneaker.jpg", "href": "#" },
+    { "name": "Studio Flex", "price": "$109", "image": "/stock/product-sneaker.jpg", "href": "#" }
+  ]
+}

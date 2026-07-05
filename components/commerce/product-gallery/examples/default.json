@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "src": "/stock/product-sneaker.jpg", "alt": "Side view", "active": true },
+    { "src": "/stock/cover-workspace.jpg", "alt": "In context", "active": false },
+    { "src": "/stock/food-plate.jpg", "alt": "Detail", "active": false }
+  ]
+}

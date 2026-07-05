@@ -1,0 +1,15 @@
+<article class="review-item border-b border-border py-4 last:border-0">
+  <div class="review-item__stars flex items-center gap-0.5 text-warning" role="img" aria-label="Rating">
+    <svg data-for="star in stars" class="size-4 data-[filled=false]:opacity-25" data-filled="{{ star.filled }}" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+  </div>
+  <h4 data-if="title" class="review-item__title mt-2 font-heading text-on-surface">{{ title }}</h4>
+  <p class="review-item__body mt-1 text-sm text-on-surface-muted">{{ body }}</p>
+  <div class="review-item__meta mt-2 flex items-center gap-2 text-xs text-on-surface-muted">
+    <span class="font-medium text-on-surface">{{ author }}</span>
+    <span data-if="verified" class="review-item__verified inline-flex items-center gap-1 rounded-pill bg-success/15 px-1.5 py-0.5 text-success">
+      <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      Verified
+    </span>
+    <span data-if="date">· {{ date }}</span>
+  </div>
+</article>

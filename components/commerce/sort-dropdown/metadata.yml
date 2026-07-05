@@ -1,0 +1,64 @@
+name: "Sort Dropdown"
+short_description: A result-sorting selector with the current option shown and a checkable menu.
+long_visual_description: >
+  A "Sort: <current>" button that opens a menu of sort options; the active option is
+  checked. Selecting one updates the label and closes the menu.
+
+use_cases:
+  - Sort a product listing (popularity, price, rating).
+  - Sort search results.
+  - Order a table or list.
+  - Sort reviews or comments.
+  - Reorder a gallery.
+
+recommended_for:
+  - Choosing a single sort order for a list, shown inline.
+avoid_for:
+  - Multi-facet filtering (use filter-sidebar).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current sort in the toggle; mark one option active. Listen for sort:change to
+  reorder the list.
+
+props:
+  current: The current sort label.
+  options: The sort options, one active.
+
+example_prompts:
+  - "Add a sort dropdown with popularity, price, and rating options."
+  - "Add a result sorting selector."
+
+lifecycle: experimental
+content_model: A current sort and a set of sort options.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep option labels short and consistent; default to the most useful sort.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: molecule
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Toggle exposes aria-haspopup/aria-expanded; options use role="menuitemradio" with aria-checked; Escape closes and refocuses.
+  keyboard_support: Toggle opens/closes on Enter/Space; Escape closes and refocuses the toggle; options are focusable.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,11 @@
+<ol class="order-tracker flex items-start" aria-label="Order status">
+  <li data-for="step in steps" class="order-tracker__step group relative flex flex-1 flex-col items-center text-center" data-status="{{ step.status }}">
+    <span class="order-tracker__bar absolute left-0 top-3.5 h-0.5 w-full bg-border group-first:hidden group-data-[status=complete]:bg-primary group-data-[status=current]:bg-primary" style="right: 50%; left: -50%; width: 100%"></span>
+    <span class="order-tracker__dot relative z-10 flex size-7 items-center justify-center rounded-full border-2 border-border bg-surface text-on-surface-muted group-data-[status=complete]:border-primary group-data-[status=complete]:bg-primary group-data-[status=complete]:text-primary-contrast group-data-[status=current]:border-primary group-data-[status=current]:text-primary" data-status="{{ step.status }}">
+      <svg class="hidden size-4 group-data-[status=complete]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <span class="size-2 rounded-full bg-current group-data-[status=complete]:hidden"></span>
+    </span>
+    <span class="order-tracker__label mt-2 text-sm font-medium text-on-surface-muted group-data-[status=complete]:text-on-surface group-data-[status=current]:text-on-surface">{{ step.label }}</span>
+    <span class="order-tracker__date text-xs text-on-surface-muted">{{ step.date }}</span>
+  </li>
+</ol>

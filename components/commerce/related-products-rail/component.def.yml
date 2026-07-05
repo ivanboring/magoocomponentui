@@ -1,0 +1,12 @@
+name: related-products-rail
+props:
+  title:
+    type: string
+    default: "You might also like"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Products
+    description: "Each item: { name, price, image, href }."

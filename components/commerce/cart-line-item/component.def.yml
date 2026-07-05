@@ -1,0 +1,24 @@
+name: cart-line-item
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Court Classic Sneakers"
+  variant:
+    type: string
+    title: Variant
+    example: "White · UK 9"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$89.00"
+  quantity:
+    type: integer
+    default: 1
+    title: Quantity
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"

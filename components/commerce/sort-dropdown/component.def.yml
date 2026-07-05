@@ -1,0 +1,16 @@
+name: sort-dropdown
+props:
+  current:
+    type: string
+    required: true
+    title: Current label
+    example: "Most popular"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, value, active }."
+    example:
+      - { label: "Most popular", value: "popular", active: true }
+      - { label: "Price: low to high", value: "price-asc", active: false }

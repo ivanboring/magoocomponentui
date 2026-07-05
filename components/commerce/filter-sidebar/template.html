@@ -1,0 +1,20 @@
+<aside class="filter-sidebar w-64 max-w-full" aria-label="Filters">
+  <div class="filter-sidebar__head mb-3 flex items-center justify-between">
+    <h2 class="font-heading text-on-surface">Filters</h2>
+    <button type="button" class="filter-sidebar__clear text-xs text-primary hover:underline" data-filter-clear>Clear all</button>
+  </div>
+  <div class="filter-sidebar__groups flex flex-col divide-y divide-border">
+    <section data-for="group in groups" class="filter-sidebar__group py-4 first:pt-0">
+      <h3 class="filter-sidebar__heading mb-2 text-sm font-medium text-on-surface">{{ group.heading }}</h3>
+      <ul class="flex flex-col gap-1.5">
+        <li data-for="option in group.options">
+          <label class="filter-sidebar__option flex cursor-pointer items-center gap-2 text-sm text-on-surface-muted">
+            <input type="checkbox" class="filter-sidebar__checkbox size-4 rounded border-border text-primary" data-value="{{ option.label }}" checked="{{ option.checked }}">
+            <span class="flex-1">{{ option.label }}</span>
+            <span data-if="option.count" class="text-xs text-on-surface-muted">{{ option.count }}</span>
+          </label>
+        </li>
+      </ul>
+    </section>
+  </div>
+</aside>

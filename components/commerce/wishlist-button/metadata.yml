@@ -1,0 +1,59 @@
+name: "Wishlist Button"
+short_description: A save/favorite heart toggle for products.
+long_visual_description: >
+  A round button with a heart icon that fills and turns danger-coloured when saved,
+  typically overlaid on a product image corner.
+
+use_cases:
+  - Save a product to a wishlist.
+  - Favorite/like a listing.
+  - Bookmark an item for later.
+  - Add to a saved collection.
+  - Toggle a want-it state.
+
+recommended_for:
+  - A compact save/favorite toggle on a product.
+avoid_for:
+  - A labeled add-to-cart action (use button).
+
+markets:
+  - Global
+
+example_usage: >
+  Overlay on a product card or place near the price; reflect the saved state and update
+  the accessible label accordingly.
+
+props:
+  saved: Whether the item is saved.
+  label: The accessible label (updates with state).
+
+example_prompts:
+  - "Add a wishlist heart toggle to the product card."
+  - "Add a save-to-wishlist button."
+
+lifecycle: experimental
+content_model: A save/favorite toggle state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Update the accessible label to reflect the action (save vs remove) as state changes.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses aria-pressed for the toggle and a state-appropriate aria-label; the heart is decorative.
+  keyboard_support: Focusable and toggles on Enter/Space.
+  seo_score: 10
+  text_direction: both

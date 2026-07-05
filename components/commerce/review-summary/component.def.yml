@@ -1,0 +1,27 @@
+name: review-summary
+props:
+  average:
+    type: string
+    required: true
+    title: Average
+    example: "4.6"
+  count:
+    type: string
+    required: true
+    title: Review count
+    example: "1,284 reviews"
+  stars:
+    type: array
+    items: object
+    required: true
+    title: Average stars
+    description: "Precomputed { filled } per star for the average."
+  breakdown:
+    type: array
+    items: object
+    required: true
+    title: Breakdown
+    description: "Each row: { label, pct } — e.g. { label: '5', pct: 72 } for percent of 5-star."
+    example:
+      - { label: "5", pct: 72 }
+      - { label: "4", pct: 18 }

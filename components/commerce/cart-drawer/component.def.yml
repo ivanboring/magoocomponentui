@@ -1,0 +1,19 @@
+name: cart-drawer
+props:
+  count:
+    type: integer
+    default: 0
+    title: Item count
+  subtotal:
+    type: string
+    required: true
+    title: Subtotal
+    example: "$178.00"
+  open:
+    type: boolean
+    default: true
+    title: Open
+slots:
+  items:
+    title: Items
+    description: The cart-line-item rows.

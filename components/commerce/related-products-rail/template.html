@@ -1,0 +1,12 @@
+<section class="related-products-rail" aria-label="{{ title }}">
+  <h2 class="related-products-rail__title mb-3 font-heading text-lg text-on-surface">{{ title }}</h2>
+  <div class="related-products-rail__track flex gap-4 overflow-x-auto pb-2">
+    <a data-for="item in items" class="related-products-rail__item group flex w-40 shrink-0 flex-col" href="{{ item.href }}">
+      <span class="aspect-square overflow-hidden rounded-card bg-surface-raised">
+        <img data-if="item.image" class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+      </span>
+      <span class="mt-2 line-clamp-1 text-sm font-medium text-on-surface">{{ item.name }}</span>
+      <span class="mt-0.5 font-heading text-on-surface">{{ item.price }}</span>
+    </a>
+  </div>
+</section>

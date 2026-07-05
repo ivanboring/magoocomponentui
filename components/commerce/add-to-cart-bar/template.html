@@ -1,0 +1,10 @@
+<div class="add-to-cart-bar sticky bottom-0 z-30 flex items-center gap-4 border-t border-border bg-surface p-3 shadow-raised">
+  <span data-if="image" class="add-to-cart-bar__media size-12 shrink-0 overflow-hidden rounded-control bg-surface-raised">
+    <img class="size-full object-cover" src="{{ image }}" alt="">
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="add-to-cart-bar__name truncate text-sm font-medium text-on-surface">{{ name }}</p>
+    <p class="add-to-cart-bar__price text-sm text-on-surface-muted">{{ price }}</p>
+  </div>
+  <button type="button" class="add-to-cart-bar__cta shrink-0 rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+</div>

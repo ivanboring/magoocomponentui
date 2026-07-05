@@ -1,0 +1,62 @@
+name: "Price Table"
+short_description: A multi-tier feature comparison pricing table.
+long_visual_description: >
+  A table with plan columns (name + price header, the featured plan tinted) and feature
+  rows; each cell shows the value or a muted cross when the feature isn't included.
+
+use_cases:
+  - Compare pricing plans feature-by-feature.
+  - SaaS plan comparison.
+  - Subscription tier comparison.
+  - Product edition comparison.
+  - Membership level comparison.
+
+recommended_for:
+  - A feature-by-feature comparison across plans.
+avoid_for:
+  - A single plan card (use card-pricing).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the plan columns (one featured) and feature rows with a value per plan; empty
+  values render a muted cross.
+
+props:
+  features: The feature rows with a value per plan.
+  plans: The plan column headers (name, price, featured).
+
+example_prompts:
+  - "Add a pricing comparison table for Starter, Pro, and Enterprise."
+  - "Add a feature comparison matrix across three plans."
+
+lifecycle: experimental
+content_model: Plan columns and feature rows forming a comparison matrix.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep feature labels parallel; show the featured plan consistently with card-pricing.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real table with row and column scoped headers; excluded features show a cross plus empty value, not colour-only.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

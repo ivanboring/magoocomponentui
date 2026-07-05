@@ -1,0 +1,15 @@
+name: filter-sidebar
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Filter groups
+    description: >
+      Each group: { heading, type, options: [{ label, count, checked }] }. type is
+      checkbox (default) — a list of togglable facets with counts.
+    example:
+      - heading: "Category"
+        options:
+          - { label: "Sneakers", count: "48", checked: true }
+          - { label: "Boots", count: "23", checked: false }

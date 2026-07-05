@@ -1,0 +1,24 @@
+name: product-quick-view
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Court Classic Sneakers"
+  price:
+    type: string
+    required: true
+    title: Price
+    example: "$89.00"
+  description:
+    type: string
+    title: Description
+    example: "A timeless low-top with a cushioned footbed and durable rubber outsole."
+  image:
+    type: image
+    title: Image
+    example: "/stock/product-sneaker.jpg"
+  open:
+    type: boolean
+    default: true
+    title: Open

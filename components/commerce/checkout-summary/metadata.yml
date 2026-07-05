@@ -1,0 +1,68 @@
+name: "Checkout Summary"
+short_description: An order summary with line items, totals, taxes, and a checkout CTA.
+long_visual_description: >
+  A panel titled "Order summary" listing subtotal/shipping/tax lines, a divider, a bold
+  total, and a full-width checkout button.
+
+use_cases:
+  - Order summary on a cart or checkout page.
+  - Sidebar totals during checkout.
+  - Payment review summary.
+  - Subscription order summary.
+  - Booking cost breakdown.
+
+recommended_for:
+  - Summarizing order costs with a checkout action.
+avoid_for:
+  - The line items themselves (use cart-line-item rows).
+
+markets:
+  - Global
+
+example_usage: >
+  List the cost breakdown lines and a bold total; keep the CTA specific ("Proceed to
+  checkout").
+
+props:
+  lines: The cost breakdown lines.
+  total_label: The total row label.
+  total_value: The order total.
+  cta_label: The checkout button text.
+
+example_prompts:
+  - "Add a checkout summary with subtotal, shipping, tax, and total."
+  - "Add an order summary panel with a checkout button."
+
+lifecycle: experimental
+content_model: A cost breakdown, a total, and a checkout action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Order lines subtotal → shipping → tax → total; label the CTA with the next concrete step.
+
+categorization:
+  category: Commerce
+  subcategory: Checkout
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list for the breakdown; the CTA is a real button; values are real text.
+  keyboard_support: The checkout button is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

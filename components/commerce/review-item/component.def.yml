@@ -1,0 +1,30 @@
+name: review-item
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jamie R."
+  title:
+    type: string
+    title: Review title
+    example: "Comfortable and stylish"
+  body:
+    type: string
+    required: true
+    title: Body
+    example: "Great fit and quality. True to size and looks even better in person."
+  date:
+    type: string
+    title: Date
+    example: "2 weeks ago"
+  verified:
+    type: boolean
+    default: false
+    title: Verified purchase
+  stars:
+    type: array
+    items: object
+    required: true
+    title: Stars
+    description: "Precomputed { filled } per star."

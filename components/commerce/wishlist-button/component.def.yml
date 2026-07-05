@@ -1,0 +1,10 @@
+name: wishlist-button
+props:
+  saved:
+    type: boolean
+    default: false
+    title: Saved
+  label:
+    type: string
+    default: "Save to wishlist"
+    title: Accessible label

@@ -1,0 +1,58 @@
+name: "Product Gallery"
+short_description: A product image gallery with a main image and a thumbnail strip.
+long_visual_description: >
+  A large square product image beside (or above) a strip of thumbnails; the active
+  thumbnail is outlined and clicking one swaps the main image.
+
+use_cases:
+  - Product detail image gallery.
+  - Multi-angle product view.
+  - Variant image switcher.
+  - Listing photo browser.
+  - Quick-view gallery.
+
+recommended_for:
+  - Browsing a product's images with thumbnail navigation.
+avoid_for:
+  - A before/after comparison (use image-compare).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide images with alt text and mark one active; clicking a thumbnail shows its image in
+  the stage.
+
+props:
+  items: The product images, one active.
+
+example_prompts:
+  - "Add a product gallery with a main image and thumbnails."
+  - "Add a multi-angle product image switcher."
+
+lifecycle: experimental
+content_model: A set of product images with a selected main view.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Provide descriptive alt per image; order images most-representative first.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Thumbnails are role="tab" with aria-selected and labels; the active main image carries alt text.
+  keyboard_support: Thumbnails are focusable and swap the main image on Enter/Space.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,21 @@
+<div class="cart-drawer fixed inset-0 z-50 data-[open=false]:hidden" data-open="{{ open }}">
+  <div class="cart-drawer__backdrop absolute inset-0 bg-on-surface/40" data-cart-close aria-hidden="true"></div>
+  <div class="cart-drawer__panel absolute right-0 top-0 flex h-full w-96 max-w-[90vw] flex-col bg-surface shadow-raised" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer__header flex items-center justify-between border-b border-border p-(--space-card)">
+      <h2 class="font-heading text-lg text-on-surface">Cart <span class="text-on-surface-muted">({{ count }})</span></h2>
+      <button type="button" class="cart-drawer__close -m-1 rounded-control p-1 text-on-surface-muted hover:text-on-surface" data-cart-close aria-label="Close">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__items flex-1 divide-y divide-border overflow-y-auto px-(--space-card)">
+      <slot name="items"></slot>
+    </div>
+    <div class="cart-drawer__footer border-t border-border p-(--space-card)">
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-on-surface-muted">Subtotal</span>
+        <span class="font-heading text-lg text-on-surface tabular-nums">{{ subtotal }}</span>
+      </div>
+      <button type="button" class="cart-drawer__checkout mt-3 w-full rounded-button bg-primary py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Checkout</button>
+    </div>
+  </div>
+</div>

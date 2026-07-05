@@ -1,0 +1,19 @@
+{
+  "groups": [
+    { "heading": "Category", "options": [
+      { "label": "Sneakers", "count": "48", "checked": true },
+      { "label": "Boots", "count": "23", "checked": false },
+      { "label": "Sandals", "count": "12", "checked": false }
+    ]},
+    { "heading": "Size", "options": [
+      { "label": "UK 8", "count": "31", "checked": false },
+      { "label": "UK 9", "count": "27", "checked": true },
+      { "label": "UK 10", "count": "19", "checked": false }
+    ]},
+    { "heading": "Colour", "options": [
+      { "label": "White", "count": "40", "checked": false },
+      { "label": "Black", "count": "36", "checked": false },
+      { "label": "Blue", "count": "14", "checked": false }
+    ]}
+  ]
+}

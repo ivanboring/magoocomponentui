@@ -1,0 +1,10 @@
+<div class="product-gallery flex flex-col-reverse gap-3 sm:flex-row">
+  <div class="product-gallery__thumbs flex gap-2 overflow-x-auto sm:flex-col sm:overflow-visible" role="tablist" aria-label="Product images">
+    <button data-for="item in items" type="button" class="product-gallery__thumb size-16 shrink-0 overflow-hidden rounded-control border-2 border-transparent transition-colors duration-(--duration-token) data-[active=true]:border-primary" role="tab" data-active="{{ item.active }}" aria-selected="{{ item.active }}" aria-label="{{ item.alt }}">
+      <img class="size-full object-cover" src="{{ item.src }}" alt="">
+    </button>
+  </div>
+  <div class="product-gallery__stage aspect-square flex-1 overflow-hidden rounded-card bg-surface-raised">
+    <img data-for="item in items" class="product-gallery__main size-full object-cover data-[active=false]:hidden" data-active="{{ item.active }}" src="{{ item.src }}" alt="{{ item.alt }}">
+  </div>
+</div>

@@ -1,0 +1,6 @@
+name: product-grid
+props: {}
+slots:
+  items:
+    title: Items
+    description: The product cards to lay out in the responsive grid.

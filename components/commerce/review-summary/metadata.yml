@@ -1,0 +1,70 @@
+name: "Review Summary"
+short_description: An average rating with per-star breakdown bars and total review count.
+long_visual_description: >
+  A panel with the average score and star row on the left and a per-star breakdown of bars
+  (5→1) on the right showing the percentage at each rating.
+
+use_cases:
+  - Ratings overview on a product page.
+  - Aggregate review summary.
+  - Rating distribution display.
+  - Feedback summary block.
+  - Score breakdown above a reviews list.
+
+recommended_for:
+  - Summarizing many reviews with an average and distribution.
+avoid_for:
+  - A single review (use review-item).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the average stars and the per-star percentages; show the total review count.
+
+props:
+  average: The average score.
+  count: The total review count label.
+  stars: Precomputed average-rating star flags.
+  breakdown: Per-star percentages (5→1).
+
+example_prompts:
+  - "Add a review summary with a 4.6 average and star breakdown."
+  - "Add a ratings overview with distribution bars."
+
+relationships:
+  children:
+    - commerce/review-item
+
+lifecycle: experimental
+content_model: An average rating, review count, and per-star distribution.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Show the exact review count; ensure the breakdown percentages sum to ~100.
+
+categorization:
+  category: Commerce
+  subcategory: Reviews
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The average star row has an accessible label; breakdown percentages are real text alongside the bars.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

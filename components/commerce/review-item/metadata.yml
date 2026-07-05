@@ -1,0 +1,69 @@
+name: "Review Item"
+short_description: A product review with a star rating, title, body, author, and verified badge.
+long_visual_description: >
+  A review block with a gold star rating, a title, the review body, and a meta line with
+  the author, an optional verified-purchase badge, and the date.
+
+use_cases:
+  - Individual product review.
+  - Customer feedback entry.
+  - Rating and review list item.
+  - Testimonial with a score.
+  - Verified-purchase review.
+
+recommended_for:
+  - A single product review with rating and verification.
+avoid_for:
+  - A marketing testimonial (use card-testimonial).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the stars array; show the verified badge for confirmed purchases and a
+  relative date.
+
+props:
+  author: The reviewer's name.
+  title: The review title.
+  body: The review text.
+  date: A relative date.
+  verified: Whether it's a verified purchase.
+  stars: Precomputed per-star filled flags.
+
+example_prompts:
+  - "Add a 4-star verified review with a title and body."
+  - "Add a product review item with author and date."
+
+relationships:
+  parents:
+    - commerce/review-summary
+
+lifecycle: experimental
+content_model: A rating, title, body, author, date, and verification state.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --color-success
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Show the verified badge only for confirmed purchases; keep the title a short summary.
+
+categorization:
+  category: Commerce
+  subcategory: Reviews
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The star row has an accessible label; the verified badge includes text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 55
+  text_direction: both

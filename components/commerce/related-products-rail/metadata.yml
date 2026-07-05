@@ -1,0 +1,58 @@
+name: "Related Products Rail"
+short_description: A horizontal, scrollable rail of recommended products.
+long_visual_description: >
+  A titled horizontal strip of compact product cards (image, name, price) that scrolls
+  sideways.
+
+use_cases:
+  - You-might-also-like recommendations.
+  - Related or complementary products.
+  - Recently viewed rail.
+  - Cross-sell / upsell strip.
+  - Frequently-bought-together rail.
+
+recommended_for:
+  - A horizontally scrollable set of recommended products.
+avoid_for:
+  - A full product grid (use product-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a handful of products; the rail scrolls horizontally with a consistent card width.
+
+props:
+  title: The rail heading.
+  items: The recommended products.
+
+example_prompts:
+  - "Add a related products rail with recommendations."
+  - "Add a you-might-also-like carousel."
+
+lifecycle: experimental
+content_model: A titled horizontal list of product previews.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --radius-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Recommend genuinely related items; keep names to one line.
+
+categorization:
+  category: Commerce
+  subcategory: Catalog
+  atomic_type: organism
+  usage_type: [media, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The rail is a labelled region; each item is a single link; thumbnails are decorative.
+  keyboard_support: Each item link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

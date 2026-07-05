@@ -1,0 +1,10 @@
+{
+  "current": "Most popular",
+  "options": [
+    { "label": "Most popular", "value": "popular", "active": true },
+    { "label": "Newest", "value": "newest", "active": false },
+    { "label": "Price: low to high", "value": "price-asc", "active": false },
+    { "label": "Price: high to low", "value": "price-desc", "active": false },
+    { "label": "Top rated", "value": "rating", "active": false }
+  ]
+}

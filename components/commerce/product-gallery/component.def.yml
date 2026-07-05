@@ -1,0 +1,11 @@
+name: product-gallery
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Images
+    description: "Each item: { src, alt, active }. One should be active (shown large)."
+    example:
+      - { src: "/stock/product-sneaker.jpg", alt: "Side view", active: true }
+      - { src: "/stock/product-sneaker.jpg", alt: "Top view", active: false }

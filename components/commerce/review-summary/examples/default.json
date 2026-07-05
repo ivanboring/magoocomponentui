@@ -1,0 +1,12 @@
+{
+  "average": "4.6",
+  "count": "1,284 reviews",
+  "stars": [ { "filled": true }, { "filled": true }, { "filled": true }, { "filled": true }, { "filled": false } ],
+  "breakdown": [
+    { "label": "5", "pct": 72 },
+    { "label": "4", "pct": 18 },
+    { "label": "3", "pct": 6 },
+    { "label": "2", "pct": 2 },
+    { "label": "1", "pct": 2 }
+  ]
+}
