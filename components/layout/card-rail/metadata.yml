@@ -1,0 +1,56 @@
+name: "Card Rail"
+short_description: A simple horizontal scroll rail of fixed-width cards.
+long_visual_description: >
+  A single-row, horizontally scrolling strip of fixed-width cards with snap alignment and
+  no controls — the leanest way to lay cards out in a row.
+
+use_cases:
+  - Horizontal strip of cards.
+  - Compact recommendations row.
+  - Category or shortcut rail.
+  - Scrollable thumbnail strip.
+  - Lightweight carousel without controls.
+
+recommended_for:
+  - A minimal horizontal, scrollable row of cards.
+avoid_for:
+  - A slider needing prev/next controls (use card-slider).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot cards into items; they get a fixed width and scroll horizontally with snap.
+
+props:
+  label: Accessible name for the rail group.
+
+slots:
+  items: The cards to place in the rail.
+
+lifecycle: experimental
+content_model: A horizontal, snap-scrolling row of slotted cards.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --shadow-card
+
+editorial_guidance: >
+  Keep the slotted cards a single type; order by relevance.
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The rail is a labelled, keyboard-scrollable group; the slotted cards carry their own semantics.
+  keyboard_support: The rail scrolls with the keyboard when focused; slotted card links/buttons remain focusable.
+  seo_score: 25
+  text_direction: both

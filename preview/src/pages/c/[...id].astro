@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadCatalog, loadExamples, THEMES, orderedShots } from "../../lib/data.js";
+import { loadCatalog, loadExamples, renderInContainer, isContainer, isCardLeaf, THEMES, orderedShots } from "../../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
 export function getStaticPaths() {
@@ -10,16 +10,54 @@ export function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { ast, names } = loadExamples(entry.id);
-const examples = names.map((ex) => ({ ...ex, html: renderToHtml(ast, ex.args) }));
-// Every example's behaviors, de-duplicated, loaded once for the whole page.
-const behaviors = [...new Set(examples.flatMap((ex) => ex.behaviors))];
+const examplesRaw = names.map((ex) => ({ ...ex, html: renderToHtml(ast, ex.args) }));
 const cat = entry.categorization || {};
-// Card-like components can be previewed inside a responsive grid (×2/×3/×4).
-const usageTypes = cat.usage_type || [];
-const isGridEligible = usageTypes.includes("card") || usageTypes.includes("grid") || cat.category === "Cards";
 
 const catalog = loadCatalog();
 const byId = new Map(catalog.components.map((c) => [c.id, c]));
+
+// Leaf cards can be previewed inside real container components — never containers themselves
+// (no grid-in-a-grid). Generic containers accept any card; specific ones are matched via
+// the relationships graph (e.g. a card whose parent container lists it as a child).
+const gridEligible = isCardLeaf(entry);
+const GENERIC_CONTAINERS = [
+  { id: "cards/card-grid", label: "Card grid × 1", args: { mobile_cols: 1, tablet_cols: 1, desktop_cols: 1 }, copies: 2 },
+  { id: "cards/card-grid", label: "Card grid × 2", args: { mobile_cols: 1, tablet_cols: 2, desktop_cols: 2 }, copies: 4 },
+  { id: "cards/card-grid", label: "Card grid × 3", args: { mobile_cols: 1, tablet_cols: 2, desktop_cols: 3 }, copies: 6 },
+  { id: "cards/card-grid", label: "Card grid × 4", args: { mobile_cols: 2, tablet_cols: 3, desktop_cols: 4 }, copies: 8 },
+  { id: "layout/card-slider", label: "Card slider", args: {}, copies: 6 },
+  { id: "layout/masonry-grid", label: "Masonry grid", args: { columns: 3 }, copies: 6 },
+  { id: "layout/card-rail", label: "Card rail", args: {}, copies: 6 },
+];
+// Specific containers: a built component that lists this card as a child AND exposes an
+// items/plans slot (so the card HTML can be slotted in). Array-prop grids can't take slots.
+const hasItemsSlot = (c) => (c.slots || []).some((s) => s.name === "items" || s.name === "plans");
+const genericIds = new Set(GENERIC_CONTAINERS.map((g) => g.id));
+const specificContainers = gridEligible
+  ? catalog.components
+      .filter((c) => hasItemsSlot(c) && !genericIds.has(c.id) && (c.relationships?.children || []).includes(entry.id))
+      .map((c) => ({ id: c.id, label: c.display_name, args: {}, copies: 3 }))
+  : [];
+const containerDefs = gridEligible ? [...GENERIC_CONTAINERS, ...specificContainers] : [];
+
+// For each example, precompute the "single" HTML plus one variant per container.
+const containerBehaviors = new Set();
+const examples = examplesRaw.map((ex) => {
+  const variants = { single: ex.html };
+  for (const def of containerDefs) {
+    const inner = ex.html.repeat(def.copies);
+    const rendered = renderInContainer(def.id, inner, def.args);
+    if (rendered) {
+      variants[def.label] = rendered.html;
+      if (rendered.behavior) containerBehaviors.add(rendered.behavior);
+    }
+  }
+  return { ...ex, variants };
+});
+const layoutOptions = gridEligible ? ["single", ...containerDefs.map((d) => d.label)] : [];
+// Every example's behaviors + container behaviors, de-duplicated, loaded once for the page.
+const behaviors = [...new Set([...examples.flatMap((ex) => ex.behaviors), ...containerBehaviors])];
+
 const rel = entry.relationships || { parents: [], children: [], related: [] };
 const relGroups = [
   { label: "Part of", ids: rel.parents || [] },
@@ -39,7 +77,7 @@ const relGroups = [
   </div>
   <p class="mt-2 max-w-2xl text-slate-600">{entry.short_description}</p>
 
-  <!-- Live stage with theme switch + optional grid-layout dropdown -->
+  <!-- Live stage: theme switch, full-width toggle, and (for leaf cards) a container dropdown -->
   <div class="mt-6 flex flex-wrap items-center gap-2">
     {THEMES.map((t, i) => (
       <button
@@ -48,44 +86,44 @@ const relGroups = [
         aria-current={i === 0 ? "true" : "false"}
       >{t.label}</button>
     ))}
-    {isGridEligible && (
-      <select id="layout" title="Preview layout" class="ml-auto rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
-        <option value="1">Single</option>
-        <option value="2">Grid × 2</option>
-        <option value="3">Grid × 3</option>
-        <option value="4">Grid × 4</option>
-      </select>
-    )}
+    <div class="ml-auto flex items-center gap-2">
+      {gridEligible && (
+        <select id="layout" title="Show inside a container" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+          {layoutOptions.map((opt) => (
+            <option value={opt}>{opt === "single" ? "Single" : opt}</option>
+          ))}
+        </select>
+      )}
+      <button id="fullwidth-btn" type="button" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-100 aria-[pressed=true]:border-slate-900 aria-[pressed=true]:bg-slate-900 aria-[pressed=true]:text-white" aria-pressed="false" title="Toggle full-width preview">Full width</button>
+    </div>
   </div>
-  <div class="mt-3 space-y-4">
+  <div id="stages" class="mt-3 space-y-4">
     {examples.map((ex) => (
       <div>
         {examples.length > 1 && (
           <div class="mb-1 text-xs font-medium uppercase tracking-wide text-slate-400">{ex.name}</div>
         )}
         <div data-theme="simple" class="stage rounded-xl border border-slate-200 p-8">
-          <div class="stage-content" set:html={ex.html} />
+          <div class="stage-content" data-variants={gridEligible ? JSON.stringify(ex.variants) : undefined} set:html={ex.html} />
         </div>
       </div>
     ))}
   </div>
 
-  <!-- Screenshots grid, when present -->
+  <!-- Screenshots: one compact, equal-height row per theme -->
   {Object.keys(entry.screenshots || {}).length > 0 && (
     <section class="mt-8">
       <h2 class="mb-3 text-lg font-semibold">Screenshots <span class="text-sm font-normal text-slate-400">— click to enlarge</span></h2>
-      <div class="space-y-4">
+      <div class="space-y-3">
         {THEMES.filter((t) => entry.screenshots[t.id]).map((t) => (
-          <div>
-            <div class="mb-1 text-xs uppercase tracking-wide text-slate-400">{t.label}</div>
-            <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <div class="flex items-center gap-3">
+            <div class="w-16 shrink-0 text-xs uppercase tracking-wide text-slate-400">{t.label}</div>
+            <div class="flex flex-1 gap-2 overflow-x-auto">
               {orderedShots(entry.screenshots, t.id).map(({ bp, src }) => (
-                <figure>
-                  <button type="button" class="shot block w-full" data-full={src} data-label={`${t.label} · ${bp}`}>
-                    <img src={src} alt={`${t.label} ${bp}`} class="w-full cursor-zoom-in rounded border border-slate-200 transition hover:border-slate-400" />
-                  </button>
-                  <figcaption class="mt-1 text-[11px] text-slate-400">{bp}</figcaption>
-                </figure>
+                <button type="button" class="shot group relative h-20 shrink-0 overflow-hidden rounded border border-slate-200 transition hover:border-slate-400" data-full={src} data-label={`${t.label} · ${bp}`}>
+                  <img src={src} alt={`${t.label} ${bp}`} class="h-full w-auto max-w-none cursor-zoom-in object-cover object-top" />
+                  <span class="absolute inset-x-0 bottom-0 bg-black/50 py-0.5 text-center text-[10px] text-white opacity-0 transition group-hover:opacity-100">{bp}</span>
+                </button>
               ))}
             </div>
           </div>
@@ -189,16 +227,20 @@ const relGroups = [
       if (saved && document.querySelector(`.theme-btn[data-theme-id="${saved}"]`)) applyTheme(saved);
     } catch {}
 
-    // Grid-layout preview: duplicate each card into an N-column responsive grid.
+    // Container preview: swap each stage between the card standalone and pre-rendered
+    // variants that place the card inside a real container component (grid, slider, …).
     const layout = document.getElementById("layout");
     if (layout) {
-      const stages = [...document.querySelectorAll(".stage-content")].map((el) => ({ el, single: el.innerHTML }));
+      const stages = [...document.querySelectorAll(".stage-content")].map((el) => {
+        let variants = {};
+        try { variants = JSON.parse(el.dataset.variants || "{}"); } catch {}
+        return { el, variants };
+      });
       const LAYOUT_KEY = "magoo-layout";
-      function applyLayout(cols) {
-        for (const { el, single } of stages) {
-          if (cols === "1") { el.innerHTML = single; continue; }
-          const n = Number(cols) * 2; // two rows so the grid reads clearly
-          el.innerHTML = `<div class="grid gap-4 grid-cols-${cols}">${Array.from({ length: n }, () => single).join("")}</div>`;
+      function applyLayout(key) {
+        for (const { el, variants } of stages) {
+          const html = variants[key] || variants.single;
+          if (html != null) el.innerHTML = html;
         }
       }
       layout.addEventListener("change", () => {
@@ -207,8 +249,25 @@ const relGroups = [
       });
       try {
         const savedLayout = localStorage.getItem(LAYOUT_KEY);
-        if (savedLayout && ["1", "2", "3", "4"].includes(savedLayout)) { layout.value = savedLayout; applyLayout(savedLayout); }
+        if (savedLayout && [...layout.options].some((o) => o.value === savedLayout)) { layout.value = savedLayout; applyLayout(savedLayout); }
       } catch {}
+    }
+
+    // Full-width toggle: break the stages out to the viewport width.
+    const fwBtn = document.getElementById("fullwidth-btn");
+    const stagesWrap = document.getElementById("stages");
+    if (fwBtn && stagesWrap) {
+      const FW_KEY = "magoo-fullwidth";
+      function applyFullWidth(on) {
+        fwBtn.setAttribute("aria-pressed", String(on));
+        stagesWrap.classList.toggle("full-bleed", on);
+      }
+      fwBtn.addEventListener("click", () => {
+        const on = fwBtn.getAttribute("aria-pressed") !== "true";
+        applyFullWidth(on);
+        try { localStorage.setItem(FW_KEY, on ? "1" : "0"); } catch {}
+      });
+      try { if (localStorage.getItem(FW_KEY) === "1") applyFullWidth(true); } catch {}
     }
 
     // The viewed component's own behavior, plus any slotted children's, so
@@ -255,4 +314,15 @@ const relGroups = [
       else if (e.key === "ArrowRight") show(idx + 1);
     });
   </script>
+
+  <style is:global>
+    /* Full-bleed: break the stages out of the centered max-width column to the viewport. */
+    #stages.full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  </style>
 </Layout>

@@ -1,0 +1,11 @@
+<div class="card-slider relative" role="group" aria-label="{{ label }}">
+  <div class="card-slider__track flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [&>*]:w-72 [&>*]:shrink-0 [&>*]:snap-start">
+    <slot name="items"></slot>
+  </div>
+  <button type="button" class="card-slider__prev absolute -left-3 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Previous">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+  </button>
+  <button type="button" class="card-slider__next absolute -right-3 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Next">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+  </button>
+</div>

@@ -18,6 +18,8 @@
 @source inline("grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
 @source inline("md:grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
 @source inline("lg:grid-cols-{1,2,3,4,5,6,7,8,9,10,11,12}");
+@source inline("columns-{1,2,3,4,5,6}");
+@source inline("lg:columns-{1,2,3,4,5,6}");
 
 /* Any theme wrapper paints its own ground, text, and body face. */
 @layer base {

@@ -1,0 +1,10 @@
+name: card-slider
+props:
+  label:
+    type: string
+    default: "Slider"
+    title: Accessible label
+slots:
+  items:
+    title: Items
+    description: The cards to place in the horizontal slider.

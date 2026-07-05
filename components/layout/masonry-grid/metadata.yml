@@ -1,0 +1,53 @@
+name: "Masonry Grid"
+short_description: A Pinterest-style masonry column layout that holds cards of varying heights.
+long_visual_description: >
+  A multi-column layout where cards flow top-to-bottom into the shortest column, avoiding
+  breaks across columns, producing a staggered masonry look.
+
+use_cases:
+  - Image or card gallery with varied heights.
+  - Pinterest-style content grid.
+  - Mixed-height media wall.
+  - Portfolio grid.
+  - Notes or clippings board.
+
+recommended_for:
+  - Laying out cards of differing heights without fixed rows.
+avoid_for:
+  - Uniform cards in aligned rows (use card-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot cards into items; set the desktop column count (1-6, safelisted). Cards avoid
+  breaking across columns.
+
+props:
+  columns: Desktop column count (1-6).
+
+slots:
+  items: The cards to flow into the columns.
+
+lifecycle: experimental
+content_model: A masonry column layout of slotted cards.
+
+theming:
+  tokens_used:
+    - --space-card
+
+editorial_guidance: >
+  Best with cards of genuinely varying heights; keep the slotted cards a single type.
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Purely a layout container; reading order follows the DOM order of the slotted cards.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

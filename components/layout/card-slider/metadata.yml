@@ -1,0 +1,58 @@
+name: "Card Slider"
+short_description: A horizontal snap slider that holds any cards, with prev/next controls.
+long_visual_description: >
+  A horizontally scrolling, snap-aligned track of fixed-width cards with circular
+  previous/next buttons overlaid on the edges.
+
+use_cases:
+  - Horizontal carousel of cards.
+  - Featured items slider.
+  - Recommendations carousel.
+  - Scrollable card showcase.
+  - Any card set that reads better as a swipeable row.
+
+recommended_for:
+  - Placing a set of cards into a horizontal, swipeable slider.
+avoid_for:
+  - A wrapping multi-row grid (use card-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot any cards into items; they get a fixed width and snap alignment, and the arrows
+  scroll the track by roughly one viewport.
+
+props:
+  label: Accessible name for the slider group.
+
+slots:
+  items: The cards to place in the slider.
+
+lifecycle: experimental
+content_model: A horizontal, snap-scrolling set of slotted cards.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the slotted cards a single type; order by relevance.
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The track is keyboard-scrollable and the prev/next controls are labelled buttons; the group carries an aria-label.
+  keyboard_support: Prev/next are focusable and scroll on Enter/Space; the track scrolls with the keyboard when focused.
+  seo_score: 30
+  text_direction: both

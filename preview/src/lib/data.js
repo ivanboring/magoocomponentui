@@ -1,7 +1,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { defaultArgs } from "@magoo/generator";
+import { defaultArgs, renderToHtml } from "@magoo/generator";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const DIST = path.join(ROOT, "dist");
@@ -97,6 +97,36 @@ export function loadExamples(id) {
     args: { ...examples[name], $variants: variants },
     behaviors: collectBehaviors(id, meta.name, examples[name].$slots),
   })) };
+}
+
+/**
+ * Render a container component (e.g. card-grid, card-slider) with `innerHtml` slotted into
+ * its `items` slot, plus any extra prop args. Returns the HTML and the container's behavior
+ * JS (so sliders etc. work when injected). Returns null if the container isn't built.
+ */
+export function renderInContainer(containerId, innerHtml, extraArgs = {}) {
+  const dir = path.join(DIST, containerId);
+  if (!existsSync(path.join(dir, "ast.json"))) return null;
+  const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
+  const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
+  const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: { items: innerHtml } };
+  return { html: renderToHtml(ast, args), behavior: readBehavior(containerId, meta.name) };
+}
+
+/**
+ * A component is a slot-based container if it exposes an `items`/`plans` slot — the
+ * reliable signal for "holds children". (usage_type "grid" is unreliable: leaf cards are
+ * tagged "grid" to mean "shown in a grid".)
+ */
+export function isContainer(entry) {
+  const slots = entry.slots || [];
+  return slots.some((s) => s.name === "items" || s.name === "plans");
+}
+
+/** A leaf card can be dropped into a container: tagged usage "card" and isn't itself one. */
+export function isCardLeaf(entry) {
+  const usage = (entry.categorization && entry.categorization.usage_type) || [];
+  return usage.includes("card") && !isContainer(entry);
 }
 
 export const THEMES = [

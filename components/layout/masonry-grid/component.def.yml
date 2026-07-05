@@ -1,0 +1,11 @@
+name: masonry-grid
+props:
+  columns:
+    type: integer
+    default: 3
+    title: Columns
+    description: Number of masonry columns on desktop (safelisted 1-6).
+slots:
+  items:
+    title: Items
+    description: The cards to flow into the masonry columns.

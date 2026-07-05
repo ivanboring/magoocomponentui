@@ -1,0 +1,6 @@
+{
+  "label": "Card rail",
+  "$slots": {
+    "items": "<article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-sm text-on-surface\">Card one</h3></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-sm text-on-surface\">Card two</h3></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-sm text-on-surface\">Card three</h3></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-sm text-on-surface\">Card four</h3></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-sm text-on-surface\">Card five</h3></div></article>"
+  }
+}

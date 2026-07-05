@@ -1,0 +1,10 @@
+name: card-rail
+props:
+  label:
+    type: string
+    default: "Rail"
+    title: Accessible label
+slots:
+  items:
+    title: Items
+    description: The cards to place in the horizontal rail.
