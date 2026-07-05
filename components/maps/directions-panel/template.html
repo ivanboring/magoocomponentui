@@ -1,0 +1,16 @@
+<section class="directions-panel rounded-card border border-border bg-surface shadow-card" aria-label="Directions">
+  <div class="directions-panel__head border-b border-border p-(--space-card)">
+    <div class="directions-panel__route flex flex-col gap-2 text-sm">
+      <p class="flex items-center gap-2"><span class="size-2.5 rounded-full border-2 border-on-surface-muted" aria-hidden="true"></span><span class="text-on-surface">{{ origin }}</span></p>
+      <p class="flex items-center gap-2"><span class="size-2.5 rounded-full bg-primary" aria-hidden="true"></span><span class="font-medium text-on-surface">{{ destination }}</span></p>
+    </div>
+    <p data-if="summary" class="directions-panel__summary mt-2 font-heading text-on-surface">{{ summary }}</p>
+  </div>
+  <ol class="directions-panel__steps divide-y divide-border">
+    <li data-for="step in steps" class="directions-panel__step flex items-center gap-3 px-(--space-card) py-3">
+      <span class="directions-panel__icon flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-raised text-on-surface" aria-hidden="true">{{ step.icon }}</span>
+      <span class="directions-panel__instruction min-w-0 flex-1 text-sm text-on-surface">{{ step.instruction }}</span>
+      <span data-if="step.distance" class="directions-panel__distance shrink-0 text-xs text-on-surface-muted tabular-nums">{{ step.distance }}</span>
+    </li>
+  </ol>
+</section>

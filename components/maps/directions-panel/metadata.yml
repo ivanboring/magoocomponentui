@@ -1,0 +1,65 @@
+name: "Directions Panel"
+short_description: A turn-by-turn directions list with origin, destination, and steps.
+long_visual_description: >
+  A panel with the origin/destination and a summary, above a numbered list of turn-by-turn
+  steps with a maneuver icon and distance.
+
+use_cases:
+  - Turn-by-turn directions.
+  - Route steps list.
+  - Navigation steps.
+  - Directions detail.
+  - Step-by-step route.
+
+recommended_for:
+  - A turn-by-turn directions list.
+avoid_for:
+  - A route summary only (use route-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the origin/destination and a summary; list each maneuver with an icon and distance.
+
+props:
+  origin: The origin.
+  destination: The destination.
+  summary: The route summary.
+  steps: The turn-by-turn steps.
+
+example_prompts:
+  - "Add a turn-by-turn directions panel."
+  - "Add a route steps list."
+
+lifecycle: experimental
+content_model: A turn-by-turn directions list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order steps in sequence; show distances so the route is followable.
+
+categorization:
+  category: Maps
+  subcategory: Directions
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list; maneuver icons are decorative with the instruction as text; distances are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

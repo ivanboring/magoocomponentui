@@ -1,0 +1,56 @@
+name: "Coordinate Badge"
+short_description: A monospace lat/long coordinate chip.
+long_visual_description: >
+  A small monospace pill with a pin icon and the latitude/longitude.
+
+use_cases:
+  - Display coordinates.
+  - Lat/long chip.
+  - GPS location tag.
+  - Map coordinate label.
+  - Geolocation badge.
+
+recommended_for:
+  - A compact lat/long display.
+avoid_for:
+  - A place name (use place-result-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the latitude and longitude in monospace for precision.
+
+props:
+  lat: The latitude.
+  lng: The longitude.
+
+example_prompts:
+  - "Add a lat/long coordinate badge."
+  - "Add a GPS coordinate chip."
+
+lifecycle: experimental
+content_model: A lat/long coordinate chip.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-control
+
+editorial_guidance: >
+  Use monospace and consistent precision; the pin icon reinforces the location context.
+
+categorization:
+  category: Maps
+  subcategory: Utilities
+  atomic_type: atom
+  usage_type: [highlight, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The coordinates are real text; the pin icon is decorative.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

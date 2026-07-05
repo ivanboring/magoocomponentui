@@ -1,0 +1,9 @@
+{
+  "title": "Legend",
+  "items": [
+    { "label": "Restaurants", "swatch": "#ef4444", "shape": "dot" },
+    { "label": "Parks", "swatch": "#22c55e", "shape": "area" },
+    { "label": "Transit lines", "swatch": "#3b82f6", "shape": "line" },
+    { "label": "Points of interest", "swatch": "#eab308", "shape": "dot" }
+  ]
+}

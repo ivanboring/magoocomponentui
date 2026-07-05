@@ -1,0 +1,21 @@
+<section class="map-hero relative h-96 overflow-hidden rounded-card border border-border shadow-card" aria-label="Map">
+  <div class="map-hero__canvas absolute inset-0 bg-surface-raised" aria-hidden="true">
+    <svg class="size-full opacity-40 text-on-surface-muted" viewBox="0 0 320 200" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 50h320M0 100h320M0 150h320M80 0v200M160 0v200M240 0v200"/><path d="M20 20l120 90 60-20 100 70" stroke-width="2.5" class="text-primary/40"/></svg>
+  </div>
+  <button data-for="pin in pins" type="button" class="map-hero__pin absolute -translate-x-1/2 -translate-y-full text-primary drop-shadow" style="left: {{ pin.x }}%; top: {{ pin.y }}%" aria-label="{{ pin.label }}">
+    <svg class="size-8" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 19s6-6 6-11a6 6 0 10-12 0c0 5 6 11 6 11z"/><circle cx="10" cy="8" r="2.5" fill="white"/></svg>
+  </button>
+  <div class="map-hero__search absolute inset-x-4 top-4 z-10">
+    <div class="flex items-center gap-2 rounded-pill bg-surface px-4 py-3 shadow-raised">
+      <svg class="size-5 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <input type="search" class="map-hero__input w-full bg-transparent text-sm text-on-surface outline-none placeholder:text-on-surface-muted" placeholder="{{ placeholder }}" aria-label="Search the map">
+    </div>
+    <div data-if="chips" class="map-hero__chips mt-2 flex gap-2 overflow-x-auto pb-1">
+      <button data-for="chip in chips" type="button" class="flex shrink-0 items-center gap-1.5 rounded-pill bg-surface px-3 py-1.5 text-xs font-medium text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised"><span aria-hidden="true">{{ chip.icon }}</span>{{ chip.label }}</button>
+    </div>
+  </div>
+  <div class="map-hero__controls absolute bottom-4 right-4 z-10 flex flex-col overflow-hidden rounded-control bg-surface shadow-raised">
+    <button type="button" class="flex size-9 items-center justify-center border-b border-border text-on-surface hover:bg-surface-raised" aria-label="Zoom in"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg></button>
+    <button type="button" class="flex size-9 items-center justify-center text-on-surface hover:bg-surface-raised" aria-label="Zoom out"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h10"/></svg></button>
+  </div>
+</section>

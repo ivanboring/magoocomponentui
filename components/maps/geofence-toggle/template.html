@@ -1,0 +1,13 @@
+<article class="geofence-toggle flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="geofence-toggle__icon flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7" stroke-dasharray="2 2"/><circle cx="10" cy="10" r="2.5" fill="currentColor" stroke="none"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="geofence-toggle__title text-sm font-medium text-on-surface">{{ title }}</p>
+    <p data-if="area" class="geofence-toggle__area text-xs text-on-surface-muted">{{ area }}</p>
+    <p data-if="description" class="geofence-toggle__description text-xs text-on-surface-muted">{{ description }}</p>
+  </div>
+  <button type="button" class="geofence-toggle__switch relative inline-flex h-6 w-11 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[on=true]:bg-primary" data-on="{{ enabled }}" role="switch" aria-checked="{{ enabled }}" aria-label="Toggle geofence alert">
+    <span class="ml-0.5 inline-block size-5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[on=true]:translate-x-5" data-on="{{ enabled }}"></span>
+  </button>
+</article>

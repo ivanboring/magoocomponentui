@@ -1,0 +1,6 @@
+<div class="travel-mode-switch inline-flex rounded-control border border-border bg-surface p-1" role="radiogroup" aria-label="Travel mode">
+  <button data-for="mode in modes" type="button" class="travel-mode-switch__mode flex flex-col items-center gap-0.5 rounded-control px-4 py-1.5 text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ mode.active }}" role="radio" aria-checked="{{ mode.active }}" aria-label="{{ mode.label }}">
+    <span class="text-lg" aria-hidden="true">{{ mode.icon }}</span>
+    <span data-if="mode.eta" class="text-[10px] font-medium tabular-nums">{{ mode.eta }}</span>
+  </button>
+</div>

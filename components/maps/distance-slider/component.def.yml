@@ -1,0 +1,26 @@
+name: distance-slider
+props:
+  label:
+    type: string
+    default: "Search radius"
+    title: Label
+  value:
+    type: integer
+    default: 5
+    title: Value
+  min:
+    type: integer
+    default: 1
+    title: Min
+  max:
+    type: integer
+    default: 50
+    title: Max
+  unit:
+    type: string
+    default: "mi"
+    title: Unit
+  count:
+    type: string
+    title: Result count
+    example: "48 places within 5 mi"

@@ -1,0 +1,8 @@
+{
+  "modes": [
+    { "label": "Drive", "icon": "🚗", "eta": "18 min", "active": true },
+    { "label": "Transit", "icon": "🚆", "eta": "26 min", "active": false },
+    { "label": "Walk", "icon": "🚶", "eta": "1h 12m", "active": false },
+    { "label": "Bike", "icon": "🚲", "eta": "34 min", "active": false }
+  ]
+}

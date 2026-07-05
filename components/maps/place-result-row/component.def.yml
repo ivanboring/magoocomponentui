@@ -1,0 +1,31 @@
+name: place-result-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Blue Bottle Coffee"
+  category:
+    type: string
+    title: Category
+    example: "Coffee shop"
+  rating:
+    type: string
+    title: Rating
+    example: "4.6"
+  reviews:
+    type: string
+    title: Reviews
+    example: "1,204"
+  distance:
+    type: string
+    title: Distance
+    example: "0.3 mi"
+  status:
+    type: string
+    title: Status
+    example: "Open · Closes 7 PM"
+  marker:
+    type: string
+    title: Marker
+    example: "A"

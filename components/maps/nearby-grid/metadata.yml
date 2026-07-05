@@ -1,0 +1,56 @@
+name: "Nearby Grid"
+short_description: A responsive grid container for nearby place cards.
+long_visual_description: >
+  A titled responsive grid (2→3→4 columns) of nearby place tiles.
+
+use_cases:
+  - Nearby places grid.
+  - Explore-nearby section.
+  - Places-around-you grid.
+  - Discovery grid.
+  - Local recommendations.
+
+recommended_for:
+  - A grid container for nearby place cards.
+avoid_for:
+  - A single place card (use location-pin-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot place cards; the grid arranges them responsively.
+
+props:
+  title: The section title.
+
+slots:
+  items: The nearby place cards.
+
+relationships:
+  children:
+    - maps/location-pin-card
+
+lifecycle: experimental
+content_model: A responsive grid of nearby place cards.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --font-heading
+
+editorial_guidance: >
+  Curate relevant nearby places; the grid is image-forward.
+
+categorization:
+  category: Maps
+  subcategory: Places
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real section and heading; slotted cards carry their own semantics.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

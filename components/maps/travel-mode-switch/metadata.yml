@@ -1,0 +1,59 @@
+name: "Travel Mode Switch"
+short_description: A drive/walk/transit/bike toggle with per-mode ETAs.
+long_visual_description: >
+  A segmented toggle of travel modes, each with an icon and ETA; the selected mode fills with
+  the primary colour.
+
+use_cases:
+  - Directions travel mode.
+  - Drive/walk/transit toggle.
+  - Route mode selector.
+  - Commute mode.
+  - Trip mode switch.
+
+recommended_for:
+  - Selecting a travel mode with ETAs.
+avoid_for:
+  - A route summary (use route-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide modes with icons and ETAs; selection is single-choice. Emits travelmode:change.
+
+props:
+  modes: The travel modes with icon, ETA, and active state.
+
+example_prompts:
+  - "Add a travel mode switch with ETAs."
+  - "Add a drive/walk/transit toggle."
+
+lifecycle: experimental
+content_model: A single-select travel-mode toggle.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Show each mode's ETA so the choice is informed.
+
+categorization:
+  category: Maps
+  subcategory: Directions
+  atomic_type: atom
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Modes are a radiogroup with role="radio"/aria-checked and per-mode aria-labels; icons are decorative with the label as the accessible name.
+  keyboard_support: Modes are focusable and select on Enter/Space.
+  seo_score: 20
+  text_direction: both

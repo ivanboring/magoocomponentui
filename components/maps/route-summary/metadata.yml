@@ -1,0 +1,71 @@
+name: "Route Summary"
+short_description: A route summary with time, distance, mode, and traffic, plus a start action.
+long_visual_description: >
+  A card with the ETA (coloured by traffic), the distance and via, the route mode and traffic
+  level, and a start button.
+
+use_cases:
+  - Route summary.
+  - ETA + distance card.
+  - Directions overview.
+  - Trip summary.
+  - Navigation start.
+
+recommended_for:
+  - A route's time/distance summary with start.
+avoid_for:
+  - Turn-by-turn steps (use directions-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the ETA coloured by traffic, the distance/via, and a start action.
+
+props:
+  time: The ETA.
+  distance: The distance.
+  mode: The route type.
+  via: The primary road.
+  traffic: The traffic level (colours the ETA).
+
+example_prompts:
+  - "Add a route summary with ETA and traffic."
+  - "Add a directions overview card with start."
+
+lifecycle: experimental
+content_model: A route time/distance summary with start.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Colour the ETA by traffic but state the traffic level in text.
+
+categorization:
+  category: Maps
+  subcategory: Directions
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Traffic is shown by a text word ("moderate traffic") plus colour; time/distance are real text; start is a real button.
+  keyboard_support: The start button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

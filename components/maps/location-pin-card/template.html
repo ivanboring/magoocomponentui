@@ -1,0 +1,17 @@
+<article class="location-pin-card w-72 overflow-hidden rounded-card border border-border bg-surface shadow-raised">
+  <img data-if="image" class="location-pin-card__image h-28 w-full object-cover" src="{{ image }}" alt="{{ name }}">
+  <div class="location-pin-card__body p-3">
+    <div class="flex items-start justify-between gap-2">
+      <div class="min-w-0">
+        <h3 class="location-pin-card__name truncate font-heading text-on-surface">{{ name }}</h3>
+        <p class="location-pin-card__meta text-xs text-on-surface-muted"><span data-if="rating">★ {{ rating }}</span><span data-if="category"> · {{ category }}</span></p>
+      </div>
+    </div>
+    <p data-if="address" class="location-pin-card__address mt-1.5 text-xs text-on-surface-muted">{{ address }}</p>
+    <p data-if="status" class="location-pin-card__status text-xs text-success">{{ status }}</p>
+    <div class="location-pin-card__actions mt-3 flex gap-2">
+      <button type="button" class="flex flex-1 items-center justify-center gap-1.5 rounded-button bg-primary py-1.5 text-xs font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90"><svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 2l8 8-8 8-8-8z"/></svg>Directions</button>
+      <button type="button" class="flex-1 rounded-button border border-border py-1.5 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Save</button>
+    </div>
+  </div>
+</article>

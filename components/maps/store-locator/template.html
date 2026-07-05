@@ -1,0 +1,20 @@
+<div class="store-locator grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <div class="store-locator__map relative order-1 overflow-hidden rounded-card border border-border bg-surface-raised shadow-card lg:order-2" style="min-height: 20rem">
+    <svg class="absolute inset-0 size-full opacity-30 text-on-surface-muted" viewBox="0 0 320 240" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 80h320M0 160h320M120 0v240M220 0v240"/></svg>
+    <button data-for="pin in pins" type="button" class="store-locator__pin absolute flex size-7 -translate-x-1/2 -translate-y-full items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-contrast shadow-card" style="left: {{ pin.x }}%; top: {{ pin.y }}%" aria-label="Store {{ pin.label }}">{{ pin.label }}</button>
+  </div>
+  <div class="store-locator__list order-2 lg:order-1">
+    <p class="store-locator__count mb-3 text-sm font-medium text-on-surface">{{ result_count }}</p>
+    <ul class="flex flex-col divide-y divide-border rounded-card border border-border bg-surface px-(--space-card) shadow-card">
+      <li data-for="store in stores" class="store-locator__store flex items-start gap-3 py-3">
+        <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-contrast">{{ store.marker }}</span>
+        <div class="min-w-0 flex-1">
+          <p class="font-heading text-on-surface">{{ store.name }}</p>
+          <p class="text-xs text-on-surface-muted">{{ store.address }} · {{ store.distance }}</p>
+          <p class="text-xs data-[open=true]:text-success data-[open=false]:text-danger" data-open="{{ store.open }}">{{ store.hours }}</p>
+        </div>
+        <button type="button" class="shrink-0 rounded-button border border-border px-3 py-1 text-xs font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Directions</button>
+      </li>
+    </ul>
+  </div>
+</div>

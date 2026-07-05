@@ -1,0 +1,12 @@
+{
+  "origin": "Current location",
+  "destination": "Golden Gate Park",
+  "summary": "18 min · 7.4 mi",
+  "steps": [
+    { "icon": "↑", "instruction": "Head north on Market St", "distance": "0.3 mi" },
+    { "icon": "↰", "instruction": "Turn left onto Van Ness Ave", "distance": "1.2 mi" },
+    { "icon": "↱", "instruction": "Turn right onto Fell St", "distance": "2.4 mi" },
+    { "icon": "↑", "instruction": "Continue onto Kezar Dr", "distance": "0.8 mi" },
+    { "icon": "📍", "instruction": "Arrive at Golden Gate Park", "distance": "" }
+  ]
+}

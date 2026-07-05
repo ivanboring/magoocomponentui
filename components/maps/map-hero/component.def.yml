@@ -1,0 +1,16 @@
+name: map-hero
+props:
+  placeholder:
+    type: string
+    default: "Search places, addresses…"
+    title: Search placeholder
+  chips:
+    type: array
+    items: object
+    title: Quick chips
+    description: "Each: { label, icon }."
+  pins:
+    type: array
+    items: object
+    title: Pins
+    description: "Each: { label, x, y } — x/y are 0-100 percent."

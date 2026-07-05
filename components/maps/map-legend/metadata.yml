@@ -1,0 +1,58 @@
+name: "Map Legend"
+short_description: A symbol key for a map with dot/line/area swatches.
+long_visual_description: >
+  A compact key listing map symbols (dots, lines, areas) with their colours and labels.
+
+use_cases:
+  - Map symbol key.
+  - Legend overlay.
+  - Layer key.
+  - Map explanation.
+  - Symbol reference.
+
+recommended_for:
+  - A symbol key for a map's markers/layers.
+avoid_for:
+  - A chart legend (build inline).
+
+markets:
+  - Global
+
+example_usage: >
+  List each symbol with its colour and shape (dot/line/area) and label.
+
+props:
+  title: The legend title.
+  items: The legend items with colour, shape, and label.
+
+example_prompts:
+  - "Add a map legend with dot and area symbols."
+  - "Add a map symbol key."
+
+lifecycle: experimental
+content_model: A map symbol key.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+
+editorial_guidance: >
+  Map colours are fixed marker colours (passed per item); each symbol is labelled in text.
+
+categorization:
+  category: Maps
+  subcategory: Utilities
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each symbol is labelled in text (not colour/shape-only); swatches are decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,67 @@
+name: "Map Hero"
+short_description: A full-bleed map shell with a search bar, category chips, pins, and zoom.
+long_visual_description: >
+  A large map placeholder with a floating search bar and category chips at the top, pin
+  markers, and zoom controls at the bottom.
+
+use_cases:
+  - Map app home.
+  - Full-bleed map with search.
+  - Explore map.
+  - Map landing.
+  - Location search hero.
+
+recommended_for:
+  - A map hero with search and pins.
+avoid_for:
+  - A small map thumbnail (use trip-map).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide category chips and pins (positioned by percent); the map area is a placeholder for a
+  real map in production.
+
+props:
+  placeholder: The search placeholder.
+  chips: The category quick chips.
+  pins: The map pins with positions.
+
+example_prompts:
+  - "Add a full-bleed map hero with search and pins."
+  - "Add a map explore screen."
+
+lifecycle: experimental
+content_model: A map shell with search, chips, and pins.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  The map is a placeholder — swap for a real map; the search and chips overlay it.
+
+categorization:
+  category: Maps
+  subcategory: Search
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The search has a label; chips and pins are labelled buttons; zoom controls have labels; the map backdrop is decorative.
+  keyboard_support: Search, chips, pins, and zoom controls are focusable and keyboard-operable.
+  seo_score: 35
+  text_direction: both

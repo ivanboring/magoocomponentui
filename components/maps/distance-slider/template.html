@@ -1,0 +1,8 @@
+<div class="distance-slider" data-unit="{{ unit }}">
+  <div class="flex items-baseline justify-between gap-2">
+    <label class="distance-slider__label text-sm font-medium text-on-surface" for="distance-slider-input">{{ label }}</label>
+    <span class="distance-slider__value font-heading text-on-surface tabular-nums"><span class="distance-slider__out">{{ value }}</span> {{ unit }}</span>
+  </div>
+  <input id="distance-slider-input" type="range" class="distance-slider__input mt-2 w-full accent-primary" min="{{ min }}" max="{{ max }}" value="{{ value }}" aria-label="{{ label }}">
+  <p data-if="count" class="distance-slider__count mt-1 text-xs text-on-surface-muted">{{ count }}</p>
+</div>

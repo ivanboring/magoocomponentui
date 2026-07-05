@@ -1,0 +1,30 @@
+name: route-summary
+props:
+  time:
+    type: string
+    required: true
+    title: Time
+    example: "18 min"
+  distance:
+    type: string
+    required: true
+    title: Distance
+    example: "7.4 mi"
+  mode:
+    type: string
+    title: Mode
+    example: "Fastest route"
+  via:
+    type: string
+    title: Via
+    example: "via Market St"
+  traffic:
+    type: enum
+    values: [light, moderate, heavy]
+    default: light
+    title: Traffic
+variants:
+  traffic:
+    light: "text-success"
+    moderate: "text-warning"
+    heavy: "text-danger"

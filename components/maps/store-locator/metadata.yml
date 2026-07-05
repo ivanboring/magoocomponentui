@@ -1,0 +1,70 @@
+name: "Store Locator"
+short_description: A map + store list locator with markers, hours, and directions.
+long_visual_description: >
+  A two-column layout with a map placeholder carrying lettered markers beside a list of stores
+  (marker, name, address, distance, hours, directions).
+
+use_cases:
+  - Store locator.
+  - Find-a-store.
+  - Branch finder.
+  - Retail locations.
+  - Nearby stores map.
+
+recommended_for:
+  - A store locator with a map and list.
+avoid_for:
+  - A clinic locator (use health/clinic-locator).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide stores with markers matching the map pins, hours, and open status; the map is a
+  placeholder for a real map.
+
+props:
+  result_count: The result count.
+  stores: The stores with marker, name, address, distance, hours, and open status.
+  pins: The map pins.
+
+example_prompts:
+  - "Add a store locator with a map and store list."
+  - "Add a find-a-store panel."
+
+lifecycle: experimental
+content_model: A store locator with a map and list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Match markers to pins; show open/closed status and distance. The map is a placeholder.
+
+categorization:
+  category: Maps
+  subcategory: Places
+  atomic_type: organism
+  usage_type: [media, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Open status shows as text (not colour-only); pins are labelled buttons; directions are real controls; the map is decorative.
+  keyboard_support: Pins and directions are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

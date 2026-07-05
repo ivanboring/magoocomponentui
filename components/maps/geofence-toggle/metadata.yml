@@ -1,0 +1,65 @@
+name: "Geofence Toggle"
+short_description: An area-alert setting with a title, radius, and on/off switch.
+long_visual_description: >
+  A row with a geofence icon, the alert title, the area/radius, a description, and a switch to
+  enable the area alert.
+
+use_cases:
+  - Geofence alert setting.
+  - Area entry/exit alert.
+  - Location reminder.
+  - Zone notification.
+  - Arrive/leave trigger.
+
+recommended_for:
+  - An area-alert (geofence) on/off setting.
+avoid_for:
+  - A generic toggle (use toggle-switch).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the area/radius; the switch enables or disables the alert. Emits geofence:toggle.
+
+props:
+  title: The alert title.
+  area: The area/radius.
+  description: The explanation.
+  enabled: Whether the alert is on.
+
+example_prompts:
+  - "Add a geofence alert toggle for arriving home."
+  - "Add an area entry/exit alert setting."
+
+lifecycle: experimental
+content_model: An area-alert setting with a switch.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  State the area/radius clearly; the switch controls the alert.
+
+categorization:
+  category: Maps
+  subcategory: Settings
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle uses role="switch" with aria-checked and a label; the area and title are real text; the icon is decorative.
+  keyboard_support: The toggle is focusable and switches on Enter/Space.
+  seo_score: 20
+  text_direction: both

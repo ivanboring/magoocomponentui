@@ -1,0 +1,10 @@
+name: nearby-grid
+props:
+  title:
+    type: string
+    default: "Nearby"
+    title: Title
+slots:
+  items:
+    title: Items
+    description: The nearby place cards.

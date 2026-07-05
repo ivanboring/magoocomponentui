@@ -1,0 +1,24 @@
+name: directions-panel
+props:
+  origin:
+    type: string
+    required: true
+    title: Origin
+    example: "Current location"
+  destination:
+    type: string
+    required: true
+    title: Destination
+    example: "Golden Gate Park"
+  summary:
+    type: string
+    title: Summary
+    example: "18 min · 7.4 mi"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each: { icon, instruction, distance }."
+    example:
+      - { icon: "↑", instruction: "Head north on Market St", distance: "0.3 mi" }

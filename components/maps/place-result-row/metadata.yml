@@ -1,0 +1,69 @@
+name: "Place Result Row"
+short_description: A place search result with marker, rating, category, distance, and directions.
+long_visual_description: >
+  A row with a map marker letter, the place name, a rating with review count, category and
+  distance, an open status, and a directions button.
+
+use_cases:
+  - Place search result.
+  - Nearby place row.
+  - Map result list item.
+  - POI listing.
+  - Location result.
+
+recommended_for:
+  - A place in a map search results list.
+avoid_for:
+  - A map popup card (use location-pin-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the marker matching the map pin, the rating, category, and distance; the directions
+  button routes to the place.
+
+props:
+  name: The place name.
+  category: The place category.
+  rating: The rating.
+  reviews: The review count.
+  distance: The distance.
+  status: The open/closed status.
+  marker: The map marker letter.
+
+example_prompts:
+  - "Add a place result row with rating and directions."
+  - "Add a nearby place list item."
+
+lifecycle: experimental
+content_model: A place result with rating, distance, and directions.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Match the marker to the map pin; show rating, distance, and open status.
+
+categorization:
+  category: Maps
+  subcategory: Search
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The name is a real link; the directions control has an accessible label; rating/distance/status are real text.
+  keyboard_support: Name and directions are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,21 @@
+name: store-locator
+props:
+  result_count:
+    type: string
+    required: true
+    title: Result count
+    example: "6 stores near you"
+  stores:
+    type: array
+    items: object
+    required: true
+    title: Stores
+    description: "Each: { marker, name, address, distance, hours, open }."
+    example:
+      - { marker: "A", name: "Downtown Store", address: "500 Market St", distance: "0.4 mi", hours: "Open until 9 PM", open: true }
+  pins:
+    type: array
+    items: object
+    required: true
+    title: Map pins
+    description: "Each: { label, x, y }."

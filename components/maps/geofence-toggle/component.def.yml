@@ -1,0 +1,19 @@
+name: geofence-toggle
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Arriving home"
+  area:
+    type: string
+    title: Area
+    example: "500 m around 142 Riverside Dr"
+  description:
+    type: string
+    title: Description
+    example: "Get notified when you enter or leave this area."
+  enabled:
+    type: boolean
+    default: true
+    title: Enabled

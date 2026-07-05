@@ -1,0 +1,15 @@
+{
+  "placeholder": "Search places, addresses…",
+  "chips": [
+    { "label": "Restaurants", "icon": "🍽" },
+    { "label": "Coffee", "icon": "☕" },
+    { "label": "Gas", "icon": "⛽" },
+    { "label": "Hotels", "icon": "🏨" },
+    { "label": "Parks", "icon": "🌳" }
+  ],
+  "pins": [
+    { "label": "Blue Bottle Coffee", "x": 32, "y": 46 },
+    { "label": "Golden Gate Park", "x": 58, "y": 62 },
+    { "label": "Ferry Building", "x": 70, "y": 38 }
+  ]
+}

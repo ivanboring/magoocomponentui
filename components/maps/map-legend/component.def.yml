@@ -1,0 +1,14 @@
+name: map-legend
+props:
+  title:
+    type: string
+    default: "Legend"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each: { label, swatch, shape } where swatch is a CSS color, shape is dot|line|area."
+    example:
+      - { label: "Restaurants", swatch: "#ef4444", shape: "dot" }

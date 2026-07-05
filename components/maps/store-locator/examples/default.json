@@ -1,0 +1,13 @@
+{
+  "result_count": "6 stores near you",
+  "stores": [
+    { "marker": "A", "name": "Downtown Store", "address": "500 Market St", "distance": "0.4 mi", "hours": "Open until 9 PM", "open": true },
+    { "marker": "B", "name": "Marina Branch", "address": "2100 Chestnut St", "distance": "1.8 mi", "hours": "Open until 8 PM", "open": true },
+    { "marker": "C", "name": "Mission Store", "address": "3400 24th St", "distance": "2.6 mi", "hours": "Closed · opens 10 AM", "open": false }
+  ],
+  "pins": [
+    { "label": "A", "x": 40, "y": 44 },
+    { "label": "B", "x": 30, "y": 28 },
+    { "label": "C", "x": 58, "y": 66 }
+  ]
+}

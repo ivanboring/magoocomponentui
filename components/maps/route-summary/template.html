@@ -1,0 +1,8 @@
+<article class="route-summary flex items-center justify-between gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div>
+    <p class="route-summary__time font-heading text-2xl {{ traffic@class }}" data-traffic="{{ traffic }}">{{ time }}</p>
+    <p class="route-summary__distance text-sm text-on-surface"><span class="font-medium">{{ distance }}</span><span data-if="via" class="text-on-surface-muted"> · {{ via }}</span></p>
+    <p data-if="mode" class="route-summary__mode text-xs text-on-surface-muted">{{ mode }} · <span class="capitalize {{ traffic@class }}" data-traffic="{{ traffic }}">{{ traffic }} traffic</span></p>
+  </div>
+  <button type="button" class="route-summary__go shrink-0 rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Start</button>
+</article>

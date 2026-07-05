@@ -1,0 +1,10 @@
+name: travel-mode-switch
+props:
+  modes:
+    type: array
+    items: object
+    required: true
+    title: Modes
+    description: "Each: { label, icon, eta, active }."
+    example:
+      - { label: "Drive", icon: "🚗", eta: "18 min", active: true }

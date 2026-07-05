@@ -1,0 +1,27 @@
+name: location-pin-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Golden Gate Park"
+  category:
+    type: string
+    title: Category
+    example: "Park"
+  rating:
+    type: string
+    title: Rating
+    example: "4.8"
+  address:
+    type: string
+    title: Address
+    example: "501 Stanyan St, San Francisco"
+  image:
+    type: image
+    title: Image
+    example: "/stock/cover-workspace.jpg"
+  status:
+    type: string
+    title: Status
+    example: "Open 24 hours"

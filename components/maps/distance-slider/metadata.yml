@@ -1,0 +1,62 @@
+name: "Distance Slider"
+short_description: A radius filter slider with a live value and result count.
+long_visual_description: >
+  A labelled slider showing the current radius value and unit, with a live result count
+  beneath.
+
+use_cases:
+  - Search radius filter.
+  - Distance/radius picker.
+  - Nearby range filter.
+  - Proximity filter.
+  - Map radius control.
+
+recommended_for:
+  - A radius/distance filter slider.
+avoid_for:
+  - A price range (use a range slider).
+
+markets:
+  - Global
+
+example_usage: >
+  The slider updates the radius readout live; wire the count to your results. Emits
+  distance:change.
+
+props:
+  label: The slider label.
+  value: The current radius.
+  min: The minimum.
+  max: The maximum.
+  unit: The unit (mi/km).
+  count: The result count text.
+
+example_prompts:
+  - "Add a search radius distance slider."
+  - "Add a nearby range filter."
+
+lifecycle: experimental
+content_model: A radius filter slider with a count.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Show the current radius and result count so the filter's effect is clear.
+
+categorization:
+  category: Maps
+  subcategory: Search
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The slider has an associated label and aria-label; the value and count are real text and update live.
+  keyboard_support: The slider is focusable and adjustable via the keyboard.
+  seo_score: 25
+  text_direction: both

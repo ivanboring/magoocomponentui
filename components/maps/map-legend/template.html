@@ -1,0 +1,9 @@
+<section class="map-legend rounded-card border border-border bg-surface p-3 shadow-card" aria-label="{{ title }}">
+  <h3 class="map-legend__title text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ title }}</h3>
+  <ul class="map-legend__items mt-2 flex flex-col gap-1.5">
+    <li data-for="item in items" class="map-legend__item flex items-center gap-2 text-sm text-on-surface" data-shape="{{ item.shape }}">
+      <span class="map-legend__swatch shrink-0 data-[shape=dot]:size-3 data-[shape=dot]:rounded-full data-[shape=line]:h-1 data-[shape=line]:w-4 data-[shape=line]:rounded-full data-[shape=area]:size-3 data-[shape=area]:rounded-sm data-[shape=area]:opacity-50" data-shape="{{ item.shape }}" style="background: {{ item.swatch }}" aria-hidden="true"></span>
+      {{ item.label }}
+    </li>
+  </ul>
+</section>

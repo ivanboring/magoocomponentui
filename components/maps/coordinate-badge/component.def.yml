@@ -1,0 +1,12 @@
+name: coordinate-badge
+props:
+  lat:
+    type: string
+    required: true
+    title: Latitude
+    example: "37.7749° N"
+  lng:
+    type: string
+    required: true
+    title: Longitude
+    example: "122.4194° W"
