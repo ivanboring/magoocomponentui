@@ -1,0 +1,59 @@
+name: "Tag List"
+short_description: A wrapping list of topic tag links.
+long_visual_description: >
+  A wrapping row of outlined tag links that highlight on hover, used to list an article's
+  topics or keywords.
+
+use_cases:
+  - Topic tags under an article.
+  - Keyword links on a post.
+  - Category links list.
+  - Related-topic navigation.
+  - Content taxonomy links.
+
+recommended_for:
+  - Listing an article's topic/keyword links.
+avoid_for:
+  - Removable filter tags (use tag).
+
+markets:
+  - Global
+
+example_usage: >
+  List the article's topics as links; keep labels short and consistent with your taxonomy.
+
+props:
+  label: Accessible name for the tag navigation.
+  tags: The topic tag links.
+
+example_prompts:
+  - "Add a list of article topic tags."
+  - "Add keyword links under a post."
+
+lifecycle: experimental
+content_model: A set of topic tag links.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Use a consistent tag taxonomy; keep labels short.
+
+categorization:
+  category: Editorial
+  subcategory: Wayfinding
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; tags are real links.
+  keyboard_support: Each tag is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

@@ -1,0 +1,15 @@
+name: share-bar
+props:
+  label:
+    type: string
+    default: "Share"
+    title: Label
+  links:
+    type: array
+    items: object
+    required: true
+    title: Share links
+    description: "Each link: { network, href } where network is x | facebook | linkedin | link."
+    example:
+      - { network: "x", href: "#" }
+      - { network: "linkedin", href: "#" }

@@ -1,0 +1,29 @@
+name: author-bio
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  avatar:
+    type: image
+    title: Avatar
+  role:
+    type: string
+    title: Role
+    example: "Principal Engineer at Northwind"
+  bio:
+    type: string
+    required: true
+    title: Bio
+    example: "Jane writes about design systems, front-end tooling, and scaling engineering teams. Previously led the platform team at Acme."
+  links:
+    type: array
+    items: object
+    title: Links
+    description: "Each link: { label, href }."

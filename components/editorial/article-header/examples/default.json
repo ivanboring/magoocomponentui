@@ -1,0 +1,9 @@
+{
+  "category": "Engineering",
+  "title": "Designing for scale: lessons from 1000 components",
+  "subtitle": "How a single source of truth keeps a large component library consistent across every framework target.",
+  "image": "/stock/cover-workspace.jpg",
+  "$slots": {
+    "byline": "<div class=\"flex items-center gap-3\"><span class=\"inline-flex size-10 overflow-hidden rounded-full bg-surface-raised\"><img class=\"size-full object-cover\" src=\"/stock/avatar-woman-1.jpg\" alt=\"\"></span><div class=\"text-left\"><p class=\"text-sm font-medium text-on-surface\">Jane Doe</p><p class=\"text-xs text-on-surface-muted\">Jul 5, 2026 · 6 min read</p></div></div>"
+  }
+}

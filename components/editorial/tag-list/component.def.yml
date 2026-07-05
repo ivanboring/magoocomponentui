@@ -1,0 +1,15 @@
+name: tag-list
+props:
+  label:
+    type: string
+    default: "Tags"
+    title: Accessible label
+  tags:
+    type: array
+    items: object
+    required: true
+    title: Tags
+    description: "Each tag: { label, href }."
+    example:
+      - { label: "Design systems", href: "#" }
+      - { label: "Tailwind", href: "#" }

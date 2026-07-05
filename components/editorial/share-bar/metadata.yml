@@ -1,0 +1,59 @@
+name: "Share Bar"
+short_description: Social share buttons plus a copy-link action for an article.
+long_visual_description: >
+  A "Share" label followed by round icon buttons for social networks and a copy-link
+  action that copies the page URL to the clipboard.
+
+use_cases:
+  - Share an article to social networks.
+  - Copy an article link.
+  - Share a blog post.
+  - Share a product or page.
+  - Social sharing row on content.
+
+recommended_for:
+  - Sharing a page to social networks with a copy-link fallback.
+avoid_for:
+  - Full share sheets with counts (build a dedicated component).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide per-network share URLs; the "link" network copies the current URL. Listen for
+  share:copied to show confirmation.
+
+props:
+  label: The bar label.
+  links: The share targets by network.
+
+example_prompts:
+  - "Add a share bar with X, Facebook, LinkedIn, and copy link."
+  - "Add social share buttons to the article."
+
+lifecycle: experimental
+content_model: A set of social share links plus a copy-link action.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --duration-token
+
+editorial_guidance: >
+  Offer only the networks your audience uses; always include a copy-link option.
+
+categorization:
+  category: Editorial
+  subcategory: Engagement
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each share control has an accessible label naming the network; the copy-link action copies rather than navigating.
+  keyboard_support: Each share link is focusable and activates on Enter.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,58 @@
+name: "Pull Quote"
+short_description: An emphasized inline quotation with an accent left border and optional citation.
+long_visual_description: >
+  A quotation set in the heading face with a primary-coloured left border and an optional
+  citation line, used to emphasize a line within an article.
+
+use_cases:
+  - Emphasize a key line within an article.
+  - Highlight a quotation in long-form content.
+  - Break up body text with a standout statement.
+  - Cite a source inline.
+  - Feature a memorable sentence.
+
+recommended_for:
+  - Emphasizing a short quotation inside article body text.
+avoid_for:
+  - A large decorative quote card (use card-quote).
+  - An attributed testimonial (use card-testimonial).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the quote to a sentence or two; cite the source where relevant.
+
+props:
+  quote: The quotation text.
+  cite: An optional citation/source.
+
+example_prompts:
+  - "Add a pull quote emphasizing a key line."
+  - "Add an inline quotation with a citation."
+
+lifecycle: experimental
+content_model: A short quotation and an optional citation.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Pull a genuine line from the article; keep it short enough to read at a glance.
+
+categorization:
+  category: Editorial
+  subcategory: Article
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic figure/blockquote/figcaption; the accent border is decorative.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

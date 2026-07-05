@@ -1,0 +1,8 @@
+{
+  "title": "Related articles",
+  "items": [
+    { "title": "The theming model behind four distinct looks", "category": "Design", "image": "/stock/cover-workspace.jpg", "href": "#" },
+    { "title": "Generating SDC, React, and Vue from one source", "category": "Engineering", "image": "/stock/property-house.jpg", "href": "#" },
+    { "title": "Accessibility as a build-time guarantee", "category": "Accessibility", "image": "/stock/food-plate.jpg", "href": "#" }
+  ]
+}

@@ -1,0 +1,15 @@
+name: table-of-contents
+props:
+  title:
+    type: string
+    default: "On this page"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { label, href, active, sub } — sub true indents a sub-section."
+    example:
+      - { label: "Introduction", href: "#intro", active: true, sub: false }
+      - { label: "The problem", href: "#problem", active: false, sub: false }

@@ -1,0 +1,23 @@
+name: article-header
+props:
+  category:
+    type: string
+    title: Category
+    example: "Engineering"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Designing for scale: lessons from 1000 components"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "How a single source of truth keeps a large component library consistent."
+  image:
+    type: image
+    title: Hero image
+    example: "/stock/cover-workspace.jpg"
+slots:
+  byline:
+    title: Byline
+    description: The article byline (author, date, read time).

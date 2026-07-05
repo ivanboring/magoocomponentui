@@ -1,0 +1,11 @@
+{
+  "author": "Jane Doe",
+  "initials": "JD",
+  "avatar": "/stock/avatar-woman-1.jpg",
+  "role": "Principal Engineer at Northwind",
+  "bio": "Jane writes about design systems, front-end tooling, and scaling engineering teams. Previously led the platform team at Acme.",
+  "links": [
+    { "label": "Website", "href": "#" },
+    { "label": "Follow", "href": "#" }
+  ]
+}

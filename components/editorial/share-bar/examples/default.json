@@ -1,0 +1,9 @@
+{
+  "label": "Share",
+  "links": [
+    { "network": "x", "href": "#" },
+    { "network": "facebook", "href": "#" },
+    { "network": "linkedin", "href": "#" },
+    { "network": "link", "href": "#" }
+  ]
+}

@@ -1,0 +1,8 @@
+<aside class="newsletter-inline my-6 rounded-card border border-border bg-surface-raised p-(--space-card)">
+  <h3 class="newsletter-inline__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <p data-if="description" class="newsletter-inline__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  <form class="newsletter-inline__form mt-3 flex flex-col gap-2 sm:flex-row">
+    <input type="email" class="newsletter-inline__input flex-1 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" aria-label="Email address" required>
+    <button type="submit" class="newsletter-inline__cta shrink-0 rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+  </form>
+</aside>

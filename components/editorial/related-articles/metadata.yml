@@ -1,0 +1,60 @@
+name: "Related Articles"
+short_description: A grid of related posts with image, category, and title.
+long_visual_description: >
+  A titled grid of related article cards, each a wide image above a category eyebrow and a
+  two-line title that underlines on hover.
+
+use_cases:
+  - Related posts beneath an article.
+  - Read-next recommendations.
+  - Topic-related content grid.
+  - More-from-this-author section.
+  - Content recirculation block.
+
+recommended_for:
+  - Recirculating related editorial content after an article.
+avoid_for:
+  - A horizontal rail (use watch-next-rail pattern) or product recs.
+
+markets:
+  - Global
+
+example_usage: >
+  Show 3 related articles with category and title; the whole card links to the post.
+
+props:
+  title: The section heading.
+  items: The related articles.
+
+example_prompts:
+  - "Add a related articles grid beneath the post."
+  - "Add a read-next recommendations section."
+
+lifecycle: experimental
+content_model: A titled grid of related article previews.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --radius-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Recommend genuinely related pieces; keep titles to two lines.
+
+categorization:
+  category: Editorial
+  subcategory: Engagement
+  atomic_type: organism
+  usage_type: [grid, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region is labelled; each item is a single link; images are decorative.
+  keyboard_support: Each item is focusable and activates on Enter.
+  seo_score: 55
+  text_direction: both

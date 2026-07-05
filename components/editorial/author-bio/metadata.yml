@@ -1,0 +1,67 @@
+name: "Author Bio"
+short_description: An author bio block with avatar, role, bio text, and follow/links.
+long_visual_description: >
+  A raised panel with the author's avatar, name, role, a paragraph of bio, and a row of
+  links (website, follow), typically placed at the end of an article.
+
+use_cases:
+  - Author bio at the end of an article.
+  - Contributor profile block.
+  - Guest-author credit with links.
+  - Expert attribution with follow.
+  - About-the-author section.
+
+recommended_for:
+  - A fuller author profile at the end of a post.
+avoid_for:
+  - A compact byline (use byline).
+
+markets:
+  - Global
+
+example_usage: >
+  Place after the article body; include the author's role and a couple of links (site,
+  follow).
+
+props:
+  author: The author's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  avatar: Optional author photo.
+  role: The author's role/affiliation.
+  bio: A short bio paragraph.
+  links: Website/follow links.
+
+example_prompts:
+  - "Add an author bio block with role, bio, and follow link."
+  - "Add an about-the-author section at the end of a post."
+
+lifecycle: experimental
+content_model: An author's avatar, name, role, bio, and links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the bio to two or three sentences; lead with relevant expertise.
+
+categorization:
+  category: Editorial
+  subcategory: Attribution
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the author name; links have visible labels.
+  keyboard_support: Links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

@@ -1,0 +1,11 @@
+{
+  "title": "On this page",
+  "items": [
+    { "label": "Introduction", "href": "#intro", "active": true, "sub": false },
+    { "label": "The problem", "href": "#problem", "active": false, "sub": false },
+    { "label": "A single source", "href": "#source", "active": false, "sub": true },
+    { "label": "Generating targets", "href": "#targets", "active": false, "sub": true },
+    { "label": "Theming model", "href": "#theming", "active": false, "sub": false },
+    { "label": "Conclusion", "href": "#conclusion", "active": false, "sub": false }
+  ]
+}

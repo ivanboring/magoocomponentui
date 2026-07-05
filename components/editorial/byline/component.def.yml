@@ -1,0 +1,24 @@
+name: byline
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  avatar:
+    type: image
+    title: Avatar
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Jul 5, 2026"
+  read_time:
+    type: string
+    title: Read time
+    example: "6 min read"

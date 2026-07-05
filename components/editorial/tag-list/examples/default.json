@@ -1,0 +1,10 @@
+{
+  "label": "Article tags",
+  "tags": [
+    { "label": "Design systems", "href": "#" },
+    { "label": "Tailwind", "href": "#" },
+    { "label": "Tokens", "href": "#" },
+    { "label": "Accessibility", "href": "#" },
+    { "label": "Drupal", "href": "#" }
+  ]
+}

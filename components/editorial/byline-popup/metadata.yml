@@ -1,0 +1,69 @@
+name: "Byline with Popup"
+short_description: A byline that reveals an author bio card on hover or focus.
+long_visual_description: >
+  A standard byline (avatar, name, date) where hovering or focusing the name reveals a
+  small card with the author's photo, role, and bio.
+
+use_cases:
+  - Author byline with a hover bio.
+  - Contributor credit with quick bio.
+  - Editorial attribution with author detail.
+  - Multi-author post attribution.
+  - Expert-author credibility card.
+
+recommended_for:
+  - A byline where readers can peek at the author's bio without leaving the page.
+avoid_for:
+  - A plain byline (use byline).
+  - A full standalone bio (use author-bio).
+
+markets:
+  - Global
+
+example_usage: >
+  The bio card reveals on hover and on keyboard focus so it stays reachable; keep the bio
+  to a sentence or two.
+
+props:
+  author: The author's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  avatar: Optional author photo.
+  role: The author's role.
+  bio: A short bio.
+  date: The publish date.
+
+example_prompts:
+  - "Add a byline that shows the author bio on hover."
+  - "Add an author byline with a hover bio card."
+
+lifecycle: experimental
+content_model: A byline plus a revealable author bio card.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the bio to a sentence; lead with what makes the author credible on this topic.
+
+categorization:
+  category: Editorial
+  subcategory: Attribution
+  atomic_type: molecule
+  usage_type: [overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bio card reveals on hover and keyboard focus (group-focus-within); the name is a real button and the avatar carries the author name.
+  keyboard_support: Focusing the name reveals the bio card.
+  seo_score: 40
+  text_direction: both

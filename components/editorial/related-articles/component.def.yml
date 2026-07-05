@@ -1,0 +1,12 @@
+name: related-articles
+props:
+  title:
+    type: string
+    default: "Related articles"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Articles
+    description: "Each item: { title, category, image, href }."

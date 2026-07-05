@@ -1,0 +1,60 @@
+name: "Table of Contents"
+short_description: A sticky in-article contents nav that tracks the active section on scroll.
+long_visual_description: >
+  A sticky vertical list of section links along a left rail; the active section is marked
+  with a primary bar and bolder text, updated as the reader scrolls. Sub-sections are
+  indented.
+
+use_cases:
+  - In-article contents for a long read.
+  - Documentation page navigation.
+  - Section jump list with scroll-spy.
+  - Guide or tutorial outline.
+  - Sticky sidebar TOC.
+
+recommended_for:
+  - Navigating sections of a long article with active-section tracking.
+avoid_for:
+  - Site navigation (use sidebar-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Point each item href at a section id; the behavior highlights the section in view via an
+  IntersectionObserver. Mark sub-sections with sub: true.
+
+props:
+  title: The contents heading.
+  items: The section links, with active and sub flags.
+
+example_prompts:
+  - "Add a sticky table of contents with scroll-spy."
+  - "Add an in-article section navigation."
+
+lifecycle: experimental
+content_model: A list of section links with active-section tracking.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --duration-token
+
+editorial_guidance: >
+  Match item labels to the section headings; keep the list to top-level and one sub-level.
+
+categorization:
+  category: Editorial
+  subcategory: Wayfinding
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active item sets aria-current; links resolve to real section ids.
+  keyboard_support: Each section link is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

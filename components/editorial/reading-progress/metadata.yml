@@ -1,0 +1,54 @@
+name: "Reading Progress"
+short_description: A top scroll progress bar that fills as the reader moves through an article.
+long_visual_description: >
+  A thin bar fixed to the top of the viewport that fills left-to-right in the primary
+  colour as the reader scrolls through the article.
+
+use_cases:
+  - Reading progress on a long article.
+  - Scroll indicator for long-form content.
+  - Progress bar for a documentation page.
+  - Story completion indicator.
+  - Long-read progress on mobile.
+
+recommended_for:
+  - Indicating reading progress on a long page.
+avoid_for:
+  - Determinate task progress (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Leave target empty to track whole-page scroll, or set it to the article element's
+  selector to track just that region.
+
+props:
+  target: CSS selector of the article element; empty tracks the document.
+
+example_prompts:
+  - "Add a top reading-progress bar to the article."
+  - "Add a scroll progress indicator for a long read."
+
+lifecycle: experimental
+content_model: A scroll-driven progress indicator; no content.
+
+theming:
+  tokens_used:
+    - --color-primary
+
+editorial_guidance: >
+  Point target at the article body so the bar reflects article progress, not footer scroll.
+
+categorization:
+  category: Editorial
+  subcategory: Wayfinding
+  atomic_type: atom
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="progressbar" with aria-valuenow reflecting scroll position; the bar is supplementary to the content.
+  keyboard_support: "none"
+  seo_score: 10
+  text_direction: both

@@ -1,0 +1,57 @@
+name: "Figure Caption"
+short_description: An image with a caption and optional credit line.
+long_visual_description: >
+  A figure with a rounded image above a muted caption and an optional credit, used for
+  inline article imagery.
+
+use_cases:
+  - Captioned image within an article.
+  - Diagram with an explanation.
+  - Photo with a credit line.
+  - Chart with a caption.
+  - Illustrated figure in long-form content.
+
+recommended_for:
+  - An inline article image that needs a caption/credit.
+avoid_for:
+  - A decorative hero image (use article-header).
+
+markets:
+  - Global
+
+example_usage: >
+  Use the caption as the image's alt where it describes the image; add a credit line for
+  attribution.
+
+props:
+  image: The figure image.
+  caption: The caption text.
+  credit: An optional credit/attribution.
+
+example_prompts:
+  - "Add a captioned figure with a credit line."
+  - "Add an inline article image with a caption."
+
+lifecycle: experimental
+content_model: An image with a caption and optional credit.
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+    - --radius-card
+
+editorial_guidance: >
+  Write a caption that adds context, not just repeats the image; credit the source.
+
+categorization:
+  category: Editorial
+  subcategory: Article
+  atomic_type: atom
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic figure/figcaption; the caption doubles as the image alt when descriptive.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

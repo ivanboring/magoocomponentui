@@ -1,0 +1,9 @@
+<header class="article-header flex flex-col gap-4">
+  <div class="article-header__text mx-auto max-w-2xl text-center">
+    <p data-if="category" class="article-header__category text-xs font-semibold uppercase tracking-wide text-primary">{{ category }}</p>
+    <h1 class="article-header__title mt-2 font-heading text-3xl leading-tight text-on-surface sm:text-4xl">{{ title }}</h1>
+    <p data-if="subtitle" class="article-header__subtitle mt-3 text-lg text-on-surface-muted">{{ subtitle }}</p>
+    <div class="article-header__byline mt-5 flex justify-center"><slot name="byline"></slot></div>
+  </div>
+  <img data-if="image" class="article-header__image mt-2 aspect-[16/7] w-full rounded-card object-cover" src="{{ image }}" alt="">
+</header>

@@ -1,0 +1,11 @@
+name: pull-quote
+props:
+  quote:
+    type: string
+    required: true
+    title: Quote
+    example: "Author once; generate every target."
+  cite:
+    type: string
+    title: Citation
+    example: "Design spec"

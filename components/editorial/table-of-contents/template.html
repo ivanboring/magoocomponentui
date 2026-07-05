@@ -1,0 +1,8 @@
+<nav class="table-of-contents sticky top-6" aria-label="{{ title }}">
+  <p class="table-of-contents__title mb-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ title }}</p>
+  <ul class="table-of-contents__list flex flex-col gap-1 border-l border-border">
+    <li data-for="item in items">
+      <a class="table-of-contents__item -ml-px block border-l-2 border-transparent py-1 pl-3 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[sub=true]:pl-6 data-[active=true]:border-primary data-[active=true]:font-medium data-[active=true]:text-on-surface" href="{{ item.href }}" data-active="{{ item.active }}" data-sub="{{ item.sub }}" aria-current="{{ item.active }}">{{ item.label }}</a>
+    </li>
+  </ul>
+</nav>

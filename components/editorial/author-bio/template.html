@@ -1,0 +1,14 @@
+<aside class="author-bio flex gap-4 rounded-card border border-border bg-surface-raised p-(--space-card)">
+  <span class="author-bio__avatar relative inline-flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface font-heading text-lg uppercase text-on-surface" role="img" aria-label="{{ author }}">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="author-bio__name font-heading text-on-surface">{{ author }}</p>
+    <p data-if="role" class="author-bio__role text-xs text-primary">{{ role }}</p>
+    <p class="author-bio__text mt-2 text-sm text-on-surface-muted">{{ bio }}</p>
+    <div data-if="links" class="author-bio__links mt-3 flex items-center gap-3">
+      <a data-for="link in links" class="text-sm font-medium text-on-surface-muted hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+    </div>
+  </div>
+</aside>

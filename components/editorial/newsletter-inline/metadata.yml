@@ -1,0 +1,70 @@
+name: "Inline Newsletter"
+short_description: An inline mid-article newsletter signup prompt with an email field.
+long_visual_description: >
+  A raised panel with a title, a short benefit line, and an email field beside a subscribe
+  button — placed inline within article content.
+
+use_cases:
+  - Mid-article newsletter capture.
+  - End-of-post signup prompt.
+  - Content-upgrade email capture.
+  - Digest subscription within a post.
+  - Inline lead capture.
+
+recommended_for:
+  - A compact email-capture prompt inside article content.
+avoid_for:
+  - A full-page signup section (use newsletter-signup).
+
+markets:
+  - Global
+
+example_usage: >
+  Lead with the benefit; keep it to one field and a subscribe button. Place naturally
+  within the article flow.
+
+props:
+  title: The prompt headline.
+  description: A one-line benefit statement.
+  placeholder: The email input placeholder.
+  cta_label: The subscribe button text.
+
+example_prompts:
+  - "Add an inline newsletter signup within the article."
+  - "Add a mid-post email capture prompt."
+
+lifecycle: experimental
+content_model: A benefit-led headline with an email field and subscribe action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the reader's benefit; keep it to a single email field.
+
+categorization:
+  category: Editorial
+  subcategory: Engagement
+  atomic_type: molecule
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The email field has an accessible label and required; the submit is a real button in a form.
+  keyboard_support: The field and subscribe button are focusable; submit works via Enter.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,16 @@
+name: figure-caption
+props:
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/cover-workspace.jpg"
+  caption:
+    type: string
+    required: true
+    title: Caption
+    example: "A tidy workspace helps a tidy component library."
+  credit:
+    type: string
+    title: Credit
+    example: "Photo: Unsplash"

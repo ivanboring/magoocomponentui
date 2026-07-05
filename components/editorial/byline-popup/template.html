@@ -1,0 +1,23 @@
+<div class="byline-popup group relative inline-flex items-center gap-3">
+  <span class="byline-popup__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ author }}">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0">
+    <button type="button" class="byline-popup__name text-sm font-medium text-on-surface hover:underline">{{ author }}</button>
+    <p class="byline-popup__date text-xs text-on-surface-muted">{{ date }}</p>
+  </div>
+  <div class="byline-popup__card pointer-events-none absolute left-0 top-full z-20 mt-2 w-72 rounded-card border border-border bg-surface p-4 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100" role="dialog" aria-label="About {{ author }}">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading uppercase text-on-surface">
+        <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+        <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+      </span>
+      <div>
+        <p class="font-heading text-on-surface">{{ author }}</p>
+        <p data-if="role" class="text-xs text-primary">{{ role }}</p>
+      </div>
+    </div>
+    <p class="mt-2 text-sm text-on-surface-muted">{{ bio }}</p>
+  </div>
+</div>

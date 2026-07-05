@@ -1,0 +1,7 @@
+name: reading-progress
+props:
+  target:
+    type: string
+    title: Target selector
+    description: CSS selector of the article element whose scroll drives the bar. Defaults to the document.
+    example: "article"

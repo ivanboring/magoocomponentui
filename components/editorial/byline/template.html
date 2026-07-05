@@ -1,0 +1,10 @@
+<div class="byline flex items-center gap-3">
+  <span class="byline__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ author }}">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0">
+    <p class="byline__author text-sm font-medium text-on-surface">{{ author }}</p>
+    <p class="byline__meta text-xs text-on-surface-muted">{{ date }}<span data-if="read_time"> · {{ read_time }}</span></p>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+name: "Byline"
+short_description: An author byline with avatar, name, date, and read time.
+long_visual_description: >
+  A compact row with the author's avatar (or initials), their name, and a meta line with
+  the publish date and read time.
+
+use_cases:
+  - Article byline under the headline.
+  - Blog post attribution.
+  - Author credit on editorial content.
+  - Podcast episode host credit.
+  - News article author line.
+
+recommended_for:
+  - Attributing an article to an author with date and read time.
+avoid_for:
+  - A full author bio (use author-bio).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute initials for the avatar fallback; show the date and an estimated read time.
+
+props:
+  author: The author's name.
+  initials: 1-2 char avatar fallback, precomputed.
+  avatar: Optional author photo.
+  date: The publish date.
+  read_time: Estimated read time.
+
+example_prompts:
+  - "Add a byline with author, date, and read time."
+  - "Add an article attribution row with an avatar."
+
+lifecycle: experimental
+content_model: An author, avatar, date, and read time.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+
+editorial_guidance: >
+  Use the author's display name; keep the read time estimate honest.
+
+categorization:
+  category: Editorial
+  subcategory: Attribution
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries the author name; date and read time are real text.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

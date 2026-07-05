@@ -1,0 +1,19 @@
+name: newsletter-inline
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Get the weekly digest"
+  description:
+    type: string
+    title: Description
+    example: "One email a week with the best on design systems and front-end tooling."
+  placeholder:
+    type: string
+    default: "you@example.com"
+    title: Input placeholder
+  cta_label:
+    type: string
+    default: "Subscribe"
+    title: CTA label

@@ -1,0 +1,67 @@
+name: "Article Header"
+short_description: An article title block with category, subtitle, byline, and a hero image.
+long_visual_description: >
+  A centered header with a category eyebrow, a large title, a subtitle, a byline, and a
+  wide hero image beneath.
+
+use_cases:
+  - Top of a blog post or article.
+  - Editorial feature header.
+  - Long-form story intro.
+  - News article header.
+  - Case-study opening.
+
+recommended_for:
+  - The opening header of a long-form article.
+avoid_for:
+  - A compact article preview (use card-blog).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the category, title, and subtitle; slot a byline and add a wide hero image.
+
+props:
+  category: The article's category eyebrow.
+  title: The article title.
+  subtitle: A one-line standfirst.
+  image: The hero image.
+
+slots:
+  byline: The article byline.
+
+example_prompts:
+  - "Add an article header with category, title, subtitle, byline, and hero image."
+  - "Add a blog post header block."
+
+relationships:
+  children:
+    - editorial/byline
+
+lifecycle: experimental
+content_model: A category, title, subtitle, byline, and hero image.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the subtitle to one sentence that expands on the title; use a representative hero.
+
+categorization:
+  category: Editorial
+  subcategory: Article
+  atomic_type: organism
+  usage_type: [hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the hero image is decorative (empty alt) since the title conveys the topic.
+  keyboard_support: "none"
+  seo_score: 65
+  text_direction: both

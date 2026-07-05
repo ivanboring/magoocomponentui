@@ -1,0 +1,29 @@
+name: byline-popup
+props:
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Jane Doe"
+  initials:
+    type: string
+    required: true
+    title: Initials
+    example: "JD"
+  avatar:
+    type: image
+    title: Avatar
+  role:
+    type: string
+    title: Role
+    example: "Principal Engineer"
+  bio:
+    type: string
+    required: true
+    title: Bio
+    example: "Writes about design systems, tooling, and scaling front-end teams."
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Jul 5, 2026"
