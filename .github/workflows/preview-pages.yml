@@ -30,8 +30,12 @@ jobs:
       - run: pnpm install --frozen-lockfile
       # Generate dist/ (variants + catalog.json) so the preview has data to render.
       - run: pnpm build
+      # enablement: true turns Pages on via the API on the first run, so no manual
+      # Settings → Pages toggle is needed (the pages: write permission below covers it).
       - uses: actions/configure-pages@v5
         id: pages
+        with:
+          enablement: true
       # Build the preview with the base path Pages serves the project site from
       # (e.g. https://<owner>.github.io/<repo>/). configure-pages exposes both.
       - name: Build preview
