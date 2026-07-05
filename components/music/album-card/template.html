@@ -1,0 +1,12 @@
+<article class="album-card group">
+  <a class="album-card__media relative block aspect-square overflow-hidden rounded-card shadow-card" href="{{ href }}">
+    <img class="size-full object-cover" src="{{ cover }}" alt="{{ title }} by {{ artist }}">
+    <button type="button" class="album-card__play absolute bottom-2 right-2 flex size-11 translate-y-2 items-center justify-center rounded-full bg-primary text-primary-contrast opacity-0 shadow-raised transition-all duration-(--duration-token) hover:scale-105 group-hover:translate-y-0 group-hover:opacity-100" aria-label="Play {{ title }}">
+      <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+    </button>
+  </a>
+  <div class="album-card__body mt-2">
+    <h3 class="album-card__title truncate text-sm font-medium text-on-surface"><a class="hover:underline" href="{{ href }}">{{ title }}</a></h3>
+    <p class="album-card__meta truncate text-xs text-on-surface-muted">{{ artist }}<span data-if="year"> · {{ year }}</span></p>
+  </div>
+</article>

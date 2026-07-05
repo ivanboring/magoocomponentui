@@ -1,0 +1,10 @@
+<section class="sleep-timer rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="sleep-timer__head flex items-center gap-2">
+    <svg class="size-5 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 3a7 7 0 11-8 11 5 5 0 008-11z"/></svg>
+    <h3 class="sleep-timer__label font-heading text-on-surface">{{ label }}</h3>
+    <span data-if="remaining" class="sleep-timer__remaining ml-auto text-sm font-medium text-primary tabular-nums">{{ remaining }}</span>
+  </div>
+  <div class="sleep-timer__presets mt-3 grid grid-cols-3 gap-2" role="radiogroup" aria-label="{{ label }}">
+    <button data-for="preset in presets" type="button" class="sleep-timer__preset rounded-control border border-border py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ preset.active }}" data-minutes="{{ preset.minutes }}" role="radio" aria-checked="{{ preset.active }}">{{ preset.label }}</button>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+name: artist-hero
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "The Meridians"
+  monthly_listeners:
+    type: string
+    title: Monthly listeners
+    example: "2.4M monthly listeners"
+  image:
+    type: image
+    required: true
+    title: Background
+    example: "/stock/product-sneaker.jpg"
+  verified:
+    type: boolean
+    default: true
+    title: Verified

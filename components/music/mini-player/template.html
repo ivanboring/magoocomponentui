@@ -1,0 +1,14 @@
+<div class="mini-player flex items-center gap-3 rounded-card border border-border bg-surface p-2 pr-3 shadow-card" data-playing="{{ playing }}">
+  <img data-if="cover" class="mini-player__cover size-12 shrink-0 rounded-control object-cover" src="{{ cover }}" alt="">
+  <div class="min-w-0 flex-1">
+    <p class="mini-player__title truncate text-sm font-medium text-on-surface">{{ title }}</p>
+    <p data-if="artist" class="mini-player__artist truncate text-xs text-on-surface-muted">{{ artist }}</p>
+    <div class="mini-player__progress mt-1 h-1 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Playback progress">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ progress_pct }}%"></div>
+    </div>
+  </div>
+  <button type="button" class="mini-player__toggle flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-label="Play/pause" aria-pressed="{{ playing }}">
+    <svg class="size-5 group-data-[playing=true]:hidden mini-player__play data-[playing=false]:block hidden" data-playing="{{ playing }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+    <svg class="size-5 mini-player__pause data-[playing=true]:block hidden" data-playing="{{ playing }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+  </button>
+</div>

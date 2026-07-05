@@ -1,0 +1,6 @@
+<div class="volume-control inline-flex items-center gap-2" data-muted="{{ muted }}">
+  <button type="button" class="volume-control__mute flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Mute" aria-pressed="{{ muted }}">
+    <svg class="size-5 group-data-[muted=true]:hidden volume-control__icon-on" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8v4h3l4 3V5L7 8H4z"/><path d="M14 7a4 4 0 010 6"/></svg>
+  </button>
+  <input type="range" class="volume-control__slider h-1.5 w-28 accent-primary" min="0" max="100" value="{{ value }}" aria-label="Volume">
+</div>

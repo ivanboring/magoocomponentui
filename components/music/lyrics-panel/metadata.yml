@@ -1,0 +1,61 @@
+name: "Lyrics Panel"
+short_description: A synced lyrics view highlighting the active line.
+long_visual_description: >
+  A large-type lyrics view where past lines are dimmed, the active line is bright, and
+  upcoming lines are semi-muted — a synced-lyrics look.
+
+use_cases:
+  - Synced lyrics view.
+  - Karaoke-style lyrics.
+  - Now-playing lyrics.
+  - Follow-along lyrics.
+  - Lyric display.
+
+recommended_for:
+  - A synced lyrics view for a playing track.
+avoid_for:
+  - Song credits (use song-credits).
+
+markets:
+  - Global
+
+example_usage: >
+  Mark each line past/active/upcoming; the host advances states as the track plays.
+
+props:
+  title: The panel title.
+  lines: The lyric lines with state.
+
+example_prompts:
+  - "Add a synced lyrics panel with an active line."
+  - "Add a follow-along lyrics view."
+
+lifecycle: experimental
+content_model: A synced lyrics view with line states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  The active line is emphasized by brightness; provide accurate timing in the host.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Lyrics are real text in an ordered list; the active line is emphasized by brightness (and could add a marker in production for non-visual sync).
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,14 @@
+<article class="concert-card flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="concert-card__date flex size-14 shrink-0 flex-col items-center justify-center rounded-card bg-surface-raised">
+    <span class="text-[10px] font-semibold uppercase tracking-wide text-on-surface-muted">{{ month }}</span>
+    <span class="font-heading text-xl text-on-surface tabular-nums">{{ day }}</span>
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="concert-card__venue font-heading text-on-surface">{{ venue }}</p>
+    <p data-if="city" class="concert-card__city text-sm text-on-surface-muted">{{ city }}</p>
+  </div>
+  <button type="button" class="concert-card__cta shrink-0 rounded-button px-4 py-2 text-sm font-heading transition-opacity duration-(--duration-token) data-[soldout=true]:cursor-not-allowed data-[soldout=true]:bg-surface-raised data-[soldout=true]:text-on-surface-muted data-[soldout=false]:bg-primary data-[soldout=false]:text-primary-contrast data-[soldout=false]:hover:opacity-90" data-soldout="{{ soldout }}">
+    <span data-if="soldout">Sold out</span>
+    <span data-if="!soldout">Tickets</span>
+  </button>
+</article>

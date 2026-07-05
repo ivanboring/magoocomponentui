@@ -1,0 +1,24 @@
+name: mini-player
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Midnight Drive"
+  artist:
+    type: string
+    title: Artist
+    example: "The Meridians"
+  cover:
+    type: image
+    title: Cover
+    example: "/stock/product-sneaker.jpg"
+  playing:
+    type: boolean
+    default: true
+    title: Playing
+  progress_pct:
+    type: integer
+    default: 0
+    title: Progress
+    description: 0-100.

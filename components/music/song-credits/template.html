@@ -1,0 +1,9 @@
+<section class="song-credits rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h3 class="song-credits__title font-heading text-on-surface">{{ title }}</h3>
+  <dl class="song-credits__roles mt-3 flex flex-col gap-2 text-sm">
+    <div data-for="role in roles" class="flex flex-col gap-0.5 sm:flex-row sm:justify-between sm:gap-4">
+      <dt class="text-on-surface-muted">{{ role.role }}</dt>
+      <dd class="font-medium text-on-surface sm:text-right">{{ role.names }}</dd>
+    </div>
+  </dl>
+</section>

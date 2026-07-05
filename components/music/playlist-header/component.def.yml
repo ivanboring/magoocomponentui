@@ -1,0 +1,24 @@
+name: playlist-header
+props:
+  kind:
+    type: string
+    default: "Playlist"
+    title: Kind
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Late Night Drive"
+  description:
+    type: string
+    title: Description
+    example: "Synthwave and dream pop for the open road after dark."
+  cover:
+    type: image
+    required: true
+    title: Cover
+    example: "/stock/product-sneaker.jpg"
+  meta:
+    type: string
+    title: Meta
+    example: "Curated by Magoo · 48 songs · 3h 12m"

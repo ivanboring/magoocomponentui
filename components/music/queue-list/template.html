@@ -1,0 +1,27 @@
+<section class="queue-list rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Queue">
+  <p class="queue-list__label text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Now playing</p>
+  <div class="queue-list__now mt-2 flex items-center gap-3 rounded-control bg-primary/5 p-2">
+    <img data-if="now_playing.image" class="size-11 shrink-0 rounded object-cover" src="{{ now_playing.image }}" alt="">
+    <div class="min-w-0 flex-1">
+      <p class="truncate text-sm font-medium text-primary">{{ now_playing.title }}</p>
+      <p class="truncate text-xs text-on-surface-muted">{{ now_playing.artist }}</p>
+    </div>
+    <span class="queue-list__eq flex items-end gap-0.5" aria-hidden="true">
+      <span class="h-3 w-0.5 rounded-full bg-primary"></span><span class="h-4 w-0.5 rounded-full bg-primary"></span><span class="h-2 w-0.5 rounded-full bg-primary"></span>
+    </span>
+  </div>
+  <p class="queue-list__label mt-4 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Up next</p>
+  <ol class="queue-list__items mt-2 flex flex-col">
+    <li data-for="track in up_next" class="queue-list__item group flex items-center gap-3 rounded-control px-2 py-2 hover:bg-surface-raised">
+      <img data-if="track.image" class="size-10 shrink-0 rounded object-cover" src="{{ track.image }}" alt="">
+      <div class="min-w-0 flex-1">
+        <p class="truncate text-sm text-on-surface">{{ track.title }}</p>
+        <p class="truncate text-xs text-on-surface-muted">{{ track.artist }}</p>
+      </div>
+      <span class="shrink-0 text-xs text-on-surface-muted tabular-nums group-hover:hidden">{{ track.duration }}</span>
+      <button type="button" class="hidden size-7 shrink-0 items-center justify-center rounded-control text-on-surface-muted hover:text-danger group-hover:flex" aria-label="Remove {{ track.title }} from queue">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </li>
+  </ol>
+</section>

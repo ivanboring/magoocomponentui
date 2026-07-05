@@ -1,0 +1,63 @@
+name: "Artist Hero"
+short_description: An artist banner with verified badge, monthly listeners, and play/follow.
+long_visual_description: >
+  A full-bleed image banner with a bottom scrim, a verified-artist line, the large artist
+  name, monthly listeners, and play + follow actions.
+
+use_cases:
+  - Artist page banner.
+  - Musician hero.
+  - Profile banner with follow.
+  - Streaming artist top.
+  - Band header.
+
+recommended_for:
+  - The hero of an artist page with play/follow.
+avoid_for:
+  - An album header (use playlist-header).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a strong artist image; the scrim keeps text legible. Show verified status and monthly
+  listeners.
+
+props:
+  name: The artist name.
+  monthly_listeners: The monthly listeners line.
+  image: The background image (required).
+  verified: Whether verified.
+
+example_prompts:
+  - "Add an artist hero with verified badge and follow."
+  - "Add a musician page banner."
+
+lifecycle: experimental
+content_model: An artist banner with play/follow.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Show monthly listeners for scale; the scrim + white text is fixed for legibility.
+
+categorization:
+  category: Music
+  subcategory: Artist
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the scrim keeps white text legible; play/follow are real buttons; the verified badge includes text.
+  keyboard_support: Play and follow are focusable and activate on Enter/Space.
+  seo_score: 55
+  text_direction: both

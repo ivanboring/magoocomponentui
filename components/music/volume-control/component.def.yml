@@ -1,0 +1,11 @@
+name: volume-control
+props:
+  value:
+    type: integer
+    default: 70
+    title: Volume
+    description: 0-100.
+  muted:
+    type: boolean
+    default: false
+    title: Muted

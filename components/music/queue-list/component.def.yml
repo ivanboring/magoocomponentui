@@ -1,0 +1,13 @@
+name: queue-list
+props:
+  now_playing:
+    type: object
+    required: true
+    title: Now playing
+    description: "{ title, artist, image }."
+  up_next:
+    type: array
+    items: object
+    required: true
+    title: Up next
+    description: "Each: { title, artist, image, duration }."

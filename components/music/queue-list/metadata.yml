@@ -1,0 +1,66 @@
+name: "Queue List"
+short_description: A playback queue showing now-playing and up-next tracks.
+long_visual_description: >
+  A panel with the now-playing track highlighted (with an equalizer glyph) and an up-next
+  list where each track shows its duration or a remove control on hover.
+
+use_cases:
+  - Playback queue.
+  - Up-next list.
+  - Now-playing + queue.
+  - Play queue panel.
+  - Continue queue.
+
+recommended_for:
+  - A playback queue with now-playing and up-next.
+avoid_for:
+  - A playlist track list (use track-row list).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the now-playing track and the up-next list; tracks show duration or a remove control on
+  hover.
+
+props:
+  now_playing: The current track.
+  up_next: The up-next tracks.
+
+relationships:
+  children:
+    - music/track-row
+
+lifecycle: experimental
+content_model: A playback queue with now-playing and up-next.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Highlight the now-playing track; up-next items show duration and a remove affordance.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Now-playing/up-next use headings and an ordered list; remove controls have accessible labels; the equalizer glyph is decorative.
+  keyboard_support: Remove controls are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,5 @@
+<section class="lyrics-panel rounded-card bg-gradient-to-b from-primary/10 to-surface p-(--space-section)" aria-label="{{ title }}">
+  <ol class="lyrics-panel__lines flex flex-col gap-3">
+    <li data-for="line in lines" class="lyrics-panel__line font-heading text-2xl transition-colors duration-(--duration-token) data-[state=past]:text-on-surface-muted/50 data-[state=active]:text-on-surface data-[state=upcoming]:text-on-surface-muted/70" data-state="{{ line.state }}">{{ line.text }}</li>
+  </ol>
+</section>

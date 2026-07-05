@@ -1,0 +1,24 @@
+name: album-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Neon Horizon"
+  artist:
+    type: string
+    required: true
+    title: Artist
+    example: "The Meridians"
+  year:
+    type: string
+    title: Year
+    example: "2026"
+  cover:
+    type: image
+    required: true
+    title: Cover
+    example: "/stock/product-sneaker.jpg"
+  href:
+    type: link
+    title: Link

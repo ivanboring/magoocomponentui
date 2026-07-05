@@ -1,0 +1,18 @@
+<header class="playlist-header flex flex-col gap-6 rounded-card bg-gradient-to-b from-primary/20 to-surface p-(--space-section) sm:flex-row sm:items-end">
+  <img class="playlist-header__cover size-44 shrink-0 rounded-card object-cover shadow-raised" src="{{ cover }}" alt="{{ title }} cover">
+  <div class="playlist-header__body min-w-0 flex-1">
+    <p class="playlist-header__kind text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ kind }}</p>
+    <h1 class="playlist-header__title mt-1 font-heading text-4xl text-on-surface">{{ title }}</h1>
+    <p data-if="description" class="playlist-header__description mt-2 text-on-surface-muted">{{ description }}</p>
+    <p data-if="meta" class="playlist-header__meta mt-2 text-sm text-on-surface-muted">{{ meta }}</p>
+    <div class="playlist-header__actions mt-5 flex items-center gap-3">
+      <button type="button" class="flex items-center gap-2 rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">
+        <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+        Play
+      </button>
+      <button type="button" class="flex size-11 items-center justify-center rounded-full border border-border text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Save to library">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg>
+      </button>
+    </div>
+  </div>
+</header>

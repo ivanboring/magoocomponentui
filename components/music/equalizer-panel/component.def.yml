@@ -1,0 +1,19 @@
+name: equalizer-panel
+props:
+  title:
+    type: string
+    default: "Equalizer"
+    title: Title
+  presets:
+    type: array
+    items: object
+    title: Presets
+    description: "Each: { label, active }."
+  bands:
+    type: array
+    items: object
+    required: true
+    title: Bands
+    description: "Each band: { freq, value } where value is -12 to 12 (dB)."
+    example:
+      - { freq: "60", value: 4 }

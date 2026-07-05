@@ -1,0 +1,17 @@
+<article class="podcast-episode-row flex gap-4 border-b border-border py-4 last:border-0">
+  <img data-if="image" class="podcast-episode-row__cover size-16 shrink-0 rounded-card object-cover" src="{{ image }}" alt="">
+  <div class="min-w-0 flex-1">
+    <p data-if="show" class="podcast-episode-row__show text-xs text-on-surface-muted">{{ show }}<span data-if="date"> · {{ date }}</span></p>
+    <h3 class="podcast-episode-row__title font-heading text-on-surface">{{ title }}</h3>
+    <p data-if="description" class="podcast-episode-row__description mt-1 line-clamp-2 text-sm text-on-surface-muted">{{ description }}</p>
+    <div class="podcast-episode-row__foot mt-2 flex items-center gap-3">
+      <button type="button" class="podcast-episode-row__play flex items-center gap-2 rounded-pill border border-border px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Play {{ title }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+        {{ duration }}
+      </button>
+      <div data-if="progress_pct" class="podcast-episode-row__progress h-1 w-24 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Listen progress">
+        <div class="h-full rounded-pill bg-primary" style="width: {{ progress_pct }}%"></div>
+      </div>
+    </div>
+  </div>
+</article>

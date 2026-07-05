@@ -1,0 +1,11 @@
+{
+  "title": "Lyrics",
+  "lines": [
+    { "text": "Headlights paint the empty road", "state": "past" },
+    { "text": "Radio hums a song we know", "state": "past" },
+    { "text": "City fades to a distant glow", "state": "active" },
+    { "text": "Midnight drive, just let it go", "state": "upcoming" },
+    { "text": "Chasing neon, nowhere to be", "state": "upcoming" },
+    { "text": "Just the highway, you and me", "state": "upcoming" }
+  ]
+}

@@ -1,0 +1,69 @@
+name: "Playlist Header"
+short_description: A playlist hero with cover, title, description, meta, and play/save.
+long_visual_description: >
+  A gradient header with a large cover, the playlist kind/title/description, meta (curator,
+  song count, duration), and play + save actions.
+
+use_cases:
+  - Playlist page header.
+  - Album header.
+  - Collection hero.
+  - Play-all header.
+  - Music detail top.
+
+recommended_for:
+  - The header of a playlist/album page with play-all.
+avoid_for:
+  - An album grid card (use album-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the cover, title, description, and meta; the play button starts the playlist.
+
+props:
+  kind: The kind label (Playlist/Album).
+  title: The title.
+  description: The description.
+  cover: The cover art (required).
+  meta: The meta line.
+
+example_prompts:
+  - "Add a playlist header with play-all."
+  - "Add an album detail header."
+
+lifecycle: experimental
+content_model: A playlist header with play/save actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Show the meta (song count, duration); play is the primary action.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the cover alt names the playlist; play/save are real buttons (save has a label).
+  keyboard_support: Play and save are focusable and activate on Enter/Space.
+  seo_score: 55
+  text_direction: both

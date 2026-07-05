@@ -1,0 +1,14 @@
+name: song-credits
+props:
+  title:
+    type: string
+    default: "Credits"
+    title: Title
+  roles:
+    type: array
+    items: object
+    required: true
+    title: Roles
+    description: "Each: { role, names }."
+    example:
+      - { role: "Written by", names: "A. Rivera, N. Patel" }

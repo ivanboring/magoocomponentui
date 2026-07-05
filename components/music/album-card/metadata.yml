@@ -1,0 +1,65 @@
+name: "Album Card"
+short_description: An album cover card with title, artist, year, and a hover play button.
+long_visual_description: >
+  A square cover with a hover play button, and the album title, artist, and year below — the
+  streaming-app grid style.
+
+use_cases:
+  - Album in a grid.
+  - Discography card.
+  - Playlist cover tile.
+  - Music browse grid.
+  - Release card.
+
+recommended_for:
+  - An album/playlist cover tile in a grid.
+avoid_for:
+  - A track row (use track-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Use the square cover; show the artist and year. The play button appears on hover.
+
+props:
+  title: The album title.
+  artist: The artist.
+  year: The release year.
+  cover: The cover art (required).
+  href: The album link.
+
+example_prompts:
+  - "Add an album card with a hover play button."
+  - "Add a music grid album tile."
+
+lifecycle: experimental
+content_model: An album cover, title, artist, and year.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a high-quality square cover; keep the title/artist to one line each.
+
+categorization:
+  category: Music
+  subcategory: Browse
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The cover alt names the album and artist; the play control has an accessible label; title/artist are real text.
+  keyboard_support: The title and play control are focusable and keyboard-operable.
+  seo_score: 45
+  text_direction: both

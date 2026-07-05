@@ -1,0 +1,9 @@
+{
+  "now_playing": { "title": "Midnight Drive", "artist": "The Meridians", "image": "/stock/product-sneaker.jpg" },
+  "up_next": [
+    { "title": "Neon Harbor", "artist": "Wildfire", "image": "/stock/product-sneaker.jpg", "duration": "4:02" },
+    { "title": "Coastline", "artist": "Paper Kites", "image": "/stock/product-sneaker.jpg", "duration": "3:28" },
+    { "title": "Violet Hour", "artist": "Echo Park", "image": "/stock/product-sneaker.jpg", "duration": "3:55" },
+    { "title": "Slow Dakota", "artist": "The Gardens", "image": "/stock/product-sneaker.jpg", "duration": "5:11" }
+  ]
+}

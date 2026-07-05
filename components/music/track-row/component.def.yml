@@ -1,0 +1,31 @@
+name: track-row
+props:
+  index:
+    type: string
+    title: Index
+    example: "1"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Midnight Drive"
+  artist:
+    type: string
+    title: Artist
+    example: "The Meridians"
+  image:
+    type: image
+    title: Cover
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "3:42"
+  playing:
+    type: boolean
+    default: false
+    title: Now playing
+  explicit:
+    type: boolean
+    default: false
+    title: Explicit

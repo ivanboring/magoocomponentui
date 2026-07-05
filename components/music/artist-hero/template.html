@@ -1,0 +1,16 @@
+<section class="artist-hero relative flex min-h-80 items-end overflow-hidden rounded-card">
+  <div class="artist-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="artist-hero__scrim absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" aria-hidden="true"></div>
+  <div class="artist-hero__body relative w-full p-(--space-section) text-white">
+    <p data-if="verified" class="artist-hero__verified flex items-center gap-1.5 text-sm font-medium text-white/90">
+      <svg class="size-4 text-info" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.4 1.8 3-.2 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3-.2L10 19l-2.4-1.8-3 .2-1-2.8L1.2 12.8l1-2.8-1-2.8 2.4-1.8 1-2.8 3 .2z"/><path d="M7 10l2 2 4-4" fill="none" stroke="white" stroke-width="1.5"/></svg>
+      Verified Artist
+    </p>
+    <h1 class="artist-hero__name mt-2 font-heading text-5xl leading-none sm:text-6xl">{{ name }}</h1>
+    <p data-if="monthly_listeners" class="artist-hero__listeners mt-3 text-sm text-white/85">{{ monthly_listeners }}</p>
+    <div class="artist-hero__actions mt-5 flex items-center gap-3">
+      <button type="button" class="flex items-center gap-2 rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90"><svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>Play</button>
+      <button type="button" class="rounded-button border border-white/40 px-5 py-2.5 text-sm font-heading text-white transition-colors duration-(--duration-token) hover:bg-white/10">Follow</button>
+    </div>
+  </div>
+</section>

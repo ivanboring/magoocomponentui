@@ -1,0 +1,64 @@
+name: "Track Row"
+short_description: A song row with index/play, cover, title, artist, and duration.
+long_visual_description: >
+  A row showing a track number (swapping to a play button on hover), an optional cover, the
+  title and artist (with an explicit tag), and the duration; the playing track is highlighted.
+
+use_cases:
+  - Track in a playlist.
+  - Album track list row.
+  - Song list entry.
+  - Queue item.
+  - Music list row.
+
+recommended_for:
+  - A single track in a list with a play affordance.
+avoid_for:
+  - A podcast episode (use podcast-episode-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the index (play on hover), title, artist, and duration; mark the playing track.
+
+props:
+  index: The track number.
+  title: The track title.
+  artist: The artist.
+  image: The cover art.
+  duration: The track duration.
+  playing: Whether it's the current track.
+  explicit: Whether it's explicit.
+
+example_prompts:
+  - "Add a track row with play-on-hover and duration."
+  - "Add a now-playing track list row."
+
+lifecycle: experimental
+content_model: A track's title, artist, and duration with a play affordance.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Show the explicit tag where relevant; the playing track is highlighted and shows a pause
+  glyph.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The play control has an accessible label naming the track; title/artist/duration are real text; the explicit tag is text.
+  keyboard_support: The play control is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

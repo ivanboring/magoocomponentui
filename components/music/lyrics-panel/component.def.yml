@@ -1,0 +1,14 @@
+name: lyrics-panel
+props:
+  title:
+    type: string
+    default: "Lyrics"
+    title: Title
+  lines:
+    type: array
+    items: object
+    required: true
+    title: Lines
+    description: "Each line: { text, state } where state is past | active | upcoming."
+    example:
+      - { text: "Headlights paint the empty road", state: "past" }

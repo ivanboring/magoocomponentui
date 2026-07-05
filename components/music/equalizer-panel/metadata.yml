@@ -1,0 +1,67 @@
+name: "Equalizer Panel"
+short_description: A graphic equalizer with per-band vertical sliders and presets.
+long_visual_description: >
+  A panel with preset chips and a row of vertical frequency-band sliders (60 Hz–15 kHz) for
+  adjusting gain.
+
+use_cases:
+  - Audio equalizer.
+  - EQ band sliders.
+  - Sound tuning.
+  - Playback EQ.
+  - Preset + custom EQ.
+
+recommended_for:
+  - A graphic equalizer with band sliders.
+avoid_for:
+  - A single volume slider (use volume-control).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the frequency bands with gain values and optional presets; each band is a vertical
+  slider.
+
+props:
+  title: The panel title.
+  presets: The EQ presets.
+  bands: The frequency bands with gain values.
+
+example_prompts:
+  - "Add a graphic equalizer with band sliders and presets."
+  - "Add an audio EQ panel."
+
+lifecycle: experimental
+content_model: A graphic equalizer with bands and presets.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Offer presets plus manual bands; label each band's frequency.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each band slider has an aria-label with its frequency; presets use aria-pressed; sliders are keyboard-operable.
+  keyboard_support: Presets and band sliders are focusable and keyboard-operable.
+  seo_score: 20
+  text_direction: both

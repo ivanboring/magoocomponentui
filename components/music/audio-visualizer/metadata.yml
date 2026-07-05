@@ -1,0 +1,55 @@
+name: "Audio Visualizer"
+short_description: An animated bar visualizer shell for audio playback.
+long_visual_description: >
+  A row of vertical bars of varying heights that animate while playing — a decorative audio
+  visualizer.
+
+use_cases:
+  - Now-playing visualizer.
+  - Audio bars animation.
+  - Waveform-style shell.
+  - Playback indicator.
+  - Music visual.
+
+recommended_for:
+  - A decorative audio bar visualizer.
+avoid_for:
+  - A seekable waveform (build a waveform-scrubber).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide initial bar heights; the behavior animates them while data-animated is true (and
+  respects reduced-motion). It's illustrative, not driven by real audio.
+
+props:
+  bars: The bar heights (0-100).
+  animated: Whether to animate.
+
+example_prompts:
+  - "Add an animated audio visualizer."
+  - "Add a now-playing bar animation."
+
+lifecycle: experimental
+content_model: A decorative animated audio visualizer.
+
+theming:
+  tokens_used:
+    - --color-primary
+
+editorial_guidance: >
+  This is decorative — it doesn't reflect real audio. It pauses under reduced-motion.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: molecule
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Marked role="img" with a label; animation respects prefers-reduced-motion (stops when reduced).
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

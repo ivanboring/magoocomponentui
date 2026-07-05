@@ -1,0 +1,23 @@
+name: genre-tile
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Lo-fi Beats"
+  tone:
+    type: enum
+    values: [primary, accent, success, warning, danger, info]
+    default: primary
+    title: Tone
+  href:
+    type: link
+    title: Link
+variants:
+  tone:
+    primary: "bg-primary text-primary-contrast"
+    accent: "bg-accent text-primary-contrast"
+    success: "bg-success text-success-contrast"
+    warning: "bg-warning text-warning-contrast"
+    danger: "bg-danger text-danger-contrast"
+    info: "bg-info text-info-contrast"

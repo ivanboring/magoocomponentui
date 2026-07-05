@@ -1,0 +1,32 @@
+name: podcast-episode-row
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Ep 142 · Building at scale"
+  show:
+    type: string
+    title: Show
+    example: "The Frontend Pod"
+  date:
+    type: string
+    title: Date
+    example: "Aug 12"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    example: "48 min"
+  description:
+    type: string
+    title: Description
+    example: "How to grow a component library to a thousand pieces without losing your mind."
+  progress_pct:
+    type: integer
+    default: 0
+    title: Progress
+    description: 0-100 listen progress.
+  image:
+    type: image
+    title: Cover

@@ -1,0 +1,12 @@
+{
+  "label": "Sleep timer",
+  "presets": [
+    { "label": "15 min", "minutes": "15", "active": false },
+    { "label": "30 min", "minutes": "30", "active": true },
+    { "label": "45 min", "minutes": "45", "active": false },
+    { "label": "1 hour", "minutes": "60", "active": false },
+    { "label": "End of track", "minutes": "0", "active": false },
+    { "label": "Off", "minutes": "0", "active": false }
+  ],
+  "remaining": "24:18 remaining"
+}

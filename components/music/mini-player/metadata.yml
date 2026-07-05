@@ -1,0 +1,69 @@
+name: "Mini Player"
+short_description: A compact player widget with cover, title, progress, and play/pause.
+long_visual_description: >
+  A compact bar with the track cover, title/artist, a thin progress bar, and a play/pause
+  button.
+
+use_cases:
+  - Docked mini player.
+  - Compact playback widget.
+  - Sidebar player.
+  - Floating player.
+  - Persistent player.
+
+recommended_for:
+  - A compact play/pause player widget.
+avoid_for:
+  - A full now-playing bar (use now-playing-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the cover, title, and progress with a play/pause toggle. Emits miniplayer:toggle.
+
+props:
+  title: The track title.
+  artist: The artist.
+  cover: The cover art.
+  playing: Whether playing.
+  progress_pct: The playback progress.
+
+example_prompts:
+  - "Add a compact mini player widget."
+  - "Add a docked play/pause player."
+
+lifecycle: experimental
+content_model: A compact player with play/pause and progress.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep it compact; the play/pause is the primary control.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: molecule
+  usage_type: [player]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle has a label and aria-pressed; the progress bar uses role="progressbar" with a label; text is real.
+  keyboard_support: The play/pause toggle is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

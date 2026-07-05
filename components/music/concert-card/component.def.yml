@@ -1,0 +1,29 @@
+name: concert-card
+props:
+  month:
+    type: string
+    required: true
+    title: Month
+    example: "SEP"
+  day:
+    type: string
+    required: true
+    title: Day
+    example: "24"
+  venue:
+    type: string
+    required: true
+    title: Venue
+    example: "The Fillmore"
+  city:
+    type: string
+    title: City
+    example: "San Francisco, CA"
+  status:
+    type: string
+    title: Status
+    example: "On sale"
+  soldout:
+    type: boolean
+    default: false
+    title: Sold out

@@ -1,0 +1,71 @@
+name: "Now Playing Bar"
+short_description: A full playback bar with track, transport controls, and a seek progress.
+long_visual_description: >
+  A docked bar with the current track (cover, title, like), centered transport controls
+  (prev/play-pause/next) and a seek bar with elapsed/total, and a queue control on the right.
+
+use_cases:
+  - Streaming app playback bar.
+  - Now-playing footer.
+  - Transport controls bar.
+  - Persistent player.
+  - Playback dock.
+
+recommended_for:
+  - The full playback bar for a music app.
+avoid_for:
+  - A compact widget (use mini-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the current track and transport controls with a seek bar; play/pause toggles. Emits
+  nowplaying:toggle.
+
+props:
+  title: The track title.
+  artist: The artist.
+  cover: The cover art.
+  playing: Whether playing.
+  elapsed: The elapsed time.
+  total: The total time.
+  progress_pct: The seek progress.
+
+example_prompts:
+  - "Add a now-playing bar with transport controls."
+  - "Add a streaming playback footer."
+
+lifecycle: experimental
+content_model: A full playback bar with transport and seek.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep transport controls centered; the seek bar shows elapsed/total.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: organism
+  usage_type: [player]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All controls have accessible labels; the seek bar uses role="progressbar" with a label; play/pause has aria-pressed.
+  keyboard_support: All controls are focusable and keyboard-operable.
+  seo_score: 30
+  text_direction: both

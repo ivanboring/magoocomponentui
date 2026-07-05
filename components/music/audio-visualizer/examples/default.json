@@ -1,0 +1,59 @@
+{
+  "bars": [
+    {
+      "height": 30
+    },
+    {
+      "height": 55
+    },
+    {
+      "height": 80
+    },
+    {
+      "height": 45
+    },
+    {
+      "height": 65
+    },
+    {
+      "height": 90
+    },
+    {
+      "height": 50
+    },
+    {
+      "height": 35
+    },
+    {
+      "height": 70
+    },
+    {
+      "height": 60
+    },
+    {
+      "height": 40
+    },
+    {
+      "height": 85
+    },
+    {
+      "height": 55
+    },
+    {
+      "height": 30
+    },
+    {
+      "height": 75
+    },
+    {
+      "height": 50
+    },
+    {
+      "height": 65
+    },
+    {
+      "height": 45
+    }
+  ],
+  "animated": true
+}

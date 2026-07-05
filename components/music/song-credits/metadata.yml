@@ -1,0 +1,61 @@
+name: "Song Credits"
+short_description: A writers/producers credits list for a track.
+long_visual_description: >
+  A panel listing credit roles (written by, produced by, mixed by) each with the contributor
+  names.
+
+use_cases:
+  - Song credits.
+  - Track contributors.
+  - Writer/producer list.
+  - Liner notes.
+  - Credits panel.
+
+recommended_for:
+  - A track's credits by role.
+avoid_for:
+  - A lyrics view (use lyrics-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  List each role with the contributor names; keep roles consistent.
+
+props:
+  title: The section title.
+  roles: The credit roles with names.
+
+example_prompts:
+  - "Add a song credits panel."
+  - "Add track writers and producers."
+
+lifecycle: experimental
+content_model: A track's credits by role.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use consistent role names; group by contribution type.
+
+categorization:
+  category: Music
+  subcategory: Metadata
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list; roles and names are real text.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

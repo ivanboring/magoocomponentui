@@ -1,0 +1,12 @@
+name: audio-visualizer
+props:
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: "Each: { height } — 0-100 percent height. Purely decorative shell; JS animates."
+  animated:
+    type: boolean
+    default: true
+    title: Animate

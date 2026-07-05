@@ -1,0 +1,57 @@
+name: "Volume Control"
+short_description: A volume slider with a mute toggle.
+long_visual_description: >
+  A speaker mute button beside a volume slider; muting drops the level to zero and restores it.
+
+use_cases:
+  - Player volume control.
+  - Mute toggle + slider.
+  - Audio level.
+  - Media volume.
+  - Playback volume.
+
+recommended_for:
+  - A volume slider with mute.
+avoid_for:
+  - An equalizer (use equalizer-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the initial volume; the mute button toggles to zero and back. Emits volume:change.
+
+props:
+  value: The volume 0-100.
+  muted: Whether muted.
+
+example_prompts:
+  - "Add a volume control with mute."
+  - "Add a player volume slider."
+
+lifecycle: experimental
+content_model: A volume level with mute.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Mute restores the prior level; the slider is the source of truth.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: atom
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The mute button has a label and aria-pressed; the slider has an aria-label and is keyboard-operable.
+  keyboard_support: The mute button and slider are focusable and keyboard-operable.
+  seo_score: 15
+  text_direction: both

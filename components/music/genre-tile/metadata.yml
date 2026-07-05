@@ -1,0 +1,69 @@
+name: "Genre Tile"
+short_description: A colored genre card with a name and a decorative art corner.
+long_visual_description: >
+  A colour-filled tile with the genre name and a tilted art square in the corner, in the
+  streaming-app browse style.
+
+use_cases:
+  - Browse-by-genre tile.
+  - Music category card.
+  - Mood/genre grid.
+  - Streaming browse.
+  - Genre link.
+
+recommended_for:
+  - A colorful genre/mood browse tile.
+avoid_for:
+  - An album card (use album-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the tone for the fill and provide the genre name; links to the genre page.
+
+props:
+  name: The genre name.
+  tone: The fill colour tone.
+  href: The genre link.
+
+example_prompts:
+  - "Add a genre tile for Lo-fi Beats."
+  - "Add a browse-by-genre card."
+
+lifecycle: experimental
+content_model: A genre name on a colored tile.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-success
+    - --color-success-contrast
+    - --color-warning
+    - --color-warning-contrast
+    - --color-danger
+    - --color-danger-contrast
+    - --color-info
+    - --color-info-contrast
+    - --radius-card
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+
+editorial_guidance: >
+  Use a distinct tone per genre; the name carries the meaning.
+
+categorization:
+  category: Music
+  subcategory: Browse
+  atomic_type: atom
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The genre name is real text; verify each tone/contrast pair per theme; the art corner is decorative.
+  keyboard_support: The tile is focusable and activates on Enter.
+  seo_score: 30
+  text_direction: both

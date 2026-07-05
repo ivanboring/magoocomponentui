@@ -1,0 +1,16 @@
+<div class="track-row group flex items-center gap-3 rounded-control px-2 py-2 hover:bg-surface-raised" data-playing="{{ playing }}">
+  <span data-if="index" class="track-row__index w-5 shrink-0 text-center text-sm text-on-surface-muted tabular-nums group-hover:hidden group-data-[playing=true]:hidden">{{ index }}</span>
+  <button type="button" class="track-row__play hidden size-5 shrink-0 items-center justify-center text-on-surface group-hover:flex group-data-[playing=true]:flex" aria-label="Play {{ title }}">
+    <svg class="size-4 group-data-[playing=true]:hidden" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+    <svg class="hidden size-4 text-primary group-data-[playing=true]:block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+  </button>
+  <img data-if="image" class="track-row__cover size-10 shrink-0 rounded object-cover" src="{{ image }}" alt="">
+  <div class="track-row__body min-w-0 flex-1">
+    <p class="track-row__title truncate text-sm font-medium text-on-surface group-data-[playing=true]:text-primary">{{ title }}</p>
+    <p class="track-row__meta flex items-center gap-1.5 text-xs text-on-surface-muted">
+      <span data-if="explicit" class="rounded-sm bg-on-surface-muted/20 px-1 text-[9px] font-bold uppercase leading-tight">E</span>
+      <span data-if="artist" class="truncate">{{ artist }}</span>
+    </p>
+  </div>
+  <span class="track-row__duration shrink-0 text-sm text-on-surface-muted tabular-nums">{{ duration }}</span>
+</div>

@@ -1,0 +1,68 @@
+name: "Podcast Episode Row"
+short_description: A podcast episode with cover, description, play button, and listen progress.
+long_visual_description: >
+  A row with the episode cover, show/date, title, a two-line description, and a play button
+  showing the duration with a listen-progress bar.
+
+use_cases:
+  - Podcast episode list.
+  - Episode with progress.
+  - Show episode row.
+  - Continue-listening item.
+  - Podcast feed entry.
+
+recommended_for:
+  - A podcast episode with play and progress.
+avoid_for:
+  - A music track (use track-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the description and play button with duration; the progress bar reflects listen
+  position.
+
+props:
+  title: The episode title.
+  show: The show name.
+  date: The publish date.
+  duration: The episode duration.
+  description: The episode description.
+  progress_pct: The listen progress.
+  image: The cover art.
+
+example_prompts:
+  - "Add a podcast episode row with progress."
+  - "Add a continue-listening episode."
+
+lifecycle: experimental
+content_model: A podcast episode with play and progress.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the description to a couple of lines; the progress bar shows resume position.
+
+categorization:
+  category: Music
+  subcategory: Podcasts
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The play control has an accessible label; the progress bar uses role="progressbar" with a label; text is real.
+  keyboard_support: The play control is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

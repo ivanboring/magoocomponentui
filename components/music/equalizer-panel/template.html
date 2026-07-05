@@ -1,0 +1,14 @@
+<section class="equalizer-panel rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <div class="equalizer-panel__head flex items-center justify-between gap-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <div data-if="presets" class="equalizer-panel__presets flex gap-1.5" role="group" aria-label="Presets">
+      <button data-for="preset in presets" type="button" class="rounded-pill border border-border px-2.5 py-0.5 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ preset.active }}" aria-pressed="{{ preset.active }}">{{ preset.label }}</button>
+    </div>
+  </div>
+  <div class="equalizer-panel__bands mt-4 flex items-end justify-between gap-2">
+    <label data-for="band in bands" class="equalizer-panel__band flex flex-1 flex-col items-center gap-2">
+      <input type="range" class="equalizer-panel__slider h-28 accent-primary [writing-mode:vertical-lr] [direction:rtl]" min="-12" max="12" value="{{ band.value }}" aria-label="{{ band.freq }} Hz">
+      <span class="text-[10px] text-on-surface-muted">{{ band.freq }}</span>
+    </label>
+  </div>
+</section>

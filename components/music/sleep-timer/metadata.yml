@@ -1,0 +1,67 @@
+name: "Sleep Timer"
+short_description: A playback sleep timer with preset durations and a live countdown.
+long_visual_description: >
+  A panel with a moon icon, a live remaining-time readout, and preset duration chips
+  (15/30/45 min, 1 hour, end of track, off).
+
+use_cases:
+  - Playback sleep timer.
+  - Stop-after countdown.
+  - Bedtime audio timer.
+  - Auto-stop playback.
+  - Timer presets.
+
+recommended_for:
+  - A sleep timer for audio playback.
+avoid_for:
+  - An event countdown (use countdown-event).
+
+markets:
+  - Global
+
+example_usage: >
+  Selecting a preset starts a countdown shown in the header; "Off" cancels. Emits
+  sleeptimer:set.
+
+props:
+  label: The panel label.
+  presets: The duration presets.
+  remaining: The initial remaining time.
+
+example_prompts:
+  - "Add a sleep timer with duration presets."
+  - "Add a stop-after countdown for playback."
+
+lifecycle: experimental
+content_model: A sleep timer with presets and a countdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Offer common durations plus end-of-track; show the live remaining time.
+
+categorization:
+  category: Music
+  subcategory: Player
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Presets are a radiogroup with role="radio"/aria-checked; the remaining time is real text.
+  keyboard_support: Presets are focusable and select on Enter/Space.
+  seo_score: 20
+  text_direction: both
