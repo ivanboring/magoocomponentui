@@ -1,0 +1,79 @@
+name: "Video Premiere Countdown"
+short_description: A countdown wrapper over a video (live or on-demand) that reveals it at the start time.
+long_visual_description: >
+  A 16:9 panel showing a background image with a header, description, and a live countdown
+  (day/hour/minute/second cells, or a compact hh:mm:ss line) to a start time. When the
+  countdown reaches the reveal window the overlay hides and the slotted video takes over.
+
+use_cases:
+  - Premiere countdown for a film or episode drop.
+  - Live stream "goes live in…" holding screen.
+  - Product launch or event livestream lobby.
+  - Scheduled webinar waiting room.
+  - Timed content unlock over a video.
+
+recommended_for:
+  - Gating a live or on-demand video behind a countdown to its start time.
+avoid_for:
+  - An immediate video player (use video-player / video-player-live).
+  - A promo countdown without a video (use countdown-banner).
+
+markets:
+  - Global
+
+example_usage: >
+  Set start_time (ISO) and put the player in the video slot. To keep the video URL private
+  until premiere, omit it from the markup and supply it over JS at reveal:
+  el.setPremiereSource(url) or an "premiere:set-source" event — the behavior injects the
+  src into the slotted <video>/<iframe> only when the countdown reaches (start − reveal).
+  Pass current_time to seed "now" from the server and avoid client-clock skew. Set
+  countdown_type to compact for a single hh:mm:ss line.
+
+props:
+  header: The overlay headline.
+  description: A supporting line.
+  start_time: ISO datetime the video premieres.
+  current_time: Optional server "now" to seed the clock.
+  background: The holding background image.
+  countdown_type: full (day/hr/min/sec cells) or compact (hh:mm:ss).
+  reveal_seconds: How many seconds before start to reveal the video.
+
+slots:
+  video: The video player, revealed at the start; its source can be supplied over JS.
+
+example_prompts:
+  - "Add a premiere countdown over a video that reveals it at the start time."
+  - "Add a 'live in hh:mm:ss' holding screen that unhides the stream at go-live."
+  - "Add a video premiere wrapper where the URL is injected via JS right before start."
+
+relationships:
+  related:
+    - video/video-player
+    - video/video-player-live
+
+lifecycle: experimental
+content_model: A holding background with a countdown to a start time, wrapping a slotted video.
+
+theming:
+  tokens_used:
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Use a real start_time in the viewer's timezone; keep the header short. The dark scrim
+  keeps the white countdown legible over any background.
+
+categorization:
+  category: Video
+  subcategory: Live
+  atomic_type: organism
+  usage_type: [player, media, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The countdown uses role="timer" aria-live="polite"; the header/description are real text; the background is decorative behind a dark scrim. The revealed video carries its own controls/semantics.
+  keyboard_support: No controls until reveal; the slotted video's own controls are then focusable.
+  seo_score: 40
+  text_direction: both

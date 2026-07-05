@@ -1,0 +1,21 @@
+<div class="video-premiere relative aspect-video w-full overflow-hidden rounded-card bg-black shadow-card" data-start="{{ start_time }}" data-now="{{ current_time }}" data-reveal="{{ reveal_seconds }}" data-type="{{ countdown_type }}">
+  <div class="video-premiere__video absolute inset-0 hidden">
+    <slot name="video"></slot>
+  </div>
+  <div class="video-premiere__overlay absolute inset-0 flex flex-col items-center justify-center gap-4 bg-cover bg-center p-6 text-center" style="background-image: url({{ background }})">
+    <span class="absolute inset-0 bg-black/60" aria-hidden="true"></span>
+    <div class="relative text-white">
+      <h2 class="video-premiere__header font-heading text-2xl sm:text-3xl">{{ header }}</h2>
+      <p data-if="description" class="video-premiere__description mx-auto mt-2 max-w-md text-sm text-white/85">{{ description }}</p>
+      <div class="video-premiere__full mt-5 flex items-center justify-center gap-3 data-[type=compact]:hidden" data-type="{{ countdown_type }}" role="timer" aria-live="polite">
+        <span class="flex flex-col items-center rounded-control bg-white/15 px-3 py-2"><span class="video-premiere__days font-heading text-2xl tabular-nums">00</span><span class="text-[10px] uppercase opacity-80">days</span></span>
+        <span class="flex flex-col items-center rounded-control bg-white/15 px-3 py-2"><span class="video-premiere__hours font-heading text-2xl tabular-nums">00</span><span class="text-[10px] uppercase opacity-80">hrs</span></span>
+        <span class="flex flex-col items-center rounded-control bg-white/15 px-3 py-2"><span class="video-premiere__minutes font-heading text-2xl tabular-nums">00</span><span class="text-[10px] uppercase opacity-80">min</span></span>
+        <span class="flex flex-col items-center rounded-control bg-white/15 px-3 py-2"><span class="video-premiere__seconds font-heading text-2xl tabular-nums">00</span><span class="text-[10px] uppercase opacity-80">sec</span></span>
+      </div>
+      <p class="video-premiere__compact mt-5 font-heading text-3xl tabular-nums data-[type=full]:hidden" data-type="{{ countdown_type }}" role="timer" aria-live="polite">
+        <span class="video-premiere__compact-value">00:00:00</span>
+      </p>
+    </div>
+  </div>
+</div>

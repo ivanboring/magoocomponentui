@@ -1,0 +1,12 @@
+{
+  "header": "Live in",
+  "description": "The stream goes live shortly.",
+  "start_time": "2026-12-31T18:00:00Z",
+  "current_time": "",
+  "background": "/stock/cover-workspace.jpg",
+  "countdown_type": "compact",
+  "reveal_seconds": 5,
+  "$slots": {
+    "video": "<video class=\"size-full object-cover\" controls playsinline></video>"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "header": "Premiering this weekend",
+  "description": "Our new film drops Saturday at 6pm. Come back to watch it live.",
+  "start_time": "2026-12-31T18:00:00Z",
+  "current_time": "",
+  "background": "/stock/property-house.jpg",
+  "countdown_type": "full",
+  "reveal_seconds": 0,
+  "$slots": {
+    "video": "<video class=\"size-full object-cover\" controls playsinline></video>"
+  }
+}

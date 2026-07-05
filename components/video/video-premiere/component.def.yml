@@ -1,0 +1,45 @@
+name: video-premiere
+props:
+  header:
+    type: string
+    required: true
+    title: Header
+    example: "Premiering soon"
+  description:
+    type: string
+    title: Description
+    example: "Our new film drops this weekend. Set a reminder and come back."
+  start_time:
+    type: string
+    required: true
+    title: Start time
+    description: ISO datetime the video premieres (e.g. 2026-12-31T18:00:00Z).
+    example: "2026-12-31T18:00:00Z"
+  current_time:
+    type: string
+    title: Current time
+    description: Optional ISO datetime to seed "now" from the server; the behavior then ticks from it.
+    example: "2026-07-05T12:00:00Z"
+  background:
+    type: image
+    title: Background image
+    example: "/stock/property-house.jpg"
+  countdown_type:
+    type: enum
+    values: [full, compact]
+    default: full
+    title: Countdown type
+    description: full = days/hrs/min/sec cells; compact = a single hh:mm:ss line.
+  reveal_seconds:
+    type: integer
+    default: 0
+    title: Reveal lead (seconds)
+    description: How many seconds before start_time to reveal the video.
+slots:
+  video:
+    title: Video
+    description: >
+      The video player (live or on-demand) — a <video>/<iframe>. Kept hidden until the
+      reveal window. The source can be withheld from the markup and supplied over JS
+      (root.setPremiereSource(url) or a "premiere:set-source" event) so the URL only
+      enters the DOM right before the premiere.
