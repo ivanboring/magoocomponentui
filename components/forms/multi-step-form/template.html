@@ -1,0 +1,20 @@
+<div class="multi-step-form rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <ol class="multi-step-form__steps flex items-center gap-2">
+    <li data-for="step in steps" class="multi-step-form__step group flex flex-1 items-center gap-2" data-status="{{ step.status }}">
+      <span class="multi-step-form__marker flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border text-xs font-medium text-on-surface-muted group-data-[status=complete]:border-primary group-data-[status=complete]:bg-primary group-data-[status=complete]:text-primary-contrast group-data-[status=current]:border-primary group-data-[status=current]:text-primary">
+        <svg class="hidden size-3.5 group-data-[status=complete]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        <span class="group-data-[status=complete]:hidden">{{ step.number }}</span>
+      </span>
+      <span class="multi-step-form__label whitespace-nowrap text-sm text-on-surface-muted group-data-[status=complete]:text-on-surface group-data-[status=current]:font-medium group-data-[status=current]:text-on-surface">{{ step.label }}</span>
+      <span class="multi-step-form__bar h-0.5 flex-1 bg-border group-data-[status=complete]:bg-primary group-last:hidden"></span>
+    </li>
+  </ol>
+  <div class="multi-step-form__panel mt-6">
+    <h3 class="multi-step-form__title font-heading text-lg text-on-surface">{{ current_title }}</h3>
+    <div class="multi-step-form__fields mt-4 flex flex-col gap-4"><slot name="fields"></slot></div>
+  </div>
+  <div class="multi-step-form__actions mt-6 flex items-center justify-between">
+    <button type="button" class="multi-step-form__back rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Back</button>
+    <button type="button" class="multi-step-form__next rounded-button bg-primary px-5 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Continue</button>
+  </div>
+</div>

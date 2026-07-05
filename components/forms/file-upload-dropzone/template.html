@@ -1,0 +1,11 @@
+<div class="file-upload-dropzone">
+  <label class="file-upload-dropzone__zone flex cursor-pointer flex-col items-center justify-center gap-2 rounded-card border-2 border-dashed border-border bg-surface p-(--space-section) text-center transition-colors duration-(--duration-token) hover:border-ring data-[dragover=true]:border-primary data-[dragover=true]:bg-primary/5">
+    <span class="file-upload-dropzone__icon flex size-11 items-center justify-center rounded-full bg-surface-raised text-on-surface-muted" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 13V4m0 0L6 8m4-4l4 4M4 15h12"/></svg>
+    </span>
+    <span class="file-upload-dropzone__label font-heading text-on-surface">{{ label }}</span>
+    <span class="file-upload-dropzone__hint text-xs text-on-surface-muted">{{ hint }}</span>
+    <input type="file" class="file-upload-dropzone__input sr-only" accept="{{ accept }}" multiple="{{ multiple }}">
+  </label>
+  <ul class="file-upload-dropzone__files mt-3 flex flex-col gap-2 empty:hidden"></ul>
+</div>

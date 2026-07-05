@@ -1,0 +1,1 @@
+{ "label": "Upload files", "hint": "Drag and drop, or click to browse. PNG, JPG up to 10MB.", "accept": "image/*", "multiple": true }

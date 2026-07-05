@@ -1,0 +1,20 @@
+name: multi-step-form
+props:
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: "Each step: { label, status } where status is complete | current | upcoming."
+    example:
+      - { label: "Account", status: "complete" }
+      - { label: "Profile", status: "current" }
+  current_title:
+    type: string
+    required: true
+    title: Current step title
+    example: "Your profile"
+slots:
+  fields:
+    title: Fields
+    description: The current step's form fields.

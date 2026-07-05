@@ -1,0 +1,14 @@
+name: form-validation-summary
+props:
+  title:
+    type: string
+    default: "Please fix the following:"
+    title: Title
+  errors:
+    type: array
+    items: object
+    required: true
+    title: Errors
+    description: "Each error: { field, message, href } — href links to the offending field."
+    example:
+      - { field: "Email", message: "Enter a valid email address.", href: "#field-email" }

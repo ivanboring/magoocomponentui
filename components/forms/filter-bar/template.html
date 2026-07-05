@@ -1,0 +1,4 @@
+<div class="filter-bar flex flex-wrap items-center gap-2" role="group" aria-label="Filters">
+  <button data-for="chip in chips" type="button" class="filter-bar__chip rounded-pill border border-border px-3 py-1.5 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="{{ chip.active }}" aria-pressed="{{ chip.active }}">{{ chip.label }}</button>
+  <button data-if="show_clear" type="button" class="filter-bar__clear ml-1 text-sm text-primary hover:underline" data-filter-clear>Clear all</button>
+</div>

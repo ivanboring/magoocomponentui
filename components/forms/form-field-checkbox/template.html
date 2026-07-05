@@ -1,0 +1,7 @@
+<div class="form-field-checkbox flex items-start gap-2.5">
+  <input id="checkbox-{{ name }}" name="{{ name }}" type="checkbox" class="form-field-checkbox__input mt-0.5 size-4 shrink-0 rounded border-border text-primary focus:ring-ring" checked="{{ checked }}" aria-describedby="checkbox-{{ name }}-help">
+  <div class="min-w-0">
+    <label class="form-field-checkbox__label text-sm text-on-surface" for="checkbox-{{ name }}">{{ label }}</label>
+    <p data-if="help" class="form-field-checkbox__help text-xs text-on-surface-muted" id="checkbox-{{ name }}-help">{{ help }}</p>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+name: "Text Field"
+short_description: A labeled text input with help text and a validation/error state.
+long_visual_description: >
+  A stacked field with a label (with a required asterisk), a text input that turns
+  danger-bordered when invalid, and either an error or help line beneath.
+
+use_cases:
+  - Any single-line text input in a form.
+  - Email, password, phone, or URL entry.
+  - Labeled input with inline validation.
+  - Number entry with a label.
+  - Field with contextual help.
+
+recommended_for:
+  - A labeled single-line input with help and error states.
+avoid_for:
+  - A choice from options (use form-field-select/radio).
+
+markets:
+  - Global
+
+example_usage: >
+  Set type to the appropriate input type; provide help normally and set error to render the
+  invalid state (which also sets aria-invalid).
+
+props:
+  label: The field label.
+  name: The input name/id.
+  type: The HTML input type.
+  placeholder: The placeholder text.
+  help: Help text shown when valid.
+  error: Error message; when set, renders the invalid state.
+  required: Marks the field required with an asterisk.
+
+example_prompts:
+  - "Add an email text field with help text."
+  - "Add a required text field showing a validation error."
+
+lifecycle: experimental
+content_model: A labeled input with help and error states.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-danger
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Write labels as nouns; error messages should say what's wrong and how to fix it.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: atom
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The input has an associated label, aria-describedby for help/error, and aria-invalid on error; required is shown by text and the required attribute in a production build.
+  keyboard_support: The input is focusable and editable via the keyboard.
+  seo_score: 20
+  text_direction: both

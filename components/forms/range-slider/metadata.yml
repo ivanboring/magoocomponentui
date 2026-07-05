@@ -1,0 +1,60 @@
+name: "Range Slider"
+short_description: A labeled range slider with a live value readout.
+long_visual_description: >
+  A label and a live value readout above a native range input tinted with the primary
+  accent colour.
+
+use_cases:
+  - Price or budget range.
+  - Numeric threshold selector.
+  - Volume or brightness control.
+  - Quantity or size slider.
+  - Any bounded numeric input.
+
+recommended_for:
+  - A single bounded numeric value chosen by dragging.
+avoid_for:
+  - Precise numeric entry (use a number field).
+
+markets:
+  - Global
+
+example_usage: >
+  Set min/max/value and an optional prefix; the readout updates live and emits
+  range:change.
+
+props:
+  label: The field label.
+  name: The input name/id.
+  min: The minimum value.
+  max: The maximum value.
+  value: The initial value.
+  prefix: Optional readout prefix (e.g. $).
+
+example_prompts:
+  - "Add a price range slider from $0 to $500."
+  - "Add a labeled range slider with a live value."
+
+lifecycle: experimental
+content_model: A labeled bounded numeric slider with a readout.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-primary
+
+editorial_guidance: >
+  Show the current value with units/prefix; choose sensible min/max bounds.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a native range input with an associated label; the value readout mirrors the current value.
+  keyboard_support: The range is operable with arrow keys natively.
+  seo_score: 15
+  text_direction: both

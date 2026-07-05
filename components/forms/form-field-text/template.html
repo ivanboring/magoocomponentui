@@ -1,0 +1,8 @@
+<div class="form-field-text" data-invalid="{{ error }}">
+  <label class="form-field-text__label block text-sm font-medium text-on-surface" for="field-{{ name }}">
+    {{ label }}<span data-if="required" class="text-danger" aria-hidden="true"> *</span>
+  </label>
+  <input id="field-{{ name }}" name="{{ name }}" type="{{ type }}" class="form-field-text__input mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-ring data-[invalid=true]:border-danger" placeholder="{{ placeholder }}" data-invalid="{{ error }}" aria-describedby="field-{{ name }}-desc" aria-invalid="{{ error }}">
+  <p data-if="error" class="form-field-text__error mt-1 text-xs text-danger" id="field-{{ name }}-desc">{{ error }}</p>
+  <p data-if="help" class="form-field-text__help mt-1 text-xs text-on-surface-muted" id="field-{{ name }}-desc">{{ help }}</p>
+</div>

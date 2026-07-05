@@ -1,0 +1,19 @@
+name: search-autocomplete
+props:
+  placeholder:
+    type: string
+    default: "Search…"
+    title: Placeholder
+  label:
+    type: string
+    default: "Search"
+    title: Accessible label
+  suggestions:
+    type: array
+    items: object
+    required: true
+    title: Suggestions
+    description: "Each suggestion: { label, category }. Shown in the dropdown; filtered by input."
+    example:
+      - { label: "Design tokens", category: "Docs" }
+      - { label: "Design systems", category: "Docs" }

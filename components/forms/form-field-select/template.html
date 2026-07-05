@@ -1,0 +1,12 @@
+<div class="form-field-select">
+  <label class="form-field-select__label block text-sm font-medium text-on-surface" for="select-{{ name }}">
+    {{ label }}<span data-if="required" class="text-danger" aria-hidden="true"> *</span>
+  </label>
+  <div class="form-field-select__wrap relative mt-1">
+    <select id="select-{{ name }}" name="{{ name }}" class="form-field-select__control w-full appearance-none rounded-control border border-border bg-surface px-3 py-2 pr-9 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) focus:border-ring">
+      <option data-for="option in options" value="{{ option.value }}" selected="{{ option.selected }}">{{ option.label }}</option>
+    </select>
+    <svg class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </div>
+  <p data-if="help" class="form-field-select__help mt-1 text-xs text-on-surface-muted">{{ help }}</p>
+</div>

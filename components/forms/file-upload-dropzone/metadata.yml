@@ -1,0 +1,69 @@
+name: "File Upload Dropzone"
+short_description: A drag-and-drop file upload area with a browse fallback and a file list.
+long_visual_description: >
+  A dashed-border drop area with an upload icon, label, and hint; it highlights on dragover
+  and lists added files (name + size) with a remove control beneath.
+
+use_cases:
+  - Drag-and-drop file upload.
+  - Image or document upload with preview list.
+  - Attachment picker.
+  - Bulk upload area.
+  - Avatar or media upload.
+
+recommended_for:
+  - Uploading one or more files by drag-and-drop or browse.
+avoid_for:
+  - A single inline file input (use a plain file field).
+
+markets:
+  - Global
+
+example_usage: >
+  Set accept and multiple; dropped or browsed files are listed with a remove control and
+  emit files:added.
+
+props:
+  label: The zone label.
+  hint: The supporting hint (formats, size).
+  accept: The accepted file types.
+  multiple: Allow multiple files.
+
+example_prompts:
+  - "Add a drag-and-drop image upload dropzone."
+  - "Add a file upload area with a file list."
+
+lifecycle: experimental
+content_model: A drop area and a list of added files.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-primary
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  State accepted formats and size limits in the hint; confirm each added file in the list.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The drop area wraps a real file input inside a label, so keyboard/browse works without drag; remove controls are labelled.
+  keyboard_support: The zone is focusable via its file input and opens the picker on Enter/Space; drag-and-drop is an enhancement.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,10 @@
+{
+  "chips": [
+    { "label": "All", "active": true },
+    { "label": "Active", "active": false },
+    { "label": "Archived", "active": false },
+    { "label": "Starred", "active": false },
+    { "label": "Shared with me", "active": false }
+  ],
+  "show_clear": true
+}

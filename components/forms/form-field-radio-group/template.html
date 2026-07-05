@@ -1,0 +1,12 @@
+<fieldset class="form-field-radio-group">
+  <legend class="form-field-radio-group__legend text-sm font-medium text-on-surface">{{ legend }}</legend>
+  <div class="form-field-radio-group__options mt-2 flex flex-col gap-2">
+    <label data-for="option in options" class="form-field-radio-group__option flex cursor-pointer items-start gap-3 rounded-card border border-border p-3 transition-colors duration-(--duration-token) has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+      <input type="radio" name="{{ name }}" value="{{ option.value }}" class="form-field-radio-group__input mt-0.5 size-4 border-border text-primary focus:ring-ring" checked="{{ option.checked }}">
+      <span class="min-w-0">
+        <span class="block text-sm font-medium text-on-surface">{{ option.label }}</span>
+        <span data-if="option.description" class="block text-xs text-on-surface-muted">{{ option.description }}</span>
+      </span>
+    </label>
+  </div>
+</fieldset>

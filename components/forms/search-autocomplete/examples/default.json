@@ -1,0 +1,11 @@
+{
+  "placeholder": "Search docs…",
+  "label": "Search documentation",
+  "suggestions": [
+    { "label": "Design tokens", "category": "Docs" },
+    { "label": "Design systems", "category": "Docs" },
+    { "label": "Theming model", "category": "Guide" },
+    { "label": "Template directives", "category": "Reference" },
+    { "label": "Drupal mapping", "category": "Guide" }
+  ]
+}

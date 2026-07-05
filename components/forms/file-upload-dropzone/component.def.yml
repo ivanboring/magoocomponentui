@@ -1,0 +1,19 @@
+name: file-upload-dropzone
+props:
+  label:
+    type: string
+    default: "Upload files"
+    title: Label
+  hint:
+    type: string
+    default: "Drag and drop, or click to browse. PNG, JPG up to 10MB."
+    title: Hint
+  accept:
+    type: string
+    title: Accept
+    description: HTML accept attribute (e.g. "image/*").
+    example: "image/*"
+  multiple:
+    type: boolean
+    default: true
+    title: Multiple

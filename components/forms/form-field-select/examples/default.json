@@ -1,0 +1,12 @@
+{
+  "label": "Country",
+  "name": "country",
+  "options": [
+    { "label": "United States", "value": "us", "selected": true },
+    { "label": "United Kingdom", "value": "uk", "selected": false },
+    { "label": "Germany", "value": "de", "selected": false },
+    { "label": "Japan", "value": "jp", "selected": false }
+  ],
+  "help": "Where the account is billed.",
+  "required": true
+}

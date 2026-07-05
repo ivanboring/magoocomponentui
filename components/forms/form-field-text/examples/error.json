@@ -1,0 +1,1 @@
+{ "label": "Email address", "name": "email", "type": "email", "placeholder": "you@example.com", "help": "", "error": "Enter a valid email address.", "required": true }

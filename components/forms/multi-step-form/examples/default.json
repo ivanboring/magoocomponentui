@@ -1,0 +1,12 @@
+{
+  "steps": [
+    { "number": 1, "label": "Account", "status": "complete" },
+    { "number": 2, "label": "Profile", "status": "current" },
+    { "number": 3, "label": "Plan", "status": "upcoming" },
+    { "number": 4, "label": "Confirm", "status": "upcoming" }
+  ],
+  "current_title": "Your profile",
+  "$slots": {
+    "fields": "<div><label class=\"block text-sm font-medium text-on-surface\">Full name</label><input class=\"mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface\" placeholder=\"Jane Doe\"></div><div><label class=\"block text-sm font-medium text-on-surface\">Company</label><input class=\"mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface\" placeholder=\"Acme Inc.\"></div>"
+  }
+}

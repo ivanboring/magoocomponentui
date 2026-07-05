@@ -1,0 +1,64 @@
+name: "Toggle Field"
+short_description: An on/off switch field with a label and help text.
+long_visual_description: >
+  A label and optional help on the left with a pill switch on the right that slides and
+  fills with the primary colour when on.
+
+use_cases:
+  - Enable/disable a setting.
+  - Notification or feature switch.
+  - Preference on/off.
+  - Privacy or visibility toggle.
+  - Any instant on/off control.
+
+recommended_for:
+  - An instantly-applied on/off setting.
+avoid_for:
+  - Agreement/consent (use form-field-checkbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Use for settings that apply immediately; the switch reflects state and emits
+  toggle:change.
+
+props:
+  label: The setting label.
+  name: The field name.
+  help: Optional help text.
+  on: Initial on state.
+
+example_prompts:
+  - "Add a toggle for email notifications."
+  - "Add an on/off setting switch with help text."
+
+lifecycle: experimental
+content_model: A labeled on/off switch with optional help.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --shadow-card
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Label the setting, not the state; use for changes that take effect immediately.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: atom
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses role="switch" with aria-checked and an associated label via aria-labelledby.
+  keyboard_support: The switch is focusable and toggles on Enter/Space.
+  seo_score: 15
+  text_direction: both

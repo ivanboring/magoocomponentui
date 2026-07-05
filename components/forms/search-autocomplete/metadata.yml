@@ -1,0 +1,66 @@
+name: "Search Autocomplete"
+short_description: A search input with a filtered suggestions dropdown and keyboard navigation.
+long_visual_description: >
+  A search input that opens a listbox of suggestions filtered by what you type; each
+  suggestion shows a label and an optional category. Arrow keys move the highlight and
+  Enter selects.
+
+use_cases:
+  - Typeahead search with suggestions.
+  - Autocomplete for a field.
+  - Quick-find with categorized results.
+  - Command or content search with hints.
+  - Location or entity lookup.
+
+recommended_for:
+  - Search where suggestions help the user pick quickly.
+avoid_for:
+  - Plain search without suggestions (use search-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide suggestions; typing filters them and the listbox opens. Listen for
+  autocomplete:select.
+
+props:
+  placeholder: The input placeholder.
+  label: The accessible label.
+  suggestions: The suggestion items with label and category.
+
+example_prompts:
+  - "Add a search autocomplete with categorized suggestions."
+  - "Add a typeahead search field."
+
+lifecycle: experimental
+content_model: A search input with a filterable suggestion listbox.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep suggestion labels short; use the category to disambiguate similar labels.
+
+categorization:
+  category: Forms
+  subcategory: Search
+  atomic_type: organism
+  usage_type: [form, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Combobox input controls a listbox; ArrowUp/Down move aria-selected, Enter selects, Escape closes; the input has an accessible label.
+  keyboard_support: Type to filter; ArrowUp/ArrowDown move the highlight; Enter selects; Escape closes.
+  seo_score: 25
+  text_direction: both

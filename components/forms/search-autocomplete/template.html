@@ -1,0 +1,12 @@
+<div class="search-autocomplete relative">
+  <div class="relative">
+    <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+    <input type="text" class="search-autocomplete__input w-full rounded-control border border-border bg-surface py-2 pl-9 pr-3 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" role="combobox" aria-expanded="false" aria-controls="search-autocomplete-list" aria-autocomplete="list" aria-label="{{ label }}">
+  </div>
+  <ul class="search-autocomplete__list absolute z-20 mt-1 hidden w-full flex-col overflow-hidden rounded-card border border-border bg-surface shadow-raised" id="search-autocomplete-list" role="listbox">
+    <li data-for="suggestion in suggestions" class="search-autocomplete__option flex cursor-pointer items-center justify-between gap-3 px-3 py-2 text-sm text-on-surface hover:bg-surface-raised aria-selected:bg-surface-raised" role="option" data-label="{{ suggestion.label }}">
+      <span>{{ suggestion.label }}</span>
+      <span data-if="suggestion.category" class="text-xs text-on-surface-muted">{{ suggestion.category }}</span>
+    </li>
+  </ul>
+</div>

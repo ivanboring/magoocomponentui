@@ -1,0 +1,7 @@
+<div class="search-bar relative">
+  <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+  <input type="search" class="search-bar__input w-full rounded-control border border-border bg-surface py-2 pl-9 pr-9 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" value="{{ value }}" aria-label="{{ label }}">
+  <button type="button" class="search-bar__clear absolute right-2 top-1/2 flex size-6 -translate-y-1/2 items-center justify-center rounded-full text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[visible=false]:hidden" data-visible="{{ value }}" aria-label="Clear search">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+  </button>
+</div>

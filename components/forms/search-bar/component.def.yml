@@ -1,0 +1,14 @@
+name: search-bar
+props:
+  placeholder:
+    type: string
+    default: "Search…"
+    title: Placeholder
+  value:
+    type: string
+    title: Value
+    example: "design tokens"
+  label:
+    type: string
+    default: "Search"
+    title: Accessible label

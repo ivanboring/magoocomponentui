@@ -1,0 +1,60 @@
+name: "Checkbox Field"
+short_description: A checkbox with a label and optional help text.
+long_visual_description: >
+  A checkbox aligned to the start of a label, with optional help text beneath the label.
+
+use_cases:
+  - Agree-to-terms checkbox.
+  - Opt-in or preference toggle.
+  - Single boolean choice in a form.
+  - Remember-me checkbox.
+  - Feature enable checkbox.
+
+recommended_for:
+  - A single labeled boolean choice.
+avoid_for:
+  - An on/off switch metaphor (use form-field-toggle).
+  - Multiple exclusive options (use radio group).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the label clear about what checking means; help text can clarify consequences.
+
+props:
+  label: The checkbox label.
+  name: The input name/id.
+  help: Optional help text.
+  checked: Initial checked state.
+
+example_prompts:
+  - "Add an agree-to-terms checkbox with help text."
+  - "Add a remember-me checkbox."
+
+lifecycle: experimental
+content_model: A labeled boolean checkbox with optional help.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-ring
+
+editorial_guidance: >
+  Phrase the label affirmatively so checking = agreeing/enabling.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: atom
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Native checkbox with an associated label and aria-describedby for help.
+  keyboard_support: The checkbox toggles on Space and is focusable.
+  seo_score: 15
+  text_direction: both

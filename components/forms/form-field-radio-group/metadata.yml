@@ -1,0 +1,61 @@
+name: "Radio Group Field"
+short_description: A group of radio options as selectable cards with descriptions.
+long_visual_description: >
+  A fieldset with a legend and a stack of bordered option cards, each a radio with a label
+  and description; the selected card highlights with a primary border and tint.
+
+use_cases:
+  - Choose one plan or billing period.
+  - Pick a shipping or payment method.
+  - Single-choice preference with detail.
+  - Option selection with descriptions.
+  - Exclusive choice in a form.
+
+recommended_for:
+  - A small set of mutually exclusive options, each with a description.
+avoid_for:
+  - Many options (use form-field-select).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide options with one checked; each shows a label and a short description.
+
+props:
+  legend: The group legend.
+  name: The radio group name.
+  options: The options, one checked.
+
+example_prompts:
+  - "Add a radio group for monthly vs annual billing."
+  - "Add a shipping method radio group with descriptions."
+
+lifecycle: experimental
+content_model: A legend and a set of mutually-exclusive option cards.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-ring
+    - --radius-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep option labels parallel; put the differentiator (price, speed) in the description.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a fieldset/legend with native radios inside labels; selection highlight uses has-[:checked] plus the radio state, not colour alone.
+  keyboard_support: Arrow keys move within the radio group natively; each option is focusable.
+  seo_score: 20
+  text_direction: both

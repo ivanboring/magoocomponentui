@@ -1,0 +1,63 @@
+name: "Search Bar"
+short_description: A search input with a leading icon and a clear button.
+long_visual_description: >
+  A rounded input with a magnifier icon on the leading edge and a clear (×) button that
+  appears on the trailing edge while there's a value.
+
+use_cases:
+  - Search a list or catalog.
+  - Filter results by query.
+  - Site or app search input.
+  - Table search box.
+  - Command or content search.
+
+recommended_for:
+  - A single search input with clear affordance.
+avoid_for:
+  - Search with a suggestions dropdown (use search-autocomplete).
+
+markets:
+  - Global
+
+example_usage: >
+  The clear button appears while there's a value; listen for search:input (debounced) and
+  search:clear.
+
+props:
+  placeholder: The input placeholder.
+  value: The initial value.
+  label: The accessible label.
+
+example_prompts:
+  - "Add a search bar with a clear button."
+  - "Add a catalog search input."
+
+lifecycle: experimental
+content_model: A search input with clear.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Use a placeholder that hints at what's searchable; keep the accessible label descriptive.
+
+categorization:
+  category: Forms
+  subcategory: Search
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The input has an accessible label; the clear button is labelled and only shown when actionable.
+  keyboard_support: The input is focusable; the clear button activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

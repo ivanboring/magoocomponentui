@@ -1,0 +1,1 @@
+{ "label": "Email address", "name": "email", "type": "email", "placeholder": "you@example.com", "help": "We'll never share your email.", "error": "", "required": true }

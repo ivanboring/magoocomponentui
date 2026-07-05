@@ -1,0 +1,15 @@
+name: filter-bar
+props:
+  chips:
+    type: array
+    items: object
+    required: true
+    title: Filter chips
+    description: "Each chip: { label, active }."
+    example:
+      - { label: "All", active: true }
+      - { label: "Active", active: false }
+  show_clear:
+    type: boolean
+    default: true
+    title: Show clear-all

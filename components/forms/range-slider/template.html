@@ -1,0 +1,7 @@
+<div class="range-slider" data-min="{{ min }}" data-max="{{ max }}">
+  <div class="range-slider__head flex items-center justify-between">
+    <label class="range-slider__label text-sm font-medium text-on-surface" for="range-{{ name }}">{{ label }}</label>
+    <span class="range-slider__value text-sm text-on-surface tabular-nums">{{ prefix }}<span class="range-slider__current">{{ value }}</span></span>
+  </div>
+  <input id="range-{{ name }}" name="{{ name }}" type="range" class="range-slider__input mt-2 w-full accent-primary" min="{{ min }}" max="{{ max }}" value="{{ value }}">
+</div>

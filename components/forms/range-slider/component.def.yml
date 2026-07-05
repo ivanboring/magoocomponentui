@@ -1,0 +1,28 @@
+name: range-slider
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Price range"
+  name:
+    type: string
+    required: true
+    title: Field name
+    example: "price"
+  min:
+    type: integer
+    default: 0
+    title: Min
+  max:
+    type: integer
+    default: 100
+    title: Max
+  value:
+    type: integer
+    default: 40
+    title: Value
+  prefix:
+    type: string
+    title: Value prefix
+    example: "$"

@@ -1,0 +1,28 @@
+name: form-field-select
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Country"
+  name:
+    type: string
+    required: true
+    title: Field name
+    example: "country"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, value, selected }."
+    example:
+      - { label: "United States", value: "us", selected: true }
+      - { label: "United Kingdom", value: "uk", selected: false }
+  help:
+    type: string
+    title: Help text
+  required:
+    type: boolean
+    default: false
+    title: Required

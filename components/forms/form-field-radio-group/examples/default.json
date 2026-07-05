@@ -1,0 +1,8 @@
+{
+  "legend": "Billing period",
+  "name": "billing",
+  "options": [
+    { "label": "Monthly", "value": "monthly", "description": "$29 per month", "checked": true },
+    { "label": "Annual", "value": "annual", "description": "$290 per year — save 17%", "checked": false }
+  ]
+}

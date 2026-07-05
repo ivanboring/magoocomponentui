@@ -1,0 +1,13 @@
+<div class="form-validation-summary rounded-card border border-l-4 border-border border-l-danger bg-surface p-(--space-card)" role="alert">
+  <div class="flex items-start gap-2">
+    <svg class="mt-0.5 size-5 shrink-0 text-danger" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 12H9v-2h2v2zm0-4H9V6h2v4z"/></svg>
+    <div class="min-w-0">
+      <p class="form-validation-summary__title font-heading text-on-surface">{{ title }}</p>
+      <ul class="form-validation-summary__list mt-2 list-disc pl-4 text-sm text-on-surface-muted">
+        <li data-for="error in errors">
+          <a class="text-danger underline hover:no-underline" href="{{ error.href }}"><span class="font-medium">{{ error.field }}</span>: {{ error.message }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

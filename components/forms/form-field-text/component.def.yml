@@ -1,0 +1,33 @@
+name: form-field-text
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Email address"
+  name:
+    type: string
+    required: true
+    title: Field name
+    example: "email"
+  type:
+    type: enum
+    values: [text, email, password, tel, url, number]
+    default: text
+    title: Input type
+  placeholder:
+    type: string
+    title: Placeholder
+    example: "you@example.com"
+  help:
+    type: string
+    title: Help text
+    example: "We'll never share your email."
+  error:
+    type: string
+    title: Error message
+    description: When set, the field renders in an invalid state.
+  required:
+    type: boolean
+    default: false
+    title: Required

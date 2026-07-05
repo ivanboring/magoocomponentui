@@ -1,0 +1,67 @@
+name: "Multi-step Form"
+short_description: A wizard form with a step indicator, a current-step panel, and back/continue.
+long_visual_description: >
+  A card with a step progress indicator across the top, the current step's title and fields,
+  and Back / Continue actions at the bottom.
+
+use_cases:
+  - Onboarding or signup wizard.
+  - Checkout flow steps.
+  - Multi-part application form.
+  - Setup or configuration wizard.
+  - Guided data entry.
+
+recommended_for:
+  - A multi-step form that shows progress and one step at a time.
+avoid_for:
+  - A single-page form (use a plain form layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Show the steps with statuses and the current step's fields in the slot; wire Back/Continue
+  to advance the wizard.
+
+props:
+  steps: The wizard steps with number, label, and status.
+  current_title: The current step's title.
+
+slots:
+  fields: The current step's form fields.
+
+lifecycle: experimental
+content_model: A step indicator, a current-step field panel, and navigation actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep each step focused; show progress and let users go back without losing entries.
+
+categorization:
+  category: Forms
+  subcategory: Flows
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The step list is ordered and status is shown by icon/outline plus label emphasis; Back/Continue are real buttons. Manage focus into the new step's first field on advance in a production build.
+  keyboard_support: Back and Continue are focusable and activate on Enter/Space; fields are keyboard-operable.
+  seo_score: 30
+  text_direction: both

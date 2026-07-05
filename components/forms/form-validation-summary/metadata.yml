@@ -1,0 +1,62 @@
+name: "Form Validation Summary"
+short_description: A grouped error summary linking to each invalid field.
+long_visual_description: >
+  A danger-accented panel with an icon and a title, listing each validation error as a link
+  that jumps to the offending field.
+
+use_cases:
+  - Summarize form errors after a failed submit.
+  - Accessible error recap at the top of a form.
+  - Grouped validation feedback.
+  - Multi-field error list.
+  - Submit-blocked explanation.
+
+recommended_for:
+  - Recapping all form errors with links to each field.
+avoid_for:
+  - A single inline field error (use form-field-text's error).
+
+markets:
+  - Global
+
+example_usage: >
+  Show after a failed submit; each error links to its field id so users can jump to it. Move
+  focus to the summary on submit in a production build.
+
+props:
+  title: The summary title.
+  errors: The errors with field, message, and href to the field.
+
+example_prompts:
+  - "Add a form validation summary listing field errors."
+  - "Add an error recap that links to each invalid field."
+
+lifecycle: experimental
+content_model: A titled list of field errors with links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  List errors in field order; each message should say what's wrong and how to fix it.
+
+categorization:
+  category: Forms
+  subcategory: Flows
+  atomic_type: molecule
+  usage_type: [banner, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces the summary; each error is a link to its field. A production build should move focus to the summary on submit.
+  keyboard_support: Each error link is focusable and jumps to its field on Enter.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,21 @@
+name: form-field-radio-group
+props:
+  legend:
+    type: string
+    required: true
+    title: Legend
+    example: "Billing period"
+  name:
+    type: string
+    required: true
+    title: Group name
+    example: "billing"
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: "Each option: { label, value, description, checked }."
+    example:
+      - { label: "Monthly", value: "monthly", description: "$29 per month", checked: true }
+      - { label: "Annual", value: "annual", description: "$290 per year — save 17%", checked: false }

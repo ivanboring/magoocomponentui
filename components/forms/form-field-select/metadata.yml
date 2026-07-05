@@ -1,0 +1,66 @@
+name: "Select Field"
+short_description: A labeled select dropdown field with help text.
+long_visual_description: >
+  A stacked field with a label (with a required asterisk) and a native select styled with a
+  custom chevron, plus optional help text beneath.
+
+use_cases:
+  - Choose one option from a list (country, plan, category).
+  - Labeled dropdown in a form.
+  - Single-select preference.
+  - Filter or sort selector in a form.
+  - Enumerated field.
+
+recommended_for:
+  - Selecting one value from a moderate list of options.
+avoid_for:
+  - A few mutually exclusive options (use form-field-radio-group).
+  - Free text (use form-field-text).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide options with one selected; use a native select for accessibility and mobile
+  ergonomics.
+
+props:
+  label: The field label.
+  name: The select name/id.
+  options: The options, one selected.
+  help: Optional help text.
+  required: Marks the field required.
+
+example_prompts:
+  - "Add a country select field."
+  - "Add a labeled dropdown with help text."
+
+lifecycle: experimental
+content_model: A labeled select with options and help.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-danger
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Order options sensibly (alphabetical or by frequency); label as a noun.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a native select with an associated label; the chevron is decorative.
+  keyboard_support: The select is keyboard-operable natively.
+  seo_score: 20
+  text_direction: both

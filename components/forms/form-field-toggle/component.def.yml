@@ -1,0 +1,20 @@
+name: form-field-toggle
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Email notifications"
+  name:
+    type: string
+    required: true
+    title: Field name
+    example: "notifications"
+  help:
+    type: string
+    title: Help text
+    example: "Get an email when something needs your attention."
+  on:
+    type: boolean
+    default: false
+    title: On

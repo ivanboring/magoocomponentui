@@ -1,0 +1,62 @@
+name: "Filter Bar"
+short_description: A horizontal row of toggleable filter chips with a clear-all action.
+long_visual_description: >
+  A wrapping row of pill filter chips that fill with the primary colour when active, plus a
+  clear-all link.
+
+use_cases:
+  - Quick filters above a list.
+  - Tag or status filtering.
+  - Multi-select facet chips.
+  - View filters for a board.
+  - Inline result refinement.
+
+recommended_for:
+  - Compact, toggleable filters shown inline above content.
+avoid_for:
+  - A full faceted sidebar (use filter-sidebar).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide chips with active states (multi-select); clear-all resets them. Listen for
+  filter-bar:change and filter-bar:clear.
+
+props:
+  chips: The filter chips with active state.
+  show_clear: Whether to show clear-all.
+
+example_prompts:
+  - "Add a filter bar with status chips and clear-all."
+  - "Add toggleable filter chips above a list."
+
+lifecycle: experimental
+content_model: A set of toggleable filter chips with clear-all.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep chip labels short; provide a clear-all when several filters can be active.
+
+categorization:
+  category: Forms
+  subcategory: Filters
+  atomic_type: organism
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Chips use aria-pressed; the group has an aria-label; active state is shown by fill plus aria-pressed, not colour alone.
+  keyboard_support: Chips and clear-all are focusable and toggle/activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

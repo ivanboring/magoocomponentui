@@ -1,0 +1,20 @@
+name: form-field-checkbox
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "I agree to the terms"
+  name:
+    type: string
+    required: true
+    title: Field name
+    example: "agree"
+  help:
+    type: string
+    title: Help text
+    example: "You can review the terms at any time."
+  checked:
+    type: boolean
+    default: false
+    title: Checked
