@@ -1,0 +1,23 @@
+name: hero-image-bg
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Build the web, faster"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "A skeleton component library that ships no CSS."
+  cta_label:
+    type: string
+    default: "Get started"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link
+  image:
+    type: image
+    required: true
+    title: Background image
+    example: "/stock/property-house.jpg"

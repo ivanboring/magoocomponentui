@@ -1,0 +1,10 @@
+name: pricing-tiers
+props:
+  title:
+    type: string
+    default: "Simple, transparent pricing"
+    title: Title
+slots:
+  plans:
+    title: Plans
+    description: The card-pricing components to lay out in a row.

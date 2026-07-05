@@ -1,0 +1,63 @@
+name: "CTA over Image Grid"
+short_description: A CTA over a blurred image-grid backdrop tinted with the primary colour.
+long_visual_description: >
+  A CTA panel with a blurred grid of images behind a primary-coloured tint, and a centered
+  headline and button on top.
+
+use_cases:
+  - Community or social-proof CTA.
+  - Gallery-backed conversion band.
+  - Event or showcase CTA.
+  - Lifestyle-brand CTA.
+  - Visual signup prompt.
+
+recommended_for:
+  - A CTA that uses a montage of images as an atmospheric backdrop.
+avoid_for:
+  - A CTA needing a single focal image (use cta-offset-image).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a few images for the blurred backdrop; the primary tint keeps the text legible.
+
+props:
+  title: The CTA headline.
+  cta_label: The button text.
+  cta_href: The button link.
+  images: The backdrop images.
+
+example_prompts:
+  - "Add a CTA over a blurred image grid."
+  - "Add a montage-backed conversion band."
+
+lifecycle: experimental
+content_model: A headline and CTA over a blurred image-grid backdrop.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the headline short; the backdrop is atmospheric, not informational.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: organism
+  usage_type: [banner, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The primary tint keeps text legible over the blurred grid; backdrop images are decorative; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

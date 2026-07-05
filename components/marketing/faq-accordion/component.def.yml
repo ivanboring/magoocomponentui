@@ -1,0 +1,14 @@
+name: faq-accordion
+props:
+  title:
+    type: string
+    default: "Frequently asked questions"
+    title: Title
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Each item: { question, answer, open }."
+    example:
+      - { question: "Does it ship any CSS?", answer: "No — markup is tokenized Tailwind bound to CSS-variable design tokens.", open: true }

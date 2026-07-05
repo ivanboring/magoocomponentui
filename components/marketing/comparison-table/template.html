@@ -1,0 +1,19 @@
+<div class="comparison-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="comparison-table__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-3 text-left font-heading text-on-surface-muted" scope="col">Feature</th>
+        <th data-for="column in columns" class="px-4 py-3 text-center font-heading text-on-surface data-[highlight=true]:bg-primary/5 data-[highlight=true]:text-primary" data-highlight="{{ column.highlight }}" scope="col">{{ column.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="row in rows" class="border-b border-border last:border-0">
+        <th class="px-4 py-3 text-left font-medium text-on-surface" scope="row">{{ row.label }}</th>
+        <td data-for="value in row.values" class="px-4 py-3 text-center">
+          <svg data-if="value.included" class="mx-auto size-5 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-label="Yes"><path d="M4 10l4 4 8-8"/></svg>
+          <svg data-if="!value.included" class="mx-auto size-5 text-on-surface-muted/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-label="No"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

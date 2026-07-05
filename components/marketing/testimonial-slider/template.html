@@ -1,0 +1,25 @@
+<section class="testimonial-slider mx-auto max-w-2xl text-center" aria-roledescription="carousel" aria-label="Testimonials">
+  <div class="testimonial-slider__slides relative">
+    <figure data-for="slide in slides" class="testimonial-slider__slide data-[active=false]:hidden" data-active="{{ slide.active }}">
+      <blockquote class="testimonial-slider__quote font-heading text-2xl leading-snug text-on-surface">"{{ slide.quote }}"</blockquote>
+      <figcaption class="testimonial-slider__author mt-6 flex items-center justify-center gap-3">
+        <span class="inline-flex size-11 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm uppercase text-on-surface" role="img" aria-label="{{ slide.author }}">
+          <img data-if="slide.avatar" class="size-full object-cover" src="{{ slide.avatar }}" alt="">
+          <span data-if="!slide.avatar" aria-hidden="true">{{ slide.initials }}</span>
+        </span>
+        <span class="text-left">
+          <span class="block text-sm font-medium text-on-surface">{{ slide.author }}</span>
+          <span class="block text-xs text-on-surface-muted">{{ slide.role }}</span>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="testimonial-slider__controls mt-6 flex items-center justify-center gap-3">
+    <button type="button" class="testimonial-slider__prev flex size-9 items-center justify-center rounded-full border border-border text-on-surface-muted hover:text-on-surface" aria-label="Previous testimonial">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+    </button>
+    <button type="button" class="testimonial-slider__next flex size-9 items-center justify-center rounded-full border border-border text-on-surface-muted hover:text-on-surface" aria-label="Next testimonial">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+    </button>
+  </div>
+</section>

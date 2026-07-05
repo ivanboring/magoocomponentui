@@ -1,0 +1,10 @@
+name: feature-alternating
+props:
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each row: { title, body, image, reverse } — reverse flips image to the left."
+    example:
+      - { title: "Author once", body: "A single canonical source per component.", image: "/stock/cover-workspace.jpg", reverse: false }

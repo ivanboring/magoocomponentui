@@ -1,0 +1,65 @@
+name: "Countdown Banner"
+short_description: A promo banner with a live countdown timer to a deadline and a CTA.
+long_visual_description: >
+  A primary-coloured banner with a message, four ticking day/hour/minute/second cells
+  counting down to a deadline, and an optional CTA.
+
+use_cases:
+  - Sale or offer countdown.
+  - Launch countdown banner.
+  - Event start countdown.
+  - Limited-time promo urgency.
+  - Registration deadline banner.
+
+recommended_for:
+  - Adding urgency with a live countdown to a deadline.
+avoid_for:
+  - A static announcement (use announcement-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Set deadline to an ISO datetime; the timer ticks each second and stops at zero. Pair with
+  a CTA to the offer.
+
+props:
+  message: The banner message.
+  deadline: The ISO datetime to count down to.
+  cta_label: Optional CTA text.
+  cta_href: CTA link.
+
+example_prompts:
+  - "Add a countdown banner for a sale ending at a deadline."
+  - "Add a launch countdown with a CTA."
+
+lifecycle: experimental
+content_model: A message, a live countdown to a deadline, and an optional CTA.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a real deadline; keep the message short and the CTA specific.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: molecule
+  usage_type: [banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The timer region uses aria-live="polite"; units are labelled; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 40
+  text_direction: both

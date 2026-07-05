@@ -1,0 +1,61 @@
+name: "FAQ Accordion"
+short_description: An expandable FAQ list where each question toggles its answer.
+long_visual_description: >
+  A titled, bordered list of questions; clicking a question expands its answer and rotates
+  the chevron. Multiple answers can be open at once.
+
+use_cases:
+  - FAQ section on a landing or pricing page.
+  - Help/support questions list.
+  - Product objection-handling section.
+  - Onboarding questions.
+  - Policy or terms Q&A.
+
+recommended_for:
+  - A list of questions with expandable answers.
+avoid_for:
+  - General stacked panels (use accordion).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide question/answer pairs; mark commonly-needed ones open. Each toggles independently.
+
+props:
+  title: The section heading.
+  items: The question/answer pairs with open state.
+
+example_prompts:
+  - "Add an FAQ accordion with a few questions."
+  - "Add an expandable FAQ section to the pricing page."
+
+lifecycle: experimental
+content_model: A list of question/answer pairs with expand/collapse.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Phrase questions as the reader would; keep answers concise and specific.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: organism
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Triggers are real buttons within headings with aria-expanded; panels hide/show accordingly.
+  keyboard_support: Each question is focusable and toggles on Enter/Space.
+  seo_score: 60
+  text_direction: both

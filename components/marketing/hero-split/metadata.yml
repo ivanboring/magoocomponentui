@@ -1,0 +1,68 @@
+name: "Split Hero"
+short_description: A two-column hero with text on one side and media on the other.
+long_visual_description: >
+  A hero split into a text column (headline, subtitle, CTA) and a media column with an
+  image; the sides can be reversed.
+
+use_cases:
+  - Product hero with a screenshot.
+  - Feature intro with supporting imagery.
+  - Service landing hero.
+  - App showcase hero.
+  - Campaign hero with media.
+
+recommended_for:
+  - A hero pairing a value proposition with an image.
+avoid_for:
+  - A centered text-only hero (use hero-centered).
+
+markets:
+  - Global
+
+example_usage: >
+  Put the headline, subtitle, and one CTA in the text column and a representative image in
+  the media column; set reverse to flip the sides.
+
+props:
+  title: The hero headline.
+  subtitle: A supporting sentence.
+  primary_label: CTA text.
+  primary_href: CTA link.
+  image: The media image.
+  reverse: Put media on the left instead of the right.
+
+example_prompts:
+  - "Add a split hero with text and a screenshot."
+  - "Add a hero with media on the left and text on the right."
+
+lifecycle: experimental
+content_model: A headline, subtitle, CTA, and a media image side by side.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-button
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep the copy tight so it balances the media; use a representative image.
+
+categorization:
+  category: Marketing
+  subcategory: Hero
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; the media image is decorative; the CTA is a real link.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 65
+  text_direction: both

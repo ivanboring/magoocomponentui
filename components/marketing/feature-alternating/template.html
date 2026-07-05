@@ -1,0 +1,11 @@
+<div class="feature-alternating flex flex-col gap-(--space-section)">
+  <div data-for="row in rows" class="feature-alternating__row grid grid-cols-1 items-center gap-8 lg:grid-cols-2" data-reverse="{{ row.reverse }}">
+    <div class="feature-alternating__text data-[reverse=true]:lg:order-2" data-reverse="{{ row.reverse }}">
+      <h3 class="feature-alternating__title font-heading text-2xl text-on-surface">{{ row.title }}</h3>
+      <p class="feature-alternating__body mt-3 text-on-surface-muted">{{ row.body }}</p>
+    </div>
+    <div class="feature-alternating__media data-[reverse=true]:lg:order-1" data-reverse="{{ row.reverse }}">
+      <img data-if="row.image" class="w-full rounded-card object-cover shadow-card" src="{{ row.image }}" alt="">
+    </div>
+  </div>
+</div>

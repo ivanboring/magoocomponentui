@@ -1,0 +1,23 @@
+name: newsletter-signup
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Stay in the loop"
+  description:
+    type: string
+    title: Description
+    example: "Product updates and the occasional deep dive. No spam."
+  placeholder:
+    type: string
+    default: "you@example.com"
+    title: Placeholder
+  cta_label:
+    type: string
+    default: "Subscribe"
+    title: CTA label
+  note:
+    type: string
+    title: Fine print
+    example: "Unsubscribe anytime."

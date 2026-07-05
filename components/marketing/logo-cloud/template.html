@@ -1,0 +1,6 @@
+<section class="logo-cloud px-4 py-(--space-section) text-center">
+  <p data-if="title" class="logo-cloud__title text-sm font-medium text-on-surface-muted">{{ title }}</p>
+  <div class="logo-cloud__grid mt-6 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-5">
+    <span data-for="logo in logos" class="logo-cloud__logo font-heading text-lg font-semibold text-on-surface-muted opacity-70 transition-opacity duration-(--duration-token) hover:opacity-100">{{ logo.name }}</span>
+  </div>
+</section>

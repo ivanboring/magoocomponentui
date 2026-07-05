@@ -1,0 +1,64 @@
+name: "Simple CTA"
+short_description: A headline + single CTA conversion band.
+long_visual_description: >
+  A primary-coloured band with a headline and optional subtitle on one side and a single
+  contrasting CTA button on the other.
+
+use_cases:
+  - Conversion band near the end of a page.
+  - Signup or trial prompt.
+  - Download or contact CTA.
+  - Section-ending call to action.
+  - Newsletter or demo prompt.
+
+recommended_for:
+  - A single, prominent call-to-action band.
+avoid_for:
+  - CTAs with imagery (use cta-offset-image).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the headline action-oriented and the CTA to a couple of words.
+
+props:
+  title: The CTA headline.
+  subtitle: A supporting line.
+  cta_label: The button text.
+  cta_href: The button link.
+
+example_prompts:
+  - "Add a simple CTA band with a headline and button."
+  - "Add a conversion band prompting signup."
+
+lifecycle: experimental
+content_model: A headline, optional subtitle, and a single CTA.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the benefit; one clear action only.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real heading and link; ensure the primary/contrast pair meets contrast in each theme.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

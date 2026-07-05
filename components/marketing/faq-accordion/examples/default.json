@@ -1,0 +1,9 @@
+{
+  "title": "Frequently asked questions",
+  "items": [
+    { "question": "Does it ship any CSS?", "answer": "No — markup is tokenized Tailwind bound to CSS-variable design tokens. Themes only change the variable values.", "open": true },
+    { "question": "Which targets can it generate?", "answer": "Drupal SDC, Drupal Code Components (Preact), React, Vue, and Storybook, plus a Drupal paragraph mapping.", "open": false },
+    { "question": "How does theming work?", "answer": "All themes share one fixed set of CSS-variable names; only the values differ, so swapping a value set re-skins everything.", "open": false },
+    { "question": "Is it accessible?", "answer": "Components target WCAG AA with real semantics and keyboard support; pnpm audit runs axe-core against each rendered component.", "open": false }
+  ]
+}

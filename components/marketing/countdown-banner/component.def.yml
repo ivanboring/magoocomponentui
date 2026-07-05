@@ -1,0 +1,20 @@
+name: countdown-banner
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    example: "Launch sale ends in"
+  deadline:
+    type: string
+    required: true
+    title: Deadline
+    description: ISO datetime the countdown targets (e.g. 2026-12-31T23:59:59Z).
+    example: "2026-12-31T23:59:59Z"
+  cta_label:
+    type: string
+    title: CTA label
+    example: "Shop the sale"
+  cta_href:
+    type: link
+    title: CTA link

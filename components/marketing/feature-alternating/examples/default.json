@@ -1,0 +1,7 @@
+{
+  "rows": [
+    { "title": "Author once, generate everything", "body": "A single canonical source per component emits SDC, React, Vue, and Storybook — no hand-porting, no drift.", "image": "/stock/cover-workspace.jpg", "reverse": false },
+    { "title": "Ship no CSS", "body": "Markup is tokenized Tailwind bound to CSS-variable design tokens. Swap a value set to re-skin everything.", "image": "/stock/property-house.jpg", "reverse": true },
+    { "title": "Built for agents", "body": "Rich per-component metadata makes the catalog explorable so an agent can pick the right component fast.", "image": "/stock/food-plate.jpg", "reverse": false }
+  ]
+}

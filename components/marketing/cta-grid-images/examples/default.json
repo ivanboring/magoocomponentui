@@ -1,0 +1,11 @@
+{
+  "title": "Join thousands building faster",
+  "cta_label": "Get started",
+  "cta_href": "#",
+  "images": [
+    { "src": "/stock/cover-workspace.jpg" },
+    { "src": "/stock/food-plate.jpg" },
+    { "src": "/stock/property-house.jpg" },
+    { "src": "/stock/product-sneaker.jpg" }
+  ]
+}

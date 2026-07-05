@@ -1,0 +1,65 @@
+name: "Image Background Hero"
+short_description: A full-bleed background-image hero with a dark scrim and centered content.
+long_visual_description: >
+  A hero with a full-bleed background image, a dark scrim for legibility, and centered
+  white headline, subtitle, and CTA.
+
+use_cases:
+  - Immersive landing hero.
+  - Campaign or brand hero.
+  - Event or destination hero.
+  - Product launch banner.
+  - Bold above-the-fold statement.
+
+recommended_for:
+  - An image-forward hero where text sits over a photo.
+avoid_for:
+  - Text-heavy heroes needing a readable surface (use hero-centered).
+
+markets:
+  - Global
+
+example_usage: >
+  Use a strong image; the dark scrim keeps white text legible. Keep the headline short and
+  the subtitle to one line.
+
+props:
+  title: The hero headline.
+  subtitle: A supporting sentence.
+  cta_label: CTA text.
+  cta_href: CTA link.
+  image: The background image (required).
+
+example_prompts:
+  - "Add a full-bleed image hero with a headline and CTA."
+  - "Add a background-image hero with a dark overlay."
+
+lifecycle: experimental
+content_model: A background image with an overlaid headline, subtitle, and CTA.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep the headline short so it reads over the image; the dark scrim + white text is fixed
+  for legibility.
+
+categorization:
+  category: Marketing
+  subcategory: Hero
+  atomic_type: organism
+  usage_type: [hero, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scrim keeps white text legible over the image; the CTA is a real link and the background is decorative. Verify contrast against your specific image.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 60
+  text_direction: both

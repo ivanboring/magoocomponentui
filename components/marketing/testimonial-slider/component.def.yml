@@ -1,0 +1,10 @@
+name: testimonial-slider
+props:
+  slides:
+    type: array
+    items: object
+    required: true
+    title: Slides
+    description: "Each slide: { quote, author, role, initials, avatar, active }. One active."
+    example:
+      - { quote: "It saved our team weeks.", author: "Jane Doe", role: "Head of Design", initials: "JD", avatar: "", active: true }

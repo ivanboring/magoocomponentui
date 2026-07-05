@@ -1,0 +1,9 @@
+<section class="hero-image-bg relative flex min-h-96 items-center justify-center overflow-hidden rounded-card">
+  <div class="hero-image-bg__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="hero-image-bg__scrim absolute inset-0 bg-black/55" aria-hidden="true"></div>
+  <div class="hero-image-bg__body relative max-w-2xl px-4 py-(--space-section) text-center text-white">
+    <h1 class="hero-image-bg__title font-heading text-4xl leading-tight sm:text-5xl">{{ title }}</h1>
+    <p data-if="subtitle" class="hero-image-bg__subtitle mx-auto mt-4 max-w-xl text-lg text-white/85">{{ subtitle }}</p>
+    <a class="hero-image-bg__cta mt-8 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">{{ cta_label }}</a>
+  </div>
+</section>

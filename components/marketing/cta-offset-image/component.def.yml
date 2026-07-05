@@ -1,0 +1,23 @@
+name: cta-offset-image
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "See it in action"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Browse the catalog across four themes and every breakpoint."
+  cta_label:
+    type: string
+    default: "Open the preview"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link
+  image:
+    type: image
+    required: true
+    title: Image
+    example: "/stock/cover-workspace.jpg"

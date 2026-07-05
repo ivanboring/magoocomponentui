@@ -1,0 +1,67 @@
+name: "CTA with Offset Image"
+short_description: A CTA band with an overlapping offset image on the trailing edge.
+long_visual_description: >
+  A primary-coloured CTA panel with a headline, subtitle, and button on the left and a
+  tilted product image overlapping the bottom-right corner on larger screens.
+
+use_cases:
+  - Product CTA with a screenshot.
+  - Feature promo with imagery.
+  - App download CTA.
+  - Preview or demo CTA.
+  - Visual conversion band.
+
+recommended_for:
+  - A CTA band that also shows a product image.
+avoid_for:
+  - A plain text CTA band (use cta-simple).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the copy on the left readable; the offset image is decorative and hidden on small
+  screens.
+
+props:
+  title: The CTA headline.
+  subtitle: A supporting line.
+  cta_label: The button text.
+  cta_href: The button link.
+  image: The offset image (required).
+
+example_prompts:
+  - "Add a CTA band with an overlapping product image."
+  - "Add an offset-image conversion band."
+
+lifecycle: experimental
+content_model: A headline, subtitle, CTA, and an overlapping image.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-raised
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Keep the copy tight; the image supports, not competes with, the message.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: organism
+  usage_type: [banner, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Real heading and link; the offset image is decorative and hidden from small screens.
+  keyboard_support: The CTA is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

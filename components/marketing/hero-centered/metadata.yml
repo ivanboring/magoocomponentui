@@ -1,0 +1,71 @@
+name: "Centered Hero"
+short_description: A centered hero with an eyebrow, headline, subtext, and dual CTAs.
+long_visual_description: >
+  A centered hero block with a pill eyebrow, a large headline, a supporting subtitle, and a
+  primary + secondary call-to-action pair.
+
+use_cases:
+  - Landing page hero.
+  - Product homepage headline.
+  - Campaign or launch hero.
+  - Marketing site above-the-fold.
+  - App or service intro.
+
+recommended_for:
+  - A focused, centered above-the-fold hero.
+avoid_for:
+  - A media-alongside-text hero (use hero-split).
+  - A full-bleed image hero (use hero-image-bg).
+
+markets:
+  - Global
+
+example_usage: >
+  Keep the headline short and the subtitle to one sentence; use a strong primary CTA and an
+  optional secondary.
+
+props:
+  eyebrow: Small label above the title.
+  title: The hero headline.
+  subtitle: A supporting sentence.
+  primary_label: Primary CTA text.
+  primary_href: Primary CTA link.
+  secondary_label: Optional secondary CTA text.
+  secondary_href: Secondary CTA link.
+
+example_prompts:
+  - "Add a centered hero with headline, subtitle, and two CTAs."
+  - "Add a landing page hero with a primary and secondary action."
+
+lifecycle: experimental
+content_model: An eyebrow, headline, subtitle, and CTA pair.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-button
+    - --radius-pill
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the value proposition; keep the headline under ten words.
+
+categorization:
+  category: Marketing
+  subcategory: Hero
+  atomic_type: organism
+  usage_type: [hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real h1; CTAs are real links with visible labels.
+  keyboard_support: Both CTAs are focusable and activate on Enter.
+  seo_score: 70
+  text_direction: both

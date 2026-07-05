@@ -1,0 +1,58 @@
+name: "Testimonial Slider"
+short_description: A rotating testimonials carousel with prev/next controls.
+long_visual_description: >
+  A centered testimonial (large quote + attributed author) with previous/next controls that
+  cycle through the slides.
+
+use_cases:
+  - Rotating customer testimonials.
+  - Social-proof carousel.
+  - Quote slider on a landing page.
+  - Case-study highlights rotator.
+  - Wall-of-love slider.
+
+recommended_for:
+  - Cycling through several attributed testimonials in one spot.
+avoid_for:
+  - A static grid of quotes (use card-testimonial in a grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide several slides with one active; prev/next cycle them. Precompute initials for the
+  avatar fallback.
+
+props:
+  slides: The testimonial slides, one active.
+
+example_prompts:
+  - "Add a rotating testimonial slider."
+  - "Add a customer quotes carousel with prev/next."
+
+lifecycle: experimental
+content_model: A set of attributed testimonials shown one at a time.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Use real, specific quotes; keep each to a sentence or two so it reads at a large size.
+
+categorization:
+  category: Marketing
+  subcategory: Social proof
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic figure/blockquote per slide; controls carry accessible labels; the carousel has aria-roledescription. A production build should add live-region announcements.
+  keyboard_support: Prev/next are focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

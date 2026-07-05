@@ -1,0 +1,14 @@
+<section class="faq-accordion mx-auto max-w-2xl">
+  <h2 class="faq-accordion__title mb-4 text-center font-heading text-2xl text-on-surface">{{ title }}</h2>
+  <div class="faq-accordion__items divide-y divide-border rounded-card border border-border bg-surface">
+    <div data-for="item in items" class="faq-accordion__item">
+      <h3>
+        <button type="button" class="faq-accordion__trigger group flex w-full items-center justify-between gap-4 px-(--space-card) py-4 text-left font-heading text-on-surface" aria-expanded="{{ item.open }}">
+          {{ item.question }}
+          <svg class="faq-accordion__icon size-5 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-aria-expanded:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+        </button>
+      </h3>
+      <div class="faq-accordion__panel px-(--space-card) pb-4 text-sm text-on-surface-muted data-[open=false]:hidden" data-open="{{ item.open }}">{{ item.answer }}</div>
+    </div>
+  </div>
+</section>

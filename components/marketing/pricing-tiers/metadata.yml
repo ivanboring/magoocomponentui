@@ -1,0 +1,67 @@
+name: "Pricing Tiers"
+short_description: A pricing section with a monthly/annual toggle and a row of plan cards.
+long_visual_description: >
+  A titled pricing section with a monthly/annual billing toggle above a responsive row of
+  plan cards; toggling the period swaps each plan's price.
+
+use_cases:
+  - Pricing page plan comparison.
+  - Subscription tiers with billing toggle.
+  - Plan selection section.
+  - SaaS pricing block.
+  - Membership tiers.
+
+recommended_for:
+  - A pricing section combining plan cards with a billing-period toggle.
+avoid_for:
+  - A single plan card (use card-pricing).
+  - A feature matrix (use price-table).
+
+markets:
+  - Global
+
+example_usage: >
+  Slot plan cards into plans; give each price element data-monthly and data-annual so the
+  toggle can swap them. Mark one plan as featured.
+
+props:
+  title: The section heading.
+
+slots:
+  plans: The plan cards.
+
+relationships:
+  children:
+    - cards/card-pricing
+
+lifecycle: experimental
+content_model: A billing toggle and a row of plan cards.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-pill
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep three plans where possible; feature the recommended one and keep prices honest.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The billing toggle uses aria-pressed; plans are slotted cards. Announce price changes via the plan cards' own semantics in a production build.
+  keyboard_support: The billing toggle buttons are focusable and activate on Enter/Space.
+  seo_score: 60
+  text_direction: both

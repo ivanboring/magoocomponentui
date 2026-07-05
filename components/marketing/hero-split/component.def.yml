@@ -1,0 +1,27 @@
+name: hero-split
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Ship consistent UI, everywhere"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "One authored source generates SDC, React, Vue, and Storybook."
+  primary_label:
+    type: string
+    default: "Get started"
+    title: Primary CTA label
+  primary_href:
+    type: link
+    title: Primary CTA link
+  image:
+    type: image
+    title: Media
+    example: "/stock/cover-workspace.jpg"
+  reverse:
+    type: boolean
+    default: false
+    title: Reverse
+    description: Put the media on the left instead of the right.

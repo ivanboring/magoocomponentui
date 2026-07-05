@@ -1,0 +1,8 @@
+{
+  "title": "Ship consistent UI, everywhere",
+  "subtitle": "One authored source generates SDC, React, Vue, and Storybook — no hand-porting.",
+  "primary_label": "Get started",
+  "primary_href": "#",
+  "image": "/stock/cover-workspace.jpg",
+  "reverse": false
+}

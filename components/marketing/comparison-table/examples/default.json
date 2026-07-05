@@ -1,0 +1,14 @@
+{
+  "columns": [
+    { "name": "Magoo", "highlight": true },
+    { "name": "Hand-built", "highlight": false },
+    { "name": "Generic kit", "highlight": false }
+  ],
+  "rows": [
+    { "label": "Ships no CSS", "values": [{ "included": true }, { "included": false }, { "included": false }] },
+    { "label": "One source → every target", "values": [{ "included": true }, { "included": false }, { "included": false }] },
+    { "label": "Four shared-token themes", "values": [{ "included": true }, { "included": false }, { "included": true }] },
+    { "label": "Agent-explorable metadata", "values": [{ "included": true }, { "included": false }, { "included": false }] },
+    { "label": "Drupal SDC + paragraph mapping", "values": [{ "included": true }, { "included": true }, { "included": false }] }
+  ]
+}

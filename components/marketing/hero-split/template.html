@@ -1,0 +1,10 @@
+<section class="hero-split grid grid-cols-1 items-center gap-8 px-4 py-(--space-section) lg:grid-cols-2" data-reverse="{{ reverse }}">
+  <div class="hero-split__text data-[reverse=true]:lg:order-2" data-reverse="{{ reverse }}">
+    <h1 class="hero-split__title font-heading text-4xl leading-tight text-on-surface">{{ title }}</h1>
+    <p data-if="subtitle" class="hero-split__subtitle mt-4 text-lg text-on-surface-muted">{{ subtitle }}</p>
+    <a class="hero-split__cta mt-6 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ primary_href }}">{{ primary_label }}</a>
+  </div>
+  <div class="hero-split__media data-[reverse=true]:lg:order-1" data-reverse="{{ reverse }}">
+    <img data-if="image" class="w-full rounded-card object-cover shadow-card" src="{{ image }}" alt="">
+  </div>
+</section>

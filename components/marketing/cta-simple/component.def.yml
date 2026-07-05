@@ -1,0 +1,18 @@
+name: cta-simple
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Ready to build faster?"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Start generating components in minutes."
+  cta_label:
+    type: string
+    default: "Get started"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link

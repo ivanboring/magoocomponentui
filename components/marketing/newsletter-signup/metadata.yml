@@ -1,0 +1,71 @@
+name: "Newsletter Signup"
+short_description: A centered email capture block with title, description, field, and fine print.
+long_visual_description: >
+  A centered card with a title, a short description, an email field with a subscribe
+  button, and optional fine print beneath.
+
+use_cases:
+  - Standalone newsletter signup section.
+  - Footer email capture.
+  - Landing page subscribe block.
+  - Content-upgrade capture.
+  - Waitlist signup.
+
+recommended_for:
+  - A prominent, standalone email-capture section.
+avoid_for:
+  - An inline mid-article prompt (use newsletter-inline).
+
+markets:
+  - Global
+
+example_usage: >
+  Lead with the benefit; keep it to one email field with fine print about frequency and
+  unsubscribe.
+
+props:
+  title: The headline.
+  description: A supporting line.
+  placeholder: The email placeholder.
+  cta_label: The subscribe button text.
+  note: Optional fine print.
+
+example_prompts:
+  - "Add a newsletter signup section with email and subscribe."
+  - "Add an email capture block with fine print."
+
+lifecycle: experimental
+content_model: A headline, description, email field, and fine print.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Say what subscribers get and how often; keep the fine print honest.
+
+categorization:
+  category: Marketing
+  subcategory: Conversion
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The email field has an accessible label and required; submit is a real button in a form.
+  keyboard_support: The field and subscribe button are focusable; submit works via Enter.
+  seo_score: 50
+  text_direction: both

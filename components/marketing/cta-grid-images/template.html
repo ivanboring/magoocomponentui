@@ -1,0 +1,10 @@
+<section class="cta-grid-images relative flex min-h-72 items-center justify-center overflow-hidden rounded-card">
+  <div class="cta-grid-images__grid absolute inset-0 grid grid-cols-2 gap-1 opacity-40 blur-[2px] sm:grid-cols-4" aria-hidden="true">
+    <img data-for="image in images" class="size-full object-cover" src="{{ image.src }}" alt="">
+  </div>
+  <div class="cta-grid-images__scrim absolute inset-0 bg-primary/80" aria-hidden="true"></div>
+  <div class="cta-grid-images__body relative px-4 text-center text-primary-contrast">
+    <h2 class="cta-grid-images__title mx-auto max-w-xl font-heading text-3xl leading-tight">{{ title }}</h2>
+    <a class="cta-grid-images__cta mt-6 inline-flex items-center rounded-button bg-surface px-6 py-3 text-sm font-heading text-on-surface transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">{{ cta_label }}</a>
+  </div>
+</section>

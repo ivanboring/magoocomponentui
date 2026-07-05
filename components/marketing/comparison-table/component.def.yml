@@ -1,0 +1,19 @@
+name: comparison-table
+props:
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: "Each column: { name, highlight }."
+    example:
+      - { name: "Magoo", highlight: true }
+      - { name: "Others", highlight: false }
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: "Each row: { label, values: [{ included }] } — one boolean per column."
+    example:
+      - { label: "Ships no CSS", values: [{ included: true }, { included: false }] }

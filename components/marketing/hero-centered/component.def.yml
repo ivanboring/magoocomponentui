@@ -1,0 +1,29 @@
+name: hero-centered
+props:
+  eyebrow:
+    type: string
+    title: Eyebrow
+    example: "New · v2.0"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "The component library built for AI agents"
+  subtitle:
+    type: string
+    title: Subtitle
+    example: "Author once, generate every framework target. Ship consistent UI everywhere."
+  primary_label:
+    type: string
+    default: "Get started"
+    title: Primary CTA label
+  primary_href:
+    type: link
+    title: Primary CTA link
+  secondary_label:
+    type: string
+    title: Secondary CTA label
+    example: "View docs"
+  secondary_href:
+    type: link
+    title: Secondary CTA link

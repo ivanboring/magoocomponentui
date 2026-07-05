@@ -1,0 +1,23 @@
+name: cta-grid-images
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Join thousands building faster"
+  cta_label:
+    type: string
+    default: "Get started"
+    title: CTA label
+  cta_href:
+    type: link
+    title: CTA link
+  images:
+    type: array
+    items: object
+    required: true
+    title: Backdrop images
+    description: "Each item: { src }. Rendered as a blurred image-grid backdrop behind the CTA."
+    example:
+      - { src: "/stock/cover-workspace.jpg" }
+      - { src: "/stock/food-plate.jpg" }

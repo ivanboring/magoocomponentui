@@ -1,0 +1,8 @@
+<section class="cta-offset-image relative overflow-hidden rounded-card bg-primary px-(--space-section) py-(--space-section) text-primary-contrast">
+  <div class="cta-offset-image__text max-w-md">
+    <h2 class="cta-offset-image__title font-heading text-3xl leading-tight">{{ title }}</h2>
+    <p data-if="subtitle" class="cta-offset-image__subtitle mt-3 text-primary-contrast/85">{{ subtitle }}</p>
+    <a class="cta-offset-image__cta mt-6 inline-flex items-center rounded-button bg-surface px-6 py-3 text-sm font-heading text-on-surface transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta_href }}">{{ cta_label }}</a>
+  </div>
+  <img data-if="image" class="cta-offset-image__image pointer-events-none absolute -bottom-8 -right-8 hidden w-80 rotate-3 rounded-card object-cover shadow-raised lg:block" src="{{ image }}" alt="">
+</section>

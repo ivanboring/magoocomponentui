@@ -1,0 +1,7 @@
+{
+  "slides": [
+    { "quote": "This library saved our team weeks of work. We ship consistent UI everywhere now.", "author": "Jane Doe", "role": "Head of Design, Northwind", "initials": "JD", "avatar": "/stock/avatar-woman-1.jpg", "active": true },
+    { "quote": "One authored source and we get SDC, React, and Vue. No more drift between platforms.", "author": "Sam Lee", "role": "Engineering Lead, Acme", "initials": "SL", "avatar": "/stock/avatar-man-1.jpg", "active": false },
+    { "quote": "The theming model is genuinely clever — swap a value set and everything re-skins.", "author": "Ari Cohen", "role": "Frontend Architect", "initials": "AC", "avatar": "", "active": false }
+  ]
+}

@@ -1,0 +1,15 @@
+name: logo-cloud
+props:
+  title:
+    type: string
+    title: Title
+    example: "Trusted by teams at"
+  logos:
+    type: array
+    items: object
+    required: true
+    title: Logos
+    description: "Each logo: { name } — rendered as a wordmark placeholder (no image)."
+    example:
+      - { name: "Northwind" }
+      - { name: "Acme" }
