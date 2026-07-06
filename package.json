@@ -6,6 +6,12 @@
   "type": "module",
   "packageManager": "pnpm@11.9.0",
   "description": "CSS-less skeleton UI components with a single canonical source that generates SDC, Drupal Code Components, React, Vue, and Storybook.",
+  "bin": { "magoo-theme": "scripts/theme-cli.mjs" },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "js-yaml": "^4.1.0",
+    "node-html-parser": "^6.1.13"
+  },
   "scripts": {
     "build": "node scripts/build.mjs && node scripts/build-catalog.mjs",
     "catalog": "node scripts/build-catalog.mjs",
