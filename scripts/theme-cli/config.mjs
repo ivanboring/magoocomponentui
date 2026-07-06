@@ -13,6 +13,17 @@ export function paragraphConfigFiles(files) {
     k.startsWith("drupal/config/") || (k.startsWith("drupal/paragraph--") && k.endsWith(".html.twig"))));
 }
 
+/** Generate the config file map for one component. @param {string} id @param {{as,entity?,bundle?}} opts */
+export async function configFilesFor(id, { as, entity, bundle }) {
+  const dir = path.join("components", id);
+  const src = await readComponentSource(dir);
+  const def = loadDef(src.defYaml);
+  const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};
+  if (as === "custom-field") return customFieldConfigFiles(def, { entity, bundle });
+  const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples: null });
+  return paragraphConfigFiles(files);
+}
+
 export async function runConfig(argv) {
   const f = parseFlags(argv);
   const ids = f._;
@@ -22,16 +33,7 @@ export async function runConfig(argv) {
   if (as === "custom-field" && (!f.entity || !f.bundle)) throw new Error("config --as custom-field requires --entity and --bundle");
 
   for (const id of ids) {
-    const dir = path.join("components", id);
-    const src = await readComponentSource(dir);
-    const def = loadDef(src.defYaml);
-    const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};
-    const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples: null });
-
-    const emit = as === "custom-field"
-      ? customFieldConfigFiles(def, { entity: f.entity, bundle: f.bundle })
-      : paragraphConfigFiles(files);
-    for (const [rel, contents] of Object.entries(emit)) {
+    for (const [rel, contents] of Object.entries(await configFilesFor(id, { as, entity: f.entity, bundle: f.bundle }))) {
       const dest = path.join(out, rel);
       await mkdir(path.dirname(dest), { recursive: true });
       await writeFile(dest, contents);
