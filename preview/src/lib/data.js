@@ -109,7 +109,10 @@ export function renderInContainer(containerId, innerHtml, extraArgs = {}) {
   if (!existsSync(path.join(dir, "ast.json"))) return null;
   const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
   const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
-  const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: { items: innerHtml } };
+  // Slot into whichever child slot the container exposes — some use `plans` (e.g.
+  // pricing-tiers) rather than `items`, so hardcoding `items` would drop the card.
+  const slotName = (meta.def.slots || []).some((s) => s.name === "plans") ? "plans" : "items";
+  const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: { [slotName]: innerHtml } };
   return { html: renderToHtml(ast, args), behavior: readBehavior(containerId, meta.name) };
 }
 
