@@ -62,8 +62,8 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - **frontend-design** — when authoring the four theme token sets and preview visuals.
 - **web-design-guidelines** — when authoring component `template.html` markup.
 - **agent-browser** — to preview/verify themes and drive Playwright screenshot capture.
-- **superpowers:brainstorming → writing-plans** — process for new *structural/tooling* scope (generator, build pipeline, new directive syntax, etc.).
-- **Do NOT use superpowers (brainstorming/writing-plans/subagent-driven-development) for authoring an individual catalog component** (or its child components). Component creation follows the fixed shape documented above (`component.def.yml` + `template.html` + `metadata.yml` + optional `behavior.js`/`examples/`) and reference components to copy — author it directly, in one pass, without a brainstorming/planning/review loop.
+- **superpowers:brainstorming → writing-plans** — process for *larger* asks only: new *structural/tooling* scope (generator, build pipeline, new directive syntax, catalog/taxonomy model) or a change spanning many components at once. If in doubt about whether an ask is "large", it probably isn't — default to working directly.
+- **Do NOT use superpowers (brainstorming/writing-plans/subagent-driven-development) when working on a single component** — whether creating it *or* editing an existing one (adding/changing props, fixing `behavior.js`, wiring examples, tweaking `template.html`, regenerating screenshots). That includes a component's child components. This work follows the fixed shape documented above (`component.def.yml` + `template.html` + `metadata.yml` + optional `behavior.js`/`examples/`) and reference components to copy — do it directly, in one pass, without a brainstorming/planning/review loop.
 
 ## Authoring gotchas (learned the hard way — run `pnpm build` after every component)
 
