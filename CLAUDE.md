@@ -68,6 +68,10 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 ## Authoring gotchas (learned the hard way — run `pnpm build` after every component)
 
 - `metadata.yml` `use_cases` is validated **5–15 items** when present (ajv). Always write at least 5.
+- **Use an ASCII hyphen `-` (U+002D), never a Unicode minus `−` (U+2212)** in `metadata.yml` and
+  `component.def.yml` (grades like `A-`, ranges, `price - down`, etc.). The minus sign looks
+  identical but is a different character; keep the source ASCII. Quick check:
+  `grep -rn $'−' --include=metadata.yml --include=component.def.yml components/`.
 - `{{ }}` / `{{{ }}}` interpolation does **not** support `!` negation (`{{ !label }}` throws a parse
   error) — `!` negation is **only** valid inside `data-if="!path"`. To vary an attribute by a
   boolean/falsy prop, either always emit the prop value as-is (e.g. `aria-label="{{ label }}"`

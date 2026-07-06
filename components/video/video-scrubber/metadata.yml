@@ -29,10 +29,16 @@ props:
   buffered: Buffered percentage 0-100.
   current_time: The current time label.
   duration: The total duration label.
+  sync_id: Optional sync_id of a video-player to bind to for two-way sync.
 
 example_prompts:
   - "Add a video scrubber showing played and buffered ranges."
   - "Add a seek timeline with a hover thumb and time labels."
+  - "Add a scrubber bound to the player's sync_id so they stay in sync."
+
+relationships:
+  related:
+    - video/video-player
 
 lifecycle: experimental
 content_model: A seek timeline with played/buffered ranges and time labels.

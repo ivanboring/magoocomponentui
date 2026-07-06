@@ -25,7 +25,7 @@ example_usage: >
   Set start_time (ISO) and put the player in the video slot. To keep the video URL private
   until premiere, omit it from the markup and supply it over JS at reveal:
   el.setPremiereSource(url) or an "premiere:set-source" event — the behavior injects the
-  src into the slotted <video>/<iframe> only when the countdown reaches (start − reveal).
+  src into the slotted <video>/<iframe> only when the countdown reaches (start - reveal).
   Pass current_time to seed "now" from the server and avoid client-clock skew. Set
   countdown_type to compact for a single hh:mm:ss line.
 

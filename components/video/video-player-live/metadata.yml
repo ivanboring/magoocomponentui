@@ -30,10 +30,16 @@ props:
   src: The stream source URL.
   viewers: The live viewer count label.
   latency: Optional latency mode label.
+  sync_id: Optional id that links satellite components (transcript/chapters) to this stream.
 
 example_prompts:
   - "Add a live player with a LIVE badge and viewer count."
   - "Add a low-latency live stream player."
+
+relationships:
+  related:
+    - video/video-transcript
+    - video/video-chapters
 
 lifecycle: experimental
 content_model: A live stream surface with LIVE/viewer/latency indicators and basic controls.

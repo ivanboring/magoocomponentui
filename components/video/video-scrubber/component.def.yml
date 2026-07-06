@@ -18,3 +18,10 @@ props:
     type: string
     default: "0:00"
     title: Duration
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional sync_id of a video-player to bind to. When set, seeking emits a targeted
+      request to that player and the played range follows the player's position over a
+      document-level event bus. Leave empty for a standalone scrubber.

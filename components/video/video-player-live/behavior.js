@@ -10,12 +10,20 @@ export default function init(root, props) {
   const iconPause = root.querySelector(".video-player-live__icon-pause");
   const mute = root.querySelector(".video-player-live__mute");
   if (!play) return () => {};
+  const syncId = root.dataset.syncId || "";
 
   function setPlaying(p) {
     play.setAttribute("aria-pressed", String(p));
     play.setAttribute("aria-label", p ? "Pause" : "Play");
     iconPlay?.classList.toggle("hidden", p);
     iconPause?.classList.toggle("hidden", !p);
+    if (syncId) document.dispatchEvent(new CustomEvent("mediasync:state", { detail: { id: syncId, playing: p } }));
+  }
+  function onTime() {
+    if (!syncId || !video || !video.duration) return;
+    document.dispatchEvent(new CustomEvent("mediasync:time", {
+      detail: { id: syncId, currentTime: video.currentTime, duration: video.duration, percent: (video.currentTime / video.duration) * 100 },
+    }));
   }
   function onPlay() {
     if (video && video.src) { video.paused ? video.play() : video.pause(); }
@@ -32,8 +40,10 @@ export default function init(root, props) {
   mute?.addEventListener("click", onMute);
   video?.addEventListener("play", () => setPlaying(true));
   video?.addEventListener("pause", () => setPlaying(false));
+  video?.addEventListener("timeupdate", onTime);
   return () => {
     play.removeEventListener("click", onPlay);
     mute?.removeEventListener("click", onMute);
+    video?.removeEventListener("timeupdate", onTime);
   };
 }

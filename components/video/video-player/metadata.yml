@@ -24,17 +24,27 @@ markets:
 example_usage: >
   Provide src to make the controls functional against a real <video>; without it the
   poster shows and the controls still toggle their state for preview. Guard the <video>
-  with a source so an empty src doesn't resolve to the page URL.
+  with a source so an empty src doesn't resolve to the page URL. Set a shared sync_id on
+  this player and on a video-scrubber, video-transcript, or video-chapters to keep them in
+  sync — the player broadcasts its position and accepts their seek requests.
 
 props:
   title: The video title (for context/labelling).
   poster: The poster frame shown before playback.
   src: The video file URL.
   duration: The time label (e.g. "0:00 / 42:18").
+  sync_id: Optional id that links satellite components (scrubber/transcript/chapters) to this player.
 
 example_prompts:
   - "Add a video player with play/pause, scrubber, speed, and fullscreen."
   - "Add an on-demand video player with a poster."
+  - "Add a video player with a sync_id so a transcript and chapters stay in sync with it."
+
+relationships:
+  related:
+    - video/video-scrubber
+    - video/video-transcript
+    - video/video-chapters
 
 lifecycle: experimental
 content_model: A video surface with a standard set of playback controls.

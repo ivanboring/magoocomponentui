@@ -1,4 +1,4 @@
-<div class="video-chapters flex flex-col gap-1" role="list" aria-label="Chapters">
+<div class="video-chapters flex flex-col gap-1" role="list" aria-label="Chapters" data-sync-id="{{ sync_id }}">
   <button data-for="chapter in chapters" type="button" class="video-chapters__item flex items-center gap-3 rounded-control p-2 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:bg-surface-raised" role="listitem" data-seconds="{{ chapter.seconds }}" data-active="{{ chapter.active }}" aria-current="{{ chapter.active }}">
     <span class="video-chapters__thumb relative block aspect-video w-20 shrink-0 overflow-hidden rounded-control bg-surface-raised">
       <img data-if="chapter.thumbnail" class="size-full object-cover" src="{{ chapter.thumbnail }}" alt="">

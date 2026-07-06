@@ -9,3 +9,11 @@ props:
     example:
       - { title: "Introduction", time: "0:00", seconds: 0, thumbnail: "/stock/cover-workspace.jpg", active: true }
       - { title: "Design tokens", time: "3:20", seconds: 200, thumbnail: "/stock/food-plate.jpg", active: false }
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional sync_id of a video-player (or video-player-live) to bind to. When set,
+      clicking a chapter asks that player to seek to the chapter's seconds, and the active
+      chapter follows the player's position over a document-level event bus. Leave empty
+      for a standalone list.

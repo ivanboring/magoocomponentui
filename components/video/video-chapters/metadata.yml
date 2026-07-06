@@ -25,14 +25,17 @@ example_usage: >
 
 props:
   chapters: The chapter markers with titles, times, and thumbnails.
+  sync_id: Optional sync_id of a video-player (or video-player-live) to bind to for two-way sync.
 
 example_prompts:
   - "Add a chapter list with thumbnails that seek the video."
   - "Add a chapters navigation for a long tutorial."
+  - "Add a chapters list bound to the player's sync_id so the active chapter follows playback."
 
 relationships:
   related:
     - video/video-player
+    - video/video-player-live
 
 lifecycle: experimental
 content_model: An ordered list of chapter markers with a current one.

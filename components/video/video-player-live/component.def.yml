@@ -16,3 +16,12 @@ props:
     type: string
     title: Latency
     example: "Low latency"
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional identifier that links this stream to satellite components
+      (video-transcript, video-chapters) carrying the same sync_id. When set, the player
+      broadcasts its playback position and play/pause state on a document-level event bus
+      so those components can follow the live edge. Live streams play at the edge, so
+      inbound seek requests are ignored. Leave empty for a standalone player.

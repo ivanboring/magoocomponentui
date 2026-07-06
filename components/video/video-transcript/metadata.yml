@@ -26,14 +26,17 @@ example_usage: >
 
 props:
   cues: The transcript lines with time, seconds, text, and active state.
+  sync_id: Optional sync_id of a video-player (or video-player-live) to bind to for two-way sync.
 
 example_prompts:
   - "Add a click-to-seek transcript synced to the video."
   - "Add an interactive transcript with timestamps."
+  - "Add a transcript bound to the player's sync_id so it follows playback."
 
 relationships:
   related:
     - video/video-player
+    - video/video-player-live
 
 lifecycle: experimental
 content_model: An ordered list of timestamped transcript cues with an active one.

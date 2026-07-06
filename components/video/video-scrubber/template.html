@@ -1,4 +1,4 @@
-<div class="video-scrubber flex items-center gap-3">
+<div class="video-scrubber flex items-center gap-3" data-sync-id="{{ sync_id }}">
   <span class="video-scrubber__current shrink-0 text-xs tabular-nums text-on-surface-muted">{{ current_time }}</span>
   <div class="video-scrubber__track group relative h-1.5 flex-1 cursor-pointer rounded-pill bg-surface-raised" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress }}" tabindex="0">
     <div class="video-scrubber__buffered absolute inset-y-0 left-0 rounded-pill bg-on-surface-muted/40" style="width: {{ buffered }}%"></div>

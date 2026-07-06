@@ -15,4 +15,4 @@ props:
   overall:
     type: string
     title: Overall grade
-    example: "A− (91%)"
+    example: "A- (91%)"

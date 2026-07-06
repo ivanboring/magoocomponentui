@@ -1,4 +1,4 @@
-<figure class="video-player relative overflow-hidden rounded-card bg-black shadow-card">
+<figure class="video-player relative overflow-hidden rounded-card bg-black shadow-card" data-sync-id="{{ sync_id }}">
   <video data-if="src" class="video-player__video block aspect-video w-full" src="{{ src }}" poster="{{ poster }}" preload="metadata"></video>
   <div data-if="!src" class="video-player__placeholder relative flex aspect-video w-full items-center justify-center bg-cover bg-center" style="background-image: url({{ poster }})">
     <span class="absolute inset-0 bg-black/30" aria-hidden="true"></span>

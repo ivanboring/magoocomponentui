@@ -20,7 +20,7 @@ markets:
   - Global
 
 example_usage: >
-  The behavior amortizes price − down over the term at the APR live; the initial monthly is
+  The behavior amortizes price - down over the term at the APR live; the initial monthly is
   the server-precomputed value.
 
 props:

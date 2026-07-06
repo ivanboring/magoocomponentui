@@ -16,3 +16,12 @@ props:
     type: string
     default: "0:00"
     title: Duration label
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional identifier that links this player to satellite components
+      (video-scrubber, video-transcript, video-chapters) carrying the same sync_id.
+      When set, the player broadcasts its playback position on a document-level event
+      bus and accepts seek requests from those components. Leave empty for a standalone
+      player.

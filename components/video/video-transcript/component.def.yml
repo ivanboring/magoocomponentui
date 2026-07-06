@@ -12,3 +12,11 @@ props:
       - { time: "0:00", seconds: 0, text: "Welcome to the show.", active: false }
       - { time: "0:12", seconds: 12, text: "Today we talk about design systems.", active: true }
       - { time: "0:31", seconds: 31, text: "Let's start with tokens.", active: false }
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional sync_id of a video-player (or video-player-live) to bind to. When set,
+      clicking a cue asks that player to seek to the cue's seconds, and the active cue
+      follows the player's position over a document-level event bus. Leave empty for a
+      standalone transcript.
