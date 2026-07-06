@@ -10,8 +10,13 @@
       <span class="audio-player__time shrink-0 text-xs tabular-nums text-on-surface-muted">{{ duration }}</span>
     </div>
     <p data-if="artist" class="audio-player__artist truncate text-xs text-on-surface-muted">{{ artist }}</p>
-    <div class="audio-player__scrubber mt-2 h-1.5 cursor-pointer overflow-hidden rounded-pill bg-surface-raised" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+    <div data-if="scrubber" class="audio-player__scrubber mt-2 h-1.5 cursor-pointer overflow-hidden rounded-pill bg-surface-raised data-[usable=false]:cursor-default" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0" data-usable="{{ scrubber_usable }}">
       <div class="audio-player__progress h-full rounded-pill bg-primary" style="width: 0%"></div>
     </div>
   </div>
+  <span data-if="download" class="contents">
+    <a data-if="src" class="audio-player__download flex size-9 shrink-0 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="{{ src }}" download aria-label="Download">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 3v8m0 0l-3-3m3 3l3-3M4 15h12"/></svg>
+    </a>
+  </span>
 </div>

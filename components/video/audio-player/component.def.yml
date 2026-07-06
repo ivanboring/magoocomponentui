@@ -16,3 +16,21 @@ props:
   src:
     type: link
     title: Audio source
+    example: "/stock/prettyjohn1-lofi-chill-chill_38sec-490468.mp3"
+  scrubber:
+    type: boolean
+    default: true
+    title: Show scrubber
+    description: Show the seek/progress bar. Set false for a minimal play-only player.
+  scrubber_usable:
+    type: boolean
+    default: true
+    title: Scrubber seekable
+    description: >
+      When true the scrubber seeks on click / Arrow keys; when false it's a display-only
+      progress bar (role=progressbar, not focusable). Ignored when scrubber is hidden.
+  download:
+    type: boolean
+    default: false
+    title: Show download button
+    description: Show a download button linking to the audio source (only rendered when src is set).

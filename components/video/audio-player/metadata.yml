@@ -22,13 +22,19 @@ markets:
 
 example_usage: >
   Provide src for real playback; without it the controls toggle for preview. Guard the
-  <audio> with the source so an empty src doesn't resolve to the page URL.
+  <audio> with the source so an empty src doesn't resolve to the page URL. The time label
+  updates live to "current / total" during playback. Toggle features via props: hide the
+  seek bar (scrubber), make it display-only (scrubber_usable: false), or expose a download
+  button (download).
 
 props:
   title: The track title.
   artist: Optional artist/source.
-  duration: The time label.
+  duration: The time label (updates live to "current / total" once playback starts).
   src: The audio file URL.
+  scrubber: Show the seek/progress bar (set false for a play-only player).
+  scrubber_usable: Whether the scrubber seeks (true) or is a display-only progressbar (false).
+  download: Show a download button linking to the audio source.
 
 example_prompts:
   - "Add an audio player for a music track with a scrubber."
