@@ -2,7 +2,7 @@
   "step_label": "Step 2 of 3",
   "title": "Set up authenticator app",
   "instruction": "Scan this QR code with your authenticator app, then enter the 6-digit code it shows.",
-  "otpauth": "otpauth://totp/Acme%20Inc:jane@acme.com?secret=JBSWY3DPEHPK3PXP&issuer=Acme%20Inc",
-  "secret": "JBSW Y3DP EHPK 3PXP",
+  "otpauth": "otpauth://totp/Acme%20Inc:sam@acme.com?secret=KRSXG5CTMVRXEZLU&issuer=Acme%20Inc",
+  "secret": "KRSX G5CT MVRX EZLU",
   "cells": [ { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" }, { "value": "" } ]
 }

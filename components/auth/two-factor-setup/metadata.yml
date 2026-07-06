@@ -20,14 +20,16 @@ markets:
   - Global
 
 example_usage: >
-  Show the QR (placeholder for a real code), the manual secret, and the code input; verify
-  enables 2FA.
+  Provide an otpauth:// URI; the QR renders from it as a real image (via qrcode) and the
+  manual secret is derived from it. Updating otpauth re-renders both. The code cells
+  auto-advance and verify enables 2FA.
 
 props:
   step_label: The step indicator.
   title: The step title.
   instruction: The setup instruction.
-  secret: The manual entry secret.
+  otpauth: The otpauth:// URI the QR encodes (drives the QR image and manual secret).
+  secret: The manual-entry secret (auto-filled from otpauth when present).
   cells: The verification code cells.
 
 example_prompts:

@@ -15,6 +15,7 @@ listed here.
 | Component | Library | Version | Purpose | Load strategy |
 |---|---|---|---|---|
 | `video/video-player-live` | [hls.js](https://github.com/video-dev/hls.js/) | `@1` (latest 1.x, jsdelivr) | Play HLS (`.m3u8`) adaptive live streams in browsers without native HLS | Lazy dynamic `import()` from CDN, native-HLS first, only when a stream is present |
+| `auth/two-factor-setup` | [qrcode](https://github.com/soldair/node-qrcode) | `@1` (latest 1.x, jsdelivr `+esm`) | Generate the authenticator QR as a real image from the `otpauth://` URI | Lazy dynamic `import()` from CDN, only when an `otpauth` URI is present; re-renders on update |
 
 > To regenerate this table's coverage, grep the sources:
 > `grep -rln 'jsdelivr\|unpkg\|esm.sh\|import(' components/*/*/behavior.js`
@@ -51,6 +52,22 @@ listed here.
 - **Targets:** the loader is plain JS, so it ships verbatim to every target — SDC (portable
   self-init), Drupal Code Component, React, and Vue. The dynamic `import()` carries a
   `/* @vite-ignore */` comment so Storybook's Vite doesn't try to pre-bundle the CDN URL.
+
+### `two-factor-setup` → qrcode
+
+- **Why:** the authenticator QR must be a **real** scannable code generated from the account's
+  `otpauth://totp/...` URI, not a decorative placeholder. qrcode renders it client-side.
+- **How it loads** (`components/auth/two-factor-setup/behavior.js`): the `otpauth` URI is on the
+  QR container as `data-otpauth`. On init (and whenever that attribute changes — a `MutationObserver`
+  makes the image updatable), `renderQR()` `await import(/* @vite-ignore */ "https://cdn.jsdelivr.net/npm/qrcode@1/+esm")`
+  (reusing `window.QRCode` if preloaded), then `QRCode.toDataURL(otpauth)` and sets the result as
+  the `<img>` src. The manual secret shown below is parsed from the URI's `secret` param so the
+  code and QR always match.
+- **Lazy + conditional:** only imported when an `otpauth` URI is present; the `<img>` has no `src`
+  until generated (avoids the empty-`src`→page-URL trap). Falls back to the empty placeholder box
+  offline.
+- **CDN / version:** jsdelivr `+esm` of `qrcode@1` (auto-bundled ESM). Screenshots don't run JS, so
+  the QR image is absent in captured PNGs — the styled box shows instead.
 
 ## Adding a component that needs an external library
 

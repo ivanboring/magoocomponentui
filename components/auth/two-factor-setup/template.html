@@ -2,12 +2,11 @@
   <p data-if="step_label" class="two-factor-setup__step text-xs font-semibold uppercase tracking-wide text-primary">{{ step_label }}</p>
   <h2 class="two-factor-setup__title mt-1 font-heading text-xl text-on-surface">{{ title }}</h2>
   <p class="two-factor-setup__instruction mt-2 text-sm text-on-surface-muted">{{ instruction }}</p>
-  <div class="two-factor-setup__qr mx-auto mt-4 grid size-40 grid-cols-8 grid-rows-8 gap-0.5 rounded-card border border-border bg-surface p-2" role="img" aria-label="Authenticator QR code">
-    <span class="col-span-3 row-span-3 border-4 border-on-surface"></span><span class="col-start-6 col-span-3 row-span-3 border-4 border-on-surface"></span>
-    <span class="col-start-1 row-start-6 row-span-3 col-span-3 border-4 border-on-surface"></span>
-    <span class="col-start-5 row-start-1 bg-on-surface"></span><span class="col-start-5 row-start-3 bg-on-surface"></span><span class="col-start-6 row-start-5 bg-on-surface"></span><span class="col-start-8 row-start-6 bg-on-surface"></span><span class="col-start-5 row-start-7 bg-on-surface"></span><span class="col-start-7 row-start-8 bg-on-surface"></span><span class="col-start-6 row-start-6 bg-on-surface"></span>
+  <div class="two-factor-setup__qr relative mx-auto mt-4 flex size-40 items-center justify-center rounded-card border border-border bg-white p-2" role="img" aria-label="Authenticator QR code" data-otpauth="{{ otpauth }}">
+    <svg class="size-16 text-slate-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm10-2h2v2h-2v-2zm4 0h2v2h-2v-2zm-4 4h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2z"/></svg>
+    <img class="two-factor-setup__qr-img absolute inset-2 object-contain" alt="">
   </div>
-  <p data-if="secret" class="two-factor-setup__secret mt-3 text-center text-xs text-on-surface-muted">Or enter manually: <span class="font-mono text-on-surface">{{ secret }}</span></p>
+  <p data-if="secret" class="two-factor-setup__secret mt-3 text-center text-xs text-on-surface-muted">Or enter manually: <span class="two-factor-setup__secret-value font-mono text-on-surface">{{ secret }}</span></p>
   <div class="two-factor-setup__code mt-5">
     <p class="text-sm font-medium text-on-surface">Enter the 6-digit code</p>
     <div class="mt-2 flex justify-center gap-2" role="group" aria-label="Authentication code">

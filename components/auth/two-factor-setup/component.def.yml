@@ -12,9 +12,18 @@ props:
     type: string
     default: "Scan this QR code with your authenticator app, then enter the 6-digit code."
     title: Instruction
+  otpauth:
+    type: string
+    title: otpauth URI
+    description: >
+      The otpauth://totp/... URI the QR encodes. The QR is generated from this as a real
+      image (via qrcode, loaded lazily) and re-renders whenever this value changes; the
+      manual secret below is derived from its `secret` param and stays in sync.
+    example: "otpauth://totp/Acme%20Inc:jane@acme.com?secret=JBSWY3DPEHPK3PXP&issuer=Acme%20Inc"
   secret:
     type: string
     title: Manual secret
+    description: Manual-entry secret shown below the QR; auto-filled from the otpauth `secret` when present.
     example: "JBSW Y3DP EHPK 3PXP"
   cells:
     type: array
