@@ -104,6 +104,14 @@ const relGroups = [
           ))}
         </select>
       )}
+      <select id="stage-width" title="Constrain the preview width" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+        <option value="">Auto width</option>
+        <option value="1280">1280px</option>
+        <option value="1024">1024px</option>
+        <option value="768">768px</option>
+        <option value="480">480px</option>
+        <option value="375">375px</option>
+      </select>
       <button id="fullwidth-btn" type="button" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-100 aria-[pressed=true]:border-slate-900 aria-[pressed=true]:bg-slate-900 aria-[pressed=true]:text-white" aria-pressed="false" title="Toggle full-width preview">Full width</button>
     </div>
   </div>
@@ -285,6 +293,23 @@ const relGroups = [
         try { localStorage.setItem(FW_KEY, on ? "1" : "0"); } catch {}
       });
       try { if (localStorage.getItem(FW_KEY) === "1") applyFullWidth(true); } catch {}
+    }
+
+    // Preview width: constrain each stage to a fixed width (centered) to check responsive layouts.
+    const widthSel = document.getElementById("stage-width");
+    if (widthSel && stagesWrap) {
+      const W_KEY = "magoo-stage-width";
+      function applyWidth(v) {
+        stagesWrap.querySelectorAll(".stage").forEach((s) => {
+          s.style.maxWidth = v ? v + "px" : "";
+          s.style.marginInline = v ? "auto" : "";
+        });
+      }
+      widthSel.addEventListener("change", () => {
+        applyWidth(widthSel.value);
+        try { localStorage.setItem(W_KEY, widthSel.value); } catch {}
+      });
+      try { const saved = localStorage.getItem(W_KEY); if (saved) { widthSel.value = saved; applyWidth(saved); } } catch {}
     }
 
     // The viewed component's own behavior, plus any slotted children's, so
