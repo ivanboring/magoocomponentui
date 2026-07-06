@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { validateMetadata } from "./validate.js";
-import { buildEntry, deriveFacets, assembleCatalog } from "./catalog.js";
+import { buildEntry, deriveFacets, assembleCatalog, deriveSecondaryCategories, USAGE_COLLECTIONS } from "./catalog.js";
 
 const good = {
   short_description: "A live match score card.",
@@ -80,7 +80,39 @@ test("deriveFacets and assembleCatalog produce nav facets", () => {
   });
   const cat = assembleCatalog([entry], { generatedAt: "t" });
   assert.equal(cat.count, 1);
-  assert.deepEqual(cat.facets.categories, { Sports: ["Live"] });
+  assert.deepEqual(cat.facets.categories, { Cards: [], Sports: ["Live"] });
   assert.deepEqual(cat.facets.atomic_types, ["molecule"]);
   assert.deepEqual(cat.facets.usage_types, ["card", "highlight"]);
+});
+
+test("USAGE_COLLECTIONS has the four seeded mappings", () => {
+  assert.deepEqual(USAGE_COLLECTIONS, { card: "Cards", nav: "Navigation", overlay: "Overlays", form: "Forms" });
+});
+
+test("deriveSecondaryCategories maps usage_type to collections, skips self, dedups, ignores unmapped", () => {
+  assert.deepEqual(deriveSecondaryCategories({ category: "Music", usage_type: ["card", "media"] }), ["Cards"]);
+  assert.deepEqual(deriveSecondaryCategories({ category: "Cards", usage_type: ["card"] }), []);
+  assert.deepEqual(deriveSecondaryCategories({ category: "Auth", usage_type: ["overlay", "form", "form"] }), ["Overlays", "Forms"]);
+  assert.deepEqual(deriveSecondaryCategories({ category: "Data", usage_type: ["stat", "table"] }), []);
+  assert.deepEqual(deriveSecondaryCategories({ category: "Data" }), []);
+});
+
+test("buildEntry derives secondary_categories from usage_type", () => {
+  const entry = buildEntry({
+    id: "music/card-podcast", path: "p",
+    def: { name: "card-podcast", props: [], slots: [] },
+    metadata: { ...good, categorization: { category: "Music", subcategory: "Players", atomic_type: "molecule", usage_type: ["card"], maturity: "ai-generated" } },
+  });
+  assert.deepEqual(entry.secondary_categories, ["Cards"]);
+});
+
+test("deriveFacets folds secondary categories in without a spurious subcategory", () => {
+  const music = buildEntry({
+    id: "music/card-podcast", path: "p",
+    def: { name: "card-podcast", props: [], slots: [] },
+    metadata: { ...good, categorization: { category: "Music", subcategory: "Players", atomic_type: "molecule", usage_type: ["card"], maturity: "ai-generated" } },
+  });
+  const cat = assembleCatalog([music]);
+  assert.deepEqual(cat.facets.categories.Music, ["Players"]);
+  assert.deepEqual(cat.facets.categories.Cards, []);
 });

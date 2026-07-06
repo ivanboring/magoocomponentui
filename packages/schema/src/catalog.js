@@ -13,6 +13,26 @@ function titleCaseName(machineName) {
     .join(" ");
 }
 
+/** usage_type → the category a component is also cross-listed under. Extend to add collections. */
+export const USAGE_COLLECTIONS = { card: "Cards", nav: "Navigation", overlay: "Overlays", form: "Forms" };
+
+/**
+ * Derive the extra categories a component appears under, from its usage_type tags.
+ * Skips the component's own primary category and dedups.
+ * @param {any} categorization
+ * @returns {string[]}
+ */
+export function deriveSecondaryCategories(categorization) {
+  const primary = categorization && categorization.category;
+  const usage = (categorization && categorization.usage_type) || [];
+  const out = [];
+  for (const u of usage) {
+    const target = USAGE_COLLECTIONS[u];
+    if (target && target !== primary && !out.includes(target)) out.push(target);
+  }
+  return out;
+}
+
 /**
  * @param {{ id: string, path: string, def: any, metadata: any }} input
  */
@@ -39,6 +59,7 @@ export function buildEntry({ id, path, def, metadata }) {
     theming: metadata.theming || { tokens_used: [] },
     editorial_guidance: metadata.editorial_guidance || "",
     categorization: metadata.categorization,
+    secondary_categories: deriveSecondaryCategories(metadata.categorization),
     screenshots: metadata.screenshots || {},
     relationships: {
       parents: (metadata.relationships && metadata.relationships.parents) || [],
@@ -88,6 +109,7 @@ export function deriveFacets(entries) {
       categories[c.category] ||= new Set();
       if (c.subcategory) categories[c.category].add(c.subcategory);
     }
+    for (const s of e.secondary_categories || []) categories[s] ||= new Set();
     if (c.atomic_type) atomicTypes.add(c.atomic_type);
     for (const u of c.usage_type || []) usageTypes.add(u);
   }
