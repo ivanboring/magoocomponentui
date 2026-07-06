@@ -22,9 +22,31 @@ markets:
 
 example_usage: >
   Provide rows of seats with statuses (available/selected/taken/aisle); clicking an available
-  seat toggles selection and emits seat:select.
+  seat toggles selection and emits seat:select. Set max_choices to cap how many seats can be
+  picked at once.
+
+how_to_use: >
+  The seat grid is interactive via behavior.js — no props needed to enable it. Each seat is a
+  real button; clicking an available seat selects it (fills with the primary colour) and
+  clicking a selected seat deselects it. Taken and aisle seats are inert.
+
+
+  Set `max_choices` to the maximum number of seats a user may hold at once (omit or 0 for no
+  limit). Once that many are selected, clicking another available seat is blocked — the user
+  must deselect one first — and a `seat:max` event fires. A live "N of MAX seats selected"
+  counter is shown in `.seat-map__status` (its initial static text is "Select up to N seats").
+  Note the caller's pre-selected seats count toward the limit.
+
+
+  Listen on the component root (events bubble):
+
+  - `seat:select` / `seat:deselect` — `event.detail = { seat }` (e.g. "13A").
+
+  - `seat:max` — `event.detail = { max }`, fired when a pick is rejected by the limit; use it
+    to prompt the user (e.g. "You can only pick 3 seats").
 
 props:
+  max_choices: The maximum number of seats selectable at once (0/unset = unlimited).
   rows: The seat rows, each with a number and seats with statuses.
 
 example_prompts:
@@ -60,6 +82,6 @@ categorization:
   wcag:
     level: AA
     notes: Seats are real buttons with per-seat aria-labels and aria-pressed; a legend explains states; taken seats are inert. State is shown by fill plus the legend, not colour alone.
-  keyboard_support: Available seats are focusable and toggle selection on Enter/Space.
+  keyboard_support: Available seats are focusable and toggle selection on Enter/Space; when the max_choices limit is reached, further selections are blocked and announced via the aria-live counter.
   seo_score: 25
   text_direction: both

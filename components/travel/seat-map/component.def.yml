@@ -1,5 +1,13 @@
 name: seat-map
 props:
+  max_choices:
+    type: integer
+    title: Max choices
+    description: >
+      Maximum number of seats a user can have selected at once. When the limit is reached,
+      picking another available seat is blocked until one is deselected. Omit (or 0) for no
+      limit. A "N of MAX seats selected" counter is shown when set.
+    example: 3
   rows:
     type: array
     items: object

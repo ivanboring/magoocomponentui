@@ -1,4 +1,4 @@
-<div class="seat-map inline-flex flex-col gap-2 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+<div class="seat-map inline-flex flex-col gap-2 rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-max-choices="{{ max_choices }}">
   <div class="seat-map__legend mb-1 flex items-center gap-4 text-xs text-on-surface-muted">
     <span class="flex items-center gap-1.5"><span class="size-3 rounded bg-surface-raised ring-1 ring-border"></span>Available</span>
     <span class="flex items-center gap-1.5"><span class="size-3 rounded bg-primary"></span>Selected</span>
@@ -10,4 +10,5 @@
       <button type="button" class="seat-map__seat flex size-8 items-center justify-center rounded text-xs font-medium ring-1 ring-border transition-colors duration-(--duration-token) data-[status=aisle]:hidden data-[status=available]:bg-surface-raised data-[status=available]:text-on-surface data-[status=available]:hover:ring-primary data-[status=selected]:bg-primary data-[status=selected]:text-primary-contrast data-[status=selected]:ring-primary data-[status=taken]:cursor-not-allowed data-[status=taken]:bg-on-surface-muted/30 data-[status=taken]:text-on-surface-muted" data-status="{{ seat.status }}" data-seat="{{ row.number }}{{ seat.label }}" aria-label="Seat {{ row.number }}{{ seat.label }}" aria-pressed="false">{{ seat.label }}</button>
     </span>
   </div>
+  <p data-if="max_choices" class="seat-map__status mt-1 text-xs text-on-surface-muted transition-colors duration-(--duration-token) data-[full=true]:font-medium data-[full=true]:text-on-surface data-[flash=true]:text-warning" aria-live="polite" data-full="false">Select up to {{ max_choices }} seats</p>
 </div>
