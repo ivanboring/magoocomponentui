@@ -4,6 +4,14 @@ props:
     type: string
     default: "Conversion funnel"
     title: Title
+  animate_on_display:
+    type: boolean
+    default: false
+    title: Animate on display
+    description: >
+      When true, the funnel bars animate from 0 to their width over 0.5s the first time the
+      report scrolls into view (respects prefers-reduced-motion). When false the bars render
+      at their final width immediately.
   overall:
     type: string
     title: Overall rate

@@ -1,0 +1,11 @@
+{
+  "title": "Signup funnel",
+  "overall": "3.2% overall conversion",
+  "animate_on_display": true,
+  "stages": [
+    { "label": "Visited", "count": "184,204", "width": 100, "rate": "100%", "drop": "" },
+    { "label": "Viewed pricing", "count": "62,830", "width": 34, "rate": "34.1%", "drop": "65.9% drop from Visited" },
+    { "label": "Started signup", "count": "18,240", "width": 10, "rate": "9.9%", "drop": "71.0% drop from Viewed pricing" },
+    { "label": "Completed", "count": "5,894", "width": 3.2, "rate": "3.2%", "drop": "67.7% drop from Started signup" }
+  ]
+}

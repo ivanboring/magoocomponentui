@@ -21,11 +21,14 @@ markets:
 
 example_usage: >
   Provide stages with precomputed bar widths, cumulative rates, and step drop-off text.
+  Set animate_on_display to grow the bars from 0 to their width over 0.5s when the report
+  first scrolls into view.
 
 props:
   title: The funnel title.
   overall: The overall conversion.
   stages: The funnel stages.
+  animate_on_display: Animate the bars from 0 to their width over 0.5s on first scroll into view.
 
 example_prompts:
   - "Add a signup conversion funnel with drop-off."
