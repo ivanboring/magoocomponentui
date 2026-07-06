@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+/**
+ * Dependency-free bootstrap for the drupal-theme skill.
+ * Ensures a cached checkout of the component repo (1-day TTL), runs `npm install` once,
+ * then delegates to the repo's theme CLI (search/build/config/create-theme).
+ *
+ * Test/dev override: set MAGOO_CACHE=<path-to-a-checkout> to skip fetch+install and run
+ * the CLI directly from that checkout.
+ */
+import { existsSync, statSync, rmSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+import path from "node:path";
+import os from "node:os";
+import { isStale } from "./cache.mjs";
+
+const REPO = "https://github.com/ivanboring/magoocomponentui";
+const CACHE = process.env.MAGOO_CACHE || path.join(os.tmpdir(), "magoo-component-ui");
+const MARK = path.join(CACHE, ".magoo-npm-installed");
+
+function sh(cmd, args, opts = {}) { execFileSync(cmd, args, { stdio: "inherit", ...opts }); }
+
+// Preflight: npm must be installed.
+try { execFileSync("npm", ["--version"], { stdio: "ignore" }); }
+catch { process.stderr.write("Required tool not found: npm. Install Node.js/npm first.\n"); process.exit(1); }
+
+// Fetch + install only for the real /tmp cache; MAGOO_CACHE points at an existing checkout.
+if (!process.env.MAGOO_CACHE) {
+  if (existsSync(CACHE) && isStale(statSync(CACHE).mtimeMs, Date.now())) rmSync(CACHE, { recursive: true, force: true });
+  if (!existsSync(CACHE)) {
+    try { sh("git", ["clone", "--depth", "1", REPO, CACHE]); }
+    catch { process.stderr.write("Failed to clone the component repo. Ensure git + network access.\n"); process.exit(1); }
+  }
+  if (!existsSync(MARK)) { sh("npm", ["install", "--no-audit", "--no-fund"], { cwd: CACHE }); writeFileSync(MARK, ""); }
+}
+
+sh("node", [path.join(CACHE, "scripts", "theme-cli.mjs"), ...process.argv.slice(2)]);
