@@ -32,3 +32,4 @@ props:
     type: link
     title: Audio source
     description: URL of the audio file for the inline player.
+    example: "/stock/prettyjohn1-lofi-chill-chill_38sec-490468.mp3"

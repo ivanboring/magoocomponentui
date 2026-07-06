@@ -42,9 +42,12 @@ const MIME_BY_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "imag
 // runtime) can't load over the network. Inline them as data URIs just for this pass.
 function inlineStockImages(value) {
   if (typeof value === "string" && value.startsWith("/stock/")) {
+    const mime = MIME_BY_EXT[path.extname(value).toLowerCase()];
+    // Only inline images — non-visual assets (e.g. audio .mp3) aren't rendered in a
+    // screenshot, so leave their paths untouched rather than base64-embedding megabytes.
+    if (!mime) return value;
     const file = path.join(ROOT, "preview", "public", value);
     if (!existsSync(file)) return value;
-    const mime = MIME_BY_EXT[path.extname(file).toLowerCase()] || "application/octet-stream";
     return `data:${mime};base64,${readFileSync(file).toString("base64")}`;
   }
   if (Array.isArray(value)) return value.map(inlineStockImages);
