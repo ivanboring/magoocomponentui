@@ -1,0 +1,8 @@
+name: __NAME__
+type: theme
+base theme: false
+core_version_requirement: ^11
+description: __DESCRIPTION__
+libraries:
+  - __MACHINE__/global
+# regions are appended from olivero-regions.yml by create-theme

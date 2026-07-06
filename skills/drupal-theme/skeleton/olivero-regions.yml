@@ -1,0 +1,13 @@
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  hero: Hero
+  content_above: 'Content above'
+  content: Content
+  content_below: 'Content below'
+  sidebar: Sidebar
+  footer_top: 'Footer top'
+  footer_bottom: 'Footer bottom'

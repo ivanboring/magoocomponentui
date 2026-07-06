@@ -1,0 +1,13 @@
+{
+  "name": "__MACHINE__",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./css/src/styles.css -o ./css/dist/styles.css --minify",
+    "watch": "npx @tailwindcss/cli -i ./css/src/styles.css -o ./css/dist/styles.css --watch",
+    "dev": "npx @tailwindcss/cli -i ./css/src/styles.css -o ./css/dist/styles.css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

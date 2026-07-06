@@ -1,0 +1,11 @@
+{#
+  Minimal page template — renders each region. Extend/replace with your own layout.
+  Regions come from __MACHINE__.info.yml (Olivero set by default).
+#}
+<div class="page bg-background font-body text-on-surface">
+  {% for region in ['header', 'primary_menu', 'breadcrumb', 'highlighted', 'hero', 'content_above', 'content', 'sidebar', 'content_below', 'footer_top', 'footer_bottom'] %}
+    {% if page[region] %}
+      <div class="region region-{{ region }}">{{ page[region] }}</div>
+    {% endif %}
+  {% endfor %}
+</div>
