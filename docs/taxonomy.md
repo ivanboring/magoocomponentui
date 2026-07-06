@@ -34,6 +34,19 @@ preview nav. The first 218 planned components live in `catalog/first-200.md`.
 `grid`, `card`, `list-item`, `highlight`, `banner`, `hero`, `table`, `nav`, `overlay`,
 `media`, `form`, `stat`, `timeline`, `player` — extend as needed.
 
+### Derived cross-listing (secondary categories)
+
+`usage_type` is not only a tag vocabulary — a curated map in
+`packages/schema/src/catalog.js` (`USAGE_COLLECTIONS`) turns certain tags into **secondary
+category memberships** so a component shows up under a cross-cutting grouping in addition to
+its one primary `category`. Current map: `card → Cards`, `nav → Navigation`,
+`overlay → Overlays`, `form → Forms`. The build derives `secondary_categories` per component
+(skipping its own primary category); the preview folds these into the category dropdown so, e.g.,
+selecting **Cards** lists every `card`-tagged component regardless of its domain. Membership is
+**category-level only** — a specific subcategory filter still shows a component only under its
+primary home. Add a collection by extending the map and rebuilding — no per-component or schema
+change needed.
+
 ## Maturity ladder
 
 `ai-generated` → `human-approved` → `production-ready`.
