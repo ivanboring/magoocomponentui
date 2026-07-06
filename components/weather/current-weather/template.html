@@ -1,17 +1,23 @@
-<section class="current-weather rounded-card bg-gradient-to-br from-primary/20 to-surface p-(--space-section) shadow-card" aria-label="Current weather">
-  <p class="current-weather__location font-heading text-on-surface">{{ location }}</p>
+<section class="current-weather rounded-card bg-gradient-to-br from-primary/20 to-surface p-(--space-section) shadow-card" aria-label="Current weather" data-default-unit="{{ default_unit }}">
+  <div class="current-weather__head flex items-start justify-between gap-4">
+    <p class="current-weather__location font-heading text-on-surface">{{ location }}</p>
+    <div data-if="show_unit_switcher" class="current-weather__units inline-flex shrink-0 rounded-pill border border-border bg-surface p-0.5 text-xs font-medium" role="group" aria-label="Temperature unit">
+      <button type="button" class="current-weather__unit-btn rounded-pill px-2 py-0.5 text-on-surface-muted transition-colors duration-(--duration-token) aria-pressed:bg-primary aria-pressed:text-primary-contrast" data-unit="celsius" aria-pressed="true">°C</button>
+      <button type="button" class="current-weather__unit-btn rounded-pill px-2 py-0.5 text-on-surface-muted transition-colors duration-(--duration-token) aria-pressed:bg-primary aria-pressed:text-primary-contrast" data-unit="fahrenheit" aria-pressed="false">°F</button>
+    </div>
+  </div>
   <div class="current-weather__main mt-2 flex items-center gap-4">
     <span class="current-weather__icon text-6xl" aria-hidden="true">{{ icon }}</span>
     <div>
-      <p class="current-weather__temp font-heading text-6xl leading-none text-on-surface tabular-nums">{{ temp }}</p>
+      <p class="current-weather__temp font-heading text-6xl leading-none text-on-surface tabular-nums"><span class="current-weather__temp-value" data-celsius="{{ temp_c }}">{{ temp_c }}</span>°</p>
       <p class="current-weather__condition mt-1 text-on-surface-muted">{{ condition }}</p>
     </div>
   </div>
-  <p class="current-weather__range mt-2 text-sm text-on-surface-muted"><span data-if="high_low">{{ high_low }}</span><span data-if="feels_like"> · {{ feels_like }}</span></p>
+  <p class="current-weather__range mt-2 text-sm text-on-surface-muted tabular-nums"><span data-if="high_c">H:<span data-celsius="{{ high_c }}">{{ high_c }}</span>° L:<span data-celsius="{{ low_c }}">{{ low_c }}</span>°</span><span data-if="feels_c"> · Feels like <span data-celsius="{{ feels_c }}">{{ feels_c }}</span>°</span></p>
   <dl data-if="stats" class="current-weather__stats mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 sm:grid-cols-4">
     <div data-for="stat in stats" class="flex items-center gap-2">
       <span class="text-lg" aria-hidden="true">{{ stat.icon }}</span>
-      <div><dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt><dd class="font-medium text-on-surface">{{ stat.value }}</dd></div>
+      <div><dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt><dd class="current-weather__stat-value font-medium text-on-surface" data-metric="{{ stat.metric }}" data-unit="{{ stat.unit }}">{{ stat.value }}</dd></div>
     </div>
   </dl>
 </section>

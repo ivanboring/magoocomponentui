@@ -5,11 +5,12 @@ props:
     required: true
     title: Location
     example: "San Francisco, CA"
-  temp:
-    type: string
+  temp_c:
+    type: integer
     required: true
-    title: Temp
-    example: "62°"
+    title: Temp (°C)
+    description: "Current temperature in Celsius (canonical). The unit switcher converts it to Fahrenheit at runtime."
+    example: 17
   condition:
     type: string
     required: true
@@ -19,16 +20,38 @@ props:
     type: string
     default: "⛅"
     title: Icon
-  high_low:
-    type: string
-    title: High/low
-    example: "H:68° L:54°"
-  feels_like:
-    type: string
-    title: Feels like
-    example: "Feels like 60°"
+  default_unit:
+    type: enum
+    values: [celsius, fahrenheit]
+    default: celsius
+    title: Default unit
+    description: "Which unit is shown first. The C/F switcher toggles between them client-side."
+  show_unit_switcher:
+    type: boolean
+    default: true
+    title: Show unit switcher
+    description: "Render the °C/°F metric/imperial toggle. When false, values show in default_unit with no control."
+  high_c:
+    type: integer
+    title: High (°C)
+    description: "Day high in Celsius. Pass with low_c."
+    example: 20
+  low_c:
+    type: integer
+    title: Low (°C)
+    description: "Day low in Celsius. Pass with high_c."
+    example: 12
+  feels_c:
+    type: integer
+    title: Feels like (°C)
+    description: "Feels-like temperature in Celsius."
+    example: 16
   stats:
     type: array
     items: object
     title: Stats
-    description: "Each: { icon, label, value }."
+    description: >
+      Each: { icon, label, value }. For wind/visibility add { metric, unit } where unit is
+      "speed" (km/h<->mph) or "distance" (km<->mi) and metric is the canonical metric number;
+      the switcher then converts them too. Set value to the default_unit-formatted string.
+      Stats without a unit (humidity, pressure) are shown as-is.

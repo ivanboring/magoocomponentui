@@ -20,16 +20,44 @@ markets:
   - Global
 
 example_usage: >
-  Show the temp and condition large; the stats grid gives humidity, wind, etc.
+  Show the temp and condition large; the stats grid gives humidity, wind, etc. Author every
+  temperature in Celsius; the built-in °C/°F switcher converts them client-side.
+
+how_to_use: >
+  Pass all temperatures in Celsius (`temp_c`, and optionally `high_c`/`low_c` and `feels_c`);
+  the component's behavior.js renders a °C/°F segmented metric/imperial control and converts
+  the values in place when toggled — no extra wiring needed. Set `default_unit` to `celsius`
+  (default) or `fahrenheit` to choose which system shows first; temperatures are rounded to
+  whole degrees.
+
+
+  Wind and visibility convert too. For each such stat pass `metric` (the canonical metric
+  number) and `unit` (`"speed"` for km/h<->mph, `"distance"` for km<->mi), plus `value` set to
+  the default_unit-formatted string (e.g. `{ label: "Wind", value: "19 km/h", metric: 19,
+  unit: "speed" }`). Stats without a `unit` (humidity, pressure) are shown verbatim and never
+  converted.
+
+
+  Set `show_unit_switcher: false` to hide the toggle and lock the panel to `default_unit`
+  (the values are still rendered correctly, converting once on load for a Fahrenheit default).
+
+
+  When shown, the switcher dispatches a bubbling `current-weather:unitchange` CustomEvent on
+  the component root with `event.detail = { unit }` (`"celsius"` | `"fahrenheit"`), so a page
+  can react (e.g. persist the choice or convert other on-page values). Example:
+  `el.addEventListener('current-weather:unitchange', e => localStorage.setItem('unit', e.detail.unit))`.
 
 props:
   location: The location.
-  temp: The temperature.
+  temp_c: The current temperature in Celsius (canonical); converted to °F by the switcher.
   condition: The condition.
   icon: The weather icon.
-  high_low: The high/low.
-  feels_like: The feels-like.
-  stats: The detail stats.
+  default_unit: Which unit system is shown first (celsius/metric or fahrenheit/imperial).
+  show_unit_switcher: Whether to render the °C/°F toggle (default true).
+  high_c: The day high in Celsius.
+  low_c: The day low in Celsius.
+  feels_c: The feels-like temperature in Celsius.
+  stats: The detail stats; wind/visibility with { metric, unit } convert with the switcher.
 
 example_prompts:
   - "Add a current weather panel with detail stats."
@@ -61,7 +89,7 @@ categorization:
   maturity: ai-generated
   wcag:
     level: AA
-    notes: Temp, condition, and stats are real text; the weather/stat icons are decorative. Uses a definition list for stats.
-  keyboard_support: "none"
+    notes: Temp, condition, and stats are real text; the weather/stat icons are decorative. Uses a definition list for stats. The unit switcher is a real button group with aria-pressed state.
+  keyboard_support: The °C/°F switcher buttons are focusable and toggle on Enter/Space.
   seo_score: 45
   text_direction: both

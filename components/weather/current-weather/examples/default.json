@@ -1,14 +1,17 @@
 {
   "location": "San Francisco, CA",
-  "temp": "62°",
+  "temp_c": 17,
   "condition": "Partly cloudy",
   "icon": "⛅",
-  "high_low": "H:68° L:54°",
-  "feels_like": "Feels like 60°",
+  "default_unit": "celsius",
+  "show_unit_switcher": true,
+  "high_c": 20,
+  "low_c": 12,
+  "feels_c": 16,
   "stats": [
     { "icon": "💧", "label": "Humidity", "value": "72%" },
-    { "icon": "💨", "label": "Wind", "value": "12 mph" },
+    { "icon": "💨", "label": "Wind", "value": "19 km/h", "metric": 19, "unit": "speed" },
     { "icon": "🌡", "label": "Pressure", "value": "1014 mb" },
-    { "icon": "👁", "label": "Visibility", "value": "9 mi" }
+    { "icon": "👁", "label": "Visibility", "value": "14 km", "metric": 14, "unit": "distance" }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "location": "London, UK",
+  "temp_c": 11,
+  "condition": "Light rain",
+  "icon": "🌧",
+  "default_unit": "celsius",
+  "show_unit_switcher": false,
+  "high_c": 13,
+  "low_c": 8,
+  "feels_c": 9,
+  "stats": [
+    { "icon": "💧", "label": "Humidity", "value": "88%" },
+    { "icon": "💨", "label": "Wind", "value": "24 km/h", "metric": 24, "unit": "speed" },
+    { "icon": "🌡", "label": "Pressure", "value": "1002 mb" },
+    { "icon": "👁", "label": "Visibility", "value": "6 km", "metric": 6, "unit": "distance" }
+  ]
+}

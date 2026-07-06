@@ -1,0 +1,17 @@
+{
+  "location": "Phoenix, AZ",
+  "temp_c": 38,
+  "condition": "Sunny",
+  "icon": "☀️",
+  "default_unit": "fahrenheit",
+  "show_unit_switcher": true,
+  "high_c": 41,
+  "low_c": 27,
+  "feels_c": 40,
+  "stats": [
+    { "icon": "💧", "label": "Humidity", "value": "18%" },
+    { "icon": "💨", "label": "Wind", "value": "6 mph", "metric": 10, "unit": "speed" },
+    { "icon": "🌡", "label": "Pressure", "value": "1008 mb" },
+    { "icon": "👁", "label": "Visibility", "value": "10 mi", "metric": 16, "unit": "distance" }
+  ]
+}
