@@ -21,7 +21,32 @@ markets:
 
 example_usage: >
   Precompute the grid with per-day state (start/end/in-range/disabled); the summary shows the
-  selected range.
+  selected range. The behavior seeds its live selection from that render, then lets the user
+  re-pick by click-then-click or press-and-drag.
+
+how_to_use: >
+  The component is interactive out of the box via its behavior.js — no props are needed to
+  enable it. The user selects a range by clicking a start day then an end day, or by pressing
+  and dragging across the grid; the seeded start/end (from each day's `data-state`) is the
+  initial selection. Disabled and other-month (muted) days are not selectable. The internal
+  `.booking-date-range__summary` line is updated automatically as the selection changes.
+
+
+  Listen for two bubbling CustomEvents on the component root (or any ancestor):
+
+  - `booking-date-range:change` — fires on every selection change (start pick, drag move,
+    end pick). Use it to live-preview pricing or availability.
+
+  - `booking-date-range:rangeselected` — fires once a full range is committed (second click
+    or drag release). Use it to confirm the booking dates.
+
+
+  Both carry the same `event.detail`:
+  `{ start: { index, day } | null, end: { index, day } | null, nights, complete }`
+  where `index` is the day cell's position in the grid, `day` is its number label, `nights`
+  is `end.index - start.index` (0 until complete), and `complete` is true when both ends are
+  set. Example:
+  `el.addEventListener('booking-date-range:rangeselected', e => console.log(e.detail.nights))`.
 
 props:
   month: The month/year label.
@@ -62,7 +87,7 @@ categorization:
   maturity: ai-generated
   wcag:
     level: AA
-    notes: Day cells are real buttons; disabled days are struck through and inert; the summary states the range in text. Add per-day aria-labels in production.
-  keyboard_support: Selectable day cells are focusable and keyboard-operable.
+    notes: Day cells are real buttons; disabled days are struck through and inert; the summary states the range in text and updates live as the selection changes. Add per-day aria-labels in production.
+  keyboard_support: Selectable day cells are focusable; Enter/Space picks the start day, then the end day (same as click-then-click). Mouse/touch also support press-and-drag.
   seo_score: 25
   text_direction: both

@@ -40,6 +40,11 @@ export const metadataSchema = {
     markets: { type: "array", items: { type: "string" } },
     example_usage: { type: "string" },
 
+    // Integration notes for the consuming agent: how to wire up the component's
+    // interactivity — the JS events it dispatches, config data-attributes, etc.
+    // Optional; populate only for components with non-trivial behavior.
+    how_to_use: { type: "string" },
+
     // prose keyed by prop/slot name (types come from component.def.yml).
     props: { type: "object", additionalProperties: { type: "string" } },
     slots: { type: "object", additionalProperties: { type: "string" } },

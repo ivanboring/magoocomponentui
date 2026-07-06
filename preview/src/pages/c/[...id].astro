@@ -204,6 +204,13 @@ const relGroups = [
     </section>
   )}
 
+  {entry.how_to_use && (
+    <section class="mt-8">
+      <h2 class="mb-2 text-lg font-semibold">How to use</h2>
+      <p class="max-w-2xl whitespace-pre-line text-sm text-slate-600">{entry.how_to_use}</p>
+    </section>
+  )}
+
   {entry.use_cases.length > 0 && (
     <section class="mt-8">
       <h2 class="mb-2 text-lg font-semibold">Use cases</h2>

@@ -53,6 +53,7 @@ export function buildEntry({ id, path, def, metadata }) {
     avoid_for: metadata.avoid_for || [],
     markets: metadata.markets || [],
     example_usage: metadata.example_usage || "",
+    how_to_use: metadata.how_to_use || "",
     example_prompts: metadata.example_prompts || [],
     lifecycle: metadata.lifecycle,
     content_model: metadata.content_model || "",
