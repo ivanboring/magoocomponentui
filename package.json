@@ -18,7 +18,7 @@
     "screenshots": "node scripts/build.mjs && pnpm preview:build && node scripts/screenshot.mjs && node scripts/build-catalog.mjs",
     "screenshots:mirror": "node scripts/mirror-screenshots.mjs",
     "audit": "node scripts/build.mjs && pnpm preview:build && node scripts/audit.mjs",
-    "test": "node --test 'packages/**/*.test.mjs'",
+    "test": "node --test 'packages/**/*.test.mjs' 'scripts/**/*.test.mjs' 'skills/**/*.test.mjs'",
     "typecheck": "tsc -p tsconfig.json",
     "preview:dev": "pnpm --filter @magoo/preview dev",
     "preview:build": "pnpm --filter @magoo/preview build",
