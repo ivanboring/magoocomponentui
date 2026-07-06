@@ -33,8 +33,10 @@ async function main() {
       for (const e of errors) problems.push(`[${id}] metadata.yml: ${e}`);
       continue;
     }
+    // The repo keeps all 16 screenshots per component (used by the agent/skill), but the
+    // preview only ships the simple-desktop shot to keep the deployed site small.
     const shots = await readScreenshots(dir, id);
-    if (Object.keys(shots).length) data.screenshots = shots;
+    if (shots.simple && shots.simple.desktop) data.screenshots = { simple: { desktop: shots.simple.desktop } };
     entries.push(buildEntry({ id, path: path.relative(DIST_DIR, dir), def, metadata: data }));
   }
 

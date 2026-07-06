@@ -22,11 +22,12 @@ async function main() {
   for (const { id, dir } of dirs) {
     const shots = path.join(dir, "screenshots");
     if (!(await exists(shots))) continue;
-    const pngs = (await readdir(shots)).filter((f) => f.endsWith(".png"));
-    if (!pngs.length) continue;
+    // Deploy only the simple-desktop shot (the repo keeps all 16 for the agent/skill).
+    const src = path.join(shots, "simple-desktop.png");
+    if (!(await exists(src))) continue;
     const dest = path.join(outRoot, id);
     await mkdir(dest, { recursive: true });
-    await cp(shots, dest, { recursive: true });
+    await cp(src, path.join(dest, "simple-desktop.png"));
     count++;
   }
   console.log(`Mirrored screenshots for ${count} component(s) → preview/public/screenshots/`);

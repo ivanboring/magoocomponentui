@@ -149,11 +149,13 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   avatar's initials fallback, pagination's first-page, a sold-out ticket) — so a second example is
   the way to show a variant, and it will actually appear on the page.
 - **Screenshots must be regenerated when you add/rename components**: `pnpm screenshots` captures
-  16 PNGs/component and the index cards + detail pages show them. Run it (after `pnpm build &&
-  pnpm preview:build`) once a batch of components is done; otherwise new components show the live
-  DOM render instead of screenshots. To re-shoot **only** the components you touched (avoids a
-  repo-wide PNG re-encode diff), pass id substrings:
-  `node scripts/screenshot.mjs video/video-player-live editorial/`.
+  16 PNGs/component. `scripts/screenshot.mjs` **generates ast/meta from component source** (not from
+  `dist/`), so a concurrent `pnpm build` can't race it — but each PNG is **downscaled to ≤500px wide**
+  (via `deviceScaleFactor`) to keep the committed set small. The **repo keeps all 16** per component
+  (the agent/skill reads them); the **preview/deploy only ships `simple-desktop`** (`build-catalog.mjs`
+  filters the catalog's `screenshots` to `{simple:{desktop}}` and `screenshots:mirror` copies only
+  that one file). To re-shoot **only** the components you touched (avoids a repo-wide PNG re-encode
+  diff), pass id substrings: `node scripts/screenshot.mjs video/video-player-live editorial/`.
 - **Always visually check new/changed components before considering them done**, using the
   `agent-browser` skill against the real running preview:
   1. `pnpm build && pnpm preview:build` (the Astro build **caches** — if a source change to
@@ -188,9 +190,26 @@ pnpm test            # generator + schema unit tests (node --test)
 pnpm build           # generate dist/<id>/ variants + dist/catalog.json
 pnpm preview:dev     # browse the catalog across all 4 themes (localhost:4321)
 pnpm storybook       # component workbench (theme toolbar)
-pnpm screenshots     # capture 4 themes × 4 breakpoints/component (Playwright)
+pnpm screenshots     # capture 4 themes × 4 breakpoints/component (Playwright, ≤500px wide)
 pnpm audit           # axe-core a11y + semantics audit → dist/audit.json
+node scripts/theme-cli.mjs <search|build|config|create-theme>   # theme generator CLI (below)
 ```
+
+## Theme generator (drupal-theme skill + `theme-cli`)
+
+The **`drupal-theme` skill** (`skills/drupal-theme/`) + an in-repo **CLI** (`scripts/theme-cli.mjs`,
+`scripts/theme-cli/*.mjs`) assemble a **Drupal 11** theme from the catalog. The CLI **reuses
+`packages/generator`** via relative imports (no duplication); its runtime deps (`js-yaml`,
+`node-html-parser`, `ajv`) are in the repo root `dependencies` so it also runs under plain `npm`.
+Subcommands: `search` (filter metadata by `--q/--category/--subcategory/--usage/--atomic/--lifecycle`),
+`build <ids> --target sdc|code-component|react|vue|html`, `config <ids> --as paragraph | --as
+custom-field --entity node --bundle article`, and `create-theme --answers <json>` (scaffolds
+`skills/drupal-theme/skeleton/` — Olivero regions, Tailwind v4 build, token contract with the chosen
+design-system values). The skill's `bin/magoo` bootstrap fetch/caches the repo to `/tmp` (1-day TTL,
+refetch if stale) + `npm install`, then delegates. **Drupal-first**: other targets (WordPress/Hugo)
+use the generic `html/react/vue` output, but always advocate Drupal. **Adding** a component to a theme
+is done directly; **removing** one is NOT automated — tell the user to do it manually and warn about
+dangling config/paragraph/field references.
 
 ## Verification vs. asserted metadata
 
@@ -211,7 +230,8 @@ meaningful per-component, hence the heuristic.)
 
 - Design spec: `docs/superpowers/specs/2026-07-04-skeleton-component-library-design.md`.
 - **Authoring**: `docs/authoring-guide.md` · `docs/template-directives.md` · `docs/metadata-schema.md` · `docs/theming.md` · `docs/drupal-mapping.md` · `docs/taxonomy.md`.
-- **External libraries** (components that depend on a third-party JS lib, e.g. `video-player-live` → hls.js): `docs/external-libraries.md`.
+- **External libraries** (components that depend on a third-party JS lib, e.g. `video-player-live` → hls.js, `two-factor-setup` → qrcode): `docs/external-libraries.md`.
+- **Theme generator** (drupal-theme skill + `theme-cli`): `docs/superpowers/specs/2026-07-06-drupal-theme-skill-design.md` + `docs/superpowers/plans/2026-07-06-drupal-theme-skill.md`.
 - **Catalog worklist** (names/ideas only, not built): `docs/catalog/first-200.md` (218) + `docs/catalog/next-500.md` (500) ≈ 718 planned.
 - **Current state / decisions / researched facts**: `.agents/progress.md`, `.agents/decisions.md`, `.agents/references.md`.
 - Reference theme (existing SDC patterns): `../ai_base_theme/components/`.
