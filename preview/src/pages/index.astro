@@ -85,6 +85,7 @@ const BP_OPTS = [
         href={rebase(`/c/${c.id}`, BASE)}
         class="card group block overflow-hidden rounded-xl border border-slate-200 bg-white transition hover:border-slate-300 hover:shadow-sm"
         data-cat={c.categorization.category}
+        data-cats={[c.categorization.category, ...(c.secondary_categories || [])].join("|")}
         data-sub={c.categorization.subcategory || ""}
         data-atomic={c.categorization.atomic_type}
         data-search={`${c.name} ${c.display_name} ${c.short_description} ${(c.use_cases || []).join(" ")}`.toLowerCase()}
@@ -155,9 +156,12 @@ const BP_OPTS = [
     function matches(card) {
       const q = (search.value || "").trim().toLowerCase();
       const [cat, sub] = (catSelect.value || "").split("::");
-      return (!q || card.dataset.search.includes(q)) &&
-        (!cat || card.dataset.cat === cat) &&
-        (!sub || card.dataset.sub === sub) &&
+      const cats = (card.dataset.cats || card.dataset.cat || "").split("|");
+      let catOk;
+      if (!cat) catOk = true;
+      else if (sub) catOk = card.dataset.cat === cat && card.dataset.sub === sub; // specific sub → primary home only
+      else catOk = cats.includes(cat);                                            // "— all" → any membership
+      return (!q || card.dataset.search.includes(q)) && catOk &&
         (!hideAtoms.checked || card.dataset.atomic !== "atom");
     }
 
