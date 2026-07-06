@@ -20,8 +20,9 @@ markets:
   - Global
 
 example_usage: >
-  Mark columns sortable and set one sorted asc/desc; clicking a header cycles its sort and
-  emits data-table:sort for the app/server to reorder.
+  Mark columns sortable and set one sorted asc/desc; clicking a header cycles its sort
+  (none → asc → desc → none), reorders the rows client-side by that column, and also emits
+  data-table:sort so the app/server can sort authoritatively if it prefers.
 
 props:
   columns: The column definitions (label, sortable, sorted).

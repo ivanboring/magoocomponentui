@@ -16,8 +16,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "preview:dev": "pnpm --filter @magoo/preview dev",
     "preview:build": "pnpm --filter @magoo/preview build",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook": "node scripts/build.mjs && storybook dev -p 6006",
+    "storybook:build": "node scripts/build.mjs && storybook build"
   },
   "devDependencies": {
     "axe-core": "^4.10.0",

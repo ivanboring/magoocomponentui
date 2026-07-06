@@ -211,6 +211,7 @@ meaningful per-component, hence the heuristic.)
 
 - Design spec: `docs/superpowers/specs/2026-07-04-skeleton-component-library-design.md`.
 - **Authoring**: `docs/authoring-guide.md` · `docs/template-directives.md` · `docs/metadata-schema.md` · `docs/theming.md` · `docs/drupal-mapping.md` · `docs/taxonomy.md`.
+- **External libraries** (components that depend on a third-party JS lib, e.g. `video-player-live` → hls.js): `docs/external-libraries.md`.
 - **Catalog worklist** (names/ideas only, not built): `docs/catalog/first-200.md` (218) + `docs/catalog/next-500.md` (500) ≈ 718 planned.
 - **Current state / decisions / researched facts**: `.agents/progress.md`, `.agents/decisions.md`, `.agents/references.md`.
 - Reference theme (existing SDC patterns): `../ai_base_theme/components/`.
