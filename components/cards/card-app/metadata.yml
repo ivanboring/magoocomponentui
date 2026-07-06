@@ -30,6 +30,7 @@ props:
   rating_display: The store rating value.
   install_label: The install button text.
   href: The app/listing URL.
+  image: A raster app-icon image; when set it replaces the icon slot.
 
 slots:
   icon: The app icon.

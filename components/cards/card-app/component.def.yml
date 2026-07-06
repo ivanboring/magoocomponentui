@@ -24,7 +24,12 @@ props:
   href:
     type: link
     title: Link
+  image:
+    type: image
+    title: Icon image
+    description: A raster app-icon image. When set, it replaces the icon slot.
+    example: "/stock/cover-workspace.jpg"
 slots:
   icon:
     title: App icon
-    description: The app's icon/logo.
+    description: The app's icon/logo. Used as a fallback when no icon image is set.

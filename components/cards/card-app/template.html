@@ -1,5 +1,5 @@
 <article class="card-app flex items-center gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
-  <span class="card-app__icon flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-card bg-surface-raised text-primary" aria-hidden="true"><slot name="icon"></slot></span>
+  <span class="card-app__icon flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-card bg-surface-raised text-primary" aria-hidden="true"><img data-if="image" class="size-full object-cover" src="{{ image }}" alt=""><span data-if="!image" class="flex size-full items-center justify-center"><slot name="icon"></slot></span></span>
   <div class="card-app__body min-w-0 flex-1">
     <h3 class="card-app__name truncate font-heading text-on-surface">{{ name }}</h3>
     <p data-if="developer" class="card-app__developer truncate text-xs text-on-surface-muted">{{ developer }}</p>
