@@ -28,6 +28,7 @@ props:
   filetype: The file type label (e.g. PDF, ZIP).
   size: The human-readable file size.
   href: The download URL.
+  image: Optional preview thumbnail shown instead of the file-type icon.
 
 example_prompts:
   - "Add a download card for a 3.4 MB PDF of brand guidelines."

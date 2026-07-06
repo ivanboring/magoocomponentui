@@ -18,3 +18,7 @@ props:
   href:
     type: link
     title: Download link
+  image:
+    type: image
+    title: Thumbnail
+    description: Optional preview thumbnail shown in place of the generic file-type icon.

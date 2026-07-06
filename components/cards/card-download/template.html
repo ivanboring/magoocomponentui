@@ -1,5 +1,6 @@
 <article class="card-download flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
-  <span class="card-download__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+  <img data-if="image" class="card-download__thumb size-11 shrink-0 rounded-control object-cover" src="{{ image }}" alt="">
+  <span data-if="!image" class="card-download__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
     <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/></svg>
   </span>
   <div class="card-download__body min-w-0 flex-1">
