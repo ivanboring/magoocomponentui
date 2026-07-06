@@ -64,7 +64,11 @@ function doc(css, theme, html) {
 }
 
 async function main() {
-  const dirs = await findComponentDirs();
+  let dirs = await findComponentDirs();
+  // Optional CLI filters: `pnpm screenshots <id-substr> [...]` captures only matching
+  // components (e.g. `video/video-player-live`). No args → capture everything.
+  const filters = process.argv.slice(2);
+  if (filters.length) dirs = dirs.filter(({ id }) => filters.some((f) => id.includes(f)));
   if (!dirs.length) {
     console.log("No components to screenshot.");
     return;

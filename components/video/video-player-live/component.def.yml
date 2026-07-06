@@ -7,6 +7,10 @@ props:
   src:
     type: link
     title: Stream source
+    description: >
+      HLS playlist URL (.m3u8). Delivered via hls.js, loaded lazily from a CDN when a
+      stream is present; Safari/iOS use native HLS. A non-.m3u8 URL is set as a plain
+      progressive source. Held in data-src so an empty value never resolves to the page URL.
   viewers:
     type: string
     required: true

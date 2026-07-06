@@ -112,6 +112,17 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   broke card-podcast's play toggle (`if (audio.src)` was always true, so it tried to play the HTML
   page as audio). Guard the whole media element with `data-if="audio_src"` (or `poster`, `image`,
   …) so it isn't rendered at all when there's no source, rather than emitting an empty `src`.
+- **External JS libraries (e.g. hls.js for `video-player-live`)**: there is **no metadata field**
+  to declare a dependency (`metadata.schema.js` is `additionalProperties: false`) — document it in
+  the prose `example_usage`/prop `description` instead. Load the lib **lazily from `behavior.js`
+  itself**, not via a `<script>` tag the targets don't emit: `await import(/* @vite-ignore */
+  "https://cdn.jsdelivr.net/npm/<pkg>@<major>/…/<pkg>.mjs")`, preferring a preloaded global
+  (`window.Hls`) and any native platform support first, and only when a feature actually needs it
+  (guard on the prop). The emitters do **no AST transform** — `async`, `await`, dynamic `import()`,
+  and module-level helpers pass through verbatim to all targets — but the `/* @vite-ignore */`
+  comment is required so Storybook's Vite doesn't try to pre-bundle the CDN URL. Screenshots don't
+  run `behavior.js`, so a stream/lib never loads there; use `data-src` (not `src`) for a URL the
+  browser must not fetch natively (an `.m3u8` a non-Safari browser can't decode).
 - **YAML list-item trap**: a `use_cases`/`example_prompts` item whose text *starts* with a `"`
   (e.g. `- "More" overflow menu`) is parsed as a quoted scalar and the trailing text throws; an
   item containing a bare colon (`- Activity row: something`) parses as a map. Rephrase so items
@@ -140,7 +151,9 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - **Screenshots must be regenerated when you add/rename components**: `pnpm screenshots` captures
   16 PNGs/component and the index cards + detail pages show them. Run it (after `pnpm build &&
   pnpm preview:build`) once a batch of components is done; otherwise new components show the live
-  DOM render instead of screenshots.
+  DOM render instead of screenshots. To re-shoot **only** the components you touched (avoids a
+  repo-wide PNG re-encode diff), pass id substrings:
+  `node scripts/screenshot.mjs video/video-player-live editorial/`.
 - **Always visually check new/changed components before considering them done**, using the
   `agent-browser` skill against the real running preview:
   1. `pnpm build && pnpm preview:build` (the Astro build **caches** — if a source change to

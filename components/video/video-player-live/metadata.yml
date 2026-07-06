@@ -22,12 +22,15 @@ markets:
 
 example_usage: >
   Show a pulsing LIVE badge, the current viewer count, and an optional latency label.
-  Provide src for real playback; guard the <video> so an empty src doesn't resolve to the
-  page URL.
+  Provide src pointing at an HLS playlist (.m3u8) for real playback. HLS delivery depends
+  on hls.js (github.com/video-dev/hls.js): it is loaded lazily from a CDN only when a
+  stream is present, while Safari/iOS use native HLS. The URL rides on data-src (not src)
+  so nothing resolves to the page URL when empty. The demo and Storybook use the public
+  test stream https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8.
 
 props:
   poster: The poster/preview frame.
-  src: The stream source URL.
+  src: The HLS (.m3u8) stream URL, played via hls.js (native HLS on Safari/iOS).
   viewers: The live viewer count label.
   latency: Optional latency mode label.
   sync_id: Optional id that links satellite components (transcript/chapters) to this stream.
