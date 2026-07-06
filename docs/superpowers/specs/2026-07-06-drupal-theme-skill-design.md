@@ -39,10 +39,11 @@ token contract, design-system values) — driven by a guided Q&A.
 
 Resolves the "the CLI must fetch the repo, but the CLI is in the repo" circularity. On every
 invocation it:
-- Ensures a repo cache at `/tmp/magoo-component-ui/` (or `$TMPDIR`). **Shallow `git clone --depth 1`**
-  of `https://github.com/ivanboring/magoocomponentui` (respects the user's git auth for private
-  access; falls back to a codeload tarball if git is unavailable). **TTL 1 day**: if the cache dir's
-  mtime is older than 24h, delete and refetch; otherwise reuse.
+- Ensures a repo cache at `/tmp/magoo-component-ui/` (or `$TMPDIR`). Downloads the **GitHub zip
+  archive** (`https://github.com/ivanboring/magoocomponentui/archive/refs/heads/main.zip`) via
+  `curl` + `unzip` (extracts to `magoocomponentui-main/`), falling back to `git clone --depth 1` of
+  `https://github.com/ivanboring/magoocomponentui` if curl/unzip aren't available. **TTL 1 day**: if
+  the cache dir's mtime is older than 24h, delete and refetch; otherwise reuse.
 - Runs `npm install` in the cache once (guarded by a marker file).
 - Delegates: `node <cache>/scripts/theme-cli.mjs <subcommand> <args…>`.
 

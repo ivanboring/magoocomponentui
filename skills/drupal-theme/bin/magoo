@@ -1,36 +1,55 @@
 #!/usr/bin/env node
 /**
  * Dependency-free bootstrap for the drupal-theme skill.
- * Ensures a cached checkout of the component repo (1-day TTL), runs `npm install` once,
- * then delegates to the repo's theme CLI (search/build/config/create-theme).
+ * Downloads + caches the component repo (1-day TTL) from the GitHub zip archive (falls back
+ * to `git clone` if curl/unzip aren't available), runs `npm install` once, then delegates to
+ * the repo's theme CLI (search/build/config/create-theme).
  *
- * Test/dev override: set MAGOO_CACHE=<path-to-a-checkout> to skip fetch+install and run
- * the CLI directly from that checkout.
+ * Test/dev override: set MAGOO_CACHE=<path-to-a-checkout> to skip fetch+install and run the
+ * CLI directly from that checkout.
  */
-import { existsSync, statSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, statSync, rmSync, mkdirSync, writeFileSync, readdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import path from "node:path";
 import os from "node:os";
 import { isStale } from "./cache.mjs";
 
-const REPO = "https://github.com/ivanboring/magoocomponentui";
-const CACHE = process.env.MAGOO_CACHE || path.join(os.tmpdir(), "magoo-component-ui");
-const MARK = path.join(CACHE, ".magoo-npm-installed");
+const ZIP_URL = "https://github.com/ivanboring/magoocomponentui/archive/refs/heads/main.zip";
+const GIT_URL = "https://github.com/ivanboring/magoocomponentui";
+const CACHE = path.join(os.tmpdir(), "magoo-component-ui");
 
 function sh(cmd, args, opts = {}) { execFileSync(cmd, args, { stdio: "inherit", ...opts }); }
+function ok(cmd, args) { try { execFileSync(cmd, args, { stdio: "ignore" }); return true; } catch { return false; } }
 
 // Preflight: npm must be installed.
-try { execFileSync("npm", ["--version"], { stdio: "ignore" }); }
-catch { process.stderr.write("Required tool not found: npm. Install Node.js/npm first.\n"); process.exit(1); }
+if (!ok("npm", ["--version"])) { process.stderr.write("Required tool not found: npm. Install Node.js/npm first.\n"); process.exit(1); }
 
-// Fetch + install only for the real /tmp cache; MAGOO_CACHE points at an existing checkout.
-if (!process.env.MAGOO_CACHE) {
+let repoDir;
+if (process.env.MAGOO_CACHE) {
+  repoDir = process.env.MAGOO_CACHE;
+} else {
+  // Refetch when missing or older than a day.
   if (existsSync(CACHE) && isStale(statSync(CACHE).mtimeMs, Date.now())) rmSync(CACHE, { recursive: true, force: true });
   if (!existsSync(CACHE)) {
-    try { sh("git", ["clone", "--depth", "1", REPO, CACHE]); }
-    catch { process.stderr.write("Failed to clone the component repo. Ensure git + network access.\n"); process.exit(1); }
+    mkdirSync(CACHE, { recursive: true });
+    const zip = path.join(os.tmpdir(), "magoo-component-ui.zip");
+    let fetched = false;
+    if (ok("curl", ["--version"]) && ok("unzip", ["-v"])) {
+      try { sh("curl", ["-fsSL", "-o", zip, ZIP_URL]); sh("unzip", ["-q", "-o", zip, "-d", CACHE]); rmSync(zip, { force: true }); fetched = true; }
+      catch { /* fall through to git */ }
+    }
+    if (!fetched) {
+      try { sh("git", ["clone", "--depth", "1", GIT_URL, path.join(CACHE, "magoocomponentui-main")]); fetched = true; }
+      catch { /* handled below */ }
+    }
+    if (!fetched) { rmSync(CACHE, { recursive: true, force: true }); process.stderr.write("Failed to fetch the component repo (need curl+unzip, or git).\n"); process.exit(1); }
   }
-  if (!existsSync(MARK)) { sh("npm", ["install", "--no-audit", "--no-fund"], { cwd: CACHE }); writeFileSync(MARK, ""); }
+  // The GitHub archive (and our git-clone fallback) extract to a single "<repo>-<branch>" dir.
+  const sub = readdirSync(CACHE).find((n) => { try { return statSync(path.join(CACHE, n)).isDirectory(); } catch { return false; } });
+  if (!sub) { rmSync(CACHE, { recursive: true, force: true }); process.stderr.write("Downloaded archive looks empty; will refetch next run.\n"); process.exit(1); }
+  repoDir = path.join(CACHE, sub);
+  const mark = path.join(repoDir, ".magoo-npm-installed");
+  if (!existsSync(mark)) { sh("npm", ["install", "--no-audit", "--no-fund"], { cwd: repoDir }); writeFileSync(mark, ""); }
 }
 
-sh("node", [path.join(CACHE, "scripts", "theme-cli.mjs"), ...process.argv.slice(2)]);
+sh("node", [path.join(repoDir, "scripts", "theme-cli.mjs"), ...process.argv.slice(2)]);
