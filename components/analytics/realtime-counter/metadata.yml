@@ -21,11 +21,13 @@ markets:
 
 example_usage: >
   Show the live value with a pulse; the spark reflects recent activity (host updates it live).
+  Enable hover_value (and give each sparkbar a value) to reveal per-bar values on hover.
 
 props:
   value: The live value.
   label: The metric label.
-  sparkbars: The recent-activity bars.
+  sparkbars: The recent-activity bars (each with a height and, for hover, a value).
+  hover_value: Reveal each spark bar's value on hover and highlight the hovered bar.
 
 example_prompts:
   - "Add a live active-users counter with a spark."

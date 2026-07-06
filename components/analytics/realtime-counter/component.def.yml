@@ -9,8 +9,17 @@ props:
     type: string
     default: "Active users right now"
     title: Label
+  hover_value:
+    type: boolean
+    default: false
+    title: Hover to see values
+    description: >
+      When true, hovering a spark bar reveals that bar's value in a small tooltip and
+      slightly strengthens the hovered bar's colour. Requires each sparkbar to carry a value.
   sparkbars:
     type: array
     items: object
     title: Spark bars
-    description: "Each: { height } — 0-100, last-N-minutes activity."
+    description: >
+      Each: { height, value } — height is 0-100 (last-N-minutes activity); value is the
+      label shown on hover when hover_value is on (e.g. the count at that point).

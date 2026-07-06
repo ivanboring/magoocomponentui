@@ -4,8 +4,9 @@
     {{ label }}
   </p>
   <p class="realtime-counter__value mt-1 font-heading text-4xl text-on-surface tabular-nums">{{ value }}</p>
-  <div data-if="sparkbars" class="realtime-counter__spark mt-3 flex h-10 items-end gap-0.5" aria-hidden="true">
-    <span data-for="bar in sparkbars" class="realtime-counter__bar flex-1 rounded-t bg-primary/60" style="height: {{ bar.height }}%"></span>
+  <div data-if="sparkbars" class="realtime-counter__spark relative mt-3 flex h-10 items-end gap-0.5" data-hover="{{ hover_value }}" aria-hidden="true">
+    <span data-for="bar in sparkbars" class="realtime-counter__bar flex-1 rounded-t bg-primary/60 transition-colors duration-(--duration-token) data-[active=true]:bg-primary/90" style="height: {{ bar.height }}%" data-value="{{ bar.value }}"></span>
+    <span data-if="hover_value" class="realtime-counter__tip pointer-events-none absolute bottom-full left-0 mb-1 hidden -translate-x-1/2 whitespace-nowrap rounded-control bg-on-surface px-1.5 py-0.5 text-[10px] font-medium text-surface shadow-raised"></span>
   </div>
   <p data-if="sparkbars" class="mt-1 text-[10px] text-on-surface-muted">Last 30 minutes</p>
 </article>
