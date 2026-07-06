@@ -10,8 +10,24 @@
 import { chromium } from "playwright";
 import { readFileSync, readdirSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { renderToHtml, defaultArgs } from "../packages/generator/src/index.js";
+import yaml from "js-yaml";
+import { renderToHtml, defaultArgs, generate } from "../packages/generator/src/index.js";
+import { loadDef } from "../packages/generator/src/def.js";
 import { findComponentDirs, readComponentSource, ROOT } from "./lib/components.mjs";
+
+/** Read examples/*.json into a { StoryName: args } map (Default-first), or null. */
+function readExamplesSync(dir) {
+  const exDir = path.join(dir, "examples");
+  if (!existsSync(exDir)) return null;
+  const files = readdirSync(exDir).filter((f) => f.endsWith(".json"));
+  if (!files.length) return null;
+  const out = {};
+  for (const f of files) {
+    const name = path.basename(f, ".json").replace(/(^|[-_])(\w)/g, (_, __, c) => c.toUpperCase());
+    out[name] = JSON.parse(readFileSync(path.join(exDir, f), "utf8"));
+  }
+  return out;
+}
 
 const THEMES = ["simple", "futuristic", "classic", "smooth"];
 // Widest → narrowest, matching the preview display order.
@@ -81,12 +97,16 @@ async function main() {
   let total = 0;
 
   for (const { id, dir } of dirs) {
-    const { defYaml } = await readComponentSource(dir);
-    const distDir = path.join(ROOT, "dist", id);
-    const ast = JSON.parse(readFileSync(path.join(distDir, "ast.json"), "utf8"));
-    const meta = JSON.parse(readFileSync(path.join(distDir, "meta.json"), "utf8"));
-    const previewPath = path.join(distDir, "preview.json");
-    const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
+    // Generate ast/meta from source rather than reading dist/, so a concurrent `pnpm build`
+    // (which clears dist mid-run) can't race the screenshot pass.
+    const src = await readComponentSource(dir);
+    const def = loadDef(src.defYaml);
+    const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};
+    const examples = readExamplesSync(dir);
+    const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples });
+    const ast = JSON.parse(files["ast.json"]);
+    const meta = JSON.parse(files["meta.json"]);
+    const base = examples ? (examples.Default || Object.values(examples)[0]) : defaultArgs(meta.def);
     const args = inlineStockImages({ ...base, $variants: meta.def.variants });
     const html = renderToHtml(ast, args);
 
@@ -99,19 +119,25 @@ async function main() {
       mkdirSync(d, { recursive: true });
     }
 
-    const page = await browser.newPage();
-    for (const theme of THEMES) {
-      await page.setContent(doc(css, theme, html), { waitUntil: "load" });
-      await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
-      for (const [bp, width] of Object.entries(BREAKPOINTS)) {
-        await page.setViewportSize({ width, height: 1200 });
+    for (const [bp, width] of Object.entries(BREAKPOINTS)) {
+      // Lay the page out at the real breakpoint width, but downscale the raster to <=500px
+      // wide (deviceScaleFactor < 1) so the committed PNGs stay small.
+      const context = await browser.newContext({
+        viewport: { width, height: 1200 },
+        deviceScaleFactor: Math.min(1, 500 / width),
+      });
+      const page = await context.newPage();
+      for (const theme of THEMES) {
+        await page.setContent(doc(css, theme, html), { waitUntil: "load" });
+        await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
         const el = await page.$("#shot");
         const buf = await el.screenshot();
         for (const d of outDirs) writeFileSync(path.join(d, `${theme}-${bp}.png`), buf);
         total++;
       }
+      await page.close();
+      await context.close();
     }
-    await page.close();
     console.log(`  ${id}: 16 shots`);
   }
 
