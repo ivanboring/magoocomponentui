@@ -1,0 +1,25 @@
+name: split-view
+props:
+  ratio:
+    type: enum
+    values: ["50-50", "60-40", "70-30", "40-60", "30-70"]
+    default: "50-50"
+    title: Column split ratio
+    description: >
+      The width split between the start and end panes at desktop (lg and up). "70-30" gives
+      the start pane 70% and the end pane 30%. Below lg both panes stack full-width (start on
+      top, end below).
+slots:
+  start:
+    title: Start pane
+    description: The first pane — left on desktop, top when stacked on mobile.
+  end:
+    title: End pane
+    description: The second pane — right on desktop, bottom when stacked on mobile.
+variants:
+  ratio:
+    "50-50": "lg:grid-cols-2"
+    "60-40": "lg:grid-cols-[3fr_2fr]"
+    "70-30": "lg:grid-cols-[7fr_3fr]"
+    "40-60": "lg:grid-cols-[2fr_3fr]"
+    "30-70": "lg:grid-cols-[3fr_7fr]"

@@ -15,6 +15,7 @@ listed here.
 | Component | Library | Version | Purpose | Load strategy |
 |---|---|---|---|---|
 | `video/video-player-live` | [hls.js](https://github.com/video-dev/hls.js/) | `@1` (latest 1.x, jsdelivr) | Play HLS (`.m3u8`) adaptive live streams in browsers without native HLS | Lazy dynamic `import()` from CDN, native-HLS first, only when a stream is present |
+| `video/video-player-youtube` | [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference) | n/a (google-hosted, unversioned) | Embed and control a YouTube video (play/seek/rate/mute) behind the catalog's own control bar, and read `getCurrentTime()`/`getDuration()` for the mediasync bus | Inject `https://www.youtube.com/iframe_api` once from `behavior.js`, await by polling `window.YT.Player`; only when a `video_id` is present |
 | `auth/two-factor-setup` | [qrcode](https://github.com/soldair/node-qrcode) | `@1` (latest 1.x, jsdelivr `+esm`) | Generate the authenticator QR as a real image from the `otpauth://` URI | Lazy dynamic `import()` from CDN, only when an `otpauth` URI is present; re-renders on update |
 
 > To regenerate this table's coverage, grep the sources:

@@ -40,6 +40,8 @@ example_prompts:
   - "Add a low-latency live stream player."
 
 relationships:
+  parents:
+    - layout/split-view
   related:
     - video/video-transcript
     - video/video-chapters

@@ -1,0 +1,29 @@
+<figure class="video-player-youtube relative overflow-hidden rounded-card bg-black shadow-card" data-sync-id="{{ sync_id }}" data-video-id="{{ video_id }}" aria-label="{{ title }}">
+  <div class="video-player-youtube__frame relative aspect-video w-full">
+    <div data-if="poster" class="video-player-youtube__poster absolute inset-0 bg-cover bg-center" style="background-image: url({{ poster }})">
+      <span class="absolute inset-0 bg-black/30" aria-hidden="true"></span>
+    </div>
+    <div class="video-player-youtube__mount absolute inset-0 h-full w-full"></div>
+  </div>
+  <div class="video-player-youtube__controls absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-black/80 to-transparent p-3 text-white">
+    <div class="video-player-youtube__scrubber h-1.5 w-full cursor-pointer overflow-hidden rounded-pill bg-white/25" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+      <div class="video-player-youtube__progress h-full rounded-pill bg-primary" style="width: 0%"></div>
+    </div>
+    <div class="flex items-center gap-3 text-sm">
+      <button type="button" class="video-player-youtube__play flex size-8 items-center justify-center rounded-control hover:bg-white/15" aria-label="Play" aria-pressed="false">
+        <svg class="video-player-youtube__icon-play size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6z"/></svg>
+        <svg class="video-player-youtube__icon-pause hidden size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+      </button>
+      <button type="button" class="video-player-youtube__mute flex size-8 items-center justify-center rounded-control hover:bg-white/15" aria-label="Mute" aria-pressed="false">
+        <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 8v4h3l4 3V5L7 8z"/><path d="M14 7a4 4 0 010 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+      <span class="video-player-youtube__time tabular-nums text-xs">{{ duration }}</span>
+      <div class="ml-auto flex items-center gap-2">
+        <button type="button" class="video-player-youtube__speed rounded-control px-2 py-1 text-xs hover:bg-white/15" aria-label="Playback speed">1×</button>
+        <button type="button" class="video-player-youtube__fullscreen flex size-8 items-center justify-center rounded-control hover:bg-white/15" aria-label="Fullscreen">
+          <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7V4h3M16 7V4h-3M4 13v3h3M16 13v3h-3"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</figure>

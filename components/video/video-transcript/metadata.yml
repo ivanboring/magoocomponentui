@@ -23,6 +23,10 @@ markets:
 example_usage: >
   Provide cues with a display time, numeric seconds, and text; mark the current cue
   active. Clicking a cue emits transcript:seek for the player to handle.
+  Layout: when shown alongside a video-player, wrap both in a split-view container with
+  ratio 70-30 — the video-player in the start pane (70%) and this transcript in the end
+  pane (30%). The two panes stack full-width on mobile. If the player is shown on its own
+  (no transcript/chapters), do not use split-view — render the player full width instead.
 
 props:
   cues: The transcript lines with time, seconds, text, and active state.
@@ -34,9 +38,12 @@ example_prompts:
   - "Add a transcript bound to the player's sync_id so it follows playback."
 
 relationships:
+  parents:
+    - layout/split-view
   related:
     - video/video-player
     - video/video-player-live
+    - video/video-player-youtube
 
 lifecycle: experimental
 content_model: An ordered list of timestamped transcript cues with an active one.

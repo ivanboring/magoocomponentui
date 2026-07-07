@@ -1,0 +1,95 @@
+name: "YouTube Player"
+short_description: A YouTube-embed player with a custom skeleton control bar that broadcasts position for a synced transcript/chapters.
+long_visual_description: >
+  A 16:9 frame over a poster with a gradient control bar identical to the standard video
+  player: a seek scrubber that fills as it plays, a play/pause toggle, a mute toggle, a live
+  "current / total" time label, a playback-speed cycle button, and a fullscreen button. The
+  YouTube IFrame embed sits behind the bar with its own chrome hidden (controls=0), so the
+  skeleton controls are the only UI.
+
+use_cases:
+  - Embedding a YouTube video on a watch or article page with a consistent, themed control bar.
+  - A YouTube tutorial or course video synced to a click-to-seek transcript.
+  - A YouTube talk or lecture beside a chapter list that follows playback.
+  - Reusing hosted YouTube content without exposing YouTube's default player UI.
+  - Any inline YouTube video that must drive video-transcript / video-chapters over the sync bus.
+
+recommended_for:
+  - Playing a YouTube-hosted video behind the catalog's own themed controls.
+  - Keeping a transcript or chapter list in sync with a YouTube embed.
+avoid_for:
+  - A self-hosted video file (use video-player).
+  - A live HLS stream (use video-player-live).
+  - Audio-only playback (use audio-player).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide video_id (the YouTube v= value, e.g. "aqz-KE-bpKQ"; a full watch/share/embed URL is
+  also accepted and parsed to the id). Playback runs through the YouTube IFrame Player API
+  (https://www.youtube.com/iframe_api), which the behavior injects once and awaits — there is
+  no external ES module and no metadata field to declare it, so this dependency is documented
+  here and in docs/external-libraries.md. Set a shared sync_id on this player and on a
+  video-transcript or video-chapters to keep them in sync: while playing, the player polls the
+  YouTube API and broadcasts mediasync:time { id, currentTime, duration, percent } and
+  mediasync:state { id, playing }, and it accepts mediasync:seek { id, seconds } seek requests
+  from those components. Give a poster so the frame looks right before the iframe mounts and in
+  screenshots (behavior.js does not run during screenshot capture, so the embed never loads
+  there). When shown together with a transcript/chapters, wrap both in a split-view container
+  at ratio 70-30 (this player in the start pane, transcript/chapters in the end pane); when it
+  stands alone, render it full width.
+
+props:
+  title: Accessible label for the player frame.
+  video_id: The YouTube video id (or a full URL, parsed to the id).
+  poster: The frame shown before the YouTube iframe mounts and in screenshots.
+  duration: Initial time label; replaced with a live current/total once ready.
+  sync_id: Optional id that links satellite components (scrubber/transcript/chapters) to this player.
+
+example_prompts:
+  - "Embed a YouTube video with our own play/pause, scrubber, and fullscreen controls."
+  - "Add a YouTube player synced to a transcript and chapters via a sync_id."
+  - "Show a YouTube tutorial with a themed control bar instead of YouTube's default UI."
+
+relationships:
+  parents:
+    - layout/split-view
+  related:
+    - video/video-player
+    - video/video-scrubber
+    - video/video-transcript
+    - video/video-chapters
+
+lifecycle: experimental
+content_model: A YouTube video reference (id/URL) with a poster and a standard set of playback controls.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Use a representative poster frame; keep the title concise. Prefer this over an unstyled
+  YouTube embed when the surrounding page needs a consistent control look or a synced
+  transcript/chapters.
+
+categorization:
+  category: Video
+  subcategory: Players
+  atomic_type: organism
+  usage_type: [player, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: >
+      Controls are real buttons with labels and aria-pressed toggles; the scrubber is a
+      role="slider" with aria-valuenow and Arrow-key seeking and is focusable. YouTube's own
+      keyboard handling is disabled (disablekb) so focus stays on the custom controls. A
+      production build should surface captions (YouTube's CC) and honor reduced-motion.
+  keyboard_support: Play/mute/speed/fullscreen activate on Enter/Space; the scrubber is focusable and seeks with ArrowLeft/ArrowRight.
+  seo_score: 40
+  text_direction: both

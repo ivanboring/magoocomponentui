@@ -8,20 +8,20 @@
  */
 @theme {
   --color-background: __COLOR_BACKGROUND__;
-  --color-on-background: #0f172a;
+  --color-on-background: __COLOR_ON_BACKGROUND__;
   --color-surface: __COLOR_SURFACE__;
-  --color-surface-raised: #f8fafc;
+  --color-surface-raised: __COLOR_SURFACE_RAISED__;
   --color-on-surface: __COLOR_ON_SURFACE__;
-  --color-on-surface-muted: #64748b;
+  --color-on-surface-muted: __COLOR_ON_SURFACE_MUTED__;
 
   --color-primary: __COLOR_PRIMARY__;
   --color-primary-contrast: __COLOR_PRIMARY_CONTRAST__;
-  --color-secondary: #0f172a;
-  --color-secondary-contrast: #ffffff;
-  --color-accent: #6366f1;
-  --color-accent-contrast: #ffffff;
+  --color-secondary: __COLOR_SECONDARY__;
+  --color-secondary-contrast: __COLOR_SECONDARY_CONTRAST__;
+  --color-accent: __COLOR_ACCENT__;
+  --color-accent-contrast: __COLOR_ACCENT_CONTRAST__;
 
-  --color-border: #e2e8f0;
+  --color-border: __COLOR_BORDER__;
   --color-ring: __COLOR_PRIMARY__;
 
   --color-success: #16a34a;
@@ -42,9 +42,9 @@
   --radius-card: __RADIUS_CARD__;
   --radius-pill: 9999px;
 
-  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-raised: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.06);
-  --shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.35);
+  --shadow-card: 0 1px 2px rgba(__SHADOW_RGB__, 0.06), 0 1px 3px rgba(__SHADOW_RGB__, 0.08);
+  --shadow-raised: 0 10px 15px -3px rgba(__SHADOW_RGB__, 0.10), 0 4px 6px -4px rgba(__SHADOW_RGB__, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(__SHADOW_RGB__, 0.35);
 }
 
 :root {

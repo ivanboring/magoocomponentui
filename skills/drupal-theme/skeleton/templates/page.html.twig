@@ -1,11 +1,22 @@
 {#
-  Minimal page template — renders each region. Extend/replace with your own layout.
+  Minimal page template. Top and footer regions run full-bleed; the main content regions
+  are wrapped in a centered container (max-width set by create-theme via __CONTENT_MAXWIDTH__).
   Regions come from __MACHINE__.info.yml (Olivero set by default).
 #}
+{% set full_bleed = ['header', 'primary_menu', 'breadcrumb', 'highlighted', 'hero', 'footer_top', 'footer_bottom'] %}
+{% set contained = ['content_above', 'content', 'sidebar', 'content_below'] %}
 <div class="page bg-background font-body text-on-surface">
-  {% for region in ['header', 'primary_menu', 'breadcrumb', 'highlighted', 'hero', 'content_above', 'content', 'sidebar', 'content_below', 'footer_top', 'footer_bottom'] %}
+  {% for region in full_bleed %}
     {% if page[region] %}
       <div class="region region-{{ region }}">{{ page[region] }}</div>
     {% endif %}
   {% endfor %}
+
+  <div class="content-container mx-auto __CONTENT_MAXWIDTH__ w-full px-4">
+    {% for region in contained %}
+      {% if page[region] %}
+        <div class="region region-{{ region }}">{{ page[region] }}</div>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>

@@ -30,8 +30,14 @@ example_prompts:
   - "Add a responsive video grid of recommended videos."
   - "Add a channel's video grid with durations and view counts."
 
+relationships:
+  related:
+    - video/video-playlist-item
+    - video/watch-next-rail
+    - video/channel-header
+
 lifecycle: experimental
-content_model: A responsive grid of video preview items.
+content_model: A responsive grid of video preview items rendered inline from an items array (not child components).
 
 theming:
   tokens_used:

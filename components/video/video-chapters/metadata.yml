@@ -22,6 +22,10 @@ markets:
 example_usage: >
   Provide chapters with title, display time, and numeric seconds; mark the current
   chapter active. Clicking emits chapters:seek for the player.
+  Layout: when shown alongside a video-player, wrap both in a split-view container with
+  ratio 70-30 — the video-player in the start pane (70%) and this chapter list in the end
+  pane (30%). The two panes stack full-width on mobile. If the player is shown on its own
+  (no transcript/chapters), do not use split-view — render the player full width instead.
 
 props:
   chapters: The chapter markers with titles, times, and thumbnails.
@@ -33,9 +37,12 @@ example_prompts:
   - "Add a chapters list bound to the player's sync_id so the active chapter follows playback."
 
 relationships:
+  parents:
+    - layout/split-view
   related:
     - video/video-player
     - video/video-player-live
+    - video/video-player-youtube
 
 lifecycle: experimental
 content_model: An ordered list of chapter markers with a current one.

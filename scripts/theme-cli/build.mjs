@@ -3,7 +3,7 @@ import path from "node:path";
 import yaml from "js-yaml";
 import { loadDef } from "../../packages/generator/src/def.js";
 import { generate, renderToHtml } from "../../packages/generator/src/index.js";
-import { readComponentSource } from "../lib/components.mjs";
+import { readComponentSource, COMPONENTS_DIR } from "../lib/components.mjs";
 import { parseFlags } from "./search.mjs";
 
 const PREFIX = { sdc: "sdc/", "code-component": "code-component/", react: "react/", vue: "vue/" };
@@ -22,7 +22,7 @@ async function defaultExample(dir) {
 
 /** Generate one component and return the { relPath: contents } map for a target. */
 export async function buildFilesFor(id, target) {
-  const dir = path.join("components", id);
+  const dir = path.join(COMPONENTS_DIR, id);
   const src = await readComponentSource(dir);
   const def = loadDef(src.defYaml);
   const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};

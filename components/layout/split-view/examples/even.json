@@ -1,0 +1,7 @@
+{
+  "ratio": "50-50",
+  "$slots": {
+    "start": "<div class=\"rounded-card border border-border bg-surface p-6\"><h2 class=\"font-heading text-lg text-on-surface\">Start pane</h2><p class=\"mt-2 text-sm text-on-surface-muted\">An even 50-50 split. Both panes stack full-width on mobile.</p></div>",
+    "end": "<div class=\"rounded-card border border-border bg-surface p-6\"><h2 class=\"font-heading text-lg text-on-surface\">End pane</h2><p class=\"mt-2 text-sm text-on-surface-muted\">Change the ratio prop for 60-40, 70-30, 40-60, or 30-70.</p></div>"
+  }
+}

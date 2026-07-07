@@ -69,10 +69,12 @@ test("generate emits the full target set", () => {
   assert.ok(keys.includes("ast.json"));
 });
 
-test("SDC output: JSON-Schema props, image ref, twig control structures", () => {
+test("SDC output: JSON-Schema props, image as URL string, twig control structures", () => {
   const { files } = generate({ id: "demo/demo-card", def, template, behavior });
   const yml = files["sdc/demo-card/demo-card.component.yml"];
-  assert.match(yml, /json-schema-definitions:\/\/canvas\.module\/image/);
+  // Image props are plain URL strings, not an unresolvable Canvas $ref.
+  assert.match(yml, /image:\n\s+type: string\n\s+format: uri-reference/);
+  assert.doesNotMatch(yml, /json-schema-definitions/);
   assert.match(yml, /enum:/);
   assert.match(yml, /required:\n\s+- title/);
   assert.match(yml, /libraryOverrides:/); // behavior present
@@ -128,5 +130,8 @@ test("Drupal: field plan, inferred custom_field columns, paragraph embed", () =>
   assert.ok(files["drupal/custom_field.demo-card.yml"]); // complex prop present
   const twig = files["drupal/paragraph--demo-card.html.twig"];
   assert.match(twig, /embed 'your_theme:demo-card'/);
-  assert.match(twig, /title: paragraph\.field_title\.value/);
+  // Field names are namespaced by the component/bundle (collision-safe).
+  assert.match(twig, /title: paragraph\.field_demo_card_title\.value/);
+  // No illegal {# comment #} inside the active {% embed %} mapping.
+  assert.doesNotMatch(twig, /,\s*\{#/);
 });

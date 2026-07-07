@@ -1,0 +1,76 @@
+name: "Split View"
+short_description: A two-pane layout with a variable width split that stacks top/bottom on mobile.
+long_visual_description: >
+  Two side-by-side panes on desktop whose relative widths follow a chosen ratio (50-50,
+  60-40, 70-30, 40-60, or 30-70); the start pane sits left and the end pane right. Below the
+  lg breakpoint the two panes stack vertically, each at full width — start on top, end below.
+
+use_cases:
+  - A video player beside a synced transcript or chapter list (70-30).
+  - Primary content beside a secondary rail at a fixed proportion.
+  - A media object beside its metadata or controls.
+  - Two related panels shown at an intentional, uneven weight.
+  - A reader view with an outline or notes rail alongside.
+
+recommended_for:
+  - Placing two panes side by side at a deliberate, uneven width ratio.
+  - Pairing a video-player (start) with a video-transcript or video-chapters (end) at 70-30.
+avoid_for:
+  - A fixed-width sidebar beside flexible content (use sidebar-layout).
+  - Three or more equal columns (use a card-grid).
+  - A single pane — render the component directly with no container.
+
+markets:
+  - Global
+
+example_usage: >
+  Slot the primary content into start and the secondary content into end, then pick the
+  ratio. The recommended pairing is a video-player in start with a video-transcript or
+  video-chapters in end at ratio 70-30. Both panes stack full-width on mobile. When the start
+  pane would stand alone (e.g. a video-player with no transcript/chapters), do not wrap it in
+  a split-view at all — render it full width.
+
+props:
+  ratio: The desktop width split between the start and end panes.
+
+slots:
+  start: The primary/left pane (top when stacked).
+  end: The secondary/right pane (bottom when stacked).
+
+example_prompts:
+  - "Put the video player and its transcript side by side at 70-30."
+  - "Lay out two panes with a 60-40 split that stacks on mobile."
+  - "Show the player on the left and chapters on the right at a 70-30 ratio."
+
+relationships:
+  children:
+    - video/video-player
+    - video/video-player-live
+    - video/video-player-youtube
+    - video/video-transcript
+    - video/video-chapters
+  related:
+    - layout/sidebar-layout
+
+lifecycle: experimental
+content_model: A start pane and an end pane laid out at a chosen width ratio.
+
+theming:
+  tokens_used: []
+
+editorial_guidance: >
+  Choose the ratio to match content weight — a media pane usually earns the larger share
+  (70-30 for a player + transcript). Keep the smaller pane wide enough to stay legible.
+
+categorization:
+  category: Layout
+  subcategory: Structure
+  atomic_type: full
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Layout only; reading order follows the DOM (start then end) regardless of the visual split.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

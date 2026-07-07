@@ -21,7 +21,8 @@ export function customFieldConfigFiles(def, { entity, bundle }) {
   const storage = {
     langcode: "en", status: true, dependencies: { module: ["custom_field"] },
     id: `${entity}.${fieldMachine}`, field_name: fieldMachine, entity_type: entity,
-    type: "custom_field", settings: { columns, field_settings: {} }, module: "custom_field",
+    // custom_field 4.x field-type plugin id is `custom` (module custom_field).
+    type: "custom", settings: { columns, field_settings: {} }, module: "custom_field",
     locked: false, cardinality: 1, translatable: true, indexes: {}, persist_with_no_fields: false, custom_storage: false,
   };
   const field = {
@@ -29,7 +30,7 @@ export function customFieldConfigFiles(def, { entity, bundle }) {
     dependencies: { config: [`field.storage.${entity}.${fieldMachine}`], module: ["custom_field"] },
     id: `${entity}.${bundle}.${fieldMachine}`, field_name: fieldMachine, entity_type: entity, bundle,
     label: def.name, description: "", required: false, translatable: false, default_value: [], default_value_callback: "",
-    settings: { columns: {}, field_settings: {} }, field_type: "custom_field",
+    settings: { columns: {}, field_settings: {} }, field_type: "custom",
   };
   return {
     [`drupal/config/field.storage.${entity}.${fieldMachine}.yml`]: yaml.dump(storage),

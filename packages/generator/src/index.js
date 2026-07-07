@@ -49,6 +49,7 @@ export {
  *   behavior?: string|null,
  *   metadata?: any,
  *   examples?: Record<string, any>|null,
+ *   themeMachineName?: string,  // Drupal theme machine name for the paragraph {% embed %} (default your_theme)
  * }} source
  * @returns {{ ast: any[], files: Record<string, string> }}
  */
@@ -85,7 +86,7 @@ export function generate(source) {
   });
 
   for (const [file, contents] of Object.entries(
-    emitDrupal({ name, def: source.def, ast, metadata }),
+    emitDrupal({ name, def: source.def, ast, metadata, themeMachineName: source.themeMachineName }),
   )) {
     files[`drupal/${file}`] = contents;
   }

@@ -56,6 +56,7 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
 - Generated variants land in a central `dist/<category>/<component>/` mirror; source folders stay clean.
 - **Git workflow:** commit directly to `main` — no feature branches needed for component/catalog work. Never push to the remote unless explicitly asked.
 - **Images:** when an example/screenshot needs a real image (not a placeholder box), download a generic one from https://unsplash.com/ rather than inventing a URL or using a data URI.
+- **Composition/layout recommendations live in the components, never in a skill.** Guidance like "wrap a video-player + video-transcript/video-chapters in a `split-view` at ratio 70-30, but render the player full width when it stands alone" belongs in the affected components' `metadata.yml` (`relationships.parents/children/related` + prose in `example_usage`/`editorial_guidance`), not in the `drupal-theme` or any other skill. The skill and CLI only *read* the catalog; the catalog is the single source of truth an agent explores, so any parent/container recommendation must be authored into the metadata of the components it concerns.
 
 ## Skills to use
 
@@ -200,16 +201,53 @@ node scripts/theme-cli.mjs <search|build|config|create-theme>   # theme generato
 The **`drupal-theme` skill** (`skills/drupal-theme/`) + an in-repo **CLI** (`scripts/theme-cli.mjs`,
 `scripts/theme-cli/*.mjs`) assemble a **Drupal 11** theme from the catalog. The CLI **reuses
 `packages/generator`** via relative imports (no duplication); its runtime deps (`js-yaml`,
-`node-html-parser`, `ajv`) are in the repo root `dependencies` so it also runs under plain `npm`.
+`node-html-parser`, `ajv`) are in the repo root `dependencies`. The repo is a pnpm workspace, so the
+bootstrap installs with pnpm (see below), not `npm`.
 Subcommands: `search` (filter metadata by `--q/--category/--subcategory/--usage/--atomic/--lifecycle`),
 `build <ids> --target sdc|code-component|react|vue|html`, `config <ids> --as paragraph | --as
 custom-field --entity node --bundle article`, and `create-theme --answers <json>` (scaffolds
 `skills/drupal-theme/skeleton/` — Olivero regions, Tailwind v4 build, token contract with the chosen
 design-system values). The skill's `bin/magoo` bootstrap fetch/caches the repo to `/tmp` (1-day TTL,
-refetch if stale) + `npm install`, then delegates. **Drupal-first**: other targets (WordPress/Hugo)
-use the generic `html/react/vue` output, but always advocate Drupal. **Adding** a component to a theme
-is done directly; **removing** one is NOT automated — tell the user to do it manually and warn about
-dangling config/paragraph/field references.
+refetch if stale) then installs runtime deps — **with pnpm/`corepack pnpm`, not `npm`** (the repo is
+a pnpm workspace; `npm install` dies on `workspace:*` with EUNSUPPORTEDPROTOCOL). It then delegates.
+**Drupal-first**: other targets (WordPress/Hugo) use the generic `html/react/vue` output, but always
+advocate Drupal. **Adding** a component to a theme is done directly; **removing** one is NOT automated
+— tell the user to do it manually and warn about dangling config/paragraph/field references.
+
+### Drupal-emit invariants (learned building a real theme — don't regress these)
+
+The generator's Drupal output must import + render cleanly with only `paragraphs`,
+`entity_reference_revisions`, `custom_field` and the field-type modules enabled (no Canvas):
+
+- **theme-cli resolves components via `COMPONENTS_DIR` (from `lib/components.mjs`), not CWD** — the
+  subcommands run from the *caller's* directory, so `path.join("components", id)` was wrong.
+- **`bin/magoo` `sh()` forwards the child's exit code on failure** (no wrapped Node stack that hides
+  the real error).
+- **Field names are namespaced per bundle**: `fieldName(prop, bundle)` → `field_<bundle>_<prop>`,
+  hash-truncated to Drupal's 32-char limit. Prevents unrelated components colliding on one field
+  storage (a bare `field_items` shared as both `entity_reference_revisions` and `custom` crashes at
+  render). Both the twig embed and the config use the same `fieldName`, so they always match.
+- **`custom_field`'s field-type plugin id is `custom`** (module `custom_field`, widget
+  `custom_stacked`, formatter `custom_formatter`) — in both `drupal-config.js` and
+  `config-custom-field.mjs`.
+- **Image props emit `type: string, format: uri-reference`**, never a Canvas `$ref` (unresolvable
+  without the module; twig consumes them as URL strings).
+- **The paragraph `{% embed %}` uses the real theme machine name**, threaded as
+  `generate({..., themeMachineName})` → `emitDrupal`. `create-theme` passes it automatically; the
+  standalone `config` command needs `--theme <machine>` (else it falls back to `your_theme`).
+- **No `{# comment #}` inside the active `{% embed … %}` mapping** (illegal twig) — put hints in the
+  doc block above.
+- **Integer/number props are cast** in the embed: `paragraph.field_x.value|default(0) + 0` (a Drupal
+  int field returns `.value` as a string; strict SDC rejects it).
+- **Slots are `{% block %}` overrides, not `with` vars.** Because the embed uses `only`, the rendered
+  child field is passed as a `…_slot` `with` var and echoed inside `{% block name %}{{ name_slot }}{% endblock %}`.
+- **The paragraph view display hides every field** (the `paragraph--*.html.twig` renders the
+  component directly), and the boolean formatter id is hyphenated (`default-true-false`).
+- **`create-theme` collects the config's `dependencies.module` into the theme `.info.yml`
+  `dependencies:`**, derives the full dark-aware token set from the 5 brand colors (all overridable
+  in `answers.colors`), wraps content in a centered container (`content_max_width`), and — when
+  `answers.host_content_type` is set — emits a node bundle whose paragraph-reference field targets
+  every generated bundle plus a `field--…-components.html.twig` that gaps them with `--space-section`.
 
 ## Verification vs. asserted metadata
 

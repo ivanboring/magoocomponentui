@@ -2,8 +2,12 @@
 /**
  * Dependency-free bootstrap for the drupal-theme skill.
  * Downloads + caches the component repo (1-day TTL) from the GitHub zip archive (falls back
- * to `git clone` if curl/unzip aren't available), runs `npm install` once, then delegates to
- * the repo's theme CLI (search/build/config/create-theme).
+ * to `git clone` if curl/unzip aren't available), installs its runtime deps once, then
+ * delegates to the repo's theme CLI (search/build/config/create-theme).
+ *
+ * The repo is a pnpm workspace (workspace:* deps), which plain `npm install` can't resolve
+ * (EUNSUPPORTEDPROTOCOL). So when a pnpm lockfile/workspace file is present we install with
+ * pnpm (or `corepack pnpm`); only a non-workspace checkout falls back to npm.
  *
  * Test/dev override: set MAGOO_CACHE=<path-to-a-checkout> to skip fetch+install and run the
  * CLI directly from that checkout.
@@ -18,11 +22,29 @@ const ZIP_URL = "https://github.com/ivanboring/magoocomponentui/archive/refs/hea
 const GIT_URL = "https://github.com/ivanboring/magoocomponentui";
 const CACHE = path.join(os.tmpdir(), "magoo-component-ui");
 
-function sh(cmd, args, opts = {}) { execFileSync(cmd, args, { stdio: "inherit", ...opts }); }
+/** Run a command, inheriting stdio. On failure, forward the child's exit code and stop —
+ *  don't wrap it in a Node stack that hides the child's own error (the real message already
+ *  printed via inherited stderr). */
+function sh(cmd, args, opts = {}) {
+  try { execFileSync(cmd, args, { stdio: "inherit", ...opts }); }
+  catch (e) { process.exit(typeof e?.status === "number" ? e.status : 1); }
+}
 function ok(cmd, args) { try { execFileSync(cmd, args, { stdio: "ignore" }); return true; } catch { return false; } }
 
-// Preflight: npm must be installed.
-if (!ok("npm", ["--version"])) { process.stderr.write("Required tool not found: npm. Install Node.js/npm first.\n"); process.exit(1); }
+/** Install the repo's runtime deps, picking pnpm for a workspace checkout. */
+function installDeps(repoDir) {
+  const usesPnpm = existsSync(path.join(repoDir, "pnpm-lock.yaml")) || existsSync(path.join(repoDir, "pnpm-workspace.yaml"));
+  if (usesPnpm) {
+    if (ok("pnpm", ["--version"])) return sh("pnpm", ["install", "--prod", "--ignore-scripts"], { cwd: repoDir });
+    if (ok("corepack", ["--version"])) return sh("corepack", ["pnpm", "install", "--prod", "--ignore-scripts"], { cwd: repoDir });
+    process.stderr.write("This is a pnpm workspace but pnpm isn't available. Install pnpm (`npm i -g pnpm` or `corepack enable`) and re-run.\n");
+    process.exit(1);
+  }
+  return sh("npm", ["install", "--no-audit", "--no-fund"], { cwd: repoDir });
+}
+
+// Preflight: node must run the CLI (it always does, since this script runs under node).
+if (!ok("node", ["--version"])) { process.stderr.write("Required tool not found: node. Install Node.js first.\n"); process.exit(1); }
 
 let repoDir;
 if (process.env.MAGOO_CACHE) {
@@ -48,8 +70,8 @@ if (process.env.MAGOO_CACHE) {
   const sub = readdirSync(CACHE).find((n) => { try { return statSync(path.join(CACHE, n)).isDirectory(); } catch { return false; } });
   if (!sub) { rmSync(CACHE, { recursive: true, force: true }); process.stderr.write("Downloaded archive looks empty; will refetch next run.\n"); process.exit(1); }
   repoDir = path.join(CACHE, sub);
-  const mark = path.join(repoDir, ".magoo-npm-installed");
-  if (!existsSync(mark)) { sh("npm", ["install", "--no-audit", "--no-fund"], { cwd: repoDir }); writeFileSync(mark, ""); }
+  const mark = path.join(repoDir, ".magoo-deps-installed");
+  if (!existsSync(mark)) { installDeps(repoDir); writeFileSync(mark, ""); }
 }
 
 sh("node", [path.join(repoDir, "scripts", "theme-cli.mjs"), ...process.argv.slice(2)]);

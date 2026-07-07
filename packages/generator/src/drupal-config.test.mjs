@@ -21,20 +21,27 @@ test("emits importable config entities for a paragraph bundle", () => {
   const { files } = emitDrupalConfig({ name: "demo-card", def, ast });
 
   assert.ok(files["config/paragraphs.paragraphs_type.demo_card.yml"]);
-  assert.equal(files["config/field.storage.paragraph.field_title.yml"].type, "string");
-  assert.equal(files["config/field.storage.paragraph.field_variant.yml"].type, "list_string");
+  // Field names are namespaced by the component/bundle so unrelated components can't
+  // collide on a shared field storage.
+  assert.equal(files["config/field.storage.paragraph.field_demo_card_title.yml"].type, "string");
+  assert.equal(files["config/field.storage.paragraph.field_demo_card_variant.yml"].type, "list_string");
   assert.deepEqual(
-    files["config/field.storage.paragraph.field_variant.yml"].settings.allowed_values.map((a) => a.value),
+    files["config/field.storage.paragraph.field_demo_card_variant.yml"].settings.allowed_values.map((a) => a.value),
     ["a", "b"],
   );
-  assert.equal(files["config/field.storage.paragraph.field_items.yml"].type, "custom_field");
-  assert.equal(files["config/field.storage.paragraph.field_footer.yml"].type, "entity_reference_revisions");
+  // custom_field's field-type plugin id is `custom` (module custom_field).
+  assert.equal(files["config/field.storage.paragraph.field_demo_card_items.yml"].type, "custom");
+  assert.equal(files["config/field.storage.paragraph.field_demo_card_footer.yml"].type, "entity_reference_revisions");
   assert.ok(files["config/core.entity_form_display.paragraph.demo_card.default.yml"]);
-  assert.ok(files["config/core.entity_view_display.paragraph.demo_card.default.yml"]);
+  const viewDisplay = files["config/core.entity_view_display.paragraph.demo_card.default.yml"];
+  assert.ok(viewDisplay);
+  // The paragraph twig renders the component, so the view display hides every field.
+  assert.deepEqual(viewDisplay.content, {});
+  assert.equal(viewDisplay.hidden.field_demo_card_title, true);
 
   // instance depends on its storage + the bundle
-  const inst = files["config/field.field.paragraph.demo_card.field_title.yml"];
-  assert.ok(inst.dependencies.config.includes("field.storage.paragraph.field_title"));
+  const inst = files["config/field.field.paragraph.demo_card.field_demo_card_title.yml"];
+  assert.ok(inst.dependencies.config.includes("field.storage.paragraph.field_demo_card_title"));
   assert.ok(inst.dependencies.config.includes("paragraphs.paragraphs_type.demo_card"));
 });
 
@@ -49,10 +56,10 @@ test("maps a prop to a contrib field type with correct module deps", () => {
   const ast = parseTemplate(`<div class="venue"></div>`);
   const { files } = emitDrupalConfig({ name: "venue", def, ast });
 
-  const addr = files["config/field.storage.paragraph.field_address.yml"];
+  const addr = files["config/field.storage.paragraph.field_venue_address.yml"];
   assert.equal(addr.type, "address");
   assert.ok(addr.dependencies.module.includes("address"));
-  assert.equal(files["config/field.storage.paragraph.field_hours.yml"].type, "office_hours");
+  assert.equal(files["config/field.storage.paragraph.field_venue_hours.yml"].type, "office_hours");
 });
 
 test("emits a config variant per field-type alternative (both)", () => {
@@ -64,15 +71,15 @@ test("emits a config variant per field-type alternative (both)", () => {
   const { files, variants } = emitDrupalConfig({ name: "data-table", def, ast });
 
   assert.equal(variants.length, 2);
-  assert.equal(files["config/field.storage.paragraph.field_rows.yml"].type, "tablefield");
-  const altKey = Object.keys(files).find((k) => k.startsWith("config-") && k.endsWith("field.storage.paragraph.field_rows.yml"));
+  assert.equal(files["config/field.storage.paragraph.field_data_table_rows.yml"].type, "tablefield");
+  const altKey = Object.keys(files).find((k) => k.startsWith("config-") && k.endsWith("field.storage.paragraph.field_data_table_rows.yml"));
   assert.ok(altKey, "alternative variant folder present");
-  assert.equal(files[altKey].type, "custom_field");
+  assert.equal(files[altKey].type, "custom");
 });
 
 test("generate() includes importable Drupal config", () => {
   const def = normalizeDef({ name: "x", props: { title: { type: "string" } } });
   const { files } = generate({ id: "t/x", def, template: `<div class="x">{{ title }}</div>` });
   assert.ok(files["drupal/config/paragraphs.paragraphs_type.x.yml"]);
-  assert.ok(files["drupal/config/field.storage.paragraph.field_title.yml"]);
+  assert.ok(files["drupal/config/field.storage.paragraph.field_x_title.yml"]);
 });

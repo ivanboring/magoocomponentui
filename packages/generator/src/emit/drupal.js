@@ -14,9 +14,9 @@
 import yaml from "js-yaml";
 import { emitDrupalConfig, inferColumns, loopVarFor, fieldName, resolveCandidates } from "./drupal-config.js";
 
-/** @param {any} prop @param {any[]} ast @returns {any} */
-function propToField(prop, ast) {
-  const fn = fieldName(prop.name);
+/** @param {any} prop @param {any[]} ast @param {string} bundle @returns {any} */
+function propToField(prop, ast, bundle) {
+  const fn = fieldName(prop.name, bundle);
   const chosen = resolveCandidates(prop);
   const base = { field_name: fn, label: prop.title, field_type: chosen[0] };
   if (chosen.length > 1) base.alternatives = chosen.slice(1);
@@ -34,9 +34,9 @@ function propToField(prop, ast) {
  * @returns {Record<string,string>}
  */
 export function emitDrupal({ name, def, ast, themeMachineName = "your_theme" }) {
-  const fields = def.props.map((p) => propToField(p, ast));
+  const fields = def.props.map((p) => propToField(p, ast, name));
   const slotFields = def.slots.map((s) => ({
-    field_name: fieldName(s.name),
+    field_name: fieldName(s.name, name),
     label: s.title,
     field_type: "entity_reference_revisions",
     target_type: "paragraph",
@@ -93,26 +93,34 @@ ${capped ? "\n> Note: variant combinations were capped; not every field-type com
 /** paragraph template that renders the SDC from paragraph field values */
 function paragraphTwig(name, def, theme) {
   const propLines = def.props.map((p) => {
-    const fn = fieldName(p.name);
+    const fn = fieldName(p.name, name);
     if (p.type === "boolean") return `    ${p.name}: paragraph.${fn}.value ? true : false,`;
+    // Integer/number fields return their .value as a string; `+ 0` coerces so strict SDC
+    // props typed integer/number don't reject it.
+    if (p.type === "integer") return `    ${p.name}: paragraph.${fn}.value|default(0) + 0,`;
     if (p.type === "link") return `    ${p.name}: paragraph.${fn}.0.url,`;
     if (p.type === "image") return `    ${p.name}: file_url(paragraph.${fn}.entity.uri.value),`;
-    if (p.type === "array" || p.type === "object")
-      return `    ${p.name}: paragraph.${fn}, {# custom_field / tablefield items — iterate item.<column> in the component #}`;
+    // Complex props pass the field item list; the component iterates item.<column>. (An
+    // explanatory {# comment #} can't live inside the active {% embed %} tag, so it's in
+    // the doc block above, not on this line.)
+    if (p.type === "array" || p.type === "object") return `    ${p.name}: paragraph.${fn},`;
     return `    ${p.name}: paragraph.${fn}.value,`;
   });
-  const slotLines = def.slots.map((s) => `    ${s.name}: content.${fieldName(s.name)},`);
-  const all = [...propLines, ...slotLines].join("\n");
+  // A slot is a {% block %}, not a `with` var. Because the embed uses `only`, the block
+  // body can't see `content`, so the rendered child field is passed in as a `with` var
+  // (…_slot) and echoed inside the matching block override.
+  const slotVars = def.slots.map((s) => `    ${s.name}_slot: content.${fieldName(s.name, name)},`);
+  const slotBlocks = def.slots.map((s) => `  {% block ${s.name} %}{{ ${s.name}_slot }}{% endblock %}`);
+  const withLines = [...propLines, ...slotVars].join("\n");
+  const body = slotBlocks.length ? "\n" + slotBlocks.join("\n") + "\n" : "";
   return `{#
-  Paragraph template for the "${name}" component.
-  Adjust field machine-names to match your paragraph bundle. Scalar props read
-  .value; links read .0.url; images resolve a file URL; slots pass rendered child
-  content. Complex props pass the field's item list — the component iterates
-  item.<column>.
+  Paragraph template for the "${name}" component. Adjust field machine-names to match your
+  paragraph bundle. Scalar props read .value; integers/numbers are cast with \`+ 0\`; links
+  read .0.url; images resolve a file URL; complex props pass the field item list (the
+  component iterates item.<column>); slots pass rendered child content into a {% block %}.
 #}
 {% embed '${theme}:${name}' with {
-${all}
-} only %}
-{% endembed %}
+${withLines}
+} only %}${body}{% endembed %}
 `;
 }

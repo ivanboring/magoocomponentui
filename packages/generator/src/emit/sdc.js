@@ -45,7 +45,10 @@ function propToSchema(prop) {
       schema = { type: "string", format: "uri-reference" };
       break;
     case "image":
-      schema = { $ref: "json-schema-definitions://canvas.module/image" };
+      // A plain URL string. The old Canvas `$ref` (json-schema-definitions://canvas.module/image)
+      // is unresolvable unless the Canvas/Experience Builder module is installed, and strict SDC
+      // then throws on the prop; the twig consumes it as a URL string anyway.
+      schema = { type: "string", format: "uri-reference" };
       break;
     case "array":
       schema = { type: "array", items: prop.items === "object" ? { type: "object" } : { type: prop.items } };

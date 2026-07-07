@@ -26,12 +26,33 @@ export function titleCase(s) {
   return s.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 /** @param {string} name */
-export function fieldName(name) {
-  return `field_${name.replace(/-/g, "_")}`;
-}
-/** @param {string} name */
 function machine(name) {
-  return name.replace(/-/g, "_");
+  return String(name).replace(/-/g, "_");
+}
+/** Deterministic, dependency-free short hash (djb2) → base36. @param {string} s */
+function shortHash(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+/**
+ * Drupal field machine name for a prop, namespaced by its bundle/component so two
+ * unrelated components can't collide on a shared field storage (field storage is keyed
+ * by (entity_type, field_name), so a bare `field_items` shared across bundles with
+ * different field types crashes at render). Respects Drupal's 32-char field-name limit
+ * by truncating the base and appending a short deterministic hash when it would overflow.
+ * @param {string} name  prop/slot name
+ * @param {string} [bundle]  component machine name (omit for un-namespaced legacy names)
+ */
+export function fieldName(name, bundle) {
+  const base = bundle ? `${machine(bundle)}_${machine(name)}` : machine(name);
+  let field = `field_${base}`;
+  if (field.length > 32) {
+    const h = shortHash(base).slice(0, 4);
+    const keep = 32 - "field_".length - 1 - h.length; // room for `_<hash>`
+    field = `field_${base.slice(0, keep)}_${h}`;
+  }
+  return field;
 }
 
 /* --------------------------------------------------------------------------
@@ -59,7 +80,8 @@ export const FIELD_TYPES = {
   boolean: {
     fieldType: "boolean", module: "core", storage: () => ({}), field: () => ({ on_label: "On", off_label: "Off" }),
     widget: { type: "boolean_checkbox", module: "core", settings: { display_label: true } },
-    formatter: { type: "boolean", module: "core", settings: { format: "default_true_false" } },
+    // Core BooleanFormatter format ids are hyphenated (default-true-false), not underscored.
+    formatter: { type: "boolean", module: "core", settings: { format: "default-true-false" } },
   },
   list_string: {
     fieldType: "list_string", module: "options",
@@ -111,7 +133,9 @@ export const FIELD_TYPES = {
     cardinality: -1,
   },
   custom_field: {
-    fieldType: "custom_field", module: "custom_field",
+    // drupal/custom_field 4.x registers the field-type plugin id as `custom`
+    // (widget custom_stacked / formatter custom_formatter). The module is still `custom_field`.
+    fieldType: "custom", module: "custom_field",
     storage: (prop, ctx) => ({ columns: ctx.customColumns, field_settings: {} }),
     field: (prop, ctx) => ({ field_settings: ctx.customFieldSettings }),
     widget: { type: "custom_stacked", module: "custom_field", settings: {} },
@@ -300,17 +324,24 @@ function fieldConfig(entry, prop, ctx) {
 
 function display(kind, bundle, items, moduleDeps, configDeps) {
   const content = {};
+  const hidden = {};
   let weight = 0;
   for (const it of items) {
-    content[it.field] = kind === "form"
-      ? { type: it.widget.type, weight: weight++, region: "content", settings: it.widget.settings || {}, third_party_settings: {} }
-      : { type: it.formatter.type, label: "hidden", weight: weight++, region: "content", settings: it.formatter.settings || {}, third_party_settings: {} };
+    if (kind === "form") {
+      content[it.field] = { type: it.widget.type, weight: weight++, region: "content", settings: it.widget.settings || {}, third_party_settings: {} };
+    } else {
+      // The generated paragraph--<name>.html.twig renders the component directly from the
+      // paragraph's field values, so the view display renders nothing on its own — every
+      // field is hidden. This avoids double-rendering and formatter-config bugs (e.g. a
+      // contrib formatter whose module isn't enabled, or prop-only booleans).
+      hidden[it.field] = true;
+    }
   }
-  const id = kind === "form" ? `paragraph.${bundle}.default` : `paragraph.${bundle}.default`;
+  const id = `paragraph.${bundle}.default`;
   return {
     langcode: "en", status: true,
     dependencies: { config: configDeps, module: [...moduleDeps].sort() },
-    id, targetEntityType: "paragraph", bundle, mode: "default", content, hidden: {},
+    id, targetEntityType: "paragraph", bundle, mode: "default", content, hidden,
   };
 }
 
@@ -331,7 +362,7 @@ function buildConfigSet(name, def, ast, choice) {
 
   const build = (prop, key, isSlot) => {
     const entry = FIELD_TYPES[key];
-    const field = fieldName(prop.name);
+    const field = fieldName(prop.name, name);
     const ctx = {
       field, bundle, label: prop.title, description: prop.description, required: prop.required,
       ...(key === "custom_field" ? customFieldContext(prop, ast) : {}),
@@ -353,7 +384,10 @@ function buildConfigSet(name, def, ast, choice) {
   for (const slot of def.slots) build({ ...slot, type: "object", title: slot.title, required: false, drupal: null }, "paragraph", true);
 
   files[`core.entity_form_display.paragraph.${bundle}.default.yml`] = display("form", bundle, items, formModules, [...configDeps]);
-  files[`core.entity_view_display.paragraph.${bundle}.default.yml`] = display("view", bundle, items, viewModules, [...configDeps]);
+  // View display hides every field (the twig template renders the component), so it needs
+  // no formatter modules — `viewModules` is intentionally unused here.
+  void viewModules;
+  files[`core.entity_view_display.paragraph.${bundle}.default.yml`] = display("view", bundle, items, new Set(), [...configDeps]);
   return files;
 }
 

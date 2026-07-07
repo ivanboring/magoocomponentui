@@ -1,0 +1,34 @@
+name: video-player-youtube
+props:
+  title:
+    type: string
+    title: Title
+    example: "Big Buck Bunny"
+    description: Accessible label for the player frame (not shown visually).
+  video_id:
+    type: string
+    title: YouTube video ID
+    example: "aqz-KE-bpKQ"
+    description: >
+      The YouTube video id (the v= value), e.g. "aqz-KE-bpKQ". A full watch/share/embed URL
+      is also accepted and parsed down to the id by the behavior. Leave empty to preview the
+      poster + controls with no embed.
+  poster:
+    type: image
+    title: Poster
+    example: "/stock/cover-workspace.jpg"
+    description: Placeholder frame shown before the YouTube iframe mounts (and in screenshots, where JS does not run).
+  duration:
+    type: string
+    default: "0:00"
+    title: Duration label
+    description: Initial time label; the behavior replaces it with live "current / total" once the player is ready.
+  sync_id:
+    type: string
+    title: Sync ID
+    description: >
+      Optional identifier that links this player to satellite components
+      (video-scrubber, video-transcript, video-chapters) carrying the same sync_id.
+      When set, the player broadcasts its playback position on a document-level event
+      bus (mediasync:time / mediasync:state) and accepts seek requests (mediasync:seek)
+      from those components. Leave empty for a standalone player.

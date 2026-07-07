@@ -27,6 +27,11 @@ example_usage: >
   with a source so an empty src doesn't resolve to the page URL. Set a shared sync_id on
   this player and on a video-scrubber, video-transcript, or video-chapters to keep them in
   sync — the player broadcasts its position and accepts their seek requests.
+  Layout: when this player is shown together with a video-transcript or video-chapters,
+  wrap both in a split-view container at ratio 70-30 — this player in the start pane (70%)
+  and the transcript/chapters in the end pane (30%); the panes stack full-width on mobile.
+  When the player stands alone (no transcript/chapters), do not use split-view — render it
+  full width, or place it in whatever container the surrounding page calls for.
 
 props:
   title: The video title (for context/labelling).
@@ -41,6 +46,8 @@ example_prompts:
   - "Add a video player with a sync_id so a transcript and chapters stay in sync with it."
 
 relationships:
+  parents:
+    - layout/split-view
   related:
     - video/video-scrubber
     - video/video-transcript

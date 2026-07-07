@@ -1,0 +1,7 @@
+{
+  "ratio": "70-30",
+  "$slots": {
+    "start": "<div class=\"aspect-video overflow-hidden rounded-card bg-surface-raised shadow-card\"><div class=\"flex h-full items-center justify-center text-on-surface-muted\">Video player (70%)</div></div>",
+    "end": "<div class=\"flex flex-col gap-2 rounded-card border border-border bg-surface p-3\"><p class=\"font-heading text-sm text-on-surface\">Transcript</p><button class=\"rounded-control bg-surface-raised px-3 py-2 text-left text-sm text-on-surface\"><span class=\"font-mono text-xs text-on-surface-muted\">0:04</span> Welcome to the session.</button><button class=\"rounded-control px-3 py-2 text-left text-sm text-on-surface-muted\"><span class=\"font-mono text-xs\">0:18</span> First, the setup.</button><button class=\"rounded-control px-3 py-2 text-left text-sm text-on-surface-muted\"><span class=\"font-mono text-xs\">0:42</span> Now the demo.</button></div>"
+  }
+}

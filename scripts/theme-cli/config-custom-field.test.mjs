@@ -22,7 +22,7 @@ test("emits storage + field bound to the entity/bundle with a column per scalar 
   assert.ok(out[storageKey], "storage file present");
   assert.ok(out[fieldKey], "field file present");
   const storage = yaml.load(out[storageKey]);
-  assert.equal(storage.type, "custom_field");
+  assert.equal(storage.type, "custom");
   assert.equal(storage.entity_type, "node");
   assert.deepEqual(Object.keys(storage.settings.columns).sort(), ["count", "featured", "href", "title"]);
   const field = yaml.load(out[fieldKey]);
