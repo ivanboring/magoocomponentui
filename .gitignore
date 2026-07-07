@@ -6,5 +6,7 @@ storybook-static/
 .DS_Store
 .claude
 preview/public/screenshots/
+drupal-base/.gitkeep
+drupal-base
 # Generated variants live in dist/ (build output). Component source + screenshots are committed.
 # preview/public/screenshots/ is a generated mirror of components/*/screenshots/ (the source of truth).

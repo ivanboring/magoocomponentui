@@ -261,7 +261,7 @@ meaningful per-component, hence the heuristic.)
 
 - `components/notifications/alert/` — enum **variant class-map**, dismiss **behavior.js** (data-attr config + ARIA), a **slot**, full metadata.
 - `components/dashboard/stat-card/` — multiple props, trend variant, icon slot, no JS.
-- `components/marketing/feature-grid/` — **`data-for` loop** + responsive columns (1→2→3→4).
+- `components/marketing/feature-grid/` — **`data-for` loop** + responsive columns (1→2→4, so a 4-item grid stays even — 2×2 — rather than 3+1).
 - `components/dashboard/stats-band/` — **slot composition** + a real parent↔child `relationships` link to `stat-card`.
 
 ## Preview app — Examples page (component compositions)

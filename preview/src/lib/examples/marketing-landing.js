@@ -21,7 +21,7 @@ export default {
         start: { raw: `<img src="/stock/cover-workspace.jpg" alt="" class="aspect-[4/3] w-full rounded-card object-cover shadow-card">` },
         // Right (60%): typewriter title, rich-text subtitle, and two CTAs.
         end: [
-          { id: "marketing/stylized-header", args: { static_text: "We build", words: ["design systems", "component libraries", "themeable UIs", "1000+ components"] } },
+          { id: "marketing/stylized-header", args: { static_text: "We build", words: ["design systems", "design tokens", "themeable UIs", "Drupal themes"] } },
           { id: "editorial/rich-text", args: { html: SUBTITLE } },
           {
             row: [
@@ -38,7 +38,18 @@ export default {
     // logo-cloud / feature-alternating / cta-simple already carry --space-section padding; the
     // rest ship none, so wrap them to match the section rhythm (top & bottom).
     "marketing/logo-cloud",
-    { id: "marketing/feature-grid", wrap: "py-(--space-section)" },
+    {
+      id: "marketing/feature-grid",
+      args: {
+        items: [
+          { badge: "1", title: "Fast by default", body: "No CSS to ship; markup is pure tokenized Tailwind." },
+          { badge: "2", title: "One source", body: "Author once, generate every framework target." },
+          { badge: "3", title: "Agent-ready", body: "Rich metadata makes the catalog explorable." },
+          { badge: "4", title: "You bring the UI", body: "We ship the UX and behavior; your agent supplies the visual style and copy." },
+        ],
+      },
+      wrap: "py-(--space-section)",
+    },
     "marketing/feature-alternating",
     { id: "marketing/testimonial-slider", wrap: "py-(--space-section)" },
     {
