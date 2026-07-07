@@ -143,6 +143,12 @@ const first = pages[0];
       </select>
     </label>
   </div>
+  <!-- The breakpoint preview renders in a fixed-width frame, so it only helps on a screen wider
+       than the chosen width — on a phone the frame is capped to the viewport. -->
+  <p class="mt-2 text-xs text-slate-400">
+    The breakpoint preview needs a screen wider than the chosen width — use a larger device (or a
+    desktop browser) to see the desktop and tablet layouts.
+  </p>
   <p id="ex-desc" class="mt-2 text-sm text-slate-500">{first?.description}</p>
 
   <div id="ex-wrap" class="mt-4">

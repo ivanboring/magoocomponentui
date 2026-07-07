@@ -118,6 +118,12 @@ const relGroups = [
       </select>
     </div>
   </div>
+  <!-- The width preview renders in a fixed-width frame, so it only helps on a screen wider than
+       the chosen width — on a phone the frame is capped to the viewport. -->
+  <p class="mt-2 text-xs text-slate-400">
+    The width preview needs a screen wider than the chosen width — use a larger device (or a
+    desktop browser) to see the desktop and tablet layouts.
+  </p>
   <div id="stages" class="mt-3 space-y-4">
     {examples.map((ex) => (
       <div>

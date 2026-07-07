@@ -31,14 +31,15 @@ const nav = [
     <title>{title}</title>
   </head>
   <body class="min-h-screen antialiased [font-family:ui-sans-serif,system-ui,sans-serif]">
-    <header class="sticky top-0 z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3">
         <a href={home} class="flex items-center gap-2 font-semibold tracking-tight">
           <img src={rebase("/logo.png", BASE)} alt="Magoo Component UI logo" width="28" height="28" class="h-7 w-7" />
           Magoo Component UI
         </a>
         <span class="hidden text-sm text-slate-400 lg:inline">CSS-less skeletons · 4 themes</span>
-        <nav class="ml-auto flex items-center gap-1 text-sm">
+        <!-- Inline nav on sm+; collapses to a hamburger on mobile. -->
+        <nav class="ml-auto hidden items-center gap-1 text-sm sm:flex">
           {nav.map((n) => (
             <a
               href={n.href}
@@ -47,8 +48,50 @@ const nav = [
             >{n.label}</a>
           ))}
         </nav>
+        <button
+          id="nav-toggle"
+          type="button"
+          class="ml-auto rounded-md p-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 sm:hidden"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg class="nav-open size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg class="nav-close hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+        </button>
       </div>
+      <!-- Mobile dropdown menu (hidden on sm+; toggled open on mobile). -->
+      <nav id="mobile-nav" class="hidden border-t border-slate-200 bg-white px-5 py-2 shadow-sm sm:hidden" aria-label="Main">
+        <div class="mx-auto flex max-w-6xl flex-col gap-1 text-sm">
+          {nav.map((n) => (
+            <a
+              href={n.href}
+              aria-current={isActive(n.href) ? "page" : undefined}
+              class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 aria-[current=page]:bg-slate-900 aria-[current=page]:text-white"
+            >{n.label}</a>
+          ))}
+        </div>
+      </nav>
     </header>
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById("nav-toggle");
+        var menu = document.getElementById("mobile-nav");
+        if (!btn || !menu) return;
+        var open = btn.querySelector(".nav-open");
+        var close = btn.querySelector(".nav-close");
+        function setOpen(v) {
+          menu.classList.toggle("hidden", !v);
+          btn.setAttribute("aria-expanded", String(v));
+          if (open) open.classList.toggle("hidden", v);
+          if (close) close.classList.toggle("hidden", !v);
+        }
+        btn.addEventListener("click", function () { setOpen(menu.classList.contains("hidden")); });
+        // Close after picking a destination or pressing Escape.
+        menu.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+        document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+      })();
+    </script>
     <div class="mx-auto max-w-6xl px-5 py-8">
       <slot />
     </div>
