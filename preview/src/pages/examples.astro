@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { loadCatalog, loadRender, rebase, rebaseHtml, THEMES } from "../lib/data.js";
+import { EXAMPLE_PAGES } from "../lib/examples.js";
+import { renderToHtml } from "@magoo/generator";
+
+const BASE = import.meta.env.BASE_URL;
+const nameById = new Map(loadCatalog().components.map((c) => [c.id, c.display_name]));
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// Link (chain) icon revealed on hover so you can jump to a component's detail page.
+const LINK_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+
+// Wrap one rendered component so a "link to this component" affordance can appear on hover.
+function wrapItem(id, html) {
+  const name = nameById.get(id) || id;
+  const href = rebase(`/c/${id}`, BASE);
+  return `<div class="ex-item" data-id="${esc(id)}">` +
+    `<a class="ex-link" href="${esc(href)}" title="Open the ${esc(name)} component" aria-label="Open the ${esc(name)} component">` +
+    `${LINK_ICON}<span>${esc(name)}</span></a>${html}</div>`;
+}
+
+// Render each example page once, at build time: stack every component's curated default
+// render, and collect the behaviors so interactive pieces (sliders, accordions, menus) work.
+const pages = EXAMPLE_PAGES.map((pg) => {
+  const behaviors = [];
+  const parts = [];
+  for (const id of pg.components) {
+    try {
+      const { ast, args, behaviors: bs } = loadRender(id);
+      parts.push(wrapItem(id, rebaseHtml(renderToHtml(ast, args), BASE)));
+      for (const b of bs) if (!behaviors.includes(b)) behaviors.push(b);
+    } catch {
+      /* component not built — skip it */
+    }
+  }
+  return { ...pg, html: parts.join("\n"), behaviors };
+});
+const pagesData = Object.fromEntries(pages.map((p) => [p.id, p.html]));
+const descData = Object.fromEntries(pages.map((p) => [p.id, p.description]));
+const behaviors = [...new Set(pages.flatMap((p) => p.behaviors))];
+const first = pages[0];
+---
+
+<Layout title="Examples — Magoo Component UI">
+  <h1 class="text-2xl font-semibold tracking-tight">Examples</h1>
+  <p class="mt-2 max-w-2xl text-slate-600">
+    Full pages assembled from catalog components — see how the CSS-less skeletons combine, and
+    how one composition looks across all four themes and at each breakpoint.
+  </p>
+
+  <!-- Toolbar: example · styling (theme) · breakpoint (incl. full width) -->
+  <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <label class="flex items-center gap-2 text-sm text-slate-600">
+      Example
+      <select id="ex-select" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+        {pages.map((p) => (<option value={p.id}>{p.label}</option>))}
+      </select>
+    </label>
+    <label class="flex items-center gap-2 text-sm text-slate-600">
+      Styling
+      <select id="ex-theme" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+        {THEMES.map((t) => (<option value={t.id}>{t.label}</option>))}
+      </select>
+    </label>
+    <label class="flex items-center gap-2 text-sm text-slate-600">
+      Breakpoint
+      <select id="ex-width" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+        <option value="full">Full width</option>
+        <option value="">Auto width</option>
+        <option value="1440">Desktop · 1440</option>
+        <option value="1024">Small · 1024</option>
+        <option value="768">Tablet · 768</option>
+        <option value="375">Mobile · 375</option>
+      </select>
+    </label>
+  </div>
+  <p id="ex-desc" class="mt-2 text-sm text-slate-500">{first?.description}</p>
+
+  <div id="ex-wrap" class="mt-4">
+    <div id="ex-stage" data-theme="simple" class="overflow-hidden rounded-xl border border-slate-200">
+      <div id="ex-content" class="ex-contained" set:html={first?.html} />
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ pagesData, descData, behaviors }}>
+    const sel = document.getElementById("ex-select");
+    const themeSel = document.getElementById("ex-theme");
+    const widthSel = document.getElementById("ex-width");
+    const stage = document.getElementById("ex-stage");
+    const wrap = document.getElementById("ex-wrap");
+    const content = document.getElementById("ex-content");
+    const desc = document.getElementById("ex-desc");
+
+    function applyExample(id) {
+      if (pagesData[id] == null) return;
+      content.innerHTML = pagesData[id];
+      desc.textContent = descData[id] || "";
+    }
+    function applyTheme(id) { stage.dataset.theme = id; }
+    function applyWidth(v) {
+      // Any explicit width (full or a breakpoint) breaks out of the page column so the
+      // stage can actually reach that width; "auto" stays inside the normal column.
+      wrap.classList.toggle("full-bleed", v !== "");
+      const px = v === "full" ? "" : v; // full = no cap; numeric = cap; auto = no cap
+      stage.style.maxWidth = px ? px + "px" : "";
+      stage.style.marginInline = px ? "auto" : "";
+      // Content sits in a ~1200px centered container at desktop / small / full / auto
+      // widths (like a real page); tablet & mobile drop the cap but keep a small gutter.
+      const narrow = v === "768" || v === "375";
+      content.classList.toggle("ex-contained", !narrow);
+    }
+
+    sel.addEventListener("change", () => { applyExample(sel.value); });
+    themeSel.addEventListener("change", () => {
+      applyTheme(themeSel.value);
+      try { localStorage.setItem("magoo-theme", themeSel.value); } catch {}
+    });
+    widthSel.addEventListener("change", () => {
+      applyWidth(widthSel.value);
+      try { localStorage.setItem("magoo-example-width", widthSel.value); } catch {}
+    });
+
+    // Restore the shared theme pick + last example width.
+    try {
+      const t = localStorage.getItem("magoo-theme");
+      if (t && [...themeSel.options].some((o) => o.value === t)) themeSel.value = t;
+      const w = localStorage.getItem("magoo-example-width");
+      if (w != null && [...widthSel.options].some((o) => o.value === w)) widthSel.value = w;
+    } catch {}
+    applyTheme(themeSel.value);
+    applyWidth(widthSel.value);
+
+    // Load every example's behaviors once; the portable self-init wrappers pick up the
+    // swapped-in markup via their MutationObserver when the example changes.
+    for (const js of behaviors || []) {
+      const s = document.createElement("script");
+      s.textContent = js;
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <style is:global>
+    /* Full-bleed: break the example stage out of the centered max-width column. */
+    #ex-wrap.full-bleed {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* Content container: always a small gutter; capped to ~1200px & centered except on
+       tablet/mobile widths (where the narrow viewport is the point). */
+    #ex-content { padding-inline: 1rem; }
+    #ex-content.ex-contained { max-width: 1200px; margin-inline: auto; }
+
+    /* Per-component "open this component" affordance, revealed on hover (desktop only). */
+    .ex-item { position: relative; }
+    .ex-link {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 50;
+      display: none;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.96);
+      color: #0f172a;
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.18);
+      font: 500 12px/1 ui-sans-serif, system-ui, sans-serif;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .ex-link:hover { border-color: rgba(15, 23, 42, 0.4); background: #fff; }
+    /* Only reveal where hovering is meaningful (fine pointer) and there's room (desktop). */
+    @media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+      .ex-item:hover > .ex-link { display: inline-flex; }
+    }
+  </style>
+</Layout>

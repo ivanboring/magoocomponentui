@@ -1,0 +1,25 @@
+name: heading
+props:
+  level:
+    type: enum
+    values: ["1", "2", "3", "4", "5", "6"]
+    default: "2"
+    title: Level
+    description: >
+      Heading level 1-6. Sets aria-level for assistive tech and picks the visual size. A div
+      with role="heading" is used (not a literal h1-h6) because the template language cannot
+      emit a dynamic tag name; screen readers still announce it as a heading of this level.
+  text:
+    type: string
+    required: true
+    default: "Heading"
+    title: Text
+    description: The heading text.
+variants:
+  level:
+    "1": "text-4xl font-bold"
+    "2": "text-3xl font-bold"
+    "3": "text-2xl font-semibold"
+    "4": "text-xl font-semibold"
+    "5": "text-lg font-semibold"
+    "6": "text-base font-semibold uppercase tracking-wide"

@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { loadCatalog, rebase } from "../lib/data.js";
+
+const BASE = import.meta.env.BASE_URL;
+const catalog = loadCatalog();
+const count = catalog.count || 0;
+const categoryCount = Object.keys(catalog.facets?.categories || {}).length;
+---
+
+<Layout title="About — Magoo Component UI">
+  <div class="prose-slate max-w-3xl">
+    <h1 class="text-2xl font-semibold tracking-tight">About Magoo Component UI</h1>
+
+    <p class="mt-4 text-slate-600">
+      Magoo Component UI is a library of <strong>CSS-less, skeleton UI components</strong> whose
+      primary consumer is an AI agent. Instead of regenerating boilerplate for every task, an agent
+      browses this catalog, picks the components that fit, and copies their structure and behavior —
+      saving tokens and keeping markup consistent.
+    </p>
+
+    <div class="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <div class="text-2xl font-semibold">{count}</div>
+        <div class="text-sm text-slate-500">components</div>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <div class="text-2xl font-semibold">{categoryCount}</div>
+        <div class="text-sm text-slate-500">categories</div>
+      </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-4">
+        <div class="text-2xl font-semibold">4</div>
+        <div class="text-sm text-slate-500">themes</div>
+      </div>
+    </div>
+
+    <h2 class="mt-8 text-lg font-semibold">Core ideas</h2>
+    <ul class="mt-2 space-y-2 text-slate-600">
+      <li>
+        <strong>Single canonical source per component.</strong> Author once; a generator emits every
+        target — Drupal SDC, Drupal Code Components (Preact), React, Vue, and Storybook. No
+        hand-porting.
+      </li>
+      <li>
+        <strong>Components ship no CSS.</strong> Markup is pure tokenized Tailwind bound to
+        CSS-variable design tokens; interactivity is vanilla JS by default.
+      </li>
+      <li>
+        <strong>One theme contract, many looks.</strong> Every theme shares one fixed set of
+        CSS-variable names — only the values differ. Switch a component between all four themes right
+        here in the preview.
+      </li>
+      <li>
+        <strong>Granular catalog.</strong> One component per concept (a podcast card is not a movie
+        card is not a product card), each modestly configurable via props.
+      </li>
+      <li>
+        <strong>Drupal-first mapping.</strong> Every component maps to a Drupal paragraph type +
+        fields + Twig template, with importable config YAML.
+      </li>
+    </ul>
+
+    <h2 class="mt-8 text-lg font-semibold">How to explore</h2>
+    <ul class="mt-2 space-y-2 text-slate-600">
+      <li>
+        <a href={rebase("/", BASE)} class="text-slate-900 underline underline-offset-2 hover:text-slate-600">Components</a>
+        — browse the full catalog. Filter by category, search, and switch the preview theme and
+        breakpoint. Your filters and page live in the URL, so a view is shareable and survives reload.
+      </li>
+      <li>
+        <a href={rebase("/examples", BASE)} class="text-slate-900 underline underline-offset-2 hover:text-slate-600">Examples</a>
+        — full pages assembled from catalog components (a blog post, a marketing landing page, a news
+        homepage), each viewable across every theme and breakpoint.
+      </li>
+    </ul>
+
+    <p class="mt-8 text-sm text-slate-400">
+      The preview is a static Astro site generated from the catalog. Everything you see is rendered
+      from the same canonical component sources the generator targets.
+    </p>
+  </div>
+</Layout>

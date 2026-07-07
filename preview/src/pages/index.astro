@@ -125,14 +125,40 @@ const BP_OPTS = [
     const themeSel = document.getElementById("theme");
     const bpSel = document.getElementById("bp");
     const cards = Array.from(document.querySelectorAll(".card"));
+    let page = 1;
 
-    // Restore the last-picked theme (shared with the detail page) and breakpoint.
+    // Restore the last-picked theme (shared with the detail page) and breakpoint. These are
+    // appearance prefs, kept in localStorage — the shareable filter state lives in the URL.
     try {
       const savedTheme = localStorage.getItem("magoo-theme");
       if (savedTheme && [...themeSel.options].some((o) => o.value === savedTheme)) themeSel.value = savedTheme;
       const savedBp = localStorage.getItem("magoo-bp");
       if (savedBp && [...bpSel.options].some((o) => o.value === savedBp)) bpSel.value = savedBp;
     } catch {}
+
+    // ---- URL state: search / category / hide-atoms / page round-trip to the query string
+    //      so a filtered view survives reload and can be shared. ----
+    function syncFromUrl() {
+      const p = new URLSearchParams(location.search);
+      search.value = p.get("q") || "";
+      const cat = p.get("cat") || "";
+      catSelect.value = [...catSelect.options].some((o) => o.value === cat) ? cat : "";
+      hideAtoms.checked = p.get("atoms") !== "1"; // atoms=1 means "show atoms" (checkbox off)
+      const n = parseInt(p.get("page") || "1", 10);
+      page = Number.isFinite(n) && n > 0 ? n : 1;
+    }
+
+    function updateUrl(push = false) {
+      const p = new URLSearchParams();
+      if (search.value.trim()) p.set("q", search.value.trim());
+      if (catSelect.value) p.set("cat", catSelect.value);
+      if (!hideAtoms.checked) p.set("atoms", "1");
+      if (page > 1) p.set("page", String(page));
+      const qs = p.toString();
+      const url = location.pathname + (qs ? "?" + qs : "");
+      if (push) history.pushState(null, "", url);
+      else history.replaceState(null, "", url);
+    }
 
     function applyPreview() {
       const theme = themeSel.value;
@@ -151,7 +177,6 @@ const BP_OPTS = [
     const empty = document.getElementById("empty");
     const count = document.getElementById("count");
     const pager = document.getElementById("pager");
-    let page = 1;
 
     function matches(card) {
       const q = (search.value || "").trim().toLowerCase();
@@ -184,7 +209,7 @@ const BP_OPTS = [
         (opts.current ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 hover:bg-slate-100") +
         (opts.disabled ? " cursor-not-allowed opacity-40" : "");
       if (opts.disabled) b.disabled = true;
-      else b.addEventListener("click", () => { page = target; render(); window.scrollTo({ top: 0 }); });
+      else b.addEventListener("click", () => { page = target; updateUrl(true); render(); window.scrollTo({ top: 0 }); });
       return b;
     }
 
@@ -211,11 +236,15 @@ const BP_OPTS = [
       pager.appendChild(pageButton("Next ›", page + 1, { disabled: page === pages }));
     }
 
-    search.addEventListener("input", () => { page = 1; render(); });
-    catSelect.addEventListener("change", () => { page = 1; render(); });
-    hideAtoms.addEventListener("change", () => { page = 1; render(); });
+    search.addEventListener("input", () => { page = 1; updateUrl(); render(); });
+    catSelect.addEventListener("change", () => { page = 1; updateUrl(); render(); });
+    hideAtoms.addEventListener("change", () => { page = 1; updateUrl(); render(); });
     themeSel.addEventListener("change", applyPreview);
     bpSel.addEventListener("change", applyPreview);
+    // Back/forward re-reads the URL so filter + page state stays in sync.
+    window.addEventListener("popstate", () => { syncFromUrl(); render(); });
+
+    syncFromUrl();
     applyPreview();
     render();
   </script>

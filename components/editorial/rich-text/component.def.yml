@@ -1,0 +1,11 @@
+name: rich-text
+props:
+  html:
+    type: html
+    required: true
+    title: HTML
+    description: >
+      A blob of trusted HTML (headings, paragraphs, lists, links, blockquotes, etc.) rendered
+      verbatim. Descendant elements are styled with tokenized utilities, so no classes are
+      needed inside the markup. Only pass sanitized/trusted HTML — it is output unescaped.
+    example: "<h2>About</h2><p>A short paragraph of <strong>rich</strong> body copy with a <a href=\"#\">link</a>.</p><ul><li>First point</li><li>Second point</li></ul>"

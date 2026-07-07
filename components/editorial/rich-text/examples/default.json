@@ -1,0 +1,3 @@
+{
+  "html": "<h2>Building for a thousand components</h2><p>This is a <strong>rich text</strong> block. It renders a trusted HTML string and styles every element with the active theme's tokens — no classes needed inside the markup.</p><h3>What it handles</h3><ul><li>Headings, paragraphs, and <a href=\"#\">links</a></li><li>Ordered and unordered lists</li><li>Blockquotes and inline <code>code</code></li></ul><blockquote>Author once, render everywhere.</blockquote><p>Use it for any stored HTML body copy.</p>"
+}

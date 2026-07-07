@@ -104,15 +104,14 @@ const relGroups = [
           ))}
         </select>
       )}
-      <select id="stage-width" title="Constrain the preview width" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
+      <select id="stage-width" title="Preview width / breakpoint" class="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm outline-none focus:border-slate-500">
         <option value="">Auto width</option>
-        <option value="1280">1280px</option>
-        <option value="1024">1024px</option>
-        <option value="768">768px</option>
-        <option value="480">480px</option>
-        <option value="375">375px</option>
+        <option value="full">Full width</option>
+        <option value="1440">Desktop · 1440</option>
+        <option value="1024">Small · 1024</option>
+        <option value="768">Tablet · 768</option>
+        <option value="375">Mobile · 375</option>
       </select>
-      <button id="fullwidth-btn" type="button" class="rounded-md border border-slate-300 px-3 py-1.5 text-sm hover:bg-slate-100 aria-[pressed=true]:border-slate-900 aria-[pressed=true]:bg-slate-900 aria-[pressed=true]:text-white" aria-pressed="false" title="Toggle full-width preview">Full width</button>
     </div>
   </div>
   <div id="stages" class="mt-3 space-y-4">
@@ -236,9 +235,13 @@ const relGroups = [
 
   <script is:inline define:vars={{ behaviors }}>
     const THEME_KEY = "magoo-theme";
+    // Assigned by the width control below; lets theme/container changes rebuild the
+    // responsive iframes so they always reflect the current theme + stage content.
+    let onStageChange = null;
     function applyTheme(themeId) {
       document.querySelectorAll(".stage").forEach((s) => { s.dataset.theme = themeId; });
       document.querySelectorAll(".theme-btn").forEach((b) => b.setAttribute("aria-current", String(b.dataset.themeId === themeId)));
+      if (onStageChange) onStageChange();
     }
     document.querySelectorAll(".theme-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -267,6 +270,7 @@ const relGroups = [
           const html = variants[key] || variants.single;
           if (html != null) el.innerHTML = html;
         }
+        if (onStageChange) onStageChange();
       }
       layout.addEventListener("change", () => {
         applyLayout(layout.value);
@@ -278,38 +282,76 @@ const relGroups = [
       } catch {}
     }
 
-    // Full-width toggle: break the stages out to the viewport width.
-    const fwBtn = document.getElementById("fullwidth-btn");
+    // Preview width / breakpoint: a single control. "" is auto and "full" breaks the stages
+    // out to the viewport — both keep the component in the page DOM. A numeric value renders
+    // each stage inside an <iframe> sized to that width: an iframe is its own viewport, so the
+    // component's sm:/lg: media queries fire exactly like on a real device of that width
+    // (constraining the container alone would leave a desktop viewport, cramming lg: columns).
     const stagesWrap = document.getElementById("stages");
-    if (fwBtn && stagesWrap) {
-      const FW_KEY = "magoo-fullwidth";
-      function applyFullWidth(on) {
-        fwBtn.setAttribute("aria-pressed", String(on));
-        stagesWrap.classList.toggle("full-bleed", on);
-      }
-      fwBtn.addEventListener("click", () => {
-        const on = fwBtn.getAttribute("aria-pressed") !== "true";
-        applyFullWidth(on);
-        try { localStorage.setItem(FW_KEY, on ? "1" : "0"); } catch {}
-      });
-      try { if (localStorage.getItem(FW_KEY) === "1") applyFullWidth(true); } catch {}
-    }
-
-    // Preview width: constrain each stage to a fixed width (centered) to check responsive layouts.
     const widthSel = document.getElementById("stage-width");
     if (widthSel && stagesWrap) {
       const W_KEY = "magoo-stage-width";
+      // Same compiled Tailwind + theme stylesheet(s) the page uses, so frames render identically.
+      const cssHrefs = [...document.querySelectorAll('link[rel="stylesheet"]')].map((l) => l.href);
+      const baseHref = document.baseURI;
+
+      function currentTheme() {
+        const b = document.querySelector('.theme-btn[aria-current="true"]');
+        return (b && b.dataset.themeId) || "simple";
+      }
+      function clearFrames() {
+        stagesWrap.querySelectorAll(".stage-frame").forEach((f) => f.remove());
+        stagesWrap.querySelectorAll(".stage-content").forEach((c) => { c.style.display = ""; });
+      }
+      // An iframe at `width` with its own viewport; the theme lives on <body data-theme>,
+      // and the component's behaviors run inside so interactivity works there too.
+      function buildFrame(html, width, theme) {
+        const iframe = document.createElement("iframe");
+        iframe.className = "stage-frame";
+        iframe.setAttribute("title", "Responsive preview at " + width + "px");
+        iframe.style.cssText = "width:" + width + "px;max-width:100%;border:0;display:block;margin:0 auto;height:240px;";
+        const links = cssHrefs.map((h) => '<link rel="stylesheet" href="' + h + '">').join("");
+        iframe.srcdoc =
+          '<!doctype html><html><head><meta charset="utf-8">' +
+          '<meta name="viewport" content="width=' + width + '">' +
+          '<base href="' + baseHref + '">' + links +
+          '<style>html,body{margin:0}body{padding:16px}</style></head>' +
+          '<body data-theme="' + theme + '">' + html + '</body></html>';
+        iframe.addEventListener("load", () => {
+          const d = iframe.contentDocument;
+          if (!d) return;
+          for (const js of (behaviors || [])) {
+            try { const s = d.createElement("script"); s.textContent = js; d.body.appendChild(s); } catch {}
+          }
+          const fit = () => { try { iframe.style.height = d.documentElement.scrollHeight + "px"; } catch {} };
+          fit(); setTimeout(fit, 120); setTimeout(fit, 450);
+        });
+        return iframe;
+      }
       function applyWidth(v) {
+        const full = v === "full";
+        stagesWrap.classList.toggle("full-bleed", full);
+        clearFrames();
+        if (!v || full) return;                       // auto / full → in-page stages
+        const width = parseInt(v, 10);
+        const theme = currentTheme();
         stagesWrap.querySelectorAll(".stage").forEach((s) => {
-          s.style.maxWidth = v ? v + "px" : "";
-          s.style.marginInline = v ? "auto" : "";
+          const content = s.querySelector(".stage-content");
+          if (!content) return;
+          content.style.display = "none";             // hide the in-page copy, keep it for restore
+          s.appendChild(buildFrame(content.innerHTML, width, theme));
         });
       }
+      // Rebuild frames when the theme or container selection changes while a width is active.
+      onStageChange = () => { const v = widthSel.value; if (v && v !== "full") applyWidth(v); };
       widthSel.addEventListener("change", () => {
         applyWidth(widthSel.value);
         try { localStorage.setItem(W_KEY, widthSel.value); } catch {}
       });
-      try { const saved = localStorage.getItem(W_KEY); if (saved) { widthSel.value = saved; applyWidth(saved); } } catch {}
+      try {
+        const saved = localStorage.getItem(W_KEY);
+        if (saved && [...widthSel.options].some((o) => o.value === saved)) { widthSel.value = saved; applyWidth(saved); }
+      } catch {}
     }
 
     // The viewed component's own behavior, plus any slotted children's, so

@@ -1,0 +1,65 @@
+name: "Heading"
+short_description: A single themed heading at a chosen level (1-6) with matching visual size.
+long_visual_description: >
+  One line of heading text in the theme's heading font. The chosen level (1-6) sets both the
+  semantic aria-level and the visual scale — from a large, bold level 1 down to a small,
+  uppercase level 6.
+
+use_cases:
+  - A section title above content.
+  - A page or article heading.
+  - A subheading within a longer block.
+  - A card or panel title.
+  - A small eyebrow/overline label (level 6).
+
+recommended_for:
+  - A standalone, level-controlled heading.
+  - Composing document outline structure from data.
+avoid_for:
+  - Rich multi-element body copy (use rich-text).
+  - Headings that are part of a larger component's own markup.
+
+markets:
+  - Global
+
+example_usage: >
+  Set text and pick level 1-6. The level drives aria-level (announced by screen readers) and
+  the visual size via a class-map. A div with role="heading" is emitted rather than a literal
+  h1-h6 because the template language cannot interpolate a tag name; keep levels in a sensible
+  order on the page so the outline stays correct.
+
+props:
+  level: The heading level 1-6 (sets aria-level and size).
+  text: The heading text.
+
+example_prompts:
+  - "Add a level 2 heading that says Featured."
+  - "Add a page heading at level 1."
+  - "Add a small uppercase level 6 eyebrow label."
+
+lifecycle: experimental
+content_model: A single heading string at a chosen level.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --font-heading
+
+editorial_guidance: >
+  Keep heading text short and descriptive. Choose the level for document structure first; the
+  size follows the level, so don't pick a level purely for its size.
+
+categorization:
+  category: Atoms
+  subcategory: Typography
+  atomic_type: atom
+  usage_type: [text, heading]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: >
+      Uses role="heading" with aria-level so assistive tech exposes it as a heading of the
+      chosen level. Author levels in order so the page outline is coherent.
+  keyboard_support: "none"
+  seo_score: 45
+  text_direction: both

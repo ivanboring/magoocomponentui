@@ -1,0 +1,72 @@
+name: "Rich Text"
+short_description: Renders a trusted blob of HTML as tokenized, themed body copy.
+long_visual_description: >
+  A single content region that outputs an HTML string verbatim — headings, paragraphs, lists,
+  links, blockquotes, code, rules, and images — and styles those descendant elements with the
+  theme's typography, color, and spacing tokens, so the markup itself needs no classes.
+
+use_cases:
+  - Article or blog post body from a CMS WYSIWYG field.
+  - Formatted product or listing description.
+  - Terms, privacy, or policy long-form text.
+  - Help, documentation, or FAQ answer content.
+  - Any place a stored HTML string must render as themed prose.
+
+recommended_for:
+  - Rendering pre-authored/stored HTML as styled body copy.
+  - A generic "body" region driven by a rich-text field.
+avoid_for:
+  - Untrusted or user-submitted HTML that has not been sanitized (it is output unescaped).
+  - A single heading (use heading) or a single styled paragraph.
+  - Structured, component-worthy content (build a real component instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a trusted HTML string to html; it is rendered unescaped (twig |raw, React
+  dangerouslySetInnerHTML, Vue v-html) inside a wrapper that styles common tags with theme
+  tokens. Sanitize upstream — in Drupal this maps to a text_long (full_html) field, so rely on
+  the text format's filtering. Do not add classes inside the HTML; the wrapper handles styling.
+
+props:
+  html: The trusted HTML string to render as themed body copy.
+
+example_prompts:
+  - "Add a rich text block for the article body."
+  - "Render this stored HTML description as styled prose."
+  - "Add a body region driven by a full-HTML field."
+
+lifecycle: experimental
+content_model: A single trusted HTML string rendered as themed body copy.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --color-surface-raised
+    - --font-body
+    - --font-heading
+    - --radius-card
+
+editorial_guidance: >
+  Keep the HTML semantic (real headings, lists, and links) and let the tokens style it. Author
+  the surrounding heading levels so the document outline stays correct.
+
+categorization:
+  category: Editorial
+  subcategory: Body
+  atomic_type: molecule
+  usage_type: [text, body]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: >
+      Semantics depend entirely on the passed HTML — use real headings, lists, and descriptive
+      link text. The component adds no landmarks and escapes nothing, so upstream sanitization
+      is required.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

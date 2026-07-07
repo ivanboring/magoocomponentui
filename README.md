@@ -1,9 +1,20 @@
-# Magoo Component UI
+<p align="center">
+  <img src="logo.png" alt="Magoo Component UI" width="120" height="120" />
+</p>
+
+<h1 align="center">Magoo Component UI</h1>
+
+<p align="center">
+  <a href="https://ivanboring.github.io/magoocomponentui/"><strong>Browse the live component catalog →</strong></a>
+</p>
 
 CSS-less **skeleton UI components** for AI agents to copy as boilerplate. One canonical
 source per component generates **Drupal SDC, Drupal Code Components (Preact), React, Vue,
 Storybook, and a Drupal paragraph + custom_field** integration. Markup is pure **tokenized
 Tailwind**; four example themes re-skin every component from a shared token contract.
+
+The live catalog — browse every component across all four themes, plus example page
+compositions — is hosted at **https://ivanboring.github.io/magoocomponentui/**.
 
 ## Quick start
 
