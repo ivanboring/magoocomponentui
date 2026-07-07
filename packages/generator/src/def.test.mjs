@@ -39,3 +39,11 @@ test("normalizeDef requires enum values", () => {
 test("normalizeDef requires a name", () => {
   assert.throws(() => normalizeDef({ props: {} }), /requires a string `name`/);
 });
+
+test("normalizeDef rejects hyphenated prop names (invalid Twig identifier)", () => {
+  assert.throws(() => normalizeDef({ name: "x", props: { "foo-bar": { type: "string" } } }), /not a valid identifier/);
+});
+
+test("normalizeDef rejects hyphenated slot names (invalid Twig block name)", () => {
+  assert.throws(() => normalizeDef({ name: "x", slots: { "icon-leading": {} } }), /not a valid identifier/);
+});

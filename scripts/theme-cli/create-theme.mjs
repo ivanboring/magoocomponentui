@@ -19,7 +19,7 @@ export function themePath(rel) {
   if (rel.startsWith("sdc/")) return "components/" + rel.slice(4);
   if (rel.startsWith("code-component/") || rel.startsWith("react/") || rel.startsWith("vue/")) return "components/" + rel.slice(rel.indexOf("/") + 1);
   if (rel.startsWith("drupal/config/")) return "config/install/" + rel.slice("drupal/config/".length);
-  if (rel.startsWith("drupal/paragraph--")) return "templates/" + rel.slice("drupal/".length);
+  if (/^drupal\/(paragraph|node)--/.test(rel)) return "templates/" + rel.slice("drupal/".length);
   return rel;
 }
 
@@ -225,7 +225,11 @@ export async function runCreateTheme(argv) {
   const bundles = [];
   for (const c of ans.components || []) {
     await writeMap(themeDir, await buildFilesFor(c.id, target));
-    if (c.config === "custom-field") {
+    if (c.config === "node") {
+      // Simple site-templating: a node bundle + node--<name>.html.twig (no paragraphs).
+      const map = await configFilesFor(c.id, { as: "node", theme: ans.machine_name });
+      await writeMap(themeDir, map); collectModuleDeps(map, moduleDeps);
+    } else if (c.config === "custom-field") {
       const map = await configFilesFor(c.id, { as: "custom-field", entity: c.entity, bundle: c.bundle });
       await writeMap(themeDir, map); collectModuleDeps(map, moduleDeps);
     } else if (c.config === "paragraph") {

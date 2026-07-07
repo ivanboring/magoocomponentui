@@ -95,9 +95,20 @@ theme:
 ```
 node <this-skill>/bin/magoo build <id> --target sdc --out <theme>/components
 node <this-skill>/bin/magoo config <id> --as paragraph --theme <machine_name> --out <theme>/config/install
+# or, simple site-templating — one node bundle (content type) with a real field per prop and a
+# node--<name>.html.twig that renders the SDC (no paragraphs). The node--*.twig lands in templates/:
+node <this-skill>/bin/magoo config <id> --as node --theme <machine_name> --out <theme>
 # or, to attach it to an entity as a custom_field:
 node <this-skill>/bin/magoo config <id> --as custom-field --entity node --bundle article --out <theme>/config/install
 ```
+
+**Paragraph vs. node (`--as node`).** `--as node` gives each component its own **content type**
+(the simplest "site template" — good when a page *is* one component, or for testing a component in
+isolation). `--as paragraph` gives a **paragraph bundle** an editor stacks inside a page (needed for
+the page-builder host content type, and for **components with nested-array props** — table
+rows→cells, calendar grids — which the flat node/custom_field model renders empty). Scalars, flat
+arrays, and objects work under both. In the `create-theme` answers, set a component's `config` to
+`"node"`, `"paragraph"`, or `"custom-field"`.
 Re-run `npm run build:css` in the theme so the new component's utilities are picked up. Report what
 was added.
 

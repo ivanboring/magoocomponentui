@@ -205,7 +205,8 @@ The **`drupal-theme` skill** (`skills/drupal-theme/`) + an in-repo **CLI** (`scr
 bootstrap installs with pnpm (see below), not `npm`.
 Subcommands: `search` (filter metadata by `--q/--category/--subcategory/--usage/--atomic/--lifecycle`),
 `build <ids> --target sdc|code-component|react|vue|html`, `config <ids> --as paragraph | --as
-custom-field --entity node --bundle article`, and `create-theme --answers <json>` (scaffolds
+node --theme <machine> | --as custom-field --entity node --bundle article`, and `create-theme
+--answers <json>` (scaffolds
 `skills/drupal-theme/skeleton/` — Olivero regions, Tailwind v4 build, token contract with the chosen
 design-system values). The skill's `bin/magoo` bootstrap fetch/caches the repo to `/tmp` (1-day TTL,
 refetch if stale) then installs runtime deps — **with pnpm/`corepack pnpm`, not `npm`** (the repo is

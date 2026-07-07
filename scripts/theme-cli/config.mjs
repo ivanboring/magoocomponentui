@@ -6,6 +6,7 @@ import { generate } from "../../packages/generator/src/index.js";
 import { readComponentSource, COMPONENTS_DIR } from "../lib/components.mjs";
 import { parseFlags } from "./search.mjs";
 import { customFieldConfigFiles } from "./config-custom-field.mjs";
+import { emitNodeBundle } from "./config-node-bundle.mjs";
 
 /** The Drupal paragraph config subset of a generate() output. */
 export function paragraphConfigFiles(files) {
@@ -21,6 +22,17 @@ export async function configFilesFor(id, { as, entity, bundle, theme }) {
   const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};
   if (as === "custom-field") return customFieldConfigFiles(def, { entity, bundle });
   const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples: null, themeMachineName: theme });
+  if (as === "node") {
+    // Simple site-templating: a node bundle with one field per prop + node--<name>.html.twig.
+    const ast = JSON.parse(files["ast.json"]);
+    const { config, twig } = emitNodeBundle({ name: def.name, def, ast }, { theme: theme || "your_theme" });
+    const out = {};
+    for (const [rel, obj] of Object.entries(config)) {
+      out[`drupal/config/${rel}`] = yaml.dump(obj, { lineWidth: 120, noRefs: true, sortKeys: false });
+    }
+    out[`drupal/node--${def.name}.html.twig`] = twig;
+    return out;
+  }
   return paragraphConfigFiles(files);
 }
 
