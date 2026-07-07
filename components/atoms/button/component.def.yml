@@ -24,10 +24,10 @@ props:
     default: false
     title: Disabled
 slots:
-  icon-leading:
+  icon_leading:
     title: Leading icon
     description: Small icon before the label.
-  icon-trailing:
+  icon_trailing:
     title: Trailing icon
     description: Small icon after the label.
 variants:

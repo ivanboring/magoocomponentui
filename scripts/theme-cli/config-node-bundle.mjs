@@ -128,7 +128,16 @@ function nodeTwig(name, def, ast, theme, fieldMap) {
     const fn = fieldMap[prop.name];
     if (prop.type === "boolean") { withLines.push(`  ${prop.name}: node.${fn}.value ? true : false,`); continue; }
     if (prop.type === "integer") { withLines.push(`  ${prop.name}: node.${fn}.value|default(0) + 0,`); continue; }
-    if (prop.type === "link") { withLines.push(`  ${prop.name}: node.${fn}.0.url,`); continue; }
+    // An unset enum field yields '' — which strict SDC prop validation rejects against the
+    // enum. Fall back to the prop's declared default (or first allowed value) so an optional
+    // enum left empty renders instead of throwing.
+    if (prop.type === "enum") {
+      const dflt = prop.default != null ? prop.default : (prop.values && prop.values[0]);
+      withLines.push(`  ${prop.name}: node.${fn}.value|default('${dflt}'),`); continue;
+    }
+    // An empty link field yields NULL for .0.url; SDC string/uri props reject null, so
+    // coerce to '' (matches the image guard below).
+    if (prop.type === "link") { withLines.push(`  ${prop.name}: node.${fn}.0.url|default(''),`); continue; }
     if (prop.type === "image") { withLines.push(`  ${prop.name}: node.${fn}.entity ? file_url(node.${fn}.entity.uri.value) : '',`); continue; }
     if (prop.type === "array" || prop.type === "object") {
       const cols = Object.keys(columnsFor(prop, ast));

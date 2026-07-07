@@ -34,6 +34,22 @@ function titleCase(s) {
 }
 
 /**
+ * Prop/slot names become Twig variables and `{% block %}` names, JSX identifiers, and Drupal
+ * field machine-names. A hyphen (or other non-identifier char) produces invalid Twig
+ * (`{% block icon-leading %}` → SyntaxError) rather than a clear error, so reject it at load.
+ * @param {string} kind @param {string} name
+ */
+const IDENT = /^[a-zA-Z_][a-zA-Z0-9_]*$/;
+function assertIdentifier(kind, name) {
+  if (!IDENT.test(name)) {
+    throw new Error(
+      `${kind} name "${name}" is not a valid identifier (letters/digits/underscore, not starting with a digit). ` +
+      `Use "${name.replace(/[^a-zA-Z0-9_]/g, "_")}" — hyphens break Twig {% block %}/variable names and JSX props.`,
+    );
+  }
+}
+
+/**
  * @param {string} name
  * @param {any} spec
  */
@@ -41,6 +57,7 @@ function normalizeProp(name, spec) {
   if (!spec || typeof spec !== "object") {
     throw new Error(`Prop "${name}" must be an object with a type.`);
   }
+  assertIdentifier("Prop", name);
   const type = spec.type;
   if (!PROP_TYPES.has(type)) {
     throw new Error(`Prop "${name}" has invalid type "${type}". Allowed: ${[...PROP_TYPES].join(", ")}.`);
@@ -79,11 +96,14 @@ export function normalizeDef(def) {
     throw new Error("component.def.yml requires a string `name`.");
   }
   const props = Object.entries(def.props || {}).map(([name, spec]) => normalizeProp(name, spec));
-  const slots = Object.entries(def.slots || {}).map(([name, spec]) => ({
+  const slots = Object.entries(def.slots || {}).map(([name, spec]) => {
+    assertIdentifier("Slot", name);
+    return {
     name,
     title: (spec && spec.title) || titleCase(name),
     description: (spec && spec.description) || "",
-  }));
+    };
+  });
   const variants = normalizeVariants(def.variants || {}, props);
   return { name: def.name, props, slots, variants };
 }

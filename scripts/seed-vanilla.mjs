@@ -16,6 +16,15 @@ import { generate } from "../packages/generator/src/index.js";
 import { readComponentSource, COMPONENTS_DIR } from "./lib/components.mjs";
 import { fieldName, inferColumns, loopVarFor } from "../packages/generator/src/emit/drupal-config.js";
 
+/** Coerce an example href into a Drupal link-field URI (needs a scheme). '' → skip. */
+function normalizeUri(u) {
+  u = String(u || "").trim();
+  if (!u || u === "#" || u.startsWith("#")) return ""; // fragment-only placeholder — skip
+  if (/^(https?|mailto|tel):/.test(u)) return u;
+  if (u.startsWith("/")) return "internal:" + u;
+  return "internal:/" + u;
+}
+
 const php = (v) => {
   if (v === null || v === undefined) return "NULL";
   if (typeof v === "boolean") return v ? "TRUE" : "FALSE";
@@ -46,7 +55,9 @@ async function seedOne(id) {
     if (prop.type === "integer") { values[fn] = Number(val) || 0; continue; }
     if (prop.type === "text" || prop.type === "html") { values[fn] = { value: String(val), format: "basic_html" }; continue; }
     if (prop.type === "link") {
-      values[fn] = typeof val === "object" ? { uri: val.url || val.uri || val.href || "", title: val.title || "" } : { uri: String(val), title: "" };
+      const rawUri = typeof val === "object" ? (val.url || val.uri || val.href || "") : String(val);
+      const uri = normalizeUri(rawUri);
+      if (uri) values[fn] = { uri, title: (typeof val === "object" && val.title) || "" };
       continue;
     }
     if (prop.type === "array") {

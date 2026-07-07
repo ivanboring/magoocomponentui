@@ -35,8 +35,8 @@ props:
   disabled: Disables interaction and dims the button.
 
 slots:
-  icon-leading: A small icon shown before the label.
-  icon-trailing: A small icon shown after the label, e.g. a chevron.
+  icon_leading: A small icon shown before the label.
+  icon_trailing: A small icon shown after the label, e.g. a chevron.
 
 example_prompts:
   - "Add a primary 'Continue' button."

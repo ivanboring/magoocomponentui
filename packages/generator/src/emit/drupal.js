@@ -98,8 +98,14 @@ function paragraphTwig(name, def, theme) {
     // Integer/number fields return their .value as a string; `+ 0` coerces so strict SDC
     // props typed integer/number don't reject it.
     if (p.type === "integer") return `    ${p.name}: paragraph.${fn}.value|default(0) + 0,`;
-    if (p.type === "link") return `    ${p.name}: paragraph.${fn}.0.url,`;
+    if (p.type === "link") return `    ${p.name}: paragraph.${fn}.0.url|default(''),`;
     if (p.type === "image") return `    ${p.name}: file_url(paragraph.${fn}.entity.uri.value),`;
+    // An unset enum field yields '' — which strict SDC prop validation rejects. Fall back to
+    // the prop's declared default (or first allowed value).
+    if (p.type === "enum") {
+      const dflt = p.default != null ? p.default : (p.values && p.values[0]);
+      return `    ${p.name}: paragraph.${fn}.value|default('${dflt}'),`;
+    }
     // Complex props pass the field item list; the component iterates item.<column>. (An
     // explanatory {# comment #} can't live inside the active {% embed %} tag, so it's in
     // the doc block above, not on this line.)
