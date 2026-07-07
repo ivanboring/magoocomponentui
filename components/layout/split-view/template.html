@@ -1,4 +1,4 @@
-<div class="split-view grid grid-cols-1 gap-6 {{ ratio@class }}">
-  <div class="split-view__start min-w-0"><slot name="start"></slot></div>
-  <div class="split-view__end min-w-0"><slot name="end"></slot></div>
+<div class="split-view group grid grid-cols-1 {{ gap@class }} {{ ratio@class }}" data-stack="{{ stack }}">
+  <div class="split-view__start min-w-0 group-data-[stack=end-first]:order-2 lg:group-data-[stack=end-first]:order-none"><slot name="start"></slot></div>
+  <div class="split-view__end min-w-0 group-data-[stack=end-first]:order-1 lg:group-data-[stack=end-first]:order-none"><slot name="end"></slot></div>
 </div>

@@ -2,24 +2,49 @@ name: split-view
 props:
   ratio:
     type: enum
-    values: ["50-50", "60-40", "70-30", "40-60", "30-70"]
+    values: ["50-50", "60-40", "70-30", "80-20", "40-60", "30-70", "20-80"]
     default: "50-50"
     title: Column split ratio
     description: >
       The width split between the start and end panes at desktop (lg and up). "70-30" gives
-      the start pane 70% and the end pane 30%. Below lg both panes stack full-width (start on
-      top, end below).
+      the start pane 70% and the end pane 30%. Below lg both panes stack full-width (top/bottom).
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between the two panes (and the vertical gap when they stack), from a fixed set of
+      choices. Lines up with spacing-box's padding scale: sm / md / lg / xl.
+  stack:
+    type: enum
+    values: ["start-first", "end-first"]
+    default: "start-first"
+    title: Stacked order
+    description: >
+      Which pane sits on top once the panes stack top/bottom (below lg — i.e. tablet and
+      mobile). "start-first" keeps the start pane on top; "end-first" puts the end pane on top.
+      On desktop the start pane is always on the left regardless.
 slots:
   start:
     title: Start pane
-    description: The first pane — left on desktop, top when stacked on mobile.
+    description: The first pane — left on desktop, top (or bottom, per `stack`) when stacked.
   end:
     title: End pane
-    description: The second pane — right on desktop, bottom when stacked on mobile.
+    description: The second pane — right on desktop, bottom (or top, per `stack`) when stacked.
 variants:
   ratio:
     "50-50": "lg:grid-cols-2"
     "60-40": "lg:grid-cols-[3fr_2fr]"
     "70-30": "lg:grid-cols-[7fr_3fr]"
+    "80-20": "lg:grid-cols-[8fr_2fr]"
     "40-60": "lg:grid-cols-[2fr_3fr]"
     "30-70": "lg:grid-cols-[3fr_7fr]"
+    "20-80": "lg:grid-cols-[2fr_8fr]"
+  gap:
+    default: "gap-6"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-10"
+    xl: "gap-16"

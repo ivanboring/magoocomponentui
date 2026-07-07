@@ -6,7 +6,7 @@
       <p class="weather-strip__location text-xs text-on-surface-muted">{{ location }}<span data-if="condition"> · {{ condition }}</span></p>
     </div>
   </div>
-  <ul data-if="days" class="weather-strip__days ml-auto flex gap-4">
+  <ul data-if="days" class="weather-strip__days ml-auto flex flex-wrap justify-end gap-x-4 gap-y-2">
     <li data-for="day in days" class="weather-strip__day flex flex-col items-center gap-0.5 text-center">
       <span class="text-[10px] uppercase text-on-surface-muted">{{ day.label }}</span>
       <span class="text-lg" aria-hidden="true">{{ day.icon }}</span>

@@ -16,6 +16,12 @@ props:
     type: string
     default: "0:00"
     title: Duration label
+  credit:
+    type: string
+    title: Credit / attribution
+    description: >
+      Optional attribution caption shown below the player (e.g. a source and licence for
+      CC-licensed video). Supports simple inline HTML such as links; leave empty to hide it.
   sync_id:
     type: string
     title: Sync ID
@@ -25,3 +31,10 @@ props:
       When set, the player broadcasts its playback position on a document-level event
       bus and accepts seek requests from those components. Leave empty for a standalone
       player.
+slots:
+  end_screen:
+    title: End screen
+    description: >
+      Optional content revealed as an overlay across the video when it finishes playing
+      (e.g. a watch-next-rail of suggested videos). Hidden until the real <video> fires its
+      "ended" event, and hidden again when playback resumes. No overlay is shown when empty.

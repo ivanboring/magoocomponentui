@@ -1,0 +1,33 @@
+name: spacing-box
+props:
+  padding:
+    type: enum
+    values: [none, sm, md, lg, xl]
+    default: md
+    title: Padding
+    description: >
+      Inner spacing on all sides, from a fixed set of choices. sm / md / xl line up with the
+      design system's control / card / section space tokens.
+  margin:
+    type: enum
+    values: [none, sm, md, lg, xl]
+    default: none
+    title: Margin
+    description: Outer spacing on all sides, from the same fixed set of choices.
+slots:
+  content:
+    title: Content
+    description: Any component or markup to wrap with the chosen padding and margin.
+variants:
+  padding:
+    none: ""
+    sm: "p-3"
+    md: "p-6"
+    lg: "p-10"
+    xl: "p-16"
+  margin:
+    none: ""
+    sm: "m-3"
+    md: "m-6"
+    lg: "m-10"
+    xl: "m-16"

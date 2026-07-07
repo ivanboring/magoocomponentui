@@ -17,18 +17,6 @@ const cards = catalog.components.map((c) => {
   return { ...c, preview, hasShots, screenshots };
 });
 const categories = catalog.facets.categories || {};
-const THEME_OPTS = [
-  { id: "simple", label: "Simple" },
-  { id: "futuristic", label: "Futuristic" },
-  { id: "classic", label: "Classic" },
-  { id: "smooth", label: "Smooth" },
-];
-const BP_OPTS = [
-  { id: "desktop", label: "Desktop" },
-  { id: "small", label: "Small" },
-  { id: "tablet", label: "Tablet" },
-  { id: "mobile", label: "Mobile" },
-];
 ---
 
 <Layout title="Magoo Component UI — Catalog">
@@ -44,7 +32,7 @@ const BP_OPTS = [
       id="cat"
       class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
     >
-      <option value="">All categories ({catalog.count})</option>
+      <option value="">All categories</option>
       {Object.entries(categories).map(([cat, subs]) => (
         <optgroup label={cat}>
           <option value={cat}>{cat} — all</option>
@@ -52,25 +40,10 @@ const BP_OPTS = [
         </optgroup>
       ))}
     </select>
-    <select
-      id="theme"
-      title="Preview theme"
-      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
-    >
-      {THEME_OPTS.map((t) => (<option value={t.id}>{t.label}</option>))}
-    </select>
-    <select
-      id="bp"
-      title="Preview breakpoint"
-      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-slate-500 sm:w-auto"
-    >
-      {BP_OPTS.map((b) => (<option value={b.id}>{b.label}</option>))}
-    </select>
     <label class="flex shrink-0 items-center gap-2 text-sm text-slate-600 sm:ml-auto">
       <input id="hide-atoms" type="checkbox" checked class="size-4 rounded border-slate-300" />
       Hide atoms
     </label>
-    <span id="count" class="text-sm text-slate-400"></span>
   </div>
 
   {cards.length === 0 && (
@@ -78,6 +51,8 @@ const BP_OPTS = [
       No components yet. Author one under <code>components/</code> and run <code>pnpm build</code>.
     </p>
   )}
+
+  <p id="count" class="mb-3 text-sm text-slate-400"></p>
 
   <div id="grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {cards.map((c) => (
@@ -94,7 +69,6 @@ const BP_OPTS = [
           {c.hasShots ? (
             <img
               class="card-shot w-full rounded"
-              data-shots={JSON.stringify(c.screenshots)}
               src={(c.screenshots.simple && c.screenshots.simple.desktop) || ""}
               alt={`${c.display_name} preview`}
               loading="lazy"
@@ -122,19 +96,8 @@ const BP_OPTS = [
     const search = document.getElementById("search");
     const catSelect = document.getElementById("cat");
     const hideAtoms = document.getElementById("hide-atoms");
-    const themeSel = document.getElementById("theme");
-    const bpSel = document.getElementById("bp");
     const cards = Array.from(document.querySelectorAll(".card"));
     let page = 1;
-
-    // Restore the last-picked theme (shared with the detail page) and breakpoint. These are
-    // appearance prefs, kept in localStorage — the shareable filter state lives in the URL.
-    try {
-      const savedTheme = localStorage.getItem("magoo-theme");
-      if (savedTheme && [...themeSel.options].some((o) => o.value === savedTheme)) themeSel.value = savedTheme;
-      const savedBp = localStorage.getItem("magoo-bp");
-      if (savedBp && [...bpSel.options].some((o) => o.value === savedBp)) bpSel.value = savedBp;
-    } catch {}
 
     // ---- URL state: search / category / hide-atoms / page round-trip to the query string
     //      so a filtered view survives reload and can be shared. ----
@@ -160,20 +123,6 @@ const BP_OPTS = [
       else history.replaceState(null, "", url);
     }
 
-    function applyPreview() {
-      const theme = themeSel.value;
-      const bp = bpSel.value;
-      try { localStorage.setItem("magoo-theme", theme); localStorage.setItem("magoo-bp", bp); } catch {}
-      // Swap each card's single screenshot to the chosen theme + breakpoint.
-      document.querySelectorAll(".card-shot").forEach((img) => {
-        let shots = {};
-        try { shots = JSON.parse(img.dataset.shots || "{}"); } catch {}
-        const src = shots[theme] && shots[theme][bp];
-        if (src) img.src = src;
-      });
-      // Live-render fallbacks (components without screenshots) follow the theme too.
-      document.querySelectorAll("#grid .card > div[data-theme]").forEach((el) => { el.dataset.theme = theme; });
-    }
     const empty = document.getElementById("empty");
     const count = document.getElementById("count");
     const pager = document.getElementById("pager");
@@ -198,7 +147,7 @@ const BP_OPTS = [
       const visible = new Set(matched.slice(start, start + PAGE_SIZE));
       for (const card of cards) card.classList.toggle("hidden", !visible.has(card));
       empty.classList.toggle("hidden", matched.length !== 0);
-      count.textContent = matched.length ? `${matched.length} component${matched.length === 1 ? "" : "s"}` : "";
+      count.textContent = matched.length ? `Showing ${visible.size} of ${matched.length}` : "";
       renderPager(pages);
     }
 
@@ -239,13 +188,10 @@ const BP_OPTS = [
     search.addEventListener("input", () => { page = 1; updateUrl(); render(); });
     catSelect.addEventListener("change", () => { page = 1; updateUrl(); render(); });
     hideAtoms.addEventListener("change", () => { page = 1; updateUrl(); render(); });
-    themeSel.addEventListener("change", applyPreview);
-    bpSel.addEventListener("change", applyPreview);
     // Back/forward re-reads the URL so filter + page state stays in sync.
     window.addEventListener("popstate", () => { syncFromUrl(); render(); });
 
     syncFromUrl();
-    applyPreview();
     render();
   </script>
 </Layout>

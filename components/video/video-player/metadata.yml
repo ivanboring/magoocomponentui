@@ -32,12 +32,16 @@ example_usage: >
   and the transcript/chapters in the end pane (30%); the panes stack full-width on mobile.
   When the player stands alone (no transcript/chapters), do not use split-view — render it
   full width, or place it in whatever container the surrounding page calls for.
+  Slot a video/watch-next-rail (or any suggested-videos markup) into the end_screen slot to
+  reveal an overlay of what to watch next when the video finishes — it appears on the video's
+  "ended" event and hides again on replay.
 
 props:
   title: The video title (for context/labelling).
   poster: The poster frame shown before playback.
   src: The video file URL.
   duration: The time label (e.g. "0:00 / 42:18").
+  credit: Optional attribution caption under the player (supports inline HTML, e.g. a source and licence link for CC video).
   sync_id: Optional id that links satellite components (scrubber/transcript/chapters) to this player.
 
 example_prompts:
@@ -52,6 +56,7 @@ relationships:
     - video/video-scrubber
     - video/video-transcript
     - video/video-chapters
+    - video/watch-next-rail
 
 lifecycle: experimental
 content_model: A video surface with a standard set of playback controls.

@@ -1,6 +1,6 @@
 <div class="video-transcript max-h-96 overflow-y-auto rounded-card border border-border bg-surface p-2" role="list" aria-label="Transcript" data-sync-id="{{ sync_id }}">
   <button data-for="cue in cues" type="button" class="video-transcript__cue flex w-full gap-3 rounded-control px-3 py-2 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:bg-surface-raised" role="listitem" data-seconds="{{ cue.seconds }}" data-active="{{ cue.active }}" aria-current="{{ cue.active }}">
     <span class="video-transcript__time shrink-0 pt-0.5 font-mono text-xs text-primary tabular-nums">{{ cue.time }}</span>
-    <span class="video-transcript__text text-sm text-on-surface-muted data-[active=true]:text-on-surface data-[active=true]:font-medium" data-active="{{ cue.active }}">{{ cue.text }}</span>
+    <span class="video-transcript__text min-w-0 break-words text-sm text-on-surface-muted data-[active=true]:text-on-surface data-[active=true]:font-medium" data-active="{{ cue.active }}">{{ cue.text }}</span>
   </button>
 </div>

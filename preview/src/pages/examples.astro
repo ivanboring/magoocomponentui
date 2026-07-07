@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { loadCatalog, loadRender, rebase, rebaseHtml, THEMES } from "../lib/data.js";
+import { loadCatalog, loadRender, renderSlotted, renderSlots, rebase, rebaseHtml, THEMES } from "../lib/data.js";
 import { EXAMPLE_PAGES } from "../lib/examples.js";
 import { renderToHtml } from "@magoo/generator";
 
@@ -21,17 +21,86 @@ function wrapItem(id, html) {
 
 // Render each example page once, at build time: stack every component's curated default
 // render, and collect the behaviors so interactive pieces (sliders, accordions, menus) work.
+// Render one composition item to { html, behaviors }. Item shapes:
+//   "id"                         a catalog component
+//   { id, wrap }                 a component placed in a CSS container (e.g. a reading column)
+//   { id, args }                 a component rendered with its default args merged with overrides
+//                                 (e.g. a real video src, custom transcript cues) — top-level props
+//   { raw }                      a raw HTML blob (article body, a heading) — no component link
+//   { split: { ratio, gap, stack, start, end }, wrap }
+//                                 start & end placed in the layout/split-view component at a
+//                                 variable width ratio (e.g. "70-30", "80-20"); stacks on mobile.
+//                                 Each pane is one item OR an array of items stacked with a gap.
+//   { id, slots: { name: item | [items] } }  a slot value may be one item or an array (e.g. many
+//                                 cards for a card-grid's items slot)
+//   { section: [items], title }  the items wrapped in layout/section-wrapper for padding
+//                                 (omit title → pure padding; set title → a section heading)
+function renderItem(item) {
+  if (item && typeof item === "object" && item.raw) {
+    return { html: `<div class="ex-item">${rebaseHtml(item.raw, BASE)}</div>`, behaviors: [] };
+  }
+  if (item && typeof item === "object" && item.split) {
+    const { start, end, ...opts } = item.split; // opts: ratio, gap, stack, …
+    // A pane may be a single item or an array of items stacked (flex column) with a gap.
+    const pane = (p) => {
+      if (!Array.isArray(p)) return renderItem(p);
+      const parts = p.map(renderItem);
+      return { html: `<div class="flex flex-col gap-6">${parts.map((r) => r.html).join("\n")}</div>`, behaviors: parts.flatMap((r) => r.behaviors) };
+    };
+    const s = pane(start);
+    const e = pane(end);
+    const behaviors = [...s.behaviors, ...e.behaviors];
+    const sv = renderSlots("layout/split-view", { start: s.html, end: e.html }, opts);
+    let html = sv ? sv.html : `${s.html}\n${e.html}`;
+    if (sv && sv.behavior) behaviors.push(sv.behavior);
+    if (item.wrap) html = `<div class="${item.wrap}">${html}</div>`;
+    return { html, behaviors };
+  }
+  if (item && typeof item === "object" && Array.isArray(item.section)) {
+    const inner = item.section.map(renderItem);
+    const behaviors = inner.flatMap((r) => r.behaviors);
+    const innerHtml = inner.map((r) => r.html).join("\n");
+    // section-wrapper adds vertical padding; empty eyebrow/title/description → padding only.
+    // `padding` ("default" | "compact" | "none") tunes how much.
+    const extra = { eyebrow: "", title: item.title || "", description: "" };
+    if (item.padding) extra.padding = item.padding;
+    const sw = renderSlotted("layout/section-wrapper", "content", innerHtml, extra);
+    if (!sw) return { html: innerHtml, behaviors };
+    if (sw.behavior) behaviors.push(sw.behavior);
+    return { html: sw.html, behaviors }; // inner html is already rebased
+  }
+  const id = typeof item === "string" ? item : item.id;
+  try {
+    const { ast, args, behaviors } = loadRender(id);
+    let merged = item && item.args ? { ...args, ...item.args } : args;
+    // { slots: { name: item } } renders each child item and slots its HTML into this component
+    // (e.g. a watch-next-rail into video-player's end_screen, or rich-text into spacing-box).
+    const slotBehaviors = [];
+    if (item && item.slots) {
+      const slots = { ...(merged.$slots || {}) };
+      for (const [name, child] of Object.entries(item.slots)) {
+        // A slot value may be one item or an array (e.g. several cards for a card-grid's items).
+        const kids = (Array.isArray(child) ? child : [child]).map(renderItem);
+        slots[name] = kids.map((r) => r.html).join("\n");
+        slotBehaviors.push(...kids.flatMap((r) => r.behaviors));
+      }
+      merged = { ...merged, $slots: slots };
+    }
+    let html = rebaseHtml(renderToHtml(ast, merged), BASE);
+    if (item && item.wrap) html = `<div class="${item.wrap}">${html}</div>`;
+    return { html: wrapItem(id, html), behaviors: [...behaviors, ...slotBehaviors] };
+  } catch {
+    return { html: "", behaviors: [] };
+  }
+}
+
 const pages = EXAMPLE_PAGES.map((pg) => {
   const behaviors = [];
   const parts = [];
-  for (const id of pg.components) {
-    try {
-      const { ast, args, behaviors: bs } = loadRender(id);
-      parts.push(wrapItem(id, rebaseHtml(renderToHtml(ast, args), BASE)));
-      for (const b of bs) if (!behaviors.includes(b)) behaviors.push(b);
-    } catch {
-      /* component not built — skip it */
-    }
+  for (const item of pg.components) {
+    const r = renderItem(item);
+    if (r.html) parts.push(r.html);
+    for (const b of r.behaviors) if (!behaviors.includes(b)) behaviors.push(b);
   }
   return { ...pg, html: parts.join("\n"), behaviors };
 });
@@ -91,26 +160,96 @@ const first = pages[0];
     const content = document.getElementById("ex-content");
     const desc = document.getElementById("ex-desc");
 
+    // The same compiled Tailwind + theme CSS this page uses, so an iframe renders identically.
+    // We copy BOTH <link rel="stylesheet"> (production build) AND inline <style> tags (dev, where
+    // Astro/Vite injects CSS as <style> rather than links) — otherwise the frame renders unstyled.
+    // baseHref lets the frame resolve the same asset URLs (logo, stock images).
+    const pageCss = () => [...document.querySelectorAll('link[rel="stylesheet"], style')].map((el) => el.outerHTML).join("");
+    const baseHref = document.baseURI;
+    let frame = null; // the active responsive iframe, or null when rendering in-page
+
     function applyExample(id) {
       if (pagesData[id] == null) return;
       content.innerHTML = pagesData[id];
       desc.textContent = descData[id] || "";
+      if (frame) applyWidth(widthSel.value); // rebuild the frame with the new example
     }
-    function applyTheme(id) { stage.dataset.theme = id; }
+    // Reflect the chosen example in the URL (?example=<id>) so a specific one can be hotlinked.
+    function syncUrl(id) {
+      const p = new URLSearchParams(location.search);
+      p.set("example", id);
+      history.replaceState(null, "", location.pathname + "?" + p.toString() + location.hash);
+    }
+    function applyTheme(id) {
+      stage.dataset.theme = id;
+      if (frame) applyWidth(widthSel.value); // rebuild so the frame body picks up the new theme
+    }
+    function clearFrame() {
+      if (frame) { frame.remove(); frame = null; }
+      content.style.display = "";
+    }
+    // A real breakpoint preview: render the example inside an <iframe> sized to `width`. An
+    // iframe is its own viewport, so the components' sm:/lg: media queries fire exactly like a
+    // device of that width — which a mere max-width on a div can't do. Behaviors run inside too.
+    function buildFrame(html, width, theme) {
+      // Wide previews sit in a ~1200px centered page column (like the real page); the narrow
+      // tablet/mobile widths drop the cap so the viewport width itself is the constraint.
+      const narrow = width <= 768;
+      const shell = narrow
+        ? html
+        : '<div style="max-width:1200px;margin-inline:auto">' + html + "</div>";
+      const f = document.createElement("iframe");
+      f.className = "ex-frame";
+      f.setAttribute("title", "Responsive preview at " + width + "px");
+      // The frame's height is fitted to its content below, so it never needs to scroll — disable
+      // its scrollbars so no dead scrollbar gutter shows on the narrow (small/tablet/mobile) widths.
+      f.setAttribute("scrolling", "no");
+      f.style.cssText = "width:" + width + "px;max-width:100%;border:0;display:block;margin:0 auto;height:600px";
+      f.srcdoc =
+        '<!doctype html><html><head><meta charset="utf-8">' +
+        '<meta name="viewport" content="width=' + width + '">' +
+        '<base href="' + baseHref + '">' + pageCss() +
+        // The per-component hover-link pills are a page affordance (their CSS is page-scoped and
+        // they can't navigate the parent from here) — hide them inside the responsive frame.
+        // Kill the frame's own scrollbars: its height is fitted to content (below), so it never
+        // needs to scroll — this removes the dead vertical scrollbar on small/tablet/mobile.
+        '<style>html{overflow:hidden}html,body{margin:0}body{padding:16px 16px 24px}.ex-link{display:none!important}</style></head>' +
+        '<body data-theme="' + theme + '">' + shell + "</body></html>";
+      f.addEventListener("load", () => {
+        const d = f.contentDocument;
+        if (!d) return;
+        for (const js of (behaviors || [])) {
+          try { const s = d.createElement("script"); s.textContent = js; d.body.appendChild(s); } catch {}
+        }
+        // Fit the frame to its content. With overflow hidden, an out-of-date height would clip, so
+        // keep it accurate as late content (images, the end-screen) reflows via a ResizeObserver.
+        const fit = () => { try { f.style.height = d.documentElement.scrollHeight + "px"; } catch {} };
+        fit(); setTimeout(fit, 120); setTimeout(fit, 450);
+        try { new (f.contentWindow.ResizeObserver)(fit).observe(d.documentElement); } catch {}
+      });
+      return f;
+    }
     function applyWidth(v) {
-      // Any explicit width (full or a breakpoint) breaks out of the page column so the
-      // stage can actually reach that width; "auto" stays inside the normal column.
+      // Any explicit width (full or a breakpoint) breaks out of the page column so the stage
+      // can actually reach that width; "auto" stays inside the normal column.
       wrap.classList.toggle("full-bleed", v !== "");
-      const px = v === "full" ? "" : v; // full = no cap; numeric = cap; auto = no cap
-      stage.style.maxWidth = px ? px + "px" : "";
-      stage.style.marginInline = px ? "auto" : "";
-      // Content sits in a ~1200px centered container at desktop / small / full / auto
-      // widths (like a real page); tablet & mobile drop the cap but keep a small gutter.
-      const narrow = v === "768" || v === "375";
-      content.classList.toggle("ex-contained", !narrow);
+      clearFrame();
+      if (!v || v === "full") {
+        // Auto / full width render in-page; content sits in a ~1200px centered container.
+        stage.style.maxWidth = "";
+        stage.style.marginInline = "";
+        content.classList.add("ex-contained");
+        return;
+      }
+      // A numeric breakpoint: swap the in-page copy for an iframe at that exact width.
+      stage.style.maxWidth = "";
+      stage.style.marginInline = "";
+      content.style.display = "none";
+      frame = buildFrame(content.innerHTML, parseInt(v, 10), stage.dataset.theme || "simple");
+      stage.appendChild(frame);
     }
 
-    sel.addEventListener("change", () => { applyExample(sel.value); });
+    sel.addEventListener("change", () => { applyExample(sel.value); syncUrl(sel.value); });
     themeSel.addEventListener("change", () => {
       applyTheme(themeSel.value);
       try { localStorage.setItem("magoo-theme", themeSel.value); } catch {}
@@ -119,6 +258,15 @@ const first = pages[0];
       applyWidth(widthSel.value);
       try { localStorage.setItem("magoo-example-width", widthSel.value); } catch {}
     });
+
+    // Deep-link: ?example=<id> selects (and renders) that example on load; otherwise keep the
+    // server-rendered first example. Always normalize the URL so it carries the current example.
+    const urlExample = new URLSearchParams(location.search).get("example");
+    if (urlExample && [...sel.options].some((o) => o.value === urlExample)) {
+      sel.value = urlExample;
+      applyExample(urlExample);
+    }
+    syncUrl(sel.value);
 
     // Restore the shared theme pick + last example width.
     try {
@@ -151,7 +299,7 @@ const first = pages[0];
 
     /* Content container: always a small gutter; capped to ~1200px & centered except on
        tablet/mobile widths (where the narrow viewport is the point). */
-    #ex-content { padding-inline: 1rem; }
+    #ex-content { padding-inline: 1rem; padding-block: 1.5rem; }
     #ex-content.ex-contained { max-width: 1200px; margin-inline: auto; }
 
     /* Per-component "open this component" affordance, revealed on hover (desktop only). */

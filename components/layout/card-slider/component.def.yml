@@ -1,5 +1,13 @@
 name: card-slider
 props:
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between grid cells, from a fixed set of choices. "default" keeps the component's
+      designed spacing; none/sm/md/lg/xl are explicit fixed overrides.
   label:
     type: string
     default: "Slider"
@@ -8,3 +16,11 @@ slots:
   items:
     title: Items
     description: The cards to place in the horizontal slider.
+variants:
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-10"
+    xl: "gap-16"

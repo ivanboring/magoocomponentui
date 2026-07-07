@@ -1,4 +1,5 @@
-<figure class="video-player relative overflow-hidden rounded-card bg-black shadow-card" data-sync-id="{{ sync_id }}">
+<figure class="video-player" data-sync-id="{{ sync_id }}">
+  <div class="video-player__frame relative overflow-hidden rounded-card bg-black shadow-card">
   <video data-if="src" class="video-player__video block aspect-video w-full" src="{{ src }}" poster="{{ poster }}" preload="metadata"></video>
   <div data-if="!src" class="video-player__placeholder relative flex aspect-video w-full items-center justify-center bg-cover bg-center" style="background-image: url({{ poster }})">
     <span class="absolute inset-0 bg-black/30" aria-hidden="true"></span>
@@ -24,4 +25,9 @@
       </div>
     </div>
   </div>
+  <div class="video-player__endscreen absolute inset-0 z-10 hidden overflow-auto bg-surface/95 p-4 text-on-surface backdrop-blur-sm">
+    <slot name="end_screen"></slot>
+  </div>
+  </div>
+  <figcaption data-if="credit" class="video-player__credit mt-2 text-xs text-on-surface-muted">{{{ credit }}}</figcaption>
 </figure>

@@ -1,0 +1,8 @@
+<div class="reading-percent fixed z-40 flex items-center gap-2 rounded-pill border border-border bg-surface-raised px-3 py-2 shadow-raised {{ position@class }}" data-start="{{ start }}" data-finish="{{ finish }}" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <svg class="reading-percent__ring size-5 -rotate-90" viewBox="0 0 36 36" aria-hidden="true">
+    <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="4" class="text-border"></circle>
+    <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.53" stroke-dashoffset="100.53" class="reading-percent__arc text-primary"></circle>
+  </svg>
+  <span class="reading-percent__value text-sm font-semibold tabular-nums text-on-surface">0%</span>
+  <span data-if="label" class="reading-percent__label text-xs font-medium text-on-surface-muted">{{ label }}</span>
+</div>

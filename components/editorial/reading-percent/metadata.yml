@@ -1,0 +1,82 @@
+name: "Reading Percent"
+short_description: A fixed corner badge showing the percent of an article read, between a start and finish marker.
+long_visual_description: >
+  A small pill fixed to a viewport corner: a circular progress ring, the current percentage,
+  and an optional "read" label. The percent tracks scroll between two markers — an element
+  where the article starts and one where it ends — so it reports progress through the article
+  itself, not the whole page.
+
+use_cases:
+  - Show how far the reader is through a long article.
+  - A fixed "42% read" indicator on a blog post or docs page.
+  - Progress bounded to the article body, ignoring headers and footers.
+  - A subtle corner alternative to a top progress bar.
+  - Reading progress on a page with content above and below the article.
+
+recommended_for:
+  - Reporting reading progress scoped between an explicit start and finish element.
+  - A compact, always-visible percent readout in a corner.
+avoid_for:
+  - A full-width bar across the top of the page (use reading-progress).
+  - Progress of a form or multi-step flow (use a stepper/progress bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Point start at the element where the article begins and finish at the element where it ends
+  (any CSS selectors, e.g. "#article-start" / "#article-end"). The badge reads 0% until the
+  start reaches the top of the viewport and 100% once the finish's bottom reaches the bottom of
+  the viewport; between, it interpolates. Leave either selector empty to fall back to the top /
+  bottom of the document. Choose a corner with position and set label to "" for ring + number
+  only. It is position:fixed, so it floats over the page regardless of where it sits in the DOM.
+
+props:
+  start: CSS selector marking where the article starts (0%).
+  finish: CSS selector marking where the article ends (100%).
+  label: Text after the percentage; empty hides it.
+  position: Which viewport corner the badge occupies.
+
+example_prompts:
+  - "Add a fixed percent-read badge for the article between #article-start and #article-end."
+  - "Show a corner ring with how far I've read this post."
+  - "Add a reading percent indicator bounded to the article body."
+
+relationships:
+  related:
+    - editorial/reading-progress
+    - editorial/table-of-contents
+    - editorial/article-header
+
+lifecycle: experimental
+content_model: A fixed reading-progress readout bounded by a start and finish element.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-border
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+    - --shadow-raised
+
+editorial_guidance: >
+  Bound the markers to the real article body so the percent means "of the article", not "of the
+  page". Keep the label short ("read") or omit it.
+
+categorization:
+  category: Editorial
+  subcategory: Wayfinding
+  atomic_type: atom
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: >
+      Exposed as role="progressbar" with a live aria-valuenow and an accessible name; the ring
+      is decorative (aria-hidden) and the percent is real text. Purely informational — no focus
+      trap or keyboard interaction.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadCatalog, loadExamples, renderInContainer, isContainer, isCardLeaf, rebase, rebaseHtml, THEMES, orderedShots } from "../../lib/data.js";
+import { loadCatalog, loadExamples, loadMetadataYaml, renderInContainer, isContainer, isCardLeaf, rebase, rebaseHtml, THEMES } from "../../lib/data.js";
 import { renderToHtml } from "@magoo/generator";
 
 const BASE = import.meta.env.BASE_URL;
@@ -11,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const metaYaml = loadMetadataYaml(entry.id);
 const { ast, names } = loadExamples(entry.id);
 const examplesRaw = names.map((ex) => ({ ...ex, html: rebaseHtml(renderToHtml(ast, ex.args), BASE) }));
 const cat = entry.categorization || {};
@@ -76,6 +77,9 @@ const relGroups = [
     <code class="rounded bg-slate-100 px-2 py-0.5 font-mono text-xs text-slate-500">{entry.name}</code>
     <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{cat.atomic_type}</span>
     <span class="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">{entry.lifecycle}</span>
+    {metaYaml && (
+      <button id="meta-btn" type="button" class="ml-auto rounded-md border border-slate-300 px-3 py-1 text-sm hover:bg-slate-100">View metadata</button>
+    )}
   </div>
   <p class="mt-2 max-w-2xl text-slate-600">{entry.short_description}</p>
   {entry.secondary_categories && entry.secondary_categories.length > 0 && (
@@ -127,37 +131,15 @@ const relGroups = [
     ))}
   </div>
 
-  <!-- Screenshots: one compact, equal-height row per theme -->
-  {Object.keys(entry.screenshots || {}).length > 0 && (
-    <section class="mt-8">
-      <h2 class="mb-3 text-lg font-semibold">Screenshots <span class="text-sm font-normal text-slate-400">— click to enlarge</span></h2>
-      <div class="space-y-3">
-        {THEMES.filter((t) => entry.screenshots[t.id]).map((t) => (
-          <div class="flex items-center gap-3">
-            <div class="w-16 shrink-0 text-xs uppercase tracking-wide text-slate-400">{t.label}</div>
-            <div class="flex flex-1 gap-2 overflow-x-auto">
-              {orderedShots(entry.screenshots, t.id).map(({ bp, src }) => (
-                <button type="button" class="shot group relative h-20 shrink-0 overflow-hidden rounded border border-slate-200 transition hover:border-slate-400" data-full={rebase(src, BASE)} data-label={`${t.label} · ${bp}`}>
-                  <img src={rebase(src, BASE)} alt={`${t.label} ${bp}`} class="h-full w-auto max-w-none cursor-zoom-in object-cover object-top" />
-                  <span class="absolute inset-x-0 bottom-0 bg-black/50 py-0.5 text-center text-[10px] text-white opacity-0 transition group-hover:opacity-100">{bp}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
+  <!-- Full metadata.yml modal (opened from "View metadata") -->
+  <div id="meta-modal" hidden class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-6">
+    <div class="flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+        <h2 class="text-sm font-semibold">metadata.yml <code class="ml-1 font-mono text-xs font-normal text-slate-400">{entry.id}</code></h2>
+        <button id="meta-close" type="button" class="text-2xl leading-none text-slate-500 hover:text-slate-900" aria-label="Close">&times;</button>
       </div>
-    </section>
-  )}
-
-  <!-- Full-preview lightbox (← / → to navigate) -->
-  <div id="lightbox" hidden class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6">
-    <button id="lightbox-close" class="absolute right-5 top-4 text-2xl text-white/80 hover:text-white" aria-label="Close">&times;</button>
-    <button id="lightbox-prev" class="absolute left-3 top-1/2 -translate-y-1/2 px-3 text-4xl text-white/70 hover:text-white" aria-label="Previous">&lsaquo;</button>
-    <button id="lightbox-next" class="absolute right-3 top-1/2 -translate-y-1/2 px-3 text-4xl text-white/70 hover:text-white" aria-label="Next">&rsaquo;</button>
-    <figure class="max-w-full">
-      <img id="lightbox-img" src="" alt="" class="mx-auto max-h-[82vh] max-w-full rounded shadow-2xl" />
-      <figcaption id="lightbox-cap" class="mt-3 text-center text-sm text-white/80"></figcaption>
-    </figure>
+      <pre class="overflow-auto bg-slate-50 p-4 text-xs leading-relaxed text-slate-800"><code>{metaYaml}</code></pre>
+    </div>
   </div>
 
   <div class="mt-8 grid gap-8 lg:grid-cols-2">
@@ -291,8 +273,10 @@ const relGroups = [
     const widthSel = document.getElementById("stage-width");
     if (widthSel && stagesWrap) {
       const W_KEY = "magoo-stage-width";
-      // Same compiled Tailwind + theme stylesheet(s) the page uses, so frames render identically.
-      const cssHrefs = [...document.querySelectorAll('link[rel="stylesheet"]')].map((l) => l.href);
+      // Same compiled Tailwind + theme CSS the page uses, so frames render identically. Copy BOTH
+      // <link rel="stylesheet"> (production build) AND inline <style> tags (dev, where Astro/Vite
+      // injects CSS as <style> not links) — otherwise the frame renders unstyled in dev.
+      const pageCss = () => [...document.querySelectorAll('link[rel="stylesheet"], style')].map((el) => el.outerHTML).join("");
       const baseHref = document.baseURI;
 
       function currentTheme() {
@@ -310,7 +294,7 @@ const relGroups = [
         iframe.className = "stage-frame";
         iframe.setAttribute("title", "Responsive preview at " + width + "px");
         iframe.style.cssText = "width:" + width + "px;max-width:100%;border:0;display:block;margin:0 auto;height:240px;";
-        const links = cssHrefs.map((h) => '<link rel="stylesheet" href="' + h + '">').join("");
+        const links = pageCss();
         iframe.srcdoc =
           '<!doctype html><html><head><meta charset="utf-8">' +
           '<meta name="viewport" content="width=' + width + '">' +
@@ -362,41 +346,17 @@ const relGroups = [
       document.body.appendChild(s);
     }
 
-    // Screenshot lightbox with prev/next
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCap = document.getElementById("lightbox-cap");
-    const shotButtons = [...document.querySelectorAll(".shot")];
-    const shots = shotButtons.map((b) => ({ src: b.dataset.full, label: b.dataset.label }));
-    let idx = 0;
-
-    function show(i) {
-      idx = (i + shots.length) % shots.length;
-      lightboxImg.src = shots[idx].src;
-      lightboxImg.alt = shots[idx].label;
-      lightboxCap.textContent = shots[idx].label;
+    // Metadata modal: show the raw metadata.yml on demand.
+    const metaModal = document.getElementById("meta-modal");
+    const metaBtn = document.getElementById("meta-btn");
+    if (metaModal && metaBtn) {
+      const openMeta = () => { metaModal.hidden = false; document.body.style.overflow = "hidden"; };
+      const closeMeta = () => { metaModal.hidden = true; document.body.style.overflow = ""; };
+      metaBtn.addEventListener("click", openMeta);
+      document.getElementById("meta-close").addEventListener("click", closeMeta);
+      metaModal.addEventListener("click", (e) => { if (e.target === metaModal) closeMeta(); });
+      document.addEventListener("keydown", (e) => { if (!metaModal.hidden && e.key === "Escape") closeMeta(); });
     }
-    function openLightbox(i) {
-      show(i);
-      lightbox.hidden = false;
-      document.body.style.overflow = "hidden";
-    }
-    function closeLightbox() {
-      lightbox.hidden = true;
-      lightboxImg.src = "";
-      document.body.style.overflow = "";
-    }
-    shotButtons.forEach((btn, i) => btn.addEventListener("click", () => openLightbox(i)));
-    document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
-    document.getElementById("lightbox-prev").addEventListener("click", (e) => { e.stopPropagation(); show(idx - 1); });
-    document.getElementById("lightbox-next").addEventListener("click", (e) => { e.stopPropagation(); show(idx + 1); });
-    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener("keydown", (e) => {
-      if (lightbox.hidden) return;
-      if (e.key === "Escape") closeLightbox();
-      else if (e.key === "ArrowLeft") show(idx - 1);
-      else if (e.key === "ArrowRight") show(idx + 1);
-    });
   </script>
 
   <style is:global>

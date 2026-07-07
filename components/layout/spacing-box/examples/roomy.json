@@ -1,0 +1,7 @@
+{
+  "padding": "xl",
+  "margin": "none",
+  "$slots": {
+    "content": "<div class=\"rounded-card border border-border bg-surface p-4 text-center text-on-surface\">xl padding around this block</div>"
+  }
+}

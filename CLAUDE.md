@@ -264,6 +264,53 @@ meaningful per-component, hence the heuristic.)
 - `components/marketing/feature-grid/` — **`data-for` loop** + responsive columns (1→2→3→4).
 - `components/dashboard/stats-band/` — **slot composition** + a real parent↔child `relationships` link to `stat-card`.
 
+## Preview app — Examples page (component compositions)
+
+The Astro preview (`preview/`) has three routes behind a shared nav (`Layout.astro`): **Components**
+(the catalog, `index.astro` — filters/pagination round-trip to the URL), **Examples**
+(`examples.astro`), and **About** (`about.astro`). The preview home link and all asset URLs are
+**base-relative** (`import.meta.env.BASE_URL` / `rebase()`), so they work under the GitHub Pages base
+(`/magoocomponentui/`). The header logo + favicon live in `preview/public/` (`logo.png`,
+`favicon.ico`); `preview/preview` and `dev` scripts honor a `PORT` env var (`PORT=4400 pnpm preview:dev`).
+
+**Example pages** are full-page compositions of catalog components, rendered at build time by
+`examples.astro`. **Each example lives in its own module** at `preview/src/lib/examples/<id>.js`
+(default-exporting a `{ id, label, description, components[] }` page object, with its own local
+helper consts); `preview/src/lib/examples.js` is a thin aggregator that imports them all into
+`EXAMPLE_PAGES` in display order. Add a new example = add a file + one import line. Each
+`components[]` **item** is one of:
+
+- `"category/name"` — a catalog component (rendered from its curated default example via `loadRender`).
+- `{ id, args }` — a component rendered with prop overrides merged over its curated default args
+  (e.g. a real video `src`, custom transcript `cues`).
+- `{ id, slots: { name: item | [items] } }` — render a child item's HTML (or an array of them) and slot
+  it into a named slot of this component (e.g. a `video/watch-next-rail` into `video-player`'s `end_screen`,
+  `editorial/rich-text` into `layout/spacing-box`'s `content`, or several `cards/card-news` into a
+  `cards/card-grid`'s `items`).
+- `{ id, wrap }` — a component placed inside a CSS container class (e.g. `wrap: "mx-auto max-w-2xl px-4"`
+  for a reading column matching editorial components).
+- `{ raw }` — a raw **tokenized-Tailwind** HTML blob (article body, a heading). It inherits the theme's
+  on-background text color; **any utility class it uses must be scannable** — `preview/src` is in
+  `app.css` `@source`, so classes authored in `.astro`/`.js` (incl. `lib/examples/*.js`) compile. No component hover-link.
+- `{ split: { ratio, gap?, stack?, start, end }, wrap? }` — the two panes placed in **`layout/split-view`**
+  at a variable width ratio (`"50-50"`…`"80-20"`/`"20-80"`); stacks top/bottom below `lg`. Each of
+  `start`/`end` is one item **or an array of items** stacked in a flex column with a gap (e.g. a main
+  news column + a sidebar of widgets).
+- `{ section: [items], title?, padding? }` — wraps the inner items in **`layout/section-wrapper`** for
+  vertical padding. Omit `title` → padding-only (the heading is `data-if`-gated); `padding` is
+  `default` (`--space-section`) · `compact` (`py-8`) · `none`. Uses `renderSlotted(id, "content", …)`.
+- The **Breakpoint** dropdown renders each numeric width inside an **`<iframe>`** (its own viewport, so
+  the components' `sm:`/`lg:` media queries actually fire); auto/full render in-page. The iframe copies
+  both `<link rel="stylesheet">` and inline `<style>` from the page so it's styled in dev and build.
+
+The page has three dropdowns — **Example**, **Styling** (theme, shared `magoo-theme` key), and
+**Breakpoint** (which includes Full width). Content sits in a ~1200px centered container at
+desktop/small/full/auto and drops the cap (keeping a gutter) at tablet/mobile. On desktop hover, each
+component shows a pill linking to its `/c/<id>` detail page. Reference compositions:
+`examples/blog-post.js` (simple stack) and `examples/video-lesson.js` (split-view, slots, args). After
+editing, `pnpm build && pnpm preview:build`, then visually check per the gotcha below (kill stale `astro`
+servers by port first).
+
 ## Docs & references
 
 - Design spec: `docs/superpowers/specs/2026-07-04-skeleton-component-library-design.md`.

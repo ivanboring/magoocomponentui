@@ -8,3 +8,5 @@
  */
 @source "../../../components/**/*.{html,yml}";
 @source "../../../dist/**/*.json";
+/* Preview pages + example-composition raw HTML (utility classes authored in .astro/.js). */
+@source "../**/*.{astro,js}";

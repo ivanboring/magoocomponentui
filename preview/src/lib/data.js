@@ -5,12 +5,19 @@ import { defaultArgs, renderToHtml } from "@magoo/generator";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const DIST = path.join(ROOT, "dist");
+const COMPONENTS = path.join(ROOT, "components");
 
 const EMPTY = { count: 0, components: [], facets: { categories: {}, atomic_types: [], usage_types: [] } };
 
 export function loadCatalog() {
   const p = path.join(DIST, "catalog.json");
   return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : EMPTY;
+}
+
+/** Read a component's authored metadata.yml source (raw text), or "" if missing. */
+export function loadMetadataYaml(id) {
+  const p = path.join(COMPONENTS, id, "metadata.yml");
+  return existsSync(p) ? readFileSync(p, "utf8") : "";
 }
 
 /** Read a component's portable behavior JS (self-inits in the browser), or null. */
@@ -61,7 +68,10 @@ export function loadRender(id) {
   const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
   const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
   const previewPath = path.join(dir, "preview.json");
-  const base = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : defaultArgs(meta.def);
+  // Layer the curated example over the component's default args, so any prop the example omits
+  // (e.g. a later-added `gap`) still gets its declared default instead of rendering blank.
+  const preview = existsSync(previewPath) ? JSON.parse(readFileSync(previewPath, "utf8")) : {};
+  const base = { ...defaultArgs(meta.def), ...preview };
   const args = { ...base, $variants: meta.def.variants };
   const behaviors = collectBehaviors(id, meta.name, base.$slots);
   return { ast, meta, args, behaviors };
@@ -92,9 +102,12 @@ export function loadExamples(id) {
 
   // "Default" first, then the rest in definition order.
   const names = Object.keys(examples).sort((a, b) => (a === "Default" ? -1 : b === "Default" ? 1 : 0));
+  const defaults = defaultArgs(meta.def);
   return { ast, names: names.map((name) => ({
     name,
-    args: { ...examples[name], $variants: variants },
+    // Layer each example over the component defaults so an omitted prop (e.g. `gap`) still
+    // renders its declared default rather than a blank variant class.
+    args: { ...defaults, ...examples[name], $variants: variants },
     behaviors: collectBehaviors(id, meta.name, examples[name].$slots),
   })) };
 }
@@ -114,6 +127,34 @@ export function renderInContainer(containerId, innerHtml, extraArgs = {}) {
   const slotName = (meta.def.slots || []).some((s) => s.name === "plans") ? "plans" : "items";
   const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: { [slotName]: innerHtml } };
   return { html: renderToHtml(ast, args), behavior: readBehavior(containerId, meta.name) };
+}
+
+/**
+ * Render any component with `innerHtml` placed into a named slot (e.g. section-wrapper's
+ * `content`), plus prop overrides. Returns the HTML and the component's behavior JS, or null
+ * if the component isn't built.
+ */
+export function renderSlotted(id, slotName, innerHtml, extraArgs = {}) {
+  const dir = path.join(DIST, id);
+  if (!existsSync(path.join(dir, "ast.json"))) return null;
+  const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
+  const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
+  const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: { [slotName]: innerHtml } };
+  return { html: renderToHtml(ast, args), behavior: readBehavior(id, meta.name) };
+}
+
+/**
+ * Render any component with several named slots filled at once (e.g. split-view's `start`
+ * and `end`), plus prop overrides. `slots` maps slot name → pre-rendered inner HTML. Returns
+ * the HTML and the component's behavior JS, or null if the component isn't built.
+ */
+export function renderSlots(id, slots, extraArgs = {}) {
+  const dir = path.join(DIST, id);
+  if (!existsSync(path.join(dir, "ast.json"))) return null;
+  const ast = JSON.parse(readFileSync(path.join(dir, "ast.json"), "utf8"));
+  const meta = JSON.parse(readFileSync(path.join(dir, "meta.json"), "utf8"));
+  const args = { ...defaultArgs(meta.def), ...extraArgs, $variants: meta.def.variants, $slots: slots };
+  return { html: renderToHtml(ast, args), behavior: readBehavior(id, meta.name) };
 }
 
 /**

@@ -48,9 +48,17 @@ export default function init(root, props) {
     speed.textContent = rate + "×";
     if (video) video.playbackRate = rate;
   }
+  const frame = root.querySelector(".video-player__frame") || root;
   function onFullscreen() {
     if (document.fullscreenElement) document.exitFullscreen?.();
-    else root.requestFullscreen?.();
+    else frame.requestFullscreen?.();
+  }
+  // Optional end-screen overlay (e.g. a watch-next-rail): shown when the video ends, hidden on
+  // replay. Only meaningful when the end_screen slot actually has content.
+  const endScreen = root.querySelector(".video-player__endscreen");
+  const hasEndScreen = !!(endScreen && endScreen.querySelector("*"));
+  function showEndScreen(show) {
+    if (endScreen && hasEndScreen) endScreen.classList.toggle("hidden", !show);
   }
   function onTime() {
     if (!video || !video.duration) return;
@@ -106,8 +114,10 @@ export default function init(root, props) {
   scrubber.addEventListener("click", seek);
   scrubber.addEventListener("keydown", onKey);
   video?.addEventListener("timeupdate", onTime);
-  video?.addEventListener("play", () => setPlaying(true));
+  video?.addEventListener("play", () => { setPlaying(true); showEndScreen(false); });
   video?.addEventListener("pause", () => setPlaying(false));
+  video?.addEventListener("ended", () => { setPlaying(false); showEndScreen(true); });
+  video?.addEventListener("seeking", () => showEndScreen(false));
   if (syncId) document.addEventListener("mediasync:seek", onSyncSeek);
   return () => {
     play.removeEventListener("click", onPlay);

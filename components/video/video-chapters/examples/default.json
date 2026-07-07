@@ -1,8 +1,8 @@
 {
   "chapters": [
-    { "title": "Introduction", "time": "0:00", "seconds": 0, "thumbnail": "/stock/cover-workspace.jpg", "active": true },
-    { "title": "Design tokens", "time": "3:20", "seconds": 200, "thumbnail": "/stock/food-plate.jpg", "active": false },
-    { "title": "Theming four brands", "time": "9:45", "seconds": 585, "thumbnail": "/stock/property-house.jpg", "active": false },
-    { "title": "Wrap-up", "time": "18:10", "seconds": 1090, "thumbnail": "/stock/product-sneaker.jpg", "active": false }
+    { "title": "Introduction", "time": "0:00", "seconds": 0, "thumbnail": "/stock/introduction.jpg", "active": true },
+    { "title": "Stage 1 - The First Six Months", "time": "0:49", "seconds": 49, "thumbnail": "/stock/stage1.jpg", "active": false },
+    { "title": "Stage 2 - Six to Twelve Months", "time": "1:58", "seconds": 118, "thumbnail": "/stock/stage2.jpg", "active": false },
+    { "title": "Stage 3 - Twelve to Twenty-Four Months", "time": "2:51", "seconds": 171, "thumbnail": "/stock/stage3.jpg", "active": false }
   ]
 }

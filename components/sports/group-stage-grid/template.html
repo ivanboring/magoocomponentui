@@ -1,4 +1,4 @@
-<div class="group-stage-grid grid grid-cols-1 gap-(--space-card) sm:grid-cols-2 lg:grid-cols-4">
+<div class="group-stage-grid grid grid-cols-1 {{ gap@class }} sm:grid-cols-2 lg:grid-cols-4">
   <section data-for="group in groups" class="group-stage-grid__group overflow-hidden rounded-card border border-border bg-surface shadow-card">
     <h3 class="group-stage-grid__name border-b border-border px-3 py-2 text-sm font-heading text-on-surface">{{ group.name }}</h3>
     <ol class="group-stage-grid__teams divide-y divide-border">

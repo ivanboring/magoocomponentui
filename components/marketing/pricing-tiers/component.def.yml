@@ -1,5 +1,13 @@
 name: pricing-tiers
 props:
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between grid cells, from a fixed set of choices. "default" keeps the component's
+      designed spacing; none/sm/md/lg/xl are explicit fixed overrides.
   title:
     type: string
     default: "Simple, transparent pricing"
@@ -8,3 +16,11 @@ slots:
   plans:
     title: Plans
     description: The card-pricing components to lay out in a row.
+variants:
+  gap:
+    default: "gap-(--space-card)"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-10"
+    xl: "gap-16"

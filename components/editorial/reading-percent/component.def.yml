@@ -1,0 +1,35 @@
+name: reading-percent
+props:
+  start:
+    type: string
+    title: Start selector
+    description: >
+      CSS selector of the element marking where the article starts. Progress reads 0% until
+      the top of this element reaches the top of the viewport. Defaults to the top of the
+      document when empty.
+    example: "#article-start"
+  finish:
+    type: string
+    title: Finish selector
+    description: >
+      CSS selector of the element marking where the article ends. Progress reaches 100% when
+      the bottom of this element reaches the bottom of the viewport. Defaults to the bottom of
+      the document when empty.
+    example: "#article-end"
+  label:
+    type: string
+    default: "read"
+    title: Label
+    description: Text shown after the percentage (e.g. "read"). Leave empty to show only the ring and number.
+  position:
+    type: enum
+    values: [bottom-right, bottom-left, top-right, top-left]
+    default: bottom-right
+    title: Position
+    description: Which viewport corner the fixed badge sits in.
+variants:
+  position:
+    bottom-right: "bottom-4 right-4"
+    bottom-left: "bottom-4 left-4"
+    top-right: "top-4 right-4"
+    top-left: "top-4 left-4"

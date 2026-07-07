@@ -6,8 +6,8 @@ props:
     example: "Features"
   title:
     type: string
-    required: true
     title: Title
+    description: Section heading. Omit (empty) to use the section purely for padding around its content.
     example: "Everything you need to ship faster"
   description:
     type: string
@@ -18,6 +18,12 @@ props:
     values: [left, center]
     default: center
     title: Heading alignment
+  padding:
+    type: enum
+    values: [default, compact, none]
+    default: default
+    title: Vertical padding
+    description: Section top/bottom padding — default (space-section token), compact, or none.
 slots:
   content:
     title: Content
@@ -26,3 +32,7 @@ variants:
   align:
     left: "text-left"
     center: "text-center mx-auto"
+  padding:
+    default: "py-(--space-section)"
+    compact: "py-8"
+    none: "py-0"

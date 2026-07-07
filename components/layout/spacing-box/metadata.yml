@@ -1,0 +1,71 @@
+name: "Spacing Box"
+short_description: An invisible wrapper that adds padding and margin around any component from a fixed set of choices.
+long_visual_description: >
+  A transparent block wrapper with no background or border of its own. It takes any content in
+  its slot and surrounds it with a chosen amount of inner padding and outer margin, picked from
+  a fixed none/sm/md/lg/xl scale that maps to the design system's spacing.
+
+use_cases:
+  - Add breathing room around a component without editing it.
+  - Inset a card or block from its container edges.
+  - Add vertical rhythm between stacked sections.
+  - Give a standalone component consistent, on-system spacing.
+  - Wrap third-party or generated markup to space it correctly.
+
+recommended_for:
+  - Applying consistent padding/margin around arbitrary content.
+  - Spacing a component from a small, predictable set of sizes.
+avoid_for:
+  - A titled content section (use section-wrapper).
+  - A visible surface/card (use a card or a bordered container).
+  - A two-pane split or sidebar layout (use split-view / sidebar-layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Put any component or markup in the content slot and choose padding and margin from
+  none/sm/md/lg/xl. sm/md/xl equal the control/card/section space tokens, so the spacing stays
+  consistent with the rest of the catalog. The wrapper is transparent — it only contributes
+  spacing — so nesting several is harmless.
+
+props:
+  padding: Inner spacing on all sides (none/sm/md/lg/xl).
+  margin: Outer spacing on all sides (none/sm/md/lg/xl).
+
+slots:
+  content: Any component or markup to wrap with spacing.
+
+example_prompts:
+  - "Wrap this card in a spacing box with large padding."
+  - "Add md margin around the component."
+  - "Inset this block with xl padding and md margin."
+
+relationships:
+  related:
+    - layout/section-wrapper
+    - layout/split-view
+    - layout/sidebar-layout
+
+lifecycle: experimental
+content_model: A single slot of arbitrary content plus chosen padding and margin.
+
+theming:
+  tokens_used: []
+
+editorial_guidance: >
+  Reach for the smallest spacing that reads as intentional. Prefer this over one-off inline
+  spacing so the scale stays consistent across the page.
+
+categorization:
+  category: Layout
+  subcategory: Spacing
+  atomic_type: full
+  usage_type: [structure]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Layout only; adds no semantics and does not affect reading order or focus.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

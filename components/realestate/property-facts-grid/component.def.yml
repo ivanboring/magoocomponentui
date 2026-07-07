@@ -1,5 +1,13 @@
 name: property-facts-grid
 props:
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between grid cells, from a fixed set of choices. "default" keeps the component's
+      designed spacing; none/sm/md/lg/xl are explicit fixed overrides.
   facts:
     type: array
     items: object
@@ -9,3 +17,11 @@ props:
     example:
       - { icon: "🛏", value: "4", label: "Beds" }
       - { icon: "🛁", value: "3", label: "Baths" }
+variants:
+  gap:
+    default: "gap-3"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-10"
+    xl: "gap-16"

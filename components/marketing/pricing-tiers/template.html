@@ -6,7 +6,7 @@
       <button type="button" class="pricing-tiers__period rounded-pill px-4 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-active="false" data-period="annual" aria-pressed="false">Annual</button>
     </div>
   </div>
-  <div class="pricing-tiers__plans mt-8 grid grid-cols-1 gap-(--space-card) md:grid-cols-3">
+  <div class="pricing-tiers__plans mt-8 grid grid-cols-1 {{ gap@class }} md:grid-cols-3">
     <slot name="plans"></slot>
   </div>
 </section>

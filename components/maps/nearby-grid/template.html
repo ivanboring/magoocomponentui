@@ -1,6 +1,6 @@
 <section class="nearby-grid" aria-label="{{ title }}">
   <h2 class="nearby-grid__title mb-4 font-heading text-xl text-on-surface">{{ title }}</h2>
-  <div class="nearby-grid__grid grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+  <div class="nearby-grid__grid grid grid-cols-2 {{ gap@class }} sm:grid-cols-3 lg:grid-cols-4">
     <slot name="items"></slot>
   </div>
 </section>

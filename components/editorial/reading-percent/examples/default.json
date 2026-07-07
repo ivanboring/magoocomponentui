@@ -1,0 +1,6 @@
+{
+  "start": "#article-start",
+  "finish": "#article-end",
+  "label": "read",
+  "position": "bottom-right"
+}
