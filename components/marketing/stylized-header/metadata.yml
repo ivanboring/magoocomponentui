@@ -1,0 +1,76 @@
+name: "Stylized Header"
+short_description: A hero heading whose trailing phrase types and retypes in an accent colour and mono font.
+long_visual_description: >
+  A large two-line heading in the heading face: a fixed lead line on the on-surface colour,
+  and below it a "moving" phrase rendered in the primary colour and mono font that is typed
+  out one character at a time, held, erased, and replaced by the next phrase in a loop, with
+  a blinking caret trailing the text. Before scripts run (and in screenshots) the first phrase
+  is shown statically.
+
+use_cases:
+  - A landing-page hero headline that cycles through what a product does.
+  - A homepage title that rotates through audiences or use cases.
+  - A section header that highlights several key benefits in turn.
+  - A portfolio or agency intro that types through disciplines.
+  - A campaign headline that swaps the closing word for emphasis.
+
+recommended_for:
+  - Above-the-fold hero titles that need a bit of motion.
+  - Pairing a fixed statement with a rotating list of specifics.
+avoid_for:
+  - Body headings where motion would distract (use a plain heading).
+  - Content that must be fully announced to assistive tech at once.
+  - Cases needing more than a heading (compose subtitle/CTAs around it).
+
+markets:
+  - Global
+
+example_usage: >
+  Set static_text to the fixed lead ("We build") and words to the phrases to cycle through
+  ("design systems", "component libraries", …). The first phrase is shown when JS is off, so
+  order the most representative one first. Compose a subtitle (e.g. editorial/rich-text) and
+  CTAs (atoms/button) around it — often as the content pane of a layout/split-view hero.
+
+props:
+  static_text: The fixed lead line; keep it short so the rotating phrase reads as the payoff.
+  words: The rotating phrases; keep them a similar length so the line doesn't jump.
+
+example_prompts:
+  - "Add a hero title that types through 'design systems', 'component libraries', 'themeable UIs'."
+  - "Make a landing headline 'We build ___' where the last part retypes different phrases."
+  - "Add an animated typewriter heading with a static lead and a rotating accent phrase."
+
+lifecycle: experimental
+content_model: >
+  A fixed lead string plus an ordered list of short phrases. No media. The animation is
+  presentational; the text is the content.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-primary
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep the lead line stable and let the rotating phrases carry the specifics. Use three to
+  five phrases of similar length; sentence case; no trailing punctuation.
+
+relationships:
+  related:
+    - editorial/rich-text
+    - atoms/button
+    - layout/split-view
+
+categorization:
+  category: Marketing
+  subcategory: Hero
+  atomic_type: molecule
+  usage_type: [heading, hero]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The heading text is real DOM text (readable at rest); the caret is aria-hidden; no aria-live so typing isn't announced keystroke-by-keystroke. Honors prefers-reduced-motion by holding the first phrase.
+  keyboard_support: Non-interactive; no keyboard behavior.
+  seo_score: 60
+  text_direction: both

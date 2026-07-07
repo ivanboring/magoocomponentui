@@ -51,7 +51,7 @@ function loadPreviewCss() {
     .join("\n");
 }
 
-const MIME_BY_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp" };
+const MIME_BY_EXT = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml" };
 
 // The screenshot pipeline renders via page.setContent() with no HTTP server, so
 // root-relative example image paths (served by the Astro/Storybook static dirs at

@@ -1,0 +1,6 @@
+<h1 class="stylized-header font-heading text-4xl font-bold leading-tight tracking-tight text-on-surface sm:text-5xl">
+  <span class="stylized-header__static block">{{ static_text }}</span>
+  <span class="block">
+    <span class="stylized-header__rotator font-mono text-primary [&>*:not(:first-child)]:hidden"><span data-for="word in words" class="stylized-header__word">{{ word }}</span></span><span class="stylized-header__caret ml-0.5 font-mono font-normal text-primary animate-pulse" aria-hidden="true">|</span>
+  </span>
+</h1>

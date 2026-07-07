@@ -1,6 +1,6 @@
 {
-  "title": "Trusted by teams at",
-  "appearance": "color",
+  "title": "Grayscale until you hover",
+  "appearance": "grayscale",
   "layout": "grid",
   "logos": [
     { "name": "Nike", "image": "/stock/nike-3-logo-svgrepo-com.svg", "url": "#" },

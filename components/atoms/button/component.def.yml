@@ -33,7 +33,7 @@ slots:
 variants:
   variant:
     primary: "bg-primary text-primary-contrast hover:opacity-90"
-    secondary: "bg-secondary text-on-surface hover:opacity-90"
+    secondary: "bg-secondary text-secondary-contrast hover:opacity-90"
     ghost: "bg-transparent text-on-surface hover:bg-surface-raised"
     danger: "bg-danger text-danger-contrast hover:opacity-90"
   size:

@@ -1,0 +1,19 @@
+name: stylized-header
+props:
+  static_text:
+    type: string
+    required: true
+    title: Static text
+    description: The fixed part of the heading, in the heading font and on-surface colour.
+    example: "We build"
+  words:
+    type: array
+    items: string
+    required: true
+    title: Rotating words
+    description: >
+      The moving part — a list of words/phrases typed out and erased in turn (a typewriter
+      effect), styled in the primary colour and mono font so it stands out from the static text.
+      Pass the precomputed list of phrases to cycle through; the first is shown when JS is
+      unavailable (and in screenshots).
+    example: ["design systems", "component libraries", "themeable UIs", "1000+ components"]

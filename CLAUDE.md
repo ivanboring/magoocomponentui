@@ -296,6 +296,8 @@ helper consts); `preview/src/lib/examples.js` is a thin aggregator that imports 
   at a variable width ratio (`"50-50"`…`"80-20"`/`"20-80"`); stacks top/bottom below `lg`. Each of
   `start`/`end` is one item **or an array of items** stacked in a flex column with a gap (e.g. a main
   news column + a sidebar of widgets).
+- `{ row: [items], wrap? }` — the items laid out in a horizontal flex row (default `flex flex-wrap
+  items-center gap-3`), e.g. two `atoms/button` CTAs side by side. Override `wrap` for spacing.
 - `{ section: [items], title?, padding? }` — wraps the inner items in **`layout/section-wrapper`** for
   vertical padding. Omit `title` → padding-only (the heading is `data-if`-gated); `padding` is
   `default` (`--space-section`) · `compact` (`py-8`) · `none`. Uses `renderSlotted(id, "content", …)`.

@@ -1,18 +1,21 @@
 name: "Logo Cloud"
-short_description: A grid of partner/client wordmarks for social proof.
+short_description: A grid or slider of partner/client logos (images or wordmarks) for social proof.
 long_visual_description: >
-  A titled grid of muted client wordmarks that brighten on hover, used as social proof
-  ("Trusted by teams at").
+  A titled row of client logos used as social proof ("Trusted by teams at"). Each logo is an
+  image (or a wordmark fallback when no image is given), optionally linked. It can be shown in
+  colour or in a grayscale-until-hover style, and can lay out as a responsive grid or as a
+  swipeable slider on mobile and tablet.
 
 use_cases:
   - Client/partner logos on a landing page.
   - Social proof band.
   - As-seen-in press logos.
   - Integrations or partners grid.
-  - Trust bar.
+  - Trust bar with linked partner logos.
 
 recommended_for:
-  - A social-proof band of client or partner names.
+  - A social-proof band of client or partner logos.
+  - A grayscale logo wall that reveals colour on hover.
 avoid_for:
   - Detailed testimonials (use testimonial-slider).
 
@@ -20,19 +23,27 @@ markets:
   - Global
 
 example_usage: >
-  List a handful of recognizable names; the skeleton renders wordmarks (swap for real logo
-  images in production).
+  Provide logos as { name, image?, url? }. With image the logo renders that image (name is the
+  alt); without image it falls back to a wordmark of name, so the same component covers both.
+  A url wraps the logo in a link. Set appearance to "grayscale" for a muted wall that colours in
+  on hover, or "color" to show logos as-is. Set layout to "slider" to make the row a horizontal,
+  snapping, swipeable slider on mobile and tablet that falls back to the grid on desktop (lg+).
+  The logos are inline array data, not separate components — like every other card/grid item in
+  the catalog. Keep logo images a consistent height for a tidy row.
 
 props:
   title: The band title.
-  logos: The wordmark names.
+  appearance: color (as-is) or grayscale (greyed, colours in on hover).
+  layout: grid (responsive grid) or slider (mobile/tablet swipe slider, grid on desktop).
+  logos: The logos; each is { name, image?, url? } with a wordmark fallback when image is absent.
 
 example_prompts:
-  - "Add a logo cloud of client names."
-  - "Add a trusted-by social proof band."
+  - "Add a logo cloud of client logos."
+  - "Add a grayscale trusted-by band that colours in on hover."
+  - "Add a partner logo slider that swipes on mobile."
 
 lifecycle: experimental
-content_model: A titled set of client/partner wordmarks.
+content_model: A titled set of client/partner logos (images or wordmarks), optionally linked.
 
 theming:
   tokens_used:
@@ -43,7 +54,8 @@ theming:
     - --duration-token
 
 editorial_guidance: >
-  Use recognizable names; in production replace wordmarks with real, consistent-height logos.
+  Use recognizable brands and keep logo images a consistent height so the row stays even. The
+  grayscale appearance reads as understated/premium; colour reads as friendlier.
 
 categorization:
   category: Marketing
@@ -53,7 +65,9 @@ categorization:
   maturity: ai-generated
   wcag:
     level: AA
-    notes: Wordmarks are real text so they're readable; when swapping for images, give each an alt of the company name.
-  keyboard_support: "none"
+    notes: >
+      Each logo image has an alt of the company name (wordmarks are real text); linked logos are
+      real anchors. Grayscale is decorative and does not affect the accessible name.
+  keyboard_support: Linked logos are focusable and activate on Enter; unlinked logos are not interactive.
   seo_score: 40
   text_direction: both

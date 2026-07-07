@@ -1,6 +1,15 @@
-<section class="logo-cloud px-4 py-(--space-section) text-center">
+<section class="logo-cloud px-4 py-(--space-section) text-center {{ appearance@class }}">
   <p data-if="title" class="logo-cloud__title text-sm font-medium text-on-surface-muted">{{ title }}</p>
-  <div class="logo-cloud__grid mt-6 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 lg:grid-cols-5">
-    <span data-for="logo in logos" class="logo-cloud__logo font-heading text-lg font-semibold text-on-surface-muted opacity-70 transition-opacity duration-(--duration-token) hover:opacity-100">{{ logo.name }}</span>
+  <div class="logo-cloud__grid mt-6 items-center gap-8 {{ layout@class }}">
+    <div data-for="logo in logos" class="logo-cloud__logo flex shrink-0 basis-1/2 snap-start items-center justify-center sm:basis-1/3 lg:basis-auto">
+      <a data-if="logo.url" href="{{ logo.url }}" class="flex items-center justify-center">
+        <img data-if="logo.image" class="max-h-10 w-auto object-contain transition-[filter,opacity] duration-(--duration-token)" src="{{ logo.image }}" alt="{{ logo.name }}" />
+        <span data-if="!logo.image" class="font-heading text-lg font-semibold text-on-surface-muted">{{ logo.name }}</span>
+      </a>
+      <span data-if="!logo.url" class="flex items-center justify-center">
+        <img data-if="logo.image" class="max-h-10 w-auto object-contain transition-[filter,opacity] duration-(--duration-token)" src="{{ logo.image }}" alt="{{ logo.name }}" />
+        <span data-if="!logo.image" class="font-heading text-lg font-semibold text-on-surface-muted">{{ logo.name }}</span>
+      </span>
+    </div>
   </div>
 </section>

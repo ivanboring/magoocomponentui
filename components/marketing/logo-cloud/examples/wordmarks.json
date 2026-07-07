@@ -1,0 +1,8 @@
+{
+  "title": "Wordmark fallback (no images)",
+  "appearance": "color",
+  "layout": "grid",
+  "logos": [
+    { "name": "Nike" }, { "name": "Adidas" }, { "name": "Decathlon" }, { "name": "Forbes" }
+  ]
+}

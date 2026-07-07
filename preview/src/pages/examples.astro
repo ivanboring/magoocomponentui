@@ -56,6 +56,11 @@ function renderItem(item) {
     if (item.wrap) html = `<div class="${item.wrap}">${html}</div>`;
     return { html, behaviors };
   }
+  if (item && typeof item === "object" && Array.isArray(item.row)) {
+    const inner = item.row.map(renderItem);
+    const cls = item.wrap || "flex flex-wrap items-center gap-3";
+    return { html: `<div class="${cls}">${inner.map((r) => r.html).join("\n")}</div>`, behaviors: inner.flatMap((r) => r.behaviors) };
+  }
   if (item && typeof item === "object" && Array.isArray(item.section)) {
     const inner = item.section.map(renderItem);
     const behaviors = inner.flatMap((r) => r.behaviors);

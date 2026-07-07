@@ -4,12 +4,38 @@ props:
     type: string
     title: Title
     example: "Trusted by teams at"
+  appearance:
+    type: enum
+    values: [color, grayscale]
+    default: color
+    title: Appearance
+    description: >
+      "color" shows each logo as-is. "grayscale" greys and dims every logo and reveals its full
+      colour on hover — the classic muted logo wall.
+  layout:
+    type: enum
+    values: [grid, slider]
+    default: grid
+    title: Layout
+    description: >
+      "grid" is a responsive grid at every width. "slider" turns the row into a horizontal,
+      swipeable, snap slider on mobile and tablet, then falls back to the grid on desktop (lg+).
   logos:
     type: array
     items: object
     required: true
     title: Logos
-    description: "Each logo: { name } — rendered as a wordmark placeholder (no image)."
+    description: >
+      Each logo: { name, image?, url? }. With image it renders that image (name becomes the alt
+      text); without image it falls back to a wordmark of name. An optional url wraps the logo
+      in a link.
     example:
-      - { name: "Northwind" }
-      - { name: "Acme" }
+      - { name: "Nike", image: "/stock/nike-3-logo-svgrepo-com.svg", url: "#" }
+      - { name: "Adidas", image: "/stock/adidas-logo-svgrepo-com.svg" }
+variants:
+  appearance:
+    color: ""
+    grayscale: "[&_img]:opacity-60 [&_img]:grayscale [&_img:hover]:opacity-100 [&_img:hover]:grayscale-0"
+  layout:
+    grid: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+    slider: "flex snap-x snap-mandatory overflow-x-auto pb-2 lg:grid lg:grid-cols-5 lg:overflow-visible"

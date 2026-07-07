@@ -1,0 +1,11 @@
+{
+  "title": "Slides on mobile and tablet",
+  "appearance": "color",
+  "layout": "slider",
+  "logos": [
+    { "name": "Nike", "image": "/stock/nike-3-logo-svgrepo-com.svg" },
+    { "name": "Adidas", "image": "/stock/adidas-logo-svgrepo-com.svg" },
+    { "name": "Decathlon", "image": "/stock/decathlon-logo-svgrepo-com.svg" },
+    { "name": "Forbes", "image": "/stock/forbes-logo-svgrepo-com.svg" }
+  ]
+}
