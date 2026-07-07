@@ -6,6 +6,7 @@
     { "name": "Nike", "image": "/stock/nike-3-logo-svgrepo-com.svg", "url": "#" },
     { "name": "Adidas", "image": "/stock/adidas-logo-svgrepo-com.svg", "url": "#" },
     { "name": "Decathlon", "image": "/stock/decathlon-logo-svgrepo-com.svg", "url": "#" },
-    { "name": "Forbes", "image": "/stock/forbes-logo-svgrepo-com.svg" }
+    { "name": "Forbes", "image": "/stock/forbes-logo-svgrepo-com.svg" },
+    { "name": "Discover", "image": "/stock/discover-svgrepo-com.svg" }
   ]
 }

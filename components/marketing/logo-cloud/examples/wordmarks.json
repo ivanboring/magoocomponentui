@@ -3,6 +3,6 @@
   "appearance": "color",
   "layout": "grid",
   "logos": [
-    { "name": "Nike" }, { "name": "Adidas" }, { "name": "Decathlon" }, { "name": "Forbes" }
+    { "name": "Nike" }, { "name": "Adidas" }, { "name": "Decathlon" }, { "name": "Forbes" }, { "name": "Discover" }
   ]
 }
