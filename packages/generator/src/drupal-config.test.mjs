@@ -35,9 +35,13 @@ test("emits importable config entities for a paragraph bundle", () => {
   assert.ok(files["config/core.entity_form_display.paragraph.demo_card.default.yml"]);
   const viewDisplay = files["config/core.entity_view_display.paragraph.demo_card.default.yml"];
   assert.ok(viewDisplay);
-  // The paragraph twig renders the component, so the view display hides every field.
-  assert.deepEqual(viewDisplay.content, {});
+  // Scalar props are read off the entity in twig, so the view display hides them...
   assert.equal(viewDisplay.hidden.field_demo_card_title, true);
+  assert.equal(viewDisplay.hidden.field_demo_card_items, true);
+  // ...but SLOT fields render via content.<field> in the twig, so they must be displayed
+  // (a hidden field is stripped from `content` and the slot would render empty).
+  assert.equal(viewDisplay.content.field_demo_card_footer.type, "entity_reference_revisions_entity_view");
+  assert.ok(viewDisplay.dependencies.module.includes("entity_reference_revisions"));
 
   // instance depends on its storage + the bundle
   const inst = files["config/field.field.paragraph.demo_card.field_demo_card_title.yml"];

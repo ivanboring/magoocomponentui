@@ -11,7 +11,8 @@ import { emitNodeBundle } from "./config-node-bundle.mjs";
 /** The Drupal paragraph config subset of a generate() output. */
 export function paragraphConfigFiles(files) {
   return Object.fromEntries(Object.entries(files).filter(([k]) =>
-    k.startsWith("drupal/config/") || (k.startsWith("drupal/paragraph--") && k.endsWith(".html.twig"))));
+    k.startsWith("drupal/config/") ||
+    ((k.startsWith("drupal/paragraph--") || k.startsWith("drupal/field--")) && k.endsWith(".html.twig"))));
 }
 
 /** Generate the config file map for one component. @param {string} id @param {{as,entity?,bundle?,theme?}} opts */

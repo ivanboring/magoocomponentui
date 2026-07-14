@@ -256,20 +256,29 @@ export function inferColumns(ast, loopVar) {
       cols[col] = cols[col] || type;
     }
   };
+  const colRe = new RegExp(`^${loopVar}\\.(\\w+)$`);
   const walk = (node) => {
     if (!node) return;
     if (node.type === "text") visit(node.parts, null);
-    if (node.type === "element") { for (const a of node.attrs) visit(a.parts, a.name); node.children.forEach(walk); }
+    if (node.type === "element") {
+      for (const a of node.attrs) visit(a.parts, a.name);
+      // Columns referenced only in a directive condition (data-if="item.flag" / "!item.flag")
+      // are real columns too — capture them so a boolean/flag column isn't silently dropped.
+      const cond = node.directives && node.directives.if && node.directives.if.path;
+      if (cond) { const m = colRe.exec(cond); if (m) cols[m[1]] = cols[m[1]] || "string"; }
+      node.children.forEach(walk);
+    }
     if (node.type === "slot") node.fallback.forEach(walk);
   };
-  const findLoop = (node) => {
-    if (node && node.type === "element") {
-      if (node.directives && node.directives.for && node.directives.for.item === loopVar) { walk(node); return true; }
-      for (const c of node.children) if (findLoop(c)) return true;
-    }
-    return false;
+  // Union columns from EVERY loop over this list — a component may iterate the same array
+  // more than once (e.g. a bar chart + a legend list), each using different columns. Stopping
+  // at the first loop would miss the columns only the later loop reads.
+  const findLoops = (node) => {
+    if (!node || node.type !== "element") return;
+    if (node.directives && node.directives.for && node.directives.for.item === loopVar) { walk(node); return; }
+    for (const c of node.children) findLoops(c);
   };
-  for (const n of ast) if (findLoop(n)) break;
+  for (const n of ast) findLoops(n);
   return cols;
 }
 
@@ -329,11 +338,14 @@ function display(kind, bundle, items, moduleDeps, configDeps) {
   for (const it of items) {
     if (kind === "form") {
       content[it.field] = { type: it.widget.type, weight: weight++, region: "content", settings: it.widget.settings || {}, third_party_settings: {} };
+    } else if (it.isSlot) {
+      // A slot field holds child paragraphs (or markup). The paragraph--<name>.html.twig
+      // renders it via `content.<field>` inside its {% block %}, so the field MUST be
+      // displayed (a hidden field is stripped from `content` and the slot renders empty).
+      content[it.field] = { type: it.formatter.type, label: "hidden", settings: it.formatter.settings || {}, weight: weight++, region: "content", third_party_settings: {} };
     } else {
-      // The generated paragraph--<name>.html.twig renders the component directly from the
-      // paragraph's field values, so the view display renders nothing on its own — every
-      // field is hidden. This avoids double-rendering and formatter-config bugs (e.g. a
-      // contrib formatter whose module isn't enabled, or prop-only booleans).
+      // Scalar prop fields are read straight off the entity in twig (paragraph.<field>.value),
+      // so the view display hides them — avoids double-rendering and formatter-module bugs.
       hidden[it.field] = true;
     }
   }
@@ -377,17 +389,19 @@ function buildConfigSet(name, def, ast, choice) {
     if (formatter.module && formatter.module !== "core") viewModules.add(formatter.module);
     if (entry.module !== "core") { formModules.add(entry.module); viewModules.add(entry.module); }
     configDeps.push(`field.field.paragraph.${bundle}.${field}`);
-    items.push({ field, widget: entry.widget, formatter });
+    items.push({ field, widget: entry.widget, formatter, isSlot });
   };
 
   for (const prop of def.props) build(prop, choice[prop.name], false);
   for (const slot of def.slots) build({ ...slot, type: "object", title: slot.title, required: false, drupal: null }, "paragraph", true);
 
   files[`core.entity_form_display.paragraph.${bundle}.default.yml`] = display("form", bundle, items, formModules, [...configDeps]);
-  // View display hides every field (the twig template renders the component), so it needs
-  // no formatter modules — `viewModules` is intentionally unused here.
+  // The view display shows only SLOT fields (rendered via content.<field> in the twig); scalar
+  // props are hidden. It therefore depends on the slot formatters' modules only.
   void viewModules;
-  files[`core.entity_view_display.paragraph.${bundle}.default.yml`] = display("view", bundle, items, new Set(), [...configDeps]);
+  const slotViewModules = new Set();
+  for (const it of items) if (it.isSlot && it.formatter.module && it.formatter.module !== "core") slotViewModules.add(it.formatter.module);
+  files[`core.entity_view_display.paragraph.${bundle}.default.yml`] = display("view", bundle, items, slotViewModules, [...configDeps]);
   return files;
 }
 

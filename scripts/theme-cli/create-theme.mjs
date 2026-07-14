@@ -19,7 +19,7 @@ export function themePath(rel) {
   if (rel.startsWith("sdc/")) return "components/" + rel.slice(4);
   if (rel.startsWith("code-component/") || rel.startsWith("react/") || rel.startsWith("vue/")) return "components/" + rel.slice(rel.indexOf("/") + 1);
   if (rel.startsWith("drupal/config/")) return "config/install/" + rel.slice("drupal/config/".length);
-  if (/^drupal\/(paragraph|node)--/.test(rel)) return "templates/" + rel.slice("drupal/".length);
+  if (/^drupal\/(paragraph|node|field)--/.test(rel)) return "templates/" + rel.slice("drupal/".length);
   return rel;
 }
 
