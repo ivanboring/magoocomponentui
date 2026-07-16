@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<!--
+  Negative control for the video-lesson gate suite: what a vanilla coding agent
+  plausibly produces one-shot. The video player itself WORKS (custom play/pause
+  with accessible labels, speed control), chapters and transcript are rendered
+  with the right content — but nothing is wired together: clicking a chapter or
+  cue does not seek, playback does not drive the active row, no end screen.
+
+  Expected: play-toggles-playback, pause-toggles-back and
+  speed-control-changes-rate PASS; the four sync gates and end-screen-reveals
+  FAIL. Run:
+    node scripts/eval/run-gates.mjs --gates scripts/eval/gates/video-lesson.gates.json \
+      --url scripts/eval/fixtures/vanilla-baseline.html
+-->
+<head>
+  <meta charset="utf-8">
+  <title>Stages of Emotional Development in Children</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 60rem; }
+    video { width: 100%; background: #000; }
+    .row { display: flex; gap: 2rem; }
+    ul { list-style: none; padding: 0; }
+    li, .cue { padding: .4rem .6rem; cursor: pointer; border-radius: .3rem; }
+    li:hover, .cue:hover { background: #eee; }
+    .time { color: #666; font-size: .85em; margin-right: .5em; }
+    button { padding: .4rem .8rem; margin-right: .4rem; }
+  </style>
+</head>
+<body>
+  <h1>Stages of Emotional Development in Children</h1>
+  <video id="v" src="https://workflows-of-ai.com/child_development.mp4" preload="metadata"></video>
+  <p>
+    <button type="button" id="play" aria-label="Play">Play</button>
+    <button type="button" id="speed" aria-label="Playback speed">1x</button>
+  </p>
+  <div class="row">
+    <section>
+      <h2>Chapters</h2>
+      <ul>
+        <li><span class="time">0:00</span>Introduction</li>
+        <li><span class="time">0:49</span>Stage 1 - The First Six Months</li>
+        <li><span class="time">1:58</span>Stage 2 - Six to Twelve Months</li>
+        <li><span class="time">2:51</span>Stage 3 - Twelve to Twenty-Four Months</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Transcript</h2>
+      <div class="cue"><span class="time">0:23</span>Today, we'll be talking about three big stages of emotional development in children.</div>
+      <div class="cue"><span class="time">0:37</span>These are, of course, unique to each child, so it's important to remember the months given in this video are just a guide.</div>
+      <div class="cue"><span class="time">1:58</span>Stage two, six to twelve months.</div>
+      <div class="cue"><span class="time">2:03</span>By seven months, a child will show fear, anger, defiance, and even possibly shyness.</div>
+    </section>
+  </div>
+  <script>
+    // The player controls work — that is the point of the baseline. But the
+    // chapters/transcript above have no handlers, and there is no end screen.
+    const v = document.getElementById("v");
+    const play = document.getElementById("play");
+    const speed = document.getElementById("speed");
+    play.addEventListener("click", () => {
+      if (v.paused) { v.muted = true; v.play(); } else { v.pause(); }
+    });
+    v.addEventListener("play", () => { play.textContent = "Pause"; play.setAttribute("aria-label", "Pause"); });
+    v.addEventListener("pause", () => { play.textContent = "Play"; play.setAttribute("aria-label", "Play"); });
+    const rates = [1, 1.25, 1.5, 2];
+    let idx = 0;
+    speed.addEventListener("click", () => {
+      idx = (idx + 1) % rates.length;
+      v.playbackRate = rates[idx];
+      speed.textContent = rates[idx] + "x";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+{
+  "specVersion": "0.1",
+  "example": "video-lesson",
+  "description": "Acceptance contract for the video-lesson composition: a video player whose chapters and transcript are two-way synced (clicking seeks the player, playback drives the active row), with working controls and an end screen. Ground truth (titles, cue text, timestamps) comes from preview/src/lib/examples/video-lesson.js — the task fixture, not the implementation.",
+  "settleMs": 900,
+  "gates": [
+    {
+      "id": "chapter-click-seeks",
+      "desc": "Clicking the 'Stage 2' chapter seeks the video to its start (118s) and marks exactly that chapter active",
+      "steps": [
+        { "do": "click", "anchor": { "text": ["Stage 2", "1:58"] } },
+        { "do": "wait", "ms": 500 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 118, "tol": 2.5 },
+        { "read": "activeMarker", "anchor": { "text": ["Stage 2", "1:58"] }, "equals": true },
+        {
+          "read": "markedCount",
+          "anchors": [
+            { "text": ["Introduction", "0:00"] },
+            { "text": ["Stage 1", "0:49"] },
+            { "text": ["Stage 2", "1:58"] },
+            { "text": ["Stage 3", "2:51"] }
+          ],
+          "equals": 1
+        }
+      ]
+    },
+    {
+      "id": "transcript-cue-click-seeks",
+      "desc": "Clicking a transcript cue seeks the video to that cue's timestamp (37s)",
+      "steps": [
+        { "do": "click", "anchor": { "text": ["unique to each child"] } },
+        { "do": "wait", "ms": 500 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 37.7, "tol": 2.5 }
+      ]
+    },
+    {
+      "id": "chapters-follow-playback",
+      "desc": "Scrubbing the video to 180s marks the 'Stage 3' chapter active (playback drives the chapter list)",
+      "steps": [
+        { "do": "seek", "seconds": 180 },
+        { "do": "wait", "ms": 700 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 180, "tol": 2 },
+        { "read": "activeMarker", "anchor": { "text": ["Stage 3", "2:51"] }, "equals": true },
+        {
+          "read": "markedCount",
+          "anchors": [
+            { "text": ["Introduction", "0:00"] },
+            { "text": ["Stage 1", "0:49"] },
+            { "text": ["Stage 2", "1:58"] },
+            { "text": ["Stage 3", "2:51"] }
+          ],
+          "equals": 1
+        }
+      ]
+    },
+    {
+      "id": "chapters-follow-playback-reverse",
+      "desc": "Scrubbing to 60s marks 'Stage 1' active — paired with the 180s gate so a statically pre-marked chapter list cannot pass both",
+      "steps": [
+        { "do": "seek", "seconds": 60 },
+        { "do": "wait", "ms": 700 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 60, "tol": 2 },
+        { "read": "activeMarker", "anchor": { "text": ["Stage 1", "0:49"] }, "equals": true },
+        {
+          "read": "markedCount",
+          "anchors": [
+            { "text": ["Introduction", "0:00"] },
+            { "text": ["Stage 1", "0:49"] },
+            { "text": ["Stage 2", "1:58"] },
+            { "text": ["Stage 3", "2:51"] }
+          ],
+          "equals": 1
+        }
+      ]
+    },
+    {
+      "id": "transcript-follows-playback",
+      "desc": "Scrubbing the video to 125s highlights the transcript cue that starts at 123s",
+      "steps": [
+        { "do": "seek", "seconds": 125 },
+        { "do": "wait", "ms": 700 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 125, "tol": 2 },
+        { "read": "activeMarker", "anchor": { "text": ["seven months, a child will show fear"] }, "equals": true },
+        {
+          "read": "markedCount",
+          "anchors": [
+            { "text": ["three big stages of emotional development"] },
+            { "text": ["seven months, a child will show fear"] }
+          ],
+          "equals": 1
+        }
+      ]
+    },
+    {
+      "id": "transcript-follows-playback-reverse",
+      "desc": "Scrubbing to 27s highlights the cue that starts at 23s — paired with the 125s gate so a statically pre-marked transcript cannot pass both",
+      "steps": [
+        { "do": "seek", "seconds": 27 },
+        { "do": "wait", "ms": 700 }
+      ],
+      "expect": [
+        { "read": "video.currentTime", "near": 27, "tol": 2 },
+        { "read": "activeMarker", "anchor": { "text": ["three big stages of emotional development"] }, "equals": true },
+        {
+          "read": "markedCount",
+          "anchors": [
+            { "text": ["three big stages of emotional development"] },
+            { "text": ["seven months, a child will show fear"] }
+          ],
+          "equals": 1
+        }
+      ]
+    },
+    {
+      "id": "playback-rate-starts-normal",
+      "desc": "The video initializes at normal speed — paired with the speed gate so a player pre-set to 1.25x with a dead control cannot pass",
+      "steps": [],
+      "expect": [
+        { "read": "video.playbackRate", "equals": 1 }
+      ]
+    },
+    {
+      "id": "play-toggles-playback",
+      "desc": "The accessible Play control starts playback",
+      "steps": [
+        { "do": "click", "anchor": { "ariaLabel": "Play" } },
+        { "do": "wait", "ms": 600 }
+      ],
+      "expect": [
+        { "read": "video.paused", "equals": false }
+      ]
+    },
+    {
+      "id": "pause-toggles-back",
+      "desc": "After playing, the control (now labeled Pause) pauses playback",
+      "steps": [
+        { "do": "click", "anchor": { "ariaLabel": "Play" } },
+        { "do": "wait", "ms": 600 },
+        { "do": "click", "anchor": { "ariaLabel": "Pause" } },
+        { "do": "wait", "ms": 300 }
+      ],
+      "expect": [
+        { "read": "video.paused", "equals": true }
+      ]
+    },
+    {
+      "id": "speed-control-changes-rate",
+      "desc": "The playback-speed control changes the video's playbackRate",
+      "steps": [
+        { "do": "click", "anchor": { "ariaLabel": "Playback speed" } },
+        { "do": "wait", "ms": 300 }
+      ],
+      "expect": [
+        { "read": "video.playbackRate", "notEquals": 1 }
+      ]
+    },
+    {
+      "id": "end-screen-reveals",
+      "desc": "When the video ends, the 'Up next' end screen becomes visible",
+      "steps": [
+        { "do": "seek", "fromEnd": 0.4 },
+        { "do": "play" },
+        { "do": "wait", "ms": 2500 }
+      ],
+      "expect": [
+        { "read": "video.ended", "equals": true },
+        { "read": "visible", "anchor": { "text": ["Up next"] }, "equals": true }
+      ]
+    }
+  ]
+}
