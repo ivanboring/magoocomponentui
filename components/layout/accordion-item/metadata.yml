@@ -1,0 +1,67 @@
+name: "Accordion Item"
+short_description: A single collapsible header + panel to place inside an accordion; the panel body is a slot.
+long_visual_description: >
+  One row of an accordion — a full-width header button with the title on the left and a chevron on
+  the right that rotates when expanded, above a panel that reveals the slotted content when open.
+
+use_cases:
+  - A single expandable section within an accordion.
+  - FAQ entry with a rich answer (lists, links, media).
+  - A disclosure row whose body is more than plain text.
+  - Grouping detailed content under a toggle inside a larger accordion.
+  - Any collapsible item that needs arbitrary markup in the panel.
+
+recommended_for:
+  - Composing an accordion from individually authored, rich-content items.
+avoid_for:
+  - Standalone use without an accordion parent (it renders but has no toggle behavior of its own).
+
+markets:
+  - Global
+
+example_usage: >
+  Place one or more accordion-item components into an accordion's items slot. Set the title and the
+  initial open state per item, and put the panel body (any tokenized markup) into the content slot.
+  The parent accordion wires the click/keyboard toggling and the single-open behavior.
+
+props:
+  title: The header label that toggles the panel.
+  open: Initial expanded state; the parent accordion takes over toggling once mounted.
+
+slots:
+  content: The panel body revealed when open — arbitrary tokenized markup, not just text.
+
+lifecycle: experimental
+content_model: A title, an open state, and a slotted panel body.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep titles short and scannable. Because the body is a slot, it can hold rich content — but keep
+  panels focused; deep content belongs on its own page.
+
+relationships:
+  parents:
+    - layout/accordion
+  related:
+    - marketing/faq-accordion
+
+categorization:
+  category: Layout
+  subcategory: Disclosure
+  atomic_type: molecule
+  usage_type: [disclosure]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger is a button carrying aria-expanded; the panel is hidden via data-open when collapsed. Keyboard toggling and roving focus are provided by the parent accordion.
+  keyboard_support: Provided by the parent accordion (Enter/Space toggles; Up/Down/Home/End move between triggers).
+  seo_score: 25
+  text_direction: both

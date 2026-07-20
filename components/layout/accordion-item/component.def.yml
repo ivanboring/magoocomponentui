@@ -1,0 +1,21 @@
+name: accordion-item
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The always-visible header label that toggles the panel.
+    example: "What is it?"
+  open:
+    type: boolean
+    default: false
+    title: Open
+    description: >
+      Initial expanded state. When placed inside an accordion, the parent's behavior takes over
+      toggling; this just sets the starting state (and the aria-expanded/data-open the parent reads).
+slots:
+  content:
+    title: Content
+    description: >
+      The panel body, revealed when the item is open. Any tokenized markup — text, lists, links,
+      media — not just a plain string.

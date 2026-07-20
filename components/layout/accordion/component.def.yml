@@ -4,13 +4,10 @@ props:
     type: boolean
     default: false
     title: Single-open
-    description: When true, opening one panel closes the others.
+    description: When true, opening one panel automatically closes the others (only one open at a time).
+slots:
   items:
-    type: array
-    items: object
-    required: true
     title: Items
-    description: "Each item: { title, body, open }."
-    example:
-      - { title: "What is it?", body: "A skeleton component library.", open: true }
-      - { title: "How does it work?", body: "Author once, generate every target.", open: false }
+    description: >
+      Place accordion-item components here. The accordion frames them, adds the dividers, and wires
+      click + keyboard toggling (and the single-open behavior) across all of them.

@@ -21,12 +21,16 @@ markets:
   - Global
 
 example_usage: >
-  Provide title/body items with open states; set single to make it exclusive (one open at a
-  time). Up/Down move between headers.
+  Slot accordion-item components into the items slot; each carries its own title, initial open
+  state, and (rich) panel content. Set single to make it exclusive (one open at a time). The
+  accordion wires the toggling and keyboard nav across whatever items you place in it. Up/Down move
+  between headers.
 
 props:
   single: When true, only one panel is open at a time.
-  items: The panels with title, body, and open state.
+
+slots:
+  items: The accordion-item components to stack; the accordion frames them and wires interaction.
 
 example_prompts:
   - "Add an accordion with three expandable panels."
@@ -47,7 +51,15 @@ theming:
     - --duration-token
 
 editorial_guidance: >
-  Use clear panel titles; open the most important panel by default.
+  Use clear panel titles; open the most important panel by default. Compose the stack from
+  accordion-item components — because each item's body is a slot, panels can hold rich content.
+
+relationships:
+  children:
+    - layout/accordion-item
+  related:
+    - navigation/tabs
+    - marketing/faq-accordion
 
 categorization:
   category: Layout

@@ -1,0 +1,7 @@
+{
+  "title": "How does generation work?",
+  "open": true,
+  "$slots": {
+    "content": "<p>A single canonical source per component emits SDC, React, Vue, and Storybook. You author it <a class=\"text-primary underline\" href=\"#\">once</a> and generate every target.</p><ul class=\"mt-2 list-disc pl-5\"><li>No hand-porting</li><li>One tokenized-Tailwind source</li></ul>"
+  }
+}
