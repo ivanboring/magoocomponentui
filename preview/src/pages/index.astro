@@ -5,7 +5,9 @@ import { renderToHtml } from "@magoo/generator";
 
 const BASE = import.meta.env.BASE_URL;
 const catalog = loadCatalog();
-const cards = catalog.components.map((c) => {
+const cards = [...catalog.components]
+  .sort((a, b) => a.display_name.localeCompare(b.display_name))
+  .map((c) => {
   let preview = "";
   try {
     const { ast, args } = loadRender(c.id);
