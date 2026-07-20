@@ -1,0 +1,90 @@
+name: "Version Selector"
+short_description: A compact dropdown for switching between doc or API versions, with Latest/Beta badges and a check on the current one.
+long_visual_description: >
+  A pill-bordered trigger button showing a muted label and the current version in a monospace face
+  with a caret that flips when open. The menu drops below as a raised card listing versions; each row
+  shows a check on the selected version, the version label, and an optional badge such as Latest or
+  Beta at the trailing edge.
+
+use_cases:
+  - Switch between versions of API or product documentation.
+  - Pick an SDK release to view its reference.
+  - Choose a schema or spec version in a developer console.
+  - Select a changelog version to jump to.
+  - Toggle between stable and beta docs.
+  - Offer a version picker in a docs site header.
+
+recommended_for:
+  - Header or toolbar version switching in developer docs.
+  - Short lists of versions with an occasional badge.
+avoid_for:
+  - A general form select of many plain options (use a select field).
+  - Primary navigation between unrelated pages (use navbar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the current version label and a versions array (each { label, badge, current }). The trigger
+  shows the label and current version; opening the menu lists the versions with the selected one
+  checked. Selecting a version updates the trigger and fires a version:pick event.
+
+how_to_use: >
+  Open state is the root's data-open attribute, and the menu is revealed purely by CSS
+  (group-data-[open=true] flips it from invisible/opacity-0/pointer-events-none to visible), so it
+  works under Drupal's unlayered stylesheets and previews open via the start_open prop. behavior.js
+  wires the toggle (updates data-open and the trigger's aria-expanded), option selection (moves the
+  check, updates the trigger's version text, dispatches a bubbling version:pick event with
+  detail.value, and closes), and closing on Escape or an outside click; ArrowUp/Down move focus
+  between options. The portable self-init reads everything from the DOM - no props object is passed.
+
+props:
+  label: "Short prefix before the current version on the trigger and the menu's accessible name."
+  current: "The selected version label shown on the trigger; keep it in sync with the version marked current."
+  versions: "The selectable versions in menu order; each has a label, an optional badge, and a current flag."
+  start_open: "Renders the menu open (for previews and the open example); normally false."
+
+example_prompts:
+  - "Add a version selector to the docs header defaulting to v2.4 with a Latest badge."
+  - "Include a Beta v3.0 option in the version dropdown."
+
+lifecycle: experimental
+content_model: A list of selectable version labels with optional badges and one current selection.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-border
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --radius-button
+    - --shadow-raised
+    - --duration-token
+    - --font-mono
+
+editorial_guidance: >
+  Order versions newest first and reserve badges for meaningful states (Latest, Beta, LTS). Keep
+  labels short and consistent (v2.4, not Version 2.4.0) so the trigger stays compact.
+
+relationships:
+  related:
+    - developer/code-sample-tabs
+    - developer/endpoint-row
+
+categorization:
+  category: Developer
+  subcategory: Navigation
+  atomic_type: molecule
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup=listbox and aria-expanded; the menu is a role=listbox of role=option items with aria-selected; Escape and outside click close it and focus returns to the trigger.
+  keyboard_support: Enter/Space/ArrowDown on the trigger opens the menu; ArrowUp/Down move between options; Enter/Space or click selects; Escape closes and returns focus to the trigger.
+  seo_score: 25
+  text_direction: ltr

@@ -1,0 +1,10 @@
+{
+  "total_kg": "1.8",
+  "period": "per order",
+  "sources": [
+    { "label": "Materials", "kg": "0.9 t", "pct": 50, "color_class": "bg-primary" },
+    { "label": "Manufacturing", "kg": "0.5 t", "pct": 28, "color_class": "bg-accent" },
+    { "label": "Shipping", "kg": "0.3 t", "pct": 16, "color_class": "bg-info" },
+    { "label": "Packaging", "kg": "0.1 t", "pct": 6, "color_class": "bg-success" }
+  ]
+}

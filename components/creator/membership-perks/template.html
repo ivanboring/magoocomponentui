@@ -1,0 +1,13 @@
+<div class="membership-perks rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div data-if="tier" class="mb-3 flex items-baseline justify-between gap-2">
+    <h3 class="font-heading text-on-surface">{{ tier }}</h3>
+    <span data-if="price" class="text-sm font-medium text-on-surface-muted tabular-nums">{{ price }}</span>
+  </div>
+  <ul class="membership-perks__list flex flex-col gap-2">
+    <li data-for="perk in perks" data-included="{{ perk.included }}" class="group flex items-center gap-2 text-sm">
+      <svg class="hidden size-4 shrink-0 text-success group-data-[included=true]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+      <svg class="hidden size-4 shrink-0 text-on-surface-muted group-data-[included=false]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      <span class="text-on-surface group-data-[included=false]:text-on-surface-muted group-data-[included=false]:line-through">{{ perk.label }}</span>
+    </li>
+  </ul>
+</div>

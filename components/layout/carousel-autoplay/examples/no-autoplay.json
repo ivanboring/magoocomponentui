@@ -1,0 +1,12 @@
+{
+  "label": "Browse manually",
+  "interval": "6",
+  "autoplay": false,
+  "show_arrows": true,
+  "show_dots": true,
+  "items": [
+    { "image": "/stock/cover-workspace.jpg", "eyebrow": "Workspace", "title": "Your creative studio", "subtitle": "Everything you need in one place, ready when inspiration strikes.", "cta_label": "Explore", "href": "#" },
+    { "image": "/stock/blog-api-streaming.jpg", "eyebrow": "Engineering", "title": "Streaming APIs", "subtitle": "Push live updates to every client the moment they happen.", "cta_label": "Read more", "href": "#" },
+    { "image": "/stock/audio-studio-mic.jpg", "eyebrow": "Studio", "title": "Recording basics", "subtitle": "Capture a clean take on the very first try.", "cta_label": "Watch", "href": "#" }
+  ]
+}

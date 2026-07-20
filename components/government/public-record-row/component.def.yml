@@ -1,0 +1,36 @@
+name: public-record-row
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The record's name or subject.
+    example: "City Council Meeting Minutes"
+  type:
+    type: string
+    title: Record type
+    description: Optional short category, e.g. "Minutes" or "Budget".
+    example: "Minutes"
+  date:
+    type: string
+    required: true
+    title: Date
+    description: The record's date, shown in a mono face. Pass it preformatted.
+    example: "2026-06-14"
+  access:
+    type: enum
+    values: [public, restricted]
+    default: public
+    title: Access level
+    description: >
+      public shows a success badge and a View action; restricted shows a warning badge and a
+      Request action.
+  href:
+    type: string
+    title: Link
+    description: Where the View/Request action points (a document URL or a request form).
+    example: "#"
+variants:
+  access:
+    public: "bg-success/10 text-success"
+    restricted: "bg-warning/10 text-warning"

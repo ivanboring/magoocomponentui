@@ -1,0 +1,45 @@
+name: radar-chart-shell
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown above the chart. Also used as the SVG accessible label.
+    example: "Model comparison"
+  polygon_points:
+    type: string
+    required: true
+    title: Data polygon points
+    description: >
+      PRECOMPUTED BY THE CALLER: the SVG points string for the data polygon, in a
+      100x100 viewBox centred at 50,50 (e.g. "50,18 74.7,42 71.2,79.1 37.1,67.8 23.4,41.4").
+      The directive language has no math, so plot each vertex from its axis value first.
+    example: "50,18 74.7,42 71.2,79.1 37.1,67.8 23.4,41.4"
+  axes:
+    type: array
+    items: object
+    title: Axes
+    description: >
+      One entry per spoke: { label, x, y }. `x`/`y` are the PRECOMPUTED label-anchor
+      coordinates in the 100x100 viewBox (just beyond each axis endpoint); the label is
+      rendered centred at that point.
+    example:
+      - { label: "Speed", x: "50", y: "4" }
+      - { label: "Power", x: "93.8", y: "35.8" }
+  rings:
+    type: array
+    items: string
+    title: Grid rings
+    description: >
+      Optional concentric grid polygons. Each item is a PRECOMPUTED SVG points string for
+      one ring (outer to inner). Omit for no grid.
+    example:
+      - "50,10 88,37.6 73.5,82.4 26.5,82.4 12,37.6"
+  axis_lines:
+    type: array
+    items: object
+    title: Axis lines
+    description: >
+      Optional spokes from centre (50,50) to each axis endpoint. Each item:
+      { x2, y2 } — the PRECOMPUTED endpoint coordinates.
+    example:
+      - { x2: "50", y2: "10" }

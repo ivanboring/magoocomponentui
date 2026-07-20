@@ -1,0 +1,22 @@
+name: resizable-panel
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading shown at the top of the panel.
+  edge:
+    type: enum
+    values: [right, bottom]
+    default: right
+    title: Resize edge
+    description: >
+      Which edge carries the drag handle. "right" resizes the panel's width; "bottom" resizes its
+      height. The panel keeps a sensible default size so the base (no-JS) render looks correct.
+slots:
+  content:
+    title: Content
+    description: The panel body.
+variants:
+  edge:
+    right: "right-0 top-0 h-full w-1.5 cursor-col-resize"
+    bottom: "bottom-0 left-0 h-1.5 w-full cursor-row-resize"

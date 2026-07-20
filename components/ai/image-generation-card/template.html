@@ -1,0 +1,23 @@
+<figure class="image-generation-card flex w-full max-w-xs flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="aspect-square overflow-hidden bg-surface-raised">
+    <img class="size-full object-cover" src="{{ image }}" alt="{{ prompt }}">
+  </div>
+  <figcaption class="flex flex-col gap-3 p-4">
+    <p class="line-clamp-2 text-sm text-on-surface">{{ prompt }}</p>
+    <div class="flex flex-wrap items-center gap-2 text-xs text-on-surface-muted">
+      <span data-if="model" class="rounded-pill bg-surface-raised px-2 py-0.5 font-medium">{{ model }}</span>
+      <span data-if="size" class="font-mono">{{ size }}</span>
+    </div>
+    <div class="flex items-center gap-1 border-t border-border pt-3">
+      <button type="button" class="image-generation-card__action inline-flex size-9 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" data-action="download" aria-label="Download">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3v10M6 9l4 4 4-4M4 16h12"/></svg>
+      </button>
+      <button type="button" class="image-generation-card__action inline-flex size-9 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" data-action="regenerate" aria-label="Regenerate">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10a6 6 0 019-5l2 2M16 10a6 6 0 01-9 5l-2-2M15 3v4h-4M5 17v-4h4"/></svg>
+      </button>
+      <button type="button" class="image-generation-card__action inline-flex size-9 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" data-action="variations" aria-label="Make variations">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="11" y="3" width="6" height="6" rx="1"/><rect x="3" y="11" width="6" height="6" rx="1"/><rect x="11" y="11" width="6" height="6" rx="1"/></svg>
+      </button>
+    </div>
+  </figcaption>
+</figure>

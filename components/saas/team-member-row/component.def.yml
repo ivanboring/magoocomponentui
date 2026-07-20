@@ -1,0 +1,37 @@
+name: team-member-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Ada Lovelace"
+  email:
+    type: string
+    title: Email
+    example: "ada@company.com"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar
+    description: Optional avatar image URL. When omitted, the initials fallback is shown.
+    example: "/stock/avatar-woman-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      Precomputed initials shown when no avatar is supplied (the directive language cannot derive
+      them from the name). Pass one or two uppercase letters, e.g. "AL".
+    example: "AL"
+  role:
+    type: string
+    required: true
+    title: Role
+    description: The member's role or permission level, shown as a pill.
+    example: "Admin"
+  status:
+    type: string
+    title: Status
+    description: >
+      Optional membership status shown as a highlighted pill, e.g. "Pending" for an invite that has
+      not been accepted. Omit for an active member.
+    example: "Pending"

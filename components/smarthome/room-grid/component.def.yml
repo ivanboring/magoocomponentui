@@ -1,0 +1,16 @@
+name: room-grid
+props:
+  rooms:
+    type: array
+    items: object
+    required: true
+    title: Rooms
+    description: >
+      One entry per room, in display order. Each room: { name, devices: [ { name, on, icon } ] }.
+      device.on drives the highlighted (active) chip state; device.icon is an optional glyph or emoji
+      shown before the device name.
+    example:
+      - name: "Living room"
+        devices:
+          - { name: "Ceiling light", on: true, icon: "💡" }
+          - { name: "TV", on: false, icon: "📺" }

@@ -1,0 +1,77 @@
+name: "Team Directory Grid"
+short_description: A responsive grid of compact people cards showing each person's avatar, name, title and department.
+long_visual_description: >
+  A responsive grid - two columns on mobile, three on tablet, four on desktop - of centred person
+  cards on the surface colour. Each card shows a round avatar photo (or a precomputed initials
+  circle when there is no photo), the person's name in the heading face, their title in muted text,
+  and an optional department tag pill. Cards keep a card radius and soft shadow so the directory
+  reads as an even, scannable people wall.
+
+use_cases:
+  - A company or team "meet the people" directory page.
+  - An org-unit roster grouped on a department page.
+  - A project team lineup on a status or about page.
+  - A speakers or contributors grid for an event.
+  - A hiring or new-hires wall welcoming recent joiners.
+  - An internal people-finder results grid.
+
+recommended_for:
+  - Showing many people at once in an even, browsable grid.
+  - Rosters that mix photo avatars and initials fallbacks.
+avoid_for:
+  - A single detailed profile (use a profile card).
+  - A dense, sortable people table (use a data table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a people array; each person needs a name and title, with an optional avatar photo URL (the
+  precomputed initials circle shows when it is absent) and an optional department tag. The grid
+  reflows from two to four columns as the viewport widens.
+
+props:
+  people: "The people in order. Each: name, title, avatar (optional photo URL), initials (precomputed fallback), department (optional tag)."
+
+example_prompts:
+  - "Show a team directory grid of eight people with photos and titles."
+  - "Build a people wall for the Design department with initials fallbacks."
+  - "Add a meet-the-team grid, four across on desktop."
+
+lifecycle: experimental
+content_model: A list of people, each with a name, title, optional avatar, initials fallback and department.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep titles to a single role, not a full sentence. Use consistent avatar crops so the circles
+  line up, and provide initials for anyone without a photo so no card looks empty.
+
+relationships:
+  related:
+    - hr/attendance-row
+    - hr/goal-okr-row
+    - hr/anniversary-card
+
+categorization:
+  category: HR & People
+  subcategory: Directory
+  atomic_type: organism
+  usage_type: [grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A semantic list of cards; avatar photos use empty alt (decorative, the name is adjacent) and initials fallbacks are aria-hidden.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

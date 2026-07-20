@@ -1,0 +1,77 @@
+name: "Live Stream Chrome"
+short_description: A stream player overlay frame with a LIVE badge, viewer count, streamer identity, a category chip, and a control-bar facade.
+long_visual_description: >
+  A 16:9 stream frame on a raised surface with a centered camera placeholder, wrapped in top and
+  bottom gradient scrims so the white overlays stay legible over any backdrop. Top-left carries a
+  red pulsing LIVE badge and a viewer count; top-right a category chip. The bottom bar pairs a
+  ringed streamer avatar with the stream title and streamer name, and a row of circular control
+  buttons (like, share, fullscreen) as a static facade.
+
+use_cases:
+  - Framing a live stream player on a creator or watch page.
+  - A stream preview tile with live status and viewer count.
+  - A go-live overlay mockup for a broadcast tool.
+  - A watch-party or event stream header.
+  - A replay card that shows the original live chrome.
+  - A layout placeholder for embedding a real player behind the overlays.
+
+recommended_for:
+  - Wrapping a stream or video with identity and status overlays.
+  - Live and replay contexts that need a LIVE badge and viewer count.
+avoid_for:
+  - A standard on-demand video player (use video-player).
+  - A static thumbnail with no overlay chrome (use a media card).
+
+markets:
+  - Global
+
+example_usage: >
+  Place it where the stream video would render; the overlays sit above a raised-surface frame. Set
+  is_live for the LIVE badge, pass a formatted viewers string and a category, and provide the
+  streamer name, title, and avatar. The control bar is a non-interactive facade.
+
+props:
+  title: "Current stream title shown in the bottom overlay."
+  streamer: "Broadcaster name shown under the title."
+  viewers: "Formatted live viewer count shown top-left."
+  is_live: "Shows the pulsing LIVE badge when true."
+  category: "Category or tag chip shown top-right."
+  avatar: "Optional streamer avatar; omit for a plain ringed circle."
+
+lifecycle: experimental
+content_model: >
+  A stream title and streamer identity, a live flag with a viewer count, an optional category, and
+  an optional avatar, overlaid on a stream frame.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Keep the title to one line and the category short. Use the LIVE badge and viewer count only when
+  the stream is genuinely live; drop them for replays. The white overlays rely on the scrims, so
+  keep any real video behind them reasonably contrasty.
+
+relationships:
+  related:
+    - creator/tip-jar
+    - creator/supporter-wall
+
+categorization:
+  category: Creator
+  subcategory: Streaming
+  atomic_type: organism
+  usage_type: [media, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The camera placeholder and control-bar facade are aria-hidden; the LIVE badge, viewer count, title, and streamer name are real text over gradient scrims for contrast.
+  keyboard_support: none
+  seo_score: 25
+  text_direction: both

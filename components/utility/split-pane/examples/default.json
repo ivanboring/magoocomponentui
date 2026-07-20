@@ -1,0 +1,9 @@
+{
+  "ratio": "50-50",
+  "start_label": "Editor",
+  "end_label": "Preview",
+  "$slots": {
+    "start": "<p class=\"text-on-surface-muted\">Drag the divider between the two panes to resize them. The panes share the width according to the ratio prop, and the divider lets a reader adjust it live.</p><pre class=\"mt-3 rounded-control bg-surface-raised p-3 font-mono text-xs text-on-surface\"># heading\nSome **markdown** content.</pre>",
+    "end": "<h3 class=\"font-heading text-base text-on-surface\">heading</h3><p class=\"mt-2 text-on-surface-muted\">Some <strong class=\"text-on-surface\">markdown</strong> content.</p>"
+  }
+}

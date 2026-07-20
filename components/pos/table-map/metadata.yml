@@ -1,0 +1,82 @@
+name: "Table Map"
+short_description: A stylized restaurant floor-plan facade of table tiles colour-coded by occupancy status.
+long_visual_description: >
+  A framed floor area holding a responsive grid of square or round table tiles. Each tile shows its
+  number in the heading face, an optional seat count, and its status word, and is tinted by
+  occupancy - success for open, primary for seated, warning for reserved, danger for dirty. A legend
+  below maps each colour to its status. This is a decorative facade: tiles flow in a grid rather than
+  reproducing a room's true geometry.
+
+use_cases:
+  - Host-stand floor overview on a POS terminal.
+  - At-a-glance occupancy board for a dining room.
+  - Reservation status wall showing which tables are held.
+  - Busser view of tables needing to be cleared.
+  - Server section map colour-coded by state.
+  - Seating demo or skeleton screen in a POS mockup.
+
+recommended_for:
+  - A quick occupancy overview where exact geometry does not matter.
+  - Colour-coded status across many tables at once.
+avoid_for:
+  - A precise, drag-to-position seating designer with real coordinates.
+  - A single table's order detail (use order-ticket or check-split).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a tables array where each entry has a label, an optional seats count, a status of open,
+  seated, reserved, or dirty, and an optional shape of square or round. The status drives the tile
+  colour; the legend is fixed. Treat the layout as a facade - it flows in a grid, so do not rely on
+  it for spatial accuracy.
+
+props:
+  tables: The tables to show; each has a label, optional seats count, a status, and an optional shape.
+  label: Accessible name announced for the floor-plan region.
+
+example_prompts:
+  - "Show a floor plan with six tables, two open and one dirty."
+  - "Render a host-stand table map colour-coded by occupancy."
+  - "Lay out a dining room of round and square tables with seat counts."
+
+lifecycle: experimental
+content_model: A set of tables each with a label, optional seat count, occupancy status, and shape, shown as a stylized grid facade with a status legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep table labels short numbers or names. Use the status consistently with the room's real state
+  and remember the layout is a facade - pair it with a real reservation system for placement.
+
+relationships:
+  related:
+    - pos/tab-card
+    - pos/order-ticket
+    - pos/check-split
+
+categorization:
+  category: Restaurant POS
+  subcategory: Floor
+  atomic_type: organism
+  usage_type: [grid, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each tile prints its status word alongside the colour tint, and a legend maps colours to statuses, so occupancy is never colour-only.
+  keyboard_support: None - static, non-interactive facade.
+  seo_score: 20
+  text_direction: both

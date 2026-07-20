@@ -1,0 +1,8 @@
+{
+  "label": "How it works",
+  "steps": [
+    { "number": "1", "title": "Book a call", "body": "Tell us where you are and what you are trying to reach." },
+    { "number": "2", "title": "Get a plan", "body": "We scope the work into a clear, fixed set of milestones." },
+    { "number": "3", "title": "Ship together", "body": "We build in the open with weekly demos and no surprises." }
+  ]
+}

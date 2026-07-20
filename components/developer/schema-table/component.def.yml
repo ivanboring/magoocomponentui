@@ -1,0 +1,16 @@
+name: schema-table
+props:
+  fields:
+    type: array
+    items: object
+    required: true
+    title: Fields
+    description: >
+      The parameters or fields to document. Each item:
+      { name, type, required, description, default }. name and type render monospaced,
+      required is a boolean shown as a required/optional pill, and default (optional) is
+      shown at the end of the description cell.
+    example:
+      - { name: "email", type: "string", required: true, description: "The customer's email address." }
+      - { name: "amount", type: "integer", required: true, description: "Charge amount in the smallest currency unit." }
+      - { name: "currency", type: "string", required: false, description: "ISO 4217 code.", default: "usd" }

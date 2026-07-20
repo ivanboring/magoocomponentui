@@ -1,0 +1,42 @@
+name: token-price-card
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The token ticker symbol (e.g. ETH).
+    example: "ETH"
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The token's full name (e.g. Ethereum).
+    example: "Ethereum"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The current price, preformatted with currency in the caller (e.g. $3,150.42).
+    example: "$3,150.42"
+  change_pct:
+    type: string
+    required: true
+    title: Change
+    description: The formatted change percentage shown in the pill (include the sign in the caller, e.g. +4.2%).
+    example: "+4.2%"
+  change_dir:
+    type: enum
+    values: [up, down]
+    required: true
+    title: Change direction
+    description: Direction of the change; colours the pill and sparkline green (up) or red (down).
+  spark_path:
+    type: string
+    required: true
+    title: Sparkline path
+    description: >
+      A precomputed SVG path 'd' string for the sparkline, plotted in a 100x30 viewBox
+      (x 0-100 left-to-right, y 0-30 top-to-bottom). Compute the geometry in the caller; the
+      directive language cannot do arithmetic.
+    example: "M0 22 L20 18 L40 20 L60 10 L80 12 L100 4"
+variants: {}

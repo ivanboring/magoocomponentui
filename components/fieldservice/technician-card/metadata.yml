@@ -1,0 +1,85 @@
+name: "Technician Card"
+short_description: A roster card showing a field technician's availability status, location, workload and rating.
+long_visual_description: >
+  A surface card with a rounded avatar (a photo, or an initials fallback on a tinted circle) beside
+  the technician's name and a coloured availability pill. A short definition list below shows the
+  current location, today's job count and a star rating, each preceded by a small line icon.
+
+use_cases:
+  - Dispatcher roster of technicians and their live availability.
+  - Team overview panel on a field-service dashboard.
+  - Assignment picker showing who is free to take a job.
+  - Fleet status board grouped by availability.
+  - Technician directory entry with rating and workload.
+
+recommended_for:
+  - Showing one technician's live status and workload at a glance.
+  - Rosters or pickers where availability drives assignment.
+avoid_for:
+  - A generic contact or profile card (use a profile card).
+  - The job itself rather than the person (use job-dispatch-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name plus the required status enum to colour the availability pill. Provide initials for the
+  avatar fallback, or an avatar image URL to override it, and add location, jobs_today and rating as
+  preformatted strings.
+
+props:
+  name: "Technician display name."
+  initials: "Precomputed 1-2 character initials for the avatar fallback."
+  avatar: "Optional photo URL; overrides the initials avatar when present."
+  status: "One of available, on-job, break, offline; colours the status pill."
+  location: "Current location or area, preformatted."
+  jobs_today: "Preformatted count or summary of today's jobs."
+  rating: "Preformatted rating string."
+
+example_prompts:
+  - "Add a technician card for Dana Ruiz, available, North district, 4 jobs, rated 4.8."
+  - "Show the field team roster with availability pills."
+
+lifecycle: experimental
+content_model: A single technician's identity, availability status, location, workload and rating.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep location and jobs_today short. Use the offline status for technicians who are off shift so
+  the roster reads at a glance which colour means available.
+
+relationships:
+  related:
+    - fieldservice/job-dispatch-card
+    - fieldservice/route-schedule
+    - fieldservice/service-appointment
+
+categorization:
+  category: Field Service
+  subcategory: Technicians
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Availability is shown by an uppercase text label in the pill, not colour alone; the avatar image is decorative with empty alt and the initials fallback is aria-hidden with the name in adjacent text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

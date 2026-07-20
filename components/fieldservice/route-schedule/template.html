@@ -1,0 +1,23 @@
+<section class="route-schedule rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header data-if="date" class="mb-4 flex items-center gap-2">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="14" height="12" rx="2"/><path d="M3 8h14M7 3v4M13 3v4"/></svg>
+    <h3 class="font-heading text-on-surface">{{ date }}</h3>
+  </header>
+
+  <ol class="route-schedule__list">
+    <li data-for="job in jobs" class="route-schedule__stop group relative flex gap-3 pb-5 last:pb-0" data-status="{{ job.status }}">
+      <span class="route-schedule__line absolute left-3 top-7 bottom-0 w-0.5 -translate-x-1/2 bg-border group-last:hidden group-data-[status=done]:bg-success" aria-hidden="true"></span>
+      <span class="route-schedule__dot relative z-10 mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full border-2 border-border bg-surface group-data-[status=done]:border-success group-data-[status=current]:border-primary group-data-[status=current]:ring-2 group-data-[status=current]:ring-primary/20" data-status="{{ job.status }}">
+        <svg class="hidden size-3.5 text-success group-data-[status=done]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        <span class="size-2 rounded-full bg-border group-data-[status=done]:hidden group-data-[status=current]:bg-primary" aria-hidden="true"></span>
+      </span>
+
+      <div class="min-w-0 flex-1">
+        <p class="font-mono text-xs uppercase tracking-wide text-on-surface-muted">{{ job.time }}</p>
+        <p class="truncate text-sm font-medium text-on-surface group-data-[status=upcoming]:text-on-surface-muted">{{ job.customer }}</p>
+        <p data-if="job.service" class="truncate text-sm text-on-surface-muted">{{ job.service }}</p>
+        <p data-if="job.address" class="truncate text-xs text-on-surface-muted">{{ job.address }}</p>
+      </div>
+    </li>
+  </ol>
+</section>

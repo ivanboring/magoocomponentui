@@ -1,0 +1,14 @@
+{
+  "name": "Supporter",
+  "price": "$8",
+  "period": "month",
+  "subscribers": "1,240",
+  "popular": false,
+  "color_class": "bg-primary",
+  "benefits": [
+    "Members-only posts and updates",
+    "Community Discord access",
+    "Early access to new episodes",
+    "Supporter badge on your profile"
+  ]
+}

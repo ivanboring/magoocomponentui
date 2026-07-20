@@ -1,0 +1,89 @@
+name: "Model Picker"
+short_description: A dropdown for choosing which AI model handles a conversation, with per-model descriptions and badges.
+long_visual_description: >
+  A compact trigger button showing a "Model" label, the current model's name, and a caret. Opening
+  it reveals a surfaced panel listing each model as a row with its name, an optional tag badge
+  (e.g. Pro or Fast), a one-line description, and a check mark on the currently selected model.
+
+use_cases:
+  - Switching the model that answers in a chat composer.
+  - A settings control for the default model of an assistant.
+  - Choosing a model tier (fast vs. most capable) before running a task.
+  - An admin picker for which model powers a workflow step.
+  - Comparing models by their inline descriptions before selecting one.
+  - Offering a free vs. pro model choice with badges.
+
+recommended_for:
+  - Chat or agent UIs where the user picks among a small set of models.
+  - Any place a labelled current value plus a descriptive option list is clearer than a bare select.
+avoid_for:
+  - Long lists of dozens of options (use a searchable combobox).
+  - A plain form field with no descriptions or badges (use a native select).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass models (each { name, description, badge, selected }) and set current to the selected model's
+  name. Mark exactly one model selected. Listen for the "model:pick" event to react to a change;
+  the trigger label updates itself. Use start_open only for previews.
+
+how_to_use: >
+  The panel visibility is pure CSS driven by the root's data-open attribute (set from the start_open
+  prop) and the group-data-[open=true] variants, so the open state renders with no JavaScript (and
+  appears in screenshots). behavior.js wires interaction: the trigger toggles data-open and syncs
+  aria-expanded; picking an option updates the trigger label, moves the check, dispatches
+  "model:pick" with the chosen name, and closes; Escape and an outside click also close. The
+  portable self-init reads no props object.
+
+props:
+  models: "The selectable models in order. Each item: name, optional description, optional badge tag, and selected (true on the current one)."
+  current: "The label shown in the trigger, usually the selected model's name."
+  label: "Prefix label in the trigger and accessible name for the menu."
+  start_open: "Render already open (previews/screenshots only)."
+
+example_prompts:
+  - "Add a model picker with Opus, Sonnet, and Haiku, defaulting to Opus."
+  - "Add a control to switch the AI model, showing a short description for each."
+
+lifecycle: experimental
+content_model: A current-value trigger and a list of models, each with a name, optional badge and description.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-button
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep model names short and consistent; use the description to state the tradeoff in a few words
+  (speed vs. capability). Reserve badges for a single distinguishing trait.
+
+relationships:
+  related:
+    - ai/token-usage
+    - ai/tool-call-card
+    - ai/assistant-hero
+
+categorization:
+  category: AI & Chat
+  subcategory: Controls
+  atomic_type: molecule
+  usage_type: [overlay, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup="listbox" and aria-expanded; options use role="option" with aria-selected; Escape closes and restores focus to the trigger.
+  keyboard_support: The trigger opens/closes on click and Enter/Space; Escape closes and refocuses the trigger; options activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

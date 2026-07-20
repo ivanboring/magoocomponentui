@@ -1,0 +1,85 @@
+name: "Project Case Study"
+short_description: A long-form case-study layout with a hero, a Problem/Solution/Result narrative, and an outcome metrics row.
+long_visual_description: >
+  A single-column case study. An optional 16:9 hero image sits at the top, followed by a small
+  client kicker in the primary colour and a large project title. Below, three labelled sections -
+  Problem, Solution and Result - each render rich text under a small uppercase heading. An optional
+  row of outcome metric tiles closes the piece, each a bordered surface panel with a large primary
+  figure over a muted label.
+
+use_cases:
+  - A portfolio case study telling the story of one client engagement.
+  - An agency work detail page with measurable outcomes.
+  - A product design write-up structured as problem, solution and result.
+  - A before-and-after project recap with headline metrics.
+  - A consultancy engagement summary on a services site.
+  - A student or freelancer portfolio project deep-dive.
+
+recommended_for:
+  - Detail pages that need a consistent narrative structure across many projects.
+  - Case studies whose body copy is authored as rich text (paragraphs and lists).
+avoid_for:
+  - A compact grid tile linking to a case study (use work-tile).
+  - Content without a clear problem/solution/result arc.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a title, optional client and hero_image, and the three rich-text blocks problem, solution and
+  result (each HTML). Add a metrics array (each { value, label }) to show a row of outcome figures
+  beneath the narrative.
+
+props:
+  title: "The project or engagement name, shown as the main heading."
+  client: "Optional client or brand name, shown as a small kicker above the title."
+  hero_image: "Optional lead image, rendered at 16:9 above the title."
+  problem: "Rich HTML describing the challenge the project set out to solve."
+  solution: "Rich HTML describing what was built or changed."
+  result: "Rich HTML describing the outcome and impact."
+  metrics: "Optional outcome figures. Each item: value (formatted figure) and label (what it measures)."
+
+example_prompts:
+  - "Write up the checkout redesign as a case study with problem, solution and result."
+  - "Add a case study for the Northwind engagement with a metrics row."
+  - "Show a portfolio project page with a hero image and outcome figures."
+
+lifecycle: experimental
+content_model: A titled case study with an optional hero, three rich-text narrative sections, and an optional outcome metrics row.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the three narrative sections balanced and tell one clear story. Make metric values concrete
+  and signed where they represent change, and keep labels short. Lead with the client only when the
+  brand adds credibility.
+
+relationships:
+  related:
+    - portfolio/work-tile
+    - portfolio/portfolio-grid
+    - dashboard/stat-card
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Case Studies
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The narrative uses real headings and sections, the metrics use a definition list, and the hero image is decorative with an empty alt.
+  keyboard_support: None - static, non-interactive content.
+  seo_score: 70
+  text_direction: both

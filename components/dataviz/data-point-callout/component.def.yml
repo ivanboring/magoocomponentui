@@ -1,0 +1,25 @@
+name: data-point-callout
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: Short name for the annotated point.
+    example: "Peak"
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The figure being called out.
+    example: "$61,900"
+  tone:
+    type: enum
+    values: [primary, success, danger]
+    default: primary
+    title: Tone
+    description: Colours the marker dot to signal the point's meaning (neutral, good, bad).
+variants:
+  tone:
+    primary: "bg-primary"
+    success: "bg-success"
+    danger: "bg-danger"

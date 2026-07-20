@@ -1,0 +1,37 @@
+name: vet-clinic-card
+props:
+  name:
+    type: string
+    required: true
+    title: Clinic name
+    example: "Maple Street Veterinary"
+  address:
+    type: string
+    title: Address
+    example: "128 Maple St, Portland, OR"
+  rating:
+    type: string
+    title: Rating
+    description: Average rating, formatted for display, e.g. "4.8".
+    example: "4.8"
+  phone:
+    type: string
+    title: Phone
+    description: Phone number in display form; also used for the Call link.
+    example: "(503) 555-0142"
+  hours:
+    type: string
+    title: Hours
+    description: Short hours summary, e.g. "Mon-Fri 8am-6pm".
+    example: "Mon-Fri 8am-6pm"
+  services:
+    type: array
+    items: string
+    title: Services
+    description: A list of service labels shown as chips.
+    example: ["Surgery", "Dentistry", "Emergency"]
+  open_now:
+    type: boolean
+    default: false
+    title: Open now
+    description: When true shows an "Open now" badge, otherwise "Closed".

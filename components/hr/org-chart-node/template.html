@@ -1,0 +1,19 @@
+<div class="org-chart-node flex flex-col items-center">
+  <article class="org-chart-node__manager w-64 max-w-full rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+    <div class="mx-auto flex size-14 items-center justify-center overflow-hidden rounded-pill bg-surface-raised">
+      <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+      <span data-if="!avatar" class="font-heading text-lg text-on-surface-muted">{{ initials }}</span>
+    </div>
+    <p class="org-chart-node__name mt-2 font-heading text-on-surface">{{ name }}</p>
+    <p class="text-sm text-on-surface-muted">{{ title }}</p>
+  </article>
+  <div data-if="reports" class="org-chart-node__reports mt-6 flex flex-wrap justify-center gap-4 border-t border-border pt-6">
+    <article data-for="report in reports" class="org-chart-node__report flex w-40 max-w-full flex-col items-center rounded-card border border-border bg-surface-raised p-3 text-center">
+      <div class="flex size-10 items-center justify-center overflow-hidden rounded-pill bg-surface">
+        <span class="font-heading text-sm text-on-surface-muted">{{ report.initials }}</span>
+      </div>
+      <p class="mt-1 text-sm font-medium text-on-surface">{{ report.name }}</p>
+      <p class="text-xs text-on-surface-muted">{{ report.title }}</p>
+    </article>
+  </div>
+</div>

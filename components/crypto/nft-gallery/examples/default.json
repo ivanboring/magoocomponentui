@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "image": "/stock/stage1.jpg", "name": "Cosmic Drifter #204", "collection": "Cosmic Drifters", "price": "2.4", "currency": "ETH" },
+    { "image": "/stock/stage2.jpg", "name": "Neon Horizon #018", "collection": "Neon Horizons", "price": "0.85", "currency": "ETH" },
+    { "image": "/stock/stage3.jpg", "name": "Aurora Fragment #77", "collection": "Aurora Fragments", "price": "1.15", "currency": "ETH" },
+    { "image": "/stock/introduction.jpg", "name": "Quiet Signal #301", "collection": "Signals", "price": "0.42", "currency": "ETH" },
+    { "image": "/stock/cover-workspace.jpg", "name": "Desk Study #12", "collection": "Studies", "price": "3.05", "currency": "ETH" },
+    { "image": "/stock/product-sneaker.jpg", "name": "Kicks Genesis #009", "collection": "Kicks Genesis", "price": "0.6", "currency": "ETH" },
+    { "image": "/stock/stage1.jpg", "name": "Cosmic Drifter #211", "collection": "Cosmic Drifters", "price": "2.1", "currency": "ETH" },
+    { "image": "/stock/stage2.jpg", "name": "Neon Horizon #044", "collection": "Neon Horizons", "price": "0.95", "currency": "ETH" }
+  ]
+}

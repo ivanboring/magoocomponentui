@@ -1,0 +1,15 @@
+{
+  "device": "Sprinklers",
+  "on_time": "06:00",
+  "off_time": "06:20",
+  "enabled": false,
+  "days": [
+    { "label": "M", "active": false },
+    { "label": "T", "active": false },
+    { "label": "W", "active": true },
+    { "label": "T", "active": false },
+    { "label": "F", "active": false },
+    { "label": "S", "active": true },
+    { "label": "S", "active": true }
+  ]
+}

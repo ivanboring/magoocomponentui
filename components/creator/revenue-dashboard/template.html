@@ -1,0 +1,26 @@
+<section class="revenue-dashboard rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="revenue-dashboard__head">
+    <p class="text-sm text-on-surface-muted">Total revenue<span data-if="period"> &middot; {{ period }}</span></p>
+    <p class="revenue-dashboard__total mt-1 font-heading text-4xl text-on-surface tabular-nums">{{ total }}</p>
+  </header>
+
+  <dl data-if="stats" class="revenue-dashboard__stats mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <div data-for="stat in stats" class="revenue-dashboard__stat flex flex-col gap-1">
+      <dt class="text-xs uppercase tracking-wide text-on-surface-muted">{{ stat.label }}</dt>
+      <dd class="flex items-baseline gap-2">
+        <span class="font-heading text-lg text-on-surface tabular-nums">{{ stat.value }}</span>
+        <span data-if="stat.change" class="revenue-dashboard__change text-xs font-medium tabular-nums text-on-surface-muted data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ stat.change_dir }}">{{ stat.change }}</span>
+      </dd>
+    </div>
+  </dl>
+
+  <div data-if="bars" class="revenue-dashboard__chart mt-6">
+    <div class="flex h-40 items-end gap-2">
+      <div data-for="bar in bars" class="revenue-dashboard__bar-col group flex h-full flex-1 flex-col items-center justify-end gap-1">
+        <span class="text-[11px] font-medium tabular-nums text-on-surface-muted opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100">{{ bar.value }}</span>
+        <div class="revenue-dashboard__bar w-full rounded-t-control bg-primary transition-colors duration-(--duration-token) group-hover:bg-primary/80" style="height: {{ bar.height_pct }}%"></div>
+        <span class="text-[11px] text-on-surface-muted">{{ bar.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>

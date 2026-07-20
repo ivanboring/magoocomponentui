@@ -1,0 +1,79 @@
+name: "Anchor Subnav"
+short_description: A sticky horizontal in-page section nav that highlights the active section on scroll.
+long_visual_description: >
+  A slim sticky bar of horizontal links, one per page section, that scrolls sideways on
+  overflow. The link for the section currently in view gains a primary underline and text
+  colour. It sits at the top of the viewport and updates as the reader scrolls.
+
+use_cases:
+  - In-page section nav for a long marketing or landing page.
+  - Sticky sub-navigation under a hero for jumping between sections.
+  - Product page section switcher (overview, features, pricing, FAQ).
+  - Documentation article with a horizontal section bar.
+  - Case study or report broken into anchored sections.
+
+recommended_for:
+  - A single page split into several anchored sections that the reader scrolls through.
+avoid_for:
+  - Cross-page site navigation (use navbar or sidebar-nav).
+  - A vertical in-article contents rail (use table-of-contents).
+
+markets:
+  - Global
+
+example_usage: >
+  Point each item href at an on-page section id (e.g. #pricing) and give the section
+  elements matching ids. The behavior tracks which section is in view and highlights its
+  link. When no matching sections exist on the page it leaves the static active item alone.
+
+how_to_use: >
+  behavior.js reads each link's href hash and looks up the matching element by id. If any
+  targets exist it creates an IntersectionObserver (rootMargin "0px 0px -70% 0px") over the
+  sections and sets data-active="true"/aria-current on the link whose section is in view,
+  clearing the rest; clicking a link marks it active immediately. With no matching sections
+  present it degrades gracefully to the example's static active state. The cleanup function
+  disconnects the observer and removes the click listener. No configuration attributes are
+  required; the markup provides everything the init needs.
+
+props:
+  label: Accessible label for the nav landmark.
+  items: The section links; each href is an on-page anchor and active marks the current one.
+
+example_prompts:
+  - "Add a sticky section nav that highlights the section I'm scrolling through."
+  - "Add a horizontal in-page anchor navigation with scroll-spy."
+
+lifecycle: experimental
+content_model: A list of on-page section links with active-section tracking.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels to one or two words so the bar fits without heavy horizontal scrolling; match
+  each label to its section heading.
+
+relationships:
+  related:
+    - editorial/table-of-contents
+    - navigation/tabs
+    - navigation/sticky-header
+
+categorization:
+  category: Navigation
+  subcategory: Wayfinding
+  atomic_type: molecule
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active link sets aria-current; links resolve to real on-page section ids so keyboard users can jump between sections.
+  keyboard_support: Each section link is focusable and activates on Enter; activation also sets it active immediately.
+  seo_score: 45
+  text_direction: both

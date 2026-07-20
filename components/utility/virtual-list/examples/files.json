@@ -1,0 +1,66 @@
+{
+  "total": "2,480",
+  "row_height": "40px",
+  "rows": [
+    {
+      "label": "report-q1.pdf"
+    },
+    {
+      "label": "invoice-0912.pdf"
+    },
+    {
+      "label": "design-specs.fig"
+    },
+    {
+      "label": "budget.xlsx"
+    },
+    {
+      "label": "notes.md"
+    },
+    {
+      "label": "logo-final.svg"
+    },
+    {
+      "label": "hero-banner.png"
+    },
+    {
+      "label": "contract.docx"
+    },
+    {
+      "label": "backup.zip"
+    },
+    {
+      "label": "readme.txt"
+    },
+    {
+      "label": "photo-001.jpg"
+    },
+    {
+      "label": "photo-002.jpg"
+    },
+    {
+      "label": "styles.css"
+    },
+    {
+      "label": "index.html"
+    },
+    {
+      "label": "app.js"
+    },
+    {
+      "label": "data.json"
+    },
+    {
+      "label": "schema.sql"
+    },
+    {
+      "label": "avatar.png"
+    },
+    {
+      "label": "cover.jpg"
+    },
+    {
+      "label": "slides.key"
+    }
+  ]
+}

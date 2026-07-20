@@ -1,0 +1,9 @@
+{
+  "vehicle_id": "Truck 14",
+  "driver": "Marta Ruiz",
+  "initials": "MR",
+  "status": "moving",
+  "location": "I-70, near Dayton",
+  "fuel_pct": 68,
+  "load": "18 pallets"
+}

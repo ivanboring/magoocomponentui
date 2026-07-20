@@ -1,0 +1,69 @@
+name: "API Method Badge"
+short_description: A small colour-coded pill showing an HTTP verb (GET, POST, PUT, PATCH, DELETE) for API docs and endpoint lists.
+long_visual_description: >
+  A compact, uppercase monospace pill with a soft tinted background and matching text colour. The
+  tint encodes the HTTP verb by convention: GET reads as informational blue, POST as success green,
+  PUT and PATCH as warning amber, and DELETE as danger red.
+
+use_cases:
+  - Label the method on a row in a REST API reference.
+  - Prefix an endpoint path in developer documentation.
+  - Tag a request in an API changelog or migration guide.
+  - Mark the verb inside a request/response example.
+  - Show the method in an interactive API explorer or console.
+  - Annotate routes in an internal service catalog.
+
+recommended_for:
+  - Any place an HTTP verb needs a consistent, glanceable colour code.
+  - Composing into endpoint rows, method lists, and request viewers.
+avoid_for:
+  - Non-HTTP status or category labels (use a generic badge).
+  - Long text labels (this is a fixed-width verb pill).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a single method value (get, post, put, patch or delete). The pill picks its tinted colour
+  from the enum variant map; the verb is rendered uppercase in a monospace face.
+
+props:
+  method: "The HTTP verb to display; also selects the pill colour (get=info, post=success, put/patch=warning, delete=danger)."
+
+example_prompts:
+  - "Add a GET method badge before the endpoint path."
+  - "Show a red DELETE pill on the destructive route."
+
+lifecycle: experimental
+content_model: A single HTTP verb from a fixed set of five values.
+
+theming:
+  tokens_used:
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-control
+    - --font-mono
+
+editorial_guidance: >
+  Use the standard verb-to-colour convention and keep it consistent across the docs so readers learn
+  the colour language once. The verb text is generated from the value, so pass a lowercase method.
+
+relationships:
+  related:
+    - developer/endpoint-row
+    - developer/request-response-viewer
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: atom
+  usage_type: [badge, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Colour is a redundant cue — the verb text itself always states the method, so meaning does not rely on colour alone.
+  keyboard_support: none
+  seo_score: 20
+  text_direction: ltr

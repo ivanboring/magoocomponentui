@@ -1,0 +1,9 @@
+{
+  "orientation": "horizontal",
+  "items": [
+    { "label": "Direct", "color_class": "bg-primary", "value": "40%" },
+    { "label": "Organic search", "color_class": "bg-accent", "value": "30%" },
+    { "label": "Referral", "color_class": "bg-success", "value": "20%" },
+    { "label": "Social", "color_class": "bg-warning", "value": "10%" }
+  ]
+}

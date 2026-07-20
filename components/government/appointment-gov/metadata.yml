@@ -1,0 +1,85 @@
+name: "Government Appointment Booking"
+short_description: A booking card for an office visit with office details, a date-and-time-slot grid, and a Book button.
+long_visual_description: >
+  A surface card headed by an office name and address with a location pin, followed by one or more
+  days each showing a grid of time-slot buttons. Unavailable slots are muted, struck through, and
+  non-interactive; the chosen slot is highlighted in the primary colour. A footer shows the selected
+  slot summary alongside a primary "Book appointment" button.
+
+use_cases:
+  - Book an in-person visit to a passport, licensing, or registration office.
+  - Reserve a slot for a benefits or immigration interview.
+  - Schedule a document verification or biometrics appointment.
+  - Offer citizens available times at a council service point.
+  - Health or DMV-style appointment picker with limited slots.
+  - Any official flow where the citizen chooses a day and time to attend.
+
+recommended_for:
+  - Choosing a single appointment slot from a small set of days and times.
+  - Flows that must show which times are already taken.
+avoid_for:
+  - A full month calendar view (use a calendar component).
+  - Multi-attendee or resource scheduling with complex rules.
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Provide office and address strings plus a dates array (each { label, slots } where slots is a
+  nested array of { time, available, selected }). Mark unavailable times available:false and the
+  chosen one selected:true, and pass a selected summary string for the footer.
+
+props:
+  office: "Name of the office or service point being booked."
+  address: "The office address shown under the name."
+  dates: "The bookable days; each has a label and a nested slots array of { time, available, selected }."
+  selected: "Optional human-readable summary of the chosen slot, shown by the Book button."
+
+example_prompts:
+  - "Add an appointment booking card for the passport office with two days of time slots."
+  - "Build a government office visit booker showing taken slots as disabled and one slot selected."
+
+lifecycle: experimental
+content_model: Office details plus a set of days, each with time slots marked available or taken, and a chosen slot.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Group slots under clear, short day labels and show only genuinely bookable windows. Keep taken
+  slots visible but disabled so availability reads at a glance, and confirm the choice in the footer
+  summary before the citizen books.
+
+relationships:
+  related:
+    - government/service-finder
+    - government/document-upload-gov
+
+categorization:
+  category: Government
+  subcategory: Scheduling
+  atomic_type: molecule
+  usage_type: [form, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Slot availability and selection are encoded on data-attributes plus a strike-through (not colour alone); unavailable slots are non-interactive; all active controls are focusable with visible focus rings and the location icon is aria-hidden.
+  keyboard_support: Available slot buttons and the Book button are keyboard focusable and activate on Enter/Space; unavailable slots are non-interactive.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,41 @@
+name: goal-okr-row
+props:
+  objective:
+    type: string
+    required: true
+    title: Objective
+    description: The objective or goal statement.
+    example: "Grow qualified pipeline by 30%"
+  owner:
+    type: string
+    title: Owner
+    description: The person or team accountable for the objective.
+    example: "Revenue Team"
+  progress:
+    type: integer
+    required: true
+    title: Progress
+    description: >
+      Precomputed overall completion percentage from 0-100 (the directive language can't do the
+      arithmetic - pass the value and it is used for both the bar width and the shown number).
+    example: 62
+  status:
+    type: enum
+    values: [on-track, at-risk, behind]
+    title: Status
+    description: Delivery health; drives the pill colour. Omit to hide the pill.
+  key_results:
+    type: array
+    items: object
+    title: Key results
+    description: >
+      Optional key results shown as labelled mini-bars. Each item: { label, pct } where pct is a
+      precomputed 0-100 completion percentage.
+    example:
+      - { label: "New SQLs booked", pct: 70 }
+      - { label: "Win rate", pct: 45 }
+variants:
+  status:
+    on-track: "bg-success/10 text-success"
+    at-risk: "bg-warning/10 text-warning"
+    behind: "bg-danger/10 text-danger"

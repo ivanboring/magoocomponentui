@@ -1,0 +1,6 @@
+<ol class="order-status-rail flex items-stretch gap-2 overflow-x-auto" aria-label="{{ label }}">
+  <li data-for="stage in stages" class="order-status-rail__stage flex min-w-24 flex-1 flex-col items-center gap-1 rounded-control border border-border bg-surface px-3 py-2.5 text-center shadow-card data-[active=true]:border-primary data-[active=true]:bg-primary/10" data-active="{{ stage.active }}">
+    <span class="order-status-rail__count font-heading text-2xl tabular-nums text-on-surface data-[active=true]:text-primary" data-active="{{ stage.active }}">{{ stage.count }}</span>
+    <span class="order-status-rail__label text-xs font-medium text-on-surface-muted data-[active=true]:text-primary" data-active="{{ stage.active }}">{{ stage.label }}</span>
+  </li>
+</ol>

@@ -1,0 +1,81 @@
+name: "Thread Message"
+short_description: One message card in an email conversation, expandable or collapsed to a one-line preview.
+long_visual_description: >
+  A card on the surface colour with a header row of a round avatar, the sender name, and a timestamp
+  on the trailing edge. When expanded, the sanitized HTML body renders below the header as spaced,
+  readable paragraphs. When collapsed, the body is hidden and a single muted one-line preview sits
+  under the header instead, so a long thread can show earlier messages compactly.
+
+use_cases:
+  - A single message within an email conversation thread.
+  - A collapsed earlier reply in a long thread.
+  - The latest, expanded message at the bottom of a thread.
+  - A quoted prior message shown compactly above a reply.
+  - A comment-style message in a support ticket thread.
+  - Stacked messages forming a full conversation view.
+
+recommended_for:
+  - Building an email thread as a stack of message cards.
+  - Conversations where older messages collapse to previews.
+avoid_for:
+  - A standalone opened email with attachments (use email-reader).
+  - A compact inbox line (use email-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several in a column with a small gap to form a thread. Set collapsed true on older messages
+  and pass a precomputed one-line preview for them; leave the newest message expanded with its full
+  body_html.
+
+props:
+  sender: "The sender object: name, and either avatar (image URL) or initials."
+  time: A pre-formatted timestamp string you supply.
+  body_html: The sanitized message body HTML; rendered raw and shown only when expanded.
+  collapsed: When true, hides the body and shows the one-line preview instead.
+  preview: A precomputed one-line plain-text preview shown when collapsed.
+
+example_prompts:
+  - "Show an expanded thread message from Ava Chen."
+  - "Add a collapsed earlier reply with a one-line preview."
+  - "Render an email thread as a stack of message cards."
+
+lifecycle: experimental
+content_model: A sender identity, a time, an HTML body, and an optional collapsed state with a preview line.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --space-card
+
+editorial_guidance: >
+  Keep the newest message expanded and collapse the rest. Sanitize body_html upstream, and derive the
+  collapsed preview from the body's first line so it reads as a genuine teaser.
+
+relationships:
+  parents:
+    - email/email-reader
+  related:
+    - email/email-reader
+    - email/email-row
+    - email/attachment-row
+
+categorization:
+  category: Email
+  subcategory: Thread
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A semantic article per message; avatar images use empty alt and are decorative; body markup should be sanitized upstream since it renders raw.
+  keyboard_support: None - static; the body and preview are non-interactive text.
+  seo_score: 30
+  text_direction: both

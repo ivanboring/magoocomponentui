@@ -1,0 +1,32 @@
+name: autocomplete-panel
+props:
+  query:
+    type: string
+    default: ""
+    title: Query
+    description: The text prefilled into the search input (usually what the user has typed so far).
+  placeholder:
+    type: string
+    default: "Search…"
+    title: Placeholder
+    description: Placeholder text shown in the empty search input.
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Suggestion groups
+    description: >
+      The grouped suggestions shown in the panel. Each group:
+      { label, items: [{ label, icon, meta }] }. label is the group heading;
+      each item has a label, an optional icon (raw inline SVG html) and an optional
+      muted meta string (e.g. a category or result count) shown at the right.
+    example:
+      - label: "Suggestions"
+        items:
+          - { label: "wireless earbuds", meta: "in Audio" }
+          - { label: "wireless charger", meta: "in Accessories" }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render the suggestions panel already open (used for screenshots/previews).

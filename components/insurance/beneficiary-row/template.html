@@ -1,0 +1,10 @@
+<div class="beneficiary-row flex items-center gap-3 rounded-card border border-border bg-surface p-4">
+  <span class="beneficiary-row__avatar flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-raised font-heading text-sm font-medium text-on-surface" aria-hidden="true">{{ initials }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-on-surface">{{ name }}</p>
+    <p data-if="relationship" class="truncate text-sm text-on-surface-muted">{{ relationship }}</p>
+  </div>
+  <span class="beneficiary-row__share shrink-0 rounded-pill bg-primary/10 px-2.5 py-1 text-sm font-medium tabular-nums text-primary">{{ share_pct }}%</span>
+  <span data-if="primary" class="shrink-0 rounded-pill bg-success/10 px-2.5 py-1 text-xs font-medium text-success">Primary</span>
+  <span data-if="!primary" class="shrink-0 rounded-pill bg-surface-raised px-2.5 py-1 text-xs font-medium text-on-surface-muted">Contingent</span>
+</div>

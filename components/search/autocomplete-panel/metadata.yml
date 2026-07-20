@@ -1,0 +1,90 @@
+name: "Autocomplete Panel"
+short_description: A search input with a floating popover of grouped, iconed suggestions that opens on focus and typing.
+long_visual_description: >
+  A search field with a magnifier icon inside a bordered control. On focus or as the
+  user types, a raised surface popover drops below it listing suggestions grouped under
+  small uppercase headings. Each suggestion row shows an optional leading icon, its label,
+  and an optional muted meta note (a category or count) aligned to the right; rows
+  highlight on hover. Choosing a suggestion fills the input and closes the panel; Escape
+  or clicking outside also closes it.
+
+use_cases:
+  - Site search with categorized suggestions (products, pages, people).
+  - A header search box that previews matches before submitting.
+  - Command or entity lookup grouped by type.
+  - Recent and suggested queries shown together under separate headings.
+  - Address or place search with a category label per result.
+  - Any typeahead where suggestions benefit from grouping and icons.
+
+recommended_for:
+  - Search inputs whose suggestions fall into a few labelled groups.
+  - Previewing matches with an icon and a short meta note per row.
+avoid_for:
+  - Selecting one value from a flat option list into a form field (use combobox).
+  - App-wide command running with keyboard-first navigation (use command-palette).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a groups array; each group has a label and an items array of { label, icon, meta }.
+  icon is raw inline SVG markup and meta is an optional muted note. Set start_open true
+  only for previews and screenshots. Listen for suggest:pick to read the chosen label.
+
+props:
+  query: "Text prefilled into the input, usually what the user has typed so far."
+  placeholder: "Placeholder shown in the empty input."
+  groups: "The grouped suggestions; each group has a heading label and rows of label/icon/meta."
+  start_open: "Renders the panel already open; for previews and screenshots only."
+
+example_prompts:
+  - "Add a site-search box with grouped autocomplete suggestions."
+  - "Show product and page suggestions under separate headings as the user types."
+
+lifecycle: experimental
+content_model: A search input plus a grouped list of suggestion rows (label, optional icon, optional meta).
+
+how_to_use: >
+  A vanilla-JS typeahead popover. The panel is an absolutely positioned surface hidden
+  with invisible/opacity-0/pointer-events-none and revealed by group-data-[open=true]
+  when the root's data-open flips true. behavior.js opens it on focus and input, closes
+  it on Escape or an outside click, and on clicking a suggestion fills the input and
+  fires suggest:pick with the chosen { label }. Screenshots use start_open to show the
+  open state without JS.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep group headings to one or two words and limit each group to a handful of rows.
+  Use the meta note for a lightweight category or count, not a second line of copy.
+  Order groups from most to least likely to hold the match.
+
+relationships:
+  related:
+    - forms/combobox
+    - search/trending-searches
+    - overlays/command-palette
+
+categorization:
+  category: Search
+  subcategory: Inputs
+  atomic_type: organism
+  usage_type: [form, input, overlay]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The input is role="combobox" with aria-autocomplete="list" and aria-expanded reflecting the open state; the panel is role="listbox" with role="option" rows; Escape closes and focus is returned to the input on selection.
+  keyboard_support: Focus opens the panel; typing keeps it open; Escape closes it. Suggestion rows are focusable buttons activated with Enter/Space.
+  seo_score: 15
+  text_direction: both

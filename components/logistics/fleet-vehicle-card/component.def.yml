@@ -1,0 +1,45 @@
+name: fleet-vehicle-card
+props:
+  vehicle_id:
+    type: string
+    required: true
+    title: Vehicle ID
+    description: The vehicle's fleet identifier or plate.
+    example: "Truck 14"
+  driver:
+    type: string
+    title: Driver
+    description: Name of the assigned driver.
+    example: "Marta Ruiz"
+  initials:
+    type: string
+    title: Driver initials
+    description: Precomputed initials shown in the driver avatar (caller supplies, e.g. "MR").
+    example: "MR"
+  status:
+    type: enum
+    values: [moving, idle, stopped, maintenance]
+    default: idle
+    title: Status
+    description: Current vehicle state; drives the status pill colour.
+  location:
+    type: string
+    title: Location
+    description: Human-readable current location or nearest landmark.
+    example: "I-70, near Dayton"
+  fuel_pct:
+    type: string
+    title: Fuel percent
+    description: Precomputed fuel level as a whole number 0-100; drives the fuel bar width. Omit to hide the bar.
+    example: 68
+  load:
+    type: string
+    title: Load
+    description: Short description of the current cargo or load state.
+    example: "18 pallets"
+variants:
+  status:
+    moving: "bg-success/10 text-success"
+    idle: "bg-warning/10 text-warning"
+    stopped: "bg-danger/10 text-danger"
+    maintenance: "bg-info/10 text-info"

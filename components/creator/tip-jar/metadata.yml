@@ -1,0 +1,90 @@
+name: "Tip Jar"
+short_description: A compact card for sending a one-off tip, with preset amount buttons, a custom field, and an optional goal bar.
+long_visual_description: >
+  A surface card headed by a heart icon and a "Support {creator}" title. Below sits a three-column
+  grid of preset amount buttons (the selected one filled in the primary colour), a bordered custom
+  amount field, an optional funding-goal progress bar with raised and goal labels, and a full-width
+  Send tip button.
+
+use_cases:
+  - A one-off tip or donation widget on a creator page.
+  - Buy-me-a-coffee style support prompt beneath content.
+  - A stream or video overlay tip prompt.
+  - A fundraising goal card with quick preset amounts.
+  - A post-purchase "leave a tip" ask.
+  - A gratuity picker with preset percentages or amounts.
+
+recommended_for:
+  - One-time tips and small donations.
+  - Support prompts that pair a few presets with a custom amount.
+avoid_for:
+  - Recurring memberships (use subscriber-tier-card).
+  - Full checkout flows with shipping and tax.
+
+markets:
+  - Global
+
+example_usage: >
+  Provide an amounts array of preset buttons (optionally pre-selecting one) and, if you are running
+  a campaign, a goal with the raised amount and a precomputed pct for the bar. The Send tip button
+  emits tip:send with the chosen amount.
+
+how_to_use: >
+  behavior.js wires interaction: clicking a preset selects it exclusively (data-selected drives the
+  fill) and clears the custom field; typing a custom amount deselects the presets; Send tip
+  dispatches a bubbling tip:send CustomEvent whose detail.amount is the custom value when present,
+  otherwise the selected preset. The goal bar is pure CSS driven by the precomputed pct, so it
+  renders without JavaScript. The portable self-init reads state from the DOM; no props are passed.
+
+props:
+  creator: "Name shown in the Support {creator} headline; omit for a generic Send a tip headline."
+  amounts: "Preset tip buttons, each a formatted value string; set selected on at most one to pre-highlight it."
+  goal: "Formatted funding goal; when set, the progress bar and raised/goal labels appear."
+  raised: "Formatted amount raised so far, shown beside the goal."
+  pct: "Precomputed goal progress (0-100) for the bar width; the caller divides raised by goal."
+
+lifecycle: experimental
+content_model: >
+  An optional creator name, a small set of preset amounts, an optional custom amount, and an
+  optional funding goal with a raised total and precomputed progress.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep presets to three or four round numbers and pre-select a sensible middle amount. Frame the
+  goal as progress, not pressure. Use plain, warm language in the headline.
+
+relationships:
+  related:
+    - creator/subscriber-tier-card
+    - creator/supporter-wall
+    - creator/live-stream-chrome
+
+categorization:
+  category: Creator
+  subcategory: Monetization
+  atomic_type: molecule
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Presets and Send are real buttons; the custom field has a visible label; the heart icon is aria-hidden.
+  keyboard_support: All buttons and the input are focusable; presets and Send activate on Enter/Space; the input accepts typed amounts.
+  seo_score: 30
+  text_direction: both

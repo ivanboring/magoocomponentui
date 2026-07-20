@@ -1,0 +1,33 @@
+name: hub-status
+props:
+  hub_name:
+    type: string
+    title: Hub name
+    description: The hub or bridge name shown as the title. The title hides when omitted.
+    example: "Home Hub"
+  online:
+    type: boolean
+    default: true
+    title: Online
+    description: Whether the hub is connected; drives the status dot and label.
+  device_count:
+    type: integer
+    title: Device count
+    description: Number of paired devices (precomputed). The line hides when omitted.
+    example: 24
+  offline_count:
+    type: integer
+    title: Offline devices
+    description: Number of paired devices currently unreachable (precomputed). The line hides when omitted or zero.
+    example: 2
+  signal:
+    type: enum
+    values: [strong, fair, weak]
+    title: Signal
+    description: Connection strength indicator; colours the signal readout. The readout hides when omitted.
+    example: strong
+variants:
+  signal:
+    strong: "text-success"
+    fair: "text-warning"
+    weak: "text-danger"

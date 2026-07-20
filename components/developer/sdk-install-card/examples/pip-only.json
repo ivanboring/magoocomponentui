@@ -1,0 +1,5 @@
+{
+  "commands": [
+    { "manager": "pip", "command": "pip install example-sdk", "active": true }
+  ]
+}

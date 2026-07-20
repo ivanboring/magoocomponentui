@@ -1,0 +1,75 @@
+name: "Virtual List"
+short_description: A windowed long-list shell - a fixed-height scroll container that renders one visible slice of a large dataset.
+long_visual_description: >
+  A bordered, fixed-height scroll container with a sticky header note that reports the size of the
+  full dataset ("Showing a window of 10,000 rows"). Below it, uniform fixed-height rows each show a
+  label and an optional right-aligned mono meta value, separated by hairline borders. Only the rows
+  passed in are drawn - the shell represents the visible window of a much longer list.
+
+use_cases:
+  - The scroll-container chrome for a very long records list.
+  - A file or asset browser showing a window into thousands of items.
+  - A log or event stream with a fixed row height.
+  - A contacts or directory list too large to render whole.
+  - A picker for a large option set (countries, currencies, symbols).
+  - A data-table body where only the on-screen rows are mounted.
+
+recommended_for:
+  - Presenting the visible slice of a large, uniform-height list.
+  - Cases where full rendering would be too heavy and a windowing library supplies the slice.
+avoid_for:
+  - Short lists that fit on screen (render them directly).
+  - Variable-height rows (windowing here assumes a fixed row height).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the currently visible rows (each { label, meta }) plus the human-formatted total and a fixed
+  row_height. This is a skeleton: real virtualization needs a windowing library (or Intersection
+  Observer paging) to compute and swap the visible slice as the container scrolls - the shell
+  provides the scroll container, sticky total note and row chrome to drop that into.
+
+props:
+  rows: "The rows in the current window. Each item: label plus an optional meta value shown right-aligned in mono."
+  total: "Human-formatted size of the full dataset, shown in the sticky header note; the note is hidden when omitted."
+  row_height: "Fixed height of every row as a CSS length; uniform heights are what make windowing possible."
+
+example_prompts:
+  - Give me a windowed list shell for ten thousand contacts.
+  - Add a fixed-height scroll list showing a slice of a big file browser.
+  - Render a virtual list with a total-count header.
+
+lifecycle: experimental
+content_model: A fixed-height scroll container rendering the visible window of a large, uniform-height list.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-mono
+
+editorial_guidance: >
+  Keep rows a single record type with a scannable label and a compact meta value (an id, size or
+  timestamp). Report the true dataset size in total so the window reads as part of a larger whole.
+
+relationships:
+  related:
+    - utility/infinite-scroll-sentinel
+    - utility/scroll-spy-nav
+
+categorization:
+  category: UI Utilities
+  subcategory: Lists
+  atomic_type: organism
+  usage_type: [list, container]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The container is keyboard-scrollable; rows are plain text. A production virtualized list should preserve list semantics and focus management for the mounted slice.
+  keyboard_support: The scroll container is focusable and scrolls with the keyboard.
+  seo_score: 20
+  text_direction: both

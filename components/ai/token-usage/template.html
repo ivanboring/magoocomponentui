@@ -1,0 +1,10 @@
+<div class="token-usage flex flex-col gap-2">
+  <div class="flex items-baseline justify-between gap-3 text-sm">
+    <span class="font-medium text-on-surface">{{ label }}</span>
+    <span class="font-mono text-on-surface-muted"><span class="text-on-surface">{{ used }}</span> / {{ limit }}</span>
+  </div>
+  <div class="token-usage__track h-2 overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-label="{{ label }}" aria-valuenow="{{ used_pct }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="token-usage__fill h-full rounded-pill transition-[width] duration-(--duration-token) {{ tone@class }}" style="width: {{ used_pct }}%"></div>
+  </div>
+  <p data-if="cost" class="text-xs text-on-surface-muted">{{ cost }}</p>
+</div>

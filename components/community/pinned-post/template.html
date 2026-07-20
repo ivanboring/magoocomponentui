@@ -1,0 +1,16 @@
+<article class="pinned-post rounded-card border border-l-4 border-primary bg-primary/5 p-(--space-card) shadow-card">
+  <p class="mb-2 flex items-center gap-1.5 text-primary">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 2h6M9 2v5L6 10v1h8v-1l-3-3V2M10 14v4"/></svg>
+    <span class="text-xs font-medium uppercase tracking-wide">Pinned</span>
+  </p>
+  <h3 class="font-heading text-lg text-on-surface">
+    <a data-if="href" class="hover:underline focus-visible:underline" href="{{ href }}">{{ title }}</a>
+    <span data-if="!href">{{ title }}</span>
+  </h3>
+  <p class="mt-1 text-sm text-on-surface-muted">
+    <span class="font-medium text-on-surface">{{ author }}</span>
+    <span aria-hidden="true"> · </span>
+    <span>{{ time }}</span>
+  </p>
+  <p data-if="excerpt" class="mt-2 text-sm text-on-surface-muted">{{ excerpt }}</p>
+</article>

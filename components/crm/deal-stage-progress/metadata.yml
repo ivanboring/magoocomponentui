@@ -1,0 +1,75 @@
+name: "Deal Stage Progress"
+short_description: A horizontal stepper showing a single deal's position through ordered pipeline stages.
+long_visual_description: >
+  A horizontal row of stage markers joined by connector lines. Completed stages show a filled
+  primary marker with a check and a primary connector; the current stage shows an outlined marker
+  with a soft primary ring and a bolded label; upcoming stages stay muted with a grey line. Each
+  marker sits above its stage label.
+
+use_cases:
+  - Showing where one deal sits in the sales pipeline.
+  - A step indicator on a deal detail page.
+  - An order or fulfilment status stepper.
+  - An onboarding or approval progress bar for an account.
+  - A quote-to-close status header.
+  - A compact stage summary above a deal card.
+
+recommended_for:
+  - A single opportunity's linear progress through named stages.
+  - A header that orients a user to the current stage at a glance.
+avoid_for:
+  - Many deals across stages (use pipeline-board).
+  - A chronological activity log (use activity-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stages array in order. Mark completed stages with done true and the active stage with
+  current true; leave both off for upcoming stages. Set exactly one stage current so the ring lands
+  in one place.
+
+props:
+  stages: "The ordered stages. Each has a label, a done boolean for completed stages (filled marker plus check), and a current boolean for the active stage (ring). Neither flag means upcoming."
+
+example_prompts:
+  - Show a deal stage stepper with Qualified done and Proposal current.
+  - Add a pipeline progress bar for this opportunity.
+  - Render a horizontal stage indicator ending at Closed Won.
+
+lifecycle: experimental
+content_model: An ordered list of stages, each flagged as done, current, or upcoming.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep stage labels short and consistent with your pipeline. Mark every stage up to the current one
+  as done, set one stage current, and leave the rest upcoming so the progression reads clearly.
+
+relationships:
+  related:
+    - crm/pipeline-board
+    - crm/deal-card
+    - crm/activity-timeline
+
+categorization:
+  category: CRM & Sales
+  subcategory: Deals
+  atomic_type: molecule
+  usage_type: [stepper, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stage state is reinforced by the check glyph and label weight, not colour alone; the stepper uses ordered-list semantics with an accessible name.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: ltr

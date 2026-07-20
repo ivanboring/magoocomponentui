@@ -1,0 +1,26 @@
+name: petition-signer
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Protect the old-growth forest"
+  signatures:
+    type: string
+    required: true
+    title: Signatures
+    description: Current signature count as a display string (thousands formatting is the caller's).
+    example: "8,421"
+  goal:
+    type: string
+    title: Goal
+    description: Optional signature goal as a display string. When set, the progress bar and "of N goal" text are shown.
+    example: "10,000"
+  pct:
+    type: integer
+    title: Progress percent
+    description: >
+      Precomputed progress toward the goal, 0-100 (signatures / goal). Sets the
+      progress bar fill width and aria-valuenow; the directive language does no
+      arithmetic, so pass the computed value.
+    example: 84

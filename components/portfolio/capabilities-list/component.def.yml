@@ -1,0 +1,17 @@
+name: capabilities-list
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading above the checklist.
+    example: "What we do"
+  items:
+    type: array
+    items: object
+    required: true
+    title: Capabilities
+    description: "The services or capabilities. Each item: { label, note }. note is optional."
+    example:
+      - { label: "Brand & Identity", note: "Logo systems, guidelines, and voice." }
+      - { label: "Web Design & Build", note: "Design systems shipped as production code." }
+      - { label: "Motion & 3D" }

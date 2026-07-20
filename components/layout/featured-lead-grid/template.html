@@ -1,0 +1,28 @@
+<section class="featured-lead-grid grid {{ gap@class }} lg:grid-cols-3" role="group" aria-label="{{ label }}">
+  <article class="group relative flex min-h-[18rem] flex-col justify-end overflow-hidden rounded-card border border-border bg-surface shadow-card lg:col-span-2 lg:row-span-2">
+    <img class="absolute inset-0 size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ lead.image }}" alt="">
+    <span class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" aria-hidden="true"></span>
+    <div class="relative flex flex-col gap-1 p-5 text-white">
+      <span data-if="lead.eyebrow" class="text-xs font-medium uppercase tracking-wide text-white/80">{{ lead.eyebrow }}</span>
+      <h2 class="font-heading text-2xl">
+        <a data-if="lead.href" class="outline-none after:absolute after:inset-0 hover:underline focus-visible:underline" href="{{ lead.href }}">{{ lead.title }}</a>
+        <span data-if="!lead.href">{{ lead.title }}</span>
+      </h2>
+      <p data-if="lead.subtitle" class="text-sm text-white/80">{{ lead.subtitle }}</p>
+    </div>
+  </article>
+
+  <article data-for="item in items" class="group relative flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+    <div class="featured-lead-grid__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+      <img data-if="item.image" class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+    </div>
+    <div class="flex flex-1 flex-col gap-1 p-4">
+      <span data-if="item.eyebrow" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ item.eyebrow }}</span>
+      <h3 class="font-heading text-on-surface">
+        <a data-if="item.href" class="outline-none after:absolute after:inset-0 hover:underline focus-visible:underline" href="{{ item.href }}">{{ item.title }}</a>
+        <span data-if="!item.href">{{ item.title }}</span>
+      </h3>
+      <p data-if="item.subtitle" class="text-sm text-on-surface-muted">{{ item.subtitle }}</p>
+    </div>
+  </article>
+</section>

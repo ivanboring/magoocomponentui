@@ -1,0 +1,31 @@
+name: redemption-row
+props:
+  reward:
+    type: string
+    required: true
+    title: Reward
+    description: The name of the redeemed reward.
+    example: "$10 gift card"
+  points:
+    type: string
+    required: true
+    title: Points spent
+    description: Pre-formatted points spent on this redemption, shown with a leading minus (e.g. "1,500").
+    example: "1,500"
+  date:
+    type: string
+    title: Date
+    description: Optional date of the redemption (e.g. "Jul 12, 2026").
+    example: "Jul 12, 2026"
+  status:
+    type: enum
+    values: [redeemed, pending, expired]
+    default: redeemed
+    title: Status
+    description: The redemption's state, shown as a coloured pill.
+    example: redeemed
+variants:
+  status:
+    redeemed: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"
+    expired: "bg-danger/10 text-danger"

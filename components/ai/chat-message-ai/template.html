@@ -1,0 +1,24 @@
+<div class="chat-message-ai flex gap-3">
+  <div class="flex size-8 shrink-0 items-center justify-center rounded-pill bg-primary font-heading text-xs font-medium text-primary-contrast" aria-hidden="true">AI</div>
+  <div class="flex min-w-0 flex-1 flex-col gap-2">
+    <div class="chat-message-ai__content rounded-card bg-surface-raised px-4 py-3 text-sm leading-relaxed text-on-surface">
+      <slot name="content">{{ content }}</slot>
+    </div>
+    <div class="flex items-center gap-1 text-on-surface-muted">
+      <span data-if="model" class="mr-2 font-mono text-xs">{{ model }}</span>
+      <button type="button" class="chat-message-ai__copy flex size-7 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Copy message">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="2"/><path d="M13 7V5a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2"/></svg>
+      </button>
+      <button type="button" class="chat-message-ai__up flex size-7 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-success" aria-label="Good response">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 9v8H3V9h3zm0 0l3-6a2 2 0 012 2v2h4a2 2 0 012 2l-1.4 5A2 2 0 0114.6 17H6"/></svg>
+      </button>
+      <button type="button" class="chat-message-ai__down flex size-7 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-danger" aria-label="Bad response">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 11V3h3v8h-3zm0 0l-3 6a2 2 0 01-2-2v-2H5a2 2 0 01-2-2l1.4-5A2 2 0 015.4 3H14"/></svg>
+      </button>
+      <button type="button" class="chat-message-ai__regenerate flex size-7 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Regenerate response">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 4v4h-4M4 16v-4h4"/><path d="M15 8a6 6 0 00-10.5-2M5 12a6 6 0 0010.5 2"/></svg>
+      </button>
+      <span data-if="time" class="ml-auto font-mono text-xs">{{ time }}</span>
+    </div>
+  </div>
+</div>

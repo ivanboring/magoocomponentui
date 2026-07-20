@@ -1,0 +1,10 @@
+{
+  "employee": "Alex Morgan",
+  "period": "Q1 2026",
+  "overall_rating": "3.5/5",
+  "ratings": [
+    { "label": "Delivery", "score": "3.5/5", "pct": 70 },
+    { "label": "Collaboration", "score": "3.8/5", "pct": 76 },
+    { "label": "Quality", "score": "3.2/5", "pct": 64 }
+  ]
+}

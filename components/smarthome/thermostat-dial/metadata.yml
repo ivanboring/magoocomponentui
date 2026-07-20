@@ -1,0 +1,83 @@
+name: "Thermostat Dial"
+short_description: A circular thermostat gauge showing the target set-point, current reading, and mode.
+long_visual_description: >
+  A card holding a round dial: a muted background ring with a coloured value arc drawn over it,
+  the large target temperature centred inside the ring and a small uppercase mode label beneath it.
+  The arc colour follows the mode — warm for heat, cool blue for cool, primary for auto. Below the
+  dial a muted line states the current measured temperature in tabular figures.
+
+use_cases:
+  - Show a room thermostat's set-point and current temperature.
+  - Display a heating or cooling target in a climate dashboard.
+  - Summarise a smart-home zone's temperature at a glance.
+  - Show a schedule's upcoming target alongside the live reading.
+  - Pair with device tiles as the climate widget of a room view.
+
+recommended_for:
+  - Climate and thermostat dashboards.
+  - Room views that need a single clear temperature gauge.
+avoid_for:
+  - Editable dial interactions (this is a read-only display).
+  - Multi-series temperature history (use a chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the arc geometry, since the template does no arithmetic. For a full-ring gauge pass
+  arc_dash "251" and arc_offset 251 * (1 - fraction), where fraction maps the current or target
+  temperature across the dial's range.
+
+props:
+  current_temp: The live measured temperature, formatted with its unit.
+  target_temp: The set-point shown large in the dial centre.
+  mode: Optional running mode; colours the arc and shows a label.
+  arc_dash: Precomputed stroke-dasharray for the value arc (251 for a full ring).
+  arc_offset: Precomputed stroke-dashoffset setting the visible arc length.
+
+example_prompts:
+  - "Add a thermostat dial set to 21 degrees, currently 19.5, heating."
+  - "Show a cooling thermostat targeting 68 with the room at 72."
+  - "Put a climate dial in the living room dashboard."
+
+lifecycle: experimental
+content_model: A current and target temperature, an optional mode, and a precomputed arc geometry.
+
+relationships:
+  related:
+    - smarthome/device-tile
+    - smarthome/sensor-reading
+    - smarthome/energy-usage-meter
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep both temperatures short and consistently formatted with the same unit. The mode label stays
+  one word.
+
+categorization:
+  category: Smart Home
+  subcategory: Climate
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The dial is decorative (aria-hidden); the temperatures and mode are conveyed as text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

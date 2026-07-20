@@ -3,7 +3,7 @@
   <p data-if="description" class="newsletter-signup__description mx-auto mt-2 max-w-md text-on-surface-muted">{{ description }}</p>
   <form class="newsletter-signup__form mx-auto mt-5 flex max-w-md flex-col gap-2 sm:flex-row">
     <input type="email" class="newsletter-signup__input flex-1 rounded-control border border-border bg-surface px-4 py-2.5 text-sm text-on-surface outline-none placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}" aria-label="Email address" required>
-    <button type="submit" class="newsletter-signup__cta shrink-0 rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">{{ cta_label }}</button>
+    <button type="submit" class="newsletter-signup__cta shrink-0 rounded-button bg-primary px-6 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">{{ cta_label }}</button>
   </form>
   <p data-if="note" class="newsletter-signup__note mt-3 text-xs text-on-surface-muted">{{ note }}</p>
 </section>

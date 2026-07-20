@@ -1,0 +1,34 @@
+<div class="transfer-list grid grid-cols-[1fr_auto_1fr] items-stretch gap-3">
+  <div class="transfer-list__pane flex flex-col overflow-hidden rounded-card border border-border bg-surface">
+    <div class="border-b border-border px-3 py-2 text-sm font-medium text-on-surface">{{ available_label }}</div>
+    <ul class="transfer-list__list flex min-h-40 flex-1 flex-col gap-0.5 overflow-y-auto p-2" data-list="available">
+      <li data-for="item in available">
+        <button type="button" class="transfer-list__row flex w-full items-center rounded-control px-3 py-1.5 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary" data-value="{{ item.value }}" data-selected="{{ item.selected }}" aria-pressed="{{ item.selected }}">{{ item.label }}</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="transfer-list__controls flex flex-col items-center justify-center gap-2">
+    <button type="button" class="transfer-list__move flex size-9 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-move="add-all" aria-label="Move all to chosen">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4l6 6-6 6M10 4l6 6-6 6"/></svg>
+    </button>
+    <button type="button" class="transfer-list__move flex size-9 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-move="add" aria-label="Move selected to chosen">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4l6 6-6 6"/></svg>
+    </button>
+    <button type="button" class="transfer-list__move flex size-9 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-move="remove" aria-label="Move selected to available">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 4l-6 6 6 6"/></svg>
+    </button>
+    <button type="button" class="transfer-list__move flex size-9 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-move="remove-all" aria-label="Move all to available">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4l-6 6 6 6M10 4l-6 6 6 6"/></svg>
+    </button>
+  </div>
+
+  <div class="transfer-list__pane flex flex-col overflow-hidden rounded-card border border-border bg-surface">
+    <div class="border-b border-border px-3 py-2 text-sm font-medium text-on-surface">{{ chosen_label }}</div>
+    <ul class="transfer-list__list flex min-h-40 flex-1 flex-col gap-0.5 overflow-y-auto p-2" data-list="chosen">
+      <li data-for="item in chosen">
+        <button type="button" class="transfer-list__row flex w-full items-center rounded-control px-3 py-1.5 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary" data-value="{{ item.value }}" data-selected="{{ item.selected }}" aria-pressed="{{ item.selected }}">{{ item.label }}</button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "label": "Document menu",
+  "menus": [
+    {
+      "label": "File",
+      "items": [
+        { "label": "New", "href": "#", "shortcut": "Cmd N" },
+        { "label": "Open", "href": "#", "shortcut": "Cmd O" },
+        { "divider": true },
+        { "label": "Close", "href": "#" }
+      ]
+    },
+    {
+      "label": "Help",
+      "items": [
+        { "label": "Documentation", "href": "#" },
+        { "label": "Keyboard Shortcuts", "href": "#", "shortcut": "Cmd /" },
+        { "divider": true },
+        { "label": "About", "href": "#" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<div class="sdk-install-card overflow-hidden rounded-card border border-border bg-surface">
+  <div class="sdk-install-card__list flex items-center gap-1 border-b border-border px-2" role="tablist" aria-label="Package manager">
+    <button data-for="cmd in commands" type="button" class="sdk-install-card__tab -mb-px border-b-2 border-transparent px-3 py-2 font-mono text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" id="sdktab-{{ cmd.manager }}" aria-controls="sdkpanel-{{ cmd.manager }}" aria-selected="{{ cmd.active }}" data-active="{{ cmd.active }}">{{ cmd.manager }}</button>
+  </div>
+  <div class="flex items-center gap-2 p-3">
+    <div class="min-w-0 flex-1">
+      <div data-for="cmd in commands" class="sdk-install-card__panel data-[active=false]:hidden" role="tabpanel" id="sdkpanel-{{ cmd.manager }}" aria-labelledby="sdktab-{{ cmd.manager }}" data-active="{{ cmd.active }}" data-command="{{ cmd.command }}">
+        <code class="block overflow-x-auto whitespace-pre font-mono text-sm text-on-surface"><span class="select-none text-on-surface-muted">$ </span>{{ cmd.command }}</code>
+      </div>
+    </div>
+    <button type="button" class="sdk-install-card__copy inline-flex shrink-0 items-center gap-1 rounded-control border border-border bg-surface px-2 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Copy command">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M4 13V4.5A1.5 1.5 0 0 1 5.5 3H13"/></svg>
+      <span class="sdk-install-card__copy-label">Copy</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+name: burndown-chart
+props:
+  title:
+    type: string
+    default: "Burndown"
+    title: Title
+    example: "Sprint 24 burndown"
+  ideal_path:
+    type: string
+    required: true
+    title: Ideal path
+    description: >
+      Precomputed SVG path for the ideal burndown line (a straight decline from full scope to zero),
+      in a 0-100 x 0-100 viewBox (y grows downward). The caller computes it; the shell only draws it.
+      Example: "M0,10 L100,90".
+    example: "M0,10 L100,90"
+  actual_path:
+    type: string
+    required: true
+    title: Actual path
+    description: >
+      Precomputed SVG path for the actual remaining-work line, in the same 0-100 x 0-100 viewBox.
+      Example: "M0,10 L20,18 L40,30 L60,28 L80,52 L100,66".
+    example: "M0,10 L17,16 L33,34 L50,30 L67,54 L83,60 L100,72"
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Points-remaining tick labels rendered top to bottom beside the plot.
+    example: ["40", "30", "20", "10", "0"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Day tick labels rendered left to right below the plot.
+    example: ["D1", "D2", "D3", "D4", "D5", "D6", "D7"]

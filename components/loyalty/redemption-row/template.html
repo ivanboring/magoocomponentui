@@ -1,0 +1,10 @@
+<div class="redemption-row flex items-center justify-between gap-4 border-b border-border py-3">
+  <div class="min-w-0">
+    <p class="redemption-row__reward truncate font-medium text-on-surface">{{ reward }}</p>
+    <p data-if="date" class="redemption-row__date text-xs text-on-surface-muted">{{ date }}</p>
+  </div>
+  <div class="flex shrink-0 items-center gap-3">
+    <span data-if="status" class="redemption-row__status inline-flex items-center rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+    <span class="redemption-row__points font-heading text-on-surface tabular-nums">-{{ points }}</span>
+  </div>
+</div>

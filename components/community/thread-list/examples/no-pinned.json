@@ -1,0 +1,8 @@
+{
+  "threads": [
+    { "title": "How do I reset my API token?", "author": "Katherine J.", "replies": "7", "views": "312", "last_activity": "12m ago", "pinned": false, "tags": ["help", "api"] },
+    { "title": "Best practices for streaming responses", "author": "Alan T.", "replies": "14", "last_activity": "48m ago", "pinned": false },
+    { "title": "Anyone else seeing slow builds today?", "author": "Ada L.", "replies": "3", "views": "88", "last_activity": "1h ago", "pinned": false, "tags": ["bug"] },
+    { "title": "Weekly office hours are back on Thursdays", "author": "Grace H.", "replies": "9", "views": "205", "last_activity": "5h ago", "pinned": false }
+  ]
+}

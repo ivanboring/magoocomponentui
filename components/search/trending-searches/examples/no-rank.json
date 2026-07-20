@@ -1,0 +1,10 @@
+{
+  "heading": "Popular right now",
+  "queries": [
+    { "label": "playoff schedule", "trend": "up", "href": "#" },
+    { "label": "transfer news", "trend": "up", "href": "#" },
+    { "label": "injury report", "trend": "down", "href": "#" },
+    { "label": "match highlights", "trend": "flat", "href": "#" },
+    { "label": "league table", "trend": "flat", "href": "#" }
+  ]
+}

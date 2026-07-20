@@ -1,0 +1,88 @@
+name: "Device Group Card"
+short_description: A grouped-device tile with a device icon, an on/total count, and a master on/off switch.
+long_visual_description: >
+  A surface card. The top row pairs a rounded primary-tinted badge (an emoji or a default devices
+  glyph) with a pill master switch that slides to primary when all devices are on. Below sits the
+  group name in the heading face and a muted "on/total on" count in tabular figures.
+
+use_cases:
+  - A master control for all lights on a floor.
+  - A grouped tile for a room's devices with a single switch.
+  - An "all off" convenience control for a leaving-home scene.
+  - A speaker or media group toggle across several rooms.
+  - A plug or outlet group for holiday or accent lighting.
+  - A category master (all fans, all lamps) in a dashboard.
+
+recommended_for:
+  - Turning a whole group of devices on or off at once.
+  - Showing how many of a group are currently on at a glance.
+avoid_for:
+  - Controlling a single device (use light-control or a switch tile).
+  - Per-device status detail (use room-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Name the group, pass precomputed device_count and on_count, and set all_on for the master switch.
+  Add an icon glyph to hint at the group's kind.
+
+how_to_use: >
+  Layout is static and renders with no JavaScript, so the badge, count and switch position reflect
+  the props at render time. behavior.js wires the master switch: clicking it flips data-state on the
+  button and knob (and aria-checked) and dispatches a bubbling "group:toggle" event with the new
+  all_on state, which the host can use to command every device in the group. The portable self-init
+  reads state from the DOM and passes no props.
+
+props:
+  name: The group name shown as the title.
+  icon: Optional glyph or emoji for the badge; falls back to a default devices icon.
+  device_count: Total devices in the group (precomputed).
+  on_count: How many are currently on (precomputed).
+  all_on: Master switch state; true when every device is on.
+
+example_prompts:
+  - "Add a device group card for downstairs lights, 4 of 6 on."
+  - "Show an outdoor speakers group with all three on."
+  - "Put an all-off master tile for the living room on the dashboard."
+
+lifecycle: experimental
+content_model: A group name, an optional icon, an on/total device count, and a master on/off state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name the group by what it controls, not by device type ids. Keep the count as on-over-total so a
+  partial state reads clearly; the master switch commands the group regardless of the current mix.
+
+relationships:
+  related:
+    - smarthome/light-control
+    - smarthome/room-grid
+    - smarthome/schedule-timer
+
+categorization:
+  category: Smart Home
+  subcategory: Controls
+  atomic_type: molecule
+  usage_type: [card, control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The master control is a role="switch" with aria-checked and a descriptive aria-label; the badge icon is aria-hidden and the count is plain text.
+  keyboard_support: The master switch is focusable and toggles on Enter/Space.
+  seo_score: 20
+  text_direction: both

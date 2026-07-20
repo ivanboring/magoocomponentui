@@ -1,0 +1,15 @@
+{
+  "title": "Launch week",
+  "days": [
+    { "label": "Mon", "date": "Apr 7", "posts": [
+      { "title": "Teaser reel", "platform": "TikTok", "time": "11:00", "status": "published" }
+    ] },
+    { "label": "Tue", "date": "Apr 8", "posts": [
+      { "title": "Product walkthrough", "platform": "YouTube", "time": "15:00", "status": "scheduled" }
+    ] },
+    { "label": "Wed", "date": "Apr 9", "posts": [
+      { "title": "Launch announcement", "platform": "Email", "time": "9:00", "status": "scheduled" },
+      { "title": "Story countdown", "platform": "Instagram", "time": "10:00", "status": "draft" }
+    ] }
+  ]
+}

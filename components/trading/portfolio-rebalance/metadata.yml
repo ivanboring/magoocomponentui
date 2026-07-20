@@ -1,0 +1,92 @@
+name: "Portfolio Rebalance"
+short_description: A target-vs-actual allocation panel - per holding a bar of actual weight with a target marker and a drift pill when off-target.
+long_visual_description: >
+  A card listing allocation rows. Each row has a label and, when the holding is off-target, a
+  warning-tinted drift pill on the right; below sits a thin track showing the actual weight as a
+  coloured fill with a vertical marker at the target weight, and a mono caption reading the actual
+  and target percentages. Off-target rows read at a glance by the marker sitting away from the fill's
+  edge.
+
+use_cases:
+  - A rebalancing panel in a portfolio dashboard.
+  - A target-vs-actual allocation view for a model portfolio.
+  - A drift monitor flagging holdings that have drifted off-target.
+  - An asset-allocation summary in a wealth or robo-advisor app.
+  - A pre-rebalance review before placing trades.
+
+recommended_for:
+  - Comparing each holding's actual weight against its target with drift.
+  - Any allocation view that needs per-row colours and a target marker.
+avoid_for:
+  - A single allocation donut without per-row targets (use dataviz/pie-chart-shell).
+  - A holdings P/L list (use position-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a holdings array; each item has a label, precomputed target_pct and actual_pct numbers
+  (0-100, used as both bar widths and printed values), an optional color_class tokenized background
+  utility for the actual bar, and an optional drift string. Pass drift only for holdings off-target
+  enough to flag - it renders as a warning pill. Compute the percentages and drift in the caller.
+
+how_to_use: >
+  There is no JavaScript - the panel is static markup. Each actual bar's width and the target
+  marker's left position are set inline from the item's actual_pct and target_pct. The per-row bar
+  colour comes from the caller-supplied color_class; a hidden safelist span lists the tokenized
+  background utilities (bg-primary, bg-accent, bg-success, ...) so Tailwind keeps them. The drift
+  pill is gated with data-if so it shows only when drift is passed.
+
+props:
+  holdings: "The allocation rows. Each item: label, precomputed target_pct and actual_pct (0-100), an optional color_class background utility for the actual bar, and an optional drift string shown as a warning pill when off-target."
+
+example_prompts:
+  - "Add a rebalance panel showing each holding's actual weight vs target."
+  - "Show an allocation drift monitor flagging the overweight sleeves."
+  - "Build a target-vs-actual allocation view before rebalancing."
+
+lifecycle: experimental
+content_model: >
+  A set of allocation rows, each with a label, a target and actual weight, an optional drift, and a
+  colour for its bar.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --color-primary
+    - --color-accent
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Give each holding a distinct color_class and keep the palette consistent with any allocation donut
+  nearby. Reserve the drift pill for holdings that are genuinely off-target so it stays meaningful,
+  and make sure target_pct values across the set add up to a sensible whole.
+
+relationships:
+  related:
+    - trading/position-card
+    - dataviz/pie-chart-shell
+    - trading/dividend-row
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Portfolio
+  atomic_type: organism
+  usage_type: [data, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each row prints its actual and target percentages as text, so the bars and target marker are not the only signal; the drift pill carries its signed value.
+  keyboard_support: none
+  seo_score: 20
+  text_direction: both

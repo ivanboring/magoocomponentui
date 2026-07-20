@@ -1,0 +1,28 @@
+<article class="service-appointment flex flex-col gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <h3 data-if="service" class="font-heading text-on-surface">{{ service }}</h3>
+    <span class="service-appointment__status inline-flex shrink-0 items-center rounded-pill px-2 py-0.5 text-xs font-medium uppercase tracking-wide {{ status@class }}">{{ status }}</span>
+  </div>
+
+  <div class="flex items-center gap-2 text-sm text-on-surface">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="14" height="12" rx="2"/><path d="M3 8h14M7 3v4M13 3v4"/></svg>
+    <span class="font-medium">{{ date }}</span>
+    <span class="text-on-surface-muted">&middot;</span>
+    <span class="text-on-surface-muted">{{ window }}</span>
+  </div>
+
+  <div data-if="customer" class="flex items-center gap-2 text-sm text-on-surface-muted">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 10a3 3 0 100-6 3 3 0 000 6z"/><path d="M4 16a6 6 0 0112 0"/></svg>
+    <span class="min-w-0">{{ customer }}</span>
+  </div>
+
+  <div data-if="technician" class="flex items-center gap-2 text-sm text-on-surface-muted">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 8l-2 2 3 3 2-2M12 6l2-2 3 3-2 2M8 12l4-4"/></svg>
+    <span class="min-w-0">{{ technician }}</span>
+  </div>
+
+  <div class="mt-1 flex items-center gap-2 border-t border-border pt-3">
+    <button type="button" class="service-appointment__reschedule inline-flex items-center rounded-button border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Reschedule</button>
+    <button type="button" class="service-appointment__confirm inline-flex items-center rounded-button bg-primary px-3 py-1.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Confirm</button>
+  </div>
+</article>

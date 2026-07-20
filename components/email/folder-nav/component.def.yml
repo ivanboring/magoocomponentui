@@ -1,0 +1,23 @@
+name: folder-nav
+props:
+  label:
+    type: string
+    default: "Mailboxes"
+    title: Accessible label
+    description: Accessible name announced for the folder navigation region.
+  folders:
+    type: array
+    items: object
+    required: true
+    title: Folders
+
+    description: >
+      The mailbox folders, in order. Each folder: { label, icon, href, active, count }.
+      icon is an optional inline SVG (raw HTML); href is the folder link; active marks the
+      current folder; count is an optional unread count (a badge is shown only when it is
+      greater than zero).
+    example:
+      - { label: "Inbox", href: "#", active: true, count: 12 }
+      - { label: "Starred", href: "#", count: 3 }
+      - { label: "Sent", href: "#" }
+      - { label: "Archive", href: "#" }

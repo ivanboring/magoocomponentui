@@ -1,0 +1,13 @@
+{
+  "available_label": "All permissions",
+  "chosen_label": "Granted",
+  "available": [
+    { "label": "Read", "value": "read", "selected": true },
+    { "label": "Comment", "value": "comment", "selected": true },
+    { "label": "Delete", "value": "delete", "selected": false }
+  ],
+  "chosen": [
+    { "label": "Write", "value": "write", "selected": false },
+    { "label": "Publish", "value": "publish", "selected": false }
+  ]
+}

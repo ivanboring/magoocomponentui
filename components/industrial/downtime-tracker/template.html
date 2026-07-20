@@ -1,0 +1,17 @@
+<div class="downtime-tracker rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-3">
+    <h3 class="downtime-tracker__title font-heading text-on-surface">Downtime</h3>
+    <p data-if="total_downtime" class="downtime-tracker__total font-heading text-lg tabular-nums text-on-surface">{{ total_downtime }}</p>
+  </div>
+  <div class="downtime-tracker__bar mt-4 flex h-3 w-full gap-0.5 overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Downtime by reason">
+    <div data-for="reason in reasons" class="downtime-tracker__segment h-full {{ reason.color_class }}" style="width: {{ reason.pct }}%"></div>
+  </div>
+  <ul class="downtime-tracker__legend mt-4 flex flex-col gap-2">
+    <li data-for="reason in reasons" class="flex items-center gap-2 text-sm">
+      <span class="size-2.5 shrink-0 rounded-pill {{ reason.color_class }}" aria-hidden="true"></span>
+      <span class="min-w-0 flex-1 truncate text-on-surface">{{ reason.label }}</span>
+      <span class="tabular-nums text-on-surface-muted">{{ reason.minutes }} min</span>
+    </li>
+  </ul>
+  <span class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></span>
+</div>

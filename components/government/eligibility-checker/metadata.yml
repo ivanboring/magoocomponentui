@@ -1,0 +1,85 @@
+name: "Eligibility Checker"
+short_description: A short qualifying questionnaire with choice-button questions, a check button, and a success or warning result banner.
+long_visual_description: >
+  A surface card holding an optional title, a stack of questions each rendered as a labelled
+  fieldset with a row of pill choice buttons, and a primary "Check eligibility" button. When a
+  result is supplied a banner appears below: a success-tinted panel with a checkmark when the
+  person qualifies, or a warning-tinted panel otherwise, with an explanatory message.
+
+use_cases:
+  - Pre-screen citizens for a benefit or grant before they apply.
+  - A do-I-qualify checker for a licence, permit, or scheme.
+  - Quick eligibility triage on a service landing page.
+  - Gate a long application behind a few qualifying questions.
+  - Self-service check for housing, healthcare, or financial support.
+  - Route applicants to the right scheme based on their answers.
+
+recommended_for:
+  - Short, self-contained qualification checks with a clear yes/no style outcome.
+  - Front-of-funnel screening before a longer form.
+avoid_for:
+  - Collecting the full application (use the form wizard).
+  - Complex branching questionnaires with dozens of questions.
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Provide a questions array (each { label, options } where options is a nested array of
+  { label, value }); optionally pass a result object { eligible, message } to show the outcome
+  banner. Leave result unset until an answer is computed.
+
+props:
+  title: "Optional heading above the questionnaire."
+  questions: "The qualifying questions; each has a label and a nested options array of { label, value } choices."
+  result: "Optional outcome banner: eligible (boolean) picks success vs warning styling, message is the explanation."
+
+example_prompts:
+  - "Add an eligibility checker for a housing grant with residency and income questions."
+  - "Build a 'do I qualify?' questionnaire that shows a success or warning result banner."
+
+lifecycle: experimental
+content_model: A set of questions, each with a label and choice options, plus an optional eligible/message result.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep questions to a handful and phrase them so each answer clearly moves eligibility one way.
+  Make the result message actionable: tell the person what to do next whether they qualify or not.
+
+relationships:
+  related:
+    - government/form-wizard-gov
+    - government/service-finder
+
+categorization:
+  category: Government
+  subcategory: Forms
+  atomic_type: organism
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each question is a fieldset with a legend; choice options are focusable buttons with visible focus rings; the result uses role="status" and encodes outcome on a data-attribute with an aria-hidden icon.
+  keyboard_support: All choice buttons and the check button are keyboard focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

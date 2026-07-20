@@ -1,0 +1,16 @@
+<div class="marquee group relative overflow-hidden" role="group" aria-label="{{ label }}" data-speed="{{ speed }}" data-direction="{{ direction }}">
+  <div class="marquee__track flex w-max items-center {{ gap@class }} will-change-transform">
+    <div class="marquee__group flex shrink-0 items-center {{ gap@class }}">
+      <span data-for="item in items" class="marquee__item flex shrink-0 items-center">
+        <img data-if="item.image" class="h-8 w-auto object-contain opacity-70 grayscale transition duration-(--duration-token) hover:opacity-100 hover:grayscale-0" src="{{ item.image }}" alt="{{ item.alt }}">
+        <span data-if="item.label" class="whitespace-nowrap rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface">{{ item.label }}</span>
+      </span>
+    </div>
+    <div class="marquee__group flex shrink-0 items-center {{ gap@class }}" aria-hidden="true">
+      <span data-for="item in items" class="marquee__item flex shrink-0 items-center">
+        <img data-if="item.image" class="h-8 w-auto object-contain opacity-70 grayscale transition duration-(--duration-token) hover:opacity-100 hover:grayscale-0" src="{{ item.image }}" alt="{{ item.alt }}">
+        <span data-if="item.label" class="whitespace-nowrap rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface">{{ item.label }}</span>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+name: virtual-list
+props:
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      The rows currently rendered in the window. Each item: { label, meta }. meta is optional and
+      shown right-aligned in a muted mono style. This is a skeleton shell - a real long list needs a
+      windowing library to render only the visible slice; pass the visible slice here.
+    example:
+      - { label: "Row 1", meta: "id-0001" }
+  total:
+    type: string
+    title: Total rows
+    description: >
+      Optional human-formatted count of the full dataset (e.g. "10,000"), shown in the header note.
+      When omitted the note is hidden.
+  row_height:
+    type: string
+    default: "48px"
+    title: Row height
+    description: Fixed height of each row, as a CSS length (e.g. "48px"). Fixed heights are what make windowing possible.

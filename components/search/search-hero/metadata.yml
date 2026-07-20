@@ -1,0 +1,76 @@
+name: "Search Hero"
+short_description: A prominent centered search block with a headline, large input and popular-query suggestion chips.
+long_visual_description: >
+  A centered hero section with an optional headline and supporting line above a large pill-shaped
+  search field. The field pairs a leading magnifier icon and a flexible text input with a solid
+  primary Search button. Below it, a row of "Try:" suggestion chips offers popular or example
+  queries on bordered pills.
+
+use_cases:
+  - The main search entry point on a documentation or help-center home page.
+  - A site-wide search landing page above the results.
+  - A knowledge-base or FAQ hero inviting a first query.
+  - An empty-state search prompt before any query is entered.
+  - A marketing or app home hero centered on finding content fast.
+
+recommended_for:
+  - A high-emphasis, standalone search box that anchors a page.
+  - Search entry points that want to nudge users with example queries.
+avoid_for:
+  - A compact inline search in a header or toolbar (use a small search input).
+  - Rendering search results (use faceted-results or result-card-generic).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a heading and subheading to frame the search, a placeholder for the field, and a
+  suggestions array (each { label }) to surface popular queries as chips. Omit the heading and
+  suggestions for a bare, centered search field.
+
+props:
+  heading: "Large headline above the field; omit for a bare search block."
+  subheading: "Supporting line under the heading."
+  placeholder: "Placeholder text inside the empty input."
+  suggestions: "Popular/example queries shown as chips below the field, each { label }; omit to hide the row."
+
+lifecycle: experimental
+content_model: A search field framed by an optional heading, subheading and a set of suggestion chips.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the heading short and action-oriented ("Search the docs") and the subheading to one line.
+  Limit suggestions to three or four genuinely popular queries so the row stays scannable.
+
+relationships:
+  related:
+    - search/faceted-results
+    - search/recent-searches
+    - search/did-you-mean
+
+categorization:
+  category: Search
+  subcategory: Entry
+  atomic_type: organism
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The field is wrapped in a role="search" form, the input has an accessible label, and the suggestion chips are real buttons; the field group shows a visible focus ring.
+  keyboard_support: The input and Search button are in the tab order; suggestion chips are focusable buttons that activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

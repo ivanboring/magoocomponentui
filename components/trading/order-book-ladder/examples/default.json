@@ -1,0 +1,16 @@
+{
+  "title": "AAPL order book",
+  "rows": [
+    { "price": "184.28", "ask_size": "1,120" },
+    { "price": "184.27", "ask_size": "1,860" },
+    { "price": "184.26", "ask_size": "940" },
+    { "price": "184.25", "ask_size": "2,310" },
+    { "price": "184.24", "ask_size": "1,240" },
+    { "price": "0.02 spread", "is_spread": true },
+    { "price": "184.22", "bid_size": "1,980" },
+    { "price": "184.21", "bid_size": "2,650" },
+    { "price": "184.20", "bid_size": "1,410" },
+    { "price": "184.19", "bid_size": "870" },
+    { "price": "184.18", "bid_size": "1,530" }
+  ]
+}

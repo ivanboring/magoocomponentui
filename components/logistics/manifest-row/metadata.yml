@@ -1,0 +1,79 @@
+name: "Manifest Row"
+short_description: A single line on a shipping manifest showing the item, SKU, quantity, weight and a colour-coded handling status.
+long_visual_description: >
+  A horizontal row with the item name and its SKU in a mono face on the leading edge, right-aligned
+  quantity and weight columns, and a rounded status pill on the trailing edge whose colour reflects
+  the handling state (loaded, pending or damaged). Rows stack with a divider between them.
+
+use_cases:
+  - List line items on a shipping or load manifest.
+  - Show pack-out progress with per-line loaded status.
+  - Flag damaged lines during a receiving check.
+  - Summarise quantity and weight per SKU on a run.
+  - Build a scannable manifest table from stacked rows.
+  - Track pending versus loaded items during dispatch.
+
+recommended_for:
+  - Manifest and load lists where each line needs a status at a glance.
+  - Receiving and pack-out checklists.
+
+avoid_for:
+  - A parcel's delivery status (use package-status-row).
+  - A storage bin's capacity (use warehouse-bin).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack one row per manifest line. Give each the item name, quantity and a status enum for the pill
+  colour; add the SKU and a preformatted weight string for context.
+
+props:
+  item: The line item's description or name.
+  sku: Item SKU, shown in a mono face.
+  qty: Number of units on this line.
+  weight: Line weight, preformatted with units.
+  status: Handling status of the line; drives the pill colour.
+
+example_prompts:
+  - "Add a manifest row for 24 ceramic mugs, loaded."
+  - "Show a pending manifest line with its SKU and weight."
+  - "Flag a damaged line item on the shipping manifest."
+
+lifecycle: experimental
+content_model: One manifest line's item, SKU, quantity, weight and handling status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-mono
+
+editorial_guidance: >
+  Keep item names short and consistent, and match the status enum to intent so the pill colour and
+  label agree. Preformat weight with its units since the component prints it verbatim.
+
+relationships:
+  related:
+    - logistics/warehouse-bin
+    - logistics/package-status-row
+    - logistics/shipment-tracker
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Warehouse
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill's text label as well as colour; quantity and weight columns are labelled.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

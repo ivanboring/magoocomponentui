@@ -1,0 +1,79 @@
+name: "Recurring Donation Toggle"
+short_description: A pill segmented control that switches a gift between one-time and monthly, with an optional recurring-impact note.
+long_visual_description: >
+  A compact pill-shaped segmented control on a raised surface with two segments, One-time and
+  Monthly. The active segment lifts onto the base surface with a soft card shadow and stronger
+  text; the inactive one stays muted. An optional single line beneath explains the impact of giving
+  monthly. Switching segments moves the highlight instantly.
+
+use_cases:
+  - Let a donor choose between a single gift and a recurring monthly gift.
+  - Sit above a donation amount picker to set the billing cadence.
+  - Encourage recurring giving with a short impact note under the toggle.
+  - Drive a donation form's frequency field from one clear control.
+  - Offer monthly giving on a campaign or appeal landing page.
+
+recommended_for:
+  - A donation flow that supports both one-off and recurring gifts.
+  - Nudging monthly giving with contextual copy.
+avoid_for:
+  - More than two cadences (weekly/quarterly/annual - use a select or radio group).
+  - Non-donation frequency choices unrelated to giving.
+
+markets:
+  - Global
+
+example_usage: >
+  Set value to the default frequency (one-time or monthly). Add monthly_note to explain what a
+  recurring gift achieves; omit it to hide the line. Listen for frequency:change to keep a donation
+  form's cadence in sync with the chosen segment.
+
+how_to_use: >
+  behavior.js wires the segmented control: clicking a segment sets the group's data-state (which
+  drives the active styling via group-data utilities), mirrors the choice to aria-pressed, and
+  dispatches frequency:change with { value }. Config is read from the DOM - the portable self-init
+  passes no props object.
+
+props:
+  value: "The active frequency, one-time or monthly; sets which segment starts highlighted."
+  monthly_note: "Optional line beneath the toggle describing the impact of a recurring gift; omit to hide it."
+
+example_prompts:
+  - "Add a one-time vs monthly donation toggle defaulting to monthly."
+  - "Show a give-monthly toggle with a note about how recurring gifts help."
+
+lifecycle: experimental
+content_model: A frequency choice (one-time or monthly) and an optional recurring-impact note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the segment labels to one or two words. Make the monthly note concrete and outcome-led -
+  what a specific recurring amount provides each month - not a generic plea.
+
+relationships:
+  related:
+    - nonprofit/donation-form
+    - nonprofit/donation-amount-picker
+    - nonprofit/pledge-card
+
+categorization:
+  category: Nonprofit
+  subcategory: Donations
+  atomic_type: molecule
+  usage_type: [control, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both segments are real buttons in a labelled group; the active state is exposed via aria-pressed. The control is theme-aware and relies on shape plus text, not colour alone, to show the active segment.
+  keyboard_support: Each segment is focusable and toggles on Enter/Space.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,78 @@
+name: "Settings Nav"
+short_description: A vertical, grouped navigation for the sections of a settings area, with an active highlight.
+long_visual_description: >
+  A narrow vertical navigation column. Settings sections are organised into groups, each with
+  an optional uppercase muted heading and a list of links. Each link may lead with a small
+  outline icon and shows its label in muted text; the current section takes a raised surface
+  background with primary-coloured, medium-weight text. Groups are separated by generous
+  vertical space.
+
+use_cases:
+  - The left column of a settings page.
+  - Grouping settings into Account, Workspace, and Billing.
+  - Highlighting the currently open settings section.
+  - Navigating between profile, security, and notification pages.
+  - A secondary nav within an app's settings area.
+  - Organising project-level configuration links.
+
+recommended_for:
+  - Settings and preferences areas.
+  - Two-column settings layouts (nav plus panels).
+  - Products with many configuration sections.
+avoid_for:
+  - Primary app navigation (use app-sidebar).
+  - Horizontal tab bars (use tabs).
+  - Single-section settings (no nav needed).
+
+markets:
+  - Global
+
+example_usage: >
+  Place in the left column of a settings page with settings-section panels on the right. Mark
+  exactly one link active per route. Icons are optional but should be consistent when used.
+
+props:
+  label: Accessible name for the nav landmark.
+  groups: Ordered groups of settings links; give each a heading unless it is the only group.
+
+example_prompts:
+  - "Add a settings nav with Account and Workspace groups and Profile active."
+  - "Build a vertical settings menu with icons for each section."
+  - "Create a project settings nav with General, Access, and Danger zone links."
+
+lifecycle: experimental
+content_model: >
+  Ordered groups, each an optional heading and a list of settings links. Each link has a
+  label, an href, an active flag, and an optional inline SVG icon.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Use short noun labels for sections and one-or-two-word group headings. Keep icons to a
+  single consistent stroke set, or omit them entirely.
+
+relationships:
+  related:
+    - saas/settings-section
+    - saas/app-sidebar
+    - navigation/sidebar-nav
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Settings
+  atomic_type: organism
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav landmark with an accessible label; active link sets aria-current; icons are aria-hidden.
+  keyboard_support: Links are in normal tab order; the active link exposes aria-current="true".
+  seo_score: 45
+  text_direction: both

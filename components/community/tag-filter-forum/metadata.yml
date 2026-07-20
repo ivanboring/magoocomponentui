@@ -1,0 +1,80 @@
+name: "Forum Tag Filter"
+short_description: A wrapping row of toggleable topic tag pills, each with an optional thread count, that filter a forum.
+long_visual_description: >
+  A flowing set of pill-shaped tag buttons on the surface colour with a subtle border. Each pill shows
+  a topic label and an optional muted thread count. Active tags flip to the primary fill with
+  contrast text, and several can be selected at once. Tags reflow onto multiple rows on narrow
+  screens.
+
+use_cases:
+  - Topic tag filter above a forum thread list.
+  - Category chips for narrowing a discussion board.
+  - Multi-select tag picker on a community feed.
+  - Faceted filter row for questions on a Q and A site.
+  - Interest tags a member toggles to follow.
+  - Quick filter strip on a knowledge base.
+
+recommended_for:
+  - Multi-select tag or category filtering of a list.
+  - Surfacing thread counts alongside each topic.
+avoid_for:
+  - Single-select category tabs (use a tab bar).
+  - Filtering a card grid inline (use filter-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a tags array of { label, count, active }. Mark any tags active to preselect them; each toggle
+  dispatches a "tag:toggle" event with the tag label and its new state so a host can refilter.
+
+how_to_use: >
+  Each pill carries its label in data-label and its selected state in data-active (set from the tag's
+  active flag). behavior.js flips data-active on click independently per tag (so several can be on at
+  once), keeps aria-pressed in sync, and dispatches a bubbling "tag:toggle" CustomEvent with
+  detail { tag, active }. The portable self-init reads config from data-* attributes only.
+
+props:
+  tags: "The tags, in order. Each: label, count (optional pre-formatted thread count), active (boolean, preselected)."
+
+example_prompts:
+  - "Add a forum tag filter with general, help and announcements, each showing a thread count."
+  - "Show multi-select topic pills where help and bugs start selected."
+  - "Put a category chip row above the discussion list."
+
+lifecycle: experimental
+content_model: An ordered set of topic tags, each with a label, optional count and optional preselected state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep tag labels short and in a consistent case. Order tags by relevance or volume, and show counts
+  only when they help members choose where to read.
+
+relationships:
+  related:
+    - community/pinned-post
+    - community/online-members
+    - layout/filter-grid
+
+categorization:
+  category: Community
+  subcategory: Forum
+  atomic_type: molecule
+  usage_type: [filter, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each tag is a real button with aria-pressed reflecting its toggle state; the set is grouped with an accessible label.
+  keyboard_support: Each tag is focusable and toggles on Enter or Space; aria-pressed announces the state.
+  seo_score: 25
+  text_direction: both

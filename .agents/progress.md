@@ -46,3 +46,58 @@ Infra added this pass (see CLAUDE.md "Authoring gotchas"): authored human `name:
 - **Build order: breadth-first** — early wave takes a few from each domain for preview variety, then depth.
 - **Added Dashboard domain** (18 components, #201–218) → catalog now 218.
 - **Granularity: keep concepts separate** (e.g. `card-movie` vs `card-tv-show` are distinct components).
+
+### DRUPAL BASE THEME + CHILD-THEME GENERATOR — SHIPPED (2026-07-14)
+An agent can now turn "a design reference + what the site is for" into a working, themed Drupal 11
+site built from the 528-component catalog. Full reference doc: `docs/base-theme.md`.
+
+- **Base theme `magoo_agentic_base_theme`** — canonical source `skills/drupal-theme/base-theme/`, deployed
+  to `custom_theme/web/themes/custom/magoo_agentic_base_theme/` by `install-base` (that copy is output —
+  never edit it). 22 regions; page/region/node/block templates; `theme-settings.php`;
+  `includes/tokens.php`; `config/schema/`; `js/color-scheme.js`; a **prebuilt `css/dist/base.css`** so
+  it installs with no Node build.
+- **`tokens.manifest.json` is the single source of truth** for every design token (9 groups: brand,
+  color, typography, shape, elevation, spacing, motion, layout, advanced → 53 tokens, 22 of them colors
+  → **75 settings**). Four consumers loop it: the PHP settings form, the runtime CSS
+  (`magoo_tokens_css()`), `create-child`'s `settings.yml`, and `scripts/generate-schema.mjs` (whose
+  `schemaYaml()` `create-child` also calls for the child's schema).
+- **Runtime CSS variables are the whole trick.** Tailwind v4 compiles `bg-primary` →
+  `background-color: var(--color-primary)`, so `hook_preprocess_html` emits the settings as an inline
+  `html:root{…}` block and a settings change restyles every component **with no CSS rebuild** (proven
+  live: identical stylesheet md5 before/after). Only a *new* utility class needs a rebuild. Type scale
+  (`--text-xs…5xl` + line heights) and shadow tinting are derived, not just copied.
+- **New CLI subcommands** (`scripts/theme-cli.mjs`): `install-base --out <themes-dir>`,
+  `create-child --answers <json> [--themes-dir <themes-dir>]`, `canvas-check [<ids>] [--json]`.
+- **`create-child`** writes a full subtheme: token `settings.yml`, config schema, SDCs, Drupal config,
+  its **own Tailwind build** (the child compiles `css/dist/styles.css`; base ships prebuilt), the base
+  library dependency, and a **vendored** `.claude/skills/magoo-components/` + `bin/magoo` + `CLAUDE.md`
+  so the theme is self-contained and portable. Per-component `config` is
+  `canvas | paragraph (default) | node | custom-field`, mixable on one theme; scalar `props` become the
+  Drupal field's `default_value`.
+- **Canvas mode** (`drupal/canvas` 1.8.0, machine name `canvas`) emits **only the SDC** — Canvas
+  auto-discovers it and derives `canvas.component.sdc.<theme>.<name>` on `drush cr`. It has no field
+  shape for array-of-object props, so **251/528 (~48%)** of the catalog is Canvas-eligible;
+  `canvas-check` reports it and `create-child` warns + falls back to `paragraph`.
+- **Spec-kit skill `skills/drupal-theme-spec/`** — the questionnaire (design reference incl. Refero
+  URLs, purpose, contained-vs-full-bleed, scroll animations via AOS, >=15 components, tokens+props-only
+  styling, wiring mode, scaffold/build/verify) + `references/design-reference.md` +
+  `references/scroll-animations.md`.
+
+**Generator bugs this shook out** (all fixed; see `docs/base-theme.md` §8 + CLAUDE.md):
+boolean→`data-*` attributes stringified to `"1"` and never matched `data-[featured=true]` (fixed in
+`packages/generator/src/emit/twig.js`, `data-*`/`aria-*` only); Drupal core's **unlayered** CSS beats
+layered Tailwind (`hidden md:flex` is invisible at every width → use `flex … max-md:hidden`); the
+dynamic-class safelist must be **child-only** (base `.grid-cols-1` collided with a child's
+`.sm:grid-cols-2` and killed every responsive layout); a child must declare
+`dependencies: - magoo_agentic_base_theme/global`; core modules are not Packagist packages
+(`splitModuleDeps()`/`MODULE_KIND` is the single classifier, guard-tested); strict SDC validation turns
+a stale Twig cache into a white screen → `drush cr` after regenerating.
+
+**Demo** (`custom_theme/`, DDEV, https://custom-theme.ddev.site) proved it end to end:
+- `elevenlabs_theme` — 23 catalog SDCs wired as paragraphs, tokens read off a Refero ElevenLabs
+  reference; front page is a `landing_page` node stacking 13 top-level components, rebuilt by
+  `custom_theme/scripts/demo-front-page.php`.
+- `canvas_demo` — Canvas-mode child (7 SDCs, no paragraph types); the SDCs show up in the Canvas
+  Library palette and render in the editor.
+- Verified in a browser: a bare subtheme inherits the base's **entire** 9-tab / 75-field token form
+  (so a child ships **no** `theme-settings.php`); a token change restyles the live site with no rebuild.

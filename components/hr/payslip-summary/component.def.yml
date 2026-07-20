@@ -1,0 +1,37 @@
+name: payslip-summary
+props:
+  period:
+    type: string
+    required: true
+    title: Pay period
+    example: "March 2026"
+  gross:
+    type: string
+    required: true
+    title: Gross pay
+    description: "Formatted gross pay including currency (e.g. $5,200.00)."
+    example: "$5,200.00"
+  net:
+    type: string
+    required: true
+    title: Net pay
+    description: "Formatted net pay including currency; shown highlighted."
+    example: "$3,940.00"
+  earnings:
+    type: array
+    items: object
+    required: true
+    title: Earnings
+    description: "Earnings line items. Each item is { label, amount } with amount formatted."
+    example:
+      - { label: "Base salary", amount: "$5,000.00" }
+      - { label: "Overtime", amount: "$200.00" }
+  deductions:
+    type: array
+    items: object
+    required: true
+    title: Deductions
+    description: "Deduction line items. Each item is { label, amount } with amount formatted."
+    example:
+      - { label: "Federal tax", amount: "$820.00" }
+      - { label: "Health insurance", amount: "$260.00" }

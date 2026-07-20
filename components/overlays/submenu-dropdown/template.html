@@ -1,0 +1,14 @@
+<div class="submenu-dropdown group/sd relative inline-block text-sm" data-open="{{ start_open }}">
+  <button type="button" class="submenu-dropdown__trigger inline-flex items-center gap-2 rounded-button border border-border bg-surface px-4 py-2 text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="{{ start_open }}">{{ trigger_label }}<svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8l4 4 4-4"/></svg></button>
+  <div class="submenu-dropdown__menu invisible pointer-events-none absolute left-0 top-full z-20 mt-1 min-w-52 rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]/sd:visible group-data-[open=true]/sd:opacity-100 group-data-[open=true]/sd:pointer-events-auto" role="menu" aria-label="{{ label }}">
+    <div data-for="item in items" role="none">
+      <a data-if="!item.children" role="menuitem" class="flex px-4 py-2 text-on-surface transition-colors hover:bg-surface-raised data-[danger=true]:text-danger" href="{{ item.href }}" data-danger="{{ item.danger }}">{{ item.label }}</a>
+      <div data-if="item.children" class="submenu-dropdown__sub group/sub relative">
+        <button type="button" class="flex w-full items-center justify-between gap-4 px-4 py-2 text-on-surface transition-colors hover:bg-surface-raised" aria-haspopup="true"><span>{{ item.label }}</span><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l5 5-5 5"/></svg></button>
+        <div class="submenu-dropdown__flyout invisible pointer-events-none absolute left-full top-0 z-30 -mt-1 ml-1 min-w-48 rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-hover/sub:visible group-hover/sub:opacity-100 group-hover/sub:pointer-events-auto group-focus-within/sub:visible group-focus-within/sub:opacity-100 group-focus-within/sub:pointer-events-auto" role="menu">
+          <a data-for="child in item.children" role="menuitem" class="block px-4 py-2 text-on-surface transition-colors hover:bg-surface-raised" href="{{ child.href }}">{{ child.label }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+name: points-balance-card
+props:
+  points:
+    type: string
+    required: true
+    title: Points
+    description: The member's current points total, pre-formatted (e.g. "12,480").
+    example: "12,480"
+  currency_label:
+    type: string
+    default: "points"
+    title: Currency label
+    description: What a unit of the balance is called, shown beside the figure (points, miles, stars, coins).
+    example: "points"
+  tier:
+    type: string
+    title: Tier
+    description: Optional membership tier name shown as a badge (e.g. Gold, Platinum).
+    example: "Gold"
+  expiring:
+    type: string
+    title: Expiring amount
+    description: Optional pre-formatted number of points that will expire, shown in a warning strip.
+    example: "500"
+  expiring_date:
+    type: string
+    title: Expiry date
+    description: Optional date the expiring points lapse, appended to the warning (e.g. "Aug 31").
+    example: "Aug 31"

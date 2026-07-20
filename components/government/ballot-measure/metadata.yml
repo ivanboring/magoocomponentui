@@ -1,0 +1,88 @@
+name: "Ballot Measure"
+short_description: A summary card for a ballot measure or proposition — title, ID, status, a neutral summary, and side-by-side arguments for and against.
+long_visual_description: >
+  A card on the surface colour carrying a mono ID chip and a status pill above a heading-face title,
+  a neutral summary paragraph, and a two-column panel below it. The left panel is tinted success
+  green with a checkmark header and a checklist of arguments in favor; the right panel is tinted
+  danger red with an x header and a list of arguments against. The two columns stack on narrow
+  screens.
+
+use_cases:
+  - A voter guide entry explaining a proposition.
+  - An election information page summarizing local measures.
+  - A pro/con breakdown of a bond or tax measure.
+  - A civic explainer comparing sides of an initiative.
+  - A ballot preview showing what a voter will decide.
+  - A newsroom election guide card for each measure.
+
+recommended_for:
+  - Neutral, balanced summaries of ballot questions.
+  - Voter guides that present both sides side by side.
+avoid_for:
+  - Advocacy pages arguing only one side.
+  - Candidate races (use a representative or candidate card).
+
+markets:
+  - Government
+  - Civic
+  - News
+
+example_usage: >
+  Give the measure a plain-language title, an optional measure_id chip and status pill, and a
+  neutral summary. Populate pro_args and con_args with short, parallel statements; each renders as a
+  checked (success) or x-marked (danger) list item in its own tinted column.
+
+props:
+  title: The measure's plain-language title.
+  measure_id: Optional short identifier shown as a mono chip, e.g. "Prop 22".
+  summary: A neutral one-paragraph description of what the measure does.
+  status: Optional status pill such as "On the ballot" or "Passed".
+  pro_args: Short arguments supporting the measure, one list item each.
+  con_args: Short arguments opposing the measure, one list item each.
+
+example_prompts:
+  - "Add a ballot measure card for the school facilities bond with pros and cons."
+  - "Summarize Prop 22 with a neutral description and both sides' arguments."
+  - "Show the local tax measure with an On the ballot status and a pro/con split."
+
+lifecycle: experimental
+content_model: A measure title and optional ID/status, a neutral summary, and two lists of short arguments (for and against).
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the summary strictly neutral and factual; put persuasion only inside the argument lists. Write
+  the pro and con items as short, parallel statements so the two columns read as a fair comparison.
+
+relationships:
+  related:
+    - government/representative-card
+    - government/public-record-row
+
+categorization:
+  category: Government
+  subcategory: Elections
+  atomic_type: organism
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The for/against columns are labelled by their headers and use icons plus text, not colour alone, to distinguish the two sides.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 55
+  text_direction: both

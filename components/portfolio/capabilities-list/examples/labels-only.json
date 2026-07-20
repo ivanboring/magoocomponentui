@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "label": "Discovery workshops" },
+    { "label": "UX & UI design" },
+    { "label": "Frontend engineering" },
+    { "label": "Accessibility audits" },
+    { "label": "Design systems" }
+  ]
+}

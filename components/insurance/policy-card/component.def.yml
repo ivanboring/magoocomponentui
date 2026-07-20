@@ -1,0 +1,41 @@
+name: policy-card
+props:
+  type:
+    type: string
+    required: true
+    title: Policy type
+    description: The kind of policy, shown next to the type icon (e.g. Auto, Home, Life).
+    example: "Auto"
+  policy_number:
+    type: string
+    required: true
+    title: Policy number
+    description: The policy reference, rendered in a monospace face.
+    example: "AUTO-4821-005"
+  status:
+    type: enum
+    values: [active, pending, lapsed, cancelled]
+    default: active
+    title: Status
+    description: The policy's current standing; drives the status pill colour.
+  premium:
+    type: string
+    title: Premium
+    description: The premium amount and cadence as pre-formatted text (e.g. "$92 / mo").
+    example: "$92 / mo"
+  renewal_date:
+    type: string
+    title: Renewal date
+    description: When the policy next renews, as display text (e.g. "Renews Aug 1").
+    example: "Aug 1, 2026"
+  insured:
+    type: string
+    title: Insured
+    description: The primary insured party or item covered (e.g. a name or vehicle).
+    example: "2021 Honda Civic"
+variants:
+  status:
+    active: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"
+    lapsed: "bg-danger/10 text-danger"
+    cancelled: "bg-surface-raised text-on-surface-muted"

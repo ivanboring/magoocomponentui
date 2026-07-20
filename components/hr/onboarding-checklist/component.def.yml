@@ -1,0 +1,25 @@
+name: onboarding-checklist
+props:
+  employee:
+    type: string
+    title: Employee
+    description: Optional new-hire name shown in the header.
+    example: "Priya Nair"
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Task groups
+    description: >
+      Grouped checklist sections. Each item is { label, items } where items is a nested array of
+      { label, done } and done is a boolean marking the task complete.
+    example:
+      - label: "Before day one"
+        items:
+          - { label: "Sign offer letter", done: true }
+          - { label: "Submit tax forms", done: false }
+  pct:
+    type: integer
+    title: Percent complete
+    description: "Precomputed completion percentage from 0-100 shown in the progress header."
+    example: 40

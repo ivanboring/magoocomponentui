@@ -1,0 +1,15 @@
+name: sdk-install-card
+props:
+  commands:
+    type: array
+    items: object
+    required: true
+    title: Commands
+    description: >
+      One entry per package manager. Each item: { manager, command, active }. manager is a short
+      slug-like token used as the tab label and to link the tab to its panel (npm, pnpm, yarn, pip).
+      command is the install command line. Mark exactly one item active: true - normally the first -
+      so a command shows before JS runs.
+    example:
+      - { manager: "npm", command: "npm install @example/sdk", active: true }
+      - { manager: "pnpm", command: "pnpm add @example/sdk", active: false }

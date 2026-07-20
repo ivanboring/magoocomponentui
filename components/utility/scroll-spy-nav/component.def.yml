@@ -1,0 +1,13 @@
+name: scroll-spy-nav
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The section links. Each item: { label, href, active }. href is an on-page anchor like
+      "#pricing"; active marks the current section for the base render. The behavior updates active
+      on scroll via IntersectionObserver over the referenced sections.
+    example:
+      - { label: "Overview", href: "#overview", active: true }

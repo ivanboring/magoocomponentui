@@ -1,0 +1,86 @@
+name: "Token Balance Row"
+short_description: A single-line token holding - glyph, name and symbol on the left, amount, fiat value and optional change on the right.
+long_visual_description: >
+  A horizontal row on the surface colour with a round token glyph badge at the leading edge, the
+  token name in the heading face above its ticker symbol, and a right-aligned block showing the
+  held amount in the mono face over the fiat value in muted text. An optional 24h change sits
+  beside the value, coloured green when up and red when down.
+
+use_cases:
+  - A line in a wallet's token holdings list.
+  - A portfolio breakdown by asset.
+  - A "your balances" panel on a swap or stake screen.
+  - A watchlist row pairing amount held with fiat value.
+  - A treasury or multisig asset list.
+  - A DeFi position summary row.
+
+recommended_for:
+  - Lists that repeat one holding per row with a consistent shape.
+  - Screens that pair token amount with its fiat value and change.
+avoid_for:
+  - Price cards with a sparkline (use token-price-card).
+  - A single hero balance headline (build a bespoke stat).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one per token holding, stacked in a list or divided container. Preformat amount and
+  value_usd in the caller. Pass change plus change_dir (up or down) to show a coloured 24h change,
+  or omit both to hide it. icon is a raw inline SVG string.
+
+props:
+  symbol: "The token ticker (e.g. ETH); shown small and uppercased under the name."
+  name: "The token's full name; the row's heading."
+  amount: "The held amount, preformatted with units in the caller."
+  value_usd: "The fiat value of the holding, preformatted."
+  icon: "Optional raw inline SVG glyph shown in a round badge; omit to drop the badge."
+  change_dir: "up or down - colours the change value green or red."
+  change: "Optional formatted 24h change (include the sign in the caller)."
+
+example_prompts:
+  - "Add a token balance row for 2.14 ETH worth $6,742 up 1.8%."
+  - "List USDC, ETH and WBTC holdings with their fiat values."
+  - "Show a portfolio row with a red 24h change."
+
+lifecycle: experimental
+content_model: >
+  One token: a glyph, name and symbol, a held amount, its fiat value, and an optional signed
+  24h change with a direction.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep amounts and values right-aligned so a list scans cleanly. Always include the sign in the
+  change string and set change_dir to match, so colour and sign agree.
+
+relationships:
+  related:
+    - crypto/token-price-card
+    - crypto/wallet-connect
+    - crypto/swap-widget
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Portfolio
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The glyph badge is aria-hidden; colour is not the sole carrier of the change since the sign is included in the change text.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

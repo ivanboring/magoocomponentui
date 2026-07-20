@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { normalizeDef } from "./def.js";
 import { parseTemplate } from "./parser.js";
-import { emitDrupalConfig } from "./emit/drupal-config.js";
+import { emitDrupalConfig, emittableModules, isCoreModule, splitModuleDeps, MODULE_KIND } from "./emit/drupal-config.js";
 import { generate } from "./index.js";
 
 test("emits importable config entities for a paragraph bundle", () => {
@@ -86,4 +86,28 @@ test("generate() includes importable Drupal config", () => {
   const { files } = generate({ id: "t/x", def, template: `<div class="x">{{ title }}</div>` });
   assert.ok(files["drupal/config/paragraphs.paragraphs_type.x.yml"]);
   assert.ok(files["drupal/config/field.storage.paragraph.field_x_title.yml"]);
+});
+
+test("every module the registry can emit is classified core or contrib", () => {
+  const unclassified = emittableModules().filter((m) => !MODULE_KIND[m]);
+  assert.deepEqual(
+    unclassified, [],
+    `Unclassified Drupal modules: ${unclassified.join(", ")}. Add them to MODULE_KIND in ` +
+    "emit/drupal-config.js — an unclassified module is treated as contrib and would print a " +
+    "`composer require drupal/<name>` line that fails for a core submodule.",
+  );
+  for (const kind of Object.values(MODULE_KIND)) assert.ok(kind === "core" || kind === "contrib");
+});
+
+test("core submodules are never composer-required, contrib always is", () => {
+  // media_library is a CORE submodule declared as an `extra` of the media-backed entity_reference
+  // field type — requiring it from Packagist fails.
+  assert.ok(emittableModules().includes("media_library"));
+  const { core, contrib } = splitModuleDeps([
+    "media", "media_library", "paragraphs", "entity_reference_revisions", "custom_field", "link", "address",
+  ]);
+  assert.deepEqual(core, ["link", "media", "media_library"]);
+  assert.deepEqual(contrib, ["address", "custom_field", "entity_reference_revisions", "paragraphs"]);
+  assert.equal(isCoreModule("media_library"), true);
+  assert.equal(isCoreModule("paragraphs"), false);
 });

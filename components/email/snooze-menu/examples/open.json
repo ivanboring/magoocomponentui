@@ -1,0 +1,11 @@
+{
+  "trigger_label": "Snooze",
+  "start_open": true,
+  "options": [
+    { "label": "Later today", "when": "6:00 PM" },
+    { "label": "This evening", "when": "8:00 PM" },
+    { "label": "Tomorrow", "when": "Tue 8:00 AM" },
+    { "label": "This weekend", "when": "Sat 8:00 AM" },
+    { "label": "Next week", "when": "Mon 8:00 AM" }
+  ]
+}

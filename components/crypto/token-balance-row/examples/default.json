@@ -1,0 +1,9 @@
+{
+  "symbol": "ETH",
+  "name": "Ethereum",
+  "amount": "2.1408",
+  "value_usd": "$6,742.10",
+  "icon": "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2l5 8-5 3-5-3zM5 11l5 3 5-3-5 6z'/></svg>",
+  "change_dir": "up",
+  "change": "+1.8%"
+}

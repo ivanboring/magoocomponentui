@@ -1,0 +1,6 @@
+{
+  "types": [
+    { "label": "Vacation", "value": "vacation" },
+    { "label": "Sick leave", "value": "sick" }
+  ]
+}

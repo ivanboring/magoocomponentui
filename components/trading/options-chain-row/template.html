@@ -1,0 +1,10 @@
+<div class="options-chain-row grid grid-cols-5 items-center gap-2 border-b border-border px-3 py-2 font-mono text-sm tabular-nums data-[itm=true]:bg-primary/5" data-itm="{{ in_the_money }}">
+  <span class="flex items-center gap-1.5 font-medium text-on-surface">
+    <span class="rounded-pill bg-surface-raised px-1 py-0.5 font-body text-[10px] uppercase leading-none tracking-wide text-on-surface-muted">{{ type }}</span>
+    {{ strike }}
+  </span>
+  <span class="text-right text-success">{{ bid }}</span>
+  <span class="text-right text-danger">{{ ask }}</span>
+  <span class="text-right text-on-surface-muted">{{ volume }}</span>
+  <span class="text-right text-on-surface-muted">{{ oi }}</span>
+</div>

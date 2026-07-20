@@ -1,0 +1,15 @@
+<div class="coverage-breakdown rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="coverage-breakdown__title font-heading text-on-surface">Coverage breakdown</h3>
+  <ul class="mt-4 flex flex-col gap-4">
+    <li data-for="cov in coverages" class="coverage-breakdown__row flex flex-col gap-1.5">
+      <div class="flex items-baseline justify-between gap-3 text-sm">
+        <span class="text-on-surface">{{ cov.label }}</span>
+        <span class="tabular-nums text-on-surface-muted"><span data-if="cov.used" class="text-on-surface">{{ cov.used }}</span><span data-if="cov.used"> / </span>{{ cov.limit }}</span>
+      </div>
+      <div data-if="cov.pct" class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+        <div class="coverage-breakdown__fill h-full rounded-pill {{ cov.color_class }}" style="width: {{ cov.pct }}%"></div>
+      </div>
+    </li>
+    <li class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></li>
+  </ul>
+</div>

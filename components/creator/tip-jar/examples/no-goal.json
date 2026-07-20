@@ -1,0 +1,7 @@
+{
+  "amounts": [
+    { "value": "$2", "selected": false },
+    { "value": "$5", "selected": false },
+    { "value": "$15", "selected": false }
+  ]
+}

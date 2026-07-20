@@ -1,0 +1,18 @@
+<div class="snooze-menu group relative inline-block" data-open="{{ start_open }}">
+  <button type="button" class="snooze-menu__trigger inline-flex items-center gap-2 rounded-button border border-border bg-surface px-3 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-haspopup="true" aria-expanded="{{ start_open }}">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5V10l3 2"/></svg>
+    {{ trigger_label }}
+    <svg class="snooze-menu__chevron size-3.5 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-data-[open=true]:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+  </button>
+  <div class="snooze-menu__panel invisible pointer-events-none absolute left-0 z-30 mt-1 flex w-64 flex-col rounded-card border border-border bg-surface p-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]:visible group-data-[open=true]:pointer-events-auto group-data-[open=true]:opacity-100" role="menu" aria-label="{{ trigger_label }}">
+    <button data-for="option in options" type="button" class="snooze-menu__option flex items-center justify-between gap-4 rounded-control px-3 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" role="menuitem" data-label="{{ option.label }}" data-when="{{ option.when }}">
+      <span class="truncate">{{ option.label }}</span>
+      <span class="shrink-0 text-xs tabular-nums text-on-surface-muted">{{ option.when }}</span>
+    </button>
+    <hr class="my-1 border-border" role="none">
+    <button type="button" class="snooze-menu__pick flex items-center gap-2 rounded-control px-3 py-2 text-left text-sm font-medium text-primary transition-colors duration-(--duration-token) hover:bg-surface-raised" role="menuitem">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>
+      Pick date &amp; time
+    </button>
+  </div>
+</div>

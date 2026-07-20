@@ -1,0 +1,82 @@
+name: "Government Document Upload"
+short_description: A checklist of required documents, each with a status badge and an upload button, above a dashed dropzone.
+long_visual_description: >
+  A surface card listing the documents an applicant must supply, each row showing the document
+  name, an optional "Required" note, a coloured status badge (muted for pending, success for
+  uploaded, danger for rejected), and an Upload button. Below the list sits a dashed dropzone with
+  an upload icon and a "drag files here or browse" prompt plus accepted format hints.
+
+use_cases:
+  - Collect supporting documents for a benefit or grant application.
+  - Upload proof of identity and address for account verification.
+  - Attach evidence to a permit or licence application.
+  - Show which required documents are still outstanding or rejected.
+  - Case-work portal where an officer tracks submitted evidence.
+  - Any official flow that gates progress on required file uploads.
+
+recommended_for:
+  - Applications that require a fixed checklist of supporting documents.
+  - Flows that must show per-document status (pending, uploaded, rejected).
+avoid_for:
+  - A single free-form file input with no checklist (use a plain upload field).
+  - Rich media galleries or asset libraries.
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Provide a documents array (each { label, required, status } where status is "pending",
+  "uploaded", or "rejected"). The badge colour follows the status; the dropzone is a shared drop
+  target for whichever document the applicant is uploading.
+
+props:
+  documents: "The required documents; each has a label, a required flag, and a status of pending, uploaded, or rejected."
+
+example_prompts:
+  - "Add a document upload checklist for proof of identity, address, and income."
+  - "Show required documents with pending, uploaded, and rejected status badges and a dropzone."
+
+lifecycle: experimental
+content_model: A list of required documents, each with a label, required flag, and upload status, plus a dropzone.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name each document the way the applicant will recognise it, and add a short parenthetical of
+  acceptable examples. Mark only genuinely required documents as required, and keep the accepted
+  formats and size limit visible so uploads are not rejected.
+
+relationships:
+  related:
+    - government/form-wizard-gov
+    - government/appointment-gov
+
+categorization:
+  category: Government
+  subcategory: Forms
+  atomic_type: molecule
+  usage_type: [form, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Documents are a real list; status is encoded on a data-attribute with a text label (not colour alone); the upload controls are focusable buttons with visible focus rings and the dropzone icon is aria-hidden.
+  keyboard_support: Each Upload button is keyboard focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

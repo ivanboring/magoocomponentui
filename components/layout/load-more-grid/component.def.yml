@@ -1,0 +1,49 @@
+name: load-more-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The cards, in order. Each item: { image, eyebrow, title, subtitle, href }. image/eyebrow/
+      subtitle/href are optional; title carries the card. Items past the initial count start hidden
+      and are revealed a step at a time by the Load more button.
+    example:
+      - { image: "/stock/cover-workspace.jpg", eyebrow: "Guide", title: "Getting started", subtitle: "Set up your first project in minutes.", href: "#" }
+  initial:
+    type: enum
+    values: ["3", "6", "9", "12"]
+    default: "6"
+    title: Initial count
+    description: How many items are shown before the first Load more click.
+  step:
+    type: enum
+    values: ["3", "6", "9"]
+    default: "3"
+    title: Load step
+    description: How many additional items each Load more click reveals.
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: Space between cards — default, or an explicit none/sm/md/lg/xl.
+  button_label:
+    type: string
+    default: "Load more"
+    title: Button label
+    description: Text on the reveal button.
+  label:
+    type: string
+    default: "Items"
+    title: Accessible label
+    description: Accessible name announced for the grid region.
+variants:
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-8"
+    xl: "gap-12"

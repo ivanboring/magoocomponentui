@@ -1,0 +1,27 @@
+name: service-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The service name, shown as the card heading.
+    example: "Product design"
+  blurb:
+    type: string
+    required: true
+    title: Blurb
+    description: A short description of the service, one or two sentences.
+    example: "Research, prototyping and interface design that ships."
+  icon:
+    type: html
+    required: true
+    title: Icon
+    description: >
+      Inline SVG (or other markup) for the service glyph, shown in a tinted tile at the top of the
+      card. Pass a stroke-based SVG sized to fill its box (e.g. class="size-6").
+    example: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" aria-hidden="true"><path d="M12 3l7 4v6c0 4-3 6-7 8-4-2-7-4-7-8V7z"/></svg>'
+  href:
+    type: string
+    title: Link
+    description: Optional URL; when set a "Learn more" link appears at the bottom of the card.
+    example: "#"

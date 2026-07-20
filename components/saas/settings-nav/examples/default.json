@@ -1,0 +1,20 @@
+{
+  "label": "Settings",
+  "groups": [
+    {
+      "label": "Account",
+      "items": [
+        { "label": "Profile", "href": "/settings/profile", "active": true, "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><circle cx='10' cy='7' r='3'/><path d='M4 17a6 6 0 0112 0'/></svg>" },
+        { "label": "Security", "href": "/settings/security", "active": false, "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><rect x='4' y='9' width='12' height='8' rx='1'/><path d='M7 9V6a3 3 0 016 0v3'/></svg>" },
+        { "label": "Notifications", "href": "/settings/notifications", "active": false, "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M6 8a4 4 0 018 0c0 4 1.5 5 1.5 5h-11S6 12 6 8z'/><path d='M8.5 16a1.5 1.5 0 003 0'/></svg>" }
+      ]
+    },
+    {
+      "label": "Workspace",
+      "items": [
+        { "label": "Members", "href": "/settings/members", "active": false, "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><circle cx='7' cy='7' r='3'/><path d='M2 17a5 5 0 0110 0'/><path d='M13 5a3 3 0 010 6'/></svg>" },
+        { "label": "Billing", "href": "/settings/billing", "active": false, "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><rect x='3' y='5' width='14' height='10' rx='1'/><path d='M3 8h14'/></svg>" }
+      ]
+    }
+  ]
+}

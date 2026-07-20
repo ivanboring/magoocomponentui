@@ -1,0 +1,9 @@
+<div class="vote-control group/vc inline-flex flex-col items-center gap-0.5" data-vote="{{ vote }}">
+  <button type="button" class="vote-control__up flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface group-data-[vote=up]/vc:bg-success/10 group-data-[vote=up]/vc:text-success" aria-label="Upvote" aria-pressed="false">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 5l6 7H4l6-7z"/></svg>
+  </button>
+  <span class="vote-control__score text-sm font-medium tabular-nums text-on-surface group-data-[vote=up]/vc:text-success group-data-[vote=down]/vc:text-danger">{{ score }}</span>
+  <button type="button" class="vote-control__down flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface group-data-[vote=down]/vc:bg-danger/10 group-data-[vote=down]/vc:text-danger" aria-label="Downvote" aria-pressed="false">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 15l-6-7h12l-6 7z"/></svg>
+  </button>
+</div>

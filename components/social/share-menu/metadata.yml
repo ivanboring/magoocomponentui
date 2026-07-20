@@ -1,0 +1,86 @@
+name: "Share Menu"
+short_description: A Share button that opens a popover of social share targets plus a Copy link action.
+long_visual_description: >
+  A primary-tinted Share button with a share-arrows glyph. Clicking it reveals a small
+  surface popover anchored to its right edge, listing share targets (each an icon plus a
+  network name) above a divider and a Copy link row. Choosing Copy writes the shared URL
+  to the clipboard and briefly swaps the label to "Copied!". Closes on Escape or an
+  outside click.
+
+use_cases:
+  - Article or blog-post share control in a byline or footer.
+  - Product or listing page "share this" affordance.
+  - Media/video player share button.
+  - Sharing a public link with a one-click clipboard copy.
+  - Social distribution row for editorial content.
+  - Event or campaign page share menu.
+
+recommended_for:
+  - Content pages that want a compact, on-demand share affordance.
+avoid_for:
+  - Always-visible inline social icon rows (use a static links component).
+  - Sharing that needs the native OS share sheet on mobile only.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the share targets as items with a per-network href (the caller encodes the shared
+  url into each link) and a small inline-SVG icon; set url to the canonical link so the
+  Copy action copies it. Set start_open true only for previews/screenshots.
+
+props:
+  items: The share targets, each with a label, a raw inline-SVG icon, and a network share href.
+  url: The canonical link being shared; the Copy action writes it to the clipboard.
+  trigger_label: The text on the Share button.
+  copy_label: The label of the Copy link row (temporarily replaced by "Copied!").
+  start_open: Renders the menu already open; for previews and screenshots only.
+  label: Accessible name for the popover menu.
+
+example_prompts:
+  - "Add a Share button that opens X, Facebook, LinkedIn, WhatsApp, Email plus Copy link."
+  - "Add a share popover with a one-click copy-link action to the article byline."
+
+lifecycle: experimental
+content_model: A share trigger, a list of share-target links, and a copy-link action.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-button
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep target labels to the plain network name; order them by expected usage. Keep the
+  copy label short ("Copy link") so the "Copied!" swap doesn't reflow the row.
+
+relationships:
+  related:
+    - overlays/dropdown-menu
+
+how_to_use: >
+  A vanilla-JS toggle: the Share button flips the root's data-open (CSS reveals the panel)
+  and syncs aria-expanded; Escape and outside clicks close it. The Copy link row calls
+  navigator.clipboard.writeText(url) and shows a transient "Copied!" confirmation before
+  restoring its label.
+
+categorization:
+  category: Social
+  subcategory: Sharing
+  atomic_type: molecule
+  usage_type: [action]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trigger exposes aria-haspopup and aria-expanded; the panel is role="menu" with an accessible name and role="menuitem" rows; Escape closes and restores focus to the trigger.
+  keyboard_support: Enter/Space (native button) toggles the menu; Escape closes and refocuses the trigger; menu links and the copy action are in the tab order when open.
+  seo_score: 15
+  text_direction: both

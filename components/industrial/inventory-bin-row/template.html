@@ -1,0 +1,16 @@
+<div class="inventory-bin-row flex items-center gap-4 border-b border-border bg-surface px-4 py-3 last:border-b-0">
+  <div class="min-w-0 flex-1">
+    <p class="inventory-bin-row__material truncate font-medium text-on-surface">{{ material }}</p>
+    <p data-if="sku" class="truncate font-mono text-xs text-on-surface-muted">{{ sku }}</p>
+  </div>
+  <div class="w-40 shrink-0 max-sm:hidden">
+    <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+      <div data-tone="{{ status }}" class="inventory-bin-row__fill h-full rounded-pill bg-success transition-all duration-(--duration-token) data-[tone=low]:bg-warning data-[tone=out]:bg-danger" style="width: {{ fill_pct }}%"></div>
+    </div>
+    <p data-if="reorder_point" class="mt-1 text-xs text-on-surface-muted">Reorder at {{ reorder_point }}</p>
+  </div>
+  <div class="flex shrink-0 flex-col items-end gap-0.5 text-right">
+    <span class="inventory-bin-row__qty font-heading tabular-nums text-on-surface">{{ on_hand }}</span>
+    <span data-if="status" data-tone="{{ status }}" class="inventory-bin-row__status text-xs font-medium capitalize text-success data-[tone=low]:text-warning data-[tone=out]:text-danger">{{ status }}</span>
+  </div>
+</div>

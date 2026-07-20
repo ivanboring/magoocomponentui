@@ -1,0 +1,73 @@
+name: "License Badge"
+short_description: A small pill mark for a software license or compliance standard, optionally linking to its terms.
+long_visual_description: >
+  A compact inline pill with a control radius, a small shield-check glyph, and a short label in a
+  medium weight. The type picks a soft tint: software licenses (MIT, Apache, GPL, Creative Commons)
+  and compliance marks (SOC 2, ISO, GDPR) each read in an info, primary, or success tone drawn from
+  the theme tokens. When given a link it becomes an anchor to the license text or certificate.
+
+use_cases:
+  - MIT/Apache/GPL license tag on a repository or package card.
+  - Creative Commons mark on media or an asset.
+  - SOC 2 or ISO compliance badge in a footer or trust section.
+  - GDPR-compliance mark on a privacy or data page.
+  - A row of trust marks on a pricing or security page.
+  - License chip in a dependency or open-source listing.
+
+recommended_for:
+  - Labelling the license or compliance standard something meets.
+  - Compact trust marks that optionally link to the full terms.
+avoid_for:
+  - Long descriptive text or multi-line content (use a card).
+  - Status or severity states (use a badge or tag).
+
+markets:
+  - Global
+
+example_usage: >
+  Set label to the mark's name and type to pick the tint. For a software license use mit, apache,
+  gpl, or cc; for a compliance standard use soc2, iso, or gdpr. Pass href to link the badge to the
+  license text or a certificate; leave it off for a static mark rendered as a span.
+
+props:
+  label: "The visible text; the license or standard name (e.g. \"MIT License\", \"SOC 2 Type II\")."
+  type: "Picks the tint: mit/apache/gpl/cc for software licenses, soc2/iso/gdpr for compliance marks."
+  href: "Optional link to the license or certificate; when set the badge is an anchor, otherwise a span."
+
+example_prompts:
+  - "Add an MIT license badge linking to the license text."
+  - "Show a SOC 2 compliance badge in the footer."
+  - "Put a GDPR-compliant mark next to the privacy policy link."
+
+lifecycle: experimental
+content_model: A short label, a license/compliance type that sets the tint, and an optional link.
+
+theming:
+  tokens_used:
+    - --color-info
+    - --color-primary
+    - --color-success
+    - --radius-control
+    - --font-body
+
+editorial_guidance: >
+  Use the mark's exact recognised name and match the type to what it actually is. Only link to a
+  license or certificate you can point to; a badge without a source can overstate compliance.
+
+relationships:
+  related:
+    - atoms/badge
+    - legal/disclosure-accordion
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Marks
+  atomic_type: atom
+  usage_type: [badge, inline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The label carries the meaning as text, not colour alone; the glyph is aria-hidden. As a link it uses a real anchor with an accessible name from its text.
+  keyboard_support: When linked, the anchor is focusable and follows on Enter; the static variant is non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,9 @@
+{
+  "title": "New vs returning",
+  "second_area_path": "M0,88 L20,80 L40,84 L60,70 L80,74 L100,62 L100,100 L0,100 Z",
+  "area_path": "M0,70 L20,54 L40,58 L60,34 L80,40 L100,20 L100,100 L0,100 Z",
+  "line_path": "M0,70 L20,54 L40,58 L60,34 L80,40 L100,20",
+  "y_labels": ["60k", "45k", "30k", "15k", "0"],
+  "x_labels": ["W1", "W2", "W3", "W4", "W5", "W6"],
+  "grid_lines": ["25", "50", "75"]
+}

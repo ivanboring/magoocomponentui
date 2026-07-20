@@ -1,0 +1,83 @@
+name: "Anniversary Card"
+short_description: A small celebratory card marking a person's work anniversary with their years of service.
+long_visual_description: >
+  A compact, centred card on the surface colour with a card radius and soft shadow. A cake-and-swag
+  glyph sits in a soft primary-tinted circle at the top, the person's avatar (photo or precomputed
+  initials) and name follow on one line, a large primary-coloured "N years" headline dominates the
+  middle, and the joined date reads muted below. It feels like a little congratulations tile for a
+  people feed or dashboard.
+
+use_cases:
+  - A work-anniversary shout-out on an intranet home page.
+  - A milestone tile in an HR people-updates feed.
+  - A "celebrations this month" widget on a team dashboard.
+  - A recognition card in a Slack-style kudos wall.
+  - A new-hire and tenure highlights section.
+  - An awards or long-service acknowledgement grid item.
+
+recommended_for:
+  - Celebrating a single person's service milestone.
+  - Dropping into a feed or grid of celebration tiles.
+avoid_for:
+  - A full employee profile (use a directory or profile card).
+  - Non-celebratory status (use an attendance or list row).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the person's name, their completed years of service, and either an avatar photo URL or a
+  precomputed initials string for the fallback. Add the joined date for context. Group several in a
+  grid for a "celebrations" section.
+
+props:
+  name: The person celebrating the anniversary.
+  years: Completed years of service, shown in the headline.
+  initials: Precomputed initials for the avatar circle when there is no photo.
+  avatar: Optional photo URL; the initials circle shows when it is absent.
+  date: Preformatted joined or anniversary date.
+
+example_prompts:
+  - "Add a work-anniversary card for Dana Okafor celebrating 5 years."
+  - "Show an anniversary tile with a photo and the joined date."
+  - "Build a celebrations grid of this month's work anniversaries."
+
+lifecycle: experimental
+content_model: A person, their years of service, an avatar or initials, and an optional joined date.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the tone warm and brief - the years headline does the talking. Use a real photo when you have
+  one, and always provide initials so a card without a photo still feels personal.
+
+relationships:
+  related:
+    - hr/team-directory-grid
+    - hr/attendance-row
+    - hr/goal-okr-row
+
+categorization:
+  category: HR & People
+  subcategory: Recognition
+  atomic_type: atom
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The years and date are conveyed in text, not colour alone; the icon and initials fallback are aria-hidden and the photo uses empty alt with the name adjacent.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

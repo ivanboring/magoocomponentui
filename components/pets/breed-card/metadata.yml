@@ -1,0 +1,81 @@
+name: "Breed Card"
+short_description: A breed info card with a breed image or paw glyph, name, size, temperament chips, and lifespan.
+long_visual_description: >
+  A card with a wide media area at the top holding the breed image, or a centered paw glyph on a
+  raised tile when no image is supplied. Below, the breed name sits in the heading face with a muted
+  species line, a wrapping row of pill-shaped temperament chips in the primary accent, and a two-up
+  stat row separated by a top border listing size and lifespan.
+
+use_cases:
+  - Breed directory or encyclopedia entry.
+  - Adoption site breed explainer beside a listing.
+  - Breed picker in a pet matching quiz.
+  - Editorial roundup of dog or cat breeds.
+  - Breeder catalogue tile.
+  - Comparison grid of candidate breeds.
+
+recommended_for:
+  - Summarising one breed with its traits at a glance.
+  - Grids or directories of comparable breed cards.
+avoid_for:
+  - An individual adoptable pet with a call to action (use adoption-card).
+  - A specific pet identity summary (use pet-profile-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the card a breed and optionally a species, image, size, lifespan, and a temperament array.
+  Each temperament string renders as its own chip. Leave the image empty for the paw glyph fallback.
+
+props:
+  breed: The breed name shown in the heading face.
+  species: The species, e.g. Dog or Cat, shown under the breed name.
+  image: URL of the breed image. Leave empty to fall back to a paw glyph tile.
+  size: The typical size, shown in the stat row.
+  temperament: An array of trait strings, each rendered as a chip.
+  lifespan: The typical lifespan range, shown in the stat row.
+
+example_prompts:
+  - Add a breed card for the Border Collie with temperament chips.
+  - Show a cat breed card with size and lifespan.
+  - Build a directory grid of dog breed cards.
+
+lifecycle: experimental
+content_model: A breed name, optional species, image, size, lifespan, and an array of temperament traits.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep temperament to three or four single-word traits. Use a consistent lifespan format such as a
+  hyphenated year range across the directory.
+
+relationships:
+  related:
+    - pets/adoption-card
+    - pets/pet-profile-card
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Breeds
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The breed image has the breed name as alt text; the paw glyph fallback is aria-hidden; stats use a definition list.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 45
+  text_direction: both

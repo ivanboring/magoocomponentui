@@ -1,0 +1,23 @@
+<nav class="tree-nav text-sm" aria-label="{{ label }}">
+  <ul class="flex flex-col gap-0.5">
+    <li data-for="item in items">
+      <a data-if="!item.children" class="tree-nav__link flex rounded-control px-3 py-1.5 text-on-surface-muted transition-colors hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}">{{ item.label }}</a>
+      <details data-if="item.children" class="tree-nav__group group/l1" open>
+        <summary class="flex cursor-pointer items-center justify-between rounded-control px-3 py-1.5 text-on-surface marker:content-none [&::-webkit-details-marker]:hidden hover:bg-surface-raised">{{ item.label }}<svg class="size-4 shrink-0 transition-transform duration-(--duration-token) group-open/l1:rotate-90" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l5 5-5 5"/></svg></summary>
+        <ul class="ml-3 mt-0.5 flex flex-col gap-0.5 border-l border-border pl-2">
+          <li data-for="child in item.children">
+            <a data-if="!child.children" class="tree-nav__link flex rounded-control px-3 py-1.5 text-on-surface-muted transition-colors hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:text-primary" href="{{ child.href }}" data-active="{{ child.active }}">{{ child.label }}</a>
+            <details data-if="child.children" class="tree-nav__group group/l2" open>
+              <summary class="flex cursor-pointer items-center justify-between rounded-control px-3 py-1.5 text-on-surface marker:content-none [&::-webkit-details-marker]:hidden hover:bg-surface-raised">{{ child.label }}<svg class="size-4 shrink-0 transition-transform duration-(--duration-token) group-open/l2:rotate-90" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5l5 5-5 5"/></svg></summary>
+              <ul class="ml-3 mt-0.5 flex flex-col gap-0.5 border-l border-border pl-2">
+                <li data-for="leaf in child.children">
+                  <a class="tree-nav__link flex rounded-control px-3 py-1.5 text-on-surface-muted transition-colors hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:text-primary" href="{{ leaf.href }}" data-active="{{ leaf.active }}">{{ leaf.label }}</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>

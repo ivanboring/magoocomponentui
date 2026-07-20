@@ -1,0 +1,19 @@
+<details class="tool-call-card group/tc rounded-card border border-border bg-surface shadow-card" open>
+  <summary class="tool-call-card__summary flex cursor-pointer list-none items-center gap-3 p-4 marker:content-none [&::-webkit-details-marker]:hidden">
+    <span class="inline-flex shrink-0 items-center gap-1.5 rounded-pill px-2 py-0.5 text-xs font-medium capitalize {{ status@class }}">
+      <span class="size-1.5 rounded-full bg-current"></span>{{ status }}
+    </span>
+    <span class="min-w-0 flex-1 truncate font-mono text-sm text-on-surface">{{ tool }}</span>
+    <svg class="size-4 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-open/tc:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>
+  </summary>
+  <div class="flex flex-col gap-3 border-t border-border p-4">
+    <div>
+      <p class="mb-1 text-xs font-medium uppercase tracking-wide text-on-surface-muted">Arguments</p>
+      <pre class="overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs text-on-surface"><code>{{ args }}</code></pre>
+    </div>
+    <div data-if="result">
+      <p class="mb-1 text-xs font-medium uppercase tracking-wide text-on-surface-muted">Result</p>
+      <pre class="overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs text-on-surface"><code>{{ result }}</code></pre>
+    </div>
+  </div>
+</details>

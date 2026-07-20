@@ -1,0 +1,34 @@
+<section class="faceted-results grid gap-6 lg:grid-cols-[16rem_1fr]" aria-label="Search results">
+  <aside class="faceted-results__facets flex flex-col gap-6">
+    <div data-for="facet in facets" class="faceted-results__facet">
+      <h3 class="faceted-results__facet-label mb-2 font-heading text-sm text-on-surface">{{ facet.label }}</h3>
+      <ul class="flex flex-col gap-1">
+        <li data-for="option in facet.options" class="faceted-results__option">
+          <label class="flex cursor-pointer items-center gap-2 rounded-control px-1 py-1 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+            <input data-if="option.checked" type="checkbox" class="size-4 shrink-0 rounded-control accent-primary" checked>
+            <input data-if="!option.checked" type="checkbox" class="size-4 shrink-0 rounded-control accent-primary">
+            <span class="min-w-0 flex-1 truncate">{{ option.label }}</span>
+            <span class="shrink-0 text-xs text-on-surface-muted">{{ option.count }}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <div class="faceted-results__results min-w-0">
+    <p data-if="total" class="faceted-results__count mb-4 text-sm text-on-surface-muted">{{ total }}</p>
+    <div class="faceted-results__list flex flex-col gap-4">
+      <article data-for="result in results" class="faceted-results__result rounded-card border border-border bg-surface p-4 shadow-card">
+        <p data-if="result.url" class="faceted-results__url text-xs text-success">{{ result.url }}</p>
+        <h3 class="faceted-results__title mt-0.5 font-heading text-on-surface">
+          <a data-if="result.url" href="{{ result.url }}" class="text-primary hover:underline">{{ result.title }}</a>
+          <span data-if="!result.url">{{ result.title }}</span>
+        </h3>
+        <p class="faceted-results__snippet mt-1 line-clamp-2 text-sm text-on-surface-muted">{{ result.snippet }}</p>
+        <div data-if="result.meta" class="faceted-results__meta mt-2 text-xs text-on-surface-muted">
+          <span data-for="m in result.meta" class="after:mx-1.5 after:content-['·'] last:after:content-none">{{ m }}</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

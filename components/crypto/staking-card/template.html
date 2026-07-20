@@ -1,0 +1,31 @@
+<div class="staking-card flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="staking-card__header flex items-center gap-3">
+    <span class="flex size-10 shrink-0 items-center justify-center rounded-pill bg-primary/10 font-heading text-sm text-primary tabular-nums">{{ token }}</span>
+    <div class="min-w-0">
+      <p class="truncate font-heading text-on-surface">{{ token }} Staking</p>
+      <p class="text-sm text-on-surface-muted">Earn rewards</p>
+    </div>
+  </div>
+  <div class="staking-card__apy mt-4 rounded-control bg-surface-raised p-4 text-center">
+    <p class="text-xs uppercase tracking-wide text-on-surface-muted">APY</p>
+    <p class="staking-card__apy-value font-heading text-4xl text-success tabular-nums">{{ apy }}</p>
+  </div>
+  <dl class="mt-4 flex flex-col gap-2.5 text-sm">
+    <div class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Staked</dt>
+      <dd class="font-mono text-on-surface tabular-nums">{{ staked_amount }}</dd>
+    </div>
+    <div class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Rewards earned</dt>
+      <dd class="font-mono text-success tabular-nums">{{ rewards }}</dd>
+    </div>
+    <div data-if="unlock" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Unlock</dt>
+      <dd class="text-on-surface">{{ unlock }}</dd>
+    </div>
+  </dl>
+  <div class="staking-card__actions mt-5 flex gap-2">
+    <button type="button" class="staking-card__stake flex-1 rounded-button bg-primary px-4 py-2 font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Stake</button>
+    <button type="button" class="staking-card__unstake flex-1 rounded-button border border-border bg-surface px-4 py-2 font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Unstake</button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<section class="checklist-inspection rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="flex items-start justify-between gap-3">
+    <h3 data-if="title" class="font-heading text-on-surface">{{ title }}</h3>
+    <p class="shrink-0 rounded-pill bg-surface-raised px-3 py-1 text-sm font-medium tabular-nums"><span class="text-success">{{ passed }}</span><span class="text-on-surface-muted"> / {{ total }} passed</span></p>
+  </header>
+  <ul class="checklist-inspection__list mt-4 flex flex-col divide-y divide-border">
+    <li data-for="item in items" class="flex items-start gap-3 py-3">
+      <span class="checklist-inspection__marker mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-pill bg-surface-raised data-[result=pass]:bg-success/10 data-[result=fail]:bg-danger/10" data-result="{{ item.result }}">
+        <svg data-result="{{ item.result }}" class="hidden size-4 text-success data-[result=pass]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+        <svg data-result="{{ item.result }}" class="hidden size-4 text-danger data-[result=fail]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        <svg data-result="{{ item.result }}" class="hidden size-4 text-on-surface-muted data-[result=na]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 10h10"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-medium text-on-surface">{{ item.label }}</p>
+        <p data-if="item.note" class="mt-0.5 text-sm text-on-surface-muted">{{ item.note }}</p>
+      </div>
+    </li>
+  </ul>
+</section>

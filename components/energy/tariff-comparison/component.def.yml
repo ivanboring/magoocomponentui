@@ -1,0 +1,27 @@
+name: tariff-comparison
+props:
+  plans:
+    type: array
+    items: object
+    required: true
+    title: Plans
+    description: >
+      The tariffs to compare, side by side in display order. Each item:
+      { name, rate, standing_charge, savings, recommended, features }.
+      `rate` is the unit price shown large (e.g. "24.5p / kWh"); `standing_charge` is an optional
+      daily charge line; `savings` is an optional highlighted line (e.g. "Save 120 / yr");
+      `recommended` (boolean) highlights the column and its Switch button; `features` is an array of
+      short strings listed with ticks.
+    example:
+      - name: "Fixed 12"
+        rate: "24.5p / kWh"
+        standing_charge: "42p / day"
+        savings: "Save 120 / yr"
+        recommended: true
+        features: ["Price fixed for 12 months", "100% renewable electricity", "No exit fees"]
+      - name: "Flexible"
+        rate: "27.1p / kWh"
+        standing_charge: "45p / day"
+        recommended: false
+        features: ["Variable rate", "Leave any time"]
+variants: {}

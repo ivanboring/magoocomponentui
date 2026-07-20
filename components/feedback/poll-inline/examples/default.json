@@ -1,0 +1,9 @@
+{
+  "question": "Which feature should we build next?",
+  "voted": false,
+  "options": [
+    { "label": "Dark mode" },
+    { "label": "Offline support" },
+    { "label": "Keyboard shortcuts" }
+  ]
+}

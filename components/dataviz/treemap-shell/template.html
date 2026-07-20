@@ -1,0 +1,10 @@
+<figure class="treemap-shell rounded-card border border-border bg-surface p-4 shadow-card" role="group" aria-label="{{ title }}">
+  <figcaption data-if="title" class="mb-3 font-heading text-on-surface">{{ title }}</figcaption>
+    <div class="treemap-shell__plot relative h-64 w-full overflow-hidden rounded-control">
+      <div data-for="t in tiles" class="absolute flex flex-col justify-between overflow-hidden rounded-[3px] border-2 border-surface p-2 {{ t.color_class }}" style="left: {{ t.x_pct }}%; top: {{ t.y_pct }}%; width: {{ t.w_pct }}%; height: {{ t.h_pct }}%">
+        <span class="text-xs font-medium leading-tight text-primary-contrast">{{ t.label }}</span>
+        <span class="font-heading text-sm tabular-nums text-primary-contrast">{{ t.value }}</span>
+      </div>
+    </div>
+  <span class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></span>
+</figure>

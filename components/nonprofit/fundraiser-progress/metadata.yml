@@ -1,0 +1,82 @@
+name: "Fundraiser Progress"
+short_description: A goal thermometer card showing the amount raised, percent of goal, a progress bar, and an optional donor count.
+long_visual_description: >
+  A card on the surface colour with the amount raised in the large heading face top-left and the
+  percent of goal in primary colour top-right, a muted "raised of goal" line beneath, a rounded
+  primary progress bar filled to the precomputed percentage, and an optional donor count below.
+
+use_cases:
+  - A goal thermometer at the top of a campaign page.
+  - A fundraising target tracker in a donation sidebar.
+  - A team or peer-to-peer fundraiser's progress summary.
+  - A giving-day or telethon live total with a target.
+  - A membership drive tracking sign-ups against a goal.
+  - A crowdfunding progress readout beneath a project pitch.
+
+recommended_for:
+  - Showing progress toward a known monetary goal.
+  - Adding urgency with a percent-of-goal readout and donor count.
+avoid_for:
+  - A full campaign card with image and call to action (use campaign-card).
+  - A generic percentage with no fundraising context (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the formatted raised and goal strings, the precomputed pct (0-100, capped at 100), and an
+  optional donors count. The percentage drives both the bar width and the label, so compute it once
+  and pass it in.
+
+props:
+  raised: "Formatted amount raised so far, including currency."
+  goal: "Formatted fundraising goal, including currency."
+  pct: "Percent of goal reached (0-100), precomputed and capped at 100; drives the bar and label."
+  donors: "Optional number of donors so far."
+
+example_prompts:
+  - "Add a fundraiser thermometer at $12,500 of $20,000, 62 percent, 184 donors."
+  - "Show a campaign goal tracker that's nearly funded."
+  - "Add a progress card for our giving-day target."
+
+lifecycle: experimental
+content_model: A raised amount, a goal, a precomputed percentage, and an optional donor count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the amount raised, keep raised and goal in the same currency format, and round the
+  percentage. Show the donor count when social proof helps the ask.
+
+relationships:
+  related:
+    - nonprofit/campaign-card
+    - nonprofit/donation-form
+    - nonprofit/donor-wall
+    - atoms/progress-bar
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: molecule
+  usage_type: [stat, card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with aria-valuenow/min/max and an aria-label; the raised, goal and percentage are also stated in text.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 40
+  text_direction: both

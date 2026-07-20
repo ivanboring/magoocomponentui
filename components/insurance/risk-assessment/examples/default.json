@@ -1,0 +1,9 @@
+{
+  "level": "moderate",
+  "score": 72,
+  "factors": [
+    { "label": "Driving history", "impact": "low" },
+    { "label": "Vehicle value", "impact": "medium" },
+    { "label": "Annual mileage", "impact": "high" }
+  ]
+}

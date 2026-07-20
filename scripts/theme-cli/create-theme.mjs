@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 import yaml from "js-yaml";
 import { parseFlags } from "./search.mjs";
 import { buildFilesFor } from "./build.mjs";
-import { configFilesFor } from "./config.mjs";
-import { fieldName } from "../../packages/generator/src/emit/drupal-config.js";
+import { configFilesFor, loadComponentDef } from "./config.mjs";
+import { fieldName, resolveCandidates } from "../../packages/generator/src/emit/drupal-config.js";
 
 const SKELETON = path.join(path.dirname(fileURLToPath(import.meta.url)), "../../skills/drupal-theme/skeleton");
 
@@ -75,7 +75,27 @@ export function themeTokens(ans) {
 function titleCase(s) {
   return String(s).replace(/[-_]/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
 }
-const machine = (s) => String(s).replace(/-/g, "_");
+export const machine = (s) => String(s).replace(/-/g, "_");
+
+/**
+ * Normalize + validate a Drupal machine name (lowercase letters, digits and underscores,
+ * starting with a letter). Throws rather than scaffolding a theme Drupal can never install.
+ * @param {unknown} s
+ * @returns {string}
+ */
+export function machineName(s) {
+  const m = machine(String(s ?? "").trim()).toLowerCase();
+  if (!/^[a-z][a-z0-9_]*$/.test(m)) {
+    throw new Error(
+      `Invalid machine_name "${s}" — a Drupal machine name is lowercase letters, digits and ` +
+      `underscores and must start with a letter (e.g. acme_theme).`,
+    );
+  }
+  return m;
+}
+
+/** Escape a value for a single-quoted YAML scalar. */
+export const yamlStr = (s) => `'${String(s ?? "").replace(/'/g, "''")}'`;
 
 async function copyTree(from, to, vars) {
   for (const e of await readdir(from, { withFileTypes: true })) {
@@ -92,7 +112,7 @@ async function copyTree(from, to, vars) {
 }
 
 /** Write a generator {relPath: contents} map, remapping paths into the theme layout. */
-async function writeMap(themeDir, map) {
+export async function writeMap(themeDir, map) {
   for (const [rel, contents] of Object.entries(map)) {
     const dest = path.join(themeDir, themePath(rel));
     await mkdir(path.dirname(dest), { recursive: true });
@@ -101,7 +121,7 @@ async function writeMap(themeDir, map) {
 }
 
 /** Write a {theme-relative-path: contents} map verbatim. */
-async function writeThemeFiles(themeDir, map) {
+export async function writeThemeFiles(themeDir, map) {
   for (const [rel, contents] of Object.entries(map)) {
     const dest = path.join(themeDir, rel);
     await mkdir(path.dirname(dest), { recursive: true });
@@ -110,7 +130,7 @@ async function writeThemeFiles(themeDir, map) {
 }
 
 /** Union the `dependencies.module` of every YAML config in a map into `set`. */
-function collectModuleDeps(map, set) {
+export function collectModuleDeps(map, set) {
   for (const [rel, contents] of Object.entries(map)) {
     if (!rel.endsWith(".yml")) continue;
     try {
@@ -121,13 +141,61 @@ function collectModuleDeps(map, set) {
 }
 
 /** Extract the paragraph bundle machine names present in a config map. */
-function bundlesIn(map) {
+export function bundlesIn(map) {
   const out = [];
   for (const rel of Object.keys(map)) {
     const m = /paragraphs\.paragraphs_type\.([a-z0-9_]+)\.yml$/.exec(rel);
     if (m) out.push(m[1]);
   }
   return out;
+}
+
+/* ------------------------- prop defaults (answers.components[].props) ------------------------ */
+
+/** Field types whose `default_value` is a plain `[{ value: … }]` list — the only ones we set. */
+const SCALAR_FIELD_TYPES = new Set(["string", "list_string", "integer", "boolean"]);
+
+/**
+ * Apply `answers.components[].props` as the `default_value` of the generated field config, so an
+ * agent's styling choice (a variant enum, a boolean toggle, a count) is what an editor gets when
+ * they create the paragraph/node. Only SCALAR props are supported: a non-scalar prop (array,
+ * object, image, link, rich text, or one mapped onto a contrib field type) has a structured
+ * default_value the emitter doesn't model, so it is skipped with a warning.
+ *
+ * @param {Record<string,string>} map  config file map (rel path -> YAML), mutated in place
+ * @param {any} def  the component's normalized def
+ * @param {Record<string,unknown>} props  prop name -> default value
+ * @returns {Record<string,string>} the same map
+ */
+export function applyPropDefaults(map, def, props = {}) {
+  const byName = new Map(def.props.map((p) => [p.name, p]));
+  for (const [propName, value] of Object.entries(props || {})) {
+    const prop = byName.get(propName);
+    if (!prop) { warnSkippedProp(def.name, propName, "no such prop on the component"); continue; }
+    const fieldType = resolveCandidates(prop)[0];
+    if (!SCALAR_FIELD_TYPES.has(fieldType)) {
+      warnSkippedProp(def.name, propName, `non-scalar Drupal field type "${fieldType}"`);
+      continue;
+    }
+    const field = fieldName(prop.name, def.name);
+    const rel = Object.keys(map).find((k) => /\/field\.field\.[a-z0-9_]+\.[a-z0-9_]+\./.test(k) && k.endsWith(`.${field}.yml`));
+    if (!rel) { warnSkippedProp(def.name, propName, "no field config was generated for it"); continue; }
+    const obj = yaml.load(map[rel]);
+    obj.default_value = [{ value: scalarDefault(fieldType, value) }];
+    map[rel] = yaml.dump(obj, { lineWidth: 120, noRefs: true, sortKeys: false });
+  }
+  return map;
+}
+
+/** @param {string} fieldType @param {unknown} value */
+function scalarDefault(fieldType, value) {
+  if (fieldType === "boolean") return value === true || value === 1 || /^(1|true|yes|on)$/i.test(String(value)) ? 1 : 0;
+  if (fieldType === "integer") return Number(value);
+  return String(value);
+}
+
+function warnSkippedProp(component, prop, why) {
+  process.stderr.write(`warning: ignoring props.${prop} on "${component}" — ${why}.\n`);
 }
 
 /**
@@ -228,12 +296,14 @@ export async function runCreateTheme(argv) {
     if (c.config === "node") {
       // Simple site-templating: a node bundle + node--<name>.html.twig (no paragraphs).
       const map = await configFilesFor(c.id, { as: "node", theme: ans.machine_name });
+      if (c.props) applyPropDefaults(map, await loadComponentDef(c.id), c.props);
       await writeMap(themeDir, map); collectModuleDeps(map, moduleDeps);
     } else if (c.config === "custom-field") {
       const map = await configFilesFor(c.id, { as: "custom-field", entity: c.entity, bundle: c.bundle });
       await writeMap(themeDir, map); collectModuleDeps(map, moduleDeps);
     } else if (c.config === "paragraph") {
       const map = await configFilesFor(c.id, { as: "paragraph", theme: ans.machine_name });
+      if (c.props) applyPropDefaults(map, await loadComponentDef(c.id), c.props);
       await writeMap(themeDir, map); collectModuleDeps(map, moduleDeps); bundles.push(...bundlesIn(map));
     }
   }

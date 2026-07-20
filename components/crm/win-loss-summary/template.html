@@ -1,0 +1,31 @@
+<figure class="win-loss-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="group" aria-label="Win-loss summary">
+  <figcaption class="mb-3 font-heading text-on-surface">Win / loss</figcaption>
+  <div class="relative mx-auto w-40">
+    <svg class="win-loss-summary__svg block size-40" viewBox="0 0 36 36" role="img" aria-label="Win-loss donut">
+      <circle cx="18" cy="18" r="15.9155" fill="none" class="stroke-surface-raised [stroke-width:4]"></circle>
+      <circle data-for="s in slices" cx="18" cy="18" r="15.9155" fill="none" stroke-linecap="butt" class="[stroke-width:4] {{ s.color_class }}" stroke-dasharray="{{ s.dash }}" stroke-dashoffset="{{ s.offset }}" transform="rotate(-90 18 18)"></circle>
+    </svg>
+    <div class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+      <span class="font-heading text-2xl tabular-nums text-on-surface">{{ won }}</span>
+      <span class="text-xs text-on-surface-muted">Won</span>
+    </div>
+  </div>
+  <ul class="win-loss-summary__legend mt-4 flex flex-col gap-2 text-sm">
+    <li class="flex items-center gap-2">
+      <span class="size-2.5 shrink-0 rounded-full bg-success" aria-hidden="true"></span>
+      <span class="text-on-surface">Won</span>
+      <span class="ml-auto tabular-nums text-on-surface-muted">{{ won }}</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <span class="size-2.5 shrink-0 rounded-full bg-danger" aria-hidden="true"></span>
+      <span class="text-on-surface">Lost</span>
+      <span class="ml-auto tabular-nums text-on-surface-muted">{{ lost }}</span>
+    </li>
+    <li data-if="open" class="flex items-center gap-2">
+      <span class="size-2.5 shrink-0 rounded-full bg-on-surface-muted" aria-hidden="true"></span>
+      <span class="text-on-surface">Open</span>
+      <span class="ml-auto tabular-nums text-on-surface-muted">{{ open }}</span>
+    </li>
+  </ul>
+  <span class="hidden stroke-success stroke-danger stroke-warning stroke-info stroke-primary stroke-accent stroke-on-surface-muted" aria-hidden="true"></span>
+</figure>

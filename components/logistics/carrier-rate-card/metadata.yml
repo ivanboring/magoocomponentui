@@ -1,0 +1,84 @@
+name: "Carrier Rate Card"
+short_description: A selectable shipping-option card showing a carrier, service level, delivery estimate and price.
+long_visual_description: >
+  A horizontal card on the surface colour with a card radius and soft shadow. An optional carrier
+  logo sits on the leading edge, the carrier name in the heading face with its service level beneath
+  and a clock-marked delivery estimate below that, the formatted price aligned to the trailing edge,
+  and a round selection mark at the far end. When selected the whole card takes a primary border, a
+  faint primary tint, and a filled mark.
+
+use_cases:
+  - A shipping-method chooser at checkout with a rate per carrier.
+  - Comparing carrier options side by side in a rate shopping list.
+  - Presenting a recommended shipping option to confirm.
+  - A fulfilment settings screen listing available carriers and prices.
+  - A returns flow offering paid drop-off or pickup options.
+
+recommended_for:
+  - A pick-one list of shipping rates where one option is highlighted as chosen.
+  - Rate cards rendered from structured carrier or price data.
+avoid_for:
+  - A single non-selectable price line (use a plain row).
+  - A full order status timeline (use tracking-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one card per available rate and set selected on the option the user has chosen. Give each
+  a carrier, an optional service level, a formatted price, and a delivery estimate; the clock icon
+  is added automatically.
+
+props:
+  carrier: The carrier or provider name shown as the headline.
+  service: The service level or method under the carrier (Ground, 2-Day Air, Express).
+  price: The formatted rate including currency; kept in tabular figures so prices align in a stack.
+  eta: A short delivery estimate shown with a clock icon.
+  logo: Optional carrier logo URL rendered as a small square on the leading edge.
+  selected: When true the card shows the chosen-option styling; set it from the picked rate.
+
+example_prompts:
+  - "Add a carrier rate card for UPS Ground at $12.40 arriving Jul 6."
+  - "Show three shipping options with the express one selected."
+  - "List carrier rates for the user to pick from at checkout."
+
+lifecycle: experimental
+content_model: A carrier name, an optional service level and logo, a formatted price, a delivery estimate, and a selected flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep service names short and the price formatted with currency. Phrase the estimate as an arrival
+  ("Arrives Jul 6") rather than a raw transit time so it reads at a glance.
+
+relationships:
+  related:
+    - logistics/eta-badge
+    - logistics/tracking-timeline
+    - commerce/order-tracker
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Rates
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Selection is shown by a border, a tint and a filled mark plus the price, not colour alone; the logo is decorative with an empty alt.
+  keyboard_support: None - the selected state is driven by a prop; wrap in a radio or button to make it interactive.
+  seo_score: 30
+  text_direction: both

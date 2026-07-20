@@ -1,0 +1,68 @@
+name: "Dependency Link"
+short_description: A colour-coded pill marking a work item's dependency on another — blocks, blocked-by, or relates-to.
+long_visual_description: >
+  A small rounded pill with a chain-link glyph and a reference label. Its tint signals the
+  relationship: a danger wash for blocks, a warning wash for blocked-by, and an info wash for
+  relates-to, so a card's dependencies read at a glance.
+
+use_cases:
+  - Mark a ticket as blocked by another issue.
+  - Show what an item blocks downstream.
+  - Link loosely related work items.
+  - Surface cross-team dependencies on a card.
+  - List an item's dependency references in a detail view.
+
+recommended_for:
+  - Compact dependency badges referencing another work item.
+  - Fixed blocks / blocked-by / relates-to relationship kinds.
+avoid_for:
+  - A generic status label (use a badge).
+  - A full dependency graph (use a diagram).
+
+markets:
+  - Global
+
+example_usage: >
+  Set label to the linked item's reference (e.g. an issue key) and kind to blocks, blocked-by,
+  or relates-to; the pill colour is applied automatically from the kind variant map.
+
+props:
+  label: The linked item's reference or title.
+  kind: The dependency relationship; drives the pill colour.
+
+example_prompts:
+  - "Mark this ticket as blocked by PROJ-142."
+  - "Add a relates-to dependency link to the design spec."
+
+lifecycle: experimental
+content_model: A reference label and a dependency relationship kind.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-warning
+    - --color-info
+    - --radius-pill
+
+editorial_guidance: >
+  Use the label the team recognises, usually the issue key, and keep blocks and blocked-by
+  accurate since their warning and danger tones drive triage attention.
+
+relationships:
+  related:
+    - pm/priority-flag
+    - pm/board-column-header
+    - pm/project-health-card
+
+categorization:
+  category: Project Management
+  subcategory: Dependencies
+  atomic_type: atom
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The relationship is named in the label text and the reference is shown; colour is a secondary cue.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,80 @@
+name: "Air Quality Tile"
+short_description: A compact air-quality reading with a colour-coded AQI value, level label, and a scale bar.
+long_visual_description: >
+  A surface card headed by a muted "Air quality" caption. A large AQI number and its level word
+  (good, moderate, unhealthy, hazardous) share the accent colour for the band, sitting on a common
+  baseline. A thin pill scale bar below fills to the reading's position in the same colour, and an
+  optional line names the main pollutant.
+
+use_cases:
+  - An indoor air-quality sensor reading on a home dashboard.
+  - An outdoor AQI summary pulled from a local station.
+  - A bedroom or nursery air-quality check tile.
+  - A purifier companion widget showing current air quality.
+  - A climate panel entry alongside temperature and humidity.
+  - An alert-worthy reading during wildfire or smog conditions.
+
+recommended_for:
+  - Showing a single AQI reading with a clear good-to-hazardous cue.
+  - Panels where colour and a scale convey severity at a glance.
+avoid_for:
+  - Historical air-quality trends (use a chart component).
+  - Multiple pollutant breakdowns at once (use a detailed readout).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the aqi number and a level band that matches it; the level colours the value, label and bar.
+  Set pct to the reading's precomputed position on the scale and add the main pollutant if known.
+
+props:
+  aqi: The air quality index reading.
+  level: The qualitative band; colours the value, label and scale bar.
+  pollutant: Optional dominant pollutant name; its row hides when omitted.
+  pct: The reading's precomputed 0-100 position on the scale; sets the bar width.
+
+example_prompts:
+  - "Add an air quality tile showing an AQI of 42, good, mostly PM2.5."
+  - "Show a hazardous air quality reading at 214 during wildfire smoke."
+  - "Put an indoor air-quality tile on the climate dashboard."
+
+lifecycle: experimental
+content_model: An AQI value, a qualitative level, an optional main pollutant, and a scale position.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the level word in step with the number so colour and label never disagree. Name a single
+  dominant pollutant rather than listing several; the scale bar carries the severity.
+
+relationships:
+  related:
+    - smarthome/hub-status
+    - smarthome/room-grid
+    - smarthome/device-group-card
+
+categorization:
+  category: Smart Home
+  subcategory: Sensors
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Severity is carried by the numeric value and level word as well as colour, so it does not rely on colour alone; the scale bar is decorative context.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 25
+  text_direction: both

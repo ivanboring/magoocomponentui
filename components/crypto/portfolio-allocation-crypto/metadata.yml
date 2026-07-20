@@ -1,0 +1,90 @@
+name: "Crypto Portfolio Allocation"
+short_description: A donut chart of crypto holdings with a legend of label, percentage, and value.
+long_visual_description: >
+  A surface card with a title over a donut chart drawn as concentric stroked arcs on a muted track,
+  one arc per holding in a tokenized colour. Beside it (or below on narrow screens) a legend lists
+  each holding with a coloured swatch, its label, its share percentage aligned right, and its value
+  in a mono figure. All arc geometry is precomputed by the caller, so the shell renders a real
+  donut with no charting code.
+
+use_cases:
+  - Break down a crypto portfolio by asset share.
+  - Show wallet holdings as a donut on a dashboard.
+  - Visualize a fund or index's asset weights.
+  - Compare stablecoin versus volatile allocation.
+  - Illustrate diversification across tokens.
+  - Summarize a treasury's on-chain holdings.
+
+recommended_for:
+  - Portfolio and wallet dashboards.
+  - Fund or treasury overview pages.
+  - Any percentage-of-whole breakdown of holdings.
+
+avoid_for:
+  - A time series of value (use a line or area chart).
+  - Many tiny slices that blur together (aggregate them first).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each holding's dash ("<share> <remainder>") and offset (negative cumulative start
+  percent) for a circumference-100 circle, plus its display pct and value strings, and give each a
+  tokenized stroke colour that appears in the template's hidden safelist span. The donut and legend
+  render directly from that data.
+
+props:
+  title: Heading over the donut and the SVG accessible label; defaults to "Allocation".
+  slices: The holdings, each with precomputed dash/offset arc geometry, a colour class, and display pct and value.
+
+example_prompts:
+  - "Show a donut of my crypto portfolio allocation by asset."
+  - "Break down wallet holdings as a percentage donut with a legend."
+  - "Visualize the fund's token weights as a donut chart."
+
+relationships:
+  related:
+    - crypto/staking-card
+    - crypto/price-chart-crypto
+    - crypto/defi-pool-row
+
+lifecycle: experimental
+content_model: A title and a set of holdings, each with a precomputed arc, a colour, a percentage, and a value.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-secondary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  The caller owns the math: map each holding's share onto a circumference-100 circle (dash =
+  "<share> <remainder>", offset = negative cumulative start). Assign distinct tokenized stroke
+  colours in a stable order and keep the legend values and percentages consistent with the arcs.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: Portfolio
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The donut is a labelled img; the legend carries the real label, percentage, and value text. Provide a data-table alternative in production.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

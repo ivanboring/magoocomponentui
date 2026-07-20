@@ -1,0 +1,86 @@
+name: "Brand Deal Tracker"
+short_description: A sponsorship card tracking deliverable status with a progress bar and payment note.
+long_visual_description: >
+  A surface card headed by the brand and an optional campaign, with a payment-status pill on the
+  trailing edge. A primary progress bar shows overall completion, and beneath it a checklist marks
+  each deliverable with a status pill — todo (muted), in-progress (info), submitted (warning), or
+  approved (success) — approved rows also getting a check and muted label so finished work recedes.
+
+use_cases:
+  - Track deliverables and status across a brand sponsorship.
+  - Show a campaign's completion progress at a glance.
+  - Monitor which sponsored posts are approved versus outstanding.
+  - Surface a deal's payment status alongside its work.
+  - Give a creator a per-partnership status card.
+  - Coordinate a multi-deliverable sponsorship checklist.
+
+recommended_for:
+  - Creator sponsorship and brand-deal dashboards.
+  - Per-campaign deliverable tracking with a payment note.
+avoid_for:
+  - A full project board with assignees and dates (use a task board).
+  - A simple invoice or payout summary (use payout-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a brand (and optional campaign), a deliverables array of { label, status }, and a precomputed
+  progress_pct for the bar width. Compute the percentage from the deliverables yourself — the card
+  does no maths. Add a payment note to show the deal's billing state next to the work.
+
+props:
+  brand: The brand or sponsor name shown as the heading.
+  campaign: Optional campaign name under the brand.
+  progress_pct: Precomputed 0-100 completion for the bar; omit to hide it.
+  deliverables: The checklist; each { label, status } where status colours the pill.
+  payment: Optional payment-status note shown in the footer.
+
+example_prompts:
+  - "Track a Northwind Coffee deal with three deliverables, half approved."
+  - "Show a brand deal at 50% with a payment status pill."
+  - "Add a sponsorship tracker with todo, in-progress, and approved items."
+
+lifecycle: experimental
+content_model: A brand, an optional campaign, a completion percentage, a deliverables checklist with statuses, and an optional payment note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep deliverable labels concrete (counts and formats) and let the status move todo to approved as
+  work lands. Make progress_pct agree with the checklist so the bar and pills tell the same story.
+
+relationships:
+  related:
+    - creator/payout-summary
+    - creator/content-scheduler
+    - atoms/progress-bar
+
+categorization:
+  category: Creator
+  subcategory: Sponsorship
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each deliverable's state is stated in its pill text and icon as well as colour; the progress bar pairs with the checklist and the deliverables are a semantic list.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 30
+  text_direction: both

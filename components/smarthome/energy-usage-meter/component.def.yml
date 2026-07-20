@@ -1,0 +1,26 @@
+name: energy-usage-meter
+props:
+  current_watts:
+    type: string
+    required: true
+    title: Current watts
+    description: The current power draw figure, e.g. "480".
+    example: "480"
+  today_kwh:
+    type: string
+    title: Today's energy
+    description: Optional energy used today, e.g. "6.2".
+    example: "6.2"
+  cost:
+    type: string
+    title: Cost
+    description: Optional cost figure for today, formatted with currency, e.g. "$1.24".
+    example: "$1.24"
+  pct:
+    type: integer
+    required: true
+    title: Percent of peak
+    description: >
+      Precomputed current draw as a whole-number percentage (0-100) of a chosen maximum; drives the
+      usage bar width. The template performs no arithmetic.
+    example: 48

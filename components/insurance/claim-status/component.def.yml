@@ -1,0 +1,37 @@
+name: claim-status
+props:
+  claim_number:
+    type: string
+    required: true
+    title: Claim number
+    description: The claim reference, rendered in a monospace face.
+    example: "CLM-2026-00841"
+  type:
+    type: string
+    title: Claim type
+    description: What the claim is for, shown under the number (e.g. "Auto collision").
+    example: "Auto collision"
+  amount:
+    type: string
+    title: Amount
+    description: The claim or settlement amount as pre-formatted text (e.g. "$3,200").
+    example: "$3,200"
+  status:
+    type: string
+    title: Status
+    description: A short standing label shown as a pill (e.g. "In review", "Approved").
+    example: "In review"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Timeline steps
+    description: >
+      The claim lifecycle, in order. Each item is { label, done, current } where done marks a
+      completed step and current marks the active one. Set done true for every step up to and
+      including the current stage, and current true on the single stage in progress.
+    example:
+      - { label: "Claim filed", done: true }
+      - { label: "Under review", done: true, current: true }
+      - { label: "Adjuster assigned", done: false }
+      - { label: "Settlement", done: false }

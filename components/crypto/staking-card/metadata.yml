@@ -1,0 +1,92 @@
+name: "Staking Card"
+short_description: A card summarizing a staking position - APY, staked amount, rewards, and stake/unstake actions.
+long_visual_description: >
+  A surface card led by a round token glyph and a "Staking" title. Below sits a raised panel with
+  a small "APY" label over a large yield figure in the success colour. A key-value list then shows
+  the staked amount, rewards earned in the success colour, and an optional unlock date. Two
+  full-width buttons close the card - a primary Stake and an outlined Unstake.
+
+use_cases:
+  - Show a user's active staking position for a token.
+  - Advertise a staking pool's APY and lock terms.
+  - Let a user stake or unstake from a wallet dashboard.
+  - Summarize rewards accrued on a staked balance.
+  - Present a DeFi earn product on a landing page.
+  - Compare staking options side by side in a grid.
+
+recommended_for:
+  - Wallet and DeFi dashboards.
+  - Staking or earn product pages.
+  - Portfolio views with active positions.
+
+avoid_for:
+  - Liquidity pools with paired assets (use defi-pool-row).
+  - A full transaction history (use a table or list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the token ticker, the staked amount, the APY, and the rewards earned. Add an unlock date
+  when the position is time-locked. The Stake and Unstake buttons are skeleton affordances - wire
+  them to your own handlers.
+
+props:
+  token: Ticker shown in the header glyph and title.
+  staked_amount: The user's current staked balance.
+  apy: Annual yield; rendered as the large highlighted figure.
+  rewards: Rewards accrued so far.
+  unlock: Optional unlock date or lock period; the row hides when omitted.
+
+example_prompts:
+  - "Add a staking card for ETH showing 5.8% APY and rewards earned."
+  - "Show a SOL staking position with stake and unstake buttons."
+  - "Display a staking card with a lock-up unlock date."
+
+relationships:
+  related:
+    - crypto/defi-pool-row
+    - crypto/portfolio-allocation-crypto
+    - crypto/nft-card
+
+lifecycle: experimental
+content_model: >
+  A token ticker, a staked amount, an APY figure, rewards earned, and an optional unlock date,
+  plus stake and unstake actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the APY - it is the number users compare on. Keep amounts in a mono figure with the
+  ticker attached, and only show the unlock row when the position is actually time-locked.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: DeFi
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a definition list for the position rows; buttons have visible text labels.
+  keyboard_support: Stake and Unstake buttons are focusable and activate on Enter/Space.
+  seo_score: 55
+  text_direction: both

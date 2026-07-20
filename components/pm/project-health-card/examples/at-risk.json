@@ -1,0 +1,10 @@
+{
+  "name": "Data warehouse migration",
+  "status": "at-risk",
+  "summary": "Slipping on QA capacity; mitigation plan in progress.",
+  "metrics": [
+    { "label": "Progress", "value": "48%" },
+    { "label": "Due", "value": "Sep 1" },
+    { "label": "Open risks", "value": "4" }
+  ]
+}

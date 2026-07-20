@@ -1,0 +1,37 @@
+name: streak-reward
+props:
+  days:
+    type: integer
+    required: true
+    title: Streak length
+    description: The current unbroken streak, in days. Shown as the headline number.
+    example: 5
+  reward_at:
+    type: integer
+    title: Reward milestone
+    description: >
+      The streak length (in days) that unlocks the next reward. Shown as a small milestone note
+      under the week dots. Omit when there is no fixed milestone.
+    example: 7
+  next_reward:
+    type: string
+    title: Next reward note
+    description: A short line describing what the next reward is, shown under the headline.
+    example: "3 days to a free coffee"
+  week:
+    type: array
+    items: object
+    required: true
+    title: Week dots
+    description: >
+      One entry per day of the current week, in order. Each item: { day, done }. day is the short
+      column label (e.g. "M"); done is a boolean - a done day renders a filled check dot, an unmet
+      day renders an empty dot.
+    example:
+      - { day: "M", done: true }
+      - { day: "T", done: true }
+      - { day: "W", done: true }
+      - { day: "T", done: true }
+      - { day: "F", done: true }
+      - { day: "S", done: false }
+      - { day: "S", done: false }

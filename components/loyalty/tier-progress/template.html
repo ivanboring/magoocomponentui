@@ -1,0 +1,15 @@
+<div class="tier-progress rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="mb-2 flex items-center justify-between gap-3 text-sm">
+    <span class="tier-progress__current font-medium text-on-surface">{{ current_tier }}</span>
+    <span data-if="next_tier" class="tier-progress__next text-on-surface-muted">{{ next_tier }}</span>
+  </div>
+  <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Progress to next tier">
+    <div class="tier-progress__fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+  </div>
+  <p class="mt-2 text-sm text-on-surface-muted">
+    <span class="font-medium text-on-surface tabular-nums">{{ current_points }}</span> points
+  </p>
+  <p data-if="needed_points" class="tier-progress__remaining mt-1 text-sm text-on-surface-muted">
+    <span class="font-medium text-on-surface tabular-nums">{{ needed_points }}</span> to <span data-if="next_tier">{{ next_tier }}</span>
+  </p>
+</div>

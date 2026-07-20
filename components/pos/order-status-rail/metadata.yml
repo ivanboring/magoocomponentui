@@ -1,0 +1,75 @@
+name: "Order Status Rail"
+short_description: A horizontal rail of order pipeline stages - New, Preparing, Ready, Served - each with a live count and the current stage highlighted.
+long_visual_description: >
+  A single horizontal row of equal-width stage cells, each a bordered control-radius chip on the
+  surface colour. Every cell stacks a large tabular count over a short stage label. The active
+  stage is highlighted with the primary colour - a primary border, a tinted primary background, and
+  primary-coloured count and label - so the current step stands out along the rail.
+
+use_cases:
+  - Front-of-house order pipeline showing counts at each stage.
+  - Kitchen throughput rail from new to served.
+  - Drive-through or pickup queue status summary.
+  - Delivery ops board tracking orders by fulfilment stage.
+  - Barista or bar workflow of drinks by stage.
+  - A compact status stepper above a live orders table.
+
+recommended_for:
+  - A left-to-right pipeline where each stage has a running count.
+  - Highlighting which stage is currently active or in focus.
+avoid_for:
+  - A detailed board of individual tickets (use kitchen-display).
+  - A single order's own step-by-step progress (use a stepper).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stages array of { label, count, active }, ordered from first to last. Set active true on
+  the one stage you want highlighted; counts are pre-computed integers. The rail scrolls
+  horizontally if the stages overflow on narrow screens.
+
+props:
+  stages: "The ordered pipeline stages, each with a label, a count, and an optional active flag that highlights it."
+  label: "Accessible name announced for the status rail."
+
+example_prompts:
+  - "Show an order status rail with New, Preparing, Ready and Served counts."
+  - "Highlight the Preparing stage on the order pipeline rail."
+  - "Add a fulfilment stage rail above the live orders list."
+
+lifecycle: experimental
+content_model: An ordered set of pipeline stages, each with a name, a count of orders, and an optional active state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep stage labels to one word and order them in real workflow order. Highlight only one stage as
+  active at a time so the rail reads as a clear current step.
+
+relationships:
+  related:
+    - pos/kitchen-display
+    - pos/seat-course-timeline
+
+categorization:
+  category: Restaurant POS
+  subcategory: Orders
+  atomic_type: molecule
+  usage_type: [rail, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The active stage is marked by border, background and text colour together, not colour alone; the rail is an ordered list with an accessible name.
+  keyboard_support: The rail scrolls with the keyboard when focused; stage cells are static, non-interactive content.
+  seo_score: 25
+  text_direction: both

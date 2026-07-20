@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Magoo Agentic Base Theme — base theme for the Magoo component catalog.
+ */
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Render\Markup;
+
+require_once __DIR__ . '/includes/tokens.php';
+
+/**
+ * Implements hook_preprocess_HOOK() for html.
+ *
+ * Renders the design tokens into an inline :root block. Because Tailwind's utilities
+ * reference the variables (var(--color-primary)) rather than baking in the value, this
+ * restyles every component with no CSS rebuild.
+ */
+function magoo_agentic_base_theme_preprocess_html(array &$variables): void {
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  $defaults = magoo_tokens_defaults();
+
+  // Markup::create(), not a bare string: core runs Xss::filterAdmin() over an unsafe #value, which
+  // rewrites ">" to "&gt;". Inside a <style> element that entity is NOT decoded, so any child
+  // combinator in the "Extra CSS variables" setting would silently break the rule. The CSS is
+  // theme-owned and the one author-supplied part of it is gated behind "administer themes".
+  $variables['#attached']['html_head'][] = [
+    [
+      '#tag' => 'style',
+      '#value' => Markup::create(magoo_tokens_css($theme)),
+      '#weight' => 100,
+      '#attributes' => ['data-magoo-tokens' => 'true'],
+    ],
+    'magoo_tokens',
+  ];
+
+  $source = magoo_token_value($theme, 'font_source', $defaults);
+  $url = magoo_token_value($theme, 'font_url', $defaults);
+  if ($source !== 'none' && $url !== '') {
+    $variables['#attached']['html_head_link'][] = [
+      ['rel' => 'stylesheet', 'href' => $url, 'crossorigin' => 'anonymous'],
+    ];
+  }
+
+  $scheme = magoo_token_value($theme, 'color_scheme', $defaults);
+  if ($scheme === 'dark') {
+    $variables['html_attributes']->setAttribute('data-color-scheme', 'dark');
+  }
+
+  // The token block is settings-derived, so the page cache must drop when they change.
+  CacheableMetadata::createFromRenderArray($variables)
+    ->addCacheableDependency(\Drupal::config($theme . '.settings'))
+    ->applyTo($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.
+ *
+ * Threads the layout settings into Twig, and drops any region the site turned off.
+ */
+function magoo_agentic_base_theme_preprocess_page(array &$variables): void {
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  $defaults = magoo_tokens_defaults();
+
+  $split = static fn(string $value): array => array_values(array_filter(array_map('trim', explode(',', $value))));
+
+  $hidden = $split(magoo_token_value($theme, 'hidden_regions', $defaults));
+  foreach ($hidden as $region) {
+    unset($variables['page'][$region]);
+  }
+
+  $variables['magoo'] = [
+    'full_bleed' => $split(magoo_token_value($theme, 'full_bleed_regions', $defaults)),
+    'sidebar_position' => magoo_token_value($theme, 'sidebar_position', $defaults),
+    'sticky_header' => (bool) magoo_token_value($theme, 'sticky_header', $defaults),
+    'color_scheme' => magoo_token_value($theme, 'color_scheme', $defaults),
+  ];
+}

@@ -1,0 +1,87 @@
+name: "Campaign Card"
+short_description: A cause card with an image, title, progress bar, raised-of-goal line, days left, and a Donate button.
+long_visual_description: >
+  A vertical card on the surface colour with a 3:2 cause image at the top, the campaign title in
+  the heading face, a slim primary progress bar filled to the precomputed percentage, a
+  "raised of goal" line with an optional days-left counter to the right, and a full-width primary
+  Donate button at the bottom.
+
+use_cases:
+  - A campaign tile in a grid of active fundraisers.
+  - A featured cause card on a nonprofit home page.
+  - A crowdfunding project card in a discovery list.
+  - A peer-to-peer fundraiser card in a supporter's page.
+  - A disaster-relief appeal card with a deadline.
+  - A cause card in a "ways to give" section.
+
+recommended_for:
+  - Browsing or comparing several campaigns at a glance.
+  - Cards that need an image, progress, and a direct call to action.
+avoid_for:
+  - A single full-width goal readout with no image (use fundraiser-progress).
+  - The actual amount-and-cadence give box (use donation-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a title, a cause image (use a /stock path in the catalog), formatted raised and goal
+  strings, the precomputed pct (0-100, capped at 100), and an optional days_left. Lay several in a
+  responsive grid.
+
+props:
+  title: "The campaign or cause name; keep it to a line or two."
+  image: "URL of the cause image at the top of the card."
+  raised: "Formatted amount raised so far, including currency."
+  goal: "Formatted fundraising goal, including currency."
+  pct: "Percent of goal reached (0-100), precomputed and capped at 100; drives the bar width."
+  days_left: "Optional number of days remaining."
+
+example_prompts:
+  - "Add a campaign card for a clean-water cause at $8,400 of $15,000 with 12 days left."
+  - "Show a grid of fundraiser cards with images and progress bars."
+  - "Add a featured cause card with a Donate button."
+
+lifecycle: experimental
+content_model: A cause image, title, progress toward a goal, optional deadline, and a call to action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use a real, specific cause image and a concrete title. Keep raised and goal in one currency
+  format, round the percentage, and show days left only when there is a genuine deadline.
+
+relationships:
+  related:
+    - nonprofit/fundraiser-progress
+    - nonprofit/donation-form
+    - nonprofit/impact-stat
+    - nonprofit/donor-wall
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: molecule
+  usage_type: [card, grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The progress bar uses role="progressbar" with aria-valuenow/min/max and a label; the image is decorative (empty alt) with the title carrying the name.
+  keyboard_support: The Donate button is focusable and activates on Enter/Space.
+  seo_score: 45
+  text_direction: both

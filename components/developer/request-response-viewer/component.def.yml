@@ -1,0 +1,49 @@
+name: request-response-viewer
+props:
+  method:
+    type: enum
+    values: ["get", "post", "put", "patch", "delete"]
+    default: "get"
+    title: HTTP method
+    description: The request verb; drives the method pill colour in the Request pane.
+  request:
+    type: object
+    required: true
+    title: Request
+    description: >
+      The request to show. Object shape: { url, headers, body }. url is required; headers and body
+      are optional pre-formatted multi-line strings shown in monospace blocks. (The verb lives in
+      the top-level method prop so its pill can be colour-mapped.)
+    example:
+      url: "https://api.example.com/v1/orders/ord_123"
+      headers: "Authorization: Bearer sk_live_...\nAccept: application/json"
+  response:
+    type: object
+    required: true
+    title: Response
+    description: >
+      The response to show. Object shape: { status, status_text, body }. status is the numeric code
+      (or string), status_text the reason phrase, and body a pre-formatted multi-line string.
+    example:
+      status: 200
+      status_text: "OK"
+      body: "{\n  \"id\": \"ord_123\",\n  \"status\": \"paid\"\n}"
+  status_tone:
+    type: enum
+    values: ["success", "warning", "danger"]
+    default: "success"
+    title: Status tone
+    description: >
+      Colours the response status line. Set by the caller from the status class: success for 2xx,
+      warning for 3xx/4xx client issues, danger for 5xx or hard failures.
+variants:
+  method:
+    get: "bg-info/10 text-info"
+    post: "bg-success/10 text-success"
+    put: "bg-warning/10 text-warning"
+    patch: "bg-warning/10 text-warning"
+    delete: "bg-danger/10 text-danger"
+  status_tone:
+    success: "text-success"
+    warning: "text-warning"
+    danger: "text-danger"

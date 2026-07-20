@@ -1,0 +1,10 @@
+{
+  "name": "Pepper",
+  "species": "Dog",
+  "breed": "Labrador mix",
+  "age": "2 years",
+  "photo": "",
+  "shelter": "Happy Tails Rescue",
+  "status": "available",
+  "cta_label": "Meet me"
+}

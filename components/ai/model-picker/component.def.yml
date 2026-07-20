@@ -1,0 +1,31 @@
+name: model-picker
+props:
+  models:
+    type: array
+    items: object
+    required: true
+    title: Models
+    description: >
+      The selectable models, in display order. Each item: { name, description, badge, selected }.
+      name is the display label and the value dispatched on pick; description is an optional
+      one-line summary; badge is an optional short tag (e.g. "Pro", "Fast"); selected marks the
+      current row with a check (set it true on the model matching `current`).
+    example:
+      - { name: "Claude Opus", description: "Most capable, best for complex work.", badge: "Pro", selected: true }
+      - { name: "Claude Sonnet", description: "Balanced speed and quality.", badge: "", selected: false }
+  current:
+    type: string
+    required: true
+    title: Current model
+    description: The label shown in the trigger button (usually the selected model's name).
+    example: "Claude Opus"
+  label:
+    type: string
+    default: "Model"
+    title: Label
+    description: The label shown before the current model in the trigger and used as the menu's accessible name.
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render with the menu already open (mainly for previews and screenshots).

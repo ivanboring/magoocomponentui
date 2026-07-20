@@ -1,0 +1,11 @@
+{
+  "label": "Version",
+  "current": "v2.4",
+  "start_open": true,
+  "versions": [
+    { "label": "v2.4", "badge": "Latest", "current": true },
+    { "label": "v2.3", "current": false },
+    { "label": "v2.0", "current": false },
+    { "label": "v3.0", "badge": "Beta", "current": false }
+  ]
+}

@@ -1,0 +1,84 @@
+name: "Heart Rate Zone Meter"
+short_description: A card showing current bpm and zone plus a five-segment zone bar with the active zone raised and ringed.
+long_visual_description: >
+  A surface card with a large beats-per-minute figure and a pill naming the current zone on the top
+  row, above a five-segment horizontal bar coloured cool-to-hot across the zones. The zone the
+  current rate falls in stands taller, gains a focus ring, and its label reads emphasised; each
+  segment shows its zone name and bpm range beneath.
+
+use_cases:
+  - Live heart-rate zone during a cardio workout.
+  - Post-workout summary of the zone the effort landed in.
+  - Readiness or effort gauge on a fitness dashboard.
+  - Interval-training display highlighting the target zone.
+  - Wearable companion tile showing current intensity.
+
+recommended_for:
+  - Showing which of a fixed set of heart-rate zones the current rate falls in.
+  - Cardio and interval training screens with five labelled zones.
+avoid_for:
+  - A continuous heart-rate line over time (use a chart component).
+  - A single generic percentage (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the current bpm and zone_label, plus a zones array in ascending order. Mark exactly one zone
+  active (the one the current rate falls in) so it renders taller and ringed, and give each zone a
+  tokenized color_class from cool (rest) to hot (peak).
+
+props:
+  bpm: Current heart rate in beats per minute, as a string.
+  zone_label: Name of the zone the current rate falls in.
+  zones: Ascending zones; each has a label, a range string, an active flag, and a bg-* color_class.
+
+example_prompts:
+  - "Add a heart-rate zone meter at 148 bpm in the cardio zone."
+  - "Show a heart-rate meter pinned in the peak zone at 172 bpm."
+
+lifecycle: experimental
+content_model: A current heart rate, the active zone's name, and an ordered set of zones with ranges and colours.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-success
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --color-ring
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the five zone labels and ranges consistent across sessions. The active state is reinforced by
+  the emphasised label text, not colour alone, so the meter stays readable when zones share a hue.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - fitness/sleep-summary
+    - fitness/rep-counter
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The active zone is conveyed by emphasised label text and the zone_label pill, not colour alone; the bpm and zone read as plain text; decorative bar segments carry range labels beneath.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,30 @@
+name: eligibility-checker
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading above the questionnaire.
+    example: "Check if you qualify for the grant"
+  questions:
+    type: array
+    items: object
+    required: true
+    title: Questions
+    description: >
+      The qualifying questions. Each item: { label, options } where options is a nested array
+      of { label, value } choices rendered as a button group under the question.
+    example:
+      - label: "Are you a current resident?"
+        options:
+          - { label: "Yes", value: "yes" }
+          - { label: "No", value: "no" }
+  result:
+    type: object
+    title: Result
+    description: >
+      Optional outcome banner shown below the questions. { eligible, message } where eligible
+      is a boolean (true renders a success banner, false a warning banner) and message is the
+      explanatory text. Omit to hide the banner until a result is computed.
+    example:
+      eligible: true
+      message: "Based on your answers, you appear to qualify. Continue to apply."

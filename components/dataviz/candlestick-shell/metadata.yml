@@ -1,0 +1,87 @@
+name: "Candlestick Shell"
+short_description: A card-framed OHLC candlestick skeleton drawn from precomputed candle geometry.
+long_visual_description: >
+  A surface card with a title header and an optional legend. The plot area shows a row of
+  candlesticks, each a thin high-low wick with a thicker open-close body centred on it. Candles
+  that closed up render in the success colour and those that closed down in the danger colour. A
+  price y-axis label column runs down the left edge. Every candle position is supplied precomputed,
+  so the shell renders a real OHLC chart without any charting code.
+
+use_cases:
+  - Show a price OHLC series for a stock, crypto, or commodity.
+  - Trading or markets widget on a finance dashboard.
+  - Daily or weekly candlestick snapshot in a report.
+  - Illustrate up and down sessions with green/red candles.
+  - A skeleton to drop a real charting library into.
+  - Placeholder chart in a trading-app prototype before wiring live data.
+
+recommended_for:
+  - OHLC price data over an ordered time axis.
+  - Cases where the caller can precompute each candle's four price levels as percentages.
+avoid_for:
+  - A single close-price line (use line-chart-shell).
+  - Non-financial categorical data (use bar-chart-shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each candle's x_pct (centre), high_pct, low_pct, open_pct, and close_pct in a 0-100
+  cartesian viewBox (y grows downward, so a higher price is a smaller number), and set up to a
+  boolean for the colour. The body is drawn as a thick non-scaling stroke, so no body width is
+  needed. Drop a real chart in place of the SVG markup.
+
+props:
+  title: The chart title shown in the header.
+  candles: The candles, each with precomputed x/high/low/open/close percentages and an up boolean.
+  y_labels: Price y-axis tick labels, top to bottom.
+
+example_prompts:
+  - "Add a daily candlestick chart for a ticker."
+  - "Show a weekly OHLC candlestick shell in the markets dashboard."
+  - "Put a trading candlestick chart placeholder in the finance report."
+
+relationships:
+  related:
+    - dataviz/line-chart-shell
+    - dataviz/area-chart-shell
+    - dataviz/bar-chart-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a set of precomputed OHLC candles, and price axis labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Each candle's four price levels are precomputed by the caller by mapping open, high, low, and
+  close onto the 0-100 axis - the shell ships no charting math or JS. The candle body is rendered
+  as a thick non-scaling stroke (not a rect) so it keeps an even width in the stretched viewBox.
+  Supply realistic OHLC values with a mix of up and down candles so the skeleton reads as a genuine
+  chart. The skeleton renders directly from the precomputed data; for a live, interactive chart, a
+  real charting library replaces the SVG markup, and the skeleton then acts as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; the price axis labels are real text. Provide an OHLC data-table alternative in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

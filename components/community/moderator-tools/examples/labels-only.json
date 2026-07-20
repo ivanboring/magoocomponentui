@@ -1,0 +1,8 @@
+{
+  "actions": [
+    { "label": "Pin", "value": "pin" },
+    { "label": "Lock", "value": "lock" },
+    { "label": "Move", "value": "move" },
+    { "label": "Remove", "value": "remove", "danger": true }
+  ]
+}

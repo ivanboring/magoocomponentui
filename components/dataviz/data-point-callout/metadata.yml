@@ -1,0 +1,83 @@
+name: "Data Point Callout"
+short_description: A small annotated marker that pairs a coloured dot with a labelled value, for highlighting a single point on a chart.
+long_visual_description: >
+  An inline marker: a small round dot coloured by tone next to a compact bordered bubble
+  on the surface colour that holds a muted label and a bold value. The dot signals meaning
+  - primary for neutral, success green for a good point, danger red for a bad one - while
+  the bubble names and quantifies it. Digits use tabular figures.
+
+use_cases:
+  - Marking a peak or trough on a line chart.
+  - Annotating a target or threshold crossing.
+  - Highlighting the latest or a selected data point.
+  - Calling out an anomaly on a time series.
+  - Labelling a milestone on a trend.
+  - Flagging a record high or low.
+  - Pointing out a notable value in a sparkline.
+
+recommended_for:
+  - Drawing attention to one specific point.
+  - Annotating charts with a labelled, coloured cue.
+  - Compact inline value highlights.
+avoid_for:
+  - Multi-series readouts (use a chart tooltip).
+  - Long explanations (use a popover or footnote).
+  - Legends or keys (use a chart legend).
+
+markets:
+  - Global
+
+example_usage: >
+  Place it near the point it annotates with a short label, the point's value, and a tone
+  that matches its meaning - primary for neutral, success for a good point, danger for a
+  bad one.
+
+props:
+  label: Short name for the point being annotated.
+  value: The figure to call out.
+  tone: Colours the dot to signal meaning (neutral, good, bad).
+
+example_prompts:
+  - "Mark the peak on the revenue chart at $61,900."
+  - "Add a red callout for the trough at minus 18.4 percent."
+  - "Highlight the latest data point with a neutral marker."
+
+relationships:
+  related:
+    - dataviz/chart-tooltip
+    - dataviz/chart-legend
+    - dataviz/radar-chart-shell
+
+lifecycle: experimental
+content_model: A label, a value, and a tone that colours the marker dot.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Keep the label to a word or two and set the tone to match the point's meaning - never a
+  green dot on a bad value. The bubble is decorative annotation; the chart library
+  positions it next to the point it marks.
+
+categorization:
+  category: Data Visualization
+  subcategory: Chart parts
+  atomic_type: atom
+  usage_type: [highlight, chart]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Label and value are real text, so meaning does not rely on the dot colour alone.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 32
+  text_direction: both

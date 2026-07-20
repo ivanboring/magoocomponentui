@@ -1,0 +1,10 @@
+{
+  "total_earned": "$128.40",
+  "this_month": "$18.20",
+  "pending": "$6.75",
+  "categories": [
+    { "label": "Groceries", "amount": "$62.10", "pct": 48, "color_class": "bg-primary" },
+    { "label": "Fuel", "amount": "$38.20", "pct": 30, "color_class": "bg-info" },
+    { "label": "Dining", "amount": "$28.10", "pct": 22, "color_class": "bg-accent" }
+  ]
+}

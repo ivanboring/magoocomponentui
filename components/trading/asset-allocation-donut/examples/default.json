@@ -1,0 +1,9 @@
+{
+  "title": "Asset allocation",
+  "slices": [
+    { "label": "Equities", "pct": "55%", "value": "$55,000", "dash": "55 45", "offset": "0", "color_class": "stroke-primary" },
+    { "label": "Bonds", "pct": "25%", "value": "$25,000", "dash": "25 75", "offset": "-55", "color_class": "stroke-info" },
+    { "label": "Cash", "pct": "12%", "value": "$12,000", "dash": "12 88", "offset": "-80", "color_class": "stroke-success" },
+    { "label": "Alternatives", "pct": "8%", "value": "$8,000", "dash": "8 92", "offset": "-92", "color_class": "stroke-warning" }
+  ]
+}

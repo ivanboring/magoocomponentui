@@ -1,0 +1,90 @@
+name: "Digital Product Card"
+short_description: A sellable-download card with a cover, type badge, price, sales and rating, and a Buy button.
+long_visual_description: >
+  A vertical card with a cover image (or a typed file-glyph placeholder) topped by a coloured type
+  badge for ebook, preset, template, or course. Below sit the product name in the heading face, a
+  row pairing a star rating with a sales count, an optional format note, and a footer that places the
+  price against a primary Buy button. The badge colour shifts by product type using token tints.
+
+use_cases:
+  - Sell a digital download such as an ebook, preset pack, or template.
+  - Show a course or lesson bundle in a creator storefront.
+  - List a product in a grid of digital goods with prices.
+  - Highlight a best-selling preset with its rating and sales.
+  - Offer a downloadable resource with a clear Buy action.
+  - Populate a creator's shop or product rail.
+
+recommended_for:
+  - Creator storefronts and digital-goods catalogs.
+  - Grids and rails of sellable downloads.
+avoid_for:
+  - A physical product with shipping and variants (use a commerce product card).
+  - A membership tier's benefits (use membership-perks).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a name, a type, and a formatted price, then add a cover image plus optional sales, rating,
+  and format. When no image is supplied a typed file glyph stands in. The type badge colour follows
+  the type enum, so a row of mixed products stays visually sorted by kind.
+
+props:
+  name: The product name shown as the heading.
+  type: The kind of product; sets the badge colour.
+  price: The formatted price including currency.
+  image: Optional cover image URL; a typed glyph shows when omitted.
+  sales: Optional formatted sales count.
+  rating: Optional formatted average rating out of 5.
+  format: Optional delivery-format note.
+
+example_prompts:
+  - "Add a preset pack product card at $29 with a 4.8 rating and 1,240 sales."
+  - "Show an ebook download card with a Buy button."
+  - "List four digital products in a shop grid."
+
+lifecycle: experimental
+content_model: A name, a product type, a price, an optional cover image, and optional sales, rating, and format details.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep names concise and let the type badge carry the category so the heading need not repeat it.
+  Pre-format price, sales, and rating, and use the format note for what the buyer actually receives.
+
+relationships:
+  related:
+    - creator/membership-perks
+    - creator/super-chat-message
+    - cards/card-pricing
+
+categorization:
+  category: Creator
+  subcategory: Commerce
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Type is shown by the badge text as well as colour; the cover image is decorative with an empty alt and the Buy control is a real button.
+  keyboard_support: The Buy button is focusable and activates on Enter/Space.
+  seo_score: 45
+  text_direction: both

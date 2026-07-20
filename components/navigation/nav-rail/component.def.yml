@@ -1,0 +1,18 @@
+name: nav-rail
+props:
+  label:
+    type: string
+    default: "Primary"
+    title: Accessible label
+    description: Accessible name announced for the rail navigation region.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The rail items, top to bottom. Each item: { label, icon, href, active }. icon is raw
+      inline-SVG markup shown while collapsed; label appears when the rail expands on hover/focus;
+      active (boolean) marks the current item.
+    example:
+      - { label: "Dashboard", icon: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><rect x='3' y='3' width='7' height='7' rx='1'/><rect x='14' y='3' width='7' height='7' rx='1'/></svg>", href: "#", active: true }

@@ -1,0 +1,36 @@
+name: contact-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Priya Nair"
+  title:
+    type: string
+    title: Job title
+    example: "VP of Operations"
+  company:
+    type: string
+    title: Company
+    example: "Northwind Traders"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar image
+    description: Photo URL. When omitted, pass initials for a monogram fallback.
+    example: "/stock/avatar-woman-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: A precomputed 1-3 char monogram, shown when there is no avatar image.
+    example: "PN"
+  email:
+    type: string
+    title: Email
+    description: Email address; renders a mailto action button.
+    example: "priya@northwind.example"
+  phone:
+    type: string
+    title: Phone
+    description: Phone number; renders a tel action button.
+    example: "+1 555 0142"

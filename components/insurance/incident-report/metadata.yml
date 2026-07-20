@@ -1,0 +1,83 @@
+name: "Incident Report"
+short_description: A detail card documenting an insurance incident - reference and date, location, narrative, involved parties, and photo thumbnails.
+long_visual_description: >
+  A card on the surface colour headed by an incident reference and date with an incident-type chip on
+  the trailing edge. Below, a pin glyph precedes the location, a narrative description reads in muted
+  body text, an involved-parties list pairs each name with a role, and a row of square photo
+  thumbnails sits at the foot.
+
+use_cases:
+  - Document the details of a filed insurance claim.
+  - Summarise an accident for an adjuster to review.
+  - Record who was involved in an incident and how.
+  - Attach photo evidence to a claim record.
+  - Present a first-notice-of-loss report.
+  - Show an incident timeline entry on a claim page.
+
+recommended_for:
+  - Claim detail and incident-documentation screens.
+  - Any structured record with parties and evidence.
+avoid_for:
+  - A short status notice (use alert or a banner).
+  - A document checklist (use claim-document-upload).
+
+markets:
+  - Global
+
+example_usage: >
+  Fill the header with an incident_number, date and type, then add location and a description_html
+  narrative. Pass parties as name and role pairs and photos as an array of absolute image paths; both
+  sections hide themselves when empty. Description accepts inline HTML, so keep it to trusted markup.
+
+props:
+  incident_number: An optional claim or incident reference in the header.
+  date: The pre-formatted incident date and optional time.
+  location: Where the incident happened.
+  type: A short incident-type label shown as a chip.
+  description_html: The narrative of what happened; accepts inline HTML.
+  parties: The people involved, each a name and a role.
+  photos: Absolute image paths rendered as thumbnails.
+
+example_prompts:
+  - "Document a collision incident INC-2026-0417 with a driver, a witness and two photos."
+  - "Write up an incident report with location, description and involved parties."
+
+lifecycle: experimental
+content_model: An incident reference, date, type, location, a narrative, a list of involved parties, and photo thumbnails.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the narrative factual and in the past tense, and name parties with their role so responsibility
+  reads clearly. Use real, relevant photos as evidence rather than decorative stock where you can.
+
+relationships:
+  related:
+    - insurance/claim-document-upload
+    - insurance/risk-assessment
+    - insurance/policy-renewal-banner
+
+categorization:
+  category: Insurance
+  subcategory: Claims
+  atomic_type: organism
+  usage_type: [card, detail]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an article landmark with a heading; the location glyph is aria-hidden; parties are a semantic list. Photos are decorative here (empty alt) - supply meaningful alt text when the images carry evidence.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

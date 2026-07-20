@@ -1,0 +1,24 @@
+name: benefits-enrollment
+props:
+  plans:
+    type: array
+    items: object
+    required: true
+    title: Plans
+    description: >
+      The selectable benefit plans, in display order. Each item:
+      { name, tier, premium, selected, features }. name is the plan title; tier is an optional
+      kicker (e.g. "PPO"); premium is a preformatted cost string (e.g. "$182/mo"); selected is a
+      boolean marking the initially chosen plan (mark at most one true); features is an array of
+      plain-string bullet points.
+    example:
+      - name: "Standard PPO"
+        tier: "PPO"
+        premium: "$182/mo"
+        selected: true
+        features: ["$20 primary care copay", "Nationwide network", "Dental included"]
+  label:
+    type: string
+    default: "Choose a benefit plan"
+    title: Accessible label
+    description: Accessible name announced for the radio group of plans.

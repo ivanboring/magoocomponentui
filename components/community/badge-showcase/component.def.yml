@@ -1,0 +1,14 @@
+name: badge-showcase
+props:
+  badges:
+    type: array
+    items: object
+    required: true
+    title: Badges
+    description: >
+      The badges to display, in order. Each item: { label, description, icon, earned, tier } where
+      icon is optional raw SVG (a default medal renders otherwise), earned (boolean, default treated
+      as unearned when false) dims the tile and adds a lock overlay, and tier is one of "bronze",
+      "silver" or "gold" (colours the medallion).
+    example:
+      - { label: "First post", description: "Published your first thread.", earned: true, tier: "bronze" }

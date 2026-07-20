@@ -1,0 +1,6 @@
+{
+  "tool": "fetch_url",
+  "status": "error",
+  "args": "{\n  \"url\": \"https://internal.example.com/report.pdf\"\n}",
+  "result": "Error: 403 Forbidden - the requested resource requires authentication."
+}

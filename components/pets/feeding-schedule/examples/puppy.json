@@ -1,0 +1,9 @@
+{
+  "pet": "Biscuit",
+  "meals": [
+    { "time": "6:30 AM", "food": "Puppy formula", "amount": "3/4 cup", "done": false },
+    { "time": "11:00 AM", "food": "Puppy formula", "amount": "3/4 cup", "done": false },
+    { "time": "3:30 PM", "food": "Puppy formula", "amount": "3/4 cup", "done": false },
+    { "time": "8:00 PM", "food": "Puppy formula", "amount": "3/4 cup", "done": false }
+  ]
+}

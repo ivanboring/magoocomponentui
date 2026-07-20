@@ -1,0 +1,78 @@
+name: "Parts List"
+short_description: An itemised list of parts used on a job, with SKU, quantity, price, stock status and a total.
+long_visual_description: >
+  A surface card holding a divided list of parts. Each row shows the part name with a mono SKU,
+  quantity and a coloured stock-status pill on the left, and the line price on the right. A footer
+  row separated by a divider shows the total.
+
+use_cases:
+  - Parts used breakdown on a work order or invoice.
+  - Materials list a technician confirms before a visit.
+  - Stock-status view of parts required for a job.
+  - Line-item parts summary attached to a service report.
+  - Estimate showing the parts portion of a quote.
+
+recommended_for:
+  - An itemised, priced parts breakdown with stock status.
+  - Pairing under work-order-detail when parts need pricing.
+avoid_for:
+  - A plain name-and-quantity parts list (use work-order-detail's parts).
+  - A general product list unrelated to a job.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass parts as an array of { name, sku, qty, price, status }; sku, price and status are optional and
+  status is one of in-stock, ordered or installed, which colours the per-row pill. Set total as a
+  preformatted string.
+
+props:
+  parts: "The parts, each { name, sku, qty, price, status }; status is in-stock, ordered or installed and colours the pill."
+  total: "Preformatted total for all parts."
+
+example_prompts:
+  - "List the parts used with SKU, quantity, price and stock status."
+  - "Add a parts breakdown with a total to the work order."
+
+lifecycle: experimental
+content_model: An itemised list of job parts with identifiers, quantities, prices, status and a total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep part names specific enough to match inventory and include the SKU so a technician can reorder.
+  Use the status pill to flag parts still on order so a job is not scheduled before they arrive.
+
+relationships:
+  related:
+    - fieldservice/work-order-detail
+    - fieldservice/job-dispatch-card
+  parents:
+    - fieldservice/work-order-detail
+
+categorization:
+  category: Field Service
+  subcategory: Work Orders
+  atomic_type: molecule
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stock status is shown by an uppercase text label in the pill, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

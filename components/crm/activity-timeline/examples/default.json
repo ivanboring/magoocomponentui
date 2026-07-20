@@ -1,0 +1,8 @@
+{
+  "activities": [
+    { "type": "call", "title": "Discovery call with Priya", "time": "2h ago", "body": "Walked through pricing and agreed on a pilot scope." },
+    { "type": "email", "title": "Sent proposal draft", "time": "Yesterday" },
+    { "type": "meeting", "title": "Onsite demo with the ops team", "time": "Mon", "body": "Six stakeholders attended; strong interest in reporting." },
+    { "type": "note", "title": "Budget confirmed for Q3", "time": "Last week" }
+  ]
+}

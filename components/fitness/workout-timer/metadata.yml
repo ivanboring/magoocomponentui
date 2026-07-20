@@ -1,0 +1,91 @@
+name: "Workout Timer"
+short_description: An interval work/rest countdown timer with rounds and start, pause and reset controls.
+long_visual_description: >
+  A centered card showing an optional workout name, a small phase label (Work or Rest) coloured by
+  phase, a large MM:SS countdown in the heading face, a "Round X of Y" indicator, and a row of
+  Start, Pause and Reset buttons. The Start button is primary; Pause and Reset are quiet outline
+  buttons with play/pause/reset glyphs.
+
+use_cases:
+  - A Tabata or HIIT interval timer during a workout.
+  - A circuit-training station timer with fixed work and rest.
+  - A guided-session countdown embedded in a class page.
+  - A stretching or mobility hold timer.
+  - A boxing/round timer with configurable rounds.
+
+recommended_for:
+  - Timed interval training where work, rest and rounds are known up front.
+  - Any repeated work/rest pattern that needs a clear phase and round readout.
+avoid_for:
+  - An open-ended stopwatch counting up (this counts down).
+  - A single one-shot countdown with no rounds or rest.
+
+markets:
+  - Global
+
+example_usage: >
+  Set work_seconds, rest_seconds and rounds (all strings of whole seconds/counts); add an optional
+  label. Start begins the countdown, Pause halts it in place, and Reset returns to round one of the
+  work phase. Set rest_seconds to "0" for a rounds-only timer with no rest between.
+
+how_to_use: >
+  behavior.js reads work/rest/rounds from the root's data-work, data-rest and data-rounds attributes
+  (the portable self-init passes no props). It runs a 1-second interval that counts down, switches
+  work -> rest -> next round automatically, and stops after the final round. On every phase change it
+  dispatches a bubbling "timer:phase" CustomEvent from the root with detail { phase, round, rounds }
+  (phase is "work", "rest" or "done") so a parent can react (play a sound, advance a playlist). The
+  interval and click listeners are cleaned up on teardown. Screenshots don't run JS, so the static
+  display shows 00:00 at round one until Start is pressed.
+
+props:
+  work_seconds: Length of each work interval in whole seconds.
+  rest_seconds: Length of each rest interval in whole seconds; "0" skips rest entirely.
+  rounds: How many work/rest rounds to run before finishing.
+  label: Optional heading above the timer, e.g. the workout or block name.
+
+example_prompts:
+  - "Add a Tabata timer with 20 seconds work, 10 seconds rest, 8 rounds."
+  - "Show an interval timer for 45 on 15 off across 5 rounds."
+  - "Put a rounds-only round timer with no rest on the boxing page."
+
+lifecycle: experimental
+content_model: Work, rest and round counts plus an optional label; the running state is client-side.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label short and let the numbers dominate. Choose work/rest values that match the training
+  style so the phase colours (primary work, info rest) stay meaningful.
+
+relationships:
+  related:
+    - fitness/exercise-row
+    - fitness/workout-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tools
+  atomic_type: molecule
+  usage_type: [tool]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Phase is conveyed by text (Work/Rest/Done) as well as colour; controls are native buttons and the display is a role="timer" region.
+  keyboard_support: Start, Pause and Reset are native buttons, focusable and activated with Enter/Space.
+  seo_score: 20
+  text_direction: both

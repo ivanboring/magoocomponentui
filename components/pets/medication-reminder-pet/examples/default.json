@@ -1,0 +1,11 @@
+{
+  "pet": "Biscuit",
+  "medication": "Apoquel",
+  "dosage": "16 mg tablet",
+  "schedule": "Twice daily with food",
+  "next_dose": "Today, 6:00 PM",
+  "doses": [
+    { "time": "8:00 AM", "given": true },
+    { "time": "6:00 PM", "given": false }
+  ]
+}

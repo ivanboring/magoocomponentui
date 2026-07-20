@@ -2,7 +2,7 @@
   <div class="hero-split__text data-[reverse=true]:lg:order-2" data-reverse="{{ reverse }}">
     <h1 class="hero-split__title font-heading text-4xl leading-tight text-on-surface">{{ title }}</h1>
     <p data-if="subtitle" class="hero-split__subtitle mt-4 text-lg text-on-surface-muted">{{ subtitle }}</p>
-    <a class="hero-split__cta mt-6 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ primary_href }}">{{ primary_label }}</a>
+    <a class="hero-split__cta mt-6 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" href="{{ primary_href }}">{{ primary_label }}</a>
   </div>
   <div class="hero-split__media data-[reverse=true]:lg:order-1" data-reverse="{{ reverse }}">
     <img data-if="image" class="w-full rounded-card object-cover shadow-card" src="{{ image }}" alt="">

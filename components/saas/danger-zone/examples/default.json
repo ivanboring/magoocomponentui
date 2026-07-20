@@ -1,0 +1,15 @@
+{
+  "title": "Danger zone",
+  "actions": [
+    {
+      "title": "Transfer ownership",
+      "description": "Move this workspace to another account. You will lose admin access.",
+      "button_label": "Transfer"
+    },
+    {
+      "title": "Delete this project",
+      "description": "Permanently remove this project and all of its data. This cannot be undone.",
+      "button_label": "Delete project"
+    }
+  ]
+}

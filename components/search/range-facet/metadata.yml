@@ -1,0 +1,89 @@
+name: "Range Facet"
+short_description: A min/max range filter with a visual selected-segment track, two draggable-looking handles and numeric min/max inputs.
+long_visual_description: >
+  A labelled filter block with a monospace readout of the current min-to-max range at the
+  top right. Below it a thin rounded track sits on a muted rail with a primary-coloured
+  segment marking the selected span, capped at each end by a round handle dot. Two number
+  inputs beneath let the user type the exact minimum and maximum, each showing an optional
+  unit suffix. The segment position and width are precomputed percentages passed in as
+  props.
+
+use_cases:
+  - A price range facet in a product search sidebar.
+  - Distance or radius filtering on a map or listings search.
+  - Filtering by year, rating or any numeric attribute.
+  - Salary or budget range on a jobs or real-estate site.
+  - Narrowing results to a numeric window before submitting.
+  - Any faceted search that needs a bounded min/max selection.
+
+recommended_for:
+  - Bounded numeric filtering where a visual track plus exact inputs both help.
+  - Facets whose selected span should be obvious at a glance.
+avoid_for:
+  - A single-value slider (use a slider control).
+  - Categorical filtering (use checkboxes or filter pills).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass label, the min/max bounds, the current_min/current_max selection and an optional
+  unit. Because the directive language has no arithmetic, also pass track_left and
+  track_width as percentages - track_left = (current_min - min) / (max - min) * 100 and
+  track_width = (current_max - current_min) / (max - min) * 100 - so the fill segment
+  renders in the right place.
+
+props:
+  label: "The facet name shown above the range."
+  min: "The lowest allowed value (min attribute of the first input)."
+  max: "The highest allowed value (max attribute of the second input)."
+  current_min: "The current lower value of the selected range."
+  current_max: "The current upper value of the selected range."
+  unit: "Optional unit suffix shown in the readout and inside each input."
+  track_left: "Precomputed left offset of the selected segment as a percent of the track (0-100)."
+  track_width: "Precomputed width of the selected segment as a percent of the track (0-100)."
+
+example_prompts:
+  - "Add a price range facet to the product search filters."
+  - "Add a min/max distance filter with a visual track and number inputs."
+
+lifecycle: experimental
+content_model: A labelled numeric range filter with a visual selected segment and min/max inputs.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-ring
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+
+editorial_guidance: >
+  Choose bounds that match the real data so the selected segment is meaningful, and keep
+  the unit short (a symbol or two letters). Keep the readout in sync with the inputs so
+  the visible span and the typed values always agree.
+
+relationships:
+  related:
+    - search/saved-filters
+    - search/map-list-toggle
+    - forms/combobox
+
+categorization:
+  category: Search
+  subcategory: Filters
+  atomic_type: molecule
+  usage_type: [filter, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The two number inputs carry aria-labels naming the facet and expose the min/max bounds; the visual track and handles are decorative (aria-hidden) so the values are always reachable via the inputs.
+  keyboard_support: The min and max number inputs are focusable and accept typed or stepped values within the bounds; the visual track is presentational.
+  seo_score: 15
+  text_direction: both

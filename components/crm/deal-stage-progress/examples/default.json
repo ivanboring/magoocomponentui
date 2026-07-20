@@ -1,0 +1,8 @@
+{
+  "stages": [
+    { "label": "Qualified", "done": true },
+    { "label": "Proposal", "done": true },
+    { "label": "Negotiation", "current": true },
+    { "label": "Closed Won" }
+  ]
+}

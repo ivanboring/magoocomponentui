@@ -1,0 +1,79 @@
+name: "Coverage Breakdown"
+short_description: A card listing a policy's coverage lines with limits and an optional coloured usage bar per line.
+long_visual_description: >
+  A card headed "Coverage breakdown". Each coverage line is a row pairing a label with a tabular
+  amount that reads "used / limit" when a used amount is present, above a slim progress bar on the
+  raised surface whose width comes from a precomputed percentage and whose fill colour is set per
+  row by a tokenised utility. Lines without a percentage show the limit alone with no bar. A hidden
+  safelist row keeps the common fill colours in the compiled CSS.
+
+use_cases:
+  - Showing a policy's coverage limits and how much has been used.
+  - A coverage summary panel on a policy detail page.
+  - A sidebar breakdown beside a claim so members see remaining limits.
+  - An at-a-glance view of liability, property and medical limits.
+  - A renewal review comparing coverage lines and their usage.
+  - A benefits explainer listing what each coverage covers up to.
+
+recommended_for:
+  - Listing multiple coverage lines with their limits and usage together.
+  - Signalling how close a line is to its limit with a coloured bar.
+avoid_for:
+  - A single generic percentage bar (use atoms/progress-bar).
+  - A deductible-versus-max progress view (use deductible-meter).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a coverages array where each item is { label, limit, used, pct, color_class }. Precompute pct
+  as the used-over-limit percentage before rendering, since the template does no arithmetic, and set
+  color_class to a tokenised fill such as bg-primary or bg-warning to signal how much of the limit
+  is consumed. Omit used and pct on lines you only want to show a limit for.
+
+props:
+  coverages: One row per coverage line; each carries a label, a limit, an optional used amount, an optional precomputed bar percentage, and a tokenised fill colour.
+
+lifecycle: experimental
+content_model: An array of coverage lines, each with a limit, an optional used amount, an optional precomputed percentage, and a fill colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep coverage labels short and consistent with the policy documents. Precompute each pct from used
+  over limit, and reserve the warning or danger fill for lines that are nearly exhausted so colour
+  reinforces the amount.
+
+relationships:
+  related:
+    - insurance/policy-card
+    - insurance/deductible-meter
+    - insurance/claim-status
+
+categorization:
+  category: Insurance
+  subcategory: Coverage
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar is paired with a used and limit text amount, so usage never depends on colour or width alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

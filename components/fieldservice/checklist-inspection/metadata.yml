@@ -1,0 +1,80 @@
+name: "Inspection Checklist"
+short_description: A pass/fail/na inspection checklist card with a passed-of-total header and per-item result markers.
+long_visual_description: >
+  A surface card headed by a title on the left and a passed-of-total pill on the right. Below, a
+  divided list of inspection items, each led by a round marker that shows a green check for a pass, a
+  red cross for a fail, or a muted dash for not-applicable. Each row carries a bold item label and an
+  optional muted note beneath it.
+
+use_cases:
+  - Fire and safety inspection walkthrough on site.
+  - Preventive maintenance checklist for serviced equipment.
+  - Pre-delivery or handover inspection sign-off.
+  - HVAC or electrical compliance check with pass/fail lines.
+  - Vehicle or fleet daily inspection log.
+  - Property condition report before a move-in or move-out.
+
+recommended_for:
+  - Field technicians recording pass/fail results against a fixed list.
+  - Inspection reports that need an at-a-glance summary count.
+avoid_for:
+  - A live, editable form (this is a read-only summary of recorded results).
+  - Free-form notes without a pass/fail outcome per line.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item carries a label, a result of "pass", "fail" or "na", and an
+  optional note. Precompute the passed and total counts and pass them as strings for the header pill.
+
+props:
+  title: Heading above the list, e.g. the inspection type or job name.
+  items: The inspection lines in order; each has a label, a result (pass, fail or na) and an optional note.
+  passed: Precomputed count of passing items shown in the header.
+  total: Precomputed total item count shown in the header.
+
+example_prompts:
+  - "Show a fire safety inspection checklist with 8 of 10 items passed."
+  - "Add an equipment maintenance checklist card with pass, fail and n/a rows."
+
+lifecycle: experimental
+content_model: A titled list of inspection items, each with a pass/fail/na result and optional note, plus a passed-of-total summary.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep item labels short and outcome-focused. Use the note only for the exception (what failed or why
+  a line is not applicable), and make the passed count agree with the number of pass results.
+
+relationships:
+  related:
+    - fieldservice/customer-signoff
+    - fieldservice/equipment-card
+    - fieldservice/sla-timer
+
+categorization:
+  category: Field Service
+  subcategory: Inspection
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each result is conveyed by a distinct icon shape and an accompanying label, not colour alone; the list uses semantic list markup.
+  keyboard_support: None - static, non-interactive summary.
+  seo_score: 30
+  text_direction: both

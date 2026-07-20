@@ -1,0 +1,40 @@
+{
+  "logo_text": "Acme",
+  "logo_href": "/",
+  "label": "Primary",
+  "links": [
+    { "label": "Home", "href": "/" },
+    {
+      "label": "Products",
+      "open": true,
+      "children": [
+        { "label": "Overview", "href": "#" },
+        {
+          "label": "Categories",
+          "open": true,
+          "children": [
+            { "label": "Phones", "href": "#" },
+            { "label": "Laptops", "href": "#" },
+            { "label": "Tablets", "href": "#" }
+          ]
+        },
+        { "label": "Accessories", "href": "#" },
+        { "label": "Deals", "href": "#" }
+      ]
+    },
+    {
+      "label": "Solutions",
+      "open": false,
+      "children": [
+        { "label": "For Teams", "href": "#" },
+        { "label": "For Enterprise", "href": "#" },
+        { "label": "For Startups", "href": "#" }
+      ]
+    },
+    { "label": "Pricing", "href": "/pricing" },
+    { "label": "About", "href": "/about" }
+  ],
+  "$slots": {
+    "actions": "<a class=\"px-3 py-2 text-sm text-on-surface-muted transition-colors hover:text-on-surface\" href=\"#\">Log in</a><a class=\"rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity hover:opacity-90\" href=\"#\">Sign up</a>"
+  }
+}

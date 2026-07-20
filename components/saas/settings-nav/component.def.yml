@@ -1,0 +1,21 @@
+name: settings-nav
+props:
+  label:
+    type: string
+    default: "Settings"
+    title: Accessible label
+    description: Accessible name announced for the settings navigation.
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Grouped settings sections. Each group: { label, items: [{ label, href, active, icon }] }.
+      label is an optional group heading; icon is an optional raw inline SVG string; active marks
+      the current settings section. Groups and items render in order.
+    example:
+      - label: "Account"
+        items:
+          - { label: "Profile", href: "/settings/profile", active: true, icon: "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><circle cx='10' cy='7' r='3'/><path d='M4 17a6 6 0 0112 0'/></svg>" }
+          - { label: "Security", href: "/settings/security", active: false }

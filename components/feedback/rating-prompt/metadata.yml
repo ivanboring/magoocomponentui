@@ -1,0 +1,82 @@
+name: "Rating Prompt"
+short_description: A compact card that asks users to rate an experience on an interactive star row.
+long_visual_description: >
+  A small centered card on the surface colour with a short question in the heading face, a row of
+  large gold star buttons below it, and a subtle "Tap to rate" hint at the bottom. Empty stars are
+  dimmed; hovering or focusing a star previews the fill up to that position, and the chosen score
+  stays filled once tapped.
+
+use_cases:
+  - Ask for a quick star rating after an order or delivery.
+  - Prompt a rating at the end of a support chat or call.
+  - Collect a satisfaction score inside an app after a task completes.
+  - Gather a rating on a confirmation or thank-you page.
+  - Invite a review of a session, class, or booking.
+  - Capture a lightweight quality score to feed analytics.
+
+recommended_for:
+  - A single, friendly "rate this experience" moment.
+  - Placement in a card, modal, or thank-you state.
+avoid_for:
+  - A read-only display of an existing average (use rating-stars).
+  - A full review form with comments and photos.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute a stars array (one { index, filled } per star, length == max, usually all filled false).
+  Listen for the bubbling rating:submit event (detail.rating is 1-max) on a parent to persist the
+  score and advance to a thank-you or comment step.
+
+how_to_use: >
+  Each star button carries a 1-based data-index and its glyph's data-filled drives the fill look, so
+  a preset rating renders in screenshots with no JavaScript. behavior.js previews the fill on hover
+  and focus, commits it on click (updating aria-checked and the root's data-value), and dispatches a
+  bubbling "rating:submit" CustomEvent with { rating }. The portable self-init reads no props object.
+
+props:
+  question: "The prompt shown above the star row."
+  max: "How many stars to offer; should match the stars array length."
+  stars: "Precomputed { index, filled } per star, in order, length == max."
+
+lifecycle: experimental
+content_model: A single star rating chosen from a configurable maximum.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the question short and warm. Ask once, at a natural end point, and follow a high or low score
+  with an optional comment step rather than forcing text up front.
+
+relationships:
+  related:
+    - feedback/star-rating-input
+    - feedback/nps-survey
+    - feedback/emoji-reaction-survey
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Ratings
+  atomic_type: molecule
+  usage_type: [highlight, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The stars form a labelled radiogroup of role="radio" buttons with aria-checked, each carrying an accessible label, and a visible focus ring; state is not conveyed by colour alone.
+  keyboard_support: Each star button is focusable and activates on Enter/Space; focusing a star previews its fill and shows a visible focus ring.
+  seo_score: 15
+  text_direction: both

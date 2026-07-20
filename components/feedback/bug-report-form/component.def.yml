@@ -1,0 +1,35 @@
+name: bug-report-form
+props:
+  severities:
+    type: array
+    items: object
+    required: true
+    title: Severities
+    description: >
+      The severity levels offered in the select. Each item: { label, value }. label is the visible
+      option text; value is the machine value submitted with the report.
+    example:
+      - { label: "Low", value: "low" }
+      - { label: "Medium", value: "medium" }
+      - { label: "High", value: "high" }
+      - { label: "Critical", value: "critical" }
+  title_placeholder:
+    type: string
+    default: "Short summary of the issue"
+    title: Title placeholder
+    description: Placeholder for the bug title input.
+  placeholder:
+    type: string
+    default: "What happened? Steps to reproduce, what you expected, and what you saw."
+    title: Description placeholder
+    description: Placeholder for the description textarea.
+  dropzone_label:
+    type: string
+    default: "Drag & drop screenshots or logs"
+    title: Dropzone label
+    description: Instructional text shown inside the file-attach dropzone.
+  submit_label:
+    type: string
+    default: "Submit report"
+    title: Submit label
+    description: Text on the submit button.

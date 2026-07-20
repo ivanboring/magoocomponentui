@@ -1,0 +1,16 @@
+name: vote-control
+props:
+  score:
+    type: string
+    required: true
+    title: Score
+    description: Pre-formatted vote score shown between the arrows.
+    example: "128"
+  vote:
+    type: enum
+    values: ["", "up", "down"]
+    default: ""
+    title: Vote
+    description: >
+      The current vote. "" is neutral (neither arrow active); "up" highlights the up arrow and the
+      score in the success colour; "down" highlights the down arrow and the score in the danger colour.

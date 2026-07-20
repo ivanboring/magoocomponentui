@@ -1,0 +1,77 @@
+name: "Membership Perks"
+short_description: A tier card listing membership perks with included checks and excluded crossed-out rows.
+long_visual_description: >
+  A surface card headed by the tier name and an optional price, above a stacked list of perk rows.
+  Each included perk gets a success-coloured check and normal text; each excluded perk gets a muted
+  cross and struck-through, muted text, so what a tier does and does not cover reads instantly.
+
+use_cases:
+  - Show what a membership tier includes and excludes.
+  - Compare perks across supporter, fan, and VIP tiers.
+  - Summarise a subscription tier's benefits on a join page.
+  - List Patreon-style rewards for a pledge level.
+  - Display perk coverage inside a pricing or tier grid.
+  - Recap a member's current benefits in an account view.
+
+recommended_for:
+  - Creator membership and subscription tier cards.
+  - Side-by-side perk comparisons across tiers.
+avoid_for:
+  - A full pricing table with CTAs and billing toggles (use card-pricing).
+  - A single generic checklist unrelated to tiers (use a list).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the card a tier name (and optional price) and a perks array of { label, included }. Set
+  included to true for perks the tier covers and false for ones it does not — the false rows render
+  muted and crossed out. Keep the perk order consistent across tiers so they line up when compared.
+
+props:
+  tier: The membership tier name shown as the heading.
+  price: Optional formatted price shown next to the tier name.
+  perks: The perk lines; each { label, included } where included toggles check versus crossed-out.
+
+example_prompts:
+  - "Show a Supporter tier at $5/mo with members-only posts and early access included."
+  - "List the VIP membership perks with the live call included."
+  - "Compare Fan and Supporter tiers side by side."
+
+lifecycle: experimental
+content_model: A tier name, an optional price, and a list of perks each marked included or excluded.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep perk labels short and phrased the same across tiers so the included and excluded rows align
+  when cards sit side by side. Lead with the perks a tier adds over the one below it.
+
+relationships:
+  related:
+    - creator/digital-product-card
+    - cards/card-pricing
+    - creator/payout-summary
+
+categorization:
+  category: Creator
+  subcategory: Membership
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inclusion is shown by a check or cross icon and struck-through text as well as colour; the perks are a semantic list.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 35
+  text_direction: both

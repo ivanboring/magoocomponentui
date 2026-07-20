@@ -1,0 +1,21 @@
+name: table-map
+props:
+  tables:
+    type: array
+    items: object
+    required: true
+    title: Tables
+    description: >
+      The tables to lay out on the floor. Each item: { label, seats, status, shape }. label is the
+      table name/number, seats is an optional preformatted seat count, status is one of "open",
+      "seated", "reserved", or "dirty" (drives the tile colour), and shape is an optional "square"
+      (default) or "round" (rounds the tile). This is a stylized floor-plan facade, not a spatially
+      accurate layout - tiles flow in a responsive grid.
+    example:
+      - { label: "1", seats: "2", status: "open", shape: "round" }
+      - { label: "2", seats: "4", status: "seated", shape: "square" }
+  label:
+    type: string
+    default: "Floor plan"
+    title: Accessible label
+    description: Accessible name announced for the floor-plan region.

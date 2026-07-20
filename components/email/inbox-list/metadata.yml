@@ -1,0 +1,79 @@
+name: "Inbox List"
+short_description: A bordered, divided list of email rows with sender, subject, snippet, time, star and unread state.
+long_visual_description: >
+  A card-radius, bordered panel on the surface colour holding a vertically divided stack of message
+  rows. Each row has a star button, a round avatar (image, initials, or an empty surface circle), a
+  fixed-width sender column, a subject followed by a muted one-line snippet, and a timestamp on the
+  trailing edge. Unread rows are tinted with the raised-surface colour and bold their sender and
+  subject; starred rows fill the star in the warning colour.
+
+use_cases:
+  - The main message list of an email inbox.
+  - A folder or label view listing its messages.
+  - Search results for a mailbox query.
+  - An unread-first triage view of recent mail.
+  - A compact conversations list in a mail sidebar.
+  - A digest of the latest messages on a dashboard.
+
+recommended_for:
+  - Rendering a full inbox from a structured array of messages.
+  - Any message list needing per-row unread and starred states.
+avoid_for:
+  - A single standalone row (use email-row).
+  - Reading a full message (use email-reader).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an emails array; each item carries sender, subject, snippet, time and an unread flag, plus an
+  optional starred flag and either an avatar image URL or short initials. The list draws the dividers,
+  tinting and bolding for you.
+
+props:
+  emails: "The messages in order; each item: sender, subject, snippet, time, unread (bool), optional starred (bool), and either avatar (image URL) or initials (1-2 char fallback)."
+
+example_prompts:
+  - "Show an inbox list with a mix of unread and read messages."
+  - "List the latest five emails with avatars and unread bolding."
+  - "Render a folder view of all-read messages."
+
+lifecycle: experimental
+content_model: An ordered array of message rows, each with sender, subject, snippet, time and state flags.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Order by recency and keep snippets to a single clause. Provide initials when there is no avatar so
+  each row reads cleanly, and reserve unread bolding for genuinely unread messages.
+
+relationships:
+  children:
+    - email/email-row
+  related:
+    - email/email-row
+    - email/email-reader
+    - email/label-chip
+
+categorization:
+  category: Email
+  subcategory: Inbox
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A semantic list with labelled star buttons per row; unread and starred states use weight and fill alongside colour; avatar images use empty alt as decorative and icons are aria-hidden.
+  keyboard_support: Each row's star button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

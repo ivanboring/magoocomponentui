@@ -1,0 +1,14 @@
+{
+  "query": "wireles hedphones",
+  "suggestions": [
+    { "label": "wireless headphones" },
+    { "label": "bluetooth earbuds" },
+    { "label": "noise-cancelling headphones" },
+    { "label": "over-ear headphones" }
+  ],
+  "tips": [
+    "Check your spelling",
+    "Try more general words",
+    "Remove filters to widen the search"
+  ]
+}

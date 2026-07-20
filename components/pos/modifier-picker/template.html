@@ -1,0 +1,15 @@
+<div class="modifier-picker flex w-full max-w-md flex-col gap-5 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 data-if="item" class="font-heading text-lg text-on-surface">{{ item }}</h3>
+  <div data-for="group in groups" class="modifier-picker__group flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <span class="font-heading text-sm text-on-surface">{{ group.label }}</span>
+      <span data-if="group.required" class="rounded-pill bg-danger/10 px-2 py-0.5 text-xs font-medium text-danger">Required</span>
+    </div>
+    <div class="flex flex-wrap gap-2">
+      <button data-for="option in group.options" type="button" data-selected="{{ option.selected }}" class="modifier-picker__option flex items-center gap-2 rounded-pill border border-border bg-surface px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[selected=true]:border-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary" aria-pressed="false">
+        <span>{{ option.label }}</span>
+        <span data-if="option.price" class="text-xs text-on-surface-muted tabular-nums">{{ option.price }}</span>
+      </button>
+    </div>
+  </div>
+</div>

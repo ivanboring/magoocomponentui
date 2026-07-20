@@ -1,0 +1,11 @@
+{
+  "label": "Customer satisfaction",
+  "score": 4.6,
+  "scale": "5",
+  "responses": 1284,
+  "distribution": [
+    { "label": "Satisfied", "pct": 72, "color_class": "bg-success" },
+    { "label": "Neutral", "pct": 19, "color_class": "bg-warning" },
+    { "label": "Unsatisfied", "pct": 9, "color_class": "bg-danger" }
+  ]
+}

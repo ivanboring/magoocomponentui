@@ -1,0 +1,40 @@
+name: ballot-measure
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The measure's plain-language title.
+    example: "Measure B: School Facilities Bond"
+  measure_id:
+    type: string
+    title: Measure ID
+    description: Optional short identifier shown as a mono chip, e.g. "Prop 22".
+    example: "Prop 22"
+  summary:
+    type: string
+    required: true
+    title: Summary
+    description: A neutral one-paragraph description of what the measure does.
+    example: "Authorizes $260M in bonds to repair and modernize local school buildings."
+  status:
+    type: string
+    title: Status
+    description: Optional status pill, e.g. "On the ballot" or "Passed".
+    example: "On the ballot"
+  pro_args:
+    type: array
+    items: string
+    title: Arguments in favor
+    description: A list of short arguments supporting the measure.
+    example:
+      - "Fixes aging classrooms and unsafe facilities."
+      - "Independent oversight committee reviews all spending."
+  con_args:
+    type: array
+    items: string
+    title: Arguments against
+    description: A list of short arguments opposing the measure.
+    example:
+      - "Raises property taxes for 30 years."
+      - "No cap on administrative overhead."

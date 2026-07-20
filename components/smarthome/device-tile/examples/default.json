@@ -1,0 +1,7 @@
+{
+  "name": "Living room lamp",
+  "room": "Living room",
+  "icon": "<svg class=\"size-5\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M10 2a5 5 0 00-3 9v2h6v-2a5 5 0 00-3-9z\"/><path d=\"M8 17h4\"/></svg>",
+  "on": true,
+  "status_text": "80% brightness"
+}

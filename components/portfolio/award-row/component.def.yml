@@ -1,0 +1,22 @@
+name: award-row
+props:
+  award:
+    type: string
+    required: true
+    title: Award
+    example: "Site of the Year"
+  organization:
+    type: string
+    title: Organization
+    description: The body or publication that granted the award.
+    example: "Awwwards"
+  year:
+    type: string
+    required: true
+    title: Year
+    example: "2025"
+  category:
+    type: string
+    title: Category
+    description: Optional category or discipline, shown as a pill on the trailing edge.
+    example: "Web Design"

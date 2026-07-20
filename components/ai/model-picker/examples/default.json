@@ -1,0 +1,10 @@
+{
+  "current": "Claude Opus",
+  "label": "Model",
+  "start_open": false,
+  "models": [
+    { "name": "Claude Opus", "description": "Most capable, best for complex, multi-step work.", "badge": "Pro", "selected": true },
+    { "name": "Claude Sonnet", "description": "Balanced speed and quality for everyday tasks.", "badge": "", "selected": false },
+    { "name": "Claude Haiku", "description": "Fastest and most affordable.", "badge": "Fast", "selected": false }
+  ]
+}

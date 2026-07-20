@@ -1,0 +1,9 @@
+{
+  "label": "Product frames",
+  "show_arrows": true,
+  "items": [
+    { "image": "/stock/stage1.jpg", "alt": "Front of the workspace", "caption": "" },
+    { "image": "/stock/stage2.jpg", "alt": "Side of the workspace", "caption": "" },
+    { "image": "/stock/stage3.jpg", "alt": "Detail of the workspace", "caption": "" }
+  ]
+}

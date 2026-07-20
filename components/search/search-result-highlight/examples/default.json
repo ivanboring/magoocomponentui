@@ -1,0 +1,7 @@
+{
+  "segments": [
+    { "text": "Introduction to ", "match": false },
+    { "text": "Kafka", "match": true },
+    { "text": " streaming pipelines", "match": false }
+  ]
+}

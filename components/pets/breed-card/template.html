@@ -1,0 +1,25 @@
+<article class="breed-card overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="breed-card__media aspect-[3/2] bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="{{ breed }}">
+    <span data-if="!image" class="flex size-full items-center justify-center text-on-surface-muted" aria-hidden="true">
+      <svg class="size-10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.5c2.2 0 4 1.9 4 3.6 0 1.1-.9 1.9-2 1.9-.8 0-1.4-.4-2-.4s-1.2.4-2 .4c-1.1 0-2-.8-2-1.9 0-1.7 1.8-3.6 4-3.6Z"/><circle cx="6.5" cy="11" r="1.8"/><circle cx="17.5" cy="11" r="1.8"/><circle cx="9.5" cy="7" r="1.8"/><circle cx="14.5" cy="7" r="1.8"/></svg>
+    </span>
+  </div>
+  <div class="p-(--space-card)">
+    <h3 class="breed-card__name font-heading text-lg text-on-surface">{{ breed }}</h3>
+    <p data-if="species" class="text-sm text-on-surface-muted">{{ species }}</p>
+    <div data-if="temperament" class="breed-card__temperament mt-3 flex flex-wrap gap-2">
+      <span data-for="trait in temperament" class="rounded-pill bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">{{ trait }}</span>
+    </div>
+    <dl class="breed-card__stats mt-4 grid grid-cols-2 gap-2 border-t border-border pt-4">
+      <div data-if="size">
+        <dt class="text-xs uppercase tracking-wide text-on-surface-muted">Size</dt>
+        <dd class="mt-0.5 font-heading text-sm text-on-surface">{{ size }}</dd>
+      </div>
+      <div data-if="lifespan">
+        <dt class="text-xs uppercase tracking-wide text-on-surface-muted">Lifespan</dt>
+        <dd class="mt-0.5 font-heading text-sm text-on-surface">{{ lifespan }}</dd>
+      </div>
+    </dl>
+  </div>
+</article>

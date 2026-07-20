@@ -1,0 +1,21 @@
+name: contact-hero
+props:
+  heading:
+    type: string
+    required: true
+    title: Heading
+    example: "Let's build something together"
+  subheading:
+    type: string
+    title: Subheading
+    example: "Tell us about your project and we'll get back to you within one business day."
+  email:
+    type: string
+    title: Email
+    description: Optional contact email; shown as a mailto link in the details column.
+    example: "hello@studio.com"
+  phone:
+    type: string
+    title: Phone
+    description: Optional contact phone; shown as a tel link in the details column.
+    example: "+1 (555) 012-3456"

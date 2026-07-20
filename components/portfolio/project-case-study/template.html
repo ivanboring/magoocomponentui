@@ -1,0 +1,32 @@
+<article class="project-case-study">
+  <div data-if="hero_image" class="project-case-study__hero aspect-[16/9] overflow-hidden rounded-card bg-surface-raised shadow-card">
+    <img class="size-full object-cover" src="{{ hero_image }}" alt="">
+  </div>
+
+  <header class="mt-6">
+    <p data-if="client" class="text-xs font-medium uppercase tracking-wide text-primary">{{ client }}</p>
+    <h2 class="mt-1 font-heading text-3xl text-on-surface">{{ title }}</h2>
+  </header>
+
+  <div class="project-case-study__body mt-8 flex flex-col gap-8">
+    <section class="project-case-study__section">
+      <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-on-surface-muted">Problem</h3>
+      <div class="mt-2 leading-relaxed text-on-surface">{{{ problem }}}</div>
+    </section>
+    <section class="project-case-study__section">
+      <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-on-surface-muted">Solution</h3>
+      <div class="mt-2 leading-relaxed text-on-surface">{{{ solution }}}</div>
+    </section>
+    <section class="project-case-study__section">
+      <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-on-surface-muted">Result</h3>
+      <div class="mt-2 leading-relaxed text-on-surface">{{{ result }}}</div>
+    </section>
+  </div>
+
+  <dl data-if="metrics" class="project-case-study__metrics mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <div data-for="m in metrics" class="rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+      <dt class="font-heading text-3xl text-primary tabular-nums">{{ m.value }}</dt>
+      <dd class="mt-1 text-sm text-on-surface-muted">{{ m.label }}</dd>
+    </div>
+  </dl>
+</article>

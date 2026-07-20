@@ -1,0 +1,86 @@
+name: "NPS Survey"
+short_description: A Net Promoter Score survey with a 0-10 recommend scale and an optional follow-up reason.
+long_visual_description: >
+  A card on the surface colour with the NPS question in the heading face, then a row of eleven
+  equal-width number buttons from 0 to 10. The selected score fills with the primary colour and
+  its contrast text while the rest stay on plain surface. "Not likely" and "Very likely" anchor
+  labels sit under the two ends of the scale, and an optional free-text textarea can appear below
+  to capture the reason for the score.
+
+use_cases:
+  - Measure Net Promoter Score after a purchase or support interaction.
+  - Gauge overall satisfaction in a post-onboarding survey.
+  - Run a relationship NPS pulse across an app's user base.
+  - Collect a recommend score plus a written reason on a feedback page.
+  - Trigger a follow-up flow for detractors who score low.
+  - Benchmark loyalty over time from a dashboard or email link.
+
+recommended_for:
+  - A single-question NPS ask with the standard 0-10 scale.
+  - Surveys that need an optional open-ended reason for the score.
+avoid_for:
+  - A quick binary or emoji sentiment check (use emoji-reaction-survey or feedback-thumbs).
+  - Multi-question forms (compose several survey-question items instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Render with your NPS question. Preset value to reflect a stored score. Turn on follow_up to show
+  the reason textarea. Listen for the bubbling nps:rate event (detail.score is 0-10) on a parent to
+  persist the choice and route detractors to a follow-up.
+
+how_to_use: >
+  The selected number is highlighted purely by the root's data-value attribute through group-data
+  variants, so the initial value renders in screenshots with no JavaScript. behavior.js sets
+  data-value on click (clearing any previous selection), keeps aria-checked in sync, and dispatches
+  a bubbling "nps:rate" CustomEvent with { score } as an integer. The portable self-init reads no
+  props object.
+
+props:
+  question: "The NPS prompt shown above the scale."
+  value: "The selected score as a string 0-10, or empty for none."
+  follow_up: "When true, shows an optional free-text textarea below the scale for the reason."
+
+lifecycle: experimental
+content_model: A single recommend score from 0 to 10 with an optional written reason.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Ask the standard NPS question and keep the scale 0-10. Label the ends clearly (Not likely / Very
+  likely). Use the follow-up to learn why, especially from detractors, without making it required.
+
+relationships:
+  related:
+    - feedback/rating-prompt
+    - feedback/emoji-reaction-survey
+    - feedback/survey-question
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Surveys
+  atomic_type: organism
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scale is a labelled radiogroup of role="radio" buttons whose aria-checked reflects the selection, so the score is not conveyed by colour alone; the textarea has an associated label.
+  keyboard_support: Each number button is focusable and activates on Enter/Space; a visible focus ring is shown.
+  seo_score: 20
+  text_direction: both

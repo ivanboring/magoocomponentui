@@ -1,0 +1,11 @@
+{
+  "title": "Output by shift",
+  "unit": "units",
+  "target_line_pct": "85",
+  "bars": [
+    { "label": "Mon D", "value": "940", "height_pct": 94, "target_met": true },
+    { "label": "Mon N", "value": "780", "height_pct": 78, "target_met": false },
+    { "label": "Tue D", "value": "910", "height_pct": 91, "target_met": true },
+    { "label": "Tue N", "value": "820", "height_pct": 82, "target_met": false }
+  ]
+}

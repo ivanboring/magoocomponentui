@@ -1,0 +1,82 @@
+name: "Colour Picker Input"
+short_description: A colour field pairing a native swatch, a hex text input and optional quick-pick preset swatches, kept in sync.
+long_visual_description: >
+  A small form control: a square colour swatch (the native colour picker) beside a monospace hex
+  text field, with an optional row of round-cornered preset swatches below. Editing any one of them
+  updates the others - pick from the swatch, type a hex, or click a preset and all three agree.
+
+use_cases:
+  - A brand or theme colour setting in an admin form.
+  - Choosing an accent colour in a design or customization panel.
+  - Setting a label or category colour (tags, calendars, boards).
+  - Picking a background or text colour in an editor.
+  - A token editor field for a design system.
+  - Any form field that captures a single hex colour.
+
+recommended_for:
+  - Capturing one colour with both a visual picker and an exact hex value.
+  - Offering a small palette of on-brand presets alongside free choice.
+avoid_for:
+  - Full gradient or multi-stop colour editing.
+  - Alpha/opacity or non-hex colour models (this field is hex-only).
+
+markets:
+  - Global
+
+example_usage: >
+  Set value to the starting hex and optionally pass a presets array of on-brand hex strings. The
+  native swatch, hex field and presets stay in sync, and a bubbling "color:change" event fires with
+  the normalized hex in event.detail whenever the value changes.
+
+how_to_use: >
+  behavior.js keeps the native colour input, the hex text field and the preset buttons in sync.
+  Editing the swatch, typing a valid hex (3- or 6-digit, with or without a leading #), or clicking a
+  preset normalizes the value, writes it to data-value on the root, updates the other controls
+  (without clobbering the field the user is actively typing in), and dispatches a bubbling
+  "color:change" CustomEvent with { value }. On blur the hex field snaps back to the canonical value
+  if left mid-edit or invalid. All listeners are removed on cleanup.
+
+props:
+  label: "Optional field label shown above the control."
+  value: "The current colour as a hex string; drives both the native swatch and the hex field."
+  presets: "Optional hex strings rendered as quick-pick swatches below the input."
+
+example_prompts:
+  - Add a brand colour picker with a hex field and a few preset swatches.
+  - Let users choose an accent colour with a swatch and hex input.
+  - Give the theme editor a hex colour field with preset options.
+
+lifecycle: experimental
+content_model: A single hex colour value plus an optional palette of preset colours.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Give the field a clear noun label (Brand colour, Accent). Offer presets that match the product's
+  palette so common choices are one click away while still allowing a custom hex.
+
+relationships:
+  related:
+    - utility/copy-to-clipboard
+    - forms/text-field
+
+categorization:
+  category: UI Utilities
+  subcategory: Form inputs
+  atomic_type: molecule
+  usage_type: [form, input]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The swatch and hex inputs carry accessible names and preset buttons are labelled with their hex value; the value is editable as exact text, not colour alone, and inputs show a visible focus ring.
+  keyboard_support: The native swatch and hex field are focusable and editable from the keyboard; preset swatches are focusable buttons activated with Enter or Space.
+  seo_score: 20
+  text_direction: both

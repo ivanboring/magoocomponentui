@@ -1,0 +1,32 @@
+name: sankey-shell
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown above the diagram. Also used as the SVG accessible label.
+    example: "Signup funnel flow"
+  nodes:
+    type: array
+    items: object
+    required: true
+    title: Nodes
+    description: >
+      The stage bars. All geometry is PRECOMPUTED BY THE CALLER (the directive language
+      has no math). Each item:
+      { x_pct, y_pct, w_pct, h_pct, label, label_x, label_y, label_anchor, color_class }.
+      x/y/w/h_pct position the rect in a 100x100 viewBox; label_x/label_y are the label
+      anchor point and label_anchor is one of start|middle|end; color_class is a
+      tokenized Tailwind fill utility (e.g. "fill-primary").
+    example:
+      - { x_pct: "2", y_pct: "8", w_pct: "4", h_pct: "24", label: "Direct", label_x: "4", label_y: "6", label_anchor: "middle", color_class: "fill-primary" }
+  links:
+    type: array
+    items: object
+    title: Links
+    description: >
+      The flow ribbons between nodes. Each item: { path, color_class }. `path` is a
+      PRECOMPUTED SVG path (a cubic bezier from one node edge to the next) rendered with
+      no fill and a thick semi-transparent stroke; `color_class` is a tokenized Tailwind
+      stroke utility (e.g. "stroke-primary").
+    example:
+      - { path: "M6,20 C50,20 50,24 94,24", color_class: "stroke-primary" }

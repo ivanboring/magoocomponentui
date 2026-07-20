@@ -1,0 +1,39 @@
+name: inventory-bin-row
+props:
+  material:
+    type: string
+    required: true
+    title: Material
+    description: The material or part name held in the bin.
+    example: "M8 Hex Bolt"
+  sku:
+    type: string
+    title: SKU
+    description: Optional stock-keeping unit, shown in a mono face below the material.
+    example: "SKU-8842"
+  on_hand:
+    type: string
+    required: true
+    title: On hand
+    description: Preformatted on-hand quantity.
+    example: "1,240"
+  reorder_point:
+    type: string
+    title: Reorder point
+    description: Optional preformatted reorder threshold, shown beneath the fill bar.
+    example: "500"
+  fill_pct:
+    type: integer
+    required: true
+    title: Fill percentage
+    description: Precomputed fill-bar width from 0-100 (on-hand as a fraction of bin capacity).
+    example: 72
+  status:
+    type: enum
+    values: [in-stock, low, out]
+    default: in-stock
+    title: Status
+    description: >
+      Stock status; sets the fill-bar tone (in-stock is success, low is warning, out is danger) and
+      the status label colour.
+    example: in-stock

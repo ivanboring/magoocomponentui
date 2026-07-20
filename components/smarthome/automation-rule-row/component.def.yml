@@ -1,0 +1,25 @@
+name: automation-rule-row
+props:
+  trigger:
+    type: string
+    required: true
+    title: Trigger
+    description: The "if" condition, shown as a chip, e.g. "Motion in hallway".
+    example: "Motion in hallway"
+  action:
+    type: string
+    required: true
+    title: Action
+    description: The "then" outcome, shown as a chip, e.g. "Turn on porch light".
+    example: "Turn on porch light"
+  enabled:
+    type: boolean
+    default: true
+    title: Enabled
+    description: Whether the rule is active; drives the switch state.
+  icon:
+    type: string
+    title: Icon
+    description: >
+      Optional leading glyph as raw HTML (an inline stroke SVG). Rendered unescaped.
+    example: '<svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 2L4 11h5l-1 7 7-9h-5l1-7z"/></svg>'

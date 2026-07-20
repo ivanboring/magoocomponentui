@@ -1,0 +1,16 @@
+<div class="progress-photo grid grid-cols-2 gap-1 overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <figure class="progress-photo__before relative aspect-[3/4] overflow-hidden bg-surface-raised">
+    <img class="size-full object-cover" src="{{ before_image }}" alt="Before">
+    <figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-black/60 to-transparent p-2">
+      <span class="rounded-pill bg-surface/90 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-on-surface">Before</span>
+      <span data-if="before_date" class="text-xs font-medium text-white tabular-nums">{{ before_date }}</span>
+    </figcaption>
+  </figure>
+  <figure class="progress-photo__after relative aspect-[3/4] overflow-hidden bg-surface-raised">
+    <img class="size-full object-cover" src="{{ after_image }}" alt="After">
+    <figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-black/60 to-transparent p-2">
+      <span class="rounded-pill bg-primary px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-primary-contrast">After</span>
+      <span data-if="after_date" class="text-xs font-medium text-white tabular-nums">{{ after_date }}</span>
+    </figcaption>
+  </figure>
+</div>

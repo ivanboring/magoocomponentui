@@ -1,0 +1,7 @@
+{
+  "title": "Weekly active users",
+  "line_path": "M0,82 L17,70 L33,74 L50,48 L67,52 L83,28 L100,18",
+  "y_labels": ["20k", "15k", "10k", "5k", "0"],
+  "x_labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "grid_lines": ["20", "40", "60", "80"]
+}

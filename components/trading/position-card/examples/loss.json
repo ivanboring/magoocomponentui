@@ -1,0 +1,10 @@
+{
+  "symbol": "PYPL",
+  "shares": "60",
+  "avg_cost": "$88.40",
+  "current_price": "$62.10",
+  "market_value": "$3,726.00",
+  "pl": "-$1,578.00",
+  "pl_pct": "-29.7%",
+  "pl_dir": "down"
+}

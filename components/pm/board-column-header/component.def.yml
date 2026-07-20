@@ -1,0 +1,27 @@
+name: board-column-header
+props:
+  label:
+    type: string
+    required: true
+    title: Column label
+    description: The column's name (e.g. "In Progress").
+    example: "In Progress"
+  count:
+    type: integer
+    required: true
+    title: Card count
+    description: How many cards are currently in the column.
+    example: 5
+  wip_limit:
+    type: integer
+    title: WIP limit
+    description: >
+      Optional work-in-progress limit. When set, a "count/limit WIP" pill is shown.
+    example: 4
+  over_limit:
+    type: boolean
+    default: false
+    title: Over limit
+    description: >
+      When true, the WIP pill turns danger to flag that count exceeds the limit. Precomputed by
+      the caller (count > wip_limit) since the template cannot compare numbers.

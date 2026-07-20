@@ -1,0 +1,71 @@
+name: "Lead Score Badge"
+short_description: A small pill marking a lead as hot, warm, or cold with an optional numeric score.
+long_visual_description: >
+  A compact rounded pill with a flame glyph, a capitalised temperature label, and an optional score.
+  Hot uses a danger tint, warm a warning tint, and cold an info tint, each a soft coloured
+  background with matching text so it reads at a glance without shouting.
+
+use_cases:
+  - Marking lead temperature in a CRM list or table.
+  - A qualification badge next to a contact name.
+  - A priority cue on a deal or opportunity card.
+  - A filter chip legend for hot, warm, and cold segments.
+  - An inline score tag in a lead-routing view.
+  - A status marker in a sales digest summary.
+
+recommended_for:
+  - A tiny, at-a-glance signal of lead quality.
+  - Pairing with a numeric score from a scoring model.
+avoid_for:
+  - Conveying deal stage (use deal-stage-progress).
+  - Long status text; keep it to a single temperature word.
+
+markets:
+  - Global
+
+example_usage: >
+  Set temp to hot, warm, or cold to pick the colour and label. Pass an optional score string to show
+  a computed lead score after the label.
+
+props:
+  temp: "Lead temperature - hot, warm, or cold - which sets both the colour and the label text."
+  score: "Optional numeric score shown after the label."
+
+example_prompts:
+  - Add a hot lead badge with score 82.
+  - Show a cold lead pill next to the contact.
+  - Tag this lead as warm.
+
+lifecycle: experimental
+content_model: A temperature (hot, warm, cold) and an optional numeric score.
+
+theming:
+  tokens_used:
+    - --color-danger
+    - --color-warning
+    - --color-info
+    - --radius-pill
+
+editorial_guidance: >
+  Keep temperature semantics consistent with your scoring bands. Show the score only when it comes
+  from a real model, and make sure the temperature agrees with it - a hot badge on a low score
+  confuses.
+
+relationships:
+  related:
+    - crm/deal-card
+    - crm/contact-card
+    - crm/pipeline-board
+
+categorization:
+  category: CRM & Sales
+  subcategory: Leads
+  atomic_type: atom
+  usage_type: [badge, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Temperature is conveyed by the text label and glyph, not colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

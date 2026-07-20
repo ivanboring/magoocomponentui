@@ -1,0 +1,10 @@
+<div class="webhook-row flex items-center justify-between gap-4 rounded-card border border-border bg-surface p-4 shadow-card">
+  <div class="min-w-0">
+    <p class="font-medium text-on-surface">{{ event }}</p>
+    <p class="truncate font-mono text-xs text-on-surface-muted">{{ url }}</p>
+  </div>
+  <div class="flex shrink-0 items-center gap-3">
+    <span data-if="last" class="text-xs text-on-surface-muted">{{ last }}</span>
+    <span class="inline-flex items-center rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+</div>

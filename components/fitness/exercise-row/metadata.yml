@@ -1,0 +1,79 @@
+name: "Exercise Row"
+short_description: A single exercise line in a workout list — a done toggle, name, sets by reps and optional weight.
+long_visual_description: >
+  A bordered row on the surface colour. A round check control sits on the left, the exercise name and
+  a "sets x reps" sub-line fill the middle, and an optional weight chip sits on the right. When the
+  row is marked done the whole row dims, the check fills green with a tick, and the name is struck
+  through and muted.
+
+use_cases:
+  - A line item inside a workout or routine checklist.
+  - A set-tracking row during a live training session.
+  - A printable program sheet listing exercises, sets and reps.
+  - A superset or circuit member in a grouped block.
+  - A history entry showing a completed exercise and load.
+
+recommended_for:
+  - Stacked lists of exercises where each can be checked off.
+  - Compact set/rep/weight display with a clear done state.
+avoid_for:
+  - Rich exercise detail with media or instructions (use a dedicated card).
+  - Non-list, standalone metrics.
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows in a column to form a workout. Give each a name, a sets count, a reps value (text
+  so "8-12" or "30s" work), an optional weight, and set done to true for completed exercises. The done
+  state is driven by the data-done attribute, so a checked, dimmed, struck-through row needs no script.
+
+props:
+  name: The exercise name; keep it short so it stays on one line.
+  sets: Number of sets.
+  reps: Reps per set as text, allowing ranges ("8-12") or time holds ("30s").
+  weight: Optional load label such as "60 kg" or "bodyweight".
+  done: Marks the exercise complete — dims the row, ticks the check and strikes the name.
+
+example_prompts:
+  - "Add an exercise row for back squat, 3 sets of 10 at 60 kg."
+  - "List five exercises with the first two marked done."
+  - "Show a bodyweight plank row for 30 seconds."
+
+lifecycle: experimental
+content_model: An exercise name, a sets count, a reps value, an optional weight and a done flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-primary-contrast
+    - --radius-control
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep names consistent with your exercise library and reps in a single style across the list. Reserve
+  the done state for genuinely completed sets so the dimming stays meaningful.
+
+relationships:
+  related:
+    - fitness/workout-card
+    - fitness/workout-timer
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Workouts
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle exposes aria-pressed and an accessible label; the done state is shown by strikethrough text as well as colour.
+  keyboard_support: The toggle is a native button, focusable and activated with Enter/Space.
+  seo_score: 25
+  text_direction: both

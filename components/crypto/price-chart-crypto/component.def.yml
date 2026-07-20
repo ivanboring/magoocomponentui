@@ -1,0 +1,35 @@
+name: price-chart-crypto
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The chart title (e.g. the pair being charted).
+    example: "BTC / USD"
+  candles:
+    type: array
+    items: object
+    required: true
+    title: Candles
+    description: >
+      Each candle: { x_pct, high_pct, low_pct, open_pct, close_pct, up }. All *_pct are precomputed
+      0-100 positions in the plot's cartesian viewBox (y grows downward, so a higher price is a
+      smaller number). x_pct is the candle's horizontal centre; the wick runs from high_pct to
+      low_pct and the body from open_pct to close_pct. up is a boolean (close higher than open) that
+      drives the green (success) / red (danger) colour. The body is a thick non-scaling stroke
+      centred on x_pct, so no separate body width is needed.
+    example:
+      - { x_pct: 8, high_pct: 20, low_pct: 60, open_pct: 50, close_pct: 30, up: true }
+      - { x_pct: 20, high_pct: 26, low_pct: 66, open_pct: 34, close_pct: 58, up: false }
+  ranges:
+    type: array
+    items: object
+    required: true
+    title: Ranges
+    description: >
+      The time-range tabs in the header. Each item: { label, active }. label is the tab text (1H,
+      1D, 1W, 1M); active is a boolean marking the current range (set exactly one). Clicking a tab
+      moves the active state and dispatches a "range:change" event (see behavior.js / how_to_use).
+    example:
+      - { label: "1H", active: false }
+      - { label: "1D", active: true }

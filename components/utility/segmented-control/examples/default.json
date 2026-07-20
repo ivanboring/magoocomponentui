@@ -1,0 +1,8 @@
+{
+  "label": "Time range",
+  "segments": [
+    { "label": "Day", "value": "day", "active": true },
+    { "label": "Week", "value": "week", "active": false },
+    { "label": "Month", "value": "month", "active": false }
+  ]
+}

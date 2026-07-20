@@ -1,0 +1,10 @@
+{
+  "perks": [
+    { "label": "Free shipping", "description": "On every order", "unlocked": true },
+    { "label": "Early access", "description": "Shop new drops first", "unlocked": true },
+    { "label": "Points booster", "description": "Earn 2x on Fridays", "unlocked": true },
+    { "label": "Birthday gift", "description": "A treat on your day", "unlocked": false },
+    { "label": "Free returns", "description": "No questions asked", "unlocked": false },
+    { "label": "Concierge", "description": "Priority support line", "unlocked": false }
+  ]
+}

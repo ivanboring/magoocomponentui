@@ -1,0 +1,32 @@
+name: pricing-quote
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Custom Project"
+  description:
+    type: string
+    title: Description
+    example: "For teams that need a bespoke design and build, scoped to your goals."
+  starting_price:
+    type: string
+    title: Starting price
+    description: Optional preformatted "from" price shown under the title (e.g. $8,000).
+    example: "$8,000"
+  features:
+    type: array
+    items: string
+    title: Features
+    description: Optional list of what's included; each item is a plain string with a check.
+    example:
+      - "Discovery & strategy workshop"
+      - "Custom design system"
+      - "Production front-end build"
+      - "Two rounds of revisions"
+  cta:
+    type: object
+    required: true
+    title: Call to action
+    description: "The request button: { label, href }."
+    example: { label: "Request a quote", href: "#" }

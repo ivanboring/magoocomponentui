@@ -1,0 +1,10 @@
+{
+  "label": "Price",
+  "min": 0,
+  "max": 500,
+  "current_min": 100,
+  "current_max": 350,
+  "unit": "$",
+  "track_left": "20",
+  "track_width": "50"
+}

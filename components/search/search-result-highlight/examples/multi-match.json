@@ -1,0 +1,9 @@
+{
+  "segments": [
+    { "text": "Best ", "match": false },
+    { "text": "wireless", "match": true },
+    { "text": " noise-cancelling ", "match": false },
+    { "text": "wireless", "match": true },
+    { "text": " earbuds under $200", "match": false }
+  ]
+}

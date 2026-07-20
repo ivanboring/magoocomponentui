@@ -1,0 +1,179 @@
+{
+  "machine_name": "elevenlabs_theme",
+  "name": "ElevenLabs Theme",
+  "description": "Marketing + docs theme for an AI audio product, styled from the ElevenLabs design system (Refero).",
+  "purpose": "Marketing and documentation site for an AI audio product: landing pages, feature and pricing pages, customer proof, an audio demo, a blog/news index and developer docs.",
+  "reference": "https://styles.refero.design/style/031056ff-7af1-46db-8daa-115f731c5d26",
+  "tokens": {
+    "color_primary": "#000000",
+    "color_primary_contrast": "#ffffff",
+    "color_background": "#fdfcfc",
+    "color_surface": "#ffffff",
+    "color_on_surface": "#000000",
+    "color_on_background": "#000000",
+    "color_surface_raised": "#f5f3f1",
+    "color_on_surface_muted": "#777169",
+    "color_secondary": "#000000",
+    "color_secondary_contrast": "#ffffff",
+    "color_accent": "#0447ff",
+    "color_accent_contrast": "#ffffff",
+    "color_border": "#ebe8e4",
+    "color_ring": "#0447ff",
+    "font_heading": "\"Waldenburg\", \"Inter\", ui-sans-serif, system-ui, sans-serif",
+    "font_body": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+    "font_mono": "\"Geist Mono\", ui-monospace, SFMono-Regular, monospace",
+    "weight_heading": "300",
+    "weight_body": "400",
+    "tracking_heading": "-0.02em",
+    "text_base": "1rem",
+    "scale_ratio": "1.25",
+    "font_source": "google",
+    "font_url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist+Mono:wght@400&display=swap",
+    "radius_control": "4px",
+    "radius_button": "9999px",
+    "radius_card": "20px",
+    "radius_pill": "9999px",
+    "shadow_rgb": "0, 0, 0",
+    "shadow_card": "rgba(0, 0, 0, 0.4) 0px 0px 1px 0px, rgba(0, 0, 0, 0.04) 0px 1px 1px 0px, rgba(0, 0, 0, 0.04) 0px 2px 4px 0px",
+    "shadow_raised": "rgba(0, 0, 0, 0.4) 0px 0px 1px 0px, rgba(0, 0, 0, 0.06) 0px 8px 16px -4px, rgba(0, 0, 0, 0.04) 0px 2px 4px 0px",
+    "shadow_focus": "0 0 0 3px rgba(4, 71, 255, 0.35)",
+    "density": "0.2rem",
+    "space_section": "3.5rem",
+    "space_card": "1.25rem",
+    "space_control": "0.75rem",
+    "container_max_width": "80rem",
+    "duration_token": "200ms",
+    "ease_token": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "color_scheme": "light",
+    "sticky_header": "1"
+  },
+  "host_content_type": {
+    "machine": "landing_page",
+    "name": "Landing Page"
+  },
+  "components": [
+    {
+      "id": "navigation/navbar",
+      "config": "paragraph"
+    },
+    {
+      "id": "marketing/hero-split",
+      "config": "paragraph",
+      "props": {
+        "reverse": false,
+        "primary_label": "Start for free"
+      }
+    },
+    {
+      "id": "marketing/logo-cloud",
+      "config": "paragraph",
+      "props": {
+        "appearance": "grayscale",
+        "layout": "grid"
+      }
+    },
+    {
+      "id": "marketing/feature-grid",
+      "config": "paragraph",
+      "props": {
+        "gap": "lg"
+      }
+    },
+    {
+      "id": "video/audio-player",
+      "config": "paragraph",
+      "props": {
+        "scrubber": true,
+        "download": false
+      }
+    },
+    {
+      "id": "video/audio-waveform",
+      "config": "paragraph"
+    },
+    {
+      "id": "dashboard/stats-band",
+      "config": "paragraph"
+    },
+    {
+      "id": "dashboard/stat-card",
+      "config": "paragraph",
+      "props": {
+        "trend": "up"
+      }
+    },
+    {
+      "id": "marketing/pricing-tiers",
+      "config": "paragraph",
+      "props": {
+        "gap": "lg"
+      }
+    },
+    {
+      "id": "cards/card-pricing",
+      "config": "paragraph",
+      "props": {
+        "featured": true
+      }
+    },
+    {
+      "id": "marketing/testimonial-slider",
+      "config": "paragraph"
+    },
+    {
+      "id": "cards/card-testimonial",
+      "config": "paragraph"
+    },
+    {
+      "id": "marketing/faq-accordion",
+      "config": "paragraph"
+    },
+    {
+      "id": "marketing/cta-simple",
+      "config": "paragraph",
+      "props": {
+        "cta_label": "Start for free"
+      }
+    },
+    {
+      "id": "marketing/newsletter-signup",
+      "config": "paragraph"
+    },
+    {
+      "id": "cards/card-grid",
+      "config": "paragraph",
+      "props": {
+        "desktop_cols": 3,
+        "gap": "lg"
+      }
+    },
+    {
+      "id": "cards/card-blog",
+      "config": "paragraph"
+    },
+    {
+      "id": "editorial/rich-text",
+      "config": "paragraph"
+    },
+    {
+      "id": "editorial/table-of-contents",
+      "config": "paragraph"
+    },
+    {
+      "id": "navigation/breadcrumb",
+      "config": "paragraph"
+    },
+    {
+      "id": "layout/section-wrapper",
+      "config": "paragraph",
+      "props": {
+        "align": "center",
+        "padding": "default"
+      }
+    },
+    {
+      "id": "layout/footer-columns",
+      "config": "paragraph"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "new_label": "New chat",
+  "groups": [
+    {
+      "label": "Today",
+      "items": [
+        { "title": "Onboarding email draft", "active": true, "time": "2m", "href": "#" },
+        { "title": "Q3 revenue summary", "time": "1h", "href": "#" },
+        { "title": "Refactor the auth middleware", "time": "3h", "href": "#" }
+      ]
+    },
+    {
+      "label": "Yesterday",
+      "items": [
+        { "title": "Trip itinerary for Lisbon", "time": "1d", "href": "#" },
+        { "title": "Explain vector databases", "time": "1d", "href": "#" }
+      ]
+    },
+    {
+      "label": "Previous 7 days",
+      "items": [
+        { "title": "Product naming brainstorm", "href": "#" },
+        { "title": "SQL query optimisation", "href": "#" }
+      ]
+    }
+  ]
+}

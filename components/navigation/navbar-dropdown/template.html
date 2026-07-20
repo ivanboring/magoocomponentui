@@ -1,0 +1,33 @@
+<header class="navbar-dropdown flex items-center justify-between gap-6 border-b border-border bg-surface px-(--space-card) py-3">
+  <a class="navbar-dropdown__logo shrink-0 font-heading text-lg text-on-surface" href="{{ logo_href }}">{{ logo_text }}</a>
+
+  <nav class="navbar-dropdown__nav flex flex-wrap items-center gap-1" aria-label="{{ label }}">
+    <div data-for="link in links" class="navbar-dropdown__item group/top relative" data-open="{{ link.open }}">
+      <a data-if="!link.children" class="navbar-dropdown__link flex items-center rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a>
+
+      <button data-if="link.children" type="button" class="navbar-dropdown__trigger flex items-center gap-1 rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface group-data-[open=true]/top:bg-surface-raised group-data-[open=true]/top:text-on-surface" aria-haspopup="true" aria-expanded="{{ link.open }}">
+        {{ link.label }}
+        <svg class="size-4 transition-transform duration-(--duration-token) group-data-[open=true]/top:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </button>
+
+      <div data-if="link.children" class="navbar-dropdown__menu invisible pointer-events-none absolute left-0 top-full z-20 mt-1 min-w-56 rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-hover/top:visible group-hover/top:pointer-events-auto group-hover/top:opacity-100 group-focus-within/top:visible group-focus-within/top:pointer-events-auto group-focus-within/top:opacity-100 group-data-[open=true]/top:visible group-data-[open=true]/top:pointer-events-auto group-data-[open=true]/top:opacity-100" role="menu">
+        <div data-for="child in link.children" class="navbar-dropdown__sub group/sub relative" role="none" data-open="{{ child.open }}">
+          <a data-if="!child.children" role="menuitem" class="flex px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" href="{{ child.href }}">{{ child.label }}</a>
+
+          <button data-if="child.children" type="button" class="navbar-dropdown__trigger flex w-full items-center justify-between gap-4 px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised group-data-[open=true]/sub:bg-surface-raised" aria-haspopup="true" aria-expanded="{{ child.open }}">
+            <span>{{ child.label }}</span>
+            <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5l5 5-5 5"/></svg>
+          </button>
+
+          <div data-if="child.children" class="navbar-dropdown__flyout invisible pointer-events-none absolute left-full top-0 z-30 -mt-1 ml-1 min-w-52 rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-hover/sub:visible group-hover/sub:pointer-events-auto group-hover/sub:opacity-100 group-focus-within/sub:visible group-focus-within/sub:pointer-events-auto group-focus-within/sub:opacity-100 group-data-[open=true]/sub:visible group-data-[open=true]/sub:pointer-events-auto group-data-[open=true]/sub:opacity-100" role="menu">
+            <a data-for="grandchild in child.children" role="menuitem" class="block px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" href="{{ grandchild.href }}">{{ grandchild.label }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="navbar-dropdown__actions flex shrink-0 items-center gap-2">
+    <slot name="actions"></slot>
+  </div>
+</header>

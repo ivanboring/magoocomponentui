@@ -1,0 +1,11 @@
+<ul class="team-directory-grid grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+  <li data-for="person in people" class="team-directory-grid__card flex flex-col items-center gap-2 rounded-card border border-border bg-surface p-4 text-center shadow-card">
+    <img data-if="person.avatar" class="team-directory-grid__avatar size-14 rounded-pill object-cover" src="{{ person.avatar }}" alt="">
+    <span data-if="!person.avatar" class="team-directory-grid__avatar flex size-14 items-center justify-center rounded-pill bg-surface-raised font-heading text-on-surface-muted" aria-hidden="true">{{ person.initials }}</span>
+    <div class="min-w-0">
+      <p class="truncate font-heading text-on-surface">{{ person.name }}</p>
+      <p class="truncate text-sm text-on-surface-muted">{{ person.title }}</p>
+    </div>
+    <span data-if="person.department" class="rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">{{ person.department }}</span>
+  </li>
+</ul>

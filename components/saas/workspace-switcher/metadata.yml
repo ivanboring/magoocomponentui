@@ -1,0 +1,91 @@
+name: "Workspace Switcher"
+short_description: A dropdown that shows the current org/workspace and switches between the ones a user belongs to.
+long_visual_description: >
+  A bordered trigger button showing a small workspace tile, the current workspace name, and a
+  chevron that rotates when open. Opening reveals an absolutely-positioned menu of workspaces,
+  each a row with a logo tile (or a generic workspace glyph), the name, an optional plan tier
+  in muted text, and a check mark on the currently active one. A divider separates the list
+  from a primary-coloured "Create workspace" footer action.
+
+use_cases:
+  - Switching between organisations a user belongs to.
+  - Showing the active workspace and its plan tier.
+  - Letting a user create a new workspace from the switcher.
+  - Anchoring the top of an app sidebar or topbar.
+  - Multi-tenant SaaS account context switching.
+  - Distinguishing personal and team workspaces.
+
+recommended_for:
+  - Multi-tenant SaaS products.
+  - Apps where users belong to more than one org.
+  - Sidebars and topbars needing a context selector.
+avoid_for:
+  - Single-workspace products (show a static label).
+  - Selecting a value in a form (use a select).
+  - Navigating pages (use a nav menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Place at the top of an app-sidebar or in an app-topbar. Mark exactly one workspace current,
+  and give each an optional plan label. Wire workspace:switch to change context and
+  workspace:create to open a new-workspace flow.
+
+props:
+  current: The active workspace label shown in the trigger.
+  workspaces: The switchable list; mark one current and add optional plan tiers.
+  start_open: Render already open for previews and screenshots.
+
+example_prompts:
+  - "Add a workspace switcher showing Acme Inc as the current org with two other workspaces."
+  - "Build an org dropdown with plan tiers and a Create workspace button."
+  - "Show a workspace switcher opened by default for a screenshot."
+
+how_to_use: >
+  Clicking the trigger toggles the menu (data-open on the root); Escape or an outside click
+  closes it. Arrow keys move between workspace rows. Choosing a row updates the trigger label,
+  moves the check mark, and dispatches workspace:switch with { value }. The footer dispatches
+  workspace:create. Set start_open true to render it already open.
+
+lifecycle: experimental
+content_model: >
+  A current-workspace label plus a list of workspaces, each with a name, optional plan tier,
+  optional logo, and a current flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-button
+    - --radius-control
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep workspace names short and plan labels consistent (e.g. "Pro plan", "Free plan").
+  The create action stays a single, clear verb phrase.
+
+relationships:
+  related:
+    - saas/app-sidebar
+    - saas/app-topbar
+    - overlays/dropdown-menu
+
+categorization:
+  category: SaaS & Settings
+  subcategory: App Shell
+  atomic_type: molecule
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Trigger exposes aria-haspopup and aria-expanded; the menu is a labelled listbox; options set aria-selected; icons are aria-hidden.
+  keyboard_support: Enter/Space/ArrowDown open the menu; ArrowUp/Down move between options; Escape closes and returns focus to the trigger.
+  seo_score: 35
+  text_direction: both

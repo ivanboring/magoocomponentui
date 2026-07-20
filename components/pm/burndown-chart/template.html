@@ -1,0 +1,25 @@
+<figure class="burndown-chart rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="burndown-chart__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="burndown-chart__title font-heading text-on-surface">{{ title }}</h3>
+    <div class="burndown-chart__legend flex items-center gap-4 text-xs text-on-surface-muted">
+      <span class="inline-flex items-center gap-1.5"><span class="h-0 w-4 border-t-2 border-dashed border-border" aria-hidden="true"></span>Ideal</span>
+      <span class="inline-flex items-center gap-1.5"><span class="h-0 w-4 border-t-2 border-primary" aria-hidden="true"></span>Actual</span>
+    </div>
+  </header>
+  <div class="burndown-chart__body flex gap-2">
+    <div class="burndown-chart__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] tabular-nums text-on-surface-muted">
+      <span data-for="y in y_labels" class="burndown-chart__y-tick">{{ y }}</span>
+    </div>
+    <div class="burndown-chart__col min-w-0 flex-1">
+      <div class="burndown-chart__plot relative h-48 w-full">
+        <svg class="burndown-chart__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="burndown-chart__ideal fill-none stroke-border [stroke-dasharray:4_3] [stroke-width:2]" d="{{ ideal_path }}" vector-effect="non-scaling-stroke"></path>
+          <path class="burndown-chart__actual fill-none stroke-primary [stroke-width:2]" d="{{ actual_path }}" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+        </svg>
+      </div>
+      <div class="burndown-chart__x-axis mt-2 flex justify-between text-[11px] tabular-nums text-on-surface-muted">
+        <span data-for="x in x_labels" class="burndown-chart__x-tick">{{ x }}</span>
+      </div>
+    </div>
+  </div>
+</figure>

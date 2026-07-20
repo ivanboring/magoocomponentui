@@ -1,0 +1,13 @@
+{
+  "label": "Portrait gallery",
+  "row_height": "lg",
+  "gap": "sm",
+  "items": [
+    { "image": "/stock/audio-studio-mic.jpg", "ar": 0.75, "alt": "Studio microphone in portrait framing", "caption": "Take one" },
+    { "image": "/stock/blog-voice-cloning.jpg", "ar": 0.7, "alt": "Voice cloning session in portrait framing" },
+    { "image": "/stock/introduction.jpg", "ar": 0.8, "alt": "Portrait welcome scene" },
+    { "image": "/stock/stage2.jpg", "ar": 0.72, "alt": "Vertical shot of a stage backdrop" },
+    { "image": "/stock/product-sneaker.jpg", "ar": 0.78, "alt": "Sneaker photographed upright", "caption": "Merch" },
+    { "image": "/stock/stage3.jpg", "ar": 0.74, "alt": "Tall stage lighting rig" }
+  ]
+}

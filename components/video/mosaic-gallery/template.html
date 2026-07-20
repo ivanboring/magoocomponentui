@@ -1,0 +1,6 @@
+<div class="mosaic-gallery flex flex-wrap {{ gap@class }} {{ row_height@class }}" role="group" aria-label="{{ label }}">
+  <figure data-for="item in items" class="mosaic-gallery__item relative m-0 h-[var(--mg-h)] min-w-0 grow overflow-hidden rounded-card bg-surface-raised" style="flex-grow: {{ item.ar }}; flex-basis: calc({{ item.ar }} * var(--mg-h))">
+    <img class="size-full object-cover" src="{{ item.image }}" alt="{{ item.alt }}">
+    <figcaption data-if="item.caption" class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-2 text-xs text-white">{{ item.caption }}</figcaption>
+  </figure>
+</div>

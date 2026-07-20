@@ -1,0 +1,10 @@
+{
+  "title": "What we do",
+  "items": [
+    { "label": "Brand & Identity", "note": "Logo systems, guidelines, and voice." },
+    { "label": "Web Design & Build", "note": "Design systems shipped as production code." },
+    { "label": "Product Strategy", "note": "Roadmaps, research, and positioning." },
+    { "label": "Motion & 3D", "note": "Animation and interactive visuals." },
+    { "label": "Ongoing Support", "note": "Retainers for iteration and growth." }
+  ]
+}

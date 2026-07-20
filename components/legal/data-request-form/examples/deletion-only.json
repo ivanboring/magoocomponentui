@@ -1,0 +1,7 @@
+{
+  "placeholder": "Include the email or account name on the records you want deleted.",
+  "request_types": [
+    { "label": "Delete my account and data", "value": "delete" },
+    { "label": "Delete specific records", "value": "delete-partial" }
+  ]
+}

@@ -1,0 +1,83 @@
+name: "Saved Filters"
+short_description: A row of saved search-filter presets as toggleable pills, with a button to save the current query as a new preset.
+long_visual_description: >
+  A wrapping horizontal row of pill buttons, each a saved filter preset showing its name
+  and an optional count badge. The active preset is filled with the primary colour and
+  contrast text; the rest are outlined surface pills. A trailing dashed-outline "Save
+  current" button with a plus icon lets the user store the current query as a new preset.
+
+use_cases:
+  - Quick-switch presets above a search results list (All, Unread, Starred).
+  - Saved views in an inbox, issue tracker or CRM.
+  - Reusable filter combinations on a marketplace or listings page.
+  - Segments a user has saved from a report or dashboard.
+  - Applying a named set of facets in one click.
+  - Letting users pin frequent searches for fast recall.
+
+recommended_for:
+  - Switching between a few named, saved filter states with one visible active pill.
+  - Offering a save action so users can keep the current query.
+avoid_for:
+  - Building the filter criteria themselves (use a facet or filter-bar component).
+  - A single on/off toggle (use a switch or a chip).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a filters array of { label, active, count, value }; mark exactly one active. The
+  behavior makes the clicked pill the active one and fires filter:apply with its value.
+  The save button fires filter:save. Set save_label to rename the save action.
+
+props:
+  filters: "The saved presets in order; each with a label, active flag, optional count and value."
+  save_label: "Label for the dashed button that saves the current query as a new preset."
+
+example_prompts:
+  - "Add saved filter pills above the results with a Save current button."
+  - "Show quick-switch presets (All, Unread, Starred) for the inbox search."
+
+lifecycle: experimental
+content_model: A row of saved filter presets (label, active state, optional count) plus a save action.
+
+how_to_use: >
+  A vanilla-JS single-select toggle group. Each preset pill carries data-active and
+  aria-pressed; the active look is driven by data-[active=true] utilities so it renders
+  in screenshots without JS. behavior.js makes the clicked pill active, clears the rest,
+  and fires filter:apply with { value, label }; the save button fires filter:save.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Name presets with one or two plain words and keep the row short enough to avoid heavy
+  wrapping. Always mark one preset active so the current state is obvious, and reserve
+  the count badge for meaningful totals.
+
+relationships:
+  related:
+    - search/range-facet
+    - search/map-list-toggle
+    - search/no-results-suggestions
+
+categorization:
+  category: Search
+  subcategory: Filters
+  atomic_type: molecule
+  usage_type: [filter, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Preset pills are buttons with aria-pressed reflecting the active state; the save button has a text label so the plus icon is decorative.
+  keyboard_support: Each pill and the save button is focusable and activates on Enter/Space; aria-pressed announces the active preset.
+  seo_score: 15
+  text_direction: both

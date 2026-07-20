@@ -1,0 +1,21 @@
+<div class="meal-plan-day rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 data-if="day" class="mb-3 font-heading text-lg text-on-surface">{{ day }}</h3>
+  <div class="flex flex-col divide-y divide-border">
+    <section data-for="meal in meals" class="meal-plan-day__meal py-3 first:pt-0">
+      <div class="flex items-baseline justify-between gap-3">
+        <h4 class="font-heading text-on-surface">{{ meal.name }}</h4>
+        <span data-if="meal.total_kcal" class="shrink-0 text-sm font-medium tabular-nums text-on-surface-muted">{{ meal.total_kcal }} kcal</span>
+      </div>
+      <ul class="mt-2 flex flex-col gap-1">
+        <li data-for="item in meal.items" class="flex items-baseline justify-between gap-3 text-sm">
+          <span class="text-on-surface">{{ item.label }}</span>
+          <span data-if="item.kcal" class="shrink-0 tabular-nums text-on-surface-muted">{{ item.kcal }} kcal</span>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <div data-if="day_total" class="meal-plan-day__total mt-3 flex items-center justify-between border-t border-border pt-3">
+    <span class="font-medium text-on-surface">Day total</span>
+    <span class="font-heading text-lg tabular-nums text-on-surface">{{ day_total }} kcal</span>
+  </div>
+</div>

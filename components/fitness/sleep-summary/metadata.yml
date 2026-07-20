@@ -1,0 +1,80 @@
+name: "Sleep Summary"
+short_description: A card showing total sleep with a stacked stage bar (deep, light, REM, awake) and a labelled legend.
+long_visual_description: >
+  A surface card with a muted kicker and a large total-sleep figure in the heading face, a single
+  stacked horizontal bar whose coloured segments show each stage's share of the night, and a
+  wrapping legend beneath pairing each stage's colour swatch with its label and percentage.
+
+use_cases:
+  - Nightly sleep breakdown on a wellness dashboard.
+  - Wearable or sleep-tracker recap tile in an app home screen.
+  - Recovery summary alongside a workout or readiness score.
+  - Weekly sleep report row comparing stage composition.
+  - At-a-glance sleep-quality card in a health overview.
+
+recommended_for:
+  - Showing how a night divides across sleep stages with one stacked bar.
+  - Compact recap tiles where segment shares are precomputed.
+avoid_for:
+  - A time-series sleep chart across many nights (use a chart component).
+  - A single completion percentage (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a preformatted total (e.g. "7h 32m") and a stages array in display order. Each stage carries
+  its pct (share of the night, precomputed so the segments sum to about 100) and a tokenized
+  color_class used for both the bar segment and its legend swatch.
+
+props:
+  label: Small kicker above the total, e.g. the period covered.
+  total: The total time asleep, preformatted (the directive language does no time math).
+  stages: Ordered stages; each has a label, a pct share (0-100, precomputed), and a bg-* color_class.
+
+example_prompts:
+  - "Add a sleep summary of 7h 32m split into deep, light, REM and awake stages."
+  - "Show a restless night at 5h 08m with a large awake segment."
+
+lifecycle: experimental
+content_model: A total sleep duration and an ordered set of stages, each with a percentage share and a colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-info
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep stage labels short and order them consistently across nights so the bar reads the same way
+  each time. Choose colour_class values from the token palette; do not hard-code hex colours.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - fitness/heart-rate-zone
+    - fitness/body-metrics
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each stage's label and percentage appear as text in the legend, so meaning is not carried by colour alone; bar segments are aria-hidden decoration.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

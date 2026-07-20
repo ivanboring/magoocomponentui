@@ -1,0 +1,17 @@
+{
+  "title": "Fire safety inspection",
+  "passed": "8",
+  "total": "10",
+  "items": [
+    { "label": "Smoke detectors operational", "result": "pass" },
+    { "label": "Emergency lighting", "result": "fail", "note": "Unit 2 battery replaced, re-test scheduled." },
+    { "label": "Fire extinguishers charged and tagged", "result": "pass" },
+    { "label": "Sprinkler gauge reading in range", "result": "pass" },
+    { "label": "Exit signs illuminated", "result": "pass" },
+    { "label": "Alarm panel free of faults", "result": "pass" },
+    { "label": "Fire doors close and latch", "result": "fail", "note": "Rear stairwell door dragging on the frame." },
+    { "label": "Extraction hood suppression", "result": "na", "note": "No commercial kitchen on site." },
+    { "label": "Evacuation plan posted", "result": "pass" },
+    { "label": "Access routes clear", "result": "pass" }
+  ]
+}

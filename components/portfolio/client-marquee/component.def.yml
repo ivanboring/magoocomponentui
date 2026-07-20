@@ -1,0 +1,25 @@
+name: client-marquee
+props:
+  logos:
+    type: array
+    items: object
+    required: true
+    title: Logos
+    description: >
+      The client or partner logos that scroll in a loop. Each item: { image, alt }. The list is
+      rendered twice internally so the loop is seamless; you supply it once.
+    example:
+      - { image: "/stock/nike-3-logo-svgrepo-com.svg", alt: "Nike" }
+  speed:
+    type: enum
+    values: [slow, normal, fast]
+    default: normal
+    title: Speed
+    description: >
+      How fast the strip scrolls. slow/normal/fast map to fixed per-frame pixel steps in
+      behavior.js.
+  label:
+    type: string
+    default: "Trusted by"
+    title: Accessible label
+    description: Accessible name announced for the marquee region.

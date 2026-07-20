@@ -1,0 +1,8 @@
+{
+  "pet": "Rocky",
+  "vaccines": [
+    { "name": "Rabies", "date": "05 Sep 2023", "next_due": "05 Sep 2024", "status": "overdue" },
+    { "name": "Distemper (DHPP)", "date": "22 Nov 2023", "next_due": "22 Nov 2024", "status": "overdue" },
+    { "name": "Canine Influenza", "date": "10 Jun 2025", "status": "due" }
+  ]
+}

@@ -1,0 +1,28 @@
+<div class="feedback-widget group/fw relative h-64 rounded-card border border-dashed border-border" data-open="{{ start_open }}">
+  <div class="feedback-widget__panel invisible absolute bottom-16 right-4 z-10 w-72 max-w-[calc(100%-2rem)] translate-y-2 rounded-card border border-border bg-surface-raised p-4 text-left opacity-0 shadow-raised transition duration-(--duration-token) pointer-events-none group-data-[open=true]/fw:visible group-data-[open=true]/fw:translate-y-0 group-data-[open=true]/fw:opacity-100 group-data-[open=true]/fw:pointer-events-auto" role="dialog" aria-label="Send feedback">
+    <p class="feedback-widget__title font-heading text-on-surface">Send us feedback</p>
+    <div class="feedback-widget__rating mt-3 flex items-center gap-1" role="radiogroup" aria-label="Rating">
+      <button type="button" role="radio" aria-checked="false" class="feedback-widget__star flex size-8 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="1" aria-label="1 star">
+        <svg class="feedback-widget__glyph size-6 data-[filled=false]:opacity-25" data-filled="false" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      </button>
+      <button type="button" role="radio" aria-checked="false" class="feedback-widget__star flex size-8 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="2" aria-label="2 stars">
+        <svg class="feedback-widget__glyph size-6 data-[filled=false]:opacity-25" data-filled="false" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      </button>
+      <button type="button" role="radio" aria-checked="false" class="feedback-widget__star flex size-8 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="3" aria-label="3 stars">
+        <svg class="feedback-widget__glyph size-6 data-[filled=false]:opacity-25" data-filled="false" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      </button>
+      <button type="button" role="radio" aria-checked="false" class="feedback-widget__star flex size-8 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="4" aria-label="4 stars">
+        <svg class="feedback-widget__glyph size-6 data-[filled=false]:opacity-25" data-filled="false" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      </button>
+      <button type="button" role="radio" aria-checked="false" class="feedback-widget__star flex size-8 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="5" aria-label="5 stars">
+        <svg class="feedback-widget__glyph size-6 data-[filled=false]:opacity-25" data-filled="false" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+      </button>
+    </div>
+    <textarea class="feedback-widget__message mt-3 w-full rounded-control border border-border bg-surface p-3 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" rows="3" placeholder="Tell us what you think"></textarea>
+    <button type="button" class="feedback-widget__send mt-3 flex w-full items-center justify-center rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">Send</button>
+  </div>
+  <button type="button" class="feedback-widget__launcher absolute bottom-4 right-4 flex items-center gap-2 rounded-pill bg-primary px-4 py-2 text-sm font-medium text-primary-contrast shadow-raised transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" aria-expanded="false" aria-haspopup="dialog">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h14v9H8l-4 3v-3H3V4z"/></svg>
+    <span>{{ label }}</span>
+  </button>
+</div>

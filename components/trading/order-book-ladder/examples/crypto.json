@@ -1,0 +1,12 @@
+{
+  "title": "BTC-USD depth",
+  "rows": [
+    { "price": "64,180.5", "ask_size": "3.42" },
+    { "price": "64,175.0", "ask_size": "1.08" },
+    { "price": "64,171.5", "ask_size": "5.90" },
+    { "price": "12.5 spread", "is_spread": true },
+    { "price": "64,159.0", "bid_size": "2.17" },
+    { "price": "64,154.5", "bid_size": "6.03" },
+    { "price": "64,150.0", "bid_size": "4.75" }
+  ]
+}

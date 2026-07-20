@@ -1,0 +1,79 @@
+name: "Danger Zone"
+short_description: A bordered block that groups destructive account or project actions behind clear, individually labelled danger buttons.
+long_visual_description: >
+  A card outlined in a danger-tinted border with a soft red header carrying the section title in the
+  heading face. Below it, one row per destructive action lists the action title with an optional
+  explanatory line of muted text on the left, and an outlined danger button on the right. Rows are
+  separated by hairline dividers and stack the button below the text on narrow screens.
+
+use_cases:
+  - A settings page section for deleting a project, workspace, or account.
+  - Transferring ownership of a resource to another user.
+  - Archiving or permanently removing data that cannot be undone.
+  - Leaving or disbanding a team or organisation.
+  - Resetting or rotating everything (API keys, integrations) in one place.
+  - Cancelling a subscription and wiping associated content.
+
+recommended_for:
+  - The bottom of an account, project, or workspace settings page.
+  - Grouping irreversible actions apart from routine settings.
+avoid_for:
+  - Routine, reversible settings (use a plain settings row or toggle).
+  - A single inline delete on a list item (use a row action).
+
+markets:
+  - Global
+
+example_usage: >
+  Place at the end of a settings page. Pass an actions array where each entry has a title, an
+  optional description of the consequence, and a button_label. Keep descriptions blunt about what is
+  irreversible. Wire each button to a confirmation dialog in your app.
+
+props:
+  title: "The block heading; defaults to \"Danger zone\"."
+  actions: "The destructive actions in order. Each: title (the action), description (optional consequence text), button_label (the danger button text)."
+
+example_prompts:
+  - "Add a danger zone with delete project and transfer ownership actions."
+  - "Put a delete account danger zone at the bottom of the settings page."
+  - "Show a danger zone with a single irreversible delete action."
+
+lifecycle: experimental
+content_model: A section title and a list of destructive actions, each with a title, optional consequence description, and a button label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the consequence plainly and name what is irreversible. Use verbs on the buttons (Delete,
+  Transfer, Leave) and keep descriptions to one line. Do not soften or apologise.
+
+relationships:
+  related:
+    - saas/team-member-row
+    - saas/billing-tab
+    - notifications/alert
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Account
+  atomic_type: organism
+  usage_type: [list, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Danger is conveyed by the button text and border, not colour alone; each button is a labelled, focusable control.
+  keyboard_support: Each action button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

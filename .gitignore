@@ -8,5 +8,11 @@ storybook-static/
 preview/public/screenshots/
 drupal-base/.gitkeep
 drupal-base
+custom_theme
+# Exception: the base theme SHIPS its compiled Tailwind bundle, so a site that copies the theme
+# folder is styled without running a build. It is a source artifact here, not build output.
+!skills/drupal-theme/base-theme/css/dist/
+!skills/drupal-theme/base-theme/css/dist/base.css
+
 # Generated variants live in dist/ (build output). Component source + screenshots are committed.
 # preview/public/screenshots/ is a generated mirror of components/*/screenshots/ (the source of truth).

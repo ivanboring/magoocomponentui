@@ -1,0 +1,20 @@
+name: testimonial-spotlight
+props:
+  quote:
+    type: string
+    required: true
+    title: Quote
+    example: "Working with them reshaped how our whole team ships product - clearer, faster, calmer."
+  author:
+    type: object
+    required: true
+    title: Author
+    description: "The person quoted: { name, role, company, avatar }. company and avatar are optional."
+    example: { name: "Dana Whitfield", role: "VP of Product", company: "Northwind", avatar: "/stock/avatar-woman-1.jpg" }
+  company_logo:
+    type: html
+    title: Company logo
+    description: >
+      Optional raw HTML for the client's logo - an inline SVG or an <img> tag. Rendered muted and
+      centered below the author. Leave empty to omit.
+    example: ""

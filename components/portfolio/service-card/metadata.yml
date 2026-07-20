@@ -1,0 +1,80 @@
+name: "Service Card"
+short_description: A service or capability card with a tinted icon tile, a title, a short blurb, and an optional "Learn more" link.
+long_visual_description: >
+  A bordered surface card with a soft shadow. A small rounded tile at the top holds an icon tinted in
+  the primary colour on a faint primary wash. Below sits a heading, a short muted blurb that fills the
+  available height, and - when a link is set - a primary "Learn more" link with a trailing arrow
+  pinned to the bottom, so a row of cards keeps their links aligned.
+
+use_cases:
+  - A services or capabilities grid on an agency site.
+  - A "what we do" section with an icon per offering.
+  - A pricing-adjacent list of included features.
+  - A product feature card with a glyph and blurb.
+  - A consultancy's areas-of-expertise grid.
+  - A studio's disciplines overview.
+
+recommended_for:
+  - Grids of comparable services where each needs an icon, title and short description.
+  - Cards that should keep their call-to-action aligned across a row.
+avoid_for:
+  - A single metric or figure (use stat-card).
+  - Long-form service detail (link out to a dedicated page instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a title, a short blurb, and an inline SVG icon (stroke-based, sized to fill its box). Add an
+  href to surface a "Learn more" link at the bottom. Lay several in a responsive grid for a services
+  section.
+
+props:
+  title: "The service name, shown as the card heading."
+  blurb: "A short description, one or two sentences."
+  icon: "Inline SVG for the glyph, shown in a tinted tile. Use a stroke-based icon sized like size-6."
+  href: "Optional URL; when set a 'Learn more' link appears at the bottom."
+
+example_prompts:
+  - "Add a product design service card with a shield icon."
+  - "Show a three-up grid of service cards for our disciplines."
+  - "Make a capability card that links to its detail page."
+
+lifecycle: experimental
+content_model: A service defined by an icon, a title, a short blurb, and an optional link.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep titles to a couple of words and blurbs to a single benefit-led sentence or two. Use a
+  consistent icon style across the set (all stroke or all filled) so the grid reads as one system.
+
+relationships:
+  related:
+    - portfolio/agency-process
+    - marketing/feature-grid
+    - dashboard/stat-card
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Services
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The icon tile is decorative (aria-hidden) with the title carrying meaning; the link is a real anchor with visible text and an underline on hover; contrast comes from tokenized colours.
+  keyboard_support: The optional "Learn more" link is a focusable anchor activated on Enter; the card is otherwise static.
+  seo_score: 45
+  text_direction: both

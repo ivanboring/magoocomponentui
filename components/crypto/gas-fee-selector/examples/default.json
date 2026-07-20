@@ -1,0 +1,7 @@
+{
+  "options": [
+    { "label": "Slow", "tier": "18 gwei", "fee": "$0.42", "time": "~3 min", "selected": false },
+    { "label": "Normal", "tier": "24 gwei", "fee": "$0.58", "time": "~45 sec", "selected": true },
+    { "label": "Fast", "tier": "32 gwei", "fee": "$0.79", "time": "~15 sec", "selected": false }
+  ]
+}

@@ -1,0 +1,88 @@
+name: "Margin Meter"
+short_description: A margin-usage card showing buying power used as a tone-coloured progress bar with available and maintenance figures.
+long_visual_description: >
+  A surface card headed by the used amount ("$12,400 of buying power used") with the percentage on
+  the right, above a rounded track whose fill spans the precomputed used percentage. The fill is
+  tinted by tone - primary when healthy, amber as a warning, red when critical. Below, a small
+  definition list shows the available buying power and, optionally, the maintenance requirement in
+  mono tabular figures.
+
+use_cases:
+  - A margin-usage gauge in a brokerage account overview.
+  - A buying-power indicator on an order-entry screen.
+  - A risk widget warning as margin approaches the maintenance requirement.
+  - A leverage summary in a futures or CFD trading dashboard.
+  - A crypto margin health bar on a derivatives exchange.
+  - A portfolio risk panel flagging a margin call threshold.
+
+recommended_for:
+  - Showing how much of a margin or buying-power allowance is consumed.
+  - Risk indicators where a threshold should change the bar colour.
+avoid_for:
+  - Multi-series breakdowns (use a donut or bar chart).
+  - Precise historical margin trends (use a line chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Preformat used, available and the optional maintenance amounts in the caller, and precompute
+  used_pct (0-100) - it is used directly as the bar width. Set tone (ok/warning/danger) by your own
+  thresholds so the fill turns amber or red as usage climbs toward the maintenance requirement.
+
+props:
+  used: "Buying power currently used, preformatted with currency."
+  available: "Remaining buying power, preformatted with currency."
+  used_pct: "Percentage used, 0-100, precomputed by the caller; drives the fill width."
+  maintenance: "Optional maintenance margin requirement, preformatted with currency."
+  tone: "ok (primary), warning (amber), or danger (red) - set by threshold to colour the fill."
+
+example_prompts:
+  - "Add a margin meter showing 62% of buying power used, healthy."
+  - "Show a margin usage bar in red when the account is near a margin call."
+  - "Put a buying-power gauge with available and maintenance figures in the account panel."
+
+relationships:
+  related:
+    - finance/portfolio-summary
+    - trading/asset-allocation-donut
+    - dashboard/stat-card
+
+lifecycle: experimental
+content_model: A used amount and percentage, a tone, an available amount, and an optional maintenance requirement.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Precompute used_pct in the caller and set tone by your own risk thresholds so colour and number
+  agree (for example warning past 70% and danger past 90%). Keep the currency formatting consistent
+  across used, available and maintenance. The percentage is shown as text, so the tone colour is a
+  reinforcement, not the only signal.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Risk
+  atomic_type: molecule
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The track is a labelled meter with aria-valuenow/min/max; usage is stated as a percentage in text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: ltr

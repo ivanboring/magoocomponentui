@@ -1,0 +1,34 @@
+name: appointment-gov
+props:
+  office:
+    type: string
+    title: Office name
+    description: Name of the office or service point being booked.
+    example: "Central Passport Office"
+  address:
+    type: string
+    title: Address
+    description: The office address, shown under the office name.
+    example: "12 Whitehall, London SW1A 2DD"
+  dates:
+    type: array
+    items: object
+    required: true
+    title: Dates
+    description: >
+      The bookable days. Each item: { label, slots } where slots is a nested array of
+      { time, available, selected } — available false renders the slot muted and disabled,
+      selected true highlights the chosen slot (caller precomputes which is selected).
+    example:
+      - label: "Mon 21 Jul"
+        slots:
+          - { time: "09:00", available: true, selected: false }
+          - { time: "10:30", available: false, selected: false }
+          - { time: "14:00", available: true, selected: true }
+  selected:
+    type: string
+    title: Selected slot summary
+    description: >
+      Optional human-readable summary of the chosen slot (e.g. "Mon 21 Jul at 14:00"), shown
+      next to the Book button. Leave empty until a slot is chosen.
+    example: "Mon 21 Jul at 14:00"

@@ -1,0 +1,46 @@
+name: watchlist-row
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The instrument ticker (e.g. NVDA).
+    example: "NVDA"
+  name:
+    type: string
+    title: Name
+    description: The instrument's full name, shown small under the symbol.
+    example: "NVIDIA Corp"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The current price, preformatted with currency in the caller.
+    example: "$124.30"
+  change:
+    type: string
+    required: true
+    title: Change
+    description: The absolute price change shown in the pill, sign included in the caller.
+    example: "+2.18"
+  change_pct:
+    type: string
+    required: true
+    title: Change percent
+    description: The percentage change shown in the pill, sign included in the caller.
+    example: "+1.78%"
+  change_dir:
+    type: enum
+    values: [up, down]
+    required: true
+    title: Change direction
+    description: Direction of the change; colours the pill and sparkline green (up) or red (down).
+  spark_path:
+    type: string
+    title: Sparkline path
+    description: >
+      An optional precomputed SVG path 'd' string for the mini sparkline, plotted in a 100x30
+      viewBox (x 0-100 left-to-right, y 0-30 top-to-bottom). Compute the geometry in the caller;
+      the directive language cannot do arithmetic. Omit to hide the sparkline.
+    example: "M0 22 L20 18 L40 20 L60 10 L80 12 L100 4"
+variants: {}

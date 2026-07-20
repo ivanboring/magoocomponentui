@@ -1,0 +1,9 @@
+{
+  "title": "Portfolio allocation",
+  "slices": [
+    { "label": "Bitcoin", "value": "$45,000", "pct": "45%", "dash": "45 55", "offset": "0", "color_class": "stroke-primary" },
+    { "label": "Ethereum", "value": "$30,000", "pct": "30%", "dash": "30 70", "offset": "-45", "color_class": "stroke-accent" },
+    { "label": "Solana", "value": "$15,000", "pct": "15%", "dash": "15 85", "offset": "-75", "color_class": "stroke-warning" },
+    { "label": "USDC", "value": "$10,000", "pct": "10%", "dash": "10 90", "offset": "-90", "color_class": "stroke-info" }
+  ]
+}

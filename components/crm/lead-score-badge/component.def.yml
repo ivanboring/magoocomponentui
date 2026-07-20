@@ -1,0 +1,18 @@
+name: lead-score-badge
+props:
+  temp:
+    type: enum
+    values: [hot, warm, cold]
+    default: warm
+    title: Temperature
+    description: Lead temperature; sets the colour and the label text.
+  score:
+    type: string
+    title: Score
+    description: Optional numeric score shown after the label (e.g. "82").
+    example: "82"
+variants:
+  temp:
+    hot: "bg-danger/10 text-danger"
+    warm: "bg-warning/10 text-warning"
+    cold: "bg-info/10 text-info"

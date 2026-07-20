@@ -1,0 +1,15 @@
+{
+  "device": "Porch light",
+  "on_time": "18:30",
+  "off_time": "23:00",
+  "enabled": true,
+  "days": [
+    { "label": "M", "active": true },
+    { "label": "T", "active": true },
+    { "label": "W", "active": true },
+    { "label": "T", "active": true },
+    { "label": "F", "active": true },
+    { "label": "S", "active": false },
+    { "label": "S", "active": false }
+  ]
+}

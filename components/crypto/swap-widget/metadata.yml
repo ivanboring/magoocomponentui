@@ -1,0 +1,97 @@
+name: "Swap Widget"
+short_description: A token swap interface - a From panel, a To panel, a flip button between them, a rate line and a primary Swap action.
+long_visual_description: >
+  A card with two stacked panels on the raised surface: a From panel with a large amount input and a
+  pill token selector, and a To panel of the same shape. A circular flip button notched between them
+  (bordered in the surface colour so it appears to sit over the seam) swaps the direction. Below sit
+  optional rate and slippage detail lines, then a full-width primary Swap button.
+
+use_cases:
+  - The core swap panel of a DEX front end.
+  - A quick-swap widget embedded in a wallet or portfolio.
+  - A convert flow between two supported tokens.
+  - An onboarding step that swaps into a needed token.
+  - A bridge or cross-chain convert entry screen.
+  - A staking flow's "get the staking token" step.
+
+recommended_for:
+  - Any two-sided token convert or swap interaction.
+  - Surfaces that need amount inputs plus a rate and slippage summary.
+avoid_for:
+  - Showing a single token's price and trend (use token-price-card).
+  - A full order book or limit-order form (build a bespoke trading UI).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass from and to objects (each { symbol, amount, balance }), plus an optional preformatted rate
+  and slippage. Listen for swap:submit (detail carries the current from/to amounts and symbols) and
+  swap:flip to run the swap or reverse the pair. Wire the token pill buttons to your own token
+  selector.
+
+how_to_use: >
+  The panels, flip button, rate and slippage lines are static markup. behavior.js wires two actions:
+  the Swap button fires swap:submit with the live from/to amounts and symbols read from the inputs,
+  and the flip button fires swap:flip. The host page performs the swap and re-renders; the token
+  pill buttons are placeholders for your own token picker.
+
+props:
+  from: "The sell side: symbol, amount and optional balance."
+  to: "The buy side: symbol, amount and optional balance."
+  rate: "Optional exchange-rate line, preformatted in the caller."
+  slippage: "Optional slippage tolerance shown in the details."
+
+slots: {}
+
+example_prompts:
+  - "Add a swap widget for ETH to USDC with a 0.5% slippage line."
+  - "Build a quick-swap panel showing the current rate."
+  - "Put a token swap interface on the DEX home."
+
+lifecycle: experimental
+content_model: >
+  Two token sides (each a symbol, an amount and an optional balance), an optional rate and slippage,
+  and a swap action.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the two panels visually identical so direction is obvious. Show the rate whenever you can so
+  users can sanity-check the quote before swapping.
+
+relationships:
+  related:
+    - crypto/token-price-card
+    - crypto/token-balance-row
+    - crypto/gas-fee-selector
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Trading
+  atomic_type: organism
+  usage_type: [form, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both amount inputs and both token-selector buttons carry accessible labels; the flip and Swap buttons are labelled; decoration SVGs are aria-hidden.
+  keyboard_support: The amount inputs, token selectors, flip button and Swap button are all focusable and operate with the keyboard.
+  seo_score: 20
+  text_direction: both

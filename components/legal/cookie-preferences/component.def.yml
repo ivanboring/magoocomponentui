@@ -1,0 +1,24 @@
+name: cookie-preferences
+props:
+  title:
+    type: string
+    default: "Cookie preferences"
+    title: Title
+    description: The heading shown at the top of the preferences card.
+  intro:
+    type: string
+    default: "We use cookies to run the site and, with your consent, to improve it. Choose which categories to allow."
+    title: Intro
+    description: A short explanatory line shown under the title. Leave empty to hide it.
+  categories:
+    type: array
+    items: object
+    required: true
+    title: Categories
+    description: >
+      The cookie categories to list. Each item: { label, description, on, required }. on sets the
+      initial toggle state; required marks a category that is always on and cannot be turned off
+      (rendered as a disabled "Always on" switch). Non-required categories are toggleable.
+    example:
+      - { label: "Strictly necessary", description: "Required for the site to function. Cannot be switched off.", on: true, required: true }
+      - { label: "Analytics", description: "Help us understand how the site is used.", on: false, required: false }

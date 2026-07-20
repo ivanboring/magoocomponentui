@@ -1,0 +1,73 @@
+name: "Milestone Marker"
+short_description: A small dated milestone chip with a diamond icon coloured by status - done, upcoming, or missed.
+long_visual_description: >
+  A tight inline group: a diamond marker whose colour signals status (green for done, blue for
+  upcoming, red for missed), followed by the milestone label and its date in tabular figures. Small
+  enough to sit on a timeline, in a legend, or inline within a sentence of project status.
+
+use_cases:
+  - A dated point on a roadmap or timeline.
+  - A release or launch checkpoint in a plan.
+  - A deadline chip in a status summary.
+  - A legend entry marking a key date.
+  - Any single dated event that needs a done/upcoming/missed colour cue.
+
+recommended_for:
+  - Individual dated checkpoints without a duration.
+  - Marking status on a timeline of milestones.
+avoid_for:
+  - A task that spans a range of dates (use gantt-row).
+  - A full milestone card with description and owner.
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a label and a date, then set status to done, upcoming, or missed to colour the diamond.
+  Place several along a timeline or list them in a plan's status section.
+
+props:
+  label: "The milestone name."
+  date: "The milestone date in a short human-readable form."
+  status: "done, upcoming, or missed; colours the diamond marker."
+
+example_prompts:
+  - "Add a done milestone for the alpha on Apr 10."
+  - "Show an upcoming public beta milestone dated May 2."
+  - "Mark the code-freeze milestone as missed."
+
+relationships:
+  related:
+    - pm/gantt-row
+    - pm/sprint-header
+    - pm/burndown-chart
+
+lifecycle: experimental
+content_model: A label, a date, and a done/upcoming/missed status.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-info
+    - --color-danger
+    - --font-body
+
+editorial_guidance: >
+  Keep labels to the milestone name and dates short. Because status is shown only by the diamond's
+  colour, pair the marker with adjacent status text wherever the state must be perceivable without
+  colour.
+
+categorization:
+  category: Project Management
+  subcategory: Timeline
+  atomic_type: atom
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the diamond's colour only; place explicit status text nearby (or a title on the icon) where the state must be perceivable without colour. The label and date are real text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

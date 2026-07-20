@@ -94,11 +94,23 @@ function fieldInst(entry, bundle, field, label, settings) {
     settings, field_type: entry.fieldType,
   };
 }
+/**
+ * Displays must declare their config dependencies (the bundle + every field they list) — the
+ * config installer orders creation by those dependencies, and without them it tries to create a
+ * display before the paragraph type it belongs to ("Missing bundle entity … footer_columns_columns").
+ */
+const displayDeps = (bundle, fields) => ({
+  config: [`paragraphs.paragraphs_type.${bundle}`, ...fields.map((f) => `field.field.paragraph.${bundle}.${f}`)],
+});
 function formDisplay(bundle, entries) {
   const content = {};
   let w = 0;
   for (const e of entries) content[e.field] = { type: e.widget.type, weight: w++, region: "content", settings: e.widget.settings || {}, third_party_settings: {} };
-  return { langcode: "en", status: true, dependencies: { module: ["paragraphs"] }, id: `paragraph.${bundle}.default`, targetEntityType: "paragraph", bundle, mode: "default", content, hidden: {} };
+  return {
+    langcode: "en", status: true,
+    dependencies: { ...displayDeps(bundle, entries.map((e) => e.field)), module: ["paragraphs"] },
+    id: `paragraph.${bundle}.default`, targetEntityType: "paragraph", bundle, mode: "default", content, hidden: {},
+  };
 }
 function viewDisplay(bundle, slotEntries) {
   // Only the nested-reference field is displayed (rendered via content in the parent twig
@@ -106,7 +118,11 @@ function viewDisplay(bundle, slotEntries) {
   const content = {}, hidden = {};
   let w = 0;
   for (const e of slotEntries) content[e.field] = { type: e.formatter.type, label: "hidden", settings: e.formatter.settings || {}, weight: w++, region: "content", third_party_settings: {} };
-  return { langcode: "en", status: true, dependencies: { module: [] }, id: `paragraph.${bundle}.default`, targetEntityType: "paragraph", bundle, mode: "default", content, hidden };
+  return {
+    langcode: "en", status: true,
+    dependencies: displayDeps(bundle, slotEntries.map((e) => e.field)),
+    id: `paragraph.${bundle}.default`, targetEntityType: "paragraph", bundle, mode: "default", content, hidden,
+  };
 }
 
 /* -------------------------------- emitter -------------------------------- */

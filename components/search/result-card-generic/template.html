@@ -1,0 +1,16 @@
+<article class="result-card-generic flex gap-4 rounded-card border border-border bg-surface p-4 shadow-card">
+  <div data-if="thumbnail" class="result-card-generic__media shrink-0">
+    <img class="size-20 rounded-control object-cover" src="{{ thumbnail }}" alt="">
+  </div>
+  <div class="min-w-0 flex-1">
+    <p data-if="url" class="result-card-generic__url truncate text-xs text-success">{{ url }}</p>
+    <h3 class="result-card-generic__title mt-0.5 font-heading text-on-surface">
+      <a data-if="url" href="{{ url }}" class="text-primary hover:underline">{{ title }}</a>
+      <span data-if="!url">{{ title }}</span>
+    </h3>
+    <p class="result-card-generic__snippet mt-1 line-clamp-2 text-sm text-on-surface-muted">{{ snippet }}</p>
+    <div data-if="meta" class="result-card-generic__meta mt-2 text-xs text-on-surface-muted">
+      <span data-for="m in meta" class="after:mx-1.5 after:content-['·'] last:after:content-none">{{ m }}</span>
+    </div>
+  </div>
+</article>

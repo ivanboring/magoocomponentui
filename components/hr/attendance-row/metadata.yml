@@ -1,0 +1,87 @@
+name: "Attendance Row"
+short_description: A single-person time-and-attendance row with clock-in/out times, hours worked and a status pill.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and soft shadow. An initials avatar
+  circle leads, the person's name sits beside it above the clock-in and clock-out times in the
+  mono face, the total hours worked aligns to the right in tabular figures, and a coloured status
+  pill (present, late, absent, remote) closes the row. The pill tone follows the token palette so
+  it recolours per theme.
+
+use_cases:
+  - A row in a daily time-and-attendance register.
+  - A team roster showing who is present, late, remote or absent today.
+  - A payroll review list confirming clocked hours per person.
+  - A shift handover summary of the outgoing team's times.
+  - A manager dashboard list of direct reports' attendance.
+  - A remote-work log noting who worked off-site.
+
+recommended_for:
+  - Stacking many people in a scannable attendance list.
+  - Read-only summaries where each person needs a status at a glance.
+avoid_for:
+  - Editing or approving time entries (pair with an approval-request-row).
+  - A full weekly grid across days (use shift-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one row per person with a precomputed initials string, the formatted clock-in and
+  clock-out times, the total hours, and a status that matches their state. Stack rows in a
+  gap-2 flex column to form a register.
+
+props:
+  name: The person's display name.
+  initials: One or two precomputed initials for the avatar circle.
+  clock_in: Preformatted clock-in time shown in the mono face.
+  clock_out: Preformatted clock-out time shown in the mono face.
+  hours: Preformatted total worked, e.g. "8h 12m".
+  status: Attendance state; the pill colour follows it.
+
+example_prompts:
+  - "Add an attendance row for Dana Okafor, in at 09:02, out at 17:30, 8h 12m, present."
+  - "Show an attendance row marked remote with no clock-out yet."
+  - "List today's team attendance with one row per person."
+
+lifecycle: experimental
+content_model: A person, their clock-in/out times, hours worked, and an attendance status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep times in a consistent 24-hour or 12-hour format across the register. Let the status text
+  carry the meaning, not colour alone. Leave clock-out blank for people still on the clock.
+
+relationships:
+  related:
+    - hr/shift-schedule
+    - hr/approval-request-row
+    - hr/team-directory-grid
+
+categorization:
+  category: HR & People
+  subcategory: Time & Attendance
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text as well as colour; the avatar is decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

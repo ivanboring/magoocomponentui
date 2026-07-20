@@ -1,0 +1,6 @@
+<nav class="bottom-nav flex border-t border-border bg-surface" aria-label="{{ label }}">
+  <a data-for="item in items" class="bottom-nav__item relative flex flex-1 flex-col items-center justify-center gap-1 px-2 py-2 text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">
+    <span class="bottom-nav__icon relative size-6">{{{ item.icon }}}<span data-if="item.badge" class="absolute -right-2 -top-1 min-w-4 rounded-pill bg-danger px-1 text-center text-[10px] font-medium leading-4 text-white">{{ item.badge }}</span></span>
+    <span class="text-xs">{{ item.label }}</span>
+  </a>
+</nav>

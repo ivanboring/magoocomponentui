@@ -1,0 +1,9 @@
+{
+  "stops": [
+    { "label": "Warehouse", "order": 1, "status": "done" },
+    { "label": "Oak Rd", "order": 2, "status": "done" },
+    { "label": "Harbor", "order": 3, "status": "done" }
+  ],
+  "total_distance": "18 mi",
+  "total_time": "35 min"
+}

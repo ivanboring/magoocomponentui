@@ -1,0 +1,11 @@
+{
+  "label": "Labels",
+  "folders": [
+    { "label": "Inbox", "href": "#", "count": 42 },
+    { "label": "Important", "href": "#", "active": true, "count": 5 },
+    { "label": "Work", "href": "#" },
+    { "label": "Personal", "href": "#", "count": 2 },
+    { "label": "Receipts", "href": "#" },
+    { "label": "Newsletters", "href": "#", "count": 18 }
+  ]
+}

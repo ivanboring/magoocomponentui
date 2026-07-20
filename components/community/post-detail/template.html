@@ -1,0 +1,42 @@
+<article class="post-detail rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="flex flex-col gap-3">
+    <h1 class="font-heading text-2xl text-on-surface">{{ title }}</h1>
+    <div class="flex items-center gap-3">
+      <span class="post-detail__avatar flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-raised text-sm font-medium text-on-surface-muted">
+        <img data-if="author.avatar" class="size-full object-cover" src="{{ author.avatar }}" alt="">
+        <span data-if="!author.avatar">{{ author.initials }}</span>
+      </span>
+      <div class="min-w-0">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-medium text-on-surface">{{ author.name }}</span>
+          <span data-if="author.flair" class="inline-flex rounded-pill bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">{{ author.flair }}</span>
+        </div>
+        <p class="text-xs text-on-surface-muted">{{ time }}</p>
+      </div>
+    </div>
+    <div data-if="tags" class="flex flex-wrap items-center gap-2">
+      <span data-for="tag in tags" class="inline-flex rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">{{ tag }}</span>
+    </div>
+  </header>
+
+  <div class="post-detail__body mt-4 text-on-surface">{{{ body_html }}}</div>
+
+  <footer class="mt-5 flex flex-wrap items-center gap-2 border-t border-border pt-4 text-sm">
+    <span data-if="score" class="mr-1 inline-flex items-center gap-1.5 rounded-pill bg-surface-raised px-3 py-1.5 font-medium text-on-surface tabular-nums">
+      <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 4l5 6H5l5-6z"/></svg>
+      {{ score }}
+    </span>
+    <button type="button" class="post-detail__reply inline-flex items-center gap-1.5 rounded-button px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h12v8H8l-4 3V5z"/></svg>
+      Reply
+    </button>
+    <button type="button" class="post-detail__share inline-flex items-center gap-1.5 rounded-button px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 7a2 2 0 100-4 2 2 0 000 4zm0 10a2 2 0 100-4 2 2 0 000 4zM6 12a2 2 0 100-4 2 2 0 000 4zm6.5-6.5l-5 3m0 3l5 3"/></svg>
+      Share
+    </button>
+    <button type="button" class="post-detail__save inline-flex items-center gap-1.5 rounded-button px-3 py-1.5 font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h8v14l-4-3-4 3V3z"/></svg>
+      Save
+    </button>
+  </footer>
+</article>

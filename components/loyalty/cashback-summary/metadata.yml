@@ -1,0 +1,85 @@
+name: "Cashback Summary"
+short_description: A cashback card with a big total, this-month and pending stats, and an optional category breakdown bar with legend.
+long_visual_description: >
+  A surface card led by a large total-cashback figure under a muted label, with this-month and
+  pending amounts as small stats beneath. When a category breakdown is supplied, a thin stacked bar
+  splits the total by category in tokenized colours, with a matching legend of coloured dots, labels
+  and amounts below it.
+
+use_cases:
+  - Summarise a member's cashback earnings on a rewards dashboard.
+  - Show total, this-month, and pending cashback at a glance.
+  - Break down cashback by spending category with a stacked bar.
+  - Surface a cashback wallet balance with a category mix.
+  - Report earned versus pending cashback for a card program.
+
+recommended_for:
+  - Cashback or rewards wallets that need a headline total plus context.
+  - Summaries that benefit from a simple category breakdown.
+avoid_for:
+  - A points ledger of individual transactions (use points-history-row).
+  - A single generic metric tile (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set total_earned to the headline figure and add this_month and pending for context. To show the
+  breakdown, pass categories with a precomputed pct per segment (all summing to 100) and a
+  color_class from the safelisted tokenized backgrounds. Amounts are preformatted strings.
+
+props:
+  total_earned: The all-time cashback total, preformatted with a currency symbol.
+  this_month: Cashback earned this month; omit to hide the stat.
+  pending: Cashback still pending; omit to hide the stat.
+  categories: Optional breakdown items; each has a label, amount, precomputed pct, and a tokenized color_class.
+
+example_prompts:
+  - "Show a cashback summary with a category breakdown."
+  - "Add a cashback card with total, this-month, and pending amounts."
+  - "Summarise cashback earned by spending category."
+
+lifecycle: experimental
+content_model: A total cashback figure, optional this-month and pending stats, and an optional category breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-secondary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep amounts preformatted and consistent in currency. Assign distinct tokenized colours to the
+  categories and keep the list short so the bar and legend stay readable.
+
+relationships:
+  related:
+    - loyalty/points-history-row
+    - dashboard/stat-card
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Cashback
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The breakdown bar carries an aria-label and every segment's value is also listed in the legend as text, so meaning does not rely on the bar colours alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,88 @@
+name: "Device Tile"
+short_description: An on/off smart-home device tile with a switch, icon, name, room, and status line.
+long_visual_description: >
+  A compact card on the surface colour with a card radius and soft shadow. The top row pairs an
+  optional round device glyph on the leading edge with a pill toggle switch on the trailing edge;
+  below sit the device name in the heading face, an optional room label, and a small muted status
+  line. When the device is on the whole tile picks up a primary border and a faint primary tint,
+  the icon warms to the primary colour, and the switch track fills with the knob slid right.
+
+use_cases:
+  - Toggle a light, lamp, or lamp group from a room dashboard.
+  - Switch a smart plug or outlet on and off.
+  - Turn a fan, heater, or humidifier on or off.
+  - Arm or disarm a simple device from a control grid.
+  - Show a device's current state and a short status line at a glance.
+  - Build a room of devices as a responsive tile grid.
+
+recommended_for:
+  - Room and whole-home device control grids.
+  - Any binary device that maps cleanly to on/off.
+avoid_for:
+  - Devices needing a slider or multi-step control (use a dedicated control).
+  - Read-only sensors (use sensor-reading).
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid, one per device. Pass the current on state; the switch mirrors
+  it and, on click, dispatches device:toggle so the host can call the real device API.
+
+how_to_use: >
+  Interactive. The role="switch" button flips on click: it sets data-state (and aria-checked) on
+  the switch, mirrors the new value onto every data-on element so the tile highlight follows, and
+  dispatches a bubbling "device:toggle" CustomEvent whose detail is { on }. Read state from the
+  root's data-on attribute; the component holds no other state.
+
+props:
+  name: The device name shown in the heading face and the switch's accessible label.
+  room: Optional room or zone shown under the name.
+  icon: Optional leading glyph as raw inline-SVG HTML; keep it decorative.
+  on: Current on/off state; drives the switch and the highlighted tile.
+  status_text: Optional short status line such as a brightness or a mode.
+
+example_prompts:
+  - "Add a device tile for the living room lamp, on at 80% brightness."
+  - "Show a grid of device tiles for every light in the bedroom."
+  - "Add an on/off tile for the coffee maker smart plug."
+
+lifecycle: experimental
+content_model: A device name, an optional room and icon, an on/off state, and an optional status line.
+
+relationships:
+  related:
+    - smarthome/scene-card
+    - smarthome/sensor-reading
+    - smarthome/camera-feed-tile
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name the device the way people say it, not its technical id. Keep the status line to a few words.
+
+categorization:
+  category: Smart Home
+  subcategory: Devices
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle uses role="switch" with aria-checked and a name-bearing aria-label; state is not colour-only.
+  keyboard_support: The switch is a native button — focusable and toggles on Enter/Space.
+  seo_score: 25
+  text_direction: both

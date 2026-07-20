@@ -1,0 +1,81 @@
+name: "SLA Timer"
+short_description: An SLA countdown card showing time remaining and a fill bar coloured by on-track, at-risk or breached status.
+long_visual_description: >
+  A surface card with a muted SLA label on the left and a status pill on the right whose tint follows
+  the state - green on-track, amber at-risk, red breached. A large tabular time-remaining figure sits
+  below in the matching status colour, over a slim rounded countdown bar whose fill width and tone
+  reflect how much of the SLA window is left.
+
+use_cases:
+  - Count down a response or resolution SLA on a work order.
+  - Flag a ticket that is at risk of breaching its service level.
+  - Show time remaining on a dispatch commitment.
+  - Surface an at-a-glance SLA health cue on a dashboard.
+  - Highlight a breached SLA that needs escalation.
+  - Track a callout against a contractual response window.
+
+recommended_for:
+  - Field service and support views that hold to a response or resolution deadline.
+  - Any single countdown against a target with a good/at-risk/bad cue.
+avoid_for:
+  - A running elapsed timer with start/stop controls (use time-on-site).
+  - Long-form schedule or milestone tracking.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the time remaining string, the 0-100 bar percent and the status upstream, then pass them
+  in. The status drives both the figure colour and the bar tone, so keep it consistent with the
+  remaining time (near-zero or negative should read at-risk or breached).
+
+props:
+  sla_label: What the SLA measures, shown above the countdown.
+  time_remaining: Precomputed time-left display string; can be negative once breached.
+  pct: Precomputed 0-100 fill of the countdown bar, rendered as its width.
+  status: on-track, at-risk or breached; colours the figure and the bar.
+
+example_prompts:
+  - "Show an SLA timer with 1h 12m remaining that is on track."
+  - "Add a breached response-SLA card in red."
+
+lifecycle: experimental
+content_model: An SLA label, a precomputed time-remaining figure, a fill percent, and an on-track/at-risk/breached status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the label about the commitment being measured. Make the status agree with the remaining time -
+  its colour is the escalation cue - and treat a negative time-remaining as breached.
+
+relationships:
+  related:
+    - fieldservice/time-on-site
+    - fieldservice/dispatch-map
+    - fieldservice/invoice-onsite
+
+categorization:
+  category: Field Service
+  subcategory: Timing
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill's text label as well as colour; the bar is a decorative reinforcement of the time-remaining figure.
+  keyboard_support: None - static, non-interactive summary.
+  seo_score: 25
+  text_direction: both

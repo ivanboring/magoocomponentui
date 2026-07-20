@@ -1,0 +1,9 @@
+{
+  "bin_id": "A-12-03",
+  "zone": "A",
+  "sku": "SKU-88213",
+  "qty": 340,
+  "capacity": 400,
+  "fill_pct": 85,
+  "tone": "default"
+}

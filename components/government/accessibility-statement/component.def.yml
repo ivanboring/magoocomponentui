@@ -1,0 +1,31 @@
+name: accessibility-statement
+props:
+  standard:
+    type: string
+    default: "WCAG 2.1 Level AA"
+    title: Conformance standard
+    description: The accessibility standard the site targets, shown in a conformance badge.
+    example: "WCAG 2.1 Level AA"
+  intro:
+    type: string
+    title: Intro
+    description: Optional opening paragraph stating the organization's commitment.
+    example: "We are committed to ensuring digital accessibility for people with disabilities."
+  commitments:
+    type: array
+    items: string
+    title: Commitments
+    description: A checklist of specific accessibility commitments or measures taken.
+    example:
+      - "All content meets WCAG 2.1 Level AA success criteria."
+      - "The site is fully operable with a keyboard alone."
+  contact_email:
+    type: string
+    title: Feedback email
+    description: Optional email address for reporting accessibility barriers.
+    example: "accessibility@agency.gov"
+  updated:
+    type: string
+    title: Last updated
+    description: Optional date this statement was last reviewed. Pass it preformatted.
+    example: "June 2026"

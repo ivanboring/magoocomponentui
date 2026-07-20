@@ -1,0 +1,32 @@
+name: bubble-chart-shell
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Market position"
+  points:
+    type: array
+    items: object
+    required: true
+    title: Bubbles
+    description: >
+      Each bubble: { x_pct, y_pct, r_pct, label, tone }. x_pct and y_pct are precomputed
+      0-100 positions in the plot's cartesian viewBox (y grows downward). r_pct is the
+      precomputed bubble radius in viewBox units (roughly 2-14). label is optional. tone is
+      optional and one of "primary" (default), "accent", or "success" to colour the bubble.
+    example:
+      - { x_pct: 30, y_pct: 60, r_pct: 8, label: "A", tone: "primary" }
+      - { x_pct: 65, y_pct: 40, r_pct: 12, label: "B", tone: "accent" }
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["High", "", "Mid", "", "Low"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["Small", "", "Medium", "", "Large"]

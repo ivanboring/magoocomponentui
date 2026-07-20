@@ -1,0 +1,9 @@
+{
+  "donors": [
+    { "name": "Amara O.", "amount": "$100", "time": "2h ago", "message": "For the water project - keep going!", "avatar": "/stock/avatar-woman-1.jpg" },
+    { "name": "Daniel R.", "amount": "$50", "time": "4h ago", "message": "Happy to help.", "avatar": "/stock/avatar-man-1.jpg" },
+    { "name": "Anonymous", "amount": "$25", "time": "5h ago" },
+    { "name": "Priya S.", "amount": "$250", "time": "yesterday", "message": "In memory of my grandmother." },
+    { "name": "Tom & Lena", "amount": "$40", "time": "yesterday" }
+  ]
+}

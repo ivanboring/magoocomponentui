@@ -1,0 +1,77 @@
+name: "Camera Feed Tile"
+short_description: A security-camera tile with a placeholder preview, a status badge, and a name caption.
+long_visual_description: >
+  A card whose top is a 16:9 raised-surface preview area with a centred camera glyph standing in for
+  the feed, and a small pill status badge overlaid top-left. The badge colour and dot follow the
+  status — green for live, red for recording, muted for offline. A caption strip below carries the
+  camera name on the leading edge and an optional timestamp, in tabular figures, on the trailing edge.
+
+use_cases:
+  - Show a grid of security cameras on a home dashboard.
+  - Indicate which cameras are live, recording, or offline at a glance.
+  - Provide a named entry point to open a full camera view.
+  - Display a last-seen time for an offline camera.
+  - Summarise a property's camera coverage on a wall panel.
+
+recommended_for:
+  - Camera and security overview grids.
+  - Placeholder tiles where a real feed is wired in later.
+avoid_for:
+  - Rendering an actual live video stream (this is a facade only).
+  - A single full-screen camera view.
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid. The preview is a placeholder facade, not a real feed; wire the
+  tile to open the live stream on click in the host. Set status to match the camera's real state.
+
+props:
+  name: The camera name shown in the caption.
+  status: The camera state; sets the badge colour and label (live, offline, recording).
+  timestamp: Optional last-updated or capture time in the caption.
+
+example_prompts:
+  - "Add a camera tile for the front door showing a live feed."
+  - "Show a grid of camera tiles with their live and offline states."
+  - "Add a backyard camera tile marked offline with a last-seen time."
+
+lifecycle: experimental
+content_model: A camera name, a status, and an optional timestamp; the preview is a placeholder.
+
+relationships:
+  related:
+    - smarthome/device-tile
+    - smarthome/sensor-reading
+    - smarthome/scene-card
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Name cameras by location the way people refer to them. Keep the timestamp short and consistent.
+
+categorization:
+  category: Smart Home
+  subcategory: Security
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The camera glyph is aria-hidden; status is conveyed by the badge text label, not colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,25 @@
+name: toggle-setting-row
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The setting name, shown as the row's label.
+    example: "Email notifications"
+  help:
+    type: string
+    title: Help text
+    description: An optional one-line explanation shown under the label in muted text.
+    example: "Send a copy of every notification to your inbox."
+  on:
+    type: boolean
+    default: false
+    title: On
+    description: The initial switch state. true renders the switch on (knob to the right).
+  name:
+    type: string
+    title: Name
+    description: >
+      An optional machine name identifying this setting; included in the setting:toggle event
+      detail so a host can persist the change.
+    example: "email_notifications"

@@ -1,0 +1,19 @@
+name: policy-toc
+props:
+  title:
+    type: string
+    default: "Contents"
+    title: Title
+    description: The heading shown above the contents list.
+  sections:
+    type: array
+    items: object
+    required: true
+    title: Sections
+    description: >
+      The document sections, in order. Each item: { number, label, href, active }. number is the
+      display label (e.g. "1" or "4.2"), href points at the section's anchor id, active marks the
+      current section. When the optional scroll-spy behavior runs it keeps active in sync on scroll.
+    example:
+      - { number: "1", label: "Acceptance of Terms", href: "#terms-1", active: true }
+      - { number: "2", label: "Use of the Service", href: "#terms-2", active: false }

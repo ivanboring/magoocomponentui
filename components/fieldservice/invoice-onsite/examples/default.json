@@ -1,0 +1,13 @@
+{
+  "invoice_number": "INV-4471",
+  "status": "sent",
+  "line_items": [
+    { "label": "Labour (2h)", "amount": "$180.00" },
+    { "label": "Thermostat assembly", "amount": "$62.00" },
+    { "label": "Pressure relief valve", "amount": "$28.00" },
+    { "label": "Callout fee", "amount": "$45.00" }
+  ],
+  "subtotal": "$315.00",
+  "tax": "$25.20",
+  "total": "$340.20"
+}

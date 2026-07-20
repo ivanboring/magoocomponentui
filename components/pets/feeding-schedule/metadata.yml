@@ -1,0 +1,84 @@
+name: "Feeding Schedule"
+short_description: A pet meals card listing each feeding time with its food and amount, and a tap-to-check fed toggle per meal.
+long_visual_description: >
+  A card on the surface colour headed by a bowl glyph, the words Feeding schedule, and an optional
+  pet name. Below sits a divided list where each row leads with a round check button, then the food
+  name in the heading face over a muted amount, with the feeding time right-aligned. Marking a meal
+  fed fills the check green and strikes through the food name.
+
+use_cases:
+  - Daily feeding plan on a pet owner dashboard.
+  - Boarding or daycare meal checklist for staff.
+  - Pet sitter handover of feeding times and portions.
+  - Diet or portion-control routine for a pet.
+  - Multi-meal puppy or kitten feeding tracker.
+  - Household chore card for who has fed the pet.
+
+recommended_for:
+  - Listing scheduled meals with an at-a-glance fed toggle.
+  - Handovers where a sitter checks off each feeding.
+avoid_for:
+  - Detailed nutrition or calorie logging.
+  - A single upcoming reminder (use a notification component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a meals array, each with a time, food, and amount, and an optional done boolean for meals
+  already fed. Clicking a meal row toggle flips its state and emits feeding:toggle for the host page.
+
+how_to_use: >
+  The list is static markup; behavior.js wires the per-meal check button. Each meal row carries its
+  fed state as data-done, styled with group-data-[done=true] utilities. Clicking a toggle flips that
+  attribute, updates aria-pressed, and dispatches a bubbling feeding:toggle event with the new done
+  value in detail. The portable self-init passes no props object and reads no configuration.
+
+props:
+  pet: Optional pet name shown after the header title.
+  meals: The feeding rows, each with a time, food, amount, and optional done boolean.
+
+example_prompts:
+  - Add a feeding schedule with morning and evening meals.
+  - Show a pet meal checklist a sitter can tick off.
+  - List my dog feeding times with portions.
+
+lifecycle: experimental
+content_model: An optional pet name and a list of meals, each with a time, food, amount, and fed state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Order meals by time of day and keep portions specific, such as a cup or gram amount. Use short
+  food names so rows stay to a single line.
+
+relationships:
+  related:
+    - pets/pet-profile-card
+    - pets/vet-appointment
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Care
+  atomic_type: molecule
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each toggle is a labelled button with aria-pressed reflecting the fed state; the header and check glyphs are aria-hidden.
+  keyboard_support: Each meal toggle is a focusable button that flips the fed state on Enter/Space.
+  seo_score: 30
+  text_direction: both

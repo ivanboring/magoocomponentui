@@ -1,0 +1,87 @@
+name: "Fleet Vehicle Card"
+short_description: A vehicle status card for a fleet dashboard, showing driver, live state, location and fuel level.
+long_visual_description: >
+  A card headed by a truck glyph and the vehicle ID with a colour-coded status pill (moving, idle,
+  stopped, maintenance). Below sit the assigned driver with an initials avatar, the current location
+  with a pin, a thin fuel bar showing the tank level, and an optional load line.
+
+use_cases:
+  - Show each vehicle's live state on a fleet operations board.
+  - Track drivers and their current locations in a dispatch view.
+  - Flag vehicles that are idle, stopped or in maintenance.
+  - Monitor fuel levels across a delivery fleet.
+  - Summarise a single vehicle inside a logistics dashboard grid.
+  - Give dispatchers a scannable card per truck or van.
+
+recommended_for:
+  - Fleet dashboards that show one card per vehicle in a grid.
+  - Dispatch and telematics summaries.
+
+avoid_for:
+  - Plotting vehicle positions on a real map (use route-map as a facade or a map library).
+  - A single parcel's delivery status (use package-status-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the vehicle ID and a status enum for the pill colour. Add driver and precomputed initials,
+  a location string, and a whole-number fuel_pct to draw the fuel bar; omit fuel_pct to hide it.
+
+props:
+  vehicle_id: The vehicle's fleet identifier or plate.
+  driver: Assigned driver's name.
+  initials: Precomputed initials for the driver avatar.
+  status: Vehicle state; drives the pill colour.
+  location: Current location or nearest landmark.
+  fuel_pct: Precomputed fuel level 0-100; drives the bar width.
+  load: Short description of the current cargo.
+
+example_prompts:
+  - "Add a fleet vehicle card for Truck 14, moving, driver Marta Ruiz, 68 percent fuel."
+  - "Show a van in maintenance with a low fuel level."
+  - "Render an idle delivery truck card with its current location."
+
+lifecycle: experimental
+content_model: One vehicle's ID, live state, assigned driver, location, fuel level and load.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Use the status pill for the vehicle's live state and keep the location to a short landmark rather
+  than a full address. Precompute fuel_pct as a whole number so the bar and label agree.
+
+relationships:
+  related:
+    - logistics/route-map
+    - logistics/warehouse-bin
+    - dashboard/stat-card
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Fleet
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill's text label as well as colour; the vehicle and pin glyphs are aria-hidden.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

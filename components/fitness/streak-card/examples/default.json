@@ -1,0 +1,13 @@
+{
+  "days": "12",
+  "label": "day streak",
+  "week": [
+    { "day": "M", "done": true },
+    { "day": "T", "done": true },
+    { "day": "W", "done": true },
+    { "day": "T", "done": true },
+    { "day": "F", "done": false },
+    { "day": "S", "done": false },
+    { "day": "S", "done": false }
+  ]
+}

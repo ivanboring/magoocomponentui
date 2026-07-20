@@ -1,0 +1,22 @@
+name: referral-invite
+props:
+  bonus:
+    type: string
+    title: Bonus headline
+    description: The referral incentive headline (e.g. "Give $10, get $10").
+    example: "Give $10, get $10"
+  placeholder:
+    type: string
+    title: Description
+    description: Optional supporting line explaining how the referral works.
+    example: "Share your code - you both earn once your friend makes a first order."
+  code:
+    type: string
+    title: Referral code
+    description: The member's referral code or invite link, shown in a mono field and copied on click.
+    example: "MAGOO-8F3K"
+  referred_count:
+    type: string
+    title: Friends joined
+    description: Optional pre-formatted count of friends who have joined via this member.
+    example: "4"

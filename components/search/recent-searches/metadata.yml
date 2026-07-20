@@ -1,0 +1,78 @@
+name: "Recent Searches"
+short_description: A history block of recent-query chips, each with a clock icon and remove button, plus a clear-all action.
+long_visual_description: >
+  A small block headed "Recent" with a subtle Clear button on the right, above a wrapping row of
+  pill chips on a raised surface. Each chip pairs a small clock icon with the query text and a ×
+  remove button. Removing a chip hides it and emits an event; clearing empties the row.
+
+use_cases:
+  - Recent-query history shown under a focused search field.
+  - A search overlay or dropdown listing prior searches.
+  - Quick re-run shortcuts for a user's last few queries.
+  - An empty-state search panel offering recent terms.
+  - A saved/recent searches widget in a sidebar.
+
+recommended_for:
+  - Showing a short, removable list of a user's recent queries.
+  - Search entry points that let users re-run or prune past searches.
+avoid_for:
+  - Trending or popular queries that aren't user-specific (use suggestion chips).
+  - Long, scrollable search history (use a paginated list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a searches array (each { label }), newest first. Listen for "recent:remove" (detail.label)
+  and "recent:clear" on the root to update your stored history, and wire each chip's text to re-run
+  that query.
+
+how_to_use: >
+  behavior.js wires the controls. Clicking a chip's × hides that chip (via its `hidden` property, so
+  it leaves the accessibility tree and never clashes with layout utilities) and dispatches a
+  bubbling "recent:remove" CustomEvent whose detail.label is the chip's data-label. The header's
+  Clear button hides every chip and dispatches "recent:clear". The component only manages its own
+  chip visibility; the host persists the history and re-runs queries. The portable self-init reads
+  config from the DOM — no props object is passed. behavior.js does not run in screenshots, so
+  captures show every chip.
+
+props:
+  searches: "The recent queries as chips, newest first. Each { label }; label is emitted on \"recent:remove\"."
+  clear_label: "Text of the button that removes the whole history."
+
+lifecycle: experimental
+content_model: A short list of recent-query chips, each removable, plus a clear-all action.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-pill
+    - --radius-control
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Show only a handful of the most recent queries, newest first, and keep each label to the exact
+  query text. Hide the whole block when there is no history rather than showing an empty row.
+
+relationships:
+  related:
+    - search/search-hero
+    - search/filter-chip-row
+    - search/did-you-mean
+
+categorization:
+  category: Search
+  subcategory: Entry
+  atomic_type: molecule
+  usage_type: [list, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The block has a heading, each remove button has an accessible name, the clock icons are decorative, and hiding a chip sets the hidden property so it leaves the accessibility tree.
+  keyboard_support: Every × and the clear button are focusable buttons that activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

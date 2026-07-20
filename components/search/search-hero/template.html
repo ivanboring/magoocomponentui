@@ -1,0 +1,15 @@
+<section class="search-hero mx-auto flex max-w-2xl flex-col items-center gap-4 px-4 py-12 text-center">
+  <h1 data-if="heading" class="search-hero__heading font-heading text-3xl text-on-surface">{{ heading }}</h1>
+  <p data-if="subheading" class="search-hero__subheading text-on-surface-muted">{{ subheading }}</p>
+  <form class="search-hero__form flex w-full items-center gap-2 rounded-pill border border-border bg-surface p-1.5 shadow-card focus-within:ring-2 focus-within:ring-ring" role="search">
+    <span class="pl-3 text-on-surface-muted" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M18 18l-4.5-4.5"/></svg>
+    </span>
+    <input class="search-hero__input min-w-0 flex-1 bg-transparent text-on-surface placeholder:text-on-surface-muted focus:outline-none" type="search" name="q" placeholder="{{ placeholder }}" aria-label="Search">
+    <button type="submit" class="search-hero__submit shrink-0 rounded-pill bg-primary px-5 py-2 font-heading text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Search</button>
+  </form>
+  <div data-if="suggestions" class="search-hero__suggestions flex flex-wrap items-center justify-center gap-2 text-sm">
+    <span class="text-on-surface-muted">Try:</span>
+    <button data-for="s in suggestions" type="button" class="search-hero__suggestion rounded-pill border border-border bg-surface px-3 py-1 text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ s.label }}</button>
+  </div>
+</section>

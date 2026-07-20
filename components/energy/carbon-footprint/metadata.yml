@@ -1,0 +1,86 @@
+name: "Carbon Footprint"
+short_description: A card showing total CO2e for a period with a stacked bar and legend breaking it down by source.
+long_visual_description: >
+  A surface card headed by a muted "Carbon footprint" caption and reporting period, with a large
+  total in kg CO2e beneath it. A slim, rounded stacked bar splits the total into coloured source
+  segments, and a legend below lists each source with a matching colour swatch, its share as a
+  percentage, and its amount in a tabular column.
+
+use_cases:
+  - Personal carbon dashboard summarising monthly emissions by source.
+  - Sustainability report card breaking a footprint into electricity, heating, and transport.
+  - Product or order page showing an estimated emissions breakdown.
+  - Company ESG dashboard tile for a site or department.
+  - Travel or commute tool comparing emission sources over a period.
+
+recommended_for:
+  - A single total split into a handful of labelled, colour-coded sources.
+  - Cases where each source's percentage is precomputed and passed in ready to render.
+avoid_for:
+  - Emissions over time (use a line chart shell or usage-forecast).
+  - Many dozens of tiny sources that would crowd the legend.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass total_kg without a unit and an optional period. Supply sources as an array where each item
+  has a label, a display kg amount, a precomputed pct (0-100) that drives its bar segment, and a
+  color_class chosen from the safelist span (bg-primary, bg-warning, bg-info, and so on).
+
+props:
+  total_kg: The total emissions figure without a unit; the card renders "kg CO2e".
+  period: The window the total covers, e.g. "this month"; omit to hide.
+  sources: The breakdown items, each with label, kg amount, precomputed pct, and a safelisted color_class.
+
+example_prompts:
+  - "Show a carbon footprint card totalling 412 kg CO2e this month across electricity, heating, and transport."
+  - "Add an emissions breakdown card split into four coloured sources."
+  - "Put a sustainability footprint tile on the dashboard with a stacked source bar."
+
+lifecycle: experimental
+content_model: A total figure, an optional period, and an ordered set of sources each with a label, amount, precomputed percentage, and colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-secondary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Precompute each source's pct so the segments sum to the whole, and keep the source labels short.
+  Assign colours consistently across a dashboard so a source reads the same everywhere; only use the
+  tokenized classes listed in the safelist span.
+
+relationships:
+  related:
+    - energy/solar-production-card
+    - energy/meter-reading-row
+    - energy/grid-status
+
+categorization:
+  category: Energy
+  subcategory: Sustainability
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The stacked bar has an accessible label and the full breakdown is available as real text in the legend, so colour is not the only channel.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

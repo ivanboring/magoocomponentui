@@ -1,0 +1,6 @@
+<nav class="scroll-spy-nav flex flex-col gap-1 border-l border-border" aria-label="Section navigation">
+  <a data-for="item in items" class="scroll-spy-nav__link group -ml-px flex items-center gap-2 border-l-2 border-transparent py-1.5 pl-4 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:font-medium data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">
+    <span class="size-1.5 shrink-0 rounded-pill bg-current opacity-0 transition-opacity duration-(--duration-token) group-data-[active=true]:opacity-100" aria-hidden="true"></span>
+    {{ item.label }}
+  </a>
+</nav>

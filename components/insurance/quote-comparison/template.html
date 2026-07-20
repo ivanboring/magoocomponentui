@@ -1,0 +1,27 @@
+<div class="quote-comparison grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  <article data-for="plan in plans" class="quote-comparison__plan group relative flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card data-[recommended=true]:border-2 data-[recommended=true]:border-primary" data-recommended="{{ plan.recommended }}">
+    <span data-if="plan.recommended" class="quote-comparison__badge absolute -top-3 left-(--space-card) rounded-pill bg-primary px-2.5 py-0.5 text-xs font-medium text-primary-contrast">Recommended</span>
+    <h3 class="quote-comparison__name font-heading text-lg text-on-surface">{{ plan.name }}</h3>
+    <p class="mt-2 flex items-baseline gap-1">
+      <span class="quote-comparison__premium font-heading text-3xl text-on-surface">{{ plan.premium }}</span>
+      <span class="text-sm text-on-surface-muted">/mo</span>
+    </p>
+    <dl class="mt-4 flex flex-col gap-2 border-t border-border pt-4 text-sm">
+      <div class="flex items-baseline justify-between gap-3">
+        <dt class="text-on-surface-muted">Deductible</dt>
+        <dd class="tabular-nums text-on-surface">{{ plan.deductible }}</dd>
+      </div>
+      <div class="flex items-baseline justify-between gap-3">
+        <dt class="text-on-surface-muted">Coverage limit</dt>
+        <dd class="tabular-nums text-on-surface">{{ plan.coverage_limit }}</dd>
+      </div>
+    </dl>
+    <ul class="mt-4 flex flex-1 flex-col gap-2 text-sm">
+      <li data-for="feature in plan.features" class="flex items-start gap-2 text-on-surface">
+        <svg class="mt-0.5 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        <span>{{ feature }}</span>
+      </li>
+    </ul>
+    <button type="button" class="quote-comparison__select mt-6 w-full rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised group-data-[recommended=true]:border-transparent group-data-[recommended=true]:bg-primary group-data-[recommended=true]:text-primary-contrast group-data-[recommended=true]:hover:opacity-90">Select {{ plan.name }}</button>
+  </article>
+</div>

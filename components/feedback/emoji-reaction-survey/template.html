@@ -1,0 +1,9 @@
+<section class="emoji-reaction-survey rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card">
+  <h3 class="emoji-reaction-survey__question font-heading text-on-surface">{{ question }}</h3>
+  <div class="emoji-reaction-survey__options mt-4 flex flex-wrap justify-center gap-2" role="radiogroup" aria-label="{{ question }}">
+    <button data-for="option in options" type="button" role="radio" aria-checked="false" class="emoji-reaction-survey__option flex min-w-20 flex-col items-center gap-1 rounded-card border border-border bg-surface px-3 py-3 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring data-[selected=true]:bg-primary/10 data-[selected=true]:text-on-surface data-[selected=true]:ring-2 data-[selected=true]:ring-primary" data-value="{{ option.value }}" data-selected="{{ option.selected }}" aria-label="{{ option.label }}">
+      <span class="text-3xl leading-none" aria-hidden="true">{{ option.emoji }}</span>
+      <span class="text-xs font-medium">{{ option.label }}</span>
+    </button>
+  </div>
+</section>

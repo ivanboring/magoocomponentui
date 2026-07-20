@@ -1,0 +1,13 @@
+{
+  "label": "All resources",
+  "initial": "6",
+  "step": "3",
+  "gap": "default",
+  "button_label": "Load more",
+  "items": [
+    { "image": "/stock/cover-workspace.jpg", "eyebrow": "Guide", "title": "Getting started", "subtitle": "Set up your first project in minutes.", "href": "#" },
+    { "image": "/stock/blog-api-streaming.jpg", "eyebrow": "Engineering", "title": "Streaming APIs", "subtitle": "Push updates to clients in real time.", "href": "#" },
+    { "image": "/stock/blog-voice-cloning.jpg", "eyebrow": "Product", "title": "Voice cloning", "subtitle": "Bring your own voice to every project.", "href": "#" },
+    { "image": "/stock/blog-dubbing.jpg", "eyebrow": "Tutorial", "title": "Automatic dubbing", "subtitle": "Localize a video into any language.", "href": "#" }
+  ]
+}

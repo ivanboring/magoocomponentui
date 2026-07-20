@@ -1,0 +1,19 @@
+{
+  "label": "Choose a dental plan",
+  "plans": [
+    {
+      "name": "Dental Basic",
+      "tier": "DHMO",
+      "premium": "$14/mo",
+      "selected": false,
+      "features": ["Two cleanings a year", "Regional dentist network"]
+    },
+    {
+      "name": "Dental Plus",
+      "tier": "PPO",
+      "premium": "$29/mo",
+      "selected": true,
+      "features": ["Orthodontia covered", "Any licensed dentist", "$2,000 annual maximum"]
+    }
+  ]
+}

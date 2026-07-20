@@ -1,0 +1,11 @@
+{
+  "name": "Priya Ramaswamy",
+  "title": "City Council Member",
+  "district": "Ward 3",
+  "party": "Green",
+  "initials": "PR",
+  "contacts": [
+    { "type": "phone", "value": "(555) 019-8840", "href": "tel:+15550198840" },
+    { "type": "email", "value": "council.ward3@cityhall.gov", "href": "mailto:council.ward3@cityhall.gov" }
+  ]
+}

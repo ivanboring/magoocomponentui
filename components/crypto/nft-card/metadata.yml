@@ -1,0 +1,91 @@
+name: "NFT Card"
+short_description: A card that lists a single NFT with its artwork, name, collection, and price.
+long_visual_description: >
+  A surface card with a square artwork image at the top that gently zooms on hover. An optional
+  pill badge sits over the top-left corner of the artwork. Below the image the token name sits in
+  the heading face with the collection name in muted text under it, and a price row - a small
+  currency diamond glyph, the numeric price in a mono figure, and the currency ticker - is divided
+  off by a top border.
+
+use_cases:
+  - Show a single NFT listing in a marketplace grid.
+  - Feature a highlighted or newly minted collectible.
+  - Display an owned NFT in a wallet or profile gallery.
+  - Present an auction item with a live badge.
+  - Surface a rare drop with a rarity badge.
+  - Link a collectible to its detail page.
+
+recommended_for:
+  - NFT marketplaces and collection browsers.
+  - Wallet and profile "owned items" views.
+  - Curated drop or auction listings.
+
+avoid_for:
+  - Non-visual crypto assets like fungible tokens (use a token row).
+  - Dense data tables of many holdings (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a square artwork image, a name, and a price. Add the collection for context and a badge
+  to flag state (Rare, New, Live). Place many of them in a grid with nft-gallery.
+
+props:
+  image: Square artwork; served cropped with object-cover.
+  name: The collectible's name or token number.
+  collection: Optional collection the item belongs to.
+  price: Numeric price string; pair with currency.
+  currency: Ticker shown after the price; defaults to ETH.
+  badge: Optional corner flag such as Rare, New, or Live.
+
+example_prompts:
+  - "Add an NFT card for a rare collectible priced at 2.4 ETH."
+  - "Show a listing card for an NFT with its collection name."
+  - "Display an owned NFT with artwork and price."
+
+relationships:
+  parents:
+    - crypto/nft-gallery
+  related:
+    - crypto/nft-gallery
+    - crypto/mint-widget
+    - crypto/staking-card
+
+lifecycle: experimental
+content_model: >
+  A square artwork image, a name, an optional collection, a price value with a currency ticker,
+  and an optional badge.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep names short and let the artwork lead. Use the badge sparingly for genuine state (rarity,
+  auction), not decoration. Prices read best as a bare numeric figure with the ticker beside it.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: NFT
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Artwork uses the token name as alt text; the currency glyph is decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 60
+  text_direction: both

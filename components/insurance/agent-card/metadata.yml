@@ -1,0 +1,82 @@
+name: "Agent Card"
+short_description: A compact contact card for an insurance agent - avatar, name, title, rating and call and email buttons.
+long_visual_description: >
+  A horizontal card with a circular avatar on the left that shows a headshot when supplied and
+  precomputed initials on a tinted primary circle otherwise. The centre stacks the agent's name,
+  title and an optional star rating. On the right sit two bordered icon buttons that link out to a
+  phone call and an email.
+
+use_cases:
+  - Showing a member their assigned insurance agent's contact details.
+  - An agent contact card in a policy or claim sidebar.
+  - A "find an agent" result listing agents and their ratings.
+  - A quote follow-up card connecting a prospect with an agent.
+  - A support panel offering a direct line to a licensed agent.
+  - A team directory entry within an agency's site.
+
+recommended_for:
+  - Presenting an agent's identity and one-tap contact actions together.
+  - Lists or grids of agents a member can reach out to.
+avoid_for:
+  - A general CRM contact with company and address (use crm/contact-card).
+  - A full agent profile page with bio and specialties.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name and either an avatar URL or precomputed initials for the fallback circle. Add title and
+  a precomputed rating string, and provide phone and email to render the call and email buttons,
+  which build tel: and mailto: links. The rating text is passed ready-formatted since the template
+  does no arithmetic.
+
+props:
+  name: The agent's full name.
+  title: The agent's role or title, shown under the name.
+  avatar: URL of a headshot; when set it replaces the initials fallback.
+  initials: Precomputed initials shown in the avatar circle when no image is set.
+  phone: Phone number used to build the call button's tel link.
+  email: Email address used to build the email button's mailto link.
+  rating: Precomputed rating text shown beside a star, such as "4.9" or "4.9 (128)".
+
+lifecycle: experimental
+content_model: An agent's name, optional title, avatar or initials, rating, and phone and email contact points.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Precompute the initials and rating string before rendering. Provide a real headshot where possible
+  and keep the title to the agent's licensed role so members trust who they are contacting.
+
+relationships:
+  related:
+    - insurance/policy-card
+    - insurance/claim-status
+    - crm/contact-card
+
+categorization:
+  category: Insurance
+  subcategory: Agents
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The call and email buttons carry aria-labels naming the agent, the star has a text rating beside it, and the avatar image is decorative with the name in adjacent text.
+  keyboard_support: The call and email links are focusable and activate on Enter.
+  seo_score: 40
+  text_direction: both

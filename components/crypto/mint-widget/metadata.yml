@@ -1,0 +1,102 @@
+name: "Mint Widget"
+short_description: A minting panel with a quantity stepper, live total, supply progress, and a mint button.
+long_visual_description: >
+  A surface card headed by the mint title, then a unit price line with a small currency diamond
+  glyph. When supply is known a "minted / total" line follows. A quantity stepper - minus, a mono
+  number input, plus - sits on its own row, and a footer divides off the running total (price times
+  quantity, kept in sync by the behavior). A full-width primary Mint button closes the card.
+
+use_cases:
+  - Let a user mint one or more NFTs from a drop.
+  - Show a collection's mint price and remaining supply.
+  - Cap mints per wallet with a clamped quantity stepper.
+  - Surface the running total before a user confirms a mint.
+  - Present a genesis or allowlist mint on a landing page.
+  - Prototype a mint flow before wiring a contract.
+
+recommended_for:
+  - NFT drop and mint pages.
+  - Collection launch landing pages.
+  - Wallet-connected mint dialogs.
+
+avoid_for:
+  - Secondary-market purchases (use a buy/listing flow).
+  - Fungible token swaps (use a swap widget).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the title and a numeric unit price. Add max to cap the per-transaction quantity, and
+  supply_minted / supply_total to show progress. The stepper clamps to 1..max and keeps the total
+  (price times quantity) in sync; Mint dispatches a "mint:submit" event carrying the chosen
+  quantity for your contract call.
+
+how_to_use: >
+  behavior.js reads the per-item price from .mint-widget__total[data-unit-price] and the optional
+  cap from .mint-widget__qty[data-max]. The minus/plus buttons and manual input edits clamp the
+  quantity to 1..max and re-render the running total in .mint-widget__total. Clicking Mint
+  dispatches a bubbling "mint:submit" CustomEvent whose detail is { quantity }; listen on the
+  component root or an ancestor and trigger your mint transaction with that quantity. Because the
+  total is recomputed from a numeric price, keep price a bare number (e.g. "0.05"). The init returns
+  a cleanup function that removes every listener.
+
+props:
+  title: The mint's name or headline.
+  price: Numeric per-item price; multiplied by quantity for the total.
+  max: Optional per-transaction cap; the stepper clamps to it.
+  supply_minted: Count already minted, shown when supply_total is set.
+  supply_total: Total supply; the supply line renders only when set.
+  quantity: The stepper's starting quantity; defaults to 1.
+
+example_prompts:
+  - "Add a mint widget for a 0.05 ETH drop with a max of 10 per wallet."
+  - "Show a mint panel with a quantity stepper and running total."
+  - "Put a mint widget with supply progress on the collection page."
+
+relationships:
+  related:
+    - crypto/nft-card
+    - crypto/nft-gallery
+    - crypto/staking-card
+
+lifecycle: experimental
+content_model: >
+  A title, a numeric unit price, an optional per-transaction max, optional minted/total supply, and
+  a starting quantity.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the price a bare number so the total stays computable, and only show the supply line when you
+  have real counts. Make the per-wallet cap explicit via max so the stepper communicates the limit
+  rather than failing at submit.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: NFT
+  atomic_type: organism
+  usage_type: [card, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stepper buttons and the quantity input have accessible names; the currency glyph is decorative and aria-hidden.
+  keyboard_support: The quantity input, stepper buttons, and Mint button are focusable; buttons activate on Enter/Space and the input accepts typed values (clamped on change).
+  seo_score: 45
+  text_direction: both

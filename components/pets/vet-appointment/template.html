@@ -1,0 +1,20 @@
+<article class="vet-appointment rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 data-if="clinic" class="vet-appointment__clinic truncate font-heading text-on-surface">{{ clinic }}</h3>
+      <p data-if="vet" class="text-sm text-on-surface-muted">{{ vet }}</p>
+    </div>
+    <span class="vet-appointment__status shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+  <div class="mt-4 flex items-center gap-2 text-sm text-on-surface">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v4M13 2v4"/></svg>
+    <span class="font-heading">{{ date }}</span>
+    <span class="text-on-surface-muted" aria-hidden="true">·</span>
+    <span>{{ time }}</span>
+  </div>
+  <p data-if="reason" class="mt-2 text-sm text-on-surface-muted">{{ reason }}</p>
+  <div class="mt-5 flex gap-2">
+    <button type="button" class="vet-appointment__reschedule flex-1 rounded-button border border-border py-2 text-sm font-heading text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Reschedule</button>
+    <button type="button" class="vet-appointment__cancel flex-1 rounded-button border border-border py-2 text-sm font-heading text-danger transition-colors duration-(--duration-token) hover:bg-danger/10">Cancel</button>
+  </div>
+</article>

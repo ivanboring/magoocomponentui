@@ -1,0 +1,79 @@
+name: "Quote Builder"
+short_description: A quote table of line items with a subtotal, optional tax, and grand total block.
+long_visual_description: >
+  A bordered card holding a four-column table - item, quantity, price, and line total - that scrolls
+  horizontally on narrow screens. Below a divider sits a totals block with a muted subtotal, an
+  optional tax row, and a grand total set in the heading face. Every amount carries the same currency
+  symbol and uses tabular figures so the columns align.
+
+use_cases:
+  - A sales quote or estimate summary on a deal.
+  - An order summary before checkout confirmation.
+  - An invoice preview with line items and totals.
+  - A proposal pricing table in a CRM.
+  - A subscription cost breakdown by line.
+  - A billing recap in an account view.
+
+recommended_for:
+  - Itemised pricing where each line and the totals must add up on screen.
+  - Read-only quote and invoice summaries.
+avoid_for:
+  - An editable pricing form with live recalculation (this renders precomputed values).
+  - A single headline price (use a simpler card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass line_items (name, qty, and preformatted price and total strings without the currency symbol),
+  plus subtotal, optional tax, and total. Set currency once to prefix every amount. Do all
+  arithmetic before passing values in - the template never multiplies or sums.
+
+props:
+  line_items: "The quote rows. Each has a name, quantity, and preformatted price and total strings (no currency symbol)."
+  subtotal: "Preformatted subtotal, without the currency symbol."
+  tax: "Preformatted tax amount, without the currency symbol; omit to hide the row."
+  total: "Preformatted grand total, without the currency symbol."
+  currency: "Symbol prefixed to every amount."
+
+example_prompts:
+  - Show a quote with three line items, tax, and a total.
+  - Add an estimate table summing to $9,180.
+  - Render an invoice preview with a subtotal and grand total.
+
+lifecycle: experimental
+content_model: A list of priced line items plus a subtotal, optional tax, and grand total, in one currency.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Compute every price, line total, subtotal, tax, and total before rendering and make sure they
+  reconcile. Keep item names concise. Use one currency symbol per quote; mixed currencies need a
+  separate presentation.
+
+relationships:
+  related:
+    - crm/deal-card
+    - crm/sales-forecast
+    - crm/pipeline-board
+
+categorization:
+  category: CRM & Sales
+  subcategory: Quoting
+  atomic_type: organism
+  usage_type: [table, summary]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a real table with header cells; the totals are a description list. No colour-only meaning.
+  keyboard_support: The table scroll container is keyboard-scrollable; no interactive controls.
+  seo_score: 30
+  text_direction: both

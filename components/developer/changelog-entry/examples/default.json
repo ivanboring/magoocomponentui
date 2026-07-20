@@ -1,0 +1,10 @@
+{
+  "version": "v2.4.0",
+  "date": "July 18, 2026",
+  "changes": [
+    { "type": "added", "text": "Webhook retry with exponential backoff." },
+    { "type": "fixed", "text": "Pagination cursor no longer skips the last page." },
+    { "type": "changed", "text": "Default rate limit raised to 1,000 req/min." },
+    { "type": "removed", "text": "Deprecated v1 auth header support." }
+  ]
+}

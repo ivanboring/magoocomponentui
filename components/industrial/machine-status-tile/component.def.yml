@@ -1,0 +1,36 @@
+name: machine-status-tile
+props:
+  name:
+    type: string
+    required: true
+    title: Machine name
+    description: Human-readable name of the machine or asset.
+    example: "CNC Mill 04"
+  machine_id:
+    type: string
+    title: Machine ID
+    description: Optional asset or equipment identifier, shown in a mono face below the name.
+    example: "CNC-04"
+  status:
+    type: enum
+    values: [running, idle, down, maintenance]
+    default: running
+    title: Status
+    description: Current operating state; sets the status pill colour and dot.
+    example: running
+  oee:
+    type: string
+    title: OEE
+    description: Optional preformatted OEE figure (include the unit, e.g. "87%").
+    example: "87%"
+  uptime:
+    type: string
+    title: Uptime
+    description: Optional preformatted uptime figure (include the unit, e.g. "142h").
+    example: "142h"
+variants:
+  status:
+    running: "bg-success/10 text-success"
+    idle: "bg-warning/10 text-warning"
+    down: "bg-danger/10 text-danger"
+    maintenance: "bg-info/10 text-info"

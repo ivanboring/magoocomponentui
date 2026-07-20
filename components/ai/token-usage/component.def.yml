@@ -1,0 +1,43 @@
+name: token-usage
+props:
+  label:
+    type: string
+    default: "Token usage"
+    title: Label
+    description: The caption shown above the meter and used as its accessible name.
+  used:
+    type: string
+    required: true
+    title: Used
+    description: Tokens used so far, preformatted for display (e.g. "12,400").
+    example: "12,400"
+  limit:
+    type: string
+    required: true
+    title: Limit
+    description: The total token allowance, preformatted for display (e.g. "20,000").
+    example: "20,000"
+  used_pct:
+    type: string
+    required: true
+    title: Used percentage
+    description: >
+      The fill width as a number from 0 to 100. Precompute it (used / limit * 100) and pass it in;
+      the directive language does no arithmetic. Sets the inline width of the meter fill.
+    example: 62
+  cost:
+    type: string
+    title: Cost
+    description: Optional running cost line shown below the meter (e.g. "$0.37").
+    example: "$0.37"
+  tone:
+    type: enum
+    values: [normal, warning, danger]
+    default: normal
+    title: Tone
+    description: Colours the meter fill - normal (primary), warning as usage nears the limit, or danger at or over it.
+variants:
+  tone:
+    normal: "bg-primary"
+    warning: "bg-warning"
+    danger: "bg-danger"

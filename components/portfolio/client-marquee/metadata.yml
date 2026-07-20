@@ -1,0 +1,75 @@
+name: "Client Marquee"
+short_description: A continuously auto-scrolling strip of muted client logos that pauses on hover and respects reduced motion.
+long_visual_description: >
+  A single-row horizontal band of client or partner logos that scrolls endlessly to the left. The
+  logos sit muted and greyscaled at rest and reveal their full colour on hover. The list is rendered
+  twice back-to-back so the loop is seamless with no visible jump, and the whole strip pauses while
+  hovered or focused.
+
+use_cases:
+  - A "trusted by" logo strip of client brands on a landing page.
+  - A partners or integrations band beneath a hero.
+  - A press-mention bar of publication logos.
+  - A client wall on an agency home page that keeps moving to fit more marks.
+  - A sponsors strip for an event or conference site.
+  - A customer-logo band above a testimonials section.
+
+recommended_for:
+  - Decorative, non-essential client or partner logo strips where motion adds life.
+  - Fitting more logos than would sit statically in a single row.
+avoid_for:
+  - Logos the user must click or read precisely (use a static logo-cloud).
+  - Essential navigation or content (motion hurts legibility).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a logos array (each { image, alt }) and choose a speed (slow/normal/fast). Supply the list
+  once; the component duplicates it internally for the seamless loop. Keep it to real client or
+  partner marks, not mixed content.
+
+how_to_use: >
+  behavior.js drives the scroll with requestAnimationFrame — there is no CSS keyframe. It reads
+  data-speed from the root, translates the .client-marquee__track each frame to the left, and wraps
+  the offset by the width of the first .client-marquee__group so the two duplicated groups tile
+  seamlessly. It pauses on hover and focus-within and does not animate at all when
+  prefers-reduced-motion is set. The portable self-init reads all config from data-* attributes — no
+  props object is passed. Because screenshots do not run behavior.js, the strip renders static (at its
+  start position) in captured images.
+
+props:
+  logos: "The client logos, supplied once. Each { image, alt }; the component duplicates the list for the loop."
+  speed: "Scroll speed: slow, normal or fast."
+  label: "Accessible name announced for the marquee region."
+
+lifecycle: experimental
+content_model: A single row of client or partner logos that scrolls in a continuous loop.
+
+theming:
+  tokens_used:
+    - --duration-token
+
+editorial_guidance: >
+  Use a consistent set of real client or partner marks and keep them a similar visual weight so the
+  greyscale band reads evenly. Do not mix logos with text pills here — this strip is logos only. Keep
+  motion decorative; anything a user must act on belongs in a static logo grid.
+
+relationships:
+  related:
+    - layout/marquee
+    - marketing/logo-cloud
+    - portfolio/portfolio-grid
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Social Proof
+  atomic_type: molecule
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The strip pauses on hover and focus and does not animate under prefers-reduced-motion; the duplicated group is aria-hidden so screen readers announce each logo once via its alt text.
+  keyboard_support: Focusing a logo (via focus-within) pauses the scroll; the marquee has no interactive controls of its own.
+  seo_score: 25
+  text_direction: both

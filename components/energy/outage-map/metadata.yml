@@ -1,0 +1,89 @@
+name: "Outage Map"
+short_description: A card pairing a stylized schematic map facade of affected regions with an outage list, each coloured by restoration status.
+long_visual_description: >
+  A surface card headed by a "Service status" title, an optional total affected summary, and
+  a small map glyph. Below sits a schematic facade, a dashed raised panel holding a grid of
+  region tiles tinted by status: danger while investigating, warning while restoring, and
+  success once resolved. It is a stylized skeleton, not a real geographic map, with a
+  not-to-scale caption. A divided list follows, each row naming an area, its customers
+  affected, and a matching status pill with a colour dot.
+
+use_cases:
+  - Show current power outages and their restoration status on a utility page.
+  - Summarise affected regions during a grid event on a status dashboard.
+  - Give customers an at a glance view of nearby outages in an app.
+  - Track incident progress from investigating through resolved.
+  - Post a service status widget during a major storm response.
+  - Report affected areas and customer counts on an operations screen.
+
+recommended_for:
+  - A short list of affected regions with a clear status each.
+  - A schematic, decorative stand in where a real map is not available.
+  - Cases where restoration status is the key signal, not exact geography.
+
+avoid_for:
+  - A true geographic outage map (use a real mapping component).
+  - A single incident's detailed timeline (use a status timeline).
+  - Precise location or routing needs.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass outages, each with an area name, a customers_affected display string, and a status of
+  investigating, restoring or resolved; the same status colours the facade tile and the list
+  badge. Add total_affected for the header summary. The facade is a stylized skeleton, so
+  treat it as decorative rather than an accurate map.
+
+props:
+  outages: The affected areas, each with a name, a customers affected display string, and a restoration status.
+  total_affected: Optional summary of total impact shown in the header.
+
+example_prompts:
+  - Add an outage status card for downtown, riverside and westgate.
+  - Show a service status map with investigating and restoring areas.
+  - Put an all clear outage widget on the utility status page.
+
+relationships:
+  related:
+    - energy/demand-response-banner
+    - energy/battery-storage-tile
+    - notifications/alert
+
+lifecycle: experimental
+content_model: A set of affected areas with a status each, plus an optional total affected summary. The map is a stylized facade.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep area names short and order the list by severity or customers affected. Use status
+  consistently so investigating, restoring and resolved read the same in the facade and the
+  list. Because the map is a schematic facade, do not imply it shows real locations.
+
+categorization:
+  category: Energy
+  subcategory: Grid Events
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each status is stated in text in the list, not by colour alone; the facade carries an accessible label and is marked decorative.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

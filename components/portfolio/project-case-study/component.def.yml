@@ -1,0 +1,47 @@
+name: project-case-study
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The project or engagement name, shown as the main heading.
+    example: "Rebuilding the checkout experience"
+  client:
+    type: string
+    title: Client
+    description: Optional client or brand name, shown as a small kicker above the title.
+    example: "Northwind Retail"
+  hero_image:
+    type: image
+    title: Hero image
+    description: Optional lead image for the case study, rendered at 16:9 above the title.
+    example: "/stock/cover-workspace.jpg"
+  problem:
+    type: html
+    required: true
+    title: Problem (rich text)
+    description: The challenge the project set out to solve, as rich HTML (paragraphs, lists).
+    example: "<p>The legacy checkout lost a third of buyers between cart and confirmation.</p>"
+  solution:
+    type: html
+    required: true
+    title: Solution (rich text)
+    description: What was built or changed to address the problem, as rich HTML.
+    example: "<p>A single-page checkout with saved details and inline validation.</p>"
+  result:
+    type: html
+    required: true
+    title: Result (rich text)
+    description: The outcome and impact, as rich HTML.
+    example: "<p>Conversion rose and support tickets about payment fell sharply.</p>"
+  metrics:
+    type: array
+    items: object
+    title: Metrics
+    description: >
+      Optional row of headline outcome figures. Each item: { value, label } where value is the
+      formatted figure (e.g. "+38%") and label names it (e.g. "Checkout conversion").
+    example:
+      - { value: "+38%", label: "Checkout conversion" }
+      - { value: "-52%", label: "Support tickets" }
+      - { value: "1.2s", label: "Time to interactive" }

@@ -1,0 +1,7 @@
+{
+  "title": "Energy usage forecast",
+  "line_path": "M0,72 L17,64 L33,68 L50,50 L67,54 L80,44",
+  "forecast_path": "M80,44 L88,42 L100,34",
+  "y_labels": ["40", "30", "20", "10", "0"],
+  "x_labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+}

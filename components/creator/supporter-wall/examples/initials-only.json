@@ -1,0 +1,9 @@
+{
+  "total_supporters": "312",
+  "supporters": [
+    { "name": "Sam Ellis", "initials": "SE", "tier": "Founding member" },
+    { "name": "Rae Kim", "initials": "RK", "tier": "Founding member" },
+    { "name": "Ari Blum", "initials": "AB", "tier": "Supporter" },
+    { "name": "Noa Vidal", "initials": "NV", "tier": "Supporter" }
+  ]
+}

@@ -1,0 +1,19 @@
+<div class="streak-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-3">
+    <span class="flex size-12 shrink-0 items-center justify-center rounded-pill bg-primary/10 text-primary" aria-hidden="true">
+      <svg class="size-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-1.4.5-2.6 1.2-3.6C8.9 8.2 9 9.4 10 10c-.3-2 .8-4.6 2-6 0 1.6 1 2.5 2 3.4.1-1.6-.6-3.4-2-5.4Z"/></svg>
+    </span>
+    <div>
+      <p class="font-heading text-3xl leading-none text-on-surface tabular-nums">{{ days }}</p>
+      <p class="text-sm text-on-surface-muted">{{ label }}</p>
+    </div>
+  </div>
+  <ul class="mt-4 flex justify-between gap-1">
+    <li data-for="d in week" class="flex flex-1 flex-col items-center gap-1.5">
+      <span class="text-[11px] font-medium text-on-surface-muted">{{ d.day }}</span>
+      <span class="flex size-7 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted data-[done=true]:bg-primary data-[done=true]:text-primary-contrast" data-done="{{ d.done }}">
+        <svg data-if="d.done" class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      </span>
+    </li>
+  </ul>
+</div>

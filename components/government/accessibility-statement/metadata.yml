@@ -1,0 +1,87 @@
+name: "Accessibility Statement"
+short_description: A document-style accessibility compliance statement — conformance badge, intro, a checklist of commitments, a feedback contact, and a review date.
+long_visual_description: >
+  A centered reading column with a heading, a success-tinted conformance pill stating the standard
+  the site targets, an intro paragraph, and a checklist of commitments each marked with a green
+  check. A raised feedback panel invites visitors to report barriers via an email button, and a
+  small muted line notes when the statement was last reviewed.
+
+use_cases:
+  - The accessibility statement page required of a government website.
+  - A public-sector compliance page citing WCAG conformance.
+  - A university or agency accessibility commitment page.
+  - A vendor's VPAT-adjacent public accessibility summary.
+  - A footer-linked "Accessibility" page on a civic site.
+  - A statement page offering a route to report barriers.
+
+recommended_for:
+  - Public-sector and regulated sites that must publish a conformance statement.
+  - Pages that pair a commitment list with a feedback channel.
+avoid_for:
+  - A full VPAT or detailed audit report (link to it instead).
+  - A generic legal or privacy page (use a document layout).
+
+markets:
+  - Government
+  - Education
+  - Public sector
+
+example_usage: >
+  Set standard to the conformance target (defaults to WCAG 2.1 Level AA) and write a short intro.
+  List concrete commitments in the commitments array — each becomes a checked line. Provide a
+  contact_email to render the feedback panel's mailto button, and an updated date to stamp the last
+  review.
+
+props:
+  standard: The accessibility standard targeted, shown in the conformance badge.
+  intro: Optional opening paragraph stating the commitment.
+  commitments: A checklist of specific accessibility measures, one checked line each.
+  contact_email: Optional address for reporting barriers; renders the feedback panel and mailto button.
+  updated: Optional preformatted date the statement was last reviewed.
+
+example_prompts:
+  - "Add an accessibility statement page conforming to WCAG 2.1 AA with a feedback email."
+  - "Create our agency's accessibility commitment page with a list of measures."
+  - "Show an accessibility statement with a report-a-barrier contact and last-reviewed date."
+
+lifecycle: experimental
+content_model: A conformance standard, an intro, a list of commitments, a feedback contact email, and a review date.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --duration-token
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Write commitments as concrete, verifiable measures rather than vague promises. State the exact
+  standard and level you conform to, and keep the feedback route prominent and monitored so reports
+  actually reach someone.
+
+relationships:
+  related:
+    - government/public-record-row
+    - editorial/table-of-contents
+
+categorization:
+  category: Government
+  subcategory: Compliance
+  atomic_type: organism
+  usage_type: [document, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a labelled section landmark and a proper heading order; check icons are decorative and every commitment is conveyed in text.
+  keyboard_support: The feedback email button is a focusable link that activates on Enter.
+  seo_score: 60
+  text_direction: both

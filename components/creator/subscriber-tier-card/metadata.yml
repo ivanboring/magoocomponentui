@@ -1,0 +1,86 @@
+name: "Subscriber Tier Card"
+short_description: A membership tier card with price, benefits checklist, subscriber count, and a subscribe button.
+long_visual_description: >
+  A vertical card on the surface colour with the tier name (optionally preceded by a small accent
+  dot), a large price in the heading face with a per-period suffix, a muted subscriber count, and a
+  checkmarked list of benefits that fills the card body. A full-width Subscribe button anchors the
+  bottom. When marked popular the card gains a primary border, a raised shadow, and a centered
+  "Most popular" badge overlapping the top edge.
+
+use_cases:
+  - Membership tiers on a creator's support or join page.
+  - A row of subscription plans (free, supporter, superfan).
+  - Patreon-style pledge levels with escalating perks.
+  - Newsletter paid-tier options laid out side by side.
+  - Community access levels with different benefit sets.
+  - Highlighting a recommended tier among several options.
+
+recommended_for:
+  - Creator membership and paid-community sign-up pages.
+  - Any set of subscription levels differentiated by perks and price.
+avoid_for:
+  - One-off product purchases (use merch-drop-card).
+  - Generic SaaS pricing with billing toggles (use card-pricing and pricing-tiers).
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several cards in a row inside a grid or pricing-tiers container. Give each a name, price, and
+  benefits list, and set popular on the tier you want to steer people toward. Pass subscribers for
+  social proof and an optional color_class dot to colour-code tiers.
+
+props:
+  name: "Short tier name, e.g. Supporter or Superfan."
+  price: "Formatted price including the currency symbol; keep the period in the period prop."
+  period: "Billing unit shown after a slash, e.g. month or year; omit for a one-time price."
+  benefits: "The perks for this tier, most valuable first, one short phrase each."
+  subscribers: "Formatted count of current subscribers, shown as light social proof."
+  popular: "Set on the single tier you want emphasised; adds the border, shadow, and badge."
+  color_class: "Optional tokenized bg-* utility for the accent dot beside the name; omit to hide it."
+
+lifecycle: experimental
+content_model: >
+  A tier name, a price and period, a short benefits list, an optional subscriber count, a popular
+  flag, and an optional accent colour class.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Order benefits by value and keep each to a short phrase. Use one popular tier at most. Match the
+  price format across sibling cards so the row scans cleanly.
+
+relationships:
+  related:
+    - marketing/pricing-tiers
+    - cards/card-pricing
+    - creator/tip-jar
+
+categorization:
+  category: Creator
+  subcategory: Memberships
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic heading and list; the accent dot and checkmarks are aria-hidden; the Subscribe control is a real button.
+  keyboard_support: The Subscribe button is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

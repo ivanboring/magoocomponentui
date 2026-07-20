@@ -1,0 +1,8 @@
+{
+  "label": "On this page",
+  "items": [
+    { "label": "Introduction", "href": "#introduction", "active": true },
+    { "label": "Details", "href": "#details", "active": false },
+    { "label": "Summary", "href": "#summary", "active": false }
+  ]
+}

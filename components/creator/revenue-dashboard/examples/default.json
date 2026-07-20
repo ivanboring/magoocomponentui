@@ -1,0 +1,17 @@
+{
+  "total": "$12,480",
+  "period": "This month",
+  "stats": [
+    { "label": "Subscribers", "value": "1,240", "change": "+8.2%", "change_dir": "up" },
+    { "label": "Churn", "value": "2.1%", "change": "-0.4%", "change_dir": "down" },
+    { "label": "Avg pledge", "value": "$9.80", "change": "+2.0%", "change_dir": "up" }
+  ],
+  "bars": [
+    { "label": "Jan", "value": "$8.2k", "height_pct": 55 },
+    { "label": "Feb", "value": "$8.9k", "height_pct": 60 },
+    { "label": "Mar", "value": "$9.1k", "height_pct": 62 },
+    { "label": "Apr", "value": "$10.4k", "height_pct": 72 },
+    { "label": "May", "value": "$11.3k", "height_pct": 84 },
+    { "label": "Jun", "value": "$12.5k", "height_pct": 100 }
+  ]
+}

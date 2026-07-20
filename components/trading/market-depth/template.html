@@ -1,0 +1,26 @@
+<div class="market-depth rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="grid grid-cols-2 gap-4">
+    <div class="market-depth__bids flex flex-col gap-1">
+      <div class="flex items-center justify-between px-2 text-xs font-medium uppercase tracking-wide text-on-surface-muted">
+        <span>Bid</span>
+        <span>Size</span>
+      </div>
+      <div data-for="row in bids" class="relative flex items-center justify-between overflow-hidden rounded-control px-2 py-1 font-mono text-sm tabular-nums">
+        <span class="absolute inset-y-0 right-0 bg-success/10" style="width: {{ row.depth_pct }}%"></span>
+        <span class="relative text-success">{{ row.price }}</span>
+        <span class="relative text-on-surface-muted">{{ row.size }}</span>
+      </div>
+    </div>
+    <div class="market-depth__asks flex flex-col gap-1">
+      <div class="flex items-center justify-between px-2 text-xs font-medium uppercase tracking-wide text-on-surface-muted">
+        <span>Ask</span>
+        <span>Size</span>
+      </div>
+      <div data-for="row in asks" class="relative flex items-center justify-between overflow-hidden rounded-control px-2 py-1 font-mono text-sm tabular-nums">
+        <span class="absolute inset-y-0 left-0 bg-danger/10" style="width: {{ row.depth_pct }}%"></span>
+        <span class="relative text-danger">{{ row.price }}</span>
+        <span class="relative text-on-surface-muted">{{ row.size }}</span>
+      </div>
+    </div>
+  </div>
+</div>

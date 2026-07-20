@@ -1,0 +1,30 @@
+name: quality-control-checklist
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading for the inspection or QC procedure.
+    example: "Line 3 pre-shipment QC"
+  items:
+    type: array
+    items: object
+    required: true
+    title: Checklist items
+    description: >
+      The QC steps, in order. Each item: { label, result, note }. result is one of
+      "pass", "fail" or "pending" and drives the per-row marker (pass shows a success
+      check, fail a danger cross, pending a muted dot). note is an optional short line
+      beneath the label (a measurement, a defect description, an inspector remark).
+    example:
+      - { label: "Weld penetration within tolerance", result: "pass" }
+      - { label: "Surface finish free of scoring", result: "fail", note: "Scoring at station 4" }
+  passed:
+    type: string
+    title: Passed count
+    description: Number of items that passed, shown in the header badge. Precomputed by the caller.
+    example: "8"
+  total:
+    type: string
+    title: Total count
+    description: Total number of checklist items, shown in the header badge. Precomputed by the caller.
+    example: "10"

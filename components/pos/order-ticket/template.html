@@ -1,0 +1,24 @@
+<article class="order-ticket flex w-full max-w-xs flex-col rounded-card border border-border bg-surface font-mono text-on-surface shadow-card">
+  <header class="border-b border-dashed border-border px-4 pt-4 pb-3">
+    <div class="flex items-baseline justify-between gap-2">
+      <span class="font-heading text-lg text-on-surface">{{ ticket_number }}</span>
+      <span data-if="time" class="text-xs text-on-surface-muted">{{ time }}</span>
+    </div>
+    <div class="mt-1 flex items-center justify-between gap-2 text-xs text-on-surface-muted">
+      <span data-if="table">{{ table }}</span>
+      <span data-if="server">{{ server }}</span>
+    </div>
+  </header>
+  <ul class="order-ticket__items flex flex-col divide-y divide-dashed divide-border">
+    <li data-for="item in items" class="order-ticket__item px-4 py-2.5 data-[done=true]:opacity-50" data-done="{{ item.done }}">
+      <div class="flex items-start gap-3">
+        <span class="w-6 shrink-0 text-right text-sm font-medium text-on-surface-muted">{{ item.qty }}</span>
+        <span class="min-w-0 flex-1 text-sm text-on-surface data-[done=true]:line-through" data-done="{{ item.done }}">{{ item.name }}</span>
+      </div>
+      <ul data-if="item.mods" class="mt-1 flex flex-col gap-0.5 pl-9">
+        <li data-for="mod in item.mods" class="text-xs text-on-surface-muted before:mr-1 before:content-['+']">{{ mod }}</li>
+      </ul>
+    </li>
+  </ul>
+  <footer class="order-ticket__status mt-auto rounded-b-card px-4 py-2 text-center text-xs font-medium uppercase tracking-wide {{ status@class }}">{{ status }}</footer>
+</article>

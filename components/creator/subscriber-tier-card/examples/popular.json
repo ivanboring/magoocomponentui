@@ -1,0 +1,15 @@
+{
+  "name": "Superfan",
+  "price": "$20",
+  "period": "month",
+  "subscribers": "418",
+  "popular": true,
+  "color_class": "bg-accent",
+  "benefits": [
+    "Everything in Supporter",
+    "Monthly live Q&A stream",
+    "Your name in the credits",
+    "Exclusive behind-the-scenes footage",
+    "Vote on upcoming topics"
+  ]
+}

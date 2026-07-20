@@ -1,0 +1,31 @@
+name: code-editor-shell
+props:
+  tabs:
+    type: array
+    items: object
+    required: true
+    title: File tabs
+    description: >
+      The open file tabs, left to right. Each item: { name, active (bool) }. name is shown as
+      the tab label and echoed in the tab:select event; exactly one tab should be active.
+    example:
+      - { name: "app.js", active: true }
+      - { name: "utils.js", active: false }
+  lines:
+    type: array
+    items: object
+    required: true
+    title: Code lines
+    description: >
+      The code body, one entry per line. Each item: { num, code }. num is the gutter line
+      number (pass the precomputed value, e.g. 1, 2, 3) and code is the raw source text for
+      that line (rendered with whitespace preserved, so pass leading indentation verbatim).
+    example:
+      - { num: 1, code: "export function greet(name) {" }
+      - { num: 2, code: "  return `Hello, ${name}!`;" }
+      - { num: 3, code: "}" }
+  language:
+    type: string
+    title: Language label
+    description: Optional language badge shown at the right of the tab bar (e.g. JavaScript).
+    example: "JavaScript"

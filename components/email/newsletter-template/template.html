@@ -1,0 +1,16 @@
+<div class="newsletter-template mx-auto max-w-xl overflow-hidden rounded-card border border-border bg-surface font-body text-on-surface shadow-card">
+  <span data-if="preheader" class="hidden">{{ preheader }}</span>
+  <header class="newsletter-template__header border-b border-border px-6 py-5 text-center">
+    <p class="font-heading text-lg font-semibold text-on-surface">{{ title }}</p>
+  </header>
+  <img data-if="hero_image" class="newsletter-template__hero aspect-[2/1] w-full object-cover" src="{{ hero_image }}" alt="">
+  <div class="newsletter-template__body flex flex-col gap-4 px-6 py-6 text-sm leading-relaxed text-on-surface-muted [&_a]:text-primary [&_a]:underline [&_h2]:font-heading [&_h2]:text-base [&_h2]:font-semibold [&_h2]:text-on-surface">
+    {{{ body_html }}}
+  </div>
+  <div class="px-6 pb-6 text-center">
+    <a class="newsletter-template__cta inline-flex items-center justify-center rounded-button bg-primary px-5 py-2.5 text-sm font-semibold text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta.href }}">{{ cta.label }}</a>
+  </div>
+  <footer data-if="footer" class="newsletter-template__footer border-t border-border px-6 py-4 text-center text-xs text-on-surface-muted [&_a]:underline">
+    {{{ footer }}}
+  </footer>
+</div>

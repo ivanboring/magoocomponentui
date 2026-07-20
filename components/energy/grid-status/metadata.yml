@@ -1,0 +1,85 @@
+name: "Grid Status"
+short_description: A card summarising the electricity grid's state - stable, strained, or outage - with frequency and load.
+long_visual_description: >
+  A surface card with a power glyph in a rounded tile tinted by state (green when stable, amber when
+  strained, red on outage) beside a large coloured status word. A short regional-coverage line, a
+  frequency reading in a mono face, and a thin load bar with its percentage stack below to give an
+  at-a-glance read of grid health.
+
+use_cases:
+  - Utility operations dashboard header showing overall grid health.
+  - Regional grid status widget in a public energy portal.
+  - Microgrid or campus energy control panel state tile.
+  - Demand-response app banner during peak-load events.
+  - Status page entry for a transmission or distribution network.
+
+recommended_for:
+  - A single, top-level grid state with a couple of supporting readings.
+  - Dashboards where frequency and load are formatted or precomputed upstream.
+avoid_for:
+  - Per-substation detail (use a list of rows instead).
+  - Load trends over time (use a line chart shell or usage-forecast).
+
+markets:
+  - Global
+
+example_usage: >
+  Set status to stable, strained, or outage to colour the glyph and label. Optionally add a formatted
+  frequency, a precomputed load_pct (0-100) to fill the load bar, and a short regions summary.
+
+props:
+  status: stable, strained, or outage; colours the glyph and the large status word.
+  frequency: The grid frequency with unit, e.g. "50.02 Hz"; omit to hide.
+  load_pct: Precomputed 0-100 demand share; drives the load bar. Omit to hide the bar.
+  regions: A short regional-coverage summary; omit to hide.
+
+example_prompts:
+  - "Show a grid status card reading stable at 50.02 Hz and 74 percent load."
+  - "Add a strained grid status banner during a peak-demand event."
+  - "Put an outage grid status tile on the operations dashboard."
+
+lifecycle: experimental
+content_model: A grid state, an optional frequency reading, an optional precomputed load percentage, and an optional regions summary.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Set status to reflect the real grid state and let the colour reinforce the word, never replace it.
+  Keep frequency and regions concise, and precompute load_pct so the bar matches the reading.
+
+relationships:
+  related:
+    - energy/usage-forecast
+    - energy/carbon-footprint
+    - energy/ev-charging-status
+
+categorization:
+  category: Energy
+  subcategory: Grid
+  atomic_type: molecule
+  usage_type: [stat, card, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status word carries the state as text, not colour alone; the load bar has a labelled progressbar role and the glyph is decorative.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

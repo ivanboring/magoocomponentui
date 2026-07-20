@@ -1,0 +1,8 @@
+{
+  "query": "quantum blender 9000",
+  "suggestions": [
+    { "label": "blender" },
+    { "label": "food processor" },
+    { "label": "immersion blender" }
+  ]
+}

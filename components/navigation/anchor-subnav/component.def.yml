@@ -1,0 +1,15 @@
+name: anchor-subnav
+props:
+  label:
+    type: string
+    default: "On this page"
+    title: Label
+    description: "Accessible label for the nav landmark."
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "In-page section links. Each item: { label, href, active } where href is an on-page anchor like '#pricing' and active marks the current section. The behavior updates active on scroll via IntersectionObserver."
+    example:
+      - { label: "Overview", href: "#overview", active: true }

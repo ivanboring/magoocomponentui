@@ -1,0 +1,21 @@
+<form class="report-post rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="flex items-center gap-2 font-heading text-on-surface">
+    <svg class="size-4 shrink-0 text-danger" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3v14M5 4h9l-2 3 2 3H5"/></svg>
+    Report post
+  </h3>
+  <p class="mt-1 text-sm text-on-surface-muted">Tell us what is wrong with this post.</p>
+  <fieldset class="mt-4">
+    <legend class="sr-only">Reason</legend>
+    <div class="flex flex-col gap-2">
+      <label data-for="reason in reasons" class="flex items-center gap-2.5 rounded-control border border-border p-2.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+        <input type="radio" name="report-reason" class="report-post__reason size-4 shrink-0 accent-primary" value="{{ reason.value }}">
+        <span>{{ reason.label }}</span>
+      </label>
+    </div>
+  </fieldset>
+  <textarea class="report-post__details mt-3 w-full rounded-control border border-border bg-surface p-2.5 text-sm text-on-surface placeholder:text-on-surface-muted" rows="3" placeholder="{{ placeholder }}"></textarea>
+  <div class="mt-4 flex justify-end gap-2">
+    <button type="button" class="report-post__cancel rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Cancel</button>
+    <button type="submit" class="report-post__submit rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Submit report</button>
+  </div>
+</form>

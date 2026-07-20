@@ -1,0 +1,82 @@
+name: "Pet Profile Card"
+short_description: A compact pet summary card with a photo or paw glyph, name, breed, and a stat row for age, weight, and gender.
+long_visual_description: >
+  A card on the surface colour with a rounded avatar on the leading edge (the pet photo, or a
+  centered paw glyph on a raised tile when no photo is supplied) beside the pet name in the
+  heading face and a muted species and breed line. A three-up stat row separated by a top
+  border lists age, weight, and gender, each with a small uppercase label above a bold value.
+
+use_cases:
+  - Header summary on a pet owner dashboard.
+  - Roster entry in a multi-pet household view.
+  - Patient identity card at the top of a vet record.
+  - Boarding or daycare check-in profile.
+  - Pet passport or microchip detail summary.
+  - Shelter intake record identity block.
+
+recommended_for:
+  - Showing the identity and key vitals of one pet at a glance.
+  - Grids or lists where each pet needs a consistent summary tile.
+avoid_for:
+  - A full medical or vaccination history (use vaccination-record).
+  - An adoptable listing with a call to action (use adoption-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the pet a name and as many of species, breed, age, weight, and gender as you have.
+  Supply a photo URL for the avatar, or leave it empty to show the paw glyph fallback.
+
+props:
+  name: The pet name shown in the heading face.
+  species: The species, e.g. Dog or Cat, shown in the muted subtitle.
+  breed: The breed, appended after the species in the subtitle.
+  age: The age value shown in the stat row.
+  weight: The weight value, including its unit, shown in the stat row.
+  gender: The gender value shown in the stat row.
+  photo: URL of the pet photo. Leave empty to fall back to a paw glyph tile.
+
+example_prompts:
+  - Add a pet profile card for a Border Collie named Luna.
+  - Show a summary card for my cat with age and weight.
+  - Put a profile header on the pet dashboard.
+
+lifecycle: experimental
+content_model: A pet name, optional species and breed, and optional age, weight, gender, and photo.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep values short and formatted with their unit. Use the same species wording across a
+  roster so cards read as one set.
+
+relationships:
+  related:
+    - pets/vaccination-record
+    - pets/feeding-schedule
+    - pets/vet-appointment
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Profiles
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar image has the pet name as alt text; the paw glyph fallback is aria-hidden and decorative; stats use a definition list.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

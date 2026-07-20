@@ -1,0 +1,31 @@
+name: try-it-console
+props:
+  method:
+    type: enum
+    values: ["get", "post", "put", "patch", "delete"]
+    default: "get"
+    title: HTTP method
+    description: >
+      The initial HTTP method selected in the method dropdown. Colours the method control and is
+      applied to the select on init.
+    example: "post"
+  url:
+    type: string
+    required: true
+    title: Request URL
+    description: The initial value of the request URL input (rendered monospaced).
+    example: "https://api.example.com/v1/charges"
+  sample_response:
+    type: string
+    title: Sample response
+    description: >
+      Optional example response body shown, monospaced, in the response area. When empty a
+      placeholder ("Send a request to see the response") is shown instead.
+    example: "{\n  \"id\": \"ch_1M...\",\n  \"status\": \"succeeded\"\n}"
+variants:
+  method:
+    "get": "text-info"
+    "post": "text-success"
+    "put": "text-warning"
+    "patch": "text-warning"
+    "delete": "text-danger"

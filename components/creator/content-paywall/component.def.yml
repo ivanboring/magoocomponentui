@@ -1,0 +1,34 @@
+name: content-paywall
+props:
+  title:
+    type: string
+    title: Title
+    description: Headline naming the locked content.
+    example: "Full episode: Building in public"
+  preview_image:
+    type: string
+    format: uri-reference
+    title: Preview image
+    description: >
+      Optional teaser image shown blurred behind a dark scrim in the preview area. Omit to show a
+      plain surface panel with just the lock icon.
+    example: "/stock/cover-workspace.jpg"
+  price:
+    type: string
+    title: Unlock price
+    description: Formatted price appended to the Unlock button ("Unlock for {price}"). Omit for a plain Unlock label.
+    example: "$5"
+  tiers:
+    type: string
+    title: Included with
+    description: Short phrase naming the membership tier(s) that unlock this content.
+    example: "Supporter and Superfan tiers"
+  benefits:
+    type: array
+    items: string
+    title: Benefits
+    description: What unlocking grants, one checkmarked line each.
+    example:
+      - "Full-length video and audio"
+      - "Downloadable resources"
+      - "Members-only comments"

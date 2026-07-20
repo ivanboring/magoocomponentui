@@ -1,0 +1,83 @@
+name: "Request / Response Viewer"
+short_description: Side-by-side request and response panes for an HTTP call - method pill, URL, headers/body, and a colour-toned status line.
+long_visual_description: >
+  Two bordered surface panels sitting side by side on wide screens and stacked on narrow ones. The
+  left "Request" panel shows a colour-coded method pill next to the URL, with optional monospace
+  Headers and Body blocks on a raised surface. The right "Response" panel leads with a status line -
+  code and reason phrase - tinted success green, warning amber, or danger red, followed by a
+  monospace response body.
+
+use_cases:
+  - Document a full HTTP call in an API reference.
+  - Show a worked example of a request and its JSON response.
+  - Illustrate a success and an error case side by side.
+  - Explain an authentication or webhook exchange.
+  - Capture a real call from an API explorer for the docs.
+  - Demonstrate the shape of an error payload.
+
+recommended_for:
+  - Showing a complete request paired with its response.
+  - Teaching the exact headers, body, and status of a call.
+avoid_for:
+  - A bare endpoint listing (use endpoint-row).
+  - Multi-language snippets of the request (use code-sample-tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the top-level method (for the pill colour), a request object ({ url, headers, body }) and a
+  response object ({ status, status_text, body }). Set status_tone from the status class - success
+  for 2xx, warning for 4xx, danger for 5xx or hard failures - to colour the status line.
+
+props:
+  method: "The request verb; selects the method pill colour (get=info, post=success, put/patch=warning, delete=danger)."
+  request: "The request to render: url (required), plus optional pre-formatted headers and body strings shown in monospace blocks."
+  response: "The response to render: status code, status_text reason phrase, and a pre-formatted body string."
+  status_tone: "Colours the status line - success (2xx), warning (3xx/4xx), or danger (5xx / failure). Set by the caller from the status code."
+
+example_prompts:
+  - "Show the GET order request and its 200 JSON response side by side."
+  - "Add a 404 error example for a missing order."
+
+lifecycle: experimental
+content_model: One HTTP call - request (method, url, headers, body) and response (status, reason, body).
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-border
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --font-mono
+
+editorial_guidance: >
+  Keep headers and bodies realistic but redacted (mask secrets like sk_live_...). Match status_tone
+  to the code so the colour never contradicts the number, and pair a success example with an error
+  one so readers see both shapes.
+
+relationships:
+  related:
+    - developer/endpoint-row
+    - developer/code-sample-tabs
+    - developer/api-method-badge
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status meaning is carried by the numeric code and reason phrase as text, not colour alone; the two panes are labelled regions and code is marked up as pre/code.
+  keyboard_support: none
+  seo_score: 35
+  text_direction: ltr

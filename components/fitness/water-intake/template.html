@@ -1,0 +1,18 @@
+<div class="water-intake rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-step="{{ step }}">
+  <div class="mb-3 flex items-center justify-between gap-3">
+    <h3 class="font-heading text-on-surface">{{ label }}</h3>
+    <p class="text-sm tabular-nums text-on-surface-muted"><span class="font-medium text-on-surface">{{ current_ml }}</span> / {{ goal_ml }} ml</p>
+  </div>
+  <div class="mb-3 flex flex-wrap gap-1.5" role="img" aria-label="{{ current_ml }} of {{ goal_ml }} ml consumed">
+    <span data-for="cup in cups" class="text-on-surface-muted data-[filled=true]:text-info" data-filled="{{ cup.filled }}" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h12l-1.2 15a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 4Z"/></svg>
+    </span>
+  </div>
+  <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Hydration progress">
+    <div class="water-intake__fill h-full rounded-pill bg-info transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+  </div>
+  <button type="button" class="water-intake__add mt-3 inline-flex items-center gap-1 rounded-button bg-primary px-3 py-1.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+    {{ step }} ml
+  </button>
+</div>

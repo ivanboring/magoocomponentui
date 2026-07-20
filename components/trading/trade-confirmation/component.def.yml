@@ -1,0 +1,50 @@
+name: trade-confirmation
+props:
+  side:
+    type: enum
+    values: [buy, sell]
+    required: true
+    title: Side
+    description: Whether the order was a buy or a sell; colours the side chip green (buy) or red (sell).
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The instrument ticker (e.g. AAPL).
+    example: "AAPL"
+  shares:
+    type: string
+    required: true
+    title: Quantity
+    description: The filled quantity, preformatted in the caller (e.g. 25 or 0.5).
+    example: "25"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The execution price per share, preformatted with currency (e.g. $184.20).
+    example: "$184.20"
+  total:
+    type: string
+    required: true
+    title: Total
+    description: The total consideration, preformatted with currency (e.g. $4,605.00).
+    example: "$4,605.00"
+  status:
+    type: enum
+    values: [filled, partial, pending]
+    default: filled
+    title: Status
+    description: >
+      Execution status. filled shows a green check, partial an amber check, and pending a blue
+      clock; the status chip is tinted to match.
+  time:
+    type: string
+    title: Time
+    description: Optional preformatted execution timestamp (e.g. Today at 10:42 AM).
+    example: "Today at 10:42 AM"
+variants:
+  status:
+    filled: "bg-success/10 text-success"
+    partial: "bg-warning/10 text-warning"
+    pending: "bg-info/10 text-info"

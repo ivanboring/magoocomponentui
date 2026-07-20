@@ -1,0 +1,32 @@
+name: navbar-dropdown
+props:
+  links:
+    type: array
+    items: object
+    required: true
+    title: Links
+    description: >
+      The primary nav, up to three levels. Each top link: { label, href, open, children }.
+      A link with children renders a dropdown trigger instead of a plain link; each child may
+      itself carry children to open a third-level flyout. "open" (boolean) is optional and only
+      controls the initial/static state (so an example can render a cascade open for a screenshot);
+      at runtime the behavior toggles it. Leaf links need only { label, href }.
+    example:
+      - { label: "Products", open: true, children: [ { label: "Overview", href: "#" }, { label: "Categories", open: true, children: [ { label: "Phones", href: "#" } ] } ] }
+  logo_text:
+    type: string
+    default: "Acme"
+    title: Logo text
+  logo_href:
+    type: string
+    default: "/"
+    title: Logo link
+  label:
+    type: string
+    default: "Primary"
+    title: Accessible label
+    description: Accessible name for the primary navigation landmark.
+slots:
+  actions:
+    title: Actions
+    description: Trailing actions (e.g. a log-in link and a sign-up button).

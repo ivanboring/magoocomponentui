@@ -1,0 +1,6 @@
+{
+  "label": "Email notifications",
+  "help": "Send a copy of every notification to your inbox.",
+  "on": true,
+  "name": "email_notifications"
+}

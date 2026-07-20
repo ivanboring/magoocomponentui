@@ -1,0 +1,88 @@
+name: "Lock Status"
+short_description: A smart-lock tile showing locked or unlocked state with a colour-coded icon and a toggle button.
+long_visual_description: >
+  A horizontal surface card. A round icon on the left shows a closed padlock tinted success-green
+  when locked or an open padlock tinted warning-amber when unlocked. The lock's name sits beside a
+  status line reading Locked or Unlocked with an optional "last changed" time, and a Lock/Unlock
+  button on the right flips the state.
+
+use_cases:
+  - A front-door smart-lock tile on a home dashboard.
+  - A per-door lock row in a whole-home security panel.
+  - A garage or gate lock control with a last-changed timestamp.
+  - A goodnight scene check that all doors are locked.
+  - A rental or shared-home access status card.
+  - A quick lock/unlock control on a mobile home screen.
+
+recommended_for:
+  - Locks with a simple engaged/disengaged state and a manual toggle.
+  - Panels that show lock status alongside a recent-change time.
+avoid_for:
+  - Multi-user access logs or keypad code management (use a dedicated access component).
+  - Non-lock devices (use a plain switch tile).
+
+markets:
+  - Global
+
+example_usage: >
+  Set locked to the current state and give the lock a name. Pass last_changed with a friendly
+  relative time to show when it last moved.
+
+how_to_use: >
+  Layout is static and renders with no JavaScript, so the icon, status text and button label reflect
+  the locked prop at render time. behavior.js wires the button: clicking it flips data-locked on every
+  keyed element (icon, status labels, button labels) so the colour and wording swap, and dispatches a
+  bubbling "lock:toggle" event with the new locked state. The portable self-init reads state from the
+  DOM and passes no props.
+
+props:
+  name: The lock's name shown as the title.
+  locked: Whether the lock is engaged; drives icon colour, status text and button label.
+  last_changed: Optional friendly relative time of the last state change.
+
+example_prompts:
+  - "Add a front door lock status card that is currently locked."
+  - "Show the back gate as unlocked, changed just now."
+  - "Add a lock tile for the garage door with a last-changed time."
+
+lifecycle: experimental
+content_model: A lock name, a locked/unlocked state, and an optional last-changed time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Reserve the green locked state for genuinely secured; unlocked stays amber, not red, since an
+  unlocked door is a state to notice, not an error. Keep the button label the action, not the state.
+
+relationships:
+  related:
+    - smarthome/hub-status
+    - smarthome/room-grid
+    - smarthome/device-group-card
+
+categorization:
+  category: Smart Home
+  subcategory: Security
+  atomic_type: molecule
+  usage_type: [card, control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: State is conveyed by text (Locked/Unlocked) and icon shape, not colour alone; the toggle is a labelled button and the icons are aria-hidden.
+  keyboard_support: The Lock/Unlock button is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

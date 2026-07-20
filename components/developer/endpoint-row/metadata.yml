@@ -1,0 +1,80 @@
+name: "Endpoint Row"
+short_description: A single REST endpoint line - colour-coded method pill, monospace path, and a short summary - for API reference lists.
+long_visual_description: >
+  A bordered surface row laid out horizontally: a colour-coded HTTP method pill on the left, the
+  endpoint path in a monospace face beside it, and a muted one-line summary that truncates when the
+  row is narrow. Deprecated endpoints strike through and dim the path and add a warning-toned
+  Deprecated tag at the trailing edge.
+
+use_cases:
+  - List the endpoints of a resource in an API reference.
+  - Build a scannable index of routes on a service overview page.
+  - Show a group of related operations under a section heading.
+  - Flag legacy routes as deprecated in a migration guide.
+  - Present a searchable/filterable endpoint directory.
+  - Summarise a webhook or callback catalog.
+
+recommended_for:
+  - Dense, scannable lists of REST endpoints with one summary line each.
+  - Grouping several rows under a resource or tag heading.
+avoid_for:
+  - Full request/response detail (use request-response-viewer).
+  - Non-HTTP list items (use a generic list row).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a method, a path and an optional summary. Set deprecated to true to strike through the path
+  and append a Deprecated tag. Stack several rows in a list to form an endpoint index.
+
+props:
+  method: "The HTTP verb; selects the method pill colour (get=info, post=success, put/patch=warning, delete=danger)."
+  path: "The endpoint path, rendered monospace. Include path params in braces, e.g. /v1/orders/{id}."
+  summary: "A short one-line description; truncates with an ellipsis when space is tight."
+  deprecated: "When true, dims and strikes through the path and shows a Deprecated tag."
+
+example_prompts:
+  - "List the orders API endpoints with method pills and summaries."
+  - "Mark the old cart endpoint as deprecated."
+
+lifecycle: experimental
+content_model: One HTTP endpoint - method, path, summary, and a deprecated flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-border
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --font-mono
+
+editorial_guidance: >
+  Keep the summary to a single short clause. Group rows by resource or tag and order them by the
+  typical request lifecycle (read before write before delete).
+
+relationships:
+  related:
+    - developer/api-method-badge
+    - developer/request-response-viewer
+    - developer/code-sample-tabs
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The method is conveyed as text as well as colour; the path is marked up as a code element and the deprecated state is stated in text.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: ltr

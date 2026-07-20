@@ -1,0 +1,13 @@
+{
+  "title": "Contents",
+  "sections": [
+    { "number": "1", "label": "Acceptance of Terms", "href": "#terms-1", "active": true },
+    { "number": "2", "label": "Use of the Service", "href": "#terms-2", "active": false },
+    { "number": "3", "label": "Accounts and Registration", "href": "#terms-3", "active": false },
+    { "number": "4", "label": "Payment and Renewals", "href": "#terms-4", "active": false },
+    { "number": "5", "label": "Intellectual Property", "href": "#terms-5", "active": false },
+    { "number": "6", "label": "Termination", "href": "#terms-6", "active": false },
+    { "number": "7", "label": "Limitation of Liability", "href": "#terms-7", "active": false },
+    { "number": "8", "label": "Governing Law", "href": "#terms-8", "active": false }
+  ]
+}

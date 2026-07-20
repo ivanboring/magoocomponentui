@@ -1,0 +1,93 @@
+name: "Dropdown Navbar"
+short_description: A primary site header whose top links open dropdowns, and whose dropdown items open a third-level side flyout.
+long_visual_description: >
+  A horizontal header with a logo on the left, a row of primary links in the centre, and a trailing
+  actions area on the right. Top links that have children show a caret and open a dropdown panel
+  below; a dropdown item that itself has children shows a right-pointing caret and opens a flyout
+  submenu to its side — three levels in all. On desktop the menus reveal on hover and keyboard
+  focus; a tap/click (or Enter) also toggles them, and Escape or an outside click closes everything.
+
+use_cases:
+  - A primary site navigation with categorised, multi-level sections.
+  - A product mega-nav where a section expands into sub-categories and then individual items.
+  - A documentation or marketing header with grouped, nested links.
+  - Any top navigation that needs three levels without a separate sidebar.
+  - Replacing a flat navbar when the information architecture is genuinely nested.
+  - A desktop header paired with a full-screen or bottom menu on small screens.
+
+recommended_for:
+  - Top navigation that must expose a three-level hierarchy from the header.
+avoid_for:
+  - A single flat row of links (use navbar).
+  - A grouped-columns promo panel (use navbar-mega).
+  - A vertical, docs-style tree (use tree-nav or sidebar-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass links as a nested array — a top link with children becomes a dropdown, and a child with its
+  own children becomes a third-level flyout. Set open: true on a link (and on a child) only to show
+  a cascade open in a static render/screenshot; at runtime hover, focus or click drives it. Slot
+  trailing actions (log-in link, sign-up button) into the actions slot.
+
+how_to_use: >
+  Desktop reveal is pure CSS (hover and keyboard focus-within), so it works with no JavaScript and
+  renders correctly in screenshots via a static data-open="true". behavior.js adds click/tap
+  toggling for touch and keyboard, closes sibling branches when one opens, and closes everything on
+  Escape or an outside click; it syncs aria-expanded on each trigger. The self-init reads state from
+  the DOM (data-open attributes) — no props object is passed. On small screens pair it with
+  menu-fullscreen or bottom-nav rather than relying on the horizontal bar. When wiring to a Drupal
+  menu, map the menu tree's .below onto children (see docs/drupal-menus.md, three-level macro).
+
+props:
+  links: "The nested primary nav (up to three levels). Top link: { label, href, open, children }; a child may carry its own children for a third-level flyout. open only sets the initial/static state."
+  logo_text: "The wordmark shown at the left of the header."
+  logo_href: "Where the logo links to."
+  label: "Accessible name for the primary navigation landmark."
+
+slots:
+  actions: "Trailing actions such as a log-in link and a sign-up button."
+
+lifecycle: experimental
+content_model: A logo, a nested three-level primary menu, and a trailing actions slot.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the top row short (5-7 items); push depth into the dropdowns. Reserve the third-level flyout
+  for genuine sub-categories — if most items are flat, use navbar instead. Order sections by
+  importance and keep labels terse.
+
+relationships:
+  related:
+    - navigation/navbar
+    - navigation/navbar-mega
+    - navigation/menubar
+    - navigation/tree-nav
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Triggers are buttons with aria-haspopup and synced aria-expanded; menus carry role=menu and items role=menuitem; reveal works on keyboard focus as well as hover, and Escape closes.
+  keyboard_support: Triggers are focusable and toggle on Enter/Space; Tab moves through the menu; focus-within reveals the panel and flyout; Escape closes all menus.
+  seo_score: 40
+  text_direction: both

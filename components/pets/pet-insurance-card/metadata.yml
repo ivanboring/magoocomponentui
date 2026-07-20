@@ -1,0 +1,73 @@
+name: "Pet Insurance Card"
+short_description: A summary card for a pet insurance policy, showing plan, status, policy number, coverage percentage and deductible.
+long_visual_description: >
+  A surface card with an optional pet-name eyebrow, the plan name in the heading face,
+  and a status pill top-right tinted green for active or amber for pending. The policy
+  number sits in a monospace face, and a two-column figure block shows the coverage
+  percentage above a thin primary-coloured bar alongside the deductible. A "View policy"
+  link with a chevron closes the card.
+use_cases:
+  - Summarise a pet's active insurance policy on an account page.
+  - Show coverage percentage and deductible at a glance before a claim.
+  - Flag a pending policy awaiting activation.
+  - Give an owner quick access to their policy number at the vet.
+  - List a pet's coverage inside a multi-pet household dashboard.
+  - Confirm plan details before booking a covered procedure.
+recommended_for:
+  - A single policy's headline terms with a link to the full document.
+  - Account or dashboard pages that summarise coverage.
+avoid_for:
+  - Filing or itemising individual claims.
+  - Comparing multiple plans side by side (use a pricing layout).
+markets:
+  - Global
+example_usage: >
+  Set plan and status, then fill policy_number, coverage_pct and deductible as known.
+  coverage_pct is an integer 0-100 that renders as both a value and a thin bar. Point the
+  View policy link at the full document.
+props:
+  pet: "The insured pet, shown as an eyebrow."
+  plan: "The plan name, shown as the card heading."
+  policy_number: "The policy identifier, shown in a monospace face."
+  coverage_pct: "Reimbursement percentage 0-100, shown as a value and a thin bar."
+  deductible: "Annual deductible, formatted for display."
+  status: "active tints the pill green, pending tints it amber."
+lifecycle: experimental
+content_model: A policy plan and status, a policy number, a coverage percentage and a deductible.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+editorial_guidance: >
+  Use the plan's official name and keep the policy number exactly as issued. Reserve the
+  pending status for policies not yet in force, so an active pill always means claims can
+  be made.
+relationships:
+  related:
+    - pets/medication-reminder-pet
+    - pets/vet-clinic-card
+    - pets/pet-health-timeline
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Insurance
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status is conveyed by its text label as well as colour; the coverage bar restates a numeric value shown in text.
+  keyboard_support: The View policy link is focusable and activates on Enter.
+  seo_score: 30
+  text_direction: both

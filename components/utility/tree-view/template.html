@@ -1,0 +1,43 @@
+<div class="tree-view text-sm" role="tree" aria-label="{{ label }}">
+  <ul class="flex flex-col gap-0.5">
+    <li data-for="node in nodes" role="none">
+      <div data-if="!node.children" class="tree-view__leaf flex items-center gap-2 rounded-control px-2 py-1.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" role="treeitem">
+        <span data-if="node.icon" class="flex size-4 shrink-0 items-center justify-center text-on-surface-muted">{{{ node.icon }}}</span>
+        <svg data-if="!node.icon" class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 2h5l3 3v13H6z"/><path d="M11 2v3h3"/></svg>
+        <span class="truncate">{{ node.label }}</span>
+      </div>
+      <details data-if="node.children" class="tree-view__group group/l1" role="treeitem" open>
+        <summary class="flex cursor-pointer items-center gap-2 rounded-control px-2 py-1.5 text-on-surface marker:content-none [&::-webkit-details-marker]:hidden hover:bg-surface-raised">
+          <svg class="size-4 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-open/l1:rotate-90" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5l5 5-5 5"/></svg>
+          <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6a1 1 0 011-1h4l2 2h7a1 1 0 011 1v6a1 1 0 01-1 1H3a1 1 0 01-1-1z"/></svg>
+          <span class="truncate font-medium">{{ node.label }}</span>
+        </summary>
+        <ul class="ml-3 mt-0.5 flex flex-col gap-0.5 border-l border-border pl-2" role="group">
+          <li data-for="child in node.children" role="none">
+            <div data-if="!child.children" class="tree-view__leaf flex items-center gap-2 rounded-control px-2 py-1.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" role="treeitem">
+              <span data-if="child.icon" class="flex size-4 shrink-0 items-center justify-center text-on-surface-muted">{{{ child.icon }}}</span>
+              <svg data-if="!child.icon" class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 2h5l3 3v13H6z"/><path d="M11 2v3h3"/></svg>
+              <span class="truncate">{{ child.label }}</span>
+            </div>
+            <details data-if="child.children" class="tree-view__group group/l2" role="treeitem" open>
+              <summary class="flex cursor-pointer items-center gap-2 rounded-control px-2 py-1.5 text-on-surface marker:content-none [&::-webkit-details-marker]:hidden hover:bg-surface-raised">
+                <svg class="size-4 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-open/l2:rotate-90" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5l5 5-5 5"/></svg>
+                <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6a1 1 0 011-1h4l2 2h7a1 1 0 011 1v6a1 1 0 01-1 1H3a1 1 0 01-1-1z"/></svg>
+                <span class="truncate font-medium">{{ child.label }}</span>
+              </summary>
+              <ul class="ml-3 mt-0.5 flex flex-col gap-0.5 border-l border-border pl-2" role="group">
+                <li data-for="leaf in child.children" role="none">
+                  <div class="tree-view__leaf flex items-center gap-2 rounded-control px-2 py-1.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" role="treeitem">
+                    <span data-if="leaf.icon" class="flex size-4 shrink-0 items-center justify-center text-on-surface-muted">{{{ leaf.icon }}}</span>
+                    <svg data-if="!leaf.icon" class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 2h5l3 3v13H6z"/><path d="M11 2v3h3"/></svg>
+                    <span class="truncate">{{ leaf.label }}</span>
+                  </div>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</div>

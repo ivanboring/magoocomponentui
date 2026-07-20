@@ -1,0 +1,9 @@
+<section class="settings-section">
+  <div class="settings-section__header mb-3">
+    <h2 class="settings-section__title font-heading text-lg font-semibold text-on-surface">{{ title }}</h2>
+    <p data-if="description" class="settings-section__description mt-1 text-sm text-on-surface-muted">{{ description }}</p>
+  </div>
+  <div class="settings-section__body divide-y divide-border rounded-card border border-border bg-surface px-4 shadow-card">
+    <slot name="content"></slot>
+  </div>
+</section>

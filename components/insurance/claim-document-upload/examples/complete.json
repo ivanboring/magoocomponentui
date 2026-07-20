@@ -1,0 +1,7 @@
+{
+  "documents": [
+    { "label": "Police report", "required": true, "status": "uploaded" },
+    { "label": "Repair estimate", "required": true, "status": "uploaded" },
+    { "label": "Proof of ownership", "required": true, "status": "reviewing" }
+  ]
+}

@@ -1,0 +1,31 @@
+name: split-pane
+props:
+  ratio:
+    type: enum
+    values: ["50-50", "60-40", "40-60", "70-30"]
+    default: "50-50"
+    title: Split ratio
+    description: >
+      The starting width split between the two panes (start : end). Set as a custom property on the
+      container; the drag divider adjusts it live from there. Values render correctly with no JS.
+  start_label:
+    type: string
+    title: Start pane label
+    description: Optional small heading shown at the top of the start (leading) pane.
+  end_label:
+    type: string
+    title: End pane label
+    description: Optional small heading shown at the top of the end (trailing) pane.
+slots:
+  start:
+    title: Start pane
+    description: Content of the leading (left) pane.
+  end:
+    title: End pane
+    description: Content of the trailing (right) pane.
+variants:
+  ratio:
+    "50-50": "[--sp:50%]"
+    "60-40": "[--sp:60%]"
+    "40-60": "[--sp:40%]"
+    "70-30": "[--sp:70%]"

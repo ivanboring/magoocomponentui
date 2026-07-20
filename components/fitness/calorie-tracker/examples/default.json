@@ -1,0 +1,11 @@
+{
+  "consumed": "1450",
+  "goal": "2000",
+  "consumed_pct": 73,
+  "remaining": "550",
+  "macros": [
+    { "label": "Protein", "grams": "120", "pct": 60, "color_class": "bg-primary" },
+    { "label": "Carbs", "grams": "160", "pct": 45, "color_class": "bg-info" },
+    { "label": "Fat", "grams": "48", "pct": 65, "color_class": "bg-warning" }
+  ]
+}

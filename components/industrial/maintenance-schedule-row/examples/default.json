@@ -1,0 +1,8 @@
+{
+  "asset": "CNC Mill 04",
+  "task": "Replace spindle coolant filter",
+  "due": "Due 22 Jul",
+  "interval": "500 hrs",
+  "status": "scheduled",
+  "technician": "R. Okoro"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Fix pagination on the reports page",
+  "tag": "Bug",
+  "priority": "high",
+  "assignee": "Maria Gomez",
+  "initials": "MG",
+  "due": "Fri",
+  "subtasks_done": "2",
+  "subtasks_total": "5"
+}

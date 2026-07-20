@@ -1,0 +1,84 @@
+name: "Streaming Response"
+short_description: An assistant streaming indicator with an AI avatar, bouncing typing dots or partial text with a blinking caret, and a Stop button.
+long_visual_description: >
+  A circular "AI" avatar in the primary colour leads a raised-surface bubble. Before any text
+  arrives the bubble shows three muted dots bouncing in sequence (a staggered typing animation).
+  Once partial text streams in, the bubble shows the text followed by a thin blinking caret. A
+  small outlined Stop button with a square glyph sits below the bubble to cancel generation.
+
+use_cases:
+  - Show that the assistant is thinking before the first token arrives.
+  - Render a reply as it streams in token by token.
+  - Give users a Stop control during a long generation.
+  - Indicate a pending response in a chat or copilot panel.
+  - Placeholder the next message slot in a conversation while waiting.
+  - Signal live activity in a support or agent handoff view.
+
+recommended_for:
+  - The transient state between sending a message and a completed reply.
+  - Any assistant UI that streams tokens and needs a cancel affordance.
+avoid_for:
+  - A finished reply with actions (use chat-message-ai).
+  - A generic page loading spinner (use a loader atom).
+
+markets:
+  - Global
+
+example_usage: >
+  Show it with an empty text prop while waiting for the first token, then update text as the
+  response streams. Keep show_stop on so users can cancel; listen for the bubbling stream:stop
+  event on a parent to abort the request. Swap it for a chat-message-ai once the reply completes.
+
+how_to_use: >
+  The bouncing dots and blinking caret are pure CSS (built-in animate-bounce and animate-pulse,
+  staggered with [animation-delay:*] and gated by motion-reduce:animate-none), so both states
+  render in screenshots with no JavaScript. behavior.js only wires the Stop button, which
+  dispatches a bubbling "stream:stop" CustomEvent for a parent to abort the generation.
+
+props:
+  text: "The partial streamed text. Empty shows the typing dots; non-empty shows the text with a caret."
+  show_stop: "Show the Stop button to cancel generation."
+
+content_model: >
+  A transient assistant state: either no text (typing) or a growing partial string, plus an
+  optional cancel control.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the waiting state brief. As soon as tokens arrive, switch to the text view so users see
+  progress. Always offer Stop for generations that can run long.
+
+relationships:
+  related:
+    - ai/chat-message-ai
+    - ai/chat-thread
+    - ai/chat-composer
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Conversation
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The typing state carries role=status with an accessible label; motion is disabled under prefers-reduced-motion; the Stop button has a visible label.
+  keyboard_support: The Stop button is focusable and activates on Enter/Space.
+  seo_score: 10
+  text_direction: both

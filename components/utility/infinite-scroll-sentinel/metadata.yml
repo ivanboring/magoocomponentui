@@ -1,0 +1,76 @@
+name: "Infinite Scroll Sentinel"
+short_description: A load-more trigger that dispatches a loadmore event when it scrolls into view, with a spinner and an end-of-list state.
+long_visual_description: >
+  A centered row placed at the bottom of a scrolling list. While more content can load it shows a
+  small spinning indicator next to a muted "Loading more…" label; once the list is exhausted it
+  switches to a plain "You have reached the end" message. It carries an aria-live region so the
+  state change is announced.
+
+use_cases:
+  - Endless feeds that page in more posts as the reader nears the bottom.
+  - A search-results list that loads the next page on scroll.
+  - A product grid that appends more items automatically.
+  - A comment thread that fetches older comments on demand.
+  - An activity or notification stream with rolling pagination.
+  - Any list that should load more without a visible "next" button.
+
+recommended_for:
+  - Automatic, scroll-driven pagination of a long list.
+  - Feeds where a load-more button would interrupt the flow.
+avoid_for:
+  - Short, complete lists that never need more pages.
+  - Cases where users must not lose the footer (infinite scroll pushes it away).
+
+markets:
+  - Global
+
+example_usage: >
+  Place the sentinel at the end of the list. Listen for its bubbling "loadmore" event, fetch the
+  next page, append rows, and when there is nothing left set the done prop (data-done="true") to
+  show the end message and stop further requests.
+
+how_to_use: >
+  behavior.js attaches an IntersectionObserver to the sentinel with a 200px rootMargin, so it fires
+  a little before the element is fully visible. Each time it enters view and data-done is not "true"
+  it dispatches a bubbling "loadmore" CustomEvent; the parent handles the fetch and, when the list
+  is exhausted, updates the done prop so the observer stops triggering. The observer is disconnected
+  on cleanup. The spinner uses motion-safe:animate-spin so it is still for users who prefer reduced
+  motion.
+
+props:
+  label: "Text shown beside the spinner while more content can load."
+  done: "When true, shows the end-of-list message and stops dispatching loadmore."
+
+example_prompts:
+  - Add an infinite-scroll trigger at the bottom of the feed.
+  - Load the next page automatically when the reader nears the end.
+  - Show a loading spinner that turns into an end message when done.
+
+lifecycle: experimental
+content_model: A single trigger row with a loading state and a terminal end-of-list state.
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+
+editorial_guidance: >
+  Keep the loading label short and calm ("Loading more…"). Make the end message unambiguous so
+  readers know the list is complete rather than stalled.
+
+relationships:
+  related:
+    - utility/virtual-list
+    - atoms/spinner
+
+categorization:
+  category: UI Utilities
+  subcategory: Pagination
+  atomic_type: atom
+  usage_type: [list-item, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The sentinel is a role="status" aria-live="polite" region so the loading and end states are announced; the spinner respects prefers-reduced-motion via motion-safe.
+  keyboard_support: none - it reacts to scroll position, not focus.
+  seo_score: 20
+  text_direction: both

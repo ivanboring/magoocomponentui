@@ -1,0 +1,9 @@
+{
+  "total_supporters": "1,240",
+  "supporters": [
+    { "name": "Jamie Cortez", "initials": "JC", "amount": "$120", "tier": "Superfan", "message": "Love the deep dives, keep them coming!" },
+    { "name": "Priya Nair", "avatar": "/stock/avatar-woman-1.jpg", "amount": "$80", "tier": "Supporter" },
+    { "name": "Marcus Lee", "avatar": "/stock/avatar-man-1.jpg", "amount": "$60", "tier": "Supporter", "message": "Worth every cent." },
+    { "name": "Dana Okafor", "initials": "DO", "amount": "$45", "tier": "Supporter" }
+  ]
+}

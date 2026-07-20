@@ -1,0 +1,7 @@
+{
+  "activities": [
+    { "type": "note", "title": "Left a voicemail, will retry Thursday", "time": "Just now" },
+    { "type": "email", "title": "Follow-up email opened 3 times", "time": "3h ago", "body": "No reply yet; forwarded internally per open tracking." },
+    { "type": "call", "title": "Connected with the procurement lead", "time": "2d ago" }
+  ]
+}

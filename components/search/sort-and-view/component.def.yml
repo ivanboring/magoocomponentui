@@ -1,0 +1,31 @@
+name: sort-and-view
+props:
+  sorts:
+    type: array
+    items: object
+    required: true
+    title: Sort options
+    description: >
+      The options for the native sort <select>. Each item: { label, value } — label is shown,
+      value is the option's value attribute.
+    example:
+      - { label: "Relevance", value: "relevance" }
+      - { label: "Newest", value: "newest" }
+  current_sort:
+    type: string
+    title: Current sort label
+    description: >
+      Label of the option to preselect. The caller should order sorts with this option first (the
+      directive language can't equality-match), or leave it to reflect it in the accessible label.
+    example: "Relevance"
+  view:
+    type: enum
+    values: ["grid", "list"]
+    default: grid
+    title: View
+    description: Which layout toggle is active on load — sets data-state on the root.
+  total:
+    type: string
+    title: Total
+    description: Result count summary shown on the left, e.g. "128 results". Omit to hide it.
+    example: "128 results"

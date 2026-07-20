@@ -1,0 +1,19 @@
+name: nps-survey
+props:
+  question:
+    type: string
+    default: "How likely are you to recommend us?"
+    title: Question
+    description: The NPS prompt shown above the 0-10 scale.
+  value:
+    type: string
+    default: ""
+    title: Selected score
+    description: >
+      The currently selected score as a string "0".."10", or "" for none. The matching
+      number highlights with no JavaScript via the root's data-value attribute.
+  follow_up:
+    type: boolean
+    default: false
+    title: Show follow-up
+    description: Show an optional free-text textarea below the scale to capture the reason for the score.

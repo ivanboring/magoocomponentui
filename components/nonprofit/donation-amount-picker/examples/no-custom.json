@@ -1,0 +1,8 @@
+{
+  "allow_custom": false,
+  "amounts": [
+    { "value": "15", "label": "$15", "selected": false },
+    { "value": "30", "label": "$30", "selected": true },
+    { "value": "60", "label": "$60", "selected": false }
+  ]
+}

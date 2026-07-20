@@ -1,0 +1,87 @@
+name: "Task Card"
+short_description: A compact task tile with a tag, title, coloured priority pill, subtask progress, due date, and assignee avatar.
+long_visual_description: >
+  A surface card with an optional uppercase tag above a short task title. A footer row carries a
+  rounded priority pill tinted by urgency (muted for low, blue for medium, amber for high, red for
+  urgent) next to a checkmark subtask count, with the due date and a round initials avatar pushed
+  to the trailing edge. Numbers use tabular figures so cards line up in a stack.
+
+use_cases:
+  - A single card on a kanban or sprint board.
+  - A row in a task or backlog list.
+  - Assigned-to-me widget on a personal dashboard.
+  - A linked task reference inside a project detail page.
+  - Any place a task's title, priority, and owner must read at a glance.
+
+recommended_for:
+  - Boards and lists built from structured task data.
+  - Cards that need a clear priority colour cue and an owner avatar.
+avoid_for:
+  - Long descriptions or comment threads (use a task detail view).
+  - Non-task content.
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a title and priority (low/medium/high/urgent) at minimum. Add a tag, an assignee name
+  with precomputed initials, a due label, and precomputed subtasks_done/subtasks_total counts. The
+  priority pill colour is driven by the priority enum; the counts are precomputed because the
+  template language does no arithmetic.
+
+props:
+  title: "The task title; keep it to one short line."
+  tag: "Optional short category label shown above the title."
+  priority: "low, medium, high, or urgent; colours the footer pill."
+  assignee: "Full name of the assignee; used as the avatar's accessible label."
+  initials: "Precomputed 1-2 letter initials for the avatar circle."
+  due: "Human-readable due date shown before the avatar."
+  subtasks_done: "Precomputed number of completed subtasks."
+  subtasks_total: "Precomputed total subtask count; the pair hides when total is unset."
+
+example_prompts:
+  - "Add a high-priority task card assigned to Maria due Friday."
+  - "Show a task card with a Bug tag and 2 of 5 subtasks done."
+  - "Put an urgent task card at the top of the review column."
+
+relationships:
+  related:
+    - pm/kanban-board
+    - pm/backlog-item
+    - pm/subtask-checklist
+
+lifecycle: experimental
+content_model: A title with an optional tag, a priority, an assignee (name plus precomputed initials), a due label, and precomputed subtask counts.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Set the priority to match real urgency so the colour cue stays trustworthy. Keep the title to a
+  single verb-first line, and use initials that a person recognises. Because the priority word is
+  spelled out in the pill, the colour is reinforcement, not the only signal.
+
+categorization:
+  category: Project Management
+  subcategory: Tasks
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Priority is conveyed by the pill's text as well as its colour; the avatar carries the assignee name as its accessible label.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,42 @@
+name: options-chain-row
+props:
+  strike:
+    type: string
+    required: true
+    title: Strike
+    description: The strike price, preformatted in the caller.
+    example: "185.00"
+  bid:
+    type: string
+    required: true
+    title: Bid
+    description: The bid price, preformatted in the caller.
+    example: "4.20"
+  ask:
+    type: string
+    required: true
+    title: Ask
+    description: The ask price, preformatted in the caller.
+    example: "4.35"
+  volume:
+    type: string
+    title: Volume
+    description: The contract volume, preformatted in the caller. Cell stays blank when unset.
+    example: "1,204"
+  oi:
+    type: string
+    title: Open interest
+    description: Open interest, preformatted in the caller. Cell stays blank when unset.
+    example: "8,930"
+  in_the_money:
+    type: boolean
+    default: false
+    title: In the money
+    description: When true, the row is tinted (bg-primary/5) to mark it in-the-money.
+  type:
+    type: enum
+    values: [call, put]
+    default: call
+    title: Contract type
+    description: call or put; shown as a small C or P tag before the strike.
+variants: {}

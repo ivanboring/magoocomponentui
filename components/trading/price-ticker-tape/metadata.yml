@@ -1,0 +1,83 @@
+name: "Price Ticker Tape"
+short_description: A continuously scrolling horizontal tape of market quotes (symbol, price, change) that pauses on hover and respects reduced motion.
+long_visual_description: >
+  A single-row horizontal band, framed as a bordered control surface, that scrolls its quotes
+  endlessly to the left. Each cell shows a mono ticker symbol, a muted last price, and a
+  signed percentage change tinted green with an up arrow or red with a down arrow. The quote
+  list is rendered twice back-to-back so the loop is seamless with no visible jump, and the
+  whole tape pauses while hovered or focused.
+
+use_cases:
+  - A market-quotes strip across the top of a trading dashboard.
+  - A watchlist ticker running under a portfolio header.
+  - An index summary band (S&P, Nasdaq, Dow) on a finance landing page.
+  - A crypto price tape beneath a wallet overview.
+  - A sector or ETF quote ribbon in a market-news layout.
+  - A pre-market movers tape shown before the open.
+
+recommended_for:
+  - Ambient, glanceable price context that keeps moving to fit many symbols in a narrow band.
+  - Fitting more quotes than would sit statically in a single row.
+avoid_for:
+  - Quotes a user must read precisely or act on at rest (motion hurts legibility - use a table).
+  - Interactive rows that need per-quote links or controls.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a quotes array, each { symbol, price, change_pct, change_dir }. Preformat price and
+  change_pct in the caller (include the sign on change_pct) and set change_dir to up or down so
+  the change is tinted and arrowed correctly. Choose speed (slow/normal/fast). Supply the list
+  once; the component duplicates it internally for the seamless loop.
+
+how_to_use: >
+  behavior.js drives the scroll with requestAnimationFrame - there is no CSS keyframe. It reads
+  data-speed from the root, translates the .price-ticker-tape__track each frame, and wraps the
+  offset by the width of the first .price-ticker-tape__group so the two duplicated groups tile
+  seamlessly. It pauses on hover and focus-within and does not animate at all when
+  prefers-reduced-motion is set. The portable self-init reads all config from data-* attributes -
+  no props object is passed. Because screenshots do not run behavior.js, the tape renders static
+  (at its start position) in captured images.
+
+props:
+  quotes: "The tape contents, supplied once. Each quote is { symbol, price, change_pct, change_dir }; preformat price and change_pct and set change_dir to up or down."
+  speed: "Scroll speed: slow, normal or fast."
+  label: "Accessible name announced for the ticker region."
+
+lifecycle: experimental
+content_model: A single row of market quotes (symbol, price, signed change) that scrolls in a continuous loop.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-control
+
+editorial_guidance: >
+  Keep symbols short and prices consistently formatted. Always set change_dir to match the sign of
+  change_pct so the arrow and colour agree with the number. Do not put anything a user must read
+  carefully or click into a ticker tape - the motion is decorative context, not a control surface.
+
+relationships:
+  related:
+    - crypto/token-price-card
+    - finance/portfolio-summary
+    - layout/marquee
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Market Data
+  atomic_type: molecule
+  usage_type: [banner, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The tape pauses on hover and focus and does not animate under prefers-reduced-motion; the duplicated group is aria-hidden so screen readers announce each quote once. Direction is conveyed by an arrow and text sign, not colour alone.
+  keyboard_support: Focusing anything inside the tape pauses the scroll via focus-within; the tape itself has no interactive controls.
+  seo_score: 20
+  text_direction: both

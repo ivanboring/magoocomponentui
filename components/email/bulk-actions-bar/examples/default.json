@@ -1,0 +1,9 @@
+{
+  "selected_count": "3",
+  "actions": [
+    { "label": "Archive", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M3 6h14v11H3z\"/><path d=\"M2 3h16v3H2zM8 9h4\"/></svg>" },
+    { "label": "Mark read", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M3 6l7 5 7-5\"/><rect x=\"3\" y=\"4.5\" width=\"14\" height=\"11\" rx=\"1.5\"/></svg>" },
+    { "label": "Snooze", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><circle cx=\"10\" cy=\"10\" r=\"7.5\"/><path d=\"M10 5.5V10l3 2\"/></svg>" },
+    { "label": "Delete", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 6h12M8 6V4h4v2M6 6l1 10h6l1-10\"/></svg>" }
+  ]
+}

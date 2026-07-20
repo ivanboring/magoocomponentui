@@ -1,0 +1,35 @@
+name: manifest-row
+props:
+  item:
+    type: string
+    required: true
+    title: Item
+    description: The line item's description or name.
+    example: "Ceramic mug, 12 oz"
+  sku:
+    type: string
+    title: SKU
+    description: Item SKU, shown in a mono face.
+    example: "SKU-88213"
+  qty:
+    type: string
+    required: true
+    title: Quantity
+    description: Number of units on this manifest line.
+    example: 24
+  weight:
+    type: string
+    title: Weight
+    description: Line weight, preformatted with units.
+    example: "36 lb"
+  status:
+    type: enum
+    values: [loaded, pending, damaged]
+    default: pending
+    title: Status
+    description: Handling status of the line; drives the status pill colour.
+variants:
+  status:
+    loaded: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"
+    damaged: "bg-danger/10 text-danger"

@@ -1,0 +1,27 @@
+name: changelog-entry
+props:
+  version:
+    type: string
+    required: true
+    title: Version
+    description: The release version or tag, e.g. "v2.4.0".
+    example: "v2.4.0"
+  date:
+    type: string
+    required: true
+    title: Date
+    description: Human-readable release date, e.g. "July 18, 2026".
+    example: "July 18, 2026"
+  changes:
+    type: array
+    items: object
+    required: true
+    title: Changes
+    description: >
+      The list of changes in this release. Each item: { type, text }. type is one of
+      added | fixed | changed | removed and colours its tag; text is the change description.
+    example:
+      - { type: "added", text: "Webhook retry with exponential backoff." }
+      - { type: "fixed", text: "Pagination cursor no longer skips the last page." }
+      - { type: "changed", text: "Default rate limit raised to 1,000 req/min." }
+      - { type: "removed", text: "Deprecated v1 auth header support." }

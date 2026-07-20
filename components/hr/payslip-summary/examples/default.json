@@ -1,0 +1,14 @@
+{
+  "period": "March 2026",
+  "gross": "$5,200.00",
+  "net": "$3,940.00",
+  "earnings": [
+    { "label": "Base salary", "amount": "$5,000.00" },
+    { "label": "Overtime", "amount": "$200.00" }
+  ],
+  "deductions": [
+    { "label": "Federal tax", "amount": "$820.00" },
+    { "label": "Health insurance", "amount": "$260.00" },
+    { "label": "Retirement 401k", "amount": "$180.00" }
+  ]
+}

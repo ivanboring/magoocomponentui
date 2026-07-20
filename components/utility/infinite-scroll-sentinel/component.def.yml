@@ -1,0 +1,14 @@
+name: infinite-scroll-sentinel
+props:
+  label:
+    type: string
+    default: "Loading more…"
+    title: Loading label
+    description: Text shown next to the spinner while more content can still be loaded.
+  done:
+    type: boolean
+    default: false
+    title: Done
+    description: >
+      When true the spinner and label are replaced with an end-of-list message and the sentinel
+      stops dispatching the loadmore event.

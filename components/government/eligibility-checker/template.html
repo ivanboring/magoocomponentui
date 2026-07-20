@@ -1,0 +1,22 @@
+<section class="eligibility-checker rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h2 data-if="title" class="eligibility-checker__title font-heading text-xl text-on-surface">{{ title }}</h2>
+
+  <div class="eligibility-checker__questions mt-4 flex flex-col gap-5">
+    <fieldset data-for="question in questions" class="eligibility-checker__question flex flex-col gap-2">
+      <legend class="text-sm font-medium text-on-surface">{{ question.label }}</legend>
+      <div class="flex flex-wrap gap-2" role="group">
+        <button data-for="option in question.options" type="button" data-value="{{ option.value }}" class="eligibility-checker__option rounded-pill border border-border bg-surface-raised px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:border-primary/30 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[selected=true]:border-primary data-[selected=true]:bg-primary data-[selected=true]:text-primary-contrast">{{ option.label }}</button>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type="button" class="eligibility-checker__check mt-6 rounded-button bg-primary px-6 py-2.5 font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Check eligibility</button>
+
+  <div data-if="result" class="eligibility-checker__result group mt-5 flex items-start gap-3 rounded-card border p-4 data-[eligible=true]:border-success/30 data-[eligible=true]:bg-success/10 data-[eligible=true]:text-success data-[eligible=false]:border-warning/30 data-[eligible=false]:bg-warning/10 data-[eligible=false]:text-warning" data-eligible="{{ result.eligible }}" role="status">
+    <span class="mt-0.5 shrink-0" aria-hidden="true">
+      <svg class="hidden size-5 group-data-[eligible=true]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>
+      <svg class="size-5 group-data-[eligible=true]:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6v5M10 14h.01M10 2a8 8 0 100 16 8 8 0 000-16z"/></svg>
+    </span>
+    <p class="text-sm font-medium">{{ result.message }}</p>
+  </div>
+</section>

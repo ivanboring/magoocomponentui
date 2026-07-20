@@ -1,0 +1,38 @@
+name: email-reader
+props:
+  subject:
+    type: string
+    required: true
+    title: Subject
+    description: The message subject, shown as the heading.
+    example: "Q3 planning notes"
+  sender:
+    type: object
+    required: true
+    title: Sender
+    description: "The sender: { name, email, avatar (optional image URL), initials (optional avatar fallback) }."
+    example: { name: "Ava Chen", email: "ava@example.com", initials: "AC" }
+  to:
+    type: string
+    title: Recipients
+    description: The recipient line (e.g. "you", "team@example.com"); shown under the sender when set.
+    example: "you"
+  date:
+    type: string
+    required: true
+    title: Date
+    description: Pre-formatted date/time the message was sent.
+    example: "Mar 4, 2026, 9:41 AM"
+  body_html:
+    type: html
+    required: true
+    title: Body
+    description: The message body as sanitized HTML (paragraphs, lists, links). Rendered raw.
+    example: "<p>Hi team,</p><p>Here are the notes from today's session.</p>"
+  attachments:
+    type: array
+    items: object
+    title: Attachments
+    description: "Optional attachments; each item: { name, size }."
+    example:
+      - { name: "quarterly-report.pdf", size: "2.4 MB" }

@@ -1,0 +1,9 @@
+{
+  "vehicle_id": "Van 07",
+  "driver": "Devin Okoro",
+  "initials": "DO",
+  "status": "maintenance",
+  "location": "Depot bay 3",
+  "fuel_pct": 12,
+  "load": "Empty"
+}

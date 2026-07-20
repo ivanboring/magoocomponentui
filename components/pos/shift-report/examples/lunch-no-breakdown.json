@@ -1,0 +1,10 @@
+{
+  "shift": "Lunch shift",
+  "date": "Sat, Jul 19",
+  "stats": [
+    { "label": "Net sales", "value": "$3,180" },
+    { "label": "Covers", "value": "76" },
+    { "label": "Avg check", "value": "$41.80" },
+    { "label": "Voids", "value": "$62" }
+  ]
+}

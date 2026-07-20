@@ -1,0 +1,11 @@
+<div class="air-quality-tile rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="text-sm text-on-surface-muted">Air quality</p>
+  <div class="mt-1 flex items-baseline gap-2">
+    <span class="air-quality-tile__value font-heading text-4xl tabular-nums {{ level@class }}">{{ aqi }}</span>
+    <span class="air-quality-tile__level text-sm font-medium capitalize {{ level@class }}">{{ level }}</span>
+  </div>
+  <div class="mt-3 h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+    <div class="air-quality-tile__scale h-full rounded-pill bg-current {{ level@class }}" style="width: {{ pct }}%"></div>
+  </div>
+  <p data-if="pollutant" class="mt-2 text-xs text-on-surface-muted">Main pollutant: {{ pollutant }}</p>
+</div>

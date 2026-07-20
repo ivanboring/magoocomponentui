@@ -1,0 +1,25 @@
+name: showreel-embed
+props:
+  poster:
+    type: image
+    required: true
+    title: Poster
+    description: The still frame shown before playback.
+    example: "/stock/cover-workspace.jpg"
+  title:
+    type: string
+    title: Title
+    description: Optional caption overlaid at the bottom of the frame.
+    example: "2025 Showreel"
+  duration:
+    type: string
+    title: Duration
+    description: Optional running time shown as a pill (e.g. 2:14).
+    example: "2:14"
+  video_url:
+    type: link
+    title: Video URL
+    description: >
+      Optional source the caller can load on play. Held on a data attribute and passed in the
+      "reel:play" event detail; the skeleton does not embed a player itself.
+    example: ""

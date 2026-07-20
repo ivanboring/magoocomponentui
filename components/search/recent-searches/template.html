@@ -1,0 +1,15 @@
+<div class="recent-searches flex flex-col gap-3">
+  <div class="recent-searches__header flex items-center justify-between">
+    <h3 class="recent-searches__heading font-heading text-sm text-on-surface">Recent</h3>
+    <button type="button" class="recent-searches__clear rounded-control px-2 py-1 text-sm text-on-surface-muted underline-offset-2 transition-colors duration-(--duration-token) hover:text-on-surface hover:underline">{{ clear_label }}</button>
+  </div>
+  <div class="recent-searches__list flex flex-wrap gap-2">
+    <span data-for="s in searches" class="recent-searches__chip inline-flex items-center gap-1.5 rounded-pill bg-surface-raised px-3 py-1 text-sm text-on-surface">
+      <svg class="size-3.5 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2.5"/></svg>
+      {{ s.label }}
+      <button type="button" class="recent-searches__remove -mr-1 flex size-4 shrink-0 items-center justify-center rounded-pill text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-border hover:text-on-surface" data-label="{{ s.label }}" aria-label="Remove from recent searches">
+        <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </span>
+  </div>
+</div>

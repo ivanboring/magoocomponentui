@@ -1,0 +1,7 @@
+<div class="sensor-reading rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-2 text-on-surface-muted">
+    <span data-if="icon" class="sensor-reading__icon shrink-0" aria-hidden="true">{{{ icon }}}</span>
+    <span class="sensor-reading__label text-sm">{{ label }}</span>
+  </div>
+  <p class="sensor-reading__value mt-2 font-heading text-2xl tabular-nums {{ status@class }}">{{ value }}<span data-if="unit" class="sensor-reading__unit ml-0.5 text-base font-normal opacity-70">{{ unit }}</span></p>
+</div>

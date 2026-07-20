@@ -1,0 +1,70 @@
+name: "Disclosure Accordion"
+short_description: A stacked set of native expand/collapse disclosures for legal and policy text.
+long_visual_description: >
+  A bordered, rounded card divided into rows. Each row is a native HTML disclosure: a summary line
+  with the title in the heading face and a chevron on the trailing edge that rotates when open, over
+  an expanded body of muted rich text. Rows are separated by hairline dividers. Any disclosure can
+  start expanded; the rest stay collapsed until the reader opens them.
+
+use_cases:
+  - Cookie and tracking disclosures on a consent page.
+  - Sectioned privacy policy or terms broken into expandable clauses.
+  - Data-processing and sub-processor disclosures.
+  - Regulatory or financial risk disclosures kept out of the main flow.
+  - Accessibility statement grouped by topic.
+  - A "your rights" panel with each right as its own disclosure.
+
+recommended_for:
+  - Long legal or policy copy the reader scans rather than reads end to end.
+  - Rich-text bodies (paragraphs, lists, links) that need to collapse.
+avoid_for:
+  - A short FAQ with plain answers (use faq-accordion).
+  - Interactive form steps (use a wizard or multi-step form).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item has a title and body_html (raw HTML for the expanded content).
+  Set open true on the disclosures that should be visible on load — typically the most important or
+  legally required one. Each row is a native details/summary, so it toggles with no JavaScript and
+  works in print and with the keyboard.
+
+props:
+  items: "The disclosures, in order. Each item: title (summary label), body_html (raw HTML body), open (optional boolean to start expanded)."
+
+lifecycle: experimental
+content_model: A list of titled disclosures, each with a raw-HTML body and an optional initial-open state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Title each disclosure with the topic a reader is looking for, not a clause number. Keep bodies
+  self-contained. Start only the essential disclosure open so the panel stays scannable.
+
+relationships:
+  related:
+    - marketing/faq-accordion
+    - legal/terms-section
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Disclosures
+  atomic_type: organism
+  usage_type: [list, disclosure]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Built on native details/summary, so expand/collapse is keyboard-operable and announced without scripting; the chevron is aria-hidden.
+  keyboard_support: Each summary is focusable and toggles its disclosure on Enter/Space (native details behaviour).
+  seo_score: 45
+  text_direction: both

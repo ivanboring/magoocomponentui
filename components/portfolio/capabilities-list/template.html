@@ -1,0 +1,14 @@
+<div class="capabilities-list">
+  <h3 data-if="title" class="capabilities-list__title font-heading text-on-surface">{{ title }}</h3>
+  <ul class="capabilities-list__items mt-4 space-y-3">
+    <li data-for="item in items" class="capabilities-list__item flex items-start gap-3">
+      <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-success/10 text-success" aria-hidden="true">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-9"/></svg>
+      </span>
+      <span class="min-w-0">
+        <span class="capabilities-list__label block text-on-surface">{{ item.label }}</span>
+        <span data-if="item.note" class="capabilities-list__note block text-sm text-on-surface-muted">{{ item.note }}</span>
+      </span>
+    </li>
+  </ul>
+</div>

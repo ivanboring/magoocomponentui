@@ -1,0 +1,26 @@
+name: renewable-goal
+props:
+  current_pct:
+    type: integer
+    required: true
+    title: Current renewable percent
+    description: Current renewable share, 0-100. Precomputed; drives the big figure and the bar fill.
+    example: 64
+  goal_pct:
+    type: integer
+    title: Goal percent
+    description: >
+      Target renewable share, 0-100. When set, a marker is drawn on the bar at this
+      position and the goal is labelled below. Precomputed.
+    example: 80
+  sources:
+    type: array
+    items: object
+    title: Source breakdown
+    description: >
+      Optional mini breakdown of the renewable sources making up the current share. Each
+      item: { label, pct }. `pct` is an integer 0-100, PRECOMPUTED by the caller, and drives
+      that source's mini bar width.
+    example:
+      - { label: "Solar", pct: 40 }
+      - { label: "Wind", pct: 18 }

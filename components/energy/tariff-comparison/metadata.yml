@@ -1,0 +1,82 @@
+name: "Tariff Comparison"
+short_description: A side-by-side comparison of energy tariffs with rate, standing charge, features, and a Switch button per plan.
+long_visual_description: >
+  A row of tariff columns that stack on small screens, each a surface card with the plan name, a large
+  unit rate, an optional standing-charge line, an optional highlighted savings pill, a ticked feature
+  list, and a full-width Switch button at the foot. The recommended column is outlined in the primary
+  colour with a "Recommended" badge and a solid primary Switch button.
+
+use_cases:
+  - Energy switching site comparing electricity or gas tariffs.
+  - Utility signup flow presenting plan options side by side.
+  - Renewal page offering a customer two or three tariffs to choose from.
+  - Broadband or mobile plan comparison reusing the same layout.
+  - Business energy quote showing tiered contract options.
+
+recommended_for:
+  - Two to four comparable plans where one is highlighted as recommended.
+  - Structured plan data with a short feature list per plan.
+avoid_for:
+  - A single plan's detail (use a simpler card).
+  - Long feature matrices better shown as a comparison table.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass plans as an array of tariffs, each with a name, a large rate, an optional standing_charge and
+  savings, a recommended boolean to highlight one column, and a features array of short strings shown
+  with ticks. Each column ends in a Switch call to action.
+
+props:
+  plans: The tariffs to compare; each has name, rate, optional standing_charge and savings, a recommended flag, and a features array.
+
+example_prompts:
+  - "Compare two energy tariffs side by side and recommend the fixed one."
+  - "Show three electricity plans with rates, standing charges, and a switch button each."
+  - "Add a tariff comparison with a recommended plan highlighted and a savings badge."
+
+lifecycle: experimental
+content_model: An ordered set of plans, each with a name, rate, optional standing charge and savings, a recommended flag, and a list of features.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Mark at most one plan recommended so the highlight stays meaningful. Keep feature lines short and
+  parallel across plans, and make the rate the most prominent figure so plans are easy to compare.
+
+relationships:
+  related:
+    - energy/solar-production-card
+    - energy/meter-reading-row
+    - energy/grid-status
+
+categorization:
+  category: Energy
+  subcategory: Tariffs
+  atomic_type: organism
+  usage_type: [grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The recommended plan is marked with a text badge as well as colour, feature ticks are decorative beside real text, and each Switch control is a labelled button.
+  keyboard_support: The Switch buttons are focusable and activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

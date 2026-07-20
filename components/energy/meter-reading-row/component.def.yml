@@ -1,0 +1,40 @@
+name: meter-reading-row
+props:
+  meter_id:
+    type: string
+    required: true
+    title: Meter ID
+    description: The meter serial or identifier, e.g. "MTR-00482913".
+    example: "MTR-00482913"
+  type:
+    type: enum
+    values: [electric, gas, water]
+    default: electric
+    title: Meter type
+    description: The utility the meter measures. Colours the meter glyph and shows a type label.
+  reading:
+    type: string
+    required: true
+    title: Reading
+    description: The current meter reading, formatted for display and rendered in a mono face. E.g. "48210.6".
+    example: "48210.6"
+  unit:
+    type: string
+    title: Unit
+    description: The reading's unit shown after the value, e.g. "kWh", "m3", "gal".
+    example: "kWh"
+  date:
+    type: string
+    title: Read on
+    description: When the reading was taken, formatted for display. E.g. "18 Jul 2026".
+    example: "18 Jul 2026"
+  change:
+    type: string
+    title: Change
+    description: Change since the previous reading, formatted with sign and unit. E.g. "+312 kWh".
+    example: "+312 kWh"
+variants:
+  type:
+    electric: "text-warning"
+    gas: "text-danger"
+    water: "text-info"

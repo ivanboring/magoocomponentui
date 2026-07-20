@@ -1,0 +1,79 @@
+name: "Room Grid"
+short_description: A room-by-room overview of smart devices, each room a card of device chips that highlight when on.
+long_visual_description: >
+  A vertical stack of surface cards, one per room, each headed by the room name. Inside, devices are
+  laid out as a small responsive grid of chips (two columns on mobile, three from the sm breakpoint):
+  an optional leading glyph, the device name, and a trailing status dot. A chip that is on gains a
+  primary border, a faint primary tint, full-strength text and a green dot; off chips stay muted.
+
+use_cases:
+  - A whole-home overview grouping devices by room.
+  - An at-a-glance panel of what is currently on across the house.
+  - A floor or zone summary in a larger smart-home dashboard.
+  - A scene preview showing which devices a scene leaves on.
+  - A quick audit of forgotten lights or appliances before leaving.
+  - A guest or rental welcome screen listing available devices per room.
+
+recommended_for:
+  - Read-only overviews of many devices organised by room.
+  - Dashboards where on/off status matters more than fine control.
+avoid_for:
+  - Directly controlling a device (use light-control or a switch tile).
+  - A single flat device list with no room grouping (use a plain list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a rooms array; each room has a name and a devices array of { name, on, icon }. Set device.on
+  to highlight active devices and add an optional icon glyph or emoji per device.
+
+props:
+  rooms: An array of rooms, each with a name and a devices array; each device has a name, an on flag, and an optional icon glyph.
+
+example_prompts:
+  - "Show a room grid with living room, kitchen and bedroom devices."
+  - "Add a house overview grouping smart devices by room with on/off status."
+  - "Display which devices are still on in each room at night."
+
+lifecycle: experimental
+content_model: A set of rooms, each with a list of devices carrying a name, an on state, and an optional icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Order rooms the way residents move through the home and keep device names short. Let the highlight
+  and dot carry the on state; the chip is a status, not a button, so avoid action verbs in the label.
+
+relationships:
+  related:
+    - smarthome/light-control
+    - smarthome/device-group-card
+    - smarthome/hub-status
+
+categorization:
+  category: Smart Home
+  subcategory: Overview
+  atomic_type: organism
+  usage_type: [grid, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each room is a section with a heading; the on state is shown by text weight and a status dot alongside colour, and decorative glyphs and dots are aria-hidden.
+  keyboard_support: None — static, non-interactive overview.
+  seo_score: 30
+  text_direction: both

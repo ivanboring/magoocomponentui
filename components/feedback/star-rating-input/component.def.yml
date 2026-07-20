@@ -1,0 +1,32 @@
+name: star-rating-input
+props:
+  value:
+    type: string
+    default: "0"
+    title: Value
+    description: The current rating as a string, "0" for unrated up to max. Drives the root's data-value.
+  max:
+    type: string
+    default: "5"
+    title: Max stars
+    description: How many stars to offer, as a string. Should match the length of the stars array.
+  label:
+    type: string
+    default: "Rating"
+    title: Accessible label
+    description: Accessible name announced for the star radiogroup.
+  stars:
+    type: array
+    items: object
+    required: true
+    title: Stars
+    description: >
+      Precomputed list of { index, filled } objects, length == max, in order. index is the 1-based
+      star position; filled is true when index <= value so the initial value renders with no
+      JavaScript. Compute filled = (index <= value) before rendering.
+    example:
+      - { index: 1, filled: false }
+      - { index: 2, filled: false }
+      - { index: 3, filled: false }
+      - { index: 4, filled: false }
+      - { index: 5, filled: false }

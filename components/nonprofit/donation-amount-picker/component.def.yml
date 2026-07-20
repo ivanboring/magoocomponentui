@@ -1,0 +1,21 @@
+name: donation-amount-picker
+props:
+  amounts:
+    type: array
+    items: object
+    required: true
+    title: Preset amounts
+    description: >
+      The selectable amount buttons, in order. Each item: { value, label, selected }. value is the
+      raw amount emitted in the amount:select event (e.g. "50"); label is the button text (e.g.
+      "$50"); selected (optional boolean) pre-highlights that button. At most one item should set
+      selected: true.
+    example:
+      - { value: "25", label: "$25", selected: false }
+      - { value: "50", label: "$50", selected: true }
+      - { value: "100", label: "$100", selected: false }
+  allow_custom:
+    type: boolean
+    default: true
+    title: Allow custom amount
+    description: Show a custom amount input below the preset buttons.

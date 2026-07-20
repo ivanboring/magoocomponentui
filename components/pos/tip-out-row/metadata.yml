@@ -1,0 +1,81 @@
+name: "Tip-out Row"
+short_description: A single staff row for a tip-out sheet - avatar, name and role on the left, sales, rate and the tip-out amount on the right.
+long_visual_description: >
+  A compact horizontal row on the surface colour with a card radius and soft shadow. A circular
+  initials avatar and the staff member's name and role sit on the left, and a set of right-aligned
+  figures - net sales, the tip-out rate and the tip-out amount - line up on the right with tabular
+  figures. The tip-out amount is emphasised in the heading face as the row's headline number.
+
+use_cases:
+  - Row in an end-of-shift tip-out distribution sheet.
+  - Line in a tip pool split across servers, bartenders and bussers.
+  - Payroll export preview showing each employee's tip-out.
+  - Manager review of tip-outs before cash-out.
+  - Support-staff share breakdown from a server's sales.
+  - Weekly tip reconciliation list per team member.
+
+recommended_for:
+  - Lists of staff and the tip-out each is owed from a shift.
+  - Any per-person money row with a name, a rate and an amount.
+avoid_for:
+  - A full payslip with earnings and deductions (use a payslip component).
+  - Editing tip values inline (this is a read-only display row).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row a name, optional role and initials, optional sales and tip_pct, and the required
+  tip_amount. Pre-format every money and percentage value; stack several rows to build a tip-out
+  sheet, optionally with a totals row of the same shape beneath.
+
+props:
+  name: "The staff member's display name."
+  role: "Optional role or section shown under the name."
+  initials: "Pre-computed initials for the avatar circle."
+  sales: "Optional pre-formatted net sales attributed to the staff member."
+  tip_pct: "Optional pre-formatted tip-out rate applied to sales."
+  tip_amount: "The pre-formatted tip-out amount; shown as the row's headline figure."
+
+example_prompts:
+  - "Add a tip-out row for Dana Wells the server owed $37.20."
+  - "List each bartender with their sales and 3% tip-out."
+  - "Show a tip-out sheet row with initials, rate and amount."
+
+lifecycle: experimental
+content_model: A staff member's name, optional role and initials, optional sales and rate, and a tip-out amount.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep roles to a single word and format money consistently across every row. Order rows by role
+  or by sales so a reader can scan the tip-out amounts down the right edge.
+
+relationships:
+  related:
+    - pos/shift-report
+    - hr/payslip-summary
+
+categorization:
+  category: Restaurant POS
+  subcategory: Staff
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar is decorative and hidden from assistive tech; every figure is labelled by a visible caption.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

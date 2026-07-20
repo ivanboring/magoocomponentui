@@ -1,0 +1,14 @@
+<div class="petition-signer rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="petition-signer__title font-heading text-on-surface">{{ title }}</h3>
+  <div data-if="goal" class="petition-signer__progress mt-3">
+    <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Signatures toward goal">
+      <div class="petition-signer__fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+    </div>
+  </div>
+  <p class="petition-signer__count mt-2 text-sm text-on-surface-muted"><span class="font-heading text-on-surface">{{ signatures }}</span> have signed<span data-if="goal"> of {{ goal }} goal</span></p>
+  <div class="petition-signer__form mt-4 flex flex-col gap-2 sm:flex-row">
+    <input type="text" class="petition-signer__name w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted" placeholder="Your name" aria-label="Your name">
+    <input type="email" class="petition-signer__email w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted" placeholder="Email address" aria-label="Email address">
+    <button type="button" class="petition-signer__sign shrink-0 rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Sign</button>
+  </div>
+</div>

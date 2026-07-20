@@ -1,0 +1,76 @@
+name: "Time Log Row"
+short_description: A single timesheet row — who logged time against what, when, and how long.
+long_visual_description: >
+  A slim horizontal row with a small initials avatar, the task description (truncating if long)
+  with an optional date beneath it, and the logged duration in a monospace figure aligned to the
+  right. A success-tinted "Billable" pill sits before the hours when the entry is billable.
+
+use_cases:
+  - List time entries under a task or project.
+  - Build a daily or weekly timesheet.
+  - Show recent logged hours on an activity feed.
+  - Summarise billable versus non-billable work.
+  - Display per-user contributions to a ticket.
+
+recommended_for:
+  - Rows in a time-tracking or timesheet list.
+  - Compact per-entry logged-hours display.
+avoid_for:
+  - A running timer or stopwatch (this is a logged record).
+  - Aggregate totals across many entries (use a summary row).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass task and hours (hours as a formatted string like "2.5h"). Provide user and precomputed
+  initials to show an avatar, an optional date, and set billable to surface the billable pill.
+
+props:
+  task: What the time was logged against; truncates if long.
+  user: Who logged the time; used as the avatar's accessible label.
+  initials: Precomputed 1-2 character avatar fallback; empty hides the avatar.
+  hours: The logged duration as a display string, e.g. "2.5h".
+  date: Optional display date for the entry.
+  billable: When true, shows the "Billable" pill.
+
+example_prompts:
+  - "Add a time log row for Jane logging 2.5 billable hours on the checkout fix."
+  - "Show a non-billable time entry of 45m for the standup."
+
+lifecycle: experimental
+content_model: A task, an optional user and date, a formatted duration, and a billable flag.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-pill
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep task descriptions short so they read on one line, and format hours consistently across a
+  timesheet (all "2.5h" or all "2h 30m") so the monospace column lines up.
+
+relationships:
+  related:
+    - pm/assignee-avatars
+    - pm/epic-progress
+    - pm/project-health-card
+
+categorization:
+  category: Project Management
+  subcategory: Time Tracking
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The avatar carries role="img" and an aria-label; billable status is shown as text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

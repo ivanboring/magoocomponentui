@@ -1,0 +1,83 @@
+name: "Returns Label"
+short_description: A dashed-border RMA label card with the return number, order and reason, a barcode facade and carrier.
+long_visual_description: >
+  A ticket-like card with a dashed border evoking a printable label. A return-arrow glyph and a
+  "Return label" heading sit at the top with the carrier as a pill on the trailing edge. Below, a
+  small definition list gives the RMA number and order in a mono face plus the return reason, and a
+  decorative barcode strip of vertical bars sits above an optional mono barcode string.
+
+use_cases:
+  - A printable return label preview in a returns flow.
+  - An RMA summary card on an order or return page.
+  - A drop-off slip shown after a return is authorized.
+  - A packing insert with the return reference and carrier.
+  - A confirmation of a return authorization with its number.
+
+recommended_for:
+  - Presenting a return authorization as a label-styled card.
+  - RMA data rendered from a return number, order and reason.
+avoid_for:
+  - A live scannable barcode (the bars are a visual facade only).
+  - A full return status trail (use tracking-timeline).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the RMA number and, where known, the originating order, the return reason, and the carrier.
+  The barcode bars are decorative; supply barcode only to print a human-readable tracking string
+  beneath them.
+
+props:
+  rma_number: The return authorization number, shown in a mono face.
+  order_number: The originating order number, shown in a mono face.
+  reason: A short return reason.
+  carrier: The return carrier, shown as a pill in the header.
+  barcode: An optional human-readable tracking string printed under the barcode facade; the bars are not generated from it.
+
+example_prompts:
+  - "Add a returns label for RMA-48213 from order #100482, reason wrong size."
+  - "Show a USPS return label card with a barcode."
+  - "Display an RMA slip with the return reason and carrier."
+
+lifecycle: experimental
+content_model: A return authorization number, an optional order and reason, an optional carrier, and an optional barcode string.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the RMA and order references in their exact printed form and the reason short. Treat the
+  barcode bars as decoration - use a real barcode image in production where a scannable code is
+  needed.
+
+relationships:
+  related:
+    - logistics/tracking-timeline
+    - logistics/carrier-rate-card
+    - commerce/order-tracker
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Returns
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The barcode facade is decorative and aria-hidden; all identifying references are real text in a mono face.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

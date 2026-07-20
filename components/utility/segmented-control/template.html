@@ -1,0 +1,3 @@
+<div class="segmented-control inline-flex rounded-pill bg-surface-raised p-1" role="group" aria-label="{{ label }}">
+  <button data-for="seg in segments" type="button" class="segmented-control__seg rounded-pill px-4 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:bg-surface data-[active=true]:text-on-surface data-[active=true]:shadow-card" data-value="{{ seg.value }}" data-active="{{ seg.active }}" aria-pressed="{{ seg.active }}">{{ seg.label }}</button>
+</div>

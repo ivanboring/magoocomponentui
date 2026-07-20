@@ -1,0 +1,41 @@
+name: carousel-fade
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Slides
+    description: >
+      The slides to cross-fade through. Each item: { image, eyebrow, title, subtitle, cta_label, href }.
+      image/eyebrow/subtitle/cta_label/href are optional; title carries the slide. A CTA button is
+      only rendered when the item supplies cta_label.
+    example:
+      - { image: "/stock/cover-workspace.jpg", eyebrow: "Featured", title: "Your creative studio", subtitle: "Everything you need in one place.", cta_label: "Explore", href: "#" }
+  interval:
+    type: enum
+    values: ["4", "6", "8"]
+    default: "6"
+    title: Interval (seconds)
+    description: How many seconds each slide stays on screen before cross-fading to the next.
+  autoplay:
+    type: boolean
+    default: true
+    title: Autoplay
+    description: >
+      When true the carousel auto-advances every interval, pausing on hover/focus. Autoplay is
+      always suppressed when the visitor prefers reduced motion.
+  show_arrows:
+    type: boolean
+    default: true
+    title: Show arrows
+    description: Show the previous/next arrow buttons overlaid on the edges.
+  show_dots:
+    type: boolean
+    default: true
+    title: Show dots
+    description: Show the row of navigation dots (one per slide) near the bottom.
+  label:
+    type: string
+    default: "Featured"
+    title: Accessible label
+    description: Accessible name announced for the carousel region.

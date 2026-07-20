@@ -1,0 +1,91 @@
+name: "Menu Tile Grid"
+short_description: A grid of tappable POS menu buttons, each showing an item name and price with an optional colour tint.
+long_visual_description: >
+  A responsive grid of square menu tiles - three across on mobile, four from the small breakpoint up
+  - each a button with the item name in the heading face over a price in tabular figures. Tiles carry
+  a card radius and soft shadow, lift slightly on hover, and can take an optional tokenized tint to
+  group them by category. An optional scrollable row of category pills sits above, with the first
+  pill highlighted.
+
+use_cases:
+  - Quick-add menu board on a restaurant POS.
+  - Category grid of drinks or dishes on a till.
+  - Fast-service counter ordering screen.
+  - Retail quick-keys for common products.
+  - Bar service tiles for popular pours.
+  - Kiosk self-order button grid.
+
+recommended_for:
+  - Touch-first ordering where items are added by tapping.
+  - Colour-grouping menu items by category or course.
+avoid_for:
+  - A browsable catalog with images and descriptions (use a product grid).
+  - A single item's modifier choices (use modifier-picker).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item has a name, a preformatted price, and an optional color_class
+  from the safelisted set. Listen for the "menu:add" event on the element and read
+  event.detail.name and event.detail.price to add the item to the order. Supply categories for a
+  decorative pill row above the grid.
+
+how_to_use: >
+  behavior.js wires each tile so a tap dispatches a bubbling "menu:add" CustomEvent whose detail
+  carries the item's name and price, read from data-name and data-price. No props object is passed to
+  the portable self-init; the category pills are a decorative facade for you to wire filtering onto.
+
+props:
+  items: The menu buttons; each has a name, a preformatted price, and an optional safelisted color_class tint.
+  categories: Optional category labels shown as a scrollable pill row above the grid; decorative facade.
+
+example_prompts:
+  - "Show a POS menu grid of coffees with quick-add buttons."
+  - "Add a menu tile grid colour-grouped by category with prices."
+  - "Render a fast-service ordering screen and emit menu:add on tap."
+
+lifecycle: experimental
+content_model: A set of menu items each with a name, price, and optional colour tint, plus optional category labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep item names short enough to read on a small tile and prices preformatted with currency. Use
+  color_class consistently to group items by category rather than for decoration.
+
+relationships:
+  related:
+    - pos/modifier-picker
+    - pos/order-ticket
+    - pos/pos-keypad
+
+categorization:
+  category: Restaurant POS
+  subcategory: Ordering
+  atomic_type: organism
+  usage_type: [grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Tiles are real buttons with visible name and price text; the colour tint is supplementary, never the only signal.
+  keyboard_support: Every tile is a focusable button that activates on Enter/Space and dispatches menu:add.
+  seo_score: 15
+  text_direction: both

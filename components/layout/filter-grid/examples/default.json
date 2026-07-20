@@ -1,0 +1,21 @@
+{
+  "label": "Case studies",
+  "all_label": "All",
+  "gap": "default",
+  "filters": [
+    { "label": "Design", "value": "design" },
+    { "label": "Engineering", "value": "engineering" },
+    { "label": "Product", "value": "product" }
+  ],
+  "items": [
+    { "image": "/stock/cover-workspace.jpg", "title": "Design system refresh", "subtitle": "Rebuilding the component library.", "category": "design" },
+    { "image": "/stock/audio-studio-mic.jpg", "title": "Brand sound identity", "subtitle": "A recognisable audio signature.", "category": "design" },
+    { "image": "/stock/blog-api-streaming.jpg", "title": "Streaming APIs", "subtitle": "Real-time updates to every client.", "category": "engineering" },
+    { "image": "/stock/blog-dubbing.jpg", "title": "Automatic dubbing", "subtitle": "Localise a video into any language.", "category": "engineering" },
+    { "image": "/stock/stage1.jpg", "title": "Pipeline hardening", "subtitle": "Faster, safer deploys.", "category": "engineering" },
+    { "image": "/stock/product-sneaker.jpg", "title": "Launch checklist", "subtitle": "Ship the next release with confidence.", "category": "product" },
+    { "image": "/stock/food-plate.jpg", "title": "Onboarding flow", "subtitle": "Get new users to value faster.", "category": "product" },
+    { "image": "/stock/property-house.jpg", "title": "Pricing experiments", "subtitle": "Test packaging without a rebuild.", "category": "product" },
+    { "image": "/stock/stage2.jpg", "title": "Motion guidelines", "subtitle": "Consistent, tasteful animation.", "category": "design" }
+  ]
+}

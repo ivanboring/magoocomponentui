@@ -1,0 +1,8 @@
+{
+  "title": "Revenue by region",
+  "tiles": [
+    { "x_pct": "0", "y_pct": "0", "w_pct": "60", "h_pct": "100", "label": "Americas", "value": "58%", "color_class": "bg-primary" },
+    { "x_pct": "60", "y_pct": "0", "w_pct": "40", "h_pct": "50", "label": "EMEA", "value": "27%", "color_class": "bg-accent" },
+    { "x_pct": "60", "y_pct": "50", "w_pct": "40", "h_pct": "50", "label": "APAC", "value": "15%", "color_class": "bg-success" }
+  ]
+}

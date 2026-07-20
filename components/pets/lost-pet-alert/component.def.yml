@@ -1,0 +1,38 @@
+name: lost-pet-alert
+props:
+  name:
+    type: string
+    required: true
+    title: Pet name
+    example: "Rusty"
+  species:
+    type: string
+    title: Species
+    example: "Dog"
+  breed:
+    type: string
+    title: Breed
+    example: "Border Collie"
+  last_seen:
+    type: string
+    title: Last seen
+    description: Where and when the pet was last seen.
+    example: "Near Prospect Park, Brooklyn - 14 Jul"
+  photo:
+    type: string
+    format: uri-reference
+    title: Photo
+    description: A photo of the missing pet. When omitted a paw-glyph placeholder is shown.
+    example: ""
+  reward:
+    type: string
+    title: Reward
+    description: Reward offered for safe return, formatted for display.
+    example: "$500 reward"
+  contact:
+    type: string
+    title: Contact link
+    description: >
+      A tel:, mailto: or https: URL for reaching the owner. Renders the Contact
+      button as a link; omit to render it as a plain button.
+    example: "tel:+15551234567"

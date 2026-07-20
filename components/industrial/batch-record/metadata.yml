@@ -1,0 +1,87 @@
+name: "Batch Record"
+short_description: A card summarising a production batch - identifier, product, quantity, timing and process parameters with out-of-spec values flagged.
+long_visual_description: >
+  A surface card whose header pairs the batch number in a mono face with the product name and a
+  neutral status pill. A compact grid of quantity, start and end sits beneath the divider in tabular
+  figures. Below, a divided list of recorded process parameters shows each label against its value;
+  any value marked out of spec is coloured danger and gains a small alert glyph so deviations are
+  immediately visible.
+
+use_cases:
+  - Batch or lot record summary on a manufacturing execution system.
+  - Process batch card for pharmaceutical, food or chemical production.
+  - Production run detail with recorded process parameters.
+  - Genealogy or traceability record for a produced lot.
+  - Quality review of a batch with in-spec and out-of-spec readings.
+  - Compact batch tile in a production log grid.
+
+recommended_for:
+  - Read-only batch summaries with a handful of key parameters.
+  - Cases where the caller marks each parameter in or out of spec.
+avoid_for:
+  - A full electronic batch record with signatures and audit trail.
+  - Editable data entry (this is a display skeleton).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the batch a number and optionally a product, quantity, start and end times, and a status. Pass
+  a params array where each parameter has a label, a value and an in_spec boolean - set in_spec false
+  on any reading outside limits so it is coloured danger and flagged with a glyph.
+
+props:
+  batch_number: The batch or lot identifier, shown in a mono face.
+  product: The product or material the batch produces.
+  quantity: Quantity produced, precomputed and formatted by the caller.
+  start: Batch start time.
+  end: Batch end time.
+  status: Free-text status shown as a neutral pill.
+  params: Recorded process parameters, each with a label, a value and an in_spec flag.
+
+example_prompts:
+  - Add a batch record card with an out-of-spec pH parameter.
+  - Show a released production batch with quantity and timing.
+  - Render a batch summary listing temperature and pressure readings.
+
+relationships:
+  related:
+    - industrial/quality-control-checklist
+    - industrial/throughput-chart
+    - industrial/maintenance-schedule-row
+
+lifecycle: experimental
+content_model: A batch identifier, optional product and timing metadata, a status, and a set of process parameters with in-spec flags.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the batch number in a consistent format and the parameter labels short. Mark in_spec honestly
+  against real limits - the danger colour and glyph must agree, and both sit alongside the value so
+  the deviation is never signalled by colour alone. Precompute and format the quantity string.
+
+categorization:
+  category: Manufacturing
+  subcategory: Production
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Out-of-spec parameters carry an alert glyph beside the value as well as the colour, so the flag is not colour-only; the glyph is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

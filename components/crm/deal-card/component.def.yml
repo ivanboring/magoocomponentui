@@ -1,0 +1,38 @@
+name: deal-card
+props:
+  name:
+    type: string
+    required: true
+    title: Deal name
+    example: "Acme Corp renewal"
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The deal amount, preformatted with currency and separators.
+    example: "$48,000"
+  stage:
+    type: string
+    title: Stage
+    description: Current pipeline stage, shown as a pill.
+    example: "Proposal"
+  owner:
+    type: string
+    title: Owner
+    description: The rep who owns the deal.
+    example: "Dana Lee"
+  initials:
+    type: string
+    title: Owner initials
+    description: A precomputed 1-3 char monogram for the owner avatar.
+    example: "DL"
+  close_date:
+    type: string
+    title: Close date
+    description: Expected close date, preformatted for display.
+    example: "Aug 30, 2026"
+  probability:
+    type: integer
+    title: Win probability
+    description: Win probability as a whole number 0-100; renders a bar and label. Precomputed by the caller.
+    example: 65

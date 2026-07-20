@@ -1,0 +1,31 @@
+<div class="company-account-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start gap-3">
+    <span class="company-account-card__logo relative inline-flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-card bg-surface-raised font-heading text-on-surface" role="img" aria-label="{{ name }}">
+      <img data-if="logo" class="size-full object-contain p-1.5" src="{{ logo }}" alt="">
+      <span data-if="!logo" class="uppercase" aria-hidden="true">{{ monogram }}</span>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="truncate font-heading text-on-surface">{{ name }}</p>
+      <p data-if="industry" class="truncate text-sm text-on-surface-muted">{{ industry }}</p>
+    </div>
+  </div>
+  <dl class="company-account-card__stats mt-4 grid grid-cols-3 gap-2 border-t border-border pt-4">
+    <div data-if="size" class="min-w-0">
+      <dt class="text-xs text-on-surface-muted">Size</dt>
+      <dd class="mt-0.5 truncate font-heading text-sm tabular-nums text-on-surface">{{ size }}</dd>
+    </div>
+    <div data-if="revenue" class="min-w-0">
+      <dt class="text-xs text-on-surface-muted">Revenue</dt>
+      <dd class="mt-0.5 truncate font-heading text-sm tabular-nums text-on-surface">{{ revenue }}</dd>
+    </div>
+    <div data-if="open_deals" class="min-w-0">
+      <dt class="text-xs text-on-surface-muted">Open deals</dt>
+      <dd class="mt-0.5 truncate font-heading text-sm tabular-nums text-on-surface">{{ open_deals }}</dd>
+    </div>
+  </dl>
+  <div data-if="owner" class="mt-4 flex items-center gap-2 border-t border-border pt-4 text-sm">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="6.5" r="3"/><path d="M4 16a6 6 0 0112 0"/></svg>
+    <span class="text-on-surface-muted">Owner</span>
+    <span class="ml-auto truncate font-medium text-on-surface">{{ owner }}</span>
+  </div>
+</div>

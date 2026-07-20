@@ -1,0 +1,37 @@
+name: backlog-item
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "As a user I can reset my password by email"
+  type:
+    type: enum
+    values: [story, bug, task]
+    default: story
+    title: Type
+    description: >
+      The work-item type. Chooses which type icon shows (a bookmark for a story, a bug glyph for a
+      bug, a checkbox for a task) and its colour.
+  estimate:
+    type: string
+    title: Estimate
+    description: Precomputed story-point or effort estimate shown in a trailing badge.
+    example: "5"
+  tag:
+    type: string
+    title: Tag
+    description: Optional short label shown after the title.
+    example: "Auth"
+  priority:
+    type: string
+    title: Priority
+    description: >
+      Optional priority (low/medium/high/urgent). Renders a small coloured dot before the title;
+      any other value shows a neutral dot.
+    example: "high"
+variants:
+  type:
+    story: "text-info"
+    bug: "text-danger"
+    task: "text-success"

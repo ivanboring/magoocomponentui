@@ -1,0 +1,84 @@
+name: "POS Keypad"
+short_description: A numeric entry keypad with a readout and an Enter action for POS amount and quantity input.
+long_visual_description: >
+  A compact card holding a right-aligned readout in the heading face above a three-column grid of
+  keys - digits one through nine, a decimal point, zero, and a primary-coloured Enter key with an
+  arrow glyph. Keys sit on the surface colour with a hover raise; the readout uses tabular figures so
+  entered amounts stay aligned.
+
+use_cases:
+  - Enter a cash amount at checkout.
+  - Punch in a quantity on a POS terminal.
+  - Type a PIN or access code on a till.
+  - Weigh-and-price entry for a deli or market scale.
+  - Manual price override on a register.
+  - Tip or custom-amount entry at the pay screen.
+
+recommended_for:
+  - Touch-first amount and quantity entry on a POS.
+  - Any numeric input that should not summon the OS keyboard.
+avoid_for:
+  - Free-text entry (use a text field).
+  - Full calculator logic with operators (this only enters a number).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop it in and listen for the "keypad:enter" event on the element to read the entered value from
+  event.detail.value. Seed the readout with the display prop. Digit and decimal keys append to the
+  running value; Enter fires the event without clearing, so the host decides what to do next.
+
+how_to_use: >
+  behavior.js seeds its internal value from the readout text, appends digits and a single decimal as
+  keys are pressed, and normalises a leading zero. The Enter key dispatches a bubbling
+  "keypad:enter" CustomEvent whose detail.value is the current string. Config comes from the DOM
+  only - no props object is passed to the portable self-init.
+
+props:
+  display: Initial value shown in the readout; behavior.js seeds its running value from it.
+
+example_prompts:
+  - "Add a numeric keypad for entering a cash amount at checkout."
+  - "Show a POS keypad and log the value when Enter is pressed."
+  - "Put a till keypad with a decimal point and an Enter key on the pay screen."
+
+lifecycle: experimental
+content_model: A single numeric readout plus a fixed grid of digit, decimal, and Enter keys.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the readout showing a sensible starting value such as 0. Let the host format and validate the
+  final value on keypad:enter rather than constraining input in the component.
+
+relationships:
+  related:
+    - pos/check-split
+    - pos/menu-tile-grid
+
+categorization:
+  category: Restaurant POS
+  subcategory: Input
+  atomic_type: molecule
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Keys are real buttons with visible labels and the Enter key has an accessible label; the readout uses an output element.
+  keyboard_support: Every key is a focusable button that activates on Enter/Space; Enter on the Enter key dispatches keypad:enter.
+  seo_score: 10
+  text_direction: both

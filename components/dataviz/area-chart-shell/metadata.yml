@@ -1,0 +1,90 @@
+name: "Area Chart Shell"
+short_description: A card-framed area-chart skeleton that fills under a precomputed series line, with an optional second area.
+long_visual_description: >
+  A surface card with a title header and an optional legend. The plot area shows faint horizontal
+  gridlines, a translucent primary-colour fill under the series, and a solid primary line drawn on
+  top, all stretched across a full-width SVG. An optional second translucent accent area can sit
+  beneath for a stacked or comparison look. A y-axis label column runs down the left and x-axis
+  labels along the bottom. All geometry is precomputed and passed in.
+
+use_cases:
+  - Emphasise the magnitude of a time-series metric (sessions, volume, traffic).
+  - Cumulative or volume trend on a dashboard.
+  - New vs returning or two-series comparison via the second area.
+  - Report figure where the filled area conveys scale.
+  - A skeleton to drop a real charting library into.
+  - Placeholder chart in a prototype before wiring live data.
+
+recommended_for:
+  - A continuous series where filled magnitude matters.
+  - Two overlaid areas for a simple comparison.
+avoid_for:
+  - Categorical comparison (use bar-chart-shell).
+  - Precise value reading (an unfilled line or a table reads cleaner).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute area_path as a closed path (series line down to the baseline and back) and line_path
+  as the open stroke path, both in a 0-100 by 0-100 viewBox. Optionally add second_area_path for a
+  second area. Provide y_labels and x_labels; replace the SVG markup with a real chart to replace the
+  skeleton.
+
+props:
+  title: The chart title shown in the header.
+  area_path: Precomputed closed SVG path for the primary filled area.
+  line_path: Precomputed SVG stroke path for the series line on top.
+  second_area_path: Optional precomputed closed path for a second accent-coloured area.
+  y_labels: Y-axis tick labels, top to bottom.
+  x_labels: X-axis tick labels, left to right.
+  grid_lines: Precomputed y-percent positions for horizontal gridlines.
+
+example_prompts:
+  - "Add an area chart card of sessions over six months."
+  - "Show new vs returning users as two stacked areas."
+  - "Put a filled trend chart shell in the dashboard."
+
+relationships:
+  related:
+    - dataviz/line-chart-shell
+    - dataviz/bar-chart-shell
+    - dataviz/scatter-plot-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a precomputed filled area path, a line path, optional second area, axis labels, and gridlines.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-accent
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  The area and line geometry is precomputed by the caller from the underlying data - the shell
+  ships no charting math or JS. Supply realistic closed and open paths so the skeleton reads as a
+  genuine chart, and keep the fill translucent so gridlines stay visible. The skeleton renders
+  directly from the precomputed data; for a live, interactive chart, a real charting library
+  replaces the SVG markup, and the skeleton then acts as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; axis labels are real text. Provide a data-table alternative for the series in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

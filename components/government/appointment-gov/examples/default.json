@@ -1,0 +1,25 @@
+{
+  "office": "Central Passport Office",
+  "address": "12 Whitehall, London SW1A 2DD",
+  "dates": [
+    {
+      "label": "Mon 21 Jul",
+      "slots": [
+        { "time": "09:00", "available": true, "selected": false },
+        { "time": "10:30", "available": false, "selected": false },
+        { "time": "13:00", "available": true, "selected": false },
+        { "time": "14:00", "available": true, "selected": true }
+      ]
+    },
+    {
+      "label": "Tue 22 Jul",
+      "slots": [
+        { "time": "09:00", "available": false, "selected": false },
+        { "time": "10:30", "available": true, "selected": false },
+        { "time": "13:00", "available": false, "selected": false },
+        { "time": "15:30", "available": true, "selected": false }
+      ]
+    }
+  ],
+  "selected": "Mon 21 Jul at 14:00"
+}

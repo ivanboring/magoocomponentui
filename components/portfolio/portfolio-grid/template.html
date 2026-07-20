@@ -1,0 +1,27 @@
+<section class="portfolio-grid" aria-label="{{ label }}">
+  <div class="portfolio-grid__filters mb-6 flex flex-wrap gap-2" role="group" aria-label="Filter work by category">
+    <button type="button" class="portfolio-grid__chip rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-value="" data-active="true">{{ all_label }}</button>
+    <button data-for="f in filters" type="button" class="portfolio-grid__chip rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-value="{{ f.value }}">{{ f.label }}</button>
+  </div>
+
+  <div class="portfolio-grid__grid grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div data-for="item in items" class="portfolio-grid__item" data-category="{{ item.category }}">
+      <a data-if="item.href" class="group relative block aspect-[4/3] overflow-hidden rounded-card bg-surface-raised shadow-card" href="{{ item.href }}">
+        <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+        <span class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-4 opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100" aria-hidden="true"></span>
+        <span class="absolute inset-x-0 bottom-0 p-4 opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100">
+          <span data-if="item.category" class="block text-xs font-medium uppercase tracking-wide text-white/80">{{ item.category }}</span>
+          <span class="block font-heading text-white">{{ item.title }}</span>
+        </span>
+      </a>
+      <div data-if="!item.href" class="group relative block aspect-[4/3] overflow-hidden rounded-card bg-surface-raised shadow-card">
+        <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+        <span class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/10 to-transparent p-4 opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100" aria-hidden="true"></span>
+        <span class="absolute inset-x-0 bottom-0 p-4 opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100">
+          <span data-if="item.category" class="block text-xs font-medium uppercase tracking-wide text-white/80">{{ item.category }}</span>
+          <span class="block font-heading text-white">{{ item.title }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

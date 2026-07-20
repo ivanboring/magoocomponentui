@@ -1,0 +1,8 @@
+{
+  "pet": "Willow",
+  "plan": "Accident Only",
+  "policy_number": "AO-1190-7742",
+  "coverage_pct": 70,
+  "deductible": "$400 / year",
+  "status": "pending"
+}

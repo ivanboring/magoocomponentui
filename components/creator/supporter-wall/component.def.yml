@@ -1,0 +1,20 @@
+name: supporter-wall
+props:
+  supporters:
+    type: array
+    items: object
+    required: true
+    title: Supporters
+    description: >
+      The supporters to show, most prominent first. Each item: { name, initials, avatar, amount,
+      tier, message }. avatar is an optional image; when absent the precomputed initials fill the
+      circle. amount, tier, and message are optional. Provide initials caller-side (the directive
+      language cannot derive them).
+    example:
+      - { name: "Jamie Cortez", initials: "JC", amount: "$120", tier: "Superfan", message: "Love the deep dives, keep them coming!" }
+      - { name: "Priya Nair", avatar: "/stock/avatar-woman-1.jpg", amount: "$80", tier: "Supporter" }
+  total_supporters:
+    type: string
+    title: Total supporters
+    description: Formatted count of all supporters, shown in the header (pass the precomputed string).
+    example: "1,240"

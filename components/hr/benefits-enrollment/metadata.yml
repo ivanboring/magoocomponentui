@@ -1,0 +1,89 @@
+name: "Benefits Enrollment"
+short_description: A single-select card of benefit plans, each with a tier, premium, feature list and a selected radio state.
+long_visual_description: >
+  A card on the surface colour holding a vertical stack of large selectable plan tiles. Each tile
+  shows the plan name and an optional tier kicker on the left, the monthly premium and a circular
+  check indicator on the right, and a checkmarked feature list below. Choosing a plan highlights it
+  with a primary-coloured border and a soft primary tint, fills its check circle, and clears the
+  others - a radio-style choose-one interaction driven by tokenized utilities.
+
+use_cases:
+  - An open-enrollment step where an employee picks a health plan.
+  - A benefits onboarding wizard comparing medical, dental or vision tiers.
+  - A retirement or insurance plan selector with per-plan premiums.
+  - A perks marketplace where only one bundle can be active.
+  - A quote flow comparing coverage tiers side by side in one column.
+
+recommended_for:
+  - Choose-one selection among a handful of richly described plans.
+  - Enrollment flows that need the chosen plan reflected in the DOM and via an event.
+avoid_for:
+  - Multi-select add-ons (use a checklist of toggles instead).
+  - A pure pricing comparison with no selection (use a pricing-tiers layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a plans array with a name, optional tier kicker, a preformatted premium string, an optional
+  selected flag on at most one plan, and a features string array. Listen for the bubbling
+  "benefit:select" event to read the chosen plan's name.
+
+how_to_use: >
+  Layout and the selected styling are pure CSS: each plan carries data-selected, and the
+  data-[selected=true]: / group-data-[selected=true]: utilities paint the border, tint and check
+  with no JavaScript, so the initial selection renders in screenshots. behavior.js wires the
+  choose-one interaction: clicking a plan sets its data-selected to true, clears the siblings, keeps
+  aria-checked in sync, and dispatches a bubbling "benefit:select" event carrying { name }. The
+  portable self-init reads everything from the DOM - no props object is passed.
+
+props:
+  plans: "The selectable plans in order. Each: name, tier (optional kicker), premium (preformatted cost), selected (boolean, at most one), features (string array)."
+  label: "Accessible name announced for the radio group."
+
+example_prompts:
+  - "Show a benefits enrollment card with Standard PPO, HDHP and HMO plans, PPO preselected."
+  - "Add a plan chooser where each plan lists its premium and three feature bullets."
+  - "Let the employee pick one dental plan from three options."
+
+lifecycle: experimental
+content_model: A list of benefit plans, each with a name, tier, premium and feature bullets, with one selectable at a time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep plan names short and the tier kicker to an acronym. Lead each feature with the benefit, not
+  the jargon. Preselect the recommended plan so the default choice is a good one.
+
+relationships:
+  related:
+    - hr/goal-okr-row
+    - hr/approval-request-row
+    - hr/attendance-row
+
+categorization:
+  category: HR & People
+  subcategory: Benefits
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The plans form a role="radiogroup" of role="radio" buttons with aria-checked kept in sync; the check glyph and feature icons are decorative.
+  keyboard_support: Each plan button is focusable and selects on Enter/Space; selecting one clears the others.
+  seo_score: 25
+  text_direction: both

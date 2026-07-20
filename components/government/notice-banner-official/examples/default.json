@@ -1,0 +1,9 @@
+{
+  "level": "info",
+  "title": "Service update",
+  "message": "Passport processing times are currently longer than usual. Apply at least 10 weeks before you travel.",
+  "action": {
+    "label": "Check current processing times",
+    "href": "#"
+  }
+}

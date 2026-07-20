@@ -1,0 +1,29 @@
+name: heart-rate-zone
+props:
+  bpm:
+    type: string
+    required: true
+    title: Heart rate (bpm)
+    description: The current heart rate in beats per minute, as a string, e.g. "148".
+    example: "148"
+  zone_label:
+    type: string
+    required: true
+    title: Current zone
+    description: Name of the zone the current rate falls in, e.g. "Cardio".
+    example: "Cardio"
+  zones:
+    type: array
+    items: object
+    required: true
+    title: Zones
+    description: >
+      The heart-rate zones in ascending order (typically five: Rest/Warm-up through Peak). Each item:
+      { label, range, active, color_class }. active marks the single zone the current bpm falls in
+      (rendered taller and ringed); color_class is a tokenized bg-* utility for that zone's segment.
+    example:
+      - { label: "Rest", range: "< 98", active: false, color_class: "bg-info" }
+      - { label: "Warm-up", range: "98-117", active: false, color_class: "bg-success" }
+      - { label: "Fat burn", range: "118-137", active: false, color_class: "bg-primary" }
+      - { label: "Cardio", range: "138-157", active: true, color_class: "bg-warning" }
+      - { label: "Peak", range: "158+", active: false, color_class: "bg-danger" }

@@ -1,0 +1,21 @@
+<div class="calorie-tracker rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-3">
+    <p class="font-heading text-2xl tabular-nums text-on-surface"><span class="text-3xl">{{ consumed }}</span> / {{ goal }} kcal</p>
+    <p data-if="remaining" class="shrink-0 text-sm text-on-surface-muted"><span class="font-medium tabular-nums text-on-surface">{{ remaining }}</span> left</p>
+  </div>
+  <div class="mt-3 h-3 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ consumed_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Calories consumed">
+    <div class="calorie-tracker__fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ consumed_pct }}%"></div>
+  </div>
+  <ul data-if="macros" class="calorie-tracker__macros mt-4 flex flex-col gap-3">
+    <li data-for="macro in macros" class="calorie-tracker__macro">
+      <div class="mb-1 flex items-baseline justify-between gap-3 text-sm">
+        <span class="text-on-surface">{{ macro.label }}</span>
+        <span class="tabular-nums text-on-surface-muted">{{ macro.grams }} g</span>
+      </div>
+      <div class="h-1.5 w-full overflow-hidden rounded-pill bg-surface-raised">
+        <div class="calorie-tracker__macro-fill h-full rounded-pill transition-all duration-(--duration-token) {{ macro.color_class }}" style="width: {{ macro.pct }}%"></div>
+      </div>
+    </li>
+  </ul>
+  <span class="hidden bg-primary bg-success bg-warning bg-danger bg-info bg-accent" aria-hidden="true"></span>
+</div>

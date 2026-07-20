@@ -1,0 +1,11 @@
+{
+  "currency": "$",
+  "line_items": [
+    { "name": "Platform license (annual)", "qty": "5", "price": "1,200", "total": "6,000" },
+    { "name": "Onboarding package", "qty": "1", "price": "2,500", "total": "2,500" },
+    { "name": "Priority support add-on", "qty": "1", "price": "0", "total": "0" }
+  ],
+  "subtotal": "8,500",
+  "tax": "680",
+  "total": "9,180"
+}

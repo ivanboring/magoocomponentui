@@ -1,15 +1,18 @@
 <footer class="footer-columns border-t border-border bg-surface px-(--space-card) py-(--space-section)">
-  <div class="footer-columns__grid grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-    <div class="footer-columns__brand col-span-2 sm:col-span-3 lg:col-span-2">
-      <p class="font-heading text-lg text-on-surface">{{ brand }}</p>
+  <div class="footer-columns__grid flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+    <div class="footer-columns__brand lg:max-w-xs">
+      <img data-if="brand_image" class="footer-columns__logo h-8 w-auto object-contain" src="{{ brand_image }}" alt="{{ brand }}" />
+      <p data-if="!brand_image" class="font-heading text-lg text-on-surface">{{ brand }}</p>
       <p data-if="tagline" class="mt-2 max-w-xs text-sm text-on-surface-muted">{{ tagline }}</p>
     </div>
-    <nav data-for="column in columns" class="footer-columns__column" aria-label="{{ column.heading }}">
-      <h3 class="footer-columns__heading text-sm font-semibold text-on-surface">{{ column.heading }}</h3>
-      <ul class="mt-3 flex flex-col gap-2">
-        <li data-for="link in column.links"><a class="text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a></li>
-      </ul>
-    </nav>
+    <div class="footer-columns__columns grid grid-cols-2 gap-8 sm:grid-cols-3 lg:auto-cols-max lg:grid-flow-col lg:gap-12">
+      <nav data-for="column in columns" class="footer-columns__column" aria-label="{{ column.heading }}">
+        <h3 class="footer-columns__heading text-sm font-semibold text-on-surface">{{ column.heading }}</h3>
+        <ul class="mt-3 flex flex-col gap-2">
+          <li data-for="link in column.links"><a class="text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ link.href }}">{{ link.label }}</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
   <div class="footer-columns__bottom mt-10 border-t border-border pt-6 text-sm text-on-surface-muted">{{ copyright }}</div>
 </footer>

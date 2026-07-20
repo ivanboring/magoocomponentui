@@ -1,0 +1,88 @@
+name: "Bill Estimate"
+short_description: A card projecting the current cycle's electricity bill, with usage so far, a trend versus last cycle, and days remaining.
+long_visual_description: >
+  A compact surface card led by a small "Projected bill" kicker over a large tabular total
+  in the heading face, with the billing period beneath it. A divider separates a footer row
+  that pairs usage so far with a coloured trend indicator: an up arrow in the danger tone
+  when the projection is higher than last cycle, a down arrow in the success tone when it is
+  lower, followed by a short comparison caption. A final line notes how many days remain in
+  the cycle.
+
+use_cases:
+  - Show a customer their projected month end bill on an energy account dashboard.
+  - Give a mid cycle spend forecast in a utility mobile app home screen.
+  - Warn when the projected total is trending above last month.
+  - Summarise usage and cost pacing for a prepaid energy plan.
+  - Surface a bill estimate widget on a smart home hub.
+  - Preview the next invoice on a billing settings page.
+
+recommended_for:
+  - A single projected figure that a caller has already computed and formatted.
+  - Dashboards where cost pacing within a cycle is the headline.
+  - Pairing with a usage breakdown or an energy mix chart.
+
+avoid_for:
+  - A finalised, itemised invoice (use a billing statement layout).
+  - Historical bill comparison over many months (use a bar chart shell).
+  - Real time power draw (use a live counter).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass estimated_total already formatted with its currency symbol, the billing period, and
+  usage_kwh so far. Set trend to up or down to colour the comparison and provide vs_last as
+  the caption; set days_left to the whole days remaining in the cycle.
+
+props:
+  estimated_total: The projected bill amount, preformatted with its currency symbol.
+  period: The billing cycle this estimate covers.
+  usage_kwh: Energy used so far this cycle, as a display string.
+  days_left: Whole days remaining in the billing cycle.
+  trend: Direction versus last cycle; up is coloured as a cost increase, down as a decrease.
+  vs_last: Short comparison caption shown beside the trend arrow.
+
+example_prompts:
+  - Add a projected bill card at 142 dollars with usage and days left.
+  - Show an energy bill estimate trending up versus last month.
+  - Put a mid cycle spend forecast on the account dashboard.
+
+relationships:
+  related:
+    - energy/appliance-usage-row
+    - energy/energy-mix-donut
+    - energy/renewable-goal
+
+lifecycle: experimental
+content_model: A projected total, a period, usage so far, an optional trend with a comparison caption, and days remaining.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the total the clear focus and the supporting figures quiet. Word vs_last as a plain
+  comparison such as more or less than last month, and reserve the up trend for genuine cost
+  increases so the danger colour stays meaningful.
+
+categorization:
+  category: Energy
+  subcategory: Billing
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trend direction is carried by the comparison caption text, not colour or the arrow alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

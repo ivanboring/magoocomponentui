@@ -1,0 +1,23 @@
+<figure class="area-chart-shell rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="area-chart-shell__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="area-chart-shell__title font-heading text-on-surface">{{ title }}</h3>
+  </header>
+  <div class="area-chart-shell__body flex gap-2">
+    <div class="area-chart-shell__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="area-chart-shell__y-tick">{{ y }}</span>
+    </div>
+    <div class="area-chart-shell__col min-w-0 flex-1">
+      <div class="area-chart-shell__plot relative h-48 w-full">
+        <svg class="area-chart-shell__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line data-for="g in grid_lines" class="area-chart-shell__grid stroke-border" x1="0" x2="100" y1="{{ g }}" y2="{{ g }}" vector-effect="non-scaling-stroke"></line>
+          <path data-if="second_area_path" class="area-chart-shell__area-2 fill-accent/15 stroke-none" d="{{ second_area_path }}"></path>
+          <path class="area-chart-shell__area fill-primary/15 stroke-none" d="{{ area_path }}"></path>
+          <path class="area-chart-shell__line fill-none stroke-primary [stroke-width:2]" d="{{ line_path }}" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+        </svg>
+      </div>
+      <div class="area-chart-shell__x-axis mt-2 flex justify-between text-[11px] text-on-surface-muted">
+        <span data-for="x in x_labels" class="area-chart-shell__x-tick">{{ x }}</span>
+      </div>
+    </div>
+  </div>
+</figure>

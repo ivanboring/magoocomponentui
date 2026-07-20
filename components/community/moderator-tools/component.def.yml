@@ -1,0 +1,17 @@
+name: moderator-tools
+props:
+  actions:
+    type: array
+    items: object
+    title: Actions
+    description: >
+      The moderator action buttons, in order. Each item: { label, value, danger, icon } where value
+      is the identifier dispatched on click, danger (boolean) tints the button as destructive, and
+      icon (optional raw SVG) is a leading glyph. Defaults to Pin, Lock, Move and Remove.
+    default:
+      - { label: "Pin", value: "pin" }
+      - { label: "Lock", value: "lock" }
+      - { label: "Move", value: "move" }
+      - { label: "Remove", value: "remove", danger: true }
+    example:
+      - { label: "Pin", value: "pin" }

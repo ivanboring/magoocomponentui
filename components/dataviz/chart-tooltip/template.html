@@ -1,0 +1,11 @@
+<div class="chart-tooltip inline-block rounded-control border border-border bg-surface px-3 py-2 text-sm shadow-raised" role="tooltip">
+  <p data-if="title" class="mb-1 font-medium text-on-surface">{{ title }}</p>
+  <ul class="flex flex-col gap-1">
+    <li data-for="row in rows" class="flex items-center gap-2">
+      <span class="size-2.5 shrink-0 rounded-[3px] {{ row.color_class }}"></span>
+      <span class="text-on-surface-muted">{{ row.label }}</span>
+      <span class="ml-auto pl-6 font-mono tabular-nums text-on-surface">{{ row.value }}</span>
+    </li>
+    <li class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></li>
+  </ul>
+</div>

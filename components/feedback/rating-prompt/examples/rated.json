@@ -1,0 +1,11 @@
+{
+  "question": "How did we do?",
+  "max": "5",
+  "stars": [
+    { "index": 1, "filled": true },
+    { "index": 2, "filled": true },
+    { "index": 3, "filled": true },
+    { "index": 4, "filled": true },
+    { "index": 5, "filled": false }
+  ]
+}

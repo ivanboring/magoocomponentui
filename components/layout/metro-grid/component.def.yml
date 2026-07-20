@@ -1,0 +1,29 @@
+name: metro-grid
+props:
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between tiles, from a fixed set of choices. "default" keeps the designed spacing;
+      none/sm/md/lg/xl are explicit fixed overrides.
+  label:
+    type: string
+    default: "Apps"
+    title: Accessible label
+    description: Accessible name announced for the metro grid region.
+slots:
+  items:
+    title: Items
+    description: >
+      The tiles to place in the grid. Base cells are uniform squares; a child may span
+      col-span-2 row-span-2 to become a larger feature tile that stays square.
+variants:
+  gap:
+    default: "gap-3"
+    none: "gap-0"
+    sm: "gap-2"
+    md: "gap-4"
+    lg: "gap-6"
+    xl: "gap-8"

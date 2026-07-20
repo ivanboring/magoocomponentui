@@ -1,0 +1,90 @@
+name: "Report Post"
+short_description: A flag-content form with a radio list of reasons, an optional details field and submit/cancel actions.
+long_visual_description: >
+  A form card on the surface colour titled "Report post" with a small danger-coloured flag glyph and a
+  short prompt. Below sits a stacked radio list of reasons, each in a bordered row that highlights with
+  a primary tint when selected, then an optional multi-line details textarea, and a right-aligned
+  Cancel and primary Submit report button pair.
+
+use_cases:
+  - Flag a forum post or thread for moderation.
+  - Report an abusive or spam comment.
+  - Surface a rule-breaking reply to moderators.
+  - Report user-generated content on a community feed.
+  - Flag a review or listing for a reason.
+  - Escalate misinformation on a discussion board.
+
+recommended_for:
+  - Structured content reporting with a required reason.
+  - Feeding a moderation queue via a submit event.
+avoid_for:
+  - Freeform contact or support forms (use a contact form).
+  - Blocking or muting a user (use an account action).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a reasons array of { label, value } and an optional placeholder. Submitting dispatches a
+  "report:submit" event with the chosen reason value and the trimmed details; Cancel resets the form
+  and dispatches "report:cancel".
+
+how_to_use: >
+  The reasons render as radio inputs sharing one name; the details textarea and the two buttons carry
+  hook classes. behavior.js intercepts the form submit, reads the checked reason radio and the details
+  textarea, and dispatches a bubbling "report:submit" CustomEvent with detail { reason, details }. The
+  Cancel button resets the form and dispatches "report:cancel". No props object is passed — everything
+  is read from the DOM.
+
+props:
+  reasons: "The report reasons as a radio list. Each: label and value (sent with the submit event)."
+  placeholder: "Placeholder for the optional details textarea."
+
+example_prompts:
+  - "Add a report post form with spam, harassment and off-topic reasons."
+  - "Show a flag-content dialog body with a reason list and a details field."
+  - "Wire a report form that dispatches an event with the reason and details on submit."
+
+lifecycle: experimental
+content_model: A titled form with a required reason (radio list), an optional details note, and submit and cancel actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep reason labels short, distinct and non-overlapping, and end with a catch-all like "Something
+  else". Make the details field genuinely optional and never accusatory in tone.
+
+relationships:
+  related:
+    - community/moderator-tools
+    - community/pinned-post
+    - notifications/alert
+
+categorization:
+  category: Community
+  subcategory: Moderation
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Reasons are grouped in a fieldset with a legend; each radio has a label row; buttons have text names and the flag icon is decorative.
+  keyboard_support: Radios are arrow-key navigable within the group; the textarea and both buttons are focusable and activate on Enter or Space.
+  seo_score: 15
+  text_direction: both

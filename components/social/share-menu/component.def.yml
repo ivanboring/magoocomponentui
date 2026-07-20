@@ -1,0 +1,36 @@
+name: share-menu
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Share targets
+    description: >
+      Each item: { label, icon, href }. icon is a raw inline SVG string rendered as-is
+      (author a simple currentColor stroke/fill SVG sized to fill its 20px box); href is
+      the share URL for that network (built by the caller with the shared url encoded).
+    example:
+      - { label: "Facebook", icon: "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M13 22v-8h3l1-4h-4V8a2 2 0 012-2h2V2h-3a5 5 0 00-5 5v3H6v4h3v8z\"/></svg>", href: "#" }
+  url:
+    type: string
+    default: "#"
+    title: Shared URL
+    description: The link being shared; the copy action writes this to the clipboard.
+  trigger_label:
+    type: string
+    default: "Share"
+    title: Trigger label
+  copy_label:
+    type: string
+    default: "Copy link"
+    title: Copy action label
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render the menu already open (used for screenshots/previews).
+  label:
+    type: string
+    default: "Share options"
+    title: Menu label
+    description: Accessible name for the popover menu.

@@ -1,0 +1,7 @@
+<div class="assignee-avatars flex items-center -space-x-2">
+  <span data-for="person in people" class="assignee-avatars__item relative inline-flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-xs text-on-surface ring-2 ring-surface" role="img" aria-label="{{ person.name }}">
+    <img data-if="person.avatar" class="size-full object-cover" src="{{ person.avatar }}" alt="">
+    <span data-if="!person.avatar" class="uppercase" aria-hidden="true">{{ person.initials }}</span>
+  </span>
+  <span data-if="overflow_count" class="assignee-avatars__overflow relative inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-raised text-xs font-medium text-on-surface-muted ring-2 ring-surface">+{{ overflow_count }}</span>
+</div>

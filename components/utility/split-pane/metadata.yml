@@ -1,0 +1,88 @@
+name: "Split Pane"
+short_description: A resizable two-pane layout with a draggable divider between a start and an end pane.
+long_visual_description: >
+  Two side-by-side panes filling a fixed-height surface, separated by a thin vertical divider. The
+  start pane takes a share of the width set by the ratio prop; the divider (a slim bar that turns
+  the accent colour on hover and focus) can be dragged left or right to reallocate the space. Each
+  pane scrolls independently and can carry a small uppercase label along its top.
+
+use_cases:
+  - An editor next to a live preview pane.
+  - A document beside a narrow outline or table-of-contents sidebar.
+  - A master list next to a detail view.
+  - Code beside its rendered output in a documentation example.
+  - Comparing two versions of content side by side.
+  - A form beside a summary or receipt that updates as it is filled.
+
+recommended_for:
+  - Two related views the reader wants to resize relative to each other.
+  - Layouts where the ideal split is a matter of preference rather than fixed.
+avoid_for:
+  - A fixed, non-resizable two-column layout (use a plain grid or split-view).
+  - More than two panes (nest split-panes or use a dedicated layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Fill the start and end slots, pick a starting ratio (50-50, 60-40, 40-60 or 70-30) and let the
+  reader drag the divider to taste. The ratio is a CSS custom property, so the split renders
+  correctly before any JavaScript runs.
+
+how_to_use: >
+  The start pane's width is driven by the --sp custom property set from the ratio prop, so the base
+  render already shows the right split with no JavaScript. behavior.js wires the divider: it uses
+  Pointer Events (pointerdown/move/up with setPointerCapture) to drag the start pane's flex-basis
+  between 15% and 85%, and ArrowLeft/ArrowRight nudge it by 2% when the divider is focused. The
+  divider is a role="separator" element with aria-orientation, aria-valuemin/max/now and tabindex,
+  so it is keyboard-operable. All listeners are removed on cleanup.
+
+props:
+  ratio: "Starting width split between the two panes (start : end): 50-50, 60-40, 40-60 or 70-30."
+  start_label: "Optional small heading shown at the top of the start (leading) pane."
+  end_label: "Optional small heading shown at the top of the end (trailing) pane."
+
+slots:
+  start: "Content of the leading (left) pane."
+  end: "Content of the trailing (right) pane."
+
+example_prompts:
+  - Put the editor and preview in a resizable split pane.
+  - Add a document-and-outline split I can drag to resize.
+  - Show code beside its output in a draggable two-pane layout.
+
+lifecycle: experimental
+content_model: Two independent content panes separated by a draggable divider.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the two panes conceptually paired (source and result, list and detail). Use a wider start
+  ratio when the leading pane is the primary content and the trailing pane is a companion.
+
+relationships:
+  related:
+    - utility/resizable-panel
+    - layout/split-view
+
+categorization:
+  category: UI Utilities
+  subcategory: Layout helpers
+  atomic_type: organism
+  usage_type: [layout, container]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The divider is a focusable role="separator" with aria-orientation and aria-valuemin/max/now; it can be moved with ArrowLeft/ArrowRight as well as by pointer drag.
+  keyboard_support: The divider is focusable (tabindex 0) and resizes with ArrowLeft/ArrowRight.
+  seo_score: 20
+  text_direction: both

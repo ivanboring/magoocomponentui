@@ -1,0 +1,11 @@
+{
+  "title": "Definition of done",
+  "done_count": "4",
+  "total_count": "4",
+  "items": [
+    { "label": "Code reviewed and merged", "done": true },
+    { "label": "Unit tests passing", "done": true },
+    { "label": "Docs updated", "done": true },
+    { "label": "Deployed to staging", "done": true }
+  ]
+}

@@ -1,0 +1,81 @@
+name: "Vote Control"
+short_description: A stacked up/down arrow control with a score between them, highlighting the active vote and toggling off on re-click.
+long_visual_description: >
+  A compact vertical stack: an up arrow on top, a score in the middle using tabular figures, and a
+  down arrow below, all in the muted on-surface colour. Casting an upvote tints the up arrow and the
+  score in the success colour on a faint success pill; a downvote tints the down arrow and the score
+  in the danger colour. Re-clicking the active arrow clears the vote back to neutral.
+
+use_cases:
+  - Upvote/downvote a forum post or comment.
+  - Rank answers in a Q and A thread.
+  - Score suggestions on a feedback board.
+  - Vote items up or down in a link aggregator.
+  - Attach a karma control to a review.
+  - Prioritise a feature request by community votes.
+
+recommended_for:
+  - A bidirectional score tied to one item.
+  - Sidebar placement next to a post or comment body.
+avoid_for:
+  - A single like/favourite toggle (use a like button).
+  - A multi-point star rating (use rating-stars).
+
+markets:
+  - Global
+
+example_usage: >
+  Place it beside a post or comment. Pass the pre-formatted score and set vote to reflect the stored
+  choice. Listen for the bubbling vote:change event (detail.vote is "", "up" or "down") on a parent to
+  persist the vote and update the score; re-clicking the active arrow clears it.
+
+how_to_use: >
+  The active highlight is driven by the root's data-vote attribute through group-data variants, so the
+  up and down states render in screenshots with no JavaScript. behavior.js sets or clears data-vote on
+  click (re-clicking the active arrow toggles it back to neutral), keeps aria-pressed in sync on both
+  buttons, and dispatches a bubbling "vote:change" CustomEvent with { vote }. The score is display-only
+  here; update it from the event in the parent.
+
+props:
+  score: "The pre-formatted vote score shown between the arrows."
+  vote: "The current vote: empty (neutral), up, or down."
+
+example_prompts:
+  - Add an upvote/downvote control with a score of 128 next to the post.
+  - Show a vote control already in the upvoted state.
+  - Put a karma control beside each comment.
+
+lifecycle: experimental
+content_model: A single bidirectional vote (neutral, up, down) plus a display score for one item.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep the score concise and abbreviate large numbers upstream. Use it only where both directions are
+  meaningful; for a one-way signal use a like or favourite control instead.
+
+relationships:
+  related:
+    - community/post-detail
+    - community/thread-row
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both arrows are labelled buttons that toggle aria-pressed, so the vote is not conveyed by colour alone.
+  keyboard_support: Both arrow buttons are focusable and activate on Enter/Space; the active one toggles off on repeat activation.
+  seo_score: 10
+  text_direction: both

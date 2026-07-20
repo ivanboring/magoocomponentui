@@ -1,0 +1,14 @@
+{
+  "batch_number": "B-2209-A",
+  "product": "Buffer solution pH 7.0",
+  "quantity": "500 L",
+  "start": "07:15",
+  "end": "11:40",
+  "status": "Released",
+  "params": [
+    { "label": "Temperature", "value": "25.2 C", "in_spec": true },
+    { "label": "pH", "value": "7.02", "in_spec": true },
+    { "label": "Mix time", "value": "45 min", "in_spec": true },
+    { "label": "Conductivity", "value": "1.31 mS/cm", "in_spec": true }
+  ]
+}

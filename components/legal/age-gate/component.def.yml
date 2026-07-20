@@ -1,0 +1,17 @@
+name: age-gate
+props:
+  heading:
+    type: string
+    default: "Are you of legal age?"
+    title: Heading
+    description: The question shown at the top of the gate.
+  message:
+    type: string
+    title: Message
+    description: Optional supporting line under the heading (context, why it is asked).
+    example: "You must confirm your age to view this content."
+  min_age:
+    type: string
+    default: "18"
+    title: Minimum age
+    description: The age shown on the confirm button label ("I am {min_age} or older").

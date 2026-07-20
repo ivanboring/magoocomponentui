@@ -1,0 +1,83 @@
+name: "Bento Grid"
+short_description: A dense grid of mixed-size tiles for an editorial or dashboard "bento" layout, where each child claims its own footprint.
+long_visual_description: >
+  A tight two-to-four column grid of tiles of varying sizes, packed together with a dense
+  auto-flow so smaller tiles backfill the gaps left by larger ones. A hero tile can span two
+  columns and two rows with a full-bleed image under a dark gradient and a title, while wide
+  banner tiles span two columns and compact stat or photo tiles fill the single cells. Every
+  tile keeps a card radius, border and shadow so the group reads as one composed surface.
+
+use_cases:
+  - A homepage highlights section mixing a hero image with stats and small cards.
+  - A dashboard overview packing KPIs, charts and callouts at different sizes.
+  - A product or feature showcase with one dominant tile and several supporting ones.
+  - An editorial "best of" or roundup grid with photo and text tiles interleaved.
+  - A media gallery where a few images deserve more visual weight than the rest.
+  - A marketing landing block that needs an asymmetric, magazine-style rhythm.
+
+recommended_for:
+  - Layouts where tiles should have deliberately unequal visual weight.
+  - Compositions mixing images, stats and short text in one packed grid.
+avoid_for:
+  - Uniform equal-size cards in tidy rows (use card-grid).
+  - Masonry columns driven by natural content height (use masonry-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop child tiles into the items slot, each carrying its own col-span-* and row-span-* classes
+  to claim a footprint (for example col-span-2 row-span-2 for a hero, sm:col-span-2 for a wide
+  banner, and single cells for the rest). The grid handles the packing with a dense auto-flow.
+
+props:
+  gap: "Space between tiles: default, or an explicit none/sm/md/lg/xl."
+  label: "Accessible name announced for the grid region."
+
+slots:
+  items: "The tiles. Each child sets its own col-span-* / row-span-* footprint; unsized children occupy a single cell."
+
+example_prompts:
+  - "Build a bento highlights grid with a big image hero and three stat tiles."
+  - "Lay out a dashboard bento with one wide chart tile and several KPI cells."
+  - "Make an editorial bento mixing photo tiles and short text callouts."
+
+lifecycle: experimental
+content_model: A packed grid of heterogeneous tiles, each claiming a column and row span, slotted as child markup.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Give one tile clear dominance and let the rest support it; too many large tiles flattens the
+  hierarchy. Keep tile copy short since sizes vary. Children carry the col-span-* / row-span-*
+  classes and the grid uses a dense auto-flow, so smaller tiles backfill gaps left by larger ones.
+
+relationships:
+  related:
+    - layout/masonry-grid
+    - cards/card-grid
+    - layout/carousel-grid
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label; contrast of tile text on images depends on the gradient overlay and authored copy.
+  keyboard_support: None inherent; interactivity comes from any links or controls placed inside the slotted tiles.
+  seo_score: 30
+  text_direction: both

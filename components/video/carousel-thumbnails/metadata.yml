@@ -1,0 +1,82 @@
+name: "Thumbnail Gallery"
+short_description: A large media viewer with a horizontal thumbnail strip that selects which frame is shown, with an optional per-frame caption.
+long_visual_description: >
+  A large 16:9 main frame sits above a scrollable row of square thumbnails. Clicking a thumbnail
+  crossfades the main frame to that image; the active thumbnail is highlighted with a primary-colour
+  border. When the active frame has a caption it appears as a white overlay on a soft gradient along
+  the bottom of the main frame, and the caption bar collapses when the frame has none. Optional
+  previous/next arrows over the frame step through the media without wrapping.
+
+use_cases:
+  - A generic image gallery for an article, listing or profile.
+  - Screenshots or media frames for a feature or how-it-works section.
+  - A location or venue gallery with captioned photos.
+  - A press or portfolio viewer where each frame carries a short caption.
+  - A gallery embedded in a card or modal where a thumbnail strip fits better than dots.
+  - Any captioned media viewer that is not e-commerce product-specific.
+
+recommended_for:
+  - A generic captioned image viewer driven by a thumbnail strip.
+  - Media sets rendered from structured data (image, alt, caption).
+avoid_for:
+  - An e-commerce product viewer with variant-specific images (use product-gallery).
+  - A full-screen zoom/lightbox experience (use image-lightbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, alt, caption }). The first frame shows on load; behavior.js
+  makes the thumbnail strip select which frame is displayed and fills the caption overlay from the
+  active frame. Turn on show_arrows to add previous/next stepping over the main frame.
+
+how_to_use: >
+  The frames are stacked and the active one is fully opaque (opacity-100 is the CSS base state, so a
+  frame renders correctly with no JavaScript and in screenshots). behavior.js starts at index 0 and,
+  on a thumbnail click (or arrow step), sets data-active on every frame and thumb, reads the active
+  frame's data-caption to fill the bottom overlay (which collapses when empty), and scrolls the
+  active thumbnail into view. The portable self-init reads no props object.
+
+props:
+  items: "The media frames, in order. Each item: image (frame source), alt (accessible description), caption (optional overlay text shown when that frame is active)."
+  show_arrows: "Show previous/next arrow buttons over the main frame to step through the media."
+  label: "Accessible name announced for the gallery region."
+
+lifecycle: experimental
+content_model: A main media frame plus a thumbnail strip that selects the shown frame, rendered from an items array.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the frames a consistent aspect and subject so the strip reads as one set. Write captions as
+  short single lines — they overlay the image bottom. Order the frames with the strongest image
+  first, since it shows on load. Leave captions empty to keep the bar hidden for a clean viewer.
+
+relationships:
+  related:
+    - video/media-gallery
+    - commerce/product-gallery
+    - video/image-lightbox
+
+categorization:
+  category: Video
+  subcategory: Gallery
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label; each thumbnail is a labelled button and each frame has descriptive alt text; the optional arrows are labelled buttons that disable at the ends.
+  keyboard_support: Thumbnails and arrows are focusable buttons that activate on Enter/Space; the thumbnail strip scrolls with the keyboard when focused.
+  seo_score: 30
+  text_direction: both

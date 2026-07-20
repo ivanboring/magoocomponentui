@@ -1,0 +1,13 @@
+name: disclosure-accordion
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Disclosures
+    description: >
+      The disclosures, in order. Each item: { title, body_html, open }. title is the summary
+      label; body_html is raw HTML for the expanded body (paragraphs, lists, links); open (boolean,
+      optional) makes that disclosure start expanded.
+    example:
+      - { title: "How we use cookies", body_html: "<p>We use essential cookies to run the site and optional cookies to measure traffic.</p>", open: true }

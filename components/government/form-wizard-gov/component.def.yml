@@ -1,0 +1,32 @@
+name: form-wizard-gov
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading above the stepper.
+    example: "Apply for a resident parking permit"
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: >
+      The wizard steps shown in the numbered header. Each item:
+      { number, label, active, done } where number is the displayed index, done marks a
+      completed step (shows a checkmark, success accent), active marks the in-progress step
+      (primary accent), and the rest render muted. Exactly one step should be active.
+    example:
+      - { number: 1, label: "Eligibility", active: false, done: true }
+      - { number: 2, label: "Your details", active: true, done: false }
+      - { number: 3, label: "Review", active: false, done: false }
+  fields:
+    type: array
+    items: object
+    title: Current-step fields
+    description: >
+      A small sample of fields rendered in the current-step form area. Each item:
+      { label, placeholder, required }. These are illustrative form controls for the
+      active step; a real integration swaps the field set per step.
+    example:
+      - { label: "Full name", placeholder: "As shown on your ID", required: true }
+      - { label: "Address", placeholder: "House number and street", required: true }

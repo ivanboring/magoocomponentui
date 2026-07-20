@@ -1,0 +1,7 @@
+{
+  "events": [
+    { "type": "vaccine", "title": "DHPP third round", "date": "20 Mar 2026", "body": "Final puppy vaccination in the series." },
+    { "type": "vaccine", "title": "DHPP second round", "date": "22 Feb 2026" },
+    { "type": "visit", "title": "First puppy check-up", "date": "25 Jan 2026", "body": "Weighed in and cleared for socialisation." }
+  ]
+}

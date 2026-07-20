@@ -1,0 +1,77 @@
+name: "Token Usage Meter"
+short_description: A compact meter showing tokens used against a limit, with an optional running cost.
+long_visual_description: >
+  A labelled row with the used-over-limit count in a mono figure, a slim rounded track whose fill
+  grows to a precomputed percentage, and an optional cost line beneath. The fill tone can shift from
+  the primary colour to amber or red as usage approaches or exceeds the limit.
+
+use_cases:
+  - Showing context-window consumption during a chat.
+  - A monthly token or credit allowance meter in account settings.
+  - Per-request cost and usage readout in an agent console.
+  - Warning a user as they approach a plan's token cap.
+  - Displaying budget burn-down for an API key.
+
+recommended_for:
+  - Any place a single used-vs-limit ratio plus optional cost needs a small footprint.
+  - Dashboards and composers where usage should be glanceable.
+avoid_for:
+  - Multi-series usage over time (use a chart).
+  - Indeterminate progress with no known total (use a spinner).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass used and limit as preformatted strings and used_pct as the precomputed percentage (used /
+  limit * 100) - the directive language does no arithmetic. Set tone to warning or danger to tint
+  the fill as usage climbs, and add cost for a running spend line.
+
+props:
+  label: "Caption above the meter and its accessible name."
+  used: "Tokens used so far, preformatted (e.g. 12,400)."
+  limit: "Total allowance, preformatted (e.g. 20,000)."
+  used_pct: "Fill width 0-100, precomputed by the caller."
+  cost: "Optional running cost line below the meter."
+  tone: "Fill colour: normal, warning, or danger."
+
+example_prompts:
+  - "Add a token usage meter showing 12,400 of 20,000 used with the cost so far."
+  - "Show context window usage that turns red as it fills up."
+
+lifecycle: experimental
+content_model: A single used-vs-limit measurement with a precomputed percentage and optional cost.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the used and limit figures in the same unit and formatting. Reserve the danger tone for at or
+  over the limit and warning for the final stretch, so colour stays meaningful.
+
+relationships:
+  related:
+    - ai/model-picker
+    - ai/tool-call-card
+
+categorization:
+  category: AI & Chat
+  subcategory: Status
+  atomic_type: molecule
+  usage_type: [status, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The track carries role="progressbar" with an accessible name and aria-valuenow/min/max; colour is not the only signal since the numeric count is always shown.
+  keyboard_support: none
+  seo_score: 20
+  text_direction: both

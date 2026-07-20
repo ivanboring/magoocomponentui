@@ -1,0 +1,19 @@
+name: outage-map
+props:
+  outages:
+    type: array
+    items: object
+    required: true
+    title: Outages
+    description: >
+      The affected areas. Each item: { area, customers_affected, status }. `area` is the
+      region name, `customers_affected` is a display string (e.g. "1,240 customers"), and
+      `status` is one of investigating, restoring or resolved, which colours both the
+      region tile in the facade and the status badge in the list.
+    example:
+      - { area: "Downtown", customers_affected: "1,240 customers", status: "investigating" }
+  total_affected:
+    type: string
+    title: Total affected
+    description: Optional summary of total impact shown in the header (e.g. "2,110 customers affected").
+    example: "2,110 customers affected"

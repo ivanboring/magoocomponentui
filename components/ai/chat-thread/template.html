@@ -1,0 +1,9 @@
+<div class="chat-thread flex flex-col gap-4">
+  <div data-for="message in messages" class="flex data-[role=user]:justify-end" data-role="{{ message.role }}">
+    <div class="flex max-w-[80%] flex-col gap-1 data-[role=user]:items-end" data-role="{{ message.role }}">
+      <span data-if="message.name" class="px-1 text-xs font-medium text-on-surface-muted">{{ message.name }}</span>
+      <div class="rounded-card px-4 py-2 text-sm data-[role=user]:bg-primary data-[role=user]:text-primary-contrast data-[role=assistant]:bg-surface-raised data-[role=assistant]:text-on-surface" data-role="{{ message.role }}">{{ message.content }}</div>
+      <span data-if="message.time" class="px-1 text-xs text-on-surface-muted">{{ message.time }}</span>
+    </div>
+  </div>
+</div>

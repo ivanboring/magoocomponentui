@@ -1,0 +1,29 @@
+name: profile-completeness
+props:
+  title:
+    type: string
+    default: "Complete your profile"
+    title: Title
+    description: The card heading nudging the user to finish setup.
+    example: "Complete your profile"
+  percent:
+    type: integer
+    required: true
+    title: Percent complete
+    description: >
+      Precomputed completion percentage 0-100 (the directive language cannot compute it from the
+      steps). Drives both the displayed number and the progress bar fill width.
+    example: 60
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: >
+      The setup checklist, in order. Each item: { label, done }. label names the step and done is a
+      boolean — done steps show a filled check and are struck through, pending steps show an empty
+      circle.
+    example:
+      - { label: "Add a profile photo", done: true }
+      - { label: "Verify your email", done: true }
+      - { label: "Connect a calendar", done: false }

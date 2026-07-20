@@ -1,0 +1,76 @@
+name: "Body Metrics"
+short_description: A responsive grid of body-measurement tiles - weight, BMI, body fat and more - each with an optional signed change.
+long_visual_description: >
+  A responsive grid (two columns on mobile, three from the small breakpoint up) of surface tiles.
+  Each tile shows a muted label, a large value in the heading face with a small unit suffix, and an
+  optional signed change with a direction arrow, coloured by convention (a drop reads as progress in
+  green, a rise in red) unless the caller flips the direction per metric.
+
+use_cases:
+  - Body-composition overview on a fitness or health dashboard.
+  - Weigh-in recap after a smart-scale sync.
+  - Progress panel in a weight-loss or body-recomposition app.
+  - Baseline measurements on an onboarding or check-in screen.
+  - Coach-facing client summary of key body metrics.
+
+recommended_for:
+  - Showing several body measurements together with period-over-period change.
+  - A compact, scannable measurements grid with directional cues.
+avoid_for:
+  - A single headline metric (use stat-card).
+  - Trends over time (use a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a metrics array; each entry needs a label and value, with an optional unit suffix and an
+  optional change plus change_dir ("up" or "down"). By default up is coloured danger and down
+  success - suitable for weight-loss framing - so flip change_dir on metrics where a rise is the
+  desired outcome (e.g. muscle) or omit change to show the value alone.
+
+props:
+  metrics: The measurement tiles in order; each has a label, value, optional unit, optional change and change_dir.
+
+example_prompts:
+  - "Add a body metrics grid with weight, BMI, body fat and muscle, each showing its change."
+  - "Show a plain body metrics grid with values only, no deltas."
+
+lifecycle: experimental
+content_model: A set of body measurements, each a label, value, optional unit, and an optional directional change.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep labels to a word or two and values preformatted. Colour agrees with meaning, not raw
+  direction - set change_dir per metric so a good change is always green (a rise in muscle is
+  success, a rise in weight is danger). The arrow direction reinforces the change beyond colour.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - fitness/sleep-summary
+    - fitness/water-intake
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: organism
+  usage_type: [stat, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each change pairs a direction arrow with the signed value text, so movement is not conveyed by colour alone; tiles are plain static text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

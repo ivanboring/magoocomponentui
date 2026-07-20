@@ -1,0 +1,11 @@
+{
+  "label": "Theme",
+  "help": "Applies across the whole workspace.",
+  "value": "system",
+  "name": "theme",
+  "options": [
+    { "label": "System", "value": "system" },
+    { "label": "Light", "value": "light" },
+    { "label": "Dark", "value": "dark" }
+  ]
+}

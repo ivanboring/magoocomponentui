@@ -1,0 +1,82 @@
+name: "Subforum Card"
+short_description: A board summary row with an icon tile, name and description, topic and post counts, and an optional latest-post preview.
+long_visual_description: >
+  A card on the surface colour with a card radius and soft shadow, laid out as a row on wider
+  screens and a stack on mobile. A rounded icon tile in a faint primary tint leads, followed by the
+  board name as a link with a one-line description. A pair of centered topic and post counts in the
+  heading face sits to the right, and an optional latest-post preview, divided by a left border,
+  shows the most recent thread title with its author and time.
+
+use_cases:
+  - A board entry on a forum category index.
+  - A subforum listing inside a parent category.
+  - A community directory of discussion areas.
+  - A support-portal list of topic areas.
+  - A row in a forum home page overview.
+  - A picker of boards when starting a new thread.
+
+recommended_for:
+  - Summarising a board with activity counts and a recent post.
+  - Category index pages listing several boards.
+avoid_for:
+  - Listing individual topics (use thread-list).
+  - A single topic page (use post-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a name, topics and posts counts, and an optional description, icon (inline SVG) and
+  last_post preview. Counts are pre-formatted strings, so abbreviate large numbers upstream. Stack
+  several to form a category index.
+
+props:
+  name: "The board name, shown as a link."
+  description: "Optional one-line summary of the board."
+  icon: "Optional inline SVG shown in the leading icon tile; sized to the tile."
+  topics: "Pre-formatted count of topics in the board."
+  posts: "Pre-formatted count of posts in the board."
+  last_post: "Optional latest-post preview object: title, author and pre-formatted time."
+
+example_prompts:
+  - List forum boards with topic and post counts and a recent post.
+  - Show a General Discussion board card with an icon and latest reply.
+  - Build a category index of subforums.
+
+lifecycle: experimental
+content_model: A single forum board with name, description, icon, activity counts and an optional latest-post preview.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the name short and the description to one line. Abbreviate large counts upstream. Use a simple
+  monochrome icon so the tile reads cleanly against the primary tint.
+
+relationships:
+  related:
+    - community/thread-list
+    - community/thread-row
+    - community/post-detail
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The board name and latest-post title are real links, the counts use a description-list structure, and the icon tile is marked decorative.
+  keyboard_support: The board name and latest-post title are focusable links; there are no other interactive controls.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,7 @@
+{
+  "title": "Sprint 25 burndown - ahead of plan",
+  "ideal_path": "M0,8 L100,92",
+  "actual_path": "M0,8 L17,20 L33,26 L50,44 L67,58 L83,80 L100,92",
+  "y_labels": ["50", "38", "25", "13", "0"],
+  "x_labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Mon", "Tue"]
+}

@@ -1,0 +1,27 @@
+{
+  "roles": [
+    {
+      "label": "Registration desk",
+      "description": "Check runners in and hand out race packets.",
+      "shifts": [
+        { "time": "Sat 7:00-9:00", "slots_left": 4 },
+        { "time": "Sat 9:00-11:00", "slots_left": 2 }
+      ]
+    },
+    {
+      "label": "Water station",
+      "description": "Keep cups filled at the halfway mark.",
+      "shifts": [
+        { "time": "Sat 8:00-11:00", "slots_left": 6 },
+        { "time": "Sat 11:00-14:00", "slots_left": 3 }
+      ]
+    },
+    {
+      "label": "Course cleanup",
+      "description": "Break down the route and pack up gear.",
+      "shifts": [
+        { "time": "Sat 14:00-16:00", "slots_left": 5 }
+      ]
+    }
+  ]
+}

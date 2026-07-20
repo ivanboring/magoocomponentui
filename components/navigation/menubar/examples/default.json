@@ -1,0 +1,35 @@
+{
+  "label": "Application menu",
+  "menus": [
+    {
+      "label": "File",
+      "open": true,
+      "items": [
+        { "label": "New", "href": "#", "shortcut": "Cmd N" },
+        { "label": "Open", "href": "#", "shortcut": "Cmd O" },
+        { "label": "Save", "href": "#", "shortcut": "Cmd S" },
+        { "divider": true },
+        { "label": "Exit", "href": "#", "danger": true }
+      ]
+    },
+    {
+      "label": "Edit",
+      "items": [
+        { "label": "Undo", "href": "#", "shortcut": "Cmd Z" },
+        { "label": "Redo", "href": "#", "shortcut": "Cmd Shift Z" },
+        { "divider": true },
+        { "label": "Cut", "href": "#", "shortcut": "Cmd X" },
+        { "label": "Copy", "href": "#", "shortcut": "Cmd C" },
+        { "label": "Paste", "href": "#", "shortcut": "Cmd V" }
+      ]
+    },
+    {
+      "label": "View",
+      "items": [
+        { "label": "Zoom In", "href": "#", "shortcut": "Cmd +" },
+        { "label": "Zoom Out", "href": "#", "shortcut": "Cmd -" },
+        { "label": "Full Screen", "href": "#", "shortcut": "F11" }
+      ]
+    }
+  ]
+}

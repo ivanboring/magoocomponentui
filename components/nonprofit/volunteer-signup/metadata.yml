@@ -1,0 +1,86 @@
+name: "Volunteer Signup"
+short_description: A role-and-shift signup panel where a volunteer picks an open shift for a role and commits to it.
+long_visual_description: >
+  A surface card split into role blocks, each divided by a hairline rule. A role shows its name in
+  the heading face, an optional describing sentence, and a wrapping row of shift chips. Each chip
+  carries the shift time and a small "N left" openings count; a full shift (0 left) is dimmed and
+  cannot be picked. Selecting a chip outlines it in the primary colour with a soft primary tint. A
+  primary Sign up button sits under each role's shifts.
+
+use_cases:
+  - Recruit event-day volunteers across several roles and time slots.
+  - Fill shifts for a food bank, shelter, or community drive.
+  - Staff a fundraiser or race with registration, water, and cleanup crews.
+  - Let members claim a slot on a recurring service rota.
+  - Show remaining openings per shift so popular times fill first.
+  - Coordinate a beach or park cleanup with morning and afternoon waves.
+
+recommended_for:
+  - Signups where a role has multiple discrete shifts to choose from.
+  - Showing live remaining-capacity per shift to nudge sign-ups.
+avoid_for:
+  - A single one-off RSVP with no roles or shifts (use a simpler form).
+  - Collecting rich applicant details (pair with a real form component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a roles array; each role has a label, an optional description, and a shifts array of
+  { time, slots_left }. Precompute slots_left as the real remaining count - a shift at 0 renders
+  muted and non-selectable automatically. A volunteer picks one shift per role and presses Sign up;
+  listen for the volunteer:signup event to record { role, shift }.
+
+how_to_use: >
+  Layout is static markup. behavior.js wires interaction per role block: clicking a shift chip
+  (unless it is full, data-slots="0") sets data-selected on it and clears the other chips in that
+  role, and Sign up dispatches volunteer:signup with { role, shift } (shift is null when nothing is
+  picked). Config is read from data-* attributes - the portable self-init passes no props object.
+
+props:
+  roles: "The roles offered, in order. Each: label, optional description, and a shifts array of { time, slots_left } where slots_left is the precomputed remaining openings (0 renders the shift muted and locked)."
+
+example_prompts:
+  - "Add a volunteer signup with a registration and a water-station role, each with two shifts."
+  - "Show a race-day volunteer signup and mark the full shifts as unavailable."
+
+lifecycle: experimental
+content_model: A set of volunteer roles, each with an optional description and one or more selectable shifts carrying a remaining-openings count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name roles by the work, not a job title, and keep descriptions to one line. Order shifts
+  chronologically. Keep slots_left honest - it is the signal that makes a full shift read as closed.
+
+relationships:
+  related:
+    - nonprofit/pledge-card
+    - nonprofit/cause-hero
+    - nonprofit/petition-signer
+
+categorization:
+  category: Nonprofit
+  subcategory: Volunteering
+  atomic_type: organism
+  usage_type: [form, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Shift chips and Sign up are real buttons; selection is mirrored to aria-pressed and full shifts are non-interactive. Verify each role has a distinct, meaningful label.
+  keyboard_support: Shift chips and the Sign up button are focusable and activate on Enter/Space; full shifts are skipped by the selection handler.
+  seo_score: 25
+  text_direction: both

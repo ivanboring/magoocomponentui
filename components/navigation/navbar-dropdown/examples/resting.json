@@ -1,0 +1,29 @@
+{
+  "logo_text": "Northwind",
+  "logo_href": "/",
+  "label": "Primary",
+  "links": [
+    { "label": "Home", "href": "/" },
+    {
+      "label": "Docs",
+      "open": false,
+      "children": [
+        { "label": "Getting started", "href": "#" },
+        {
+          "label": "Guides",
+          "open": false,
+          "children": [
+            { "label": "Components", "href": "#" },
+            { "label": "Theming", "href": "#" }
+          ]
+        },
+        { "label": "API reference", "href": "#" }
+      ]
+    },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "$slots": {
+    "actions": "<a class=\"rounded-button border border-border px-4 py-2 text-sm font-heading text-on-surface transition-colors hover:bg-surface-raised\" href=\"#\">Sign in</a>"
+  }
+}

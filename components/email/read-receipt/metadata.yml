@@ -1,0 +1,60 @@
+name: "Read Receipt"
+short_description: A tiny check-mark indicator showing whether a message was sent, delivered, or read.
+long_visual_description: >
+  A small inline glyph that mirrors chat-style delivery states. "sent" is a single check in
+  muted colour; "delivered" is a double check, still muted; "read" is the same double check
+  tinted with the info colour. It sits inline beside a timestamp or message row and carries an
+  accessible label describing the state.
+
+use_cases:
+  - Delivery/read status beside a sent message.
+  - Message-state indicator in a chat or DM thread.
+  - Sent/delivered/read marker in a mail sent-items list.
+  - Per-recipient read status in a conversation.
+  - Delivery confirmation on a notification row.
+
+recommended_for:
+  - A compact per-message delivery indicator.
+  - Chat and mail rows that need a sent/delivered/read glyph.
+avoid_for:
+  - A verbose status label (use a text badge).
+  - Overall connection or sync status (use status-indicator).
+
+markets:
+  - Global
+
+example_usage: >
+  Set state to sent, delivered, or read. The glyph and colour follow: a single muted check for
+  sent, a muted double check for delivered, and an info-tinted double check for read.
+
+props:
+  state: "The delivery state: sent (single muted check), delivered (double muted check), or read (double info-tinted check)."
+
+lifecycle: experimental
+content_model: A single delivery state (sent, delivered, or read).
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+    - --color-info
+
+editorial_guidance: >
+  Keep it strictly to delivery state; do not overload it with other meaning. Reserve the info
+  tint for the read state so the colour change reliably signals "seen".
+
+relationships:
+  related:
+    - email/mailbox-folder
+
+categorization:
+  category: Email
+  subcategory: Status
+  atomic_type: atom
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The indicator is a role="img" with an aria-label naming the state ("Message read"); the SVGs are aria-hidden. Delivered vs read is distinguished by both the double check and the colour, not colour alone.
+  keyboard_support: none
+  seo_score: 5
+  text_direction: both

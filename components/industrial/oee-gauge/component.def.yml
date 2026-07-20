@@ -1,0 +1,39 @@
+name: oee-gauge
+props:
+  oee_pct:
+    type: integer
+    required: true
+    title: OEE percentage
+    description: Overall equipment effectiveness from 0-100, shown as the centre label.
+    example: 82
+  availability:
+    type: string
+    title: Availability
+    description: Optional preformatted availability sub-metric (include the unit, e.g. "91%").
+    example: "91%"
+  performance:
+    type: string
+    title: Performance
+    description: Optional preformatted performance sub-metric (include the unit, e.g. "94%").
+    example: "94%"
+  quality:
+    type: string
+    title: Quality
+    description: Optional preformatted quality sub-metric (include the unit, e.g. "96%").
+    example: "96%"
+  arc_dash:
+    type: string
+    required: true
+    title: Arc dash array
+    description: >
+      Precomputed SVG stroke-dasharray for the value arc on a circle of circumference 251 (r=40).
+      Use the full circumference "251" and drive the visible length with arc_offset.
+    example: "251"
+  arc_offset:
+    type: string
+    required: true
+    title: Arc dash offset
+    description: >
+      Precomputed SVG stroke-dashoffset for the value arc, computed as 251 * (1 - oee_pct/100).
+      For 82 percent this is about "45".
+    example: "45"

@@ -1,0 +1,89 @@
+name: "Job Dispatch Card"
+short_description: A compact work-order card summarising an assigned field-service job with priority, arrival window, technician and status.
+long_visual_description: >
+  A surface card headed by a mono job number and a service-type title, with a coloured priority
+  pill on the right. Beneath it, stacked rows show the customer, service address and arrival
+  window, each with a small line icon. A divider separates a footer that pairs the assigned
+  technician (an initials avatar plus name) with a coloured status pill.
+
+use_cases:
+  - Dispatch queue entry in a field-service scheduling board.
+  - Technician mobile app showing the next assigned job.
+  - Work-order summary in a dispatcher dashboard.
+  - Job list row on a service-management portal.
+  - Assignment confirmation shown to a technician on acceptance.
+  - Route stop card summarising a single visit.
+
+recommended_for:
+  - Summarising one assigned job with its priority and current status.
+  - Lists or boards of dispatched work orders.
+avoid_for:
+  - The full work order with tasks and parts (use work-order-detail).
+  - A bookable appointment slot (use service-appointment).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the job_number plus the customer, address and arrival window, then set priority and status
+  enums to colour the two pills. Provide technician with precomputed initials to render the avatar.
+
+props:
+  job_number: "Work-order reference shown in the header (mono)."
+  customer: "Customer or account the job is for."
+  address: "Service address the technician is dispatched to."
+  service_type: "Short label for the kind of work; used as the card title."
+  window: "Preformatted arrival window string."
+  priority: "One of low, medium, high, urgent; colours the priority pill."
+  technician: "Assigned technician name shown in the footer."
+  initials: "Precomputed 1-2 character initials for the technician avatar."
+  status: "One of assigned, en-route, on-site, complete; colours the status pill."
+
+example_prompts:
+  - "Add a dispatch card for job WO-4821, HVAC repair, urgent, en-route."
+  - "Show the next assigned job with customer, address and arrival window."
+
+lifecycle: experimental
+content_model: A single assigned field-service job with priority, schedule, technician and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep service_type terse (a few words) and reserve urgent priority for genuine escalations so the
+  colour stays meaningful. Advance status as the visit progresses so the pill reflects reality.
+
+relationships:
+  related:
+    - fieldservice/work-order-detail
+    - fieldservice/technician-card
+    - fieldservice/route-schedule
+
+categorization:
+  category: Field Service
+  subcategory: Dispatch
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Priority and status are conveyed by an uppercase text label inside the pill, not colour alone; icons are decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

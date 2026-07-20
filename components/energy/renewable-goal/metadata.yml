@@ -1,0 +1,86 @@
+name: "Renewable Goal"
+short_description: A card showing the current renewable share of energy against a target, with a goal marker and an optional source breakdown.
+long_visual_description: >
+  A surface card led by a small kicker over a large tabular percentage and a "renewable this
+  month" caption. Below sits a rounded progress track filled in the success tone to the
+  current share, with a thin marker standing at the goal position and the goal value
+  labelled beneath. An optional divider introduces a mini breakdown that lists each
+  renewable source with a small bar and its own percentage.
+
+use_cases:
+  - Track progress toward a household renewable energy target.
+  - Show a business's green energy commitment against its goal.
+  - Report a community solar program's renewable share.
+  - Motivate customers on a green energy plan with a monthly goal.
+  - Summarise a facility's clean energy progress on a sustainability page.
+  - Compare current renewable mix against a pledged target.
+
+recommended_for:
+  - A single share versus target figure with a clear goal marker.
+  - Dashboards where the renewable percentage is the headline.
+  - Cases where the share and each source percent are precomputed.
+
+avoid_for:
+  - A full fuel mix breakdown of every source (use the energy mix donut).
+  - Trends over many months (use a line chart shell).
+  - Precise multi metric comparison (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute current_pct as the renewable share and set goal_pct for the target marker.
+  Optionally pass sources, each with a precomputed pct, to show a mini breakdown of what
+  makes up the current share.
+
+props:
+  current_pct: Current renewable share, 0-100, precomputed and used for the headline and bar fill.
+  goal_pct: Target renewable share, 0-100; draws a marker and a goal label when set.
+  sources: Optional renewable source breakdown, each with a label and a precomputed pct for its mini bar.
+
+example_prompts:
+  - Add a renewable goal card at 64 percent toward an 80 percent target.
+  - Show renewable progress with a solar and wind breakdown.
+  - Put a green energy goal tracker on the sustainability dashboard.
+
+relationships:
+  related:
+    - energy/energy-mix-donut
+    - energy/bill-estimate
+    - atoms/progress-bar
+
+lifecycle: experimental
+content_model: A current renewable share, an optional target, and an optional breakdown of renewable sources.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the headline percentage the focus and let the goal marker do the comparison without
+  extra copy. Precompute every source percent against the same total so the mini bars stay
+  honest, and keep source labels short.
+
+categorization:
+  category: Energy
+  subcategory: Sustainability
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with aria-valuenow, min and max and an accessible label; the goal is labelled in text.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

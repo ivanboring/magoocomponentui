@@ -1,0 +1,32 @@
+name: transfer-list
+props:
+  available_label:
+    type: string
+    default: "Available"
+    title: Available list heading
+    description: Heading shown above the left (source) list.
+  chosen_label:
+    type: string
+    default: "Chosen"
+    title: Chosen list heading
+    description: Heading shown above the right (destination) list.
+  available:
+    type: array
+    items: object
+    required: true
+    title: Available items
+    description: >
+      The items in the left (source) list. Each item: { label, value, selected (bool) }. value
+      is echoed in the transfer:change event; selected pre-highlights a row.
+    example:
+      - { label: "Marketing", value: "marketing", selected: false }
+      - { label: "Sales", value: "sales", selected: false }
+  chosen:
+    type: array
+    items: object
+    required: true
+    title: Chosen items
+    description: >
+      The items in the right (destination) list. Each item: { label, value, selected (bool) }.
+    example:
+      - { label: "Engineering", value: "engineering", selected: false }

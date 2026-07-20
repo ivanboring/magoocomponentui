@@ -1,0 +1,78 @@
+name: "Sensor Reading"
+short_description: A compact sensor tile showing a labelled value and unit, colour-coded by status.
+long_visual_description: >
+  A small card on the surface colour with a muted label row — an optional glyph and the measurement
+  name — above a large value in the heading face with a lighter unit suffix. The value colour follows
+  the status: success for normal, warning for a caution reading, and danger for a critical one.
+
+use_cases:
+  - Show a temperature, humidity, or air-quality reading on a dashboard.
+  - Flag a sensor that has crossed a warning or critical threshold.
+  - Build a grid of environmental readings for a room or home.
+  - Summarise a leak, smoke, or CO sensor's current value.
+  - Display a battery or signal level for a smart device.
+
+recommended_for:
+  - Environmental and sensor dashboards.
+  - Grids of comparable read-only measurements.
+avoid_for:
+  - Interactive or editable values (this is read-only).
+  - A metric that needs a trend or history (use stat-card or a chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid. Give each a short label, a preformatted value and unit, and a
+  status that matches the reading's threshold so the colour agrees with severity.
+
+props:
+  label: What the sensor measures, in a few words.
+  value: The measured value as a preformatted string.
+  unit: Optional unit suffix shown lighter after the value.
+  status: Colours the value; set it to match the reading's threshold.
+  icon: Optional leading glyph as raw inline-SVG HTML; keep it decorative.
+
+example_prompts:
+  - "Add a humidity sensor reading of 42% in normal range."
+  - "Show a critical CO sensor reading at 180 ppm."
+  - "Put a grid of environmental sensor readings on the dashboard."
+
+lifecycle: experimental
+content_model: A label, a value with an optional unit, a status, and an optional icon.
+
+relationships:
+  related:
+    - smarthome/device-tile
+    - smarthome/thermostat-dial
+    - smarthome/energy-usage-meter
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the label to the measurement's common name and the value preformatted. Reserve critical for
+  readings that genuinely warrant attention so the colour keeps its meaning.
+
+categorization:
+  category: Smart Home
+  subcategory: Sensors
+  atomic_type: atom
+  usage_type: [stat, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the label and value text, not colour alone; the icon is decorative.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

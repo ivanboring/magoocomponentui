@@ -1,0 +1,14 @@
+{
+  "label": "Water intake",
+  "current_ml": 2500,
+  "goal_ml": 2500,
+  "pct": 100,
+  "step": 250,
+  "cups": [
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true }
+  ]
+}

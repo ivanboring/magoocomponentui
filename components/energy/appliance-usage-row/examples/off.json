@@ -1,0 +1,8 @@
+{
+  "name": "Dishwasher",
+  "watts": "0 W",
+  "kwh": "0.6 kWh",
+  "cost": "$0.15",
+  "pct": 4,
+  "on": false
+}

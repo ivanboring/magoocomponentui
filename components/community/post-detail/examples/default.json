@@ -1,0 +1,8 @@
+{
+  "title": "How I cut our build time in half",
+  "author": { "name": "Ada Lovelace", "avatar": "/stock/avatar-woman-1.jpg", "flair": "Maintainer", "initials": "AL" },
+  "time": "Posted 3h ago",
+  "score": "128",
+  "tags": ["performance", "tooling"],
+  "body_html": "<p>We swapped our bundler and cached the type-checker, and CI dropped from twelve minutes to under six.</p><p>The biggest win was splitting the test suite so the slow integration pass runs in parallel with unit tests. Happy to share the config if anyone wants it.</p>"
+}

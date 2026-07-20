@@ -1,0 +1,19 @@
+<div class="meter-reading-row flex items-center gap-3 border-b border-border bg-surface px-4 py-3 last:border-b-0">
+  <span class="meter-reading-row__icon flex size-9 shrink-0 items-center justify-center rounded-control bg-surface-raised {{ type@class }}" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 1.5 5h15A9 9 0 0 0 21 12a9 9 0 0 0-9-9Z"></path>
+      <path d="M12 12l3.5-3.5"></path>
+      <circle cx="12" cy="12" r="1"></circle>
+    </svg>
+  </span>
+
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-sm text-on-surface">{{ meter_id }}</p>
+    <p class="text-xs capitalize text-on-surface-muted">{{ type }}<span data-if="date" class="text-on-surface-muted"> &middot; {{ date }}</span></p>
+  </div>
+
+  <div class="shrink-0 text-right">
+    <p class="font-mono text-sm tabular-nums text-on-surface">{{ reading }}<span data-if="unit" class="ml-1 text-xs text-on-surface-muted">{{ unit }}</span></p>
+    <p data-if="change" class="meter-reading-row__change text-xs tabular-nums text-on-surface-muted">{{ change }}</p>
+  </div>
+</div>

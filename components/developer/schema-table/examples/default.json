@@ -1,0 +1,9 @@
+{
+  "fields": [
+    { "name": "email", "type": "string", "required": true, "description": "The customer's email address." },
+    { "name": "amount", "type": "integer", "required": true, "description": "Charge amount in the smallest currency unit." },
+    { "name": "currency", "type": "string", "required": false, "description": "ISO 4217 currency code.", "default": "usd" },
+    { "name": "description", "type": "string", "required": false, "description": "An arbitrary note shown on receipts." },
+    { "name": "metadata", "type": "object", "required": false, "description": "Up to 50 key-value pairs for your own use.", "default": "{}" }
+  ]
+}

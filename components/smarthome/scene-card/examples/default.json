@@ -1,0 +1,6 @@
+{
+  "name": "Movie night",
+  "icon": "<svg class=\"size-5\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><rect x=\"3\" y=\"5\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M3 8h14\"/></svg>",
+  "devices_count": 6,
+  "active": false
+}

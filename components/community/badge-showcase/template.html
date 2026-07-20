@@ -1,0 +1,13 @@
+<ul class="badge-showcase grid grid-cols-3 gap-4 sm:grid-cols-4">
+  <li data-for="badge in badges" class="badge-showcase__tile flex flex-col items-center text-center">
+    <span class="badge-showcase__medallion relative flex size-16 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted data-[tier=bronze]:bg-warning/10 data-[tier=bronze]:text-warning data-[tier=silver]:bg-surface-raised data-[tier=silver]:text-on-surface data-[tier=gold]:bg-warning/20 data-[tier=gold]:text-warning data-[tier=gold]:ring-1 data-[tier=gold]:ring-warning/40 data-[earned=false]:opacity-40 [&_svg]:size-7" data-tier="{{ badge.tier }}" data-earned="{{ badge.earned }}">
+      <span data-if="badge.icon">{{{ badge.icon }}}</span>
+      <span data-if="!badge.icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="10" cy="8" r="4.5"/><path d="M7 11l-1.5 6L10 15l4.5 2L13 11"/></svg></span>
+      <span data-if="!badge.earned" class="absolute inset-0 flex items-center justify-center rounded-pill bg-surface/60 text-on-surface-muted">
+        <svg class="!size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4.5" y="9" width="11" height="8" rx="1.5"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9"/></svg>
+      </span>
+    </span>
+    <span class="mt-2 text-sm font-medium text-on-surface data-[earned=false]:text-on-surface-muted" data-earned="{{ badge.earned }}">{{ badge.label }}</span>
+    <span data-if="badge.description" class="mt-0.5 text-xs text-on-surface-muted">{{ badge.description }}</span>
+  </li>
+</ul>

@@ -1,0 +1,69 @@
+name: "ETA Badge"
+short_description: A small pill showing an estimated arrival with a clock icon, colour-coded by delivery health.
+long_visual_description: >
+  A compact rounded pill with a clock glyph and a short arrival estimate. Its tint reflects delivery
+  health - a green success tint for on-time, a blue info tint for early, and a red danger tint for
+  delayed - so the status reads at a glance beside an order, shipment, or list row.
+
+use_cases:
+  - Flagging a shipment as on-time, early, or delayed in a tracking list.
+  - An arrival estimate chip on an order summary line.
+  - A delivery-health marker in a fulfilment dashboard row.
+  - A status pill beside a package in a courier app.
+  - A quick ETA indicator on a carrier rate or load row.
+
+recommended_for:
+  - A tight, glanceable arrival status next to other content.
+  - Rows and cards that need a colour-coded delivery cue.
+avoid_for:
+  - A full status history (use tracking-timeline).
+  - Long-form delivery notes (use body text).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a short arrival string and a status; the clock icon and colour are applied for you. Keep the
+  text terse ("Arrives Jul 6", "2 days late") so the pill stays compact inline.
+
+props:
+  eta: The arrival estimate text shown beside the clock icon; keep it short.
+  status: Delivery health that colours the pill - on-time, early, or delayed.
+
+example_prompts:
+  - "Add an on-time ETA badge that says Arrives Jul 6."
+  - "Show a delayed ETA badge reading 2 days late."
+  - "Mark this shipment as early with an ETA badge."
+
+lifecycle: experimental
+content_model: A short arrival estimate and a delivery-health status.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-info
+    - --color-danger
+    - --radius-pill
+
+editorial_guidance: >
+  Match status to the estimate - never a green pill on a late arrival. Phrase on-time and early as an
+  arrival date and delayed as a lateness ("2 days late") so the colour and words agree.
+
+relationships:
+  related:
+    - logistics/tracking-timeline
+    - logistics/carrier-rate-card
+    - commerce/order-tracker
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Status
+  atomic_type: atom
+  usage_type: [badge, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The estimate text carries the meaning; colour reinforces but is not the only signal, and the icon is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

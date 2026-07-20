@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "name": "Cheeseburger", "price": "$9.00" },
+    { "name": "Fries", "price": "$3.50" },
+    { "name": "Onion Rings", "price": "$4.00" },
+    { "name": "Milkshake", "price": "$5.00" },
+    { "name": "Hot Dog", "price": "$6.50" },
+    { "name": "Soda", "price": "$2.50" }
+  ]
+}

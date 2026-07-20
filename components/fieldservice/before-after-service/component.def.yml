@@ -1,0 +1,25 @@
+name: before-after-service
+props:
+  before_image:
+    type: image
+    title: Before image
+    description: Optional URL of the before photo; when omitted a placeholder is shown.
+  after_image:
+    type: image
+    title: After image
+    description: Optional URL of the after photo; when omitted a placeholder is shown.
+  before_label:
+    type: string
+    default: "Before"
+    title: Before label
+    description: Caption for the left image.
+  after_label:
+    type: string
+    default: "After"
+    title: After label
+    description: Caption for the right image.
+  note:
+    type: string
+    title: Note
+    description: Optional caption describing the work shown.
+    example: "Replaced the corroded trap and cleared the blockage."

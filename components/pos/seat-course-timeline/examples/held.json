@@ -1,0 +1,9 @@
+{
+  "label": "Table 12 coursing",
+  "courses": [
+    { "label": "Starter", "status": "served", "items": ["Oysters"] },
+    { "label": "Soup", "status": "served", "items": ["Bisque"] },
+    { "label": "Entree", "status": "held", "items": ["Lamb rack", "Sea bass"] },
+    { "label": "Dessert", "status": "pending", "items": ["Creme brulee", "Sorbet"] }
+  ]
+}

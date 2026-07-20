@@ -1,0 +1,89 @@
+name: "Work Order Card"
+short_description: A production work order card showing the order number, product, quantity, due date, status and priority.
+long_visual_description: >
+  A surface card with a "Work order" kicker over the order number in a mono heading face, the product
+  name beneath it, and a coloured status pill in the top-right (blue open, primary in-progress, green
+  complete, amber on-hold). A row of labelled quantity and due figures sits below, with a small flagged
+  priority tag pinned to the bottom-left.
+
+use_cases:
+  - Production order card in a manufacturing job queue.
+  - Kanban column entry on a shop-floor scheduling board.
+  - Work order summary in an MES or ERP dashboard.
+  - Line-side terminal showing the next order to run.
+  - Order backlog list where each order needs a status and priority.
+  - Dispatch view assigning work orders to machines.
+
+recommended_for:
+  - Boards and grids of production orders that each need a status cue.
+  - Compact order summaries that link out to full detail.
+avoid_for:
+  - A full editable order form (this is a read-only summary).
+  - Long multi-line operation routings (keep it to a summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each card an order number and set a status from open, in-progress, complete or on-hold to
+  colour the pill. Pass the product, quantity and due date as preformatted strings, and an optional
+  priority label to show the flagged tag. Lay several in a queue or kanban column.
+
+props:
+  order_number: The work order identifier, shown in a mono heading face.
+  product: The product or part the order produces.
+  quantity: Preformatted order quantity including the unit, e.g. "500 units".
+  due: Preformatted due date or time.
+  status: Order state; sets the pill colour (open, in-progress, complete, on-hold).
+  priority: Optional priority label shown in a flag tag, e.g. "High".
+
+example_prompts:
+  - "Add a work order card for WO-10482, 500 units, in progress."
+  - "Show an on-hold work order for the gearbox housing."
+  - "Build a queue of work order cards for the shop floor board."
+
+lifecycle: experimental
+content_model: An order number, an optional product, quantity and due date, a status, and an optional priority.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the order number in the format your system uses so operators can match it. Status colour must
+  agree with the state text. Use the priority tag sparingly - reserve it for orders that genuinely
+  jump the queue.
+
+relationships:
+  related:
+    - industrial/machine-status-tile
+    - industrial/production-line-status
+    - industrial/defect-log-row
+
+categorization:
+  category: Manufacturing
+  subcategory: Production
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text as well as its colour, so it does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

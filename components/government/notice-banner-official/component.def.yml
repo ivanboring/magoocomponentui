@@ -1,0 +1,34 @@
+name: notice-banner-official
+props:
+  level:
+    type: enum
+    values: [info, warning, alert]
+    default: info
+    title: Level
+    description: >
+      Severity of the notice, driving the banner accent: info (informational), warning
+      (advisory), or alert (urgent). The seal icon tone follows the level.
+  title:
+    type: string
+    required: true
+    title: Title
+    description: Short headline for the notice.
+    example: "Service update"
+  message:
+    type: string
+    required: true
+    title: Message
+    description: One or two lines describing the notice.
+    example: "Passport processing times are currently longer than usual."
+  action:
+    type: object
+    title: Action link
+    description: "Optional call to action. { label, href } — omit to show no link."
+    example:
+      label: "Read more"
+      href: "#"
+variants:
+  level:
+    info: "bg-info/10 text-info border-info/30"
+    warning: "bg-warning/10 text-warning border-warning/30"
+    alert: "bg-danger/10 text-danger border-danger/30"

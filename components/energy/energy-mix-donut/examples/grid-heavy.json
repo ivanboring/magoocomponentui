@@ -1,0 +1,10 @@
+{
+  "title": "Grid supply this month",
+  "renewable_pct": "10",
+  "sources": [
+    { "label": "Coal", "pct": "45%", "kwh": "540 kWh", "dash": "45 55", "offset": "0", "color_class": "stroke-danger" },
+    { "label": "Natural gas", "pct": "30%", "kwh": "360 kWh", "dash": "30 70", "offset": "-45", "color_class": "stroke-warning" },
+    { "label": "Nuclear", "pct": "15%", "kwh": "180 kWh", "dash": "15 85", "offset": "-75", "color_class": "stroke-info" },
+    { "label": "Solar", "pct": "10%", "kwh": "120 kWh", "dash": "10 90", "offset": "-90", "color_class": "stroke-success" }
+  ]
+}

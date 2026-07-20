@@ -1,0 +1,9 @@
+{
+  "level": "alert",
+  "title": "Office closure",
+  "message": "The Central Passport Office is closed today due to a fire alarm. All appointments will be rescheduled.",
+  "action": {
+    "label": "Rebook your appointment",
+    "href": "#"
+  }
+}

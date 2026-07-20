@@ -1,0 +1,12 @@
+<div class="exercise-row group flex items-center gap-3 rounded-control border border-border bg-surface p-3 data-[done=true]:opacity-60" data-done="{{ done }}">
+  <button type="button" class="exercise-row__toggle flex size-6 shrink-0 items-center justify-center rounded-pill border border-border text-transparent transition-colors duration-(--duration-token) group-data-[done=true]:border-success group-data-[done=true]:bg-success group-data-[done=true]:text-primary-contrast" aria-pressed="{{ done }}" aria-label="Toggle exercise done">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>
+  </button>
+  <div class="min-w-0 flex-1">
+    <p class="exercise-row__name truncate font-medium text-on-surface group-data-[done=true]:text-on-surface-muted group-data-[done=true]:line-through">{{ name }}</p>
+    <p class="mt-0.5 text-sm text-on-surface-muted">
+      <span class="tabular-nums">{{ sets }} &times; {{ reps }}</span>
+    </p>
+  </div>
+  <span data-if="weight" class="exercise-row__weight shrink-0 rounded-control bg-surface-raised px-2 py-1 text-sm font-medium tabular-nums text-on-surface">{{ weight }}</span>
+</div>

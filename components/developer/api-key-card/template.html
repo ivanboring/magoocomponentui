@@ -1,0 +1,26 @@
+<div class="api-key-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-2">
+    <p class="font-heading text-sm text-on-surface">API key</p>
+    <span data-if="scope" class="inline-flex shrink-0 items-center rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">{{ scope }}</span>
+  </div>
+  <div class="mt-3 flex items-center gap-2 rounded-control border border-border bg-surface-raised px-3 py-2">
+    <code class="api-key-card__value min-w-0 flex-1 truncate font-mono text-sm text-on-surface" data-key="{{ key }}" data-masked="{{ masked }}">{{ masked }}</code>
+    <button type="button" class="api-key-card__reveal group/reveal -m-1 shrink-0 rounded-control p-1.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Reveal key" aria-pressed="false" data-revealed="false">
+      <svg class="size-4 group-data-[revealed=true]/reveal:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 10s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5z"/><circle cx="10" cy="10" r="2.5"/></svg>
+      <svg class="size-4 group-data-[revealed=false]/reveal:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 10s3-5 8-5c1.6 0 3 .4 4.2 1M18 10s-3 5-8 5c-1.6 0-3-.4-4.2-1"/><path d="M3.5 3.5l13 13"/></svg>
+    </button>
+  </div>
+  <div class="mt-3 flex items-center justify-between gap-2">
+    <p data-if="created" class="text-xs text-on-surface-muted">Created {{ created }}</p>
+    <div class="ml-auto flex items-center gap-2">
+      <button type="button" class="api-key-card__copy inline-flex items-center gap-1.5 rounded-control border border-border bg-surface px-2.5 py-1.5 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Copy key">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M4 13V4.5A1.5 1.5 0 0 1 5.5 3H13"/></svg>
+        <span class="api-key-card__copy-label">Copy</span>
+      </button>
+      <button type="button" class="api-key-card__rotate inline-flex items-center gap-1.5 rounded-control border border-border bg-surface px-2.5 py-1.5 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Rotate key">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 6a7 7 0 1 0 1.5 5"/><path d="M17 3v4h-4"/></svg>
+        <span>Rotate</span>
+      </button>
+    </div>
+  </div>
+</div>

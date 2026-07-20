@@ -1,0 +1,15 @@
+name: team-directory-grid
+props:
+  people:
+    type: array
+    items: object
+    required: true
+    title: People
+    description: >
+      The people to show, in order. Each item: { name, title, avatar, initials, department }.
+      name and title carry the card; avatar is an optional photo URL (falls back to the precomputed
+      initials circle when absent); initials is one or two precomputed letters; department is an
+      optional muted tag.
+    example:
+      - { name: "Dana Okafor", title: "Engineering Manager", avatar: "/stock/avatar-woman-1.jpg", initials: "DO", department: "Platform" }
+      - { name: "Marco Silva", title: "Product Designer", initials: "MS", department: "Design" }

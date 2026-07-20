@@ -1,0 +1,21 @@
+<section class="territory-map rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Territory assignment map">
+  <div class="mb-4 flex items-center gap-2">
+    <svg class="size-5 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3L2.5 5v12l5-2 5 2 5-2V3l-5 2-5-2z"/><path d="M7.5 3v12M12.5 5v12"/></svg>
+    <h3 class="font-heading text-on-surface">Territories</h3>
+    <span class="ml-auto rounded-pill bg-surface-raised px-2 py-0.5 text-xs text-on-surface-muted">Map preview</span>
+  </div>
+  <ul class="territory-map__regions grid grid-cols-2 gap-3 sm:grid-cols-3">
+    <li data-for="r in regions" class="territory-map__region relative overflow-hidden rounded-card border border-border p-3 {{ r.color_class }}">
+      <p class="font-heading text-sm text-on-surface">{{ r.name }}</p>
+      <p data-if="r.rep" class="mt-1 flex items-center gap-1 truncate text-xs text-on-surface-muted">
+        <svg class="size-3 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="6.5" r="3"/><path d="M4 16a6 6 0 0112 0"/></svg>
+        <span class="truncate">{{ r.rep }}</span>
+      </p>
+      <p data-if="r.deals" class="mt-2">
+        <span class="font-heading text-lg tabular-nums text-on-surface">{{ r.deals }}</span>
+        <span class="text-xs text-on-surface-muted">deals</span>
+      </p>
+    </li>
+  </ul>
+  <span class="hidden bg-primary/10 bg-secondary/10 bg-accent/10 bg-success/10 bg-warning/10 bg-danger/10 bg-info/10 bg-surface-raised" aria-hidden="true"></span>
+</section>

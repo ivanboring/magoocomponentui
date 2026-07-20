@@ -1,0 +1,16 @@
+name: deal-stage-progress
+props:
+  stages:
+    type: array
+    items: object
+    required: true
+    title: Stages
+    description: >
+      The ordered stepper stages, left to right. Each item: { label, done, current }.
+      `done` (boolean) marks a completed stage with a filled primary marker and a check;
+      `current` (boolean) marks the active stage with a ring. Upcoming stages are those
+      with neither flag. Set exactly one stage `current`.
+    example:
+      - { label: "Qualified", done: true }
+      - { label: "Proposal", current: true }
+      - { label: "Closed", done: false }

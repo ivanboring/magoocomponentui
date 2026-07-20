@@ -1,0 +1,52 @@
+name: range-facet
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The facet name shown above the range (e.g. "Price", "Distance").
+  min:
+    type: integer
+    required: true
+    title: Minimum bound
+    description: The lowest value the range allows; used as the min attribute of the first input.
+  max:
+    type: integer
+    required: true
+    title: Maximum bound
+    description: The highest value the range allows; used as the max attribute of the second input.
+  current_min:
+    type: integer
+    required: true
+    title: Selected minimum
+    description: The current lower value of the selected range.
+  current_max:
+    type: integer
+    required: true
+    title: Selected maximum
+    description: The current upper value of the selected range.
+  unit:
+    type: string
+    default: ""
+    title: Unit
+    description: Optional unit suffix shown in the readout and inside each input (e.g. "$", "km", "mi").
+  track_left:
+    type: string
+    required: true
+    title: Track fill left (%)
+    description: >
+      Precomputed left offset of the selected segment as a percentage of the track
+      (0-100), passed as a string (e.g. "20"). Compute as
+      (current_min - min) / (max - min) * 100. The directive language cannot do
+      arithmetic, so pass this value.
+    example: "20"
+  track_width:
+    type: string
+    required: true
+    title: Track fill width (%)
+    description: >
+      Precomputed width of the selected segment as a percentage of the track (0-100),
+      passed as a string (e.g. "50"). Compute as
+      (current_max - current_min) / (max - min) * 100. The directive language cannot do
+      arithmetic, so pass this value.
+    example: "50"

@@ -1,0 +1,8 @@
+{
+  "material": "Aluminum Sheet 2mm",
+  "sku": "SKU-1120",
+  "on_hand": "38",
+  "reorder_point": "50",
+  "fill_pct": 18,
+  "status": "low"
+}

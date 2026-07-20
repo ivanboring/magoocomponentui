@@ -1,0 +1,89 @@
+name: "Work Order Detail"
+short_description: A full work-order view with description, a task checklist, a parts list and a total.
+long_visual_description: >
+  A stacked surface card divided into sections. The header pairs a mono work-order label and number
+  with a neutral status pill. Below it, the customer and address, a rich-text description, a task
+  checklist (completed items filled and struck through, pending items an empty box), a parts list
+  with quantities, and a total footer.
+
+use_cases:
+  - Full work-order detail screen in a field-service app.
+  - Job sheet a technician works through on site.
+  - Completed-work summary attached to an invoice.
+  - Service report showing tasks done and parts used.
+  - Back-office review of a work order before billing.
+
+recommended_for:
+  - The complete detail of one work order with tasks and parts.
+  - A job sheet a technician checks off during a visit.
+  - Combining with parts-list when parts need pricing and status.
+
+avoid_for:
+  - A compact dispatch summary in a list (use job-dispatch-card).
+  - A priced parts breakdown on its own (use parts-list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass order_number plus the customer, address and a rich-text description_html. Provide tasks as an
+  array of { label, done } and parts as { name, qty }; set total as a preformatted string.
+
+props:
+  order_number: "Work-order reference shown in the header."
+  status: "Preformatted work-order state shown as a neutral pill."
+  customer: "Customer the work order is for."
+  address: "Service address where the work is performed."
+  description_html: "Rich-text description of the work, rendered as raw HTML."
+  tasks: "Checklist items, each { label, done }; done drives the filled or empty checkbox and strike-through."
+  parts: "Parts required, each { name, qty }."
+  total: "Preformatted total for the work order."
+
+example_prompts:
+  - "Show the full work order WO-4821 with a task checklist and parts."
+  - "Add a job sheet with tasks to check off and the parts used."
+
+lifecycle: experimental
+content_model: One work order with a description, task checklist, parts list and total.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Order tasks in the sequence they are performed and mark done as work progresses. Keep part names
+  specific enough to match inventory. Use the description for context the checklist does not capture.
+
+relationships:
+  related:
+    - fieldservice/job-dispatch-card
+    - fieldservice/parts-list
+    - fieldservice/before-after-service
+  children:
+    - fieldservice/parts-list
+
+categorization:
+  category: Field Service
+  subcategory: Work Orders
+  atomic_type: organism
+  usage_type: [detail, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Task completion is shown by a filled checkbox plus strike-through text, not colour alone; checkbox glyphs are decorative and aria-hidden with the label in adjacent text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

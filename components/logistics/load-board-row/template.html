@@ -1,0 +1,25 @@
+<div class="load-board-row flex flex-wrap items-center gap-4 rounded-card border border-border bg-surface p-4 shadow-card">
+  <div class="min-w-0 flex-1">
+    <p class="flex items-center gap-2 font-heading text-on-surface">
+      <span class="truncate">{{ origin }}</span>
+      <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
+      <span class="truncate">{{ destination }}</span>
+    </p>
+    <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-on-surface-muted">
+      <span data-if="equipment" class="flex items-center gap-1">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 5h9v8H2zM11 8h3.5l2.5 2.5V13H11z"/><circle cx="6" cy="15" r="1.5"/><circle cx="14.5" cy="15" r="1.5"/></svg>
+        {{ equipment }}
+      </span>
+      <span data-if="weight" class="flex items-center gap-1">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h8l2 10H4z"/><path d="M8 6a2 2 0 014 0"/></svg>
+        {{ weight }}
+      </span>
+      <span data-if="pickup_date" class="flex items-center gap-1">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2.5v3M13 2.5v3"/></svg>
+        {{ pickup_date }}
+      </span>
+    </div>
+  </div>
+  <p data-if="rate" class="shrink-0 font-heading text-lg text-on-surface tabular-nums">{{ rate }}</p>
+  <button type="button" class="load-board-row__book shrink-0 rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Book</button>
+</div>

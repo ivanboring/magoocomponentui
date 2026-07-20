@@ -1,0 +1,51 @@
+name: position-card
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The held instrument's ticker.
+    example: "MSFT"
+  shares:
+    type: string
+    required: true
+    title: Shares
+    description: The number of shares (or units) held, preformatted in the caller.
+    example: "42"
+  avg_cost:
+    type: string
+    required: true
+    title: Average cost
+    description: The average cost basis per share, preformatted with currency in the caller.
+    example: "$310.20"
+  current_price:
+    type: string
+    required: true
+    title: Current price
+    description: The current price per share, preformatted with currency in the caller.
+    example: "$421.55"
+  market_value:
+    type: string
+    required: true
+    title: Market value
+    description: The total market value of the holding, preformatted with currency in the caller.
+    example: "$17,705.10"
+  pl:
+    type: string
+    required: true
+    title: Profit/loss
+    description: The absolute profit or loss, preformatted with sign and currency in the caller.
+    example: "+$4,676.70"
+  pl_pct:
+    type: string
+    required: true
+    title: Profit/loss percent
+    description: The profit or loss as a percentage, preformatted with sign in the caller.
+    example: "+35.9%"
+  pl_dir:
+    type: enum
+    values: [up, down]
+    required: true
+    title: P/L direction
+    description: Direction of the profit/loss; colours the figure green (up) or red (down).
+variants: {}

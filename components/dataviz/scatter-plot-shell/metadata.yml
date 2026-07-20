@@ -1,0 +1,86 @@
+name: "Scatter Plot Shell"
+short_description: A card-framed scatter-plot skeleton that dots precomputed x/y point positions with axes.
+long_visual_description: >
+  A surface card with a title header and an optional legend. The plot area shows faint optional
+  horizontal gridlines and a set of small primary-colour dots placed at precomputed x/y positions
+  across a full-width SVG, with a y-axis label column on the left and x-axis labels underneath. The
+  point coordinates are supplied precomputed, so the shell renders a real scatter without any
+  charting code.
+
+use_cases:
+  - Plot two metrics against each other (spend vs conversions, price vs rating).
+  - Correlation or distribution snapshot on a dashboard.
+  - Show clusters or segments as separate point groups.
+  - Report figure comparing two dimensions across items.
+  - A skeleton to drop a real charting library into.
+  - Placeholder chart in a prototype before wiring live data.
+
+recommended_for:
+  - Two continuous dimensions plotted per item.
+  - Cases where the caller can precompute each point's x/y percentage.
+avoid_for:
+  - A single series over time (use line-chart-shell).
+  - Encoding a third dimension by size (use bubble-chart-shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each point's x_pct and y_pct (0-100) from your two axes in a cartesian viewBox (y
+  grows downward), pass y_labels and x_labels, and optionally grid_lines. Give each point a label
+  for its accessible title; replace the SVG markup with a real chart.
+
+props:
+  title: The chart title shown in the header.
+  points: The points, each with precomputed x_pct and y_pct and an optional label.
+  y_labels: Y-axis tick labels, top to bottom.
+  x_labels: X-axis tick labels, left to right.
+  grid_lines: Optional precomputed y-percent positions for horizontal gridlines.
+
+example_prompts:
+  - "Add a scatter plot of spend vs conversions by channel."
+  - "Show two customer segments as clusters of points."
+  - "Put a correlation scatter chart shell in the report."
+
+relationships:
+  related:
+    - dataviz/bubble-chart-shell
+    - dataviz/line-chart-shell
+    - dataviz/area-chart-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a set of precomputed x/y points, axis labels, and optional gridlines.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  The point coordinates are precomputed by the caller by mapping each item's two values onto the
+  0-100 axes - the shell ships no charting math or JS. Supply realistic positions so the skeleton
+  reads as a genuine scatter. The skeleton renders directly from the precomputed data; for a live,
+  interactive chart, a real charting library replaces the SVG markup, and the skeleton then acts
+  as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; axis labels are real text. Provide a data-table alternative for the points in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

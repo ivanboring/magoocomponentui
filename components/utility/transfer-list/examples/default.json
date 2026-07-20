@@ -1,0 +1,14 @@
+{
+  "available_label": "Available teams",
+  "chosen_label": "Assigned teams",
+  "available": [
+    { "label": "Marketing", "value": "marketing", "selected": false },
+    { "label": "Sales", "value": "sales", "selected": false },
+    { "label": "Support", "value": "support", "selected": false },
+    { "label": "Finance", "value": "finance", "selected": false }
+  ],
+  "chosen": [
+    { "label": "Engineering", "value": "engineering", "selected": false },
+    { "label": "Design", "value": "design", "selected": false }
+  ]
+}

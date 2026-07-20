@@ -1,0 +1,18 @@
+name: portfolio-rebalance
+props:
+  holdings:
+    type: array
+    items: object
+    required: true
+    title: Holdings
+    description: >
+      The allocation rows. Each item: { label, target_pct, actual_pct, drift, color_class }.
+      target_pct and actual_pct are PRECOMPUTED numbers (0-100) used both as bar widths (inline
+      style) and as the printed values; the directive language has no math. drift is an optional
+      preformatted string (e.g. +4.2%) shown as a warning pill when present - pass it only for a
+      holding that is off-target enough to flag. color_class is a tokenized Tailwind background
+      utility for the actual bar (e.g. "bg-primary", "bg-accent").
+    example:
+      - { label: "US equities", target_pct: 50, actual_pct: 58, drift: "+8.0%", color_class: "bg-primary" }
+      - { label: "Bonds", target_pct: 30, actual_pct: 26, color_class: "bg-info" }
+variants: {}

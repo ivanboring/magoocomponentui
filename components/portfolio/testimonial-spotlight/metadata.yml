@@ -1,0 +1,76 @@
+name: "Testimonial Spotlight"
+short_description: A single, centered client testimonial with a large quote mark, author, and optional company logo.
+long_visual_description: >
+  A centered, single-column block on the page background. A large primary-coloured quotation mark
+  sits at the top, followed by the quote set in the heading face at a generous size. Below it an
+  author row centers a round avatar next to the person's name (heading face) and their role and
+  company in muted text. An optional client logo, rendered muted, closes the block.
+
+use_cases:
+  - Feature one standout client quote on an agency or freelancer landing page.
+  - Lead a case study with the client's own words.
+  - Anchor a testimonials section with a single hero quote before a grid of smaller ones.
+  - Add social proof beneath a services or pricing section.
+  - Highlight a marquee client on an About page.
+  - Break up a long portfolio page with a moment of third-party validation.
+
+recommended_for:
+  - A single high-impact testimonial that deserves the full width of the page.
+  - Quotes paired with a recognisable client name, role, and company.
+avoid_for:
+  - Cycling through several quotes (use testimonial-slider).
+  - A dense wall of many short quotes (use a testimonial grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the quote plus an author object ({ name, role, company, avatar }). Supply company_logo as
+  raw HTML (an inline SVG or an img tag) when you want the client's mark shown muted below the
+  author; leave it empty to omit.
+
+props:
+  quote: "The testimonial text, without surrounding quotation marks (the component adds curly quotes)."
+  author: "The person quoted: name and role are shown; company and avatar are optional. Pass avatar as an image URL."
+  company_logo: "Optional trusted raw HTML for the client's logo; rendered centered and muted. Omit for a text-only credit."
+
+example_prompts:
+  - "Add a spotlight testimonial from a VP of Product praising our onboarding."
+  - "Show one big client quote with their photo and company under it."
+  - "Feature a marquee testimonial with the client's logo below the name."
+
+lifecycle: experimental
+content_model: >
+  One quote, an author (name, role, optional company, optional avatar), and an optional client logo.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+    - --space-section
+
+editorial_guidance: >
+  Keep the quote to one or two sentences in the client's own voice. Attribute it to a real name,
+  role, and company for credibility. Prefer a genuine client logo over a generic placeholder.
+
+relationships:
+  related:
+    - marketing/testimonial-slider
+    - portfolio/award-row
+    - portfolio/pricing-quote
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Social Proof
+  atomic_type: organism
+  usage_type: [highlight, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses semantic figure/blockquote/figcaption; the avatar carries the author name as an accessible label and the decorative quote mark is aria-hidden.
+  keyboard_support: none
+  seo_score: 45
+  text_direction: both

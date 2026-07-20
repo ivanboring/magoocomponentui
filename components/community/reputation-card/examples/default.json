@@ -1,0 +1,10 @@
+{
+  "points": "1,240",
+  "level": "Trusted",
+  "next_level_pct": 65,
+  "breakdown": [
+    { "label": "Posts", "value": "+420" },
+    { "label": "Comments", "value": "+610" },
+    { "label": "Awards", "value": "+210" }
+  ]
+}

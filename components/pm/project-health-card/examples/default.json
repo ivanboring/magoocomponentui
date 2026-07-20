@@ -1,0 +1,10 @@
+{
+  "name": "Mobile checkout",
+  "status": "on-track",
+  "summary": "All milestones met; on schedule for the August release.",
+  "metrics": [
+    { "label": "Progress", "value": "72%" },
+    { "label": "Due", "value": "Aug 4" },
+    { "label": "Open risks", "value": "1" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "holdings": [
+    { "label": "Growth", "target_pct": 60, "actual_pct": 61, "color_class": "bg-primary" },
+    { "label": "Value", "target_pct": 25, "actual_pct": 24, "color_class": "bg-accent" },
+    { "label": "Bonds", "target_pct": 15, "actual_pct": 15, "color_class": "bg-info" }
+  ]
+}

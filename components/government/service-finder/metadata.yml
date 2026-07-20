@@ -1,0 +1,85 @@
+name: "Service Finder"
+short_description: A find-a-service search panel with a prominent search bar, category tiles, and popular quick links.
+long_visual_description: >
+  A surface card holding an optional heading, a large search field with a leading magnifier
+  icon and a primary Search button, then a two- to three-column grid of category tiles (each a
+  coloured icon over a label and an optional service count), and finally a "Popular:" row of
+  inline quick links. The whole panel adapts to each theme's token palette.
+
+use_cases:
+  - Home-page entry point for a government or public-sector portal.
+  - A "how can we help?" hub that routes citizens to service categories.
+  - Landing page for a council or agency directory of services.
+  - Search-first start page for a benefits or licensing site.
+  - A help-centre index that groups services into browsable categories.
+  - Directory front door with popular searches surfaced as shortcuts.
+
+recommended_for:
+  - Portal home pages where search plus browse-by-category are both primary.
+  - Public-sector sites with a large, categorised service catalogue.
+avoid_for:
+  - A single inline search box with no categories (use a plain search field).
+  - Results listing pages (this is an entry point, not a results view).
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Provide a categories array (each { label, icon, count }) where icon is a raw inline stroke
+  SVG string; set an optional heading and a placeholder. Add popular quick links to surface the
+  most-used services beneath the tiles.
+
+props:
+  heading: "Optional heading above the search bar; omit for a bare search panel."
+  placeholder: "Placeholder text for the search input."
+  categories: "The category tiles; each has a label, a raw inline SVG icon, and an optional service count."
+  popular: "Quick links shown after a 'Popular:' label; each item is a label."
+
+example_prompts:
+  - "Add a find-a-service search panel with tiles for Taxes, Passports, and Health."
+  - "Build a government portal search hub with category tiles and popular searches."
+
+lifecycle: experimental
+content_model: A heading, a search field, a grid of icon-and-label service categories, and a row of popular links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep category labels to two or three words and order them by demand. Use the count to signal
+  breadth, and reserve popular links for the handful of genuinely most-requested services.
+
+relationships:
+  related:
+    - government/form-wizard-gov
+    - government/eligibility-checker
+
+categorization:
+  category: Government
+  subcategory: Search
+  atomic_type: organism
+  usage_type: [search, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The search bar is a labelled form with role="search"; category tiles and links are focusable controls with visible focus rings; icons are aria-hidden.
+  keyboard_support: The input, Search button, category tiles, and popular links are all keyboard focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

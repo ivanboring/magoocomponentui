@@ -1,0 +1,10 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "Welcome to support. What can I help you with?", "name": "Assistant", "time": "2:03 PM" },
+    { "role": "user", "content": "My last invoice was charged twice.", "name": "You", "time": "2:04 PM" },
+    { "role": "assistant", "content": "I'm sorry about that. Let me pull up your billing history and check the duplicate charge.", "name": "Assistant", "time": "2:04 PM" },
+    { "role": "user", "content": "Thanks, the reference is INV-4821.", "name": "You", "time": "2:05 PM" },
+    { "role": "assistant", "content": "Found it. I've issued a refund for the duplicate; it should appear in three to five business days.", "name": "Assistant", "time": "2:06 PM" },
+    { "role": "user", "content": "Perfect, appreciate the quick help!", "name": "You", "time": "2:06 PM" }
+  ]
+}

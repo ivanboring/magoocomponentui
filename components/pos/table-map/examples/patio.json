@@ -1,0 +1,11 @@
+{
+  "label": "Patio",
+  "tables": [
+    { "label": "P1", "seats": "2", "status": "open", "shape": "round" },
+    { "label": "P2", "seats": "2", "status": "open", "shape": "round" },
+    { "label": "P3", "seats": "4", "status": "seated", "shape": "round" },
+    { "label": "P4", "seats": "4", "status": "reserved", "shape": "round" },
+    { "label": "P5", "seats": "6", "status": "open", "shape": "square" },
+    { "label": "P6", "seats": "2", "status": "dirty", "shape": "round" }
+  ]
+}

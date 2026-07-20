@@ -1,0 +1,73 @@
+name: "Tree Navigation"
+short_description: A collapsible multi-level tree for docs-style sidebars, built from native details/summary with no JavaScript.
+long_visual_description: >
+  A vertical sidebar tree up to three levels deep. Groups are expandable rows with a
+  chevron that rotates when open; nested levels are indented behind a left border rail.
+  Leaf rows are links; the active leaf is highlighted with a raised surface and primary
+  text. Top-level groups start expanded.
+
+use_cases:
+  - Documentation site sidebar with sections and sub-sections.
+  - API reference navigation grouped by resource.
+  - Knowledge base or help-center category tree.
+  - Admin settings navigation with nested groups.
+  - Handbook or wiki table of contents in a sidebar.
+  - File or folder style navigation for a content library.
+
+recommended_for:
+  - Hierarchical navigation up to three levels where sections expand and collapse.
+avoid_for:
+  - Flat, single-level navigation (use sidebar-nav).
+  - In-page section jump lists on one article (use table-of-contents).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass items as a tree. Each entry is either a leaf { label, href, active } or a group
+  { label, children: [...] }. Nest children up to three levels; the third level holds
+  leaves only. Groups render as native details elements and are open at the top level.
+
+props:
+  label: Accessible label for the nav landmark.
+  items: The tree entries; leaves have href/active, groups have a children array.
+
+example_prompts:
+  - "Add a collapsible docs sidebar tree with nested sections."
+  - "Add a three-level navigation tree for the documentation."
+
+lifecycle: experimental
+content_model: A nested list of navigation groups and leaf links, up to three levels deep.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep group labels short; limit depth to three levels. Mark the current page's leaf with
+  active: true so the reader can locate themselves.
+
+relationships:
+  related:
+    - navigation/sidebar-nav
+    - editorial/table-of-contents
+    - navigation/navbar-mega
+
+categorization:
+  category: Navigation
+  subcategory: Sidebar
+  atomic_type: organism
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; expand/collapse uses native details/summary so keyboard and screen-reader support is built in; the active leaf sets data-active for styling.
+  keyboard_support: Group summaries are focusable and toggle on Enter/Space (native details); leaf links are focusable and activate on Enter.
+  seo_score: 50
+  text_direction: both

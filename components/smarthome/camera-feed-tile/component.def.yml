@@ -1,0 +1,25 @@
+name: camera-feed-tile
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The camera name, e.g. "Front door".
+    example: "Front door"
+  status:
+    type: enum
+    values: [live, offline, recording]
+    default: live
+    title: Status
+    description: The camera's current state; sets the overlay badge colour and label.
+    example: live
+  timestamp:
+    type: string
+    title: Timestamp
+    description: Optional last-updated or capture time shown in the caption, e.g. "10:42 AM".
+    example: "10:42 AM"
+variants:
+  status:
+    live: "bg-success/10 text-success"
+    offline: "bg-surface text-on-surface-muted"
+    recording: "bg-danger/10 text-danger"

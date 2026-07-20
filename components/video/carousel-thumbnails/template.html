@@ -1,0 +1,19 @@
+<div class="carousel-thumbnails" role="group" aria-label="{{ label }}">
+  <div class="carousel-thumbnails__main relative aspect-video overflow-hidden rounded-card bg-surface-raised">
+    <img data-for="item in items" class="carousel-thumbnails__frame absolute inset-0 size-full object-cover opacity-100 transition-opacity duration-(--duration-token) data-[active=false]:opacity-0" src="{{ item.image }}" alt="{{ item.alt }}" data-caption="{{ item.caption }}">
+    <div class="carousel-thumbnails__caption absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 text-sm text-white empty:hidden"></div>
+
+    <button data-if="show_arrows" type="button" class="carousel-thumbnails__prev absolute left-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised disabled:pointer-events-none disabled:opacity-40" aria-label="Previous">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+    </button>
+    <button data-if="show_arrows" type="button" class="carousel-thumbnails__next absolute right-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised disabled:pointer-events-none disabled:opacity-40" aria-label="Next">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <div class="carousel-thumbnails__thumbs mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <button data-for="item in items" type="button" class="carousel-thumbnails__thumb size-16 shrink-0 overflow-hidden rounded-control border-2 border-transparent opacity-70 transition duration-(--duration-token) hover:opacity-100 data-[active=true]:border-primary data-[active=true]:opacity-100" aria-label="Show image">
+      <img class="size-full object-cover" src="{{ item.image }}" alt="">
+    </button>
+  </div>
+</div>

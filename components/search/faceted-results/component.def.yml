@@ -1,0 +1,32 @@
+name: faceted-results
+props:
+  facets:
+    type: array
+    items: object
+    required: true
+    title: Facets
+    description: >
+      The filter groups shown in the sidebar. Each facet: { label, options } where options is an
+      array of { label, count, checked } — count is the number of matches for that option and
+      checked (optional boolean) pre-ticks it.
+    example:
+      - label: "Category"
+        options:
+          - { label: "Guides", count: 42, checked: true }
+          - { label: "Reference", count: 18 }
+  results:
+    type: array
+    items: object
+    required: true
+    title: Results
+    description: >
+      The result records to render in the main column. Each item: { title, url, snippet, meta }
+      where url (optional) makes the title a link and shows a breadcrumb line, and meta (optional)
+      is an array of short strings shown dot-separated below the snippet.
+    example:
+      - { title: "Getting started guide", url: "example.com/guides/start", snippet: "Set up your first project in a few minutes.", meta: ["Guide", "5 min read"] }
+  total:
+    type: string
+    title: Total
+    description: Result count summary shown above the list, e.g. "128 results". Omit to hide the line.
+    example: "128 results"

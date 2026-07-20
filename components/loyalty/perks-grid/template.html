@@ -1,0 +1,13 @@
+<ul class="perks-grid grid grid-cols-2 gap-4 sm:grid-cols-3">
+  <li data-for="perk in perks" data-unlocked="{{ perk.unlocked }}" class="perks-grid__tile group relative flex flex-col items-center gap-2 rounded-card border border-border bg-surface p-4 text-center shadow-card data-[unlocked=false]:opacity-60">
+    <span class="flex size-10 shrink-0 items-center justify-center rounded-pill bg-primary/10 text-primary" aria-hidden="true">
+      <span data-if="perk.icon" class="perks-grid__icon [&>svg]:size-5">{{{ perk.icon }}}</span>
+      <svg data-if="!perk.icon" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v9H4v-9M2 7h20v5H2V7Zm10 0v14M12 7S9 2 6.5 3.5 12 7 12 7Zm0 0s3-5 5.5-3.5S12 7 12 7Z"/></svg>
+    </span>
+    <p class="font-heading text-sm text-on-surface">{{ perk.label }}</p>
+    <p data-if="perk.description" class="text-xs text-on-surface-muted">{{ perk.description }}</p>
+    <span data-if="!perk.unlocked" class="absolute right-2 top-2 flex size-6 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted" aria-label="Locked">
+      <svg class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    </span>
+  </li>
+</ul>

@@ -1,0 +1,38 @@
+name: challenge-progress
+props:
+  title:
+    type: string
+    required: true
+    title: Challenge title
+    description: The challenge name, shown as the card heading.
+    example: "Spend $200 this month"
+  description:
+    type: string
+    title: Description
+    description: A short supporting line under the title.
+    example: "Earn a bonus 500 points"
+  current:
+    type: integer
+    required: true
+    title: Current value
+    description: Progress so far, in the challenge's own units.
+    example: 130
+  target:
+    type: integer
+    required: true
+    title: Target value
+    description: The value that completes the challenge, in the same units as current.
+    example: 200
+  pct:
+    type: integer
+    required: true
+    title: Percent complete
+    description: >
+      Completion percent from 0-100, precomputed by the caller (round(current / target * 100),
+      clamped to 100). Drives the progress bar width and the aria value.
+    example: 65
+  reward:
+    type: string
+    title: Reward badge
+    description: A short reward label shown as a pill in the top-right. Omit to hide.
+    example: "+500 pts"

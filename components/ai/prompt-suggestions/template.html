@@ -1,0 +1,6 @@
+<div class="prompt-suggestions flex flex-wrap gap-2">
+  <button data-for="prompt in prompts" type="button" class="prompt-suggestions__chip inline-flex items-center gap-2 rounded-pill border border-border bg-surface px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised hover:border-ring" data-label="{{ prompt.label }}">
+    <span data-if="prompt.icon" class="shrink-0 text-on-surface-muted" aria-hidden="true">{{{ prompt.icon }}}</span>
+    {{ prompt.label }}
+  </button>
+</div>

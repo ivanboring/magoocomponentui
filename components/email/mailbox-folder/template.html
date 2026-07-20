@@ -1,0 +1,5 @@
+<a class="mailbox-folder flex items-center gap-3 rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-on-surface" data-active="{{ active }}" aria-current="{{ active }}">
+  <span data-if="icon" class="mailbox-folder__icon shrink-0" aria-hidden="true">{{{ icon }}}</span>
+  <span class="min-w-0 flex-1 truncate">{{ label }}</span>
+  <span data-if="count" class="mailbox-folder__count shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium tabular-nums text-on-surface-muted">{{ count }}</span>
+</a>

@@ -1,0 +1,16 @@
+<div class="time-on-site group rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-status="{{ status }}">
+  <div class="flex items-center justify-between gap-3">
+    <p class="text-sm font-medium text-on-surface-muted">Time on site</p>
+    <span class="time-on-site__status inline-flex items-center gap-1.5 rounded-pill bg-surface-raised px-2.5 py-1 text-xs font-medium text-on-surface-muted group-data-[status=running]:text-success group-data-[status=complete]:text-on-surface">
+      <span class="size-1.5 rounded-pill bg-current" aria-hidden="true"></span>
+      <span class="time-on-site__status-label capitalize">{{ status }}</span>
+    </span>
+  </div>
+  <p class="time-on-site__display mt-3 font-heading text-5xl text-on-surface tabular-nums" aria-live="polite">{{ elapsed }}</p>
+  <p data-if="started_at" class="time-on-site__started mt-1 text-sm text-on-surface-muted">{{ started_at }}</p>
+  <div class="time-on-site__actions mt-4 flex items-center gap-2">
+    <button type="button" class="time-on-site__start rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Start</button>
+    <button type="button" class="time-on-site__pause rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Pause</button>
+    <button type="button" class="time-on-site__stop ml-auto rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-danger transition-colors duration-(--duration-token) hover:bg-danger/10">Stop</button>
+  </div>
+</div>

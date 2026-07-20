@@ -1,0 +1,80 @@
+name: "Policy Table of Contents"
+short_description: A numbered, sticky contents list for a legal or policy document that tracks the current section on scroll.
+long_visual_description: >
+  A sticky vertical contents list along a left rail. Each row pairs the section number with its
+  label in muted body text; the active section is marked with a primary bar and primary, bolder
+  text. The list is an ordered list so the numbering reads as a legal document outline. With the
+  optional scroll-spy behavior the active row follows the section in view.
+
+use_cases:
+  - A sticky sidebar contents list for a terms of service page.
+  - Section navigation for a long privacy policy.
+  - An outline for an end-user license agreement (EULA).
+  - Jump links for a numbered acceptable-use or community-guidelines document.
+  - A contents pane inside a legal document layout with scroll tracking.
+
+recommended_for:
+  - Navigating the numbered sections of a legal or policy document.
+  - Pairing with legal/terms-section blocks whose anchor ids it links to.
+avoid_for:
+  - General in-article contents without numbering (use editorial/table-of-contents).
+  - Multi-level site navigation (use navigation/tree-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a sections array whose hrefs point at each legal/terms-section's anchor id (terms-<number>).
+  Mark the current section active. Include behavior.js to keep the active row in sync as the reader
+  scrolls; it is a no-op when the linked sections are not on the page.
+
+how_to_use: >
+  The numbered list and the active row styling are pure CSS driven by each link's data-active
+  attribute (data-[active=true] on the rail border and text), so it renders correctly with no
+  JavaScript and shows in screenshots. behavior.js adds optional scroll-spy: it observes the
+  elements the hrefs resolve to and highlights the one in view, and activates a link on click. If no
+  hrefs resolve to real elements it stays a no-op and the authored active state holds. The portable
+  self-init reads everything from the markup and passes no props object.
+
+props:
+  title: The contents heading.
+  sections: The document sections, each with a number, label, href and active flag.
+
+example_prompts:
+  - "Add a numbered sticky table of contents for the terms page with scroll tracking."
+  - "Add a policy contents sidebar that links to each numbered section."
+
+lifecycle: experimental
+content_model: A heading and an ordered list of numbered section links with active tracking.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --duration-token
+
+editorial_guidance: >
+  Match the numbers and labels to the document's section headings exactly, and point each href at
+  the corresponding section anchor id. Keep labels short — the full clause title can be longer in
+  the section heading itself.
+
+relationships:
+  related:
+    - legal/terms-section
+    - editorial/table-of-contents
+    - navigation/tree-nav
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Wayfinding
+  atomic_type: organism
+  usage_type: [nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active item sets aria-current; links resolve to real section anchor ids and the list is a semantic ordered list.
+  keyboard_support: Each section link is focusable and activates on Enter.
+  seo_score: 40
+  text_direction: both

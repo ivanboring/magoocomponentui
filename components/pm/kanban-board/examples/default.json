@@ -1,0 +1,39 @@
+{
+  "label": "Sprint board",
+  "columns": [
+    {
+      "label": "To do",
+      "count": "3",
+      "wip": "5",
+      "tasks": [
+        { "title": "Draft release notes for 2.4", "tag": "Docs", "assignee_initials": "MG", "priority": "medium" },
+        { "title": "Audit empty states across settings", "tag": "Design", "assignee_initials": "RP", "priority": "low" },
+        { "title": "Spike: offline sync strategy", "tag": "Research", "assignee_initials": "AK", "priority": "low" }
+      ]
+    },
+    {
+      "label": "In progress",
+      "count": "2",
+      "wip": "3",
+      "tasks": [
+        { "title": "Fix pagination on the reports page", "tag": "Bug", "assignee_initials": "JD", "priority": "high" },
+        { "title": "Rework the onboarding checklist", "tag": "Feature", "assignee_initials": "MG", "priority": "medium" }
+      ]
+    },
+    {
+      "label": "Review",
+      "count": "1",
+      "tasks": [
+        { "title": "Token contract for dark theme", "tag": "Design", "assignee_initials": "RP", "priority": "urgent" }
+      ]
+    },
+    {
+      "label": "Done",
+      "count": "2",
+      "tasks": [
+        { "title": "Migrate avatars to the CDN", "tag": "Infra", "assignee_initials": "AK", "priority": "medium" },
+        { "title": "Ship keyboard shortcuts help", "tag": "Feature", "assignee_initials": "JD", "priority": "low" }
+      ]
+    }
+  ]
+}

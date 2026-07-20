@@ -1,0 +1,10 @@
+{
+  "line_name": "Assembly Line 3",
+  "stations": [
+    { "name": "Intake", "status": "ok", "throughput": "48/hr" },
+    { "name": "Weld", "status": "ok", "throughput": "46/hr" },
+    { "name": "Paint", "status": "warning", "throughput": "31/hr" },
+    { "name": "Assemble", "status": "down", "throughput": "0/hr" },
+    { "name": "Pack", "status": "idle", "throughput": "0/hr" }
+  ]
+}

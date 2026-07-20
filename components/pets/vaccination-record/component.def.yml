@@ -1,0 +1,18 @@
+name: vaccination-record
+props:
+  pet:
+    type: string
+    title: Pet
+    description: "Optional pet name shown in the card header."
+    example: "Luna"
+  vaccines:
+    type: array
+    items: object
+    required: true
+    title: Vaccines
+    description: >
+      The shots history, in order. Each vaccine: { name, date, next_due, status }. name and date
+      are required; next_due is optional; status is one of "current", "due", or "overdue" and drives
+      the status pill colour (current -> success, due -> warning, overdue -> danger).
+    example:
+      - { name: "Rabies", date: "12 Jan 2026", next_due: "12 Jan 2027", status: "current" }

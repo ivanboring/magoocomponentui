@@ -1,0 +1,15 @@
+name: document-upload-gov
+props:
+  documents:
+    type: array
+    items: object
+    required: true
+    title: Required documents
+    description: >
+      The documents the applicant must supply. Each item: { label, required, status } where
+      required is a boolean and status is one of "pending", "uploaded", or "rejected" (drives
+      the status badge: pending is muted, uploaded is success, rejected is danger).
+    example:
+      - { label: "Proof of identity", required: true, status: "uploaded" }
+      - { label: "Proof of address", required: true, status: "pending" }
+      - { label: "Proof of income", required: false, status: "rejected" }

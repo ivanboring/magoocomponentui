@@ -1,0 +1,79 @@
+name: "Compliance Checklist"
+short_description: A card listing compliance requirements, each marked done, pending, or failed, with an optional summary count.
+long_visual_description: >
+  A card on the surface colour with a title and a divided list of requirement rows. Each row leads
+  with a status marker - a green check for done, a muted outline circle for pending, a red cross for
+  failed - beside the requirement label and an optional muted note. An optional summary line sits in
+  a divided footer, typically a count of how many requirements are met.
+
+use_cases:
+  - GDPR or privacy-readiness checklist with per-item status.
+  - SOC 2 / ISO control checklist showing gaps.
+  - Accessibility (WCAG) conformance checklist.
+  - Security or data-protection audit summary.
+  - Onboarding compliance steps for a vendor or partner.
+  - Pre-launch legal review checklist.
+
+recommended_for:
+  - Showing requirement-by-requirement pass/pending/fail status.
+  - Compliance or audit summaries where each item has a clear state.
+avoid_for:
+  - Interactive to-do lists the user checks off (use a task list).
+  - Free-form notes without a per-item status.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item has a label, a status of "done", "pending", or "failed", and
+  an optional note. The marker and its colour follow the status automatically. Add a summary line
+  for a footer count such as "3 of 5 requirements met".
+
+props:
+  title: "Heading above the list; name the standard or review it covers."
+  items: "The requirements, in order. Each item: label, status (\"done\" | \"pending\" | \"failed\"), and an optional note."
+  summary: "Optional footer line, typically a completed-vs-total count."
+
+example_prompts:
+  - "Show a GDPR readiness checklist with done, pending, and failed items."
+  - "Add a SOC 2 control checklist summarising 3 of 5 met."
+  - "Put an accessibility conformance checklist with per-item status and notes."
+
+lifecycle: experimental
+content_model: A title, a list of labelled requirements each with a done/pending/failed status and optional note, and an optional summary.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Phrase each requirement as the outcome being met, not the task. Keep statuses honest - use pending
+  for in-progress and failed only for a genuine gap. Use the note to say what is missing or when it
+  was verified.
+
+relationships:
+  related:
+    - legal/disclosure-accordion
+    - dashboard/stat-card
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Audits
+  atomic_type: organism
+  usage_type: [list, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each row's status is conveyed by a distinct icon shape and the label text, not colour alone; markers are aria-hidden and the requirement is read as list text.
+  keyboard_support: None - static, non-interactive content.
+  seo_score: 35
+  text_direction: both

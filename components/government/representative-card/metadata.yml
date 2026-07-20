@@ -1,0 +1,88 @@
+name: "Representative Card"
+short_description: A profile card for an elected official — photo or initials, office and district, party pill, and a row of contact icon buttons.
+long_visual_description: >
+  A card on the surface colour with a card radius and soft shadow. A round headshot (or an initials
+  fallback on a raised panel) sits to the left of the name in the heading face, the office title
+  beneath it, and a row of small pills for district and party affiliation. A divider separates a
+  footer row of square icon buttons that link to a phone number, email address and website.
+
+use_cases:
+  - A directory of elected officials or council members.
+  - A "find your representative" result on a civic site.
+  - A district or ward contact card in a government portal.
+  - A committee or department leadership roster.
+  - A candidate profile card during an election cycle.
+  - A staff contact card for a public agency office.
+
+recommended_for:
+  - Civic and government sites listing officials with contact routes.
+  - Grids of comparable representative or staff profiles.
+avoid_for:
+  - Rich biographies or voting histories (use a full profile page).
+  - Non-person entities such as agencies or offices.
+
+markets:
+  - Government
+  - Civic
+
+example_usage: >
+  Pass name and title (the office held), plus optional district and party. Supply either an avatar
+  URL or a precomputed initials string for the fallback. The contacts array renders one icon button
+  per item; set type to phone, email or web to pick the glyph, value as the accessible label, and
+  href as the tel:/mailto:/https target.
+
+props:
+  name: The official's full name.
+  title: The office or role held, e.g. "State Senator".
+  district: Optional district or constituency label, shown as a muted pill.
+  party: Optional party or affiliation, shown as a primary-tinted pill.
+  avatar: Optional headshot URL; when omitted the initials fallback shows instead.
+  initials: Precomputed 1-3 letter initials for the no-photo fallback.
+  contacts: "Row of contact buttons. Each item: type (phone|email|web) picks the icon, value is the accessible label, href is the tel:/mailto:/https link."
+
+example_prompts:
+  - "Add a representative card for State Senator Dana Whitfield, District 14, Independent."
+  - "Show a council member card with phone and email contact buttons."
+  - "List our ward representatives as cards with party pills."
+
+lifecycle: experimental
+content_model: A person's name and office, optional district and party, an optional photo or initials, and a set of typed contact links.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Use the office title people recognise, not an internal code. Keep the party label short. Provide
+  real tel:/mailto: hrefs so the contact buttons work, and set each contact's value to something a
+  screen reader can announce clearly.
+
+relationships:
+  related:
+    - government/public-record-row
+    - cards/card-grid
+
+categorization:
+  category: Government
+  subcategory: Directory
+  atomic_type: molecule
+  usage_type: [card, grid, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each contact button carries an aria-label and title; the photo is decorative with an empty alt and the initials fallback conveys identity in text.
+  keyboard_support: The contact links are focusable and activate on Enter.
+  seo_score: 40
+  text_direction: both

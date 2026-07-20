@@ -1,0 +1,27 @@
+name: search-hero
+props:
+  heading:
+    type: string
+    title: Heading
+    description: Large headline above the search field. Omit for a bare search block.
+    example: "Search the docs"
+  subheading:
+    type: string
+    title: Subheading
+    description: Supporting line under the heading.
+    example: "Find guides, references and answers in seconds."
+  placeholder:
+    type: string
+    default: "Search…"
+    title: Placeholder
+    description: Placeholder text shown inside the empty search input.
+  suggestions:
+    type: array
+    items: object
+    title: Suggestions
+    description: >
+      Popular or example queries shown as chips below the field, prefixed with "Try:".
+      Each item: { label }. Omit or leave empty to hide the row.
+    example:
+      - { label: "Getting started" }
+      - { label: "API reference" }

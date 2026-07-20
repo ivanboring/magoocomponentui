@@ -1,0 +1,77 @@
+name: "Feedback Thumbs"
+short_description: A compact thumbs up/down control for rating an AI response, with a toggleable selected state.
+long_visual_description: >
+  Two small icon buttons side by side: a thumbs-up and a thumbs-down in muted on-surface colour.
+  The selected one lifts into a tinted pill (success tint for up, danger tint for down) while the
+  other stays neutral. Clicking the active thumb again clears the rating back to neutral.
+
+use_cases:
+  - Rate whether an AI reply was helpful.
+  - Collect quick quality signal on a generated answer.
+  - Gather feedback in a chat, copilot, or search result.
+  - Let users flag a bad response for review.
+  - Attach a lightweight rating to any content block.
+  - Feed a thumbs signal into a training or analytics pipeline.
+
+recommended_for:
+  - A single binary satisfaction rating tied to one response.
+  - Inline placement in a message action row.
+avoid_for:
+  - A multi-point star rating (use a rating-stars component).
+  - Free-text feedback (pair with a form or dialog).
+
+markets:
+  - Global
+
+example_usage: >
+  Place it in an assistant message action row. Preset value to reflect a stored rating. Listen for
+  the bubbling feedback:rate event (detail.value is "", "up", or "down") on a parent to persist the
+  choice. Re-clicking the active thumb clears the rating.
+
+how_to_use: >
+  The selected highlight is driven by the root's data-value attribute through group-data variants,
+  so the up and down selected states render in screenshots with no JavaScript. behavior.js sets or
+  clears data-value on click (re-clicking the active thumb toggles it back to neutral), keeps
+  aria-pressed in sync, and dispatches a bubbling "feedback:rate" CustomEvent with { value }.
+
+props:
+  value: "The current rating: empty (neutral), up, or down."
+  up_label: "Accessible label for the thumbs-up button."
+  down_label: "Accessible label for the thumbs-down button."
+
+content_model: >
+  A single tri-state rating (neutral, positive, negative) for one piece of content.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels plain and specific (Good response, Bad response). Use it for a quick signal only;
+  route detailed feedback to a follow-up prompt or form.
+
+relationships:
+  related:
+    - ai/chat-message-ai
+    - ai/streaming-response
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Feedback
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both buttons carry accessible labels and toggle aria-pressed; rating is not conveyed by colour alone since aria-pressed reflects the selection.
+  keyboard_support: Both buttons are focusable and activate on Enter/Space; the active one toggles off on repeat activation.
+  seo_score: 10
+  text_direction: both

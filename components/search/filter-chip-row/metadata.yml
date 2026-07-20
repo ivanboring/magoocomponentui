@@ -1,0 +1,78 @@
+name: "Filter Chip Row"
+short_description: A horizontal row of removable active-filter pills with a "Clear all" button.
+long_visual_description: >
+  A wrapping row of pill-shaped chips on a raised surface, each showing an applied filter's label
+  and a small × button. A subtle "Clear all" text button trails the row. Removing a chip hides it
+  and emits an event; clearing removes them all.
+
+use_cases:
+  - Showing the currently applied filters above a search results list.
+  - Active facet summary that lets users drop filters one at a time.
+  - Applied tags on a catalog, listing or directory view.
+  - A summary of query refinements a user can peel back.
+  - Selected options echoed back above a filtered grid.
+
+recommended_for:
+  - Reflecting and removing already-applied filters as discrete pills.
+  - Pairing with faceted-results or a filtered grid as the "active filters" bar.
+avoid_for:
+  - Choosing filters in the first place (use facet checkboxes or a chip toggle set).
+  - Non-removable, static tags or badges.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a chips array (each { label, value }); the value rides along on the "filter:remove" event so
+  the host can drop the matching filter and re-query. Listen for "filter:remove" (detail.value) and
+  "filter:clear" on the row element to update your results.
+
+how_to_use: >
+  behavior.js wires the controls. Clicking a chip's × hides that chip (via its `hidden` property, so
+  it leaves the accessibility tree and never clashes with layout utilities) and dispatches a
+  bubbling "filter:remove" CustomEvent whose detail.value is the chip's data-value. The "Clear all"
+  button hides every chip and itself and dispatches "filter:clear". The component only manages its
+  own chip visibility; the host page reacts to the events to actually refilter and re-render. The
+  portable self-init reads config from the DOM — no props object is passed. behavior.js does not run
+  in screenshots, so captures show every chip.
+
+props:
+  chips: "The active filters as pills. Each { label, value }; value is emitted on \"filter:remove\"."
+  clear_label: "Text of the trailing button that removes every chip at once."
+
+lifecycle: experimental
+content_model: A set of applied-filter pills, each removable, plus a clear-all action.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-pill
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Label each chip so the filter reads on its own, ideally "Group: Value" (e.g. "Category: Guides").
+  Keep the set to the filters actually applied; if none are active, render nothing rather than an
+  empty row.
+
+relationships:
+  related:
+    - search/faceted-results
+    - search/sort-and-view
+    - search/recent-searches
+
+categorization:
+  category: Search
+  subcategory: Filters
+  atomic_type: molecule
+  usage_type: [list-item, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The row is a labelled group, each remove button has an accessible name, and hiding a chip sets the hidden property so it leaves the accessibility tree.
+  keyboard_support: Every × and the clear button are focusable buttons that activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

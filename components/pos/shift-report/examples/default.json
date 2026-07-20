@@ -1,0 +1,14 @@
+{
+  "shift": "Dinner shift",
+  "date": "Fri, Jul 18",
+  "stats": [
+    { "label": "Net sales", "value": "$8,420" },
+    { "label": "Covers", "value": "142" },
+    { "label": "Avg check", "value": "$59.30" }
+  ],
+  "payment_breakdown": [
+    { "method": "Card", "amount": "$5,900", "pct": 70, "color_class": "bg-primary" },
+    { "method": "Cash", "amount": "$1,680", "pct": 20, "color_class": "bg-success" },
+    { "method": "Gift card", "amount": "$840", "pct": 10, "color_class": "bg-warning" }
+  ]
+}

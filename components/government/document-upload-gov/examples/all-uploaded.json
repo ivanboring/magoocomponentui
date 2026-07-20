@@ -1,0 +1,7 @@
+{
+  "documents": [
+    { "label": "Proof of identity", "required": true, "status": "uploaded" },
+    { "label": "Proof of address", "required": true, "status": "uploaded" },
+    { "label": "Proof of income", "required": true, "status": "uploaded" }
+  ]
+}

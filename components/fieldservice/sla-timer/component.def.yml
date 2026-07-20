@@ -1,0 +1,32 @@
+name: sla-timer
+props:
+  sla_label:
+    type: string
+    default: "Response SLA"
+    title: SLA label
+    description: What the SLA measures, shown above the countdown, e.g. "Response SLA" or "Time to resolve".
+  time_remaining:
+    type: string
+    required: true
+    title: Time remaining
+    description: Precomputed time left against the SLA, as a display string, e.g. "1h 12m" or "-0h 24m".
+    example: "1h 12m"
+  pct:
+    type: string
+    required: true
+    title: Bar fill percent
+    description: >
+      Precomputed 0-100 fill of the countdown bar (percent of the SLA window remaining, or consumed -
+      compute it upstream). Rendered as the bar width via an inline style.
+    example: 68
+  status:
+    type: enum
+    values: ["on-track", "at-risk", "breached"]
+    default: "on-track"
+    title: Status
+    description: Drives the time colour and the bar tone - green on-track, amber at-risk, red breached.
+variants:
+  status:
+    on-track: "text-success"
+    at-risk: "text-warning"
+    breached: "text-danger"

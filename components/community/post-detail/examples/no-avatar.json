@@ -1,0 +1,8 @@
+{
+  "title": "Anyone have a good regex for parsing changelogs?",
+  "author": { "name": "Grace Hopper", "flair": "OP", "initials": "GH" },
+  "time": "Posted yesterday",
+  "score": "14",
+  "tags": ["help"],
+  "body_html": "<p>I need to pull the version and date from each heading in a keep-a-changelog file. My current pattern misses the pre-release tags. Any pointers?</p>"
+}

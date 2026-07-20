@@ -1,0 +1,26 @@
+<div class="schema-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="schema-table__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Name</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Type</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Required</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="field in fields" class="border-b border-border last:border-0 align-top">
+        <td class="px-4 py-3 font-mono text-on-surface">{{ field.name }}</td>
+        <td class="px-4 py-3 font-mono text-on-surface-muted">{{ field.type }}</td>
+        <td class="px-4 py-3">
+          <span data-if="field.required" class="inline-flex items-center rounded-pill bg-danger/10 px-2 py-0.5 text-xs font-medium text-danger">required</span>
+          <span data-if="!field.required" class="inline-flex items-center rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">optional</span>
+        </td>
+        <td class="px-4 py-3 text-on-surface">
+          {{ field.description }}
+          <span data-if="field.default" class="mt-1 block text-xs text-on-surface-muted">Default: <code class="font-mono text-on-surface">{{ field.default }}</code></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,88 @@
+name: "Claim Document Upload"
+short_description: A checklist of the documents a claim requires, each with a status badge and upload action, plus a dashed dropzone.
+long_visual_description: >
+  A card listing each required document as a row with a file glyph, its label, a small Required note,
+  and a status pill coloured by state - a danger tint for missing, success for uploaded, and a warning
+  tint for reviewing. Each row has an outlined Upload button, and a dashed dropzone with an upload
+  glyph and a hint about accepted file types sits below the list.
+
+use_cases:
+  - List the paperwork needed to file an insurance claim.
+  - Track which claim documents are still missing.
+  - Show which uploads are under review by an adjuster.
+  - Guide a claimant through a document submission step.
+  - Mark optional versus required supporting evidence.
+  - Summarise upload progress on a claim status page.
+
+recommended_for:
+  - Claim intake and document-collection flows.
+  - Any checklist of files with per-item status.
+avoid_for:
+  - A single generic file input (use a form field).
+  - Displaying already-approved documents with no action.
+
+markets:
+  - Global
+
+how_to_use: >
+  Pass documents as an array of label, required and status. status must be one of missing, uploaded
+  or reviewing; it sets the data-status attribute that colours the badge via Tailwind data-attribute
+  variants, so no JavaScript is needed to render the states. The Upload button and dropzone are
+  skeleton affordances - wire them to your own file handling.
+
+example_usage: >
+  Give each document a clear label, mark the mandatory ones required, and set status to reflect where
+  it is in review. Order the list with outstanding (missing) documents first so the claimant sees what
+  is left to do.
+
+props:
+  documents: The required documents, each a label, a required flag, and a status of missing, uploaded or reviewing.
+
+example_prompts:
+  - "Show a claim upload checklist with a police report, repair estimate and damage photos."
+  - "List claim documents where the estimate is uploaded and photos are under review."
+
+lifecycle: experimental
+content_model: A list of documents, each with a label, a required flag, and a review status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name documents the way a claimant would recognise them, not by internal code. Keep the status words
+  to the three states so the badge colours stay meaningful, and reserve the danger tint for what is
+  genuinely still outstanding.
+
+relationships:
+  related:
+    - insurance/incident-report
+    - insurance/risk-assessment
+    - forms/file-upload
+
+categorization:
+  category: Insurance
+  subcategory: Claims
+  atomic_type: molecule
+  usage_type: [list, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each status is shown as a text badge, not colour alone; the file and upload glyphs are aria-hidden; Upload controls are labelled buttons.
+  keyboard_support: The Upload buttons are focusable and activate on Enter/Space.
+  seo_score: 30
+  text_direction: both

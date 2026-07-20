@@ -1,0 +1,9 @@
+{
+  "pet": "Luna",
+  "meals": [
+    { "time": "7:00 AM", "food": "Dry kibble", "amount": "1 cup", "done": true },
+    { "time": "12:30 PM", "food": "Wet food", "amount": "1/2 can", "done": true },
+    { "time": "6:00 PM", "food": "Dry kibble", "amount": "1 cup", "done": false },
+    { "time": "9:00 PM", "food": "Dental chew", "amount": "1 piece", "done": false }
+  ]
+}

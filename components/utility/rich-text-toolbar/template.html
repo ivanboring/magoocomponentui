@@ -1,0 +1,6 @@
+<div class="rich-text-toolbar flex flex-wrap items-center gap-1 rounded-control border border-border bg-surface p-1" role="toolbar" aria-label="{{ label }}">
+  <div data-for="group in groups" class="flex items-center gap-1">
+    <span data-if="group.divider" class="mx-1 h-5 w-px shrink-0 bg-border" aria-hidden="true"></span>
+    <button data-for="btn in group.buttons" type="button" class="rich-text-toolbar__btn rounded p-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:text-primary" data-command="{{ btn.command }}" data-active="{{ btn.active }}" aria-label="{{ btn.label }}" aria-pressed="{{ btn.active }}">{{{ btn.icon }}}</button>
+  </div>
+</div>

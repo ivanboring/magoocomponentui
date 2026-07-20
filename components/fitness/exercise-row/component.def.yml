@@ -1,0 +1,29 @@
+name: exercise-row
+props:
+  name:
+    type: string
+    required: true
+    title: Exercise name
+    example: "Back squat"
+  sets:
+    type: integer
+    required: true
+    title: Sets
+    example: 3
+  reps:
+    type: string
+    required: true
+    title: Reps
+    description: Reps per set as text so ranges ("8-12") and holds ("30s") are allowed.
+    example: "10"
+  weight:
+    type: string
+    title: Weight
+    description: Optional load label, e.g. "60 kg" or "bodyweight".
+    example: "60 kg"
+  done:
+    type: boolean
+    default: false
+    title: Completed
+    description: Whether this exercise is marked done. Toggles a checked mark, a strikethrough and dimming via data-done.
+    example: false

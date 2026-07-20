@@ -1,0 +1,30 @@
+name: streak-card
+props:
+  days:
+    type: string
+    required: true
+    title: Streak length
+    description: The current streak length, as a string, e.g. "12".
+    example: "12"
+  label:
+    type: string
+    default: "day streak"
+    title: Label
+    description: Caption beneath the streak number.
+  week:
+    type: array
+    items: object
+    required: true
+    title: Week
+    description: >
+      One entry per day of the current week, in order. Each item: { day, done }. day is a short
+      letter or label (e.g. "M", "T"); done marks whether the goal was met that day (a filled
+      primary dot) versus missed or upcoming (a muted dot).
+    example:
+      - { day: "M", done: true }
+      - { day: "T", done: true }
+      - { day: "W", done: true }
+      - { day: "T", done: true }
+      - { day: "F", done: false }
+      - { day: "S", done: false }
+      - { day: "S", done: false }

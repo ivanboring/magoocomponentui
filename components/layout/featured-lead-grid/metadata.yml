@@ -1,0 +1,79 @@
+name: "Featured Lead Grid"
+short_description: A news/blog homepage layout with one large lead story spanning two columns and two rows beside a grid of smaller stories.
+long_visual_description: >
+  A grid led by one large featured card with a full-bleed image, a dark gradient scrim and its
+  eyebrow, title and subtitle overlaid in white at the bottom. On desktop the lead spans two columns
+  and two rows; the remaining smaller cards (image over an eyebrow, title and subtitle) fill the
+  third column and wrap below. On narrow widths everything stacks into a single column with the lead
+  on top.
+
+use_cases:
+  - A news or magazine homepage with a hero story above the fold.
+  - A blog landing page that promotes one lead post over recent ones.
+  - An editorial section front ranking stories by importance.
+  - A "top stories" or "trending" block on a portal or dashboard.
+  - A featured-plus-related layout beneath a category header.
+  - A marketing resource hub leading with a flagship article.
+
+recommended_for:
+  - Content sets with a clear lead item and several supporting items.
+  - Editorial or news layouts that rank by importance rather than an even grid.
+
+avoid_for:
+  - An even grid of equally weighted cards (use card-grid or fluid-grid).
+  - A mixed, multi-size mosaic of many spans (use bento-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a lead object (image, eyebrow, title, subtitle, href) for the large card and an items array
+  of the same shape for the smaller cards. The lead spans 2x2 on desktop and the smaller cards fill
+  the remaining column and wrap; everything stacks on mobile. Layout is pure CSS grid with no
+  JavaScript.
+
+props:
+  lead: "The large featured item: image (optional), eyebrow (optional kicker), title, subtitle (optional), href (optional link). Spans 2x2 on desktop."
+  items: "The smaller items, in order. Each: image (optional), eyebrow (optional), title, subtitle (optional), href (optional link)."
+  gap: "Space between cards: default, or an explicit none/sm/md/lg/xl."
+  label: "Accessible name announced for the grid region."
+
+content_model: One lead item plus an ordered list of smaller items, each with image, eyebrow, title, subtitle and link.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Order by importance: the lead spans two columns and two rows on desktop, so give it your strongest
+  image and headline. Keep the smaller items a single type and phrase their titles consistently.
+  Four to six smaller items reads best; fewer leaves the lead looking unbalanced.
+
+relationships:
+  related:
+    - cards/card-grid
+    - layout/bento-grid
+    - cards/card-news
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label; each card title is a stretched link and images are decorative with empty alt, so the link text carries the accessible name.
+  keyboard_support: Each card's title link is focusable and activates on Enter.
+  seo_score: 35
+  text_direction: both
+
+lifecycle: experimental

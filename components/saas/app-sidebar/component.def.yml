@@ -1,0 +1,22 @@
+name: app-sidebar
+props:
+  brand:
+    type: string
+    default: "Acme"
+    title: Brand
+    description: The product or workspace name shown in the sidebar header.
+  sections:
+    type: array
+    items: object
+    required: true
+    title: Nav sections
+    description: >
+      Grouped navigation. Each section: { label, items: [{ label, icon, href, active, badge }] }.
+      label is an optional section heading; icon is a raw inline SVG string (rendered unescaped);
+      active highlights the current link; badge is an optional count/label shown on the trailing
+      edge. Sections and items render in order.
+    example:
+      - label: "Workspace"
+        items:
+          - { label: "Dashboard", icon: "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 10l7-6 7 6'/><path d='M5 9v7h10V9'/></svg>", href: "/dashboard", active: true }
+          - { label: "Inbox", icon: "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 5h14v10H3z'/><path d='M3 8l7 4 7-4'/></svg>", href: "/inbox", active: false, badge: "5" }

@@ -1,0 +1,42 @@
+name: ev-charging-status
+props:
+  vehicle:
+    type: string
+    title: Vehicle
+    description: The vehicle name or label, e.g. "Model Y - Home charger".
+    example: "Model Y - Home charger"
+  charge_pct:
+    type: integer
+    required: true
+    title: Charge percent
+    description: >
+      The battery state of charge as a PRECOMPUTED whole number 0-100. Drives the battery fill width
+      and is shown as the headline percentage; the template does no math.
+    example: 72
+  status:
+    type: enum
+    values: [charging, complete, idle, fault]
+    default: charging
+    title: Status
+    description: The session state. Colours the status label.
+  power_kw:
+    type: string
+    title: Power
+    description: The current charge power without a unit; a "kW" suffix is rendered. E.g. "7.4". Omit to hide.
+    example: "7.4"
+  time_remaining:
+    type: string
+    title: Time remaining
+    description: Estimated time to the target charge, formatted for display. E.g. "1h 25m". Omit to hide.
+    example: "1h 25m"
+  range_added:
+    type: string
+    title: Range added
+    description: Range added this session, formatted with unit. E.g. "212 mi". Omit to hide.
+    example: "212 mi"
+variants:
+  status:
+    charging: "text-info"
+    complete: "text-success"
+    idle: "text-on-surface-muted"
+    fault: "text-danger"

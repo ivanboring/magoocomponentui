@@ -1,0 +1,29 @@
+name: reputation-card
+props:
+  points:
+    type: string
+    required: true
+    title: Points
+    description: The pre-formatted reputation/karma figure (e.g. "1,240").
+    example: "1,240"
+  level:
+    type: string
+    title: Level
+    description: Optional rank or level name shown as a pill.
+    example: "Trusted"
+  next_level_pct:
+    type: string
+    title: Progress to next level
+    description: >
+      Precomputed percentage (0-100) toward the next level. When set, a progress bar and caption
+      render. Pass the already-computed value; the template does no arithmetic.
+    example: 65
+  breakdown:
+    type: array
+    items: object
+    title: Breakdown
+    description: >
+      Optional list of where the points came from. Each item: { label, value } with value
+      pre-formatted (e.g. "+420").
+    example:
+      - { label: "Posts", value: "+420" }

@@ -1,0 +1,37 @@
+<div class="quote-builder overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="border-b border-border text-left text-xs uppercase tracking-wide text-on-surface-muted">
+          <th class="px-4 py-3 font-medium">Item</th>
+          <th class="px-4 py-3 text-right font-medium">Qty</th>
+          <th class="px-4 py-3 text-right font-medium">Price</th>
+          <th class="px-4 py-3 text-right font-medium">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-for="item in line_items" class="border-b border-border last:border-0">
+          <td class="px-4 py-3 text-on-surface">{{ item.name }}</td>
+          <td class="px-4 py-3 text-right tabular-nums text-on-surface-muted">{{ item.qty }}</td>
+          <td class="px-4 py-3 text-right tabular-nums text-on-surface-muted">{{ currency }}{{ item.price }}</td>
+          <td class="px-4 py-3 text-right tabular-nums text-on-surface">{{ currency }}{{ item.total }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <dl class="quote-builder__totals flex flex-col gap-2 border-t border-border px-4 py-4 text-sm">
+    <div class="flex justify-between gap-4">
+      <dt class="text-on-surface-muted">Subtotal</dt>
+      <dd class="tabular-nums text-on-surface">{{ currency }}{{ subtotal }}</dd>
+    </div>
+    <div data-if="tax" class="flex justify-between gap-4">
+      <dt class="text-on-surface-muted">Tax</dt>
+      <dd class="tabular-nums text-on-surface">{{ currency }}{{ tax }}</dd>
+    </div>
+    <div class="flex justify-between gap-4 border-t border-border pt-2 font-heading text-base">
+      <dt class="text-on-surface">Total</dt>
+      <dd class="tabular-nums text-on-surface">{{ currency }}{{ total }}</dd>
+    </div>
+  </dl>
+</div>

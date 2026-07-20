@@ -1,0 +1,81 @@
+name: "Performance Review"
+short_description: A review summary card with an overall rating, per-competency rating bars and a goals list with status pills.
+long_visual_description: >
+  A card on the surface colour headed by the employee name and review period, with a primary-tinted tile
+  showing the overall rating top-right. Below, a stack of competency rows each pair a label and score
+  over a slim progress bar whose width comes from a precomputed percentage. A divided goals section lists
+  each goal with a coloured status pill - green for done, blue for on-track, amber for at-risk.
+
+use_cases:
+  - A performance review summary in an HR or manager portal.
+  - A self-assessment recap shown to an employee.
+  - A calibration-ready snapshot of ratings and goals.
+  - A quarterly or half-yearly review card in a history list.
+  - A one-on-one prep card summarising the last review.
+  - A promotion-packet rating overview.
+
+recommended_for:
+  - Summarising a completed review at a glance.
+  - Showing rating breakdowns as comparable bars.
+avoid_for:
+  - Collecting review input (build a form instead).
+  - Long free-text feedback (this is a summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the employee, period and a formatted overall_rating, then a ratings array of { label, score, pct }
+  where pct is the precomputed bar width from 0 to 100. Optionally add goals of { label, status } using
+  the status values done, on-track or at-risk so the pills colour correctly.
+
+props:
+  employee: The reviewed employee's name.
+  period: The review period label.
+  overall_rating: The formatted overall score shown in the highlight tile.
+  ratings: Per-competency rows; each carries a label, a display score and a precomputed bar percentage.
+  goals: Optional goals, each with a label and a status that colours its pill.
+
+lifecycle: experimental
+content_model: An employee and period, an overall rating, a set of rated competencies with percentages, and optional goals with statuses.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep competency labels consistent across reviews so bars compare over time. Precompute each pct from
+  the score before rendering, since the template does no arithmetic. Use the exact status values done,
+  on-track and at-risk for the pill colours to apply.
+
+relationships:
+  related:
+    - hr/employee-card
+    - hr/onboarding-checklist
+
+categorization:
+  category: "HR & People"
+  subcategory: Performance
+  atomic_type: organism
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is shown as text in each pill, not by colour alone; ratings pair a numeric score with each bar.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

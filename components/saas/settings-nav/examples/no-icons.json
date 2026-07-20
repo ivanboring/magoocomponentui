@@ -1,0 +1,13 @@
+{
+  "label": "Project settings",
+  "groups": [
+    {
+      "items": [
+        { "label": "General", "href": "/project/general", "active": false },
+        { "label": "Access", "href": "/project/access", "active": true },
+        { "label": "Integrations", "href": "/project/integrations", "active": false },
+        { "label": "Danger zone", "href": "/project/danger", "active": false }
+      ]
+    }
+  ]
+}

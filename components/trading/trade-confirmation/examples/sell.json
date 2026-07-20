@@ -1,0 +1,9 @@
+{
+  "side": "sell",
+  "symbol": "TSLA",
+  "shares": "10",
+  "price": "$242.10",
+  "total": "$2,421.00",
+  "status": "partial",
+  "time": "Today at 2:15 PM"
+}

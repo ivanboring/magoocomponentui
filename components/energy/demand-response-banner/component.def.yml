@@ -1,0 +1,29 @@
+name: demand-response-banner
+props:
+  message:
+    type: string
+    required: true
+    title: Message
+    description: The main notice explaining the demand response event and what is being asked.
+    example: "A peak demand event is expected this evening. Reduce usage to earn credits."
+  event_time:
+    type: string
+    title: Event time
+    description: When the event runs, as a display string (e.g. "Today, 4:00 - 7:00 PM").
+    example: "Today, 4:00 - 7:00 PM"
+  level:
+    type: enum
+    values: [info, warning, urgent]
+    default: warning
+    title: Urgency
+    description: Sets the banner's border, tint, and text tone.
+  reward:
+    type: string
+    title: Reward
+    description: Optional incentive for taking part (e.g. "Earn $2/kWh saved").
+    example: "Earn $2/kWh saved"
+variants:
+  level:
+    info: "bg-info/10 text-info border-info/30"
+    warning: "bg-warning/10 text-warning border-warning/30"
+    urgent: "bg-danger/10 text-danger border-danger/30"

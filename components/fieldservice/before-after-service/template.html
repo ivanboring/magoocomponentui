@@ -1,0 +1,21 @@
+<figure class="before-after-service flex flex-col gap-2">
+  <div class="grid grid-cols-2 gap-2">
+    <div class="before-after-service__pane relative aspect-[4/3] overflow-hidden rounded-card border border-border bg-surface-raised">
+      <img data-if="before_image" class="absolute inset-0 size-full object-cover" src="{{ before_image }}" alt="">
+      <div data-if="!before_image" class="flex size-full items-center justify-center text-on-surface-muted" aria-hidden="true">
+        <svg class="size-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8a2 2 0 012-2h1l1-2h6l1 2h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <span class="absolute left-2 top-2 inline-flex items-center rounded-pill bg-surface/90 px-2 py-0.5 text-xs font-medium uppercase tracking-wide text-on-surface">{{ before_label }}</span>
+    </div>
+
+    <div class="before-after-service__pane relative aspect-[4/3] overflow-hidden rounded-card border border-border bg-surface-raised">
+      <img data-if="after_image" class="absolute inset-0 size-full object-cover" src="{{ after_image }}" alt="">
+      <div data-if="!after_image" class="flex size-full items-center justify-center text-on-surface-muted" aria-hidden="true">
+        <svg class="size-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8a2 2 0 012-2h1l1-2h6l1 2h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <span class="absolute left-2 top-2 inline-flex items-center rounded-pill bg-surface/90 px-2 py-0.5 text-xs font-medium uppercase tracking-wide text-on-surface">{{ after_label }}</span>
+    </div>
+  </div>
+
+  <figcaption data-if="note" class="text-sm text-on-surface-muted">{{ note }}</figcaption>
+</figure>

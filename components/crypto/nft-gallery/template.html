@@ -1,0 +1,16 @@
+<div class="nft-gallery grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+  <article data-for="item in items" class="nft-gallery__tile group relative flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+    <div class="nft-gallery__media relative aspect-square overflow-hidden bg-surface-raised">
+      <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="{{ item.name }}">
+    </div>
+    <div class="flex flex-col gap-0.5 p-3">
+      <h3 class="truncate font-heading text-sm text-on-surface">{{ item.name }}</h3>
+      <p data-if="item.collection" class="truncate text-xs text-on-surface-muted">{{ item.collection }}</p>
+      <div class="mt-1.5 flex items-center gap-1 border-t border-border pt-2">
+        <svg class="size-3.5 shrink-0 fill-primary" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l4.7 6.5L10 10.9 5.3 8 10 1.5zm0 10.6l4.7-2.9L10 16.5 5.3 9.2 10 12.1z"></path></svg>
+        <span class="font-mono text-sm text-on-surface tabular-nums">{{ item.price }}</span>
+        <span class="text-xs text-on-surface-muted">{{ item.currency }}</span>
+      </div>
+    </div>
+  </article>
+</div>

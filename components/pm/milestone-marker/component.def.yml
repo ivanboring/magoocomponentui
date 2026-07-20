@@ -1,0 +1,23 @@
+name: milestone-marker
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    example: "Public beta"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "May 2"
+  status:
+    type: enum
+    values: ["done", "upcoming", "missed"]
+    default: upcoming
+    title: Status
+    description: Colours the diamond marker and sets its accessible status text.
+variants:
+  status:
+    done: "text-success"
+    upcoming: "text-info"
+    missed: "text-danger"

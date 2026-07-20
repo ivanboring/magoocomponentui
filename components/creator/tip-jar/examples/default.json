@@ -1,0 +1,11 @@
+{
+  "creator": "Ava Rivera",
+  "goal": "$500",
+  "raised": "$320",
+  "pct": 64,
+  "amounts": [
+    { "value": "$3", "selected": false },
+    { "value": "$5", "selected": true },
+    { "value": "$10", "selected": false }
+  ]
+}

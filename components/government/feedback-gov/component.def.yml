@@ -1,0 +1,19 @@
+name: feedback-gov
+props:
+  categories:
+    type: array
+    items: object
+    required: true
+    title: Issue categories
+    description: >
+      The issue types a resident can report. Each item: { label, value } — label is shown in the
+      select, value is submitted in the report event.
+    example:
+      - { label: "Pothole", value: "pothole" }
+      - { label: "Streetlight outage", value: "streetlight" }
+      - { label: "Graffiti", value: "graffiti" }
+  placeholder:
+    type: string
+    default: "Describe the issue and where it is located..."
+    title: Description placeholder
+    description: Placeholder text for the description field.

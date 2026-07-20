@@ -1,0 +1,9 @@
+{
+  "threads": [
+    { "title": "Welcome to the community, start here", "author": "Ada L.", "replies": "42", "views": "1.2k", "last_activity": "2h ago", "pinned": true, "tags": ["announcement"] },
+    { "title": "Read before posting: community guidelines", "author": "Grace H.", "replies": "18", "views": "980", "last_activity": "1d ago", "pinned": true, "tags": ["rules"] },
+    { "title": "How do I reset my API token?", "author": "Katherine J.", "replies": "7", "views": "312", "last_activity": "12m ago", "pinned": false, "tags": ["help", "api"] },
+    { "title": "Show and tell: what did you build this week?", "author": "Linus T.", "replies": "56", "views": "2.4k", "last_activity": "35m ago", "pinned": false, "tags": ["showcase"] },
+    { "title": "Feature request thread for the mobile app", "author": "Margaret H.", "replies": "23", "views": "641", "last_activity": "3h ago", "pinned": false, "tags": ["feedback"] }
+  ]
+}

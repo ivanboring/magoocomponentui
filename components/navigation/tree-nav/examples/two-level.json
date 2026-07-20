@@ -1,0 +1,21 @@
+{
+  "label": "Docs",
+  "items": [
+    {
+      "label": "Introduction",
+      "children": [
+        { "label": "Overview", "href": "/docs/overview", "active": true },
+        { "label": "Quick start", "href": "/docs/quick-start" }
+      ]
+    },
+    {
+      "label": "Components",
+      "children": [
+        { "label": "Buttons", "href": "/docs/buttons" },
+        { "label": "Cards", "href": "/docs/cards" },
+        { "label": "Navigation", "href": "/docs/navigation" }
+      ]
+    },
+    { "label": "Changelog", "href": "/docs/changelog" }
+  ]
+}

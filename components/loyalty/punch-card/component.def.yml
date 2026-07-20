@@ -1,0 +1,34 @@
+name: punch-card
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional heading for the punch card (e.g. "Buy 10, get 1 free").
+    example: "Buy 10, get 1 free"
+  stamps:
+    type: array
+    items: object
+    required: true
+    title: Stamps
+    description: >
+      The stamp slots, in order. Each item: { filled }. filled is a boolean - true renders a
+      completed stamp (filled circle with a check), false an empty dashed slot.
+    example:
+      - { filled: true }
+      - { filled: true }
+      - { filled: false }
+  filled_count:
+    type: string
+    title: Filled count
+    description: Pre-formatted number of stamps earned, shown as "filled/total" (e.g. "7").
+    example: "7"
+  total:
+    type: string
+    title: Total
+    description: Pre-formatted total number of stamps, shown as "filled/total" (e.g. "10").
+    example: "10"
+  reward_label:
+    type: string
+    title: Reward label
+    description: Optional line describing what a full card earns (e.g. "Free coffee on your next visit").
+    example: "Free coffee on your next visit"

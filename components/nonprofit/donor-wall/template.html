@@ -1,0 +1,19 @@
+<section class="donor-wall rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="font-heading text-lg text-on-surface">Recent donors</h3>
+  <ul class="donor-wall__list mt-4 flex flex-col divide-y divide-border">
+    <li data-for="donor in donors" class="donor-wall__row flex items-center gap-3 py-3 first:pt-0 last:pb-0">
+      <img data-if="donor.avatar" class="size-10 shrink-0 rounded-pill object-cover" src="{{ donor.avatar }}" alt="">
+      <span data-if="!donor.avatar" class="flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted" aria-hidden="true">
+        <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 10a4 4 0 100-8 4 4 0 000 8zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="font-medium text-on-surface">{{ donor.name }}</p>
+        <p data-if="donor.message" class="truncate text-sm text-on-surface-muted">{{ donor.message }}</p>
+      </div>
+      <div class="shrink-0 text-right">
+        <p class="donor-wall__amount font-heading text-on-surface tabular-nums">{{ donor.amount }}</p>
+        <p data-if="donor.time" class="text-xs text-on-surface-muted">{{ donor.time }}</p>
+      </div>
+    </li>
+  </ul>
+</section>

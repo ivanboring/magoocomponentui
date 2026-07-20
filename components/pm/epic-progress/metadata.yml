@@ -1,0 +1,78 @@
+name: "Epic Progress"
+short_description: A card showing an epic's name, its stories-done count, and a completion bar.
+long_visual_description: >
+  A small card on the surface colour with the epic name on the left and a muted "done/total
+  stories" count on the right, above a thin pill progress track. The track fills left-to-right
+  in the primary colour to the precomputed completion percentage.
+
+use_cases:
+  - Show an epic's completion in a roadmap or portfolio view.
+  - Track stories done versus planned in a sprint summary.
+  - Display feature-level progress on a program dashboard.
+  - Summarise a milestone's rollup progress.
+  - Give stakeholders an at-a-glance epic status.
+
+recommended_for:
+  - Rolling up story completion into a single epic figure.
+  - Lists of epics each needing a compact progress readout.
+avoid_for:
+  - A single task's status (use a badge or checkbox).
+  - Detailed burndown history (use a chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name, done, and total, plus pct as the precomputed done/total percentage (0-100). The
+  bar width and the accessible value both read from pct; the template does no arithmetic.
+
+props:
+  name: The epic's title; keep it short since it truncates.
+  done: Number of stories completed.
+  total: Total number of stories in the epic.
+  pct: Precomputed completion percentage (0-100) driving the bar width and aria value.
+
+example_prompts:
+  - "Show the checkout epic at 12 of 18 stories done."
+  - "Add an epic progress card for the onboarding epic at 40 percent."
+
+lifecycle: experimental
+content_model: An epic name, a done/total story count, and a precomputed completion percentage.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name the epic the way the team refers to it, not by ticket key, and keep the story counts in
+  sync with the precomputed percentage so the bar matches the numbers.
+
+relationships:
+  related:
+    - atoms/progress-bar
+    - pm/project-health-card
+    - pm/board-column-header
+
+categorization:
+  category: Project Management
+  subcategory: Progress
+  atomic_type: molecule
+  usage_type: [stat, card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar is a labelled progressbar with aria-valuenow/min/max; the story count is also shown as text.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

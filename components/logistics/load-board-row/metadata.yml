@@ -1,0 +1,81 @@
+name: "Load Board Row"
+short_description: A freight load row showing origin, destination, equipment, weight, pickup date and rate with a Book action.
+long_visual_description: >
+  A wide card row on the surface colour. The lane reads origin to destination in the heading face
+  with an arrow between, and a muted meta line below carries the equipment type, weight and pickup
+  date each with a small icon. The offered rate sits in the heading face toward the trailing edge,
+  followed by a primary Book button.
+
+use_cases:
+  - A row in a freight load board listing available loads.
+  - A carrier-facing list of loads to accept.
+  - A brokerage dashboard of open lanes and rates.
+  - A dispatch queue of loads awaiting assignment.
+  - A spot-market feed of freight with pickup dates.
+
+recommended_for:
+  - Dense, scannable lists of freight loads with a book action per row.
+  - Load data rendered from structured lane, weight and rate fields.
+avoid_for:
+  - A single shipment's status history (use tracking-timeline).
+  - A parcel rate chooser (use carrier-rate-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows in a list. Give each an origin and destination lane, the equipment type, the
+  weight, the pickup date, and the rate; the Book button and icons are supplied by the component.
+
+props:
+  origin: The pickup location for the lane.
+  destination: The drop-off location for the lane.
+  weight: The load weight formatted with a unit.
+  rate: The offered rate formatted with currency; shown in the heading face and tabular figures.
+  pickup_date: When the load is available, shown with a calendar icon.
+  equipment: The trailer or equipment type required (Dry Van, Reefer, Flatbed).
+
+example_prompts:
+  - "Add a load board row from Dallas to Atlanta, Dry Van, 42,000 lbs, $2,150."
+  - "List open freight loads with pickup dates and a Book button."
+  - "Show a reefer load with its rate on a load board."
+
+lifecycle: experimental
+content_model: A lane (origin and destination), optional equipment, weight, pickup date, and rate.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep lane names as short place labels and format weight and rate with units and currency. Use a
+  consistent equipment vocabulary across rows so they compare cleanly.
+
+relationships:
+  related:
+    - logistics/carrier-rate-card
+    - logistics/dock-schedule
+    - logistics/eta-badge
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Freight
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Meta icons are decorative and aria-hidden; the Book control is a real button with a visible label.
+  keyboard_support: The Book button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

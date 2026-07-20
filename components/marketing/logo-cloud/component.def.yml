@@ -20,6 +20,15 @@ props:
     description: >
       "grid" is a responsive grid at every width. "slider" turns the row into a horizontal,
       swipeable, snap slider on mobile and tablet, then falls back to the grid on desktop (lg+).
+  spacing:
+    type: enum
+    values: [default, compact, none]
+    default: default
+    title: Vertical spacing
+    description: >
+      Vertical padding around the wall. "default" is a full section gap (--space-section);
+      "compact" is a tight band; "none" removes the padding entirely, for a logo wall that should
+      butt straight up against the section above or below it (e.g. directly under a hero).
   logos:
     type: array
     items: object
@@ -33,6 +42,10 @@ props:
       - { name: "Nike", image: "/stock/nike-3-logo-svgrepo-com.svg", url: "#" }
       - { name: "Adidas", image: "/stock/adidas-logo-svgrepo-com.svg" }
 variants:
+  spacing:
+    default: "py-(--space-section)"
+    compact: "py-8"
+    none: "py-0"
   appearance:
     color: ""
     grayscale: "[&_img]:opacity-60 [&_img]:grayscale [&_img:hover]:opacity-100 [&_img:hover]:grayscale-0"

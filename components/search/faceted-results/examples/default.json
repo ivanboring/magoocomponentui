@@ -1,0 +1,36 @@
+{
+  "total": "128 results",
+  "facets": [
+    {
+      "label": "Category",
+      "options": [
+        { "label": "Guides", "count": 42, "checked": true },
+        { "label": "Reference", "count": 31 },
+        { "label": "Tutorials", "count": 24 },
+        { "label": "Blog", "count": 18 }
+      ]
+    },
+    {
+      "label": "Product",
+      "options": [
+        { "label": "Platform", "count": 55 },
+        { "label": "SDK", "count": 40, "checked": true },
+        { "label": "CLI", "count": 33 }
+      ]
+    },
+    {
+      "label": "Updated",
+      "options": [
+        { "label": "Past week", "count": 12 },
+        { "label": "Past month", "count": 47 },
+        { "label": "Past year", "count": 128 }
+      ]
+    }
+  ],
+  "results": [
+    { "title": "Getting started with the SDK", "url": "example.com/guides/sdk/start", "snippet": "Install the SDK, authenticate, and make your first request in a few minutes.", "meta": ["Guide", "SDK", "5 min read"] },
+    { "title": "Authentication reference", "url": "example.com/reference/auth", "snippet": "How API keys, tokens and scopes work, with examples for every language binding.", "meta": ["Reference", "Platform"] },
+    { "title": "Handling webhooks reliably", "url": "example.com/guides/webhooks", "snippet": "Verify signatures, retry safely and keep your endpoint idempotent under load.", "meta": ["Guide", "Platform", "8 min read"] },
+    { "title": "CLI command overview", "url": "example.com/reference/cli", "snippet": "Every command, flag and environment variable the command-line tool understands.", "meta": ["Reference", "CLI"] }
+  ]
+}

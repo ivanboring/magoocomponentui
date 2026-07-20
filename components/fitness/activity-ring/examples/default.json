@@ -1,0 +1,7 @@
+{
+  "rings": [
+    { "label": "Move", "value": 420, "goal": 600, "radius": 15.9155, "dash": "100", "offset": "30", "color_class": "stroke-danger" },
+    { "label": "Exercise", "value": 25, "goal": 30, "radius": 12, "dash": "75.4", "offset": "12.57", "color_class": "stroke-success" },
+    { "label": "Stand", "value": 10, "goal": 12, "radius": 8.5, "dash": "53.41", "offset": "8.9", "color_class": "stroke-info" }
+  ]
+}

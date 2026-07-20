@@ -1,0 +1,14 @@
+{
+  "title": "Measure C: Ranked-Choice Voting",
+  "measure_id": "Prop 8",
+  "status": "Passed",
+  "summary": "Adopts ranked-choice voting for city elections, letting voters rank candidates in order of preference and eliminating the need for separate runoff elections.",
+  "pro_args": [
+    "Ends costly, low-turnout runoff elections.",
+    "Lets voters support their favorite without splitting the vote."
+  ],
+  "con_args": [
+    "The ballot is more complex to fill out.",
+    "Results can take longer to tabulate."
+  ]
+}

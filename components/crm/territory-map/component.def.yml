@@ -1,0 +1,17 @@
+name: territory-map
+props:
+  regions:
+    type: array
+    items: object
+    required: true
+    title: Regions
+    description: >
+      The territory tiles. This is a MAP FACADE - a stylized grid of region tiles, not a real
+      geographic map; a real mapping library replaces the tile grid when live interactivity is
+      needed. Each item: { name, rep, deals, color_class }. name is the territory label; rep is
+      the assigned owner (optional); deals is the open-deal count as a formatted string (optional);
+      color_class is a tokenized Tailwind background-tint utility for the tile (e.g. "bg-primary/10",
+      "bg-success/10"), optional - tiles without one stay on the plain surface.
+    example:
+      - { name: "West", rep: "Dana Whitfield", deals: "12", color_class: "bg-primary/10" }
+      - { name: "Midwest", rep: "Marcus Lindqvist", deals: "8", color_class: "bg-accent/10" }

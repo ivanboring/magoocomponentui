@@ -1,0 +1,77 @@
+name: "Policy Renewal Banner"
+short_description: A tinted banner announcing an upcoming policy renewal with its date, days remaining, and a renew action, scaled by urgency.
+long_visual_description: >
+  A bordered banner whose tint and border colour rise with urgency - an info tint by default, warning
+  amber as it nears, and a danger red when urgent. A refresh glyph leads, an optional policy eyebrow
+  sits above a "Renews" date line in the heading face with a muted days-left note, and a bordered
+  Renew now button sits on the trailing edge.
+
+use_cases:
+  - Remind a policyholder that renewal is approaching.
+  - Escalate a renewal notice as the deadline nears.
+  - Warn that a policy is about to lapse.
+  - Prompt payment to keep cover continuous.
+  - Surface a renewal call to action on an account dashboard.
+  - Flag an urgent renewal at the top of a policy page.
+
+recommended_for:
+  - Renewal reminders on account and policy screens.
+  - Time-sensitive notices that escalate by urgency.
+avoid_for:
+  - General inline feedback (use alert).
+  - A full premium breakdown (use premium-summary).
+
+markets:
+  - Global
+
+example_usage: >
+  Set renewal_date to the formatted date and choose level to match how close or pressing the renewal
+  is - info well ahead, warning as it nears, urgent when a lapse is imminent. Add days_left for a
+  countdown and policy for context, and wire the Renew now button to your renewal flow.
+
+props:
+  policy: An optional policy name or number shown as an eyebrow.
+  renewal_date: The pre-formatted renewal date.
+  days_left: An optional countdown of days remaining.
+  level: The urgency band; sets the banner tint and border.
+
+example_prompts:
+  - "Show a warning renewal banner for POL-4821 renewing March 14 in 12 days."
+  - "Put an urgent renewal notice at the top saying the policy renews tomorrow."
+
+lifecycle: experimental
+content_model: A renewal date, an optional policy label, an optional days-left count, and an urgency level.
+
+theming:
+  tokens_used:
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-button
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the renewal date and keep the message to one idea. Raise the level only as the deadline
+  genuinely nears so urgent keeps its weight, and phrase the days-left note as a plain countdown.
+
+relationships:
+  related:
+    - insurance/premium-summary
+    - notifications/alert
+    - marketing/announcement-bar
+
+categorization:
+  category: Insurance
+  subcategory: Policy
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="status" announces the notice; the icon is aria-hidden; urgency is carried by the date and days-left text, not colour alone; Renew now is a labelled button.
+  keyboard_support: The Renew now button is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

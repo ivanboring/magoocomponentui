@@ -1,0 +1,85 @@
+name: "Solar Production Card"
+short_description: A single-panel card showing live solar output in kW with today's energy, peak, and self-consumption.
+long_visual_description: >
+  A surface card with a sun glyph and a "Solar production" label top-left and a coloured status pill
+  top-right (green when producing, muted when idle). A large heading number gives the current output
+  in kW, below it two raised tiles show today's total in kWh and the day's peak, and an optional thin
+  progress bar reports the share of generation consumed on-site.
+
+use_cases:
+  - Home energy dashboard tile for a rooftop solar array.
+  - Live production readout in a solar monitoring app.
+  - Fleet or site overview card for a small commercial installation.
+  - Battery-and-solar system summary showing generation at a glance.
+  - Sustainability dashboard panel tracking on-site renewable output.
+
+recommended_for:
+  - A compact, at-a-glance solar output figure with a couple of supporting stats.
+  - Dashboards where the values are formatted upstream and passed in ready to display.
+avoid_for:
+  - A full generation-over-time chart (use usage-forecast or a line chart shell).
+  - Multi-source energy breakdowns (use carbon-footprint or a dedicated mix widget).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass current_kw as the instantaneous output and optionally today_kwh and peak_kw; the template
+  adds the units. Set self_consumption_pct to a precomputed 0-100 whole number to show the bar, and
+  set status to producing or idle to colour the pill.
+
+props:
+  current_kw: The instantaneous output value without a unit; the card renders the "kW" suffix.
+  today_kwh: Energy generated so far today without a unit; renders a "kWh" tile. Omit to hide.
+  peak_kw: The day's highest output without a unit; renders a "kW" tile. Omit to hide.
+  self_consumption_pct: Precomputed 0-100 share used on-site; drives the bar. Omit to hide the bar.
+  status: producing or idle; colours the status pill green or muted.
+
+example_prompts:
+  - "Add a solar production card showing 4.2 kW with 23.8 kWh today and a peak of 5.1 kW."
+  - "Show a solar card that is idle overnight with no output."
+  - "Put a rooftop solar tile on the energy dashboard with 68 percent self-consumption."
+
+lifecycle: experimental
+content_model: A current output figure, optional daily energy and peak stats, an optional self-consumption percent, and a producing/idle status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Format the figures upstream and keep them short; the card supplies units. Set status to agree with
+  the reading - producing when current_kw is above zero, idle when the array is dark.
+
+relationships:
+  related:
+    - energy/usage-forecast
+    - energy/meter-reading-row
+    - energy/carbon-footprint
+
+categorization:
+  category: Energy
+  subcategory: Monitoring
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status is conveyed by text as well as colour; the self-consumption bar carries a labelled progressbar role and the sun glyph is decorative.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,39 @@
+name: post-detail
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "How I cut our build time in half"
+  author:
+    type: object
+    required: true
+    title: Author
+    description: >
+      The poster. Object: { name, avatar, flair, initials } where avatar is an optional image URL,
+      flair is an optional short role/badge label shown as a pill next to the name, and initials is
+      the precomputed 1-2 letter fallback shown in the avatar circle when there is no avatar image.
+    example: { name: "Ada Lovelace", avatar: "/stock/avatar-woman-1.jpg", flair: "Maintainer", initials: "AL" }
+  time:
+    type: string
+    required: true
+    title: Time
+    description: Pre-formatted post time (absolute or relative).
+    example: "Posted 3h ago"
+  body_html:
+    type: html
+    required: true
+    title: Body
+    description: The post body as trusted, pre-rendered HTML.
+    example: "<p>We swapped our bundler and the numbers speak for themselves.</p>"
+  score:
+    type: string
+    title: Score
+    description: Optional pre-formatted vote score shown in the footer.
+    example: "128"
+  tags:
+    type: array
+    items: string
+    title: Tags
+    description: Optional label chips shown under the header.
+    example: ["performance", "tooling"]

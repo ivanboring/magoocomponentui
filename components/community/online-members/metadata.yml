@@ -1,0 +1,80 @@
+name: "Online Members"
+short_description: A who's-online card listing members with avatars and a presence dot coloured by status.
+long_visual_description: >
+  A card on the surface colour headed "Online" with a small green presence dot and an optional total
+  count. Below runs a vertical list of members, each a round avatar (photo, or precomputed initials on
+  a raised fill) with a status dot in its lower-right corner — green for online, amber for idle, red
+  for do-not-disturb — and the member's name beside it.
+
+use_cases:
+  - Who's-online panel in a forum or community sidebar.
+  - Presence list in a chat or messaging app.
+  - Active members widget on a community dashboard.
+  - Team availability strip in a workspace.
+  - Online now list on a live event page.
+  - Roster of members currently in a room or channel.
+
+recommended_for:
+  - Showing real-time presence with a status colour cue.
+  - Compact member lists with avatar and name.
+avoid_for:
+  - Full member directories with actions (use a list with rows).
+  - Ranking or leaderboards (use a leaderboard component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a members array of { name, avatar or initials, status } and an optional count for the header.
+  Provide precomputed initials for anyone without an avatar; the status drives the dot colour.
+
+props:
+  members: "The people to list. Each: name, avatar (optional image URL), initials (precomputed fallback), status (online, idle or dnd)."
+  count: "Optional pre-formatted total shown in the header."
+
+example_prompts:
+  - "Add a who's-online card listing six members with presence dots."
+  - "Show an online members panel where some members use initials instead of a photo."
+  - "Put an active members widget with a count in the sidebar."
+
+lifecycle: experimental
+content_model: A header count plus a list of members, each with a name, an avatar or initials, and a presence status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep names short and consistent. Provide sensible initials for members without a photo, and reserve
+  the do-not-disturb status for members who genuinely should not be pinged.
+
+relationships:
+  related:
+    - community/reputation-card
+    - community/pinned-post
+    - community/tag-filter-forum
+
+categorization:
+  category: Community
+  subcategory: Presence
+  atomic_type: molecule
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status dots are decorative (aria-hidden); the primary information is each member's name in text, so presence colour is supplementary.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,74 @@
+name: "Agency Process"
+short_description: A numbered, responsive row of process steps, each a tinted number badge over a title and short description.
+long_visual_description: >
+  An ordered list of process steps laid out as a single column on mobile that flows into two and then
+  four columns on wider screens. Each step leads with a circular number badge tinted in the primary
+  colour, followed by a step title in the heading face and a short muted description, giving a clear
+  left-to-right "how we work" sequence.
+
+use_cases:
+  - An agency "how we work" section on a services or home page.
+  - A consultancy engagement-process overview.
+  - A product onboarding or setup sequence explainer.
+  - A methodology breakdown (discover, design, build, ship).
+  - A studio's project-lifecycle summary.
+  - A step-by-step "what to expect" section for new clients.
+
+recommended_for:
+  - A short, ordered sequence of three to five steps shown side by side.
+  - Explaining a repeatable method at a glance.
+avoid_for:
+  - A long, interactive or branching workflow (use a dedicated stepper).
+  - A single call-to-action or unordered feature list (use feature-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a steps array (each { number, title, body }). Supply number as a formatted string like "01" -
+  the directive language does no arithmetic, so the caller controls the label. Keep the set to three
+  to five steps so the row stays even.
+
+props:
+  steps: "The ordered steps. Each: number (formatted label like '01'), title, body (short description)."
+  label: "Accessible name announced for the process region."
+
+example_prompts:
+  - "Add a four-step process: discover, design, build, ship."
+  - "Show our engagement process with numbered steps."
+  - "Explain how we work in three numbered steps."
+
+lifecycle: experimental
+content_model: An ordered set of process steps, each with a number label, a title, and a short description.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Keep step titles to a single verb or noun and bodies to one concise sentence. Number the steps
+  consistently (all "01".."04" or all "1".."4") and keep the count to three to five so the row reads
+  as a clean sequence rather than a wall of text.
+
+relationships:
+  related:
+    - portfolio/service-card
+    - portfolio/team-grid
+    - marketing/feature-grid
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Process
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The steps are a real ordered list (ol/li) so their sequence is conveyed structurally; the number badge is decorative (aria-hidden) since the list already implies order.
+  keyboard_support: None - static, non-interactive content.
+  seo_score: 55
+  text_direction: both

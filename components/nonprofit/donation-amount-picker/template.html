@@ -1,0 +1,9 @@
+<div class="donation-amount-picker flex flex-col gap-2">
+  <div class="donation-amount-picker__grid grid grid-cols-3 gap-2" role="group" aria-label="Donation amount">
+    <button data-for="amount in amounts" type="button" data-amount="{{ amount.value }}" data-selected="{{ amount.selected }}" class="donation-amount-picker__amount rounded-button border border-border bg-surface px-3 py-2 text-center font-heading text-on-surface transition-colors duration-(--duration-token) hover:border-primary data-[selected=true]:border-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary">{{ amount.label }}</button>
+  </div>
+  <label data-if="allow_custom" class="donation-amount-picker__custom-field flex items-center gap-2 rounded-control border border-border bg-surface-raised px-3 py-2 focus-within:border-primary">
+    <span class="shrink-0 text-on-surface-muted">$</span>
+    <input class="donation-amount-picker__custom min-w-0 flex-1 bg-transparent text-on-surface outline-none placeholder:text-on-surface-muted" type="number" inputmode="decimal" min="1" placeholder="Other amount" aria-label="Custom donation amount">
+  </label>
+</div>

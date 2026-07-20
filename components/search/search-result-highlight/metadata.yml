@@ -1,0 +1,69 @@
+name: "Search Result Highlight"
+short_description: An inline text span that highlights the matched search term within a result label using a marked run.
+long_visual_description: >
+  A single line of inline text where the portions matching the user's query are wrapped in
+  a soft warning-tinted mark with slightly rounded corners and a little horizontal padding,
+  while the rest stays in the normal on-surface colour. The text is provided pre-split into
+  alternating matched and unmatched runs so any number of matches can be emphasised inline.
+
+use_cases:
+  - Emphasising the matched query inside search result titles.
+  - Highlighting the term within autocomplete suggestion labels.
+  - Marking matched keywords in a list of filtered items.
+  - Showing why a result matched in a command palette or lookup.
+  - Highlighting found text in a table cell or snippet.
+  - Any place a matched substring should stand out inline without reflowing.
+
+recommended_for:
+  - Inline emphasis of a matched term inside an otherwise plain text label.
+  - Rendering multiple matched runs within one string.
+avoid_for:
+  - Block-level highlighting of whole paragraphs (use a callout or highlighted block).
+  - Rich formatting beyond a simple matched mark (use a rich-text component).
+
+markets:
+  - Global
+
+example_usage: >
+  Split the label upstream into a segments array of { text, match } runs - matched runs get
+  match true - keeping surrounding spaces inside the text so the sentence reads naturally.
+  The component wraps matched runs in a <mark> and leaves the rest as plain text.
+
+props:
+  segments: "The label pre-split into ordered runs; each run has its text and a match flag deciding whether it is highlighted."
+
+example_prompts:
+  - "Highlight the searched term inside each result title."
+  - "Bold the matching part of the autocomplete suggestions."
+
+lifecycle: experimental
+content_model: A string pre-split into matched and unmatched text runs for inline highlighting.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-warning
+
+editorial_guidance: >
+  Highlight only the genuinely matched characters, not whole words, and preserve the
+  original casing and spacing of the text. Keep the mark subtle so the label stays
+  readable when several runs match.
+
+relationships:
+  related:
+    - search/autocomplete-panel
+    - search/no-results-suggestions
+    - search/trending-searches
+
+categorization:
+  category: Search
+  subcategory: Results
+  atomic_type: atom
+  usage_type: [inline, text]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Matched runs use the semantic <mark> element so emphasis is conveyed structurally, not by colour alone; the full text remains readable in the normal on-surface colour.
+  keyboard_support: none - static inline text with no interactive elements.
+  seo_score: 20
+  text_direction: both

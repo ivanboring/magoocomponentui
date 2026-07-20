@@ -1,0 +1,19 @@
+<figure class="bar-chart-shell rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="bar-chart-shell__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="bar-chart-shell__title font-heading text-on-surface">{{ title }}</h3>
+  </header>
+  <div class="bar-chart-shell__body flex gap-2">
+    <div class="bar-chart-shell__y-axis flex h-48 flex-col justify-between text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="bar-chart-shell__y-tick">{{ y }}</span>
+    </div>
+    <div class="bar-chart-shell__col relative min-w-0 flex-1">
+      <div class="bar-chart-shell__plot flex h-48 items-end gap-2">
+        <div data-for="bar in bars" class="bar-chart-shell__bar-col group flex h-full flex-1 flex-col items-center justify-end gap-1">
+          <span class="bar-chart-shell__value text-[11px] font-medium text-on-surface-muted opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100 tabular-nums">{{ bar.value }}</span>
+          <div class="bar-chart-shell__bar w-full rounded-t-control bg-primary transition-colors duration-(--duration-token) group-hover:bg-primary/80" style="height: {{ bar.height_pct }}%"></div>
+          <span class="bar-chart-shell__label text-[11px] text-on-surface-muted">{{ bar.label }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</figure>

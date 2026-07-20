@@ -1,0 +1,75 @@
+<div class="member-card overflow-hidden rounded-card bg-primary p-(--space-card) text-primary-contrast shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p class="text-xs font-medium uppercase tracking-widest opacity-80">Rewards</p>
+      <p class="member-card__name mt-2 font-heading text-xl">{{ member_name }}</p>
+    </div>
+    <span data-if="tier" class="member-card__tier inline-flex shrink-0 items-center gap-1 rounded-pill bg-primary-contrast/15 px-3 py-1 text-xs font-medium">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
+      {{ tier }}
+    </span>
+  </div>
+
+  <div class="mt-6 flex items-end justify-between gap-4">
+    <div class="min-w-0">
+      <p class="text-xs uppercase tracking-wide opacity-70">Member No.</p>
+      <p class="member-card__number mt-0.5 truncate font-mono text-sm">{{ member_number }}</p>
+    </div>
+    <div data-if="points" class="shrink-0 text-right">
+      <p class="text-xs uppercase tracking-wide opacity-70">Points</p>
+      <p class="member-card__points mt-0.5 font-heading text-lg tabular-nums">{{ points }}</p>
+    </div>
+  </div>
+
+  <div class="member-card__barcode mt-6 rounded-control bg-surface p-3">
+    <div class="flex h-12 items-stretch gap-px" aria-hidden="true">
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-px bg-on-surface"></span>
+      <span class="w-0.5 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-1.5 bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+      <span class="w-1 bg-on-surface"></span>
+    </div>
+    <p data-if="barcode" class="member-card__barcode-number mt-2 text-center font-mono text-xs tracking-[0.3em] text-on-surface">{{ barcode }}</p>
+  </div>
+</div>

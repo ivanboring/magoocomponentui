@@ -1,0 +1,19 @@
+name: danger-zone
+props:
+  title:
+    type: string
+    default: "Danger zone"
+    title: Title
+    description: The heading for the destructive-actions block.
+    example: "Danger zone"
+  actions:
+    type: array
+    items: object
+    required: true
+    title: Actions
+    description: >
+      The destructive actions, in order. Each item: { title, description, button_label }.
+      title names the action, description (optional) explains the consequence, and button_label
+      is the text on the danger button that triggers it.
+    example:
+      - { title: "Delete this project", description: "Permanently remove this project and all of its data. This cannot be undone.", button_label: "Delete project" }

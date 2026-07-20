@@ -1,0 +1,8 @@
+<div class="gas-fee-selector grid grid-cols-3 gap-2" role="radiogroup" aria-label="Gas fee">
+  <button data-for="option in options" type="button" role="radio" class="gas-fee-selector__option flex flex-col items-start gap-0.5 rounded-card border border-border bg-surface p-3 text-left transition-colors duration-(--duration-token) hover:bg-surface-raised data-[selected=true]:border-primary data-[selected=true]:bg-primary/10" data-selected="{{ option.selected }}" data-tier="{{ option.tier }}" aria-checked="{{ option.selected }}">
+    <span class="text-[0.7rem] font-medium uppercase tracking-wide text-on-surface-muted">{{ option.tier }}</span>
+    <span class="font-heading text-sm text-on-surface">{{ option.label }}</span>
+    <span class="font-mono text-sm text-on-surface">{{ option.fee }}</span>
+    <span class="text-xs text-on-surface-muted">{{ option.time }}</span>
+  </button>
+</div>

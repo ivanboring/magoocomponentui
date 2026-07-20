@@ -1,0 +1,16 @@
+{
+  "language": "JavaScript",
+  "tabs": [
+    { "name": "greet.js", "active": true },
+    { "name": "index.js", "active": false }
+  ],
+  "lines": [
+    { "num": 1, "code": "export function greet(name) {" },
+    { "num": 2, "code": "  const trimmed = name.trim();" },
+    { "num": 3, "code": "  if (!trimmed) {" },
+    { "num": 4, "code": "    return \"Hello, friend!\";" },
+    { "num": 5, "code": "  }" },
+    { "num": 6, "code": "  return `Hello, ${trimmed}!`;" },
+    { "num": 7, "code": "}" }
+  ]
+}

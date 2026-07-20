@@ -1,0 +1,82 @@
+name: "Premium Summary"
+short_description: A premium breakdown card showing the headline total, a line-item list, an optional discount, and a pay action.
+long_visual_description: >
+  A card on the surface colour with a large premium total in the heading face and a small
+  billing period beside it. Below a divider sits a list of breakdown rows (label on the left,
+  amount right-aligned in tabular figures), an optional discount line in the success colour,
+  and a full-width primary Pay button at the foot.
+
+use_cases:
+  - Show the monthly or yearly premium at the end of a quote flow.
+  - Summarise what a policyholder pays before they check out.
+  - Break a premium into base cover, add-ons, taxes and fees.
+  - Highlight a multi-policy or loyalty discount against the total.
+  - Confirm the amount due on a renewal or payment screen.
+  - Recap the price on an order-review step before payment.
+
+recommended_for:
+  - Quote and checkout summaries in an insurance flow.
+  - Any priced product needing a clear itemised total.
+avoid_for:
+  - A full invoice with dates and line taxes (use an invoice component).
+  - A simple single price with no breakdown.
+
+markets:
+  - Global
+
+example_usage: >
+  Set total to the formatted headline amount and period to the billing cadence. Pass line_items
+  as label and amount pairs (amounts pre-formatted), and add discount for a savings line rendered
+  in the success colour.
+
+props:
+  total: The headline premium amount, pre-formatted with its currency symbol.
+  period: Billing cadence shown after the total; omit for a one-off premium.
+  line_items: The breakdown rows, each a label and a pre-formatted amount.
+  discount: Optional savings line shown in the success colour.
+
+example_prompts:
+  - "Show a premium summary of $142.50 monthly with base cover, roadside and taxes."
+  - "Summarise the quote total with a loyalty discount line."
+
+lifecycle: experimental
+content_model: A formatted total, a billing period, a list of amount line items, and an optional discount.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short and pre-format every amount with its currency symbol. Show the discount as a
+  negative value so the saving reads clearly, and match the period word to how the policy bills.
+
+relationships:
+  related:
+    - insurance/coverage-toggle-row
+    - insurance/policy-renewal-banner
+    - cards/card-pricing
+
+categorization:
+  category: Insurance
+  subcategory: Billing
+  atomic_type: molecule
+  usage_type: [card, summary]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Amounts are text with tabular figures; the discount is labelled in text, not by colour alone; the pay control is a labelled button.
+  keyboard_support: The Pay button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

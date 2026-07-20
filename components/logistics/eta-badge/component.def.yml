@@ -1,0 +1,21 @@
+name: eta-badge
+props:
+  eta:
+    type: string
+    required: true
+    title: Estimated arrival
+    description: The arrival estimate text shown next to the clock (e.g. "Arrives Jul 6", "2 days late").
+    example: "Arrives Jul 6"
+  status:
+    type: enum
+    values: ["on-time", "early", "delayed"]
+    default: "on-time"
+    title: Status
+    description: >
+      Delivery health, which sets the pill colour - on-time (success/green), early (info/blue),
+      or delayed (danger/red).
+variants:
+  status:
+    "on-time": "bg-success/10 text-success"
+    "early": "bg-info/10 text-info"
+    "delayed": "bg-danger/10 text-danger"

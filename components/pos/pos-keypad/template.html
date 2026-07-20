@@ -1,0 +1,19 @@
+<div class="pos-keypad flex w-full max-w-xs flex-col gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <output class="pos-keypad__display block rounded-control border border-border bg-surface-raised px-4 py-3 text-right font-heading text-2xl text-on-surface tabular-nums">{{ display }}</output>
+  <div class="pos-keypad__pad grid grid-cols-3 gap-2">
+    <button type="button" data-key="1" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">1</button>
+    <button type="button" data-key="2" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">2</button>
+    <button type="button" data-key="3" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">3</button>
+    <button type="button" data-key="4" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">4</button>
+    <button type="button" data-key="5" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">5</button>
+    <button type="button" data-key="6" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">6</button>
+    <button type="button" data-key="7" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">7</button>
+    <button type="button" data-key="8" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">8</button>
+    <button type="button" data-key="9" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">9</button>
+    <button type="button" data-key="." class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">.</button>
+    <button type="button" data-key="0" class="pos-keypad__key rounded-control border border-border bg-surface py-3 font-heading text-lg text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">0</button>
+    <button type="button" data-key="enter" class="pos-keypad__enter rounded-control border border-primary bg-primary py-3 font-heading text-lg text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90" aria-label="Enter">
+      <svg class="mx-auto size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h9a3 3 0 003-3V5M4 10l3-3M4 10l3 3"/></svg>
+    </button>
+  </div>
+</div>

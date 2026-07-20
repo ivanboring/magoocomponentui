@@ -1,0 +1,14 @@
+name: time-off-balance
+props:
+  balances:
+    type: array
+    items: object
+    required: true
+    title: Balances
+    description: >
+      One row per leave type. Each item is { label, used, total, pct, color_class } where used and
+      total are day counts, pct is the precomputed bar width from 0-100, and color_class is a
+      tokenised fill utility (e.g. bg-primary, bg-warning, bg-danger).
+    example:
+      - { label: "Vacation", used: 6, total: 24, pct: 25, color_class: "bg-primary" }
+      - { label: "Sick leave", used: 3, total: 10, pct: 30, color_class: "bg-info" }

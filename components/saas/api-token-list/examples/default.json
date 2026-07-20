@@ -1,0 +1,18 @@
+{
+  "tokens": [
+    {
+      "name": "Production server",
+      "token_masked": "sk_live_...4f9a",
+      "scopes": ["read", "write"],
+      "created": "Mar 4, 2026",
+      "last_used": "2 hours ago"
+    },
+    {
+      "name": "CI pipeline",
+      "token_masked": "sk_live_...b21c",
+      "scopes": ["read"],
+      "created": "Jan 12, 2026",
+      "last_used": "Yesterday"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+name: nft-gallery
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: NFTs
+    description: >
+      The collectibles to lay out in the grid. Each item:
+      { image, name, collection, price, currency }. image, name and price carry the tile;
+      collection and currency are optional (currency defaults visually to the ticker you pass).
+    example:
+      - { image: "/stock/stage1.jpg", name: "Cosmic Drifter #204", collection: "Cosmic Drifters", price: "2.4", currency: "ETH" }

@@ -1,0 +1,83 @@
+name: "Engagement Stat"
+short_description: A creator metric tile with a value, a directional change, and an optional sparkline.
+long_visual_description: >
+  A compact surface card with a muted metric label (and optional comparison window) across the top,
+  a large headline value in the heading face, and a footer row pairing a coloured change indicator
+  with a small line sparkline. The change shows an up or down arrow and reads green for up and red
+  for down; the sparkline is a token-primary trend line drawn from a precomputed path.
+
+use_cases:
+  - Show follower growth with a period-over-period change.
+  - Track watch time or views with a trend sparkline.
+  - Summarise engagement rate on a creator dashboard.
+  - Display likes, comments, or shares with a directional cue.
+  - Compare a metric against the previous 30 days.
+  - Headline a channel-analytics summary tile.
+
+recommended_for:
+  - Creator and social analytics dashboards.
+  - Grids of comparable engagement metrics with trend cues.
+avoid_for:
+  - A metric with no direction or change (use stat-card).
+  - A full time-series chart (use a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a label and a formatted value, then add a change string with change_dir set to match its
+  sign. Pass a precomputed sparkline_path (a `d` string in a 100x32 viewBox) to show the trend line;
+  omit it for a plain figure. The tile does no maths — pre-compute the change and the path.
+
+props:
+  label: Short name of the metric.
+  value: The formatted headline figure including any unit.
+  change: The formatted change vs the previous period.
+  change_dir: Direction of the change; sets the arrow and colour.
+  sparkline_path: A precomputed SVG path drawn in a 100x32 viewBox; omit for no sparkline.
+  period: The comparison window shown next to the label.
+
+example_prompts:
+  - "Show new followers at 12.4K up 8.2% with a trend sparkline."
+  - "Add an engagement-rate tile that dropped 3% this month."
+  - "Put watch-time and views engagement stats side by side."
+
+lifecycle: experimental
+content_model: A label, a formatted value, an optional signed change with a direction, an optional sparkline path, and an optional period.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep labels to the recognised metric name and let change_dir agree with the sign of the change —
+  never a green drop. Pre-format the value with its unit so a row of tiles aligns.
+
+relationships:
+  related:
+    - creator/payout-summary
+    - dashboard/stat-card
+    - atoms/progress-bar
+
+categorization:
+  category: Creator
+  subcategory: Analytics
+  atomic_type: molecule
+  usage_type: [stat, grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Direction is shown by the arrow and change text as well as colour; the sparkline is decorative and aria-hidden.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 30
+  text_direction: both

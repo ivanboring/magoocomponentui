@@ -1,0 +1,36 @@
+<form class="fnol-form flex flex-col gap-5 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex flex-col gap-1">
+    <h3 class="font-heading text-lg text-on-surface">Report a claim</h3>
+    <p class="text-sm text-on-surface-muted">Tell us what happened and we'll start your claim.</p>
+  </div>
+
+  <label class="flex flex-col gap-1.5">
+    <span class="text-sm font-medium text-on-surface">Incident type</span>
+    <select class="fnol-form__type rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring">
+      <option value="" disabled selected>Select an incident type</option>
+      <option data-for="opt in incident_types" value="{{ opt.value }}">{{ opt.label }}</option>
+    </select>
+  </label>
+
+  <label class="flex flex-col gap-1.5">
+    <span class="text-sm font-medium text-on-surface">Date of loss</span>
+    <input type="date" class="fnol-form__date rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring">
+  </label>
+
+  <label class="flex flex-col gap-1.5">
+    <span class="text-sm font-medium text-on-surface">Description</span>
+    <textarea rows="4" placeholder="{{ placeholder }}" class="fnol-form__desc rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring"></textarea>
+  </label>
+
+  <div class="flex flex-col gap-1.5">
+    <span class="text-sm font-medium text-on-surface">Photos</span>
+    <label class="fnol-form__dropzone flex cursor-pointer flex-col items-center justify-center gap-2 rounded-control border-2 border-dashed border-border bg-surface-raised px-4 py-8 text-center transition-colors duration-(--duration-token) hover:border-primary">
+      <svg class="size-6 text-on-surface-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+      <span class="text-sm text-on-surface">Drag photos here or browse</span>
+      <span class="text-xs text-on-surface-muted">Add photos of the damage</span>
+      <input type="file" accept="image/*" multiple class="fnol-form__file sr-only">
+    </label>
+  </div>
+
+  <button type="submit" class="fnol-form__submit rounded-button bg-primary px-4 py-2.5 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring">Submit claim</button>
+</form>

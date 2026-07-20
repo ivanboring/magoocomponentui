@@ -1,0 +1,9 @@
+{
+  "name": "Acme Corp renewal",
+  "value": "$48,000",
+  "stage": "Proposal",
+  "owner": "Dana Lee",
+  "initials": "DL",
+  "close_date": "Aug 30, 2026",
+  "probability": 65
+}

@@ -1,0 +1,34 @@
+{
+  "stages": [
+    {
+      "label": "Qualified",
+      "total": "$120k",
+      "deals": [
+        { "name": "Acme Corp renewal", "value": "$48,000", "owner": "Dana Lee", "initials": "DL" },
+        { "name": "Northwind expansion", "value": "$72,000", "owner": "Sam Ortiz", "initials": "SO" }
+      ]
+    },
+    {
+      "label": "Proposal",
+      "total": "$90k",
+      "deals": [
+        { "name": "Globex platform deal", "value": "$90,000", "owner": "Priya Nair", "initials": "PN" }
+      ]
+    },
+    {
+      "label": "Negotiation",
+      "total": "$36k",
+      "deals": [
+        { "name": "Initech support tier", "value": "$18,000", "owner": "Dana Lee", "initials": "DL" },
+        { "name": "Umbrella add-on", "value": "$18,000", "owner": "Sam Ortiz", "initials": "SO" }
+      ]
+    },
+    {
+      "label": "Closed Won",
+      "total": "$54k",
+      "deals": [
+        { "name": "Soylent annual", "value": "$54,000", "owner": "Priya Nair", "initials": "PN" }
+      ]
+    }
+  ]
+}

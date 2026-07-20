@@ -1,0 +1,20 @@
+<div class="pipeline-board flex gap-4 overflow-x-auto pb-2" role="group" aria-label="Sales pipeline">
+  <section data-for="stage in stages" class="pipeline-board__column flex w-72 shrink-0 flex-col rounded-card border border-border bg-surface-raised">
+    <header class="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
+      <h3 class="font-heading text-sm text-on-surface">{{ stage.label }}</h3>
+      <span data-if="stage.total" class="shrink-0 rounded-pill bg-surface px-2 py-0.5 text-xs font-medium tabular-nums text-on-surface-muted">{{ stage.total }}</span>
+    </header>
+    <div class="flex flex-col gap-3 p-3">
+      <article data-for="deal in stage.deals" class="pipeline-board__deal rounded-control border border-border bg-surface p-3 shadow-card">
+        <p class="text-sm font-medium text-on-surface">{{ deal.name }}</p>
+        <div class="mt-2 flex items-center justify-between gap-2">
+          <span class="font-heading text-on-surface tabular-nums">{{ deal.value }}</span>
+          <span data-if="deal.owner" class="flex min-w-0 items-center gap-1.5 text-xs text-on-surface-muted">
+            <span data-if="deal.initials" class="flex size-6 shrink-0 items-center justify-center rounded-pill bg-primary/10 text-[0.65rem] font-semibold text-primary">{{ deal.initials }}</span>
+            <span class="truncate">{{ deal.owner }}</span>
+          </span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

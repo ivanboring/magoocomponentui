@@ -1,0 +1,89 @@
+name: "Menubar"
+short_description: A desktop application menu bar whose top-level items each open a dropdown of actions with optional shortcuts and dividers.
+long_visual_description: >
+  A horizontal bar of top-level menu buttons (File, Edit, View, ...) styled as a bordered
+  surface strip. Clicking a button opens an absolutely-positioned panel beneath it listing
+  action rows, each with an optional right-aligned keyboard-shortcut hint, hairline dividers
+  between groups, and a destructive item tinted with the danger color. Only one menu is open
+  at a time.
+
+use_cases:
+  - Desktop-style web application menu bar (File / Edit / View / Help).
+  - In-browser document or spreadsheet editor top menu.
+  - Design-tool or IDE-like interface with grouped commands.
+  - Admin console command bar with keyboard shortcuts surfaced per action.
+  - Kiosk or embedded app needing a familiar application menu.
+  - Media or note editor grouping actions under named menus.
+
+recommended_for:
+  - Application-like interfaces where users expect a classic top menu bar.
+avoid_for:
+  - Marketing or content-site primary navigation (use navbar or navbar-mega).
+  - A single overflow or actions menu opened from one control (use dropdown-menu).
+  - Right-click contextual menus (use context-menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a menus array of top-level items, each with its own items list of actions. Add a
+  shortcut string per action to surface a keystroke hint, a divider row to group actions, and
+  danger: true for a destructive item. Set a menu's open: true to render it expanded (useful
+  for screenshots); behavior.js manages open state at runtime.
+
+how_to_use: >
+  behavior.js (default export init(root)) drives all interaction from the DOM: clicking a
+  top-level button opens its panel and closes the others by toggling data-open on the
+  .menubar__menu wrapper; ArrowLeft/ArrowRight move between buttons (opening as you go once
+  any menu is open), ArrowDown focuses the first item in the open panel, and Escape or an
+  outside click closes everything. Each button's aria-expanded is kept in sync with its
+  menu's open state. No configuration data-attributes are required; the open state lives on
+  data-open per menu.
+
+props:
+  menus: The top-level menus, each with a label and its own list of action items.
+  label: Accessible name announced for the whole menu bar.
+
+example_prompts:
+  - "Add an application menu bar with File, Edit, and View menus and keyboard shortcuts."
+  - "Add a desktop-style menubar with a File menu whose Exit item is destructive."
+
+lifecycle: experimental
+content_model: An ordered list of top-level menus, each holding an ordered list of action items, dividers, and shortcut hints.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep top-level menu labels to a single word (File, Edit, View); use verb-first action labels
+  inside; group related actions with a divider and place any destructive item last.
+
+relationships:
+  related:
+    - overlays/dropdown-menu
+    - navigation/navbar
+    - overlays/context-menu
+    - dashboard/dashboard-toolbar
+
+categorization:
+  category: Navigation
+  subcategory: Bars
+  atomic_type: organism
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Buttons expose aria-haspopup/aria-expanded; the bar uses role="menubar" and panels role="menu"/"menuitem"; Arrow keys traverse buttons and enter the open panel; Escape closes and restores focus to the button.
+  keyboard_support: ArrowLeft/ArrowRight move between top-level menus (opening as you go once one is open); ArrowDown focuses the first item in the open panel; Escape closes all menus and refocuses the button; clicking a button toggles its menu.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,65 @@
+name: "Did You Mean"
+short_description: A spelling-suggestion line that promotes a corrected query and offers to search the original instead.
+long_visual_description: >
+  Two short stacked lines above a results list. The first reads "Did you mean <suggestion>?" with
+  the corrected term as an emphasized primary-colour link. The second, muted line offers "Search
+  instead for <query>" as a subtle link back to the exact term the user typed.
+
+use_cases:
+  - Offering a spelling correction above search results.
+  - Nudging users from a low-result misspelled query to a better one.
+  - A "did you mean" prompt on a site or docs search page.
+  - Recovering typo'd queries without an empty results page.
+  - Surfacing a synonym or canonical term for an entered query.
+
+recommended_for:
+  - A one-line spelling or phrasing correction above results.
+  - Search backends that return a suggested alternate query.
+avoid_for:
+  - Autocomplete or as-you-type suggestions (use a suggestions dropdown).
+  - Multiple ranked alternatives (this promotes a single correction).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the user's original query and the corrected suggestion. Render it directly above the results
+  for the suggested term, and wire the two links to re-run the search: the suggestion link for the
+  correction, the "search instead" link to force the original.
+
+props:
+  query: "The term the user typed, offered as a \"search instead\" fallback link."
+  suggestion: "The corrected term to promote, shown as an emphasized link."
+
+lifecycle: experimental
+content_model: A suggested-correction line plus a "search instead for" line for the original query.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --font-heading
+
+editorial_guidance: >
+  Keep both lines to a single sentence each. Emphasize the correction, not the original, and only
+  show this when the backend is reasonably confident in the alternate term.
+
+relationships:
+  related:
+    - search/faceted-results
+    - search/result-card-generic
+    - search/search-hero
+
+categorization:
+  category: Search
+  subcategory: Results
+  atomic_type: molecule
+  usage_type: [banner, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both actions are real links with visible text; the correction is conveyed by wording, not colour alone.
+  keyboard_support: Both links are in the tab order and activate with Enter.
+  seo_score: 25
+  text_direction: both

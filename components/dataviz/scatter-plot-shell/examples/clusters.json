@@ -1,0 +1,16 @@
+{
+  "title": "Two segments",
+  "y_labels": ["High", "", "Mid", "", "Low"],
+  "x_labels": ["0", "25", "50", "75", "100"],
+  "grid_lines": ["50"],
+  "points": [
+    { "x_pct": 18, "y_pct": 68, "label": "Segment A" },
+    { "x_pct": 24, "y_pct": 74, "label": "Segment A" },
+    { "x_pct": 28, "y_pct": 62, "label": "Segment A" },
+    { "x_pct": 22, "y_pct": 80, "label": "Segment A" },
+    { "x_pct": 72, "y_pct": 30, "label": "Segment B" },
+    { "x_pct": 78, "y_pct": 24, "label": "Segment B" },
+    { "x_pct": 82, "y_pct": 36, "label": "Segment B" },
+    { "x_pct": 76, "y_pct": 18, "label": "Segment B" }
+  ]
+}

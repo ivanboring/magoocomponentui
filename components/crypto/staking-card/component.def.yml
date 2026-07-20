@@ -1,0 +1,31 @@
+name: staking-card
+props:
+  token:
+    type: string
+    required: true
+    title: Token
+    description: The token ticker being staked (also shown in the round header glyph).
+    example: "ETH"
+  staked_amount:
+    type: string
+    required: true
+    title: Staked amount
+    description: How much the user currently has staked.
+    example: "12.5 ETH"
+  apy:
+    type: string
+    required: true
+    title: APY
+    description: The annual percentage yield, shown as the large highlighted figure.
+    example: "5.8%"
+  rewards:
+    type: string
+    required: true
+    title: Rewards earned
+    description: Rewards accrued so far.
+    example: "0.34 ETH"
+  unlock:
+    type: string
+    title: Unlock
+    description: Optional unlock date or lock period; the row is hidden when omitted.
+    example: "Mar 14, 2026"

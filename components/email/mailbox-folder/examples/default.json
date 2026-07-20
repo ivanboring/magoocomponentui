@@ -1,0 +1,6 @@
+{
+  "label": "Inbox",
+  "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M2 11h4l1.5 2.5h5L14 11h4\"/><path d=\"M4 4h12l2 7v4a1 1 0 01-1 1H3a1 1 0 01-1-1v-4z\"/></svg>",
+  "count": 8,
+  "active": false
+}

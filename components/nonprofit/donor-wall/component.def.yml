@@ -1,0 +1,15 @@
+name: donor-wall
+props:
+  donors:
+    type: array
+    items: object
+    required: true
+    title: Donors
+    description: >
+      The recent donors, most recent first. Each item: { name, amount, time, message, avatar }.
+      name and amount are required; amount is formatted with currency (e.g. "$50"). time (e.g.
+      "2h ago"), message (a short note), and avatar (image URL) are optional. When no avatar is
+      supplied a generic person glyph is shown in its place.
+    example:
+      - { name: "Amara O.", amount: "$100", time: "2h ago", message: "For the water project - keep going!", avatar: "/stock/avatar-woman-1.jpg" }
+      - { name: "Anonymous", amount: "$25", time: "5h ago" }

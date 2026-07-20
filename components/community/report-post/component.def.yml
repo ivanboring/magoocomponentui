@@ -1,0 +1,17 @@
+name: report-post
+props:
+  reasons:
+    type: array
+    items: object
+    required: true
+    title: Reasons
+    description: >
+      The report reasons offered as a radio list, in order. Each item: { label, value } where value
+      is the identifier sent with the submit event.
+    example:
+      - { label: "Spam or advertising", value: "spam" }
+  placeholder:
+    type: string
+    default: "Add any details (optional)"
+    title: Details placeholder
+    description: Placeholder text for the optional details textarea.

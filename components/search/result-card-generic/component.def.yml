@@ -1,0 +1,32 @@
+name: result-card-generic
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The result's headline; becomes a link when url is set.
+    example: "Getting started with the SDK"
+  url:
+    type: string
+    title: URL
+    description: >
+      Destination for the title link and the breadcrumb line above it. Omit for a non-linked
+      result (the title renders as plain text and no breadcrumb shows).
+    example: "example.com/guides/sdk/start"
+  snippet:
+    type: string
+    required: true
+    title: Snippet
+    description: A short excerpt, clamped to two lines.
+    example: "Install the SDK, authenticate and make your first request in minutes."
+  meta:
+    type: array
+    items: string
+    title: Meta
+    description: Short facts shown dot-separated below the snippet (e.g. type, read time, date).
+    example: ["Guide", "5 min read"]
+  thumbnail:
+    type: string
+    title: Thumbnail
+    description: Optional square preview image (a /stock path or URL). Omit for a text-only card.
+    example: "/stock/cover-workspace.jpg"

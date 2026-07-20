@@ -1,0 +1,9 @@
+{
+  "symbol": "INTC",
+  "name": "Intel Corp",
+  "price": "$30.14",
+  "change": "-0.86",
+  "change_pct": "-2.77%",
+  "change_dir": "down",
+  "spark_path": "M0 6 L14 9 L28 8 L42 15 L56 13 L70 20 L84 22 L100 27"
+}

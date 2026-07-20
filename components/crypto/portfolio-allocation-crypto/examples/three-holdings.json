@@ -1,0 +1,8 @@
+{
+  "title": "Allocation",
+  "slices": [
+    { "label": "Bitcoin", "value": "$50,000", "pct": "50%", "dash": "50 50", "offset": "0", "color_class": "stroke-primary" },
+    { "label": "Ethereum", "value": "$35,000", "pct": "35%", "dash": "35 65", "offset": "-50", "color_class": "stroke-accent" },
+    { "label": "Solana", "value": "$15,000", "pct": "15%", "dash": "15 85", "offset": "-85", "color_class": "stroke-success" }
+  ]
+}

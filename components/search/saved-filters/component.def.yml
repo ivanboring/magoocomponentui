@@ -1,0 +1,21 @@
+name: saved-filters
+props:
+  filters:
+    type: array
+    items: object
+    required: true
+    title: Saved filters
+    description: >
+      The saved filter presets, in display order. Each item:
+      { label, active, count, value }. label names the preset; active (boolean)
+      marks the currently applied one with a filled pill; count is an optional
+      result count shown as a badge; value is an optional identifier sent on the
+      filter:apply event.
+    example:
+      - { label: "All", active: true, value: "all" }
+      - { label: "Unread", active: false, count: 12, value: "unread" }
+  save_label:
+    type: string
+    default: "Save current"
+    title: Save button label
+    description: Label for the dashed outline button that saves the current query as a new preset.

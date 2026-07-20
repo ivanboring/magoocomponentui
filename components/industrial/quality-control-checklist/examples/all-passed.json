@@ -1,0 +1,12 @@
+{
+  "title": "First-article inspection FA-1180",
+  "passed": "5",
+  "total": "5",
+  "items": [
+    { "label": "Material certificate matches order", "result": "pass" },
+    { "label": "Critical dimensions within tolerance", "result": "pass", "note": "All 8 features in spec" },
+    { "label": "Thread gauge go/no-go check", "result": "pass" },
+    { "label": "Surface roughness Ra 1.6 or better", "result": "pass" },
+    { "label": "Cosmetic and finish acceptance", "result": "pass" }
+  ]
+}

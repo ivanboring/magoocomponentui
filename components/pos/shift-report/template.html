@@ -1,0 +1,30 @@
+<section class="shift-report rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+    <h3 data-if="shift" class="shift-report__title font-heading text-lg text-on-surface">{{ shift }}</h3>
+    <h3 data-if="!shift" class="shift-report__title font-heading text-lg text-on-surface">Shift report</h3>
+    <p data-if="date" class="text-sm text-on-surface-muted">{{ date }}</p>
+  </header>
+
+  <dl class="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+    <div data-for="stat in stats" class="shift-report__stat">
+      <dt class="text-xs text-on-surface-muted">{{ stat.label }}</dt>
+      <dd class="mt-0.5 font-heading text-2xl tabular-nums text-on-surface">{{ stat.value }}</dd>
+    </div>
+  </dl>
+
+  <div data-if="payment_breakdown" class="mt-6">
+    <p class="text-xs font-medium text-on-surface-muted">Payments</p>
+    <div class="mt-2 flex h-3 w-full overflow-hidden rounded-pill bg-surface-raised">
+      <div data-for="pay in payment_breakdown" class="shift-report__bar h-full {{ pay.color_class }}" style="width: {{ pay.pct }}%"></div>
+    </div>
+    <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+      <li data-for="pay in payment_breakdown" class="shift-report__legend flex items-center gap-1.5 text-xs">
+        <span class="size-2.5 shrink-0 rounded-pill {{ pay.color_class }}" aria-hidden="true"></span>
+        <span class="text-on-surface">{{ pay.method }}</span>
+        <span class="font-mono tabular-nums text-on-surface-muted">{{ pay.amount }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <span class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></span>
+</section>

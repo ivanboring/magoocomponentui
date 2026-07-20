@@ -1,0 +1,29 @@
+{
+  "label": "Project files",
+  "nodes": [
+    {
+      "label": "src",
+      "children": [
+        { "label": "index.js" },
+        { "label": "app.js" },
+        {
+          "label": "components",
+          "children": [
+            { "label": "button.js" },
+            { "label": "card.js" },
+            { "label": "modal.js" }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "public",
+      "children": [
+        { "label": "favicon.ico" },
+        { "label": "logo.svg" }
+      ]
+    },
+    { "label": "package.json" },
+    { "label": "README.md" }
+  ]
+}

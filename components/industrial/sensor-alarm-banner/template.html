@@ -1,0 +1,14 @@
+<div class="sensor-alarm-banner flex items-start gap-3 rounded-card border p-(--space-card) transition-opacity duration-(--duration-token) data-[acknowledged=true]:opacity-60 {{ severity@class }}" role="alert" data-severity="{{ severity }}">
+  <span class="sensor-alarm-banner__icon mt-0.5 shrink-0" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1L1 18h18L10 1zm1 13H9v-2h2v2zm0-5H9V6h2v3z"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="sensor-alarm-banner__sensor font-heading text-on-surface">{{ sensor }}</p>
+    <p class="sensor-alarm-banner__reading mt-0.5 flex flex-wrap items-baseline gap-x-1.5 text-sm tabular-nums">
+      <span data-if="value" class="font-medium text-on-surface">{{ value }}</span>
+      <span data-if="threshold" class="text-on-surface-muted">vs threshold {{ threshold }}</span>
+    </p>
+    <p data-if="time" class="mt-0.5 text-xs text-on-surface-muted tabular-nums">{{ time }}</p>
+  </div>
+  <button type="button" class="sensor-alarm-banner__ack shrink-0 self-center rounded-control border border-current px-2.5 py-1 text-xs font-medium transition-colors duration-(--duration-token) hover:bg-surface disabled:pointer-events-none disabled:opacity-60" aria-label="Acknowledge alarm">Acknowledge</button>
+</div>

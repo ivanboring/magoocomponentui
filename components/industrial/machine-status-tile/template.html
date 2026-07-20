@@ -1,0 +1,22 @@
+<div class="machine-status-tile flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="machine-status-tile__name truncate font-heading text-on-surface">{{ name }}</h3>
+      <p data-if="machine_id" class="mt-0.5 truncate font-mono text-xs text-on-surface-muted">{{ machine_id }}</p>
+    </div>
+    <span class="machine-status-tile__status inline-flex shrink-0 items-center gap-1.5 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">
+      <span class="size-1.5 rounded-pill bg-current" aria-hidden="true"></span>
+      {{ status }}
+    </span>
+  </div>
+  <dl class="grid grid-cols-2 gap-3">
+    <div data-if="oee" class="machine-status-tile__stat rounded-control bg-surface-raised px-3 py-2">
+      <dt class="text-xs text-on-surface-muted">OEE</dt>
+      <dd class="mt-0.5 font-heading text-lg tabular-nums text-on-surface">{{ oee }}</dd>
+    </div>
+    <div data-if="uptime" class="machine-status-tile__stat rounded-control bg-surface-raised px-3 py-2">
+      <dt class="text-xs text-on-surface-muted">Uptime</dt>
+      <dd class="mt-0.5 font-heading text-lg tabular-nums text-on-surface">{{ uptime }}</dd>
+    </div>
+  </dl>
+</div>

@@ -1,0 +1,17 @@
+<div class="streaming-response flex gap-3">
+  <div class="flex size-8 shrink-0 items-center justify-center rounded-pill bg-primary font-heading text-xs font-medium text-primary-contrast" aria-hidden="true">AI</div>
+  <div class="flex min-w-0 flex-1 flex-col items-start gap-2">
+    <div class="rounded-card bg-surface-raised px-4 py-3 text-sm text-on-surface">
+      <p data-if="text" class="streaming-response__text leading-relaxed">{{ text }}<span class="ml-0.5 inline-block h-4 w-px translate-y-0.5 bg-on-surface align-middle animate-pulse motion-reduce:animate-none"></span></p>
+      <div data-if="!text" class="flex items-center gap-1.5" role="status" aria-label="Assistant is typing">
+        <span class="size-2 rounded-pill bg-on-surface-muted animate-bounce motion-reduce:animate-none [animation-delay:0ms]"></span>
+        <span class="size-2 rounded-pill bg-on-surface-muted animate-bounce motion-reduce:animate-none [animation-delay:150ms]"></span>
+        <span class="size-2 rounded-pill bg-on-surface-muted animate-bounce motion-reduce:animate-none [animation-delay:300ms]"></span>
+      </div>
+    </div>
+    <button data-if="show_stop" type="button" class="streaming-response__stop inline-flex items-center gap-1.5 rounded-button border border-border bg-surface px-3 py-1.5 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><rect x="5" y="5" width="10" height="10" rx="1.5"/></svg>
+      Stop
+    </button>
+  </div>
+</div>

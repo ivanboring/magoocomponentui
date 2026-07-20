@@ -1,0 +1,16 @@
+{
+  "period": "December 2026",
+  "gross": "$7,700.00",
+  "net": "$5,410.00",
+  "earnings": [
+    { "label": "Base salary", "amount": "$5,000.00" },
+    { "label": "Year-end bonus", "amount": "$2,500.00" },
+    { "label": "Overtime", "amount": "$200.00" }
+  ],
+  "deductions": [
+    { "label": "Federal tax", "amount": "$1,540.00" },
+    { "label": "Health insurance", "amount": "$260.00" },
+    { "label": "Retirement 401k", "amount": "$290.00" },
+    { "label": "Social security", "amount": "$200.00" }
+  ]
+}

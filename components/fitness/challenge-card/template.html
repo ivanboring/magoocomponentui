@@ -1,0 +1,26 @@
+<div class="challenge-card overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div data-if="image" class="aspect-[16/9] overflow-hidden bg-surface-raised">
+    <img class="size-full object-cover" src="{{ image }}" alt="">
+  </div>
+  <div class="flex flex-col gap-2 p-(--space-card)">
+    <h3 class="font-heading text-lg text-on-surface">{{ title }}</h3>
+    <p data-if="description" class="text-sm text-on-surface-muted">{{ description }}</p>
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-on-surface-muted">
+      <span data-if="participants" class="inline-flex items-center gap-1.5">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="3"/><path d="M2 17a5 5 0 0 1 10 0"/><path d="M13 5a3 3 0 0 1 0 6M18 17a5 5 0 0 0-3-4.6"/></svg>
+        {{ participants }}
+      </span>
+      <span data-if="days" class="inline-flex items-center gap-1.5">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+        {{ days }}
+      </span>
+    </div>
+    <button type="button" class="challenge-card__join group/jc mt-1 inline-flex items-center justify-center gap-1.5 self-start rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 data-[joined=true]:bg-success/10 data-[joined=true]:text-success" data-joined="{{ joined }}" aria-pressed="{{ joined }}">
+      <span class="group-data-[joined=true]/jc:hidden">Join challenge</span>
+      <span class="hidden items-center gap-1.5 group-data-[joined=true]/jc:inline-flex">
+        Joined
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      </span>
+    </button>
+  </div>
+</div>

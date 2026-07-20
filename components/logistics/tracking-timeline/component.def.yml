@@ -1,0 +1,18 @@
+name: tracking-timeline
+props:
+  events:
+    type: array
+    items: object
+    required: true
+    title: Scan events
+    description: >
+      The scan/tracking events, ordered most recent first. Each item:
+      { status, location, time, done } where status is the scan description (e.g. "Out for
+      delivery"), location and time are optional strings, and done is a boolean - true for a
+      completed scan (filled primary dot with a check), false for a pending/expected step (a hollow
+      muted dot).
+    example:
+      - { status: "Delivered", location: "Atlanta, GA", time: "Est. Jul 6", done: false }
+      - { status: "Out for delivery", location: "Atlanta, GA", time: "Jul 6, 8:12 AM", done: true }
+      - { status: "Arrived at facility", location: "Atlanta, GA", time: "Jul 6, 5:40 AM", done: true }
+      - { status: "In transit", location: "Memphis, TN", time: "Jul 5, 9:20 PM", done: true }

@@ -1,0 +1,10 @@
+name: pos-keypad
+props:
+  display:
+    type: string
+    default: "0"
+    title: Display
+    description: >
+      Initial value shown in the readout. behavior.js seeds its internal value from this and appends
+      digits/decimal as keys are pressed; Enter dispatches a "keypad:enter" event with the value.
+    example: "0"

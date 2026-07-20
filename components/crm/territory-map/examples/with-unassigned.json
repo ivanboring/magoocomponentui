@@ -1,0 +1,8 @@
+{
+  "regions": [
+    { "name": "West", "rep": "Dana Whitfield", "deals": "12", "color_class": "bg-primary/10" },
+    { "name": "Midwest", "rep": "Marcus Lindqvist", "deals": "8", "color_class": "bg-accent/10" },
+    { "name": "South", "deals": "15" },
+    { "name": "Northeast", "rep": "Tom Becker", "deals": "6", "color_class": "bg-info/10" }
+  ]
+}

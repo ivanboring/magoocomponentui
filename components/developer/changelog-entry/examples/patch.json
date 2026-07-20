@@ -1,0 +1,8 @@
+{
+  "version": "v2.4.1",
+  "date": "July 21, 2026",
+  "changes": [
+    { "type": "fixed", "text": "Timeout when uploading files larger than 10 MB." },
+    { "type": "fixed", "text": "Incorrect timezone on scheduled report emails." }
+  ]
+}

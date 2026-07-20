@@ -1,0 +1,9 @@
+<span class="transaction-hash inline-flex items-center gap-1 font-mono text-sm">
+  <a data-if="explorer_url" class="text-primary outline-none hover:underline focus-visible:underline" href="{{ explorer_url }}">{{ display }}</a>
+  <span data-if="!explorer_url" class="text-on-surface">{{ display }}</span>
+  <button type="button" class="transaction-hash__copy group/copy -m-1 shrink-0 rounded-control p-1 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Copy transaction hash" data-hash="{{ hash }}" data-copied="false">
+    <svg class="size-3.5 group-data-[copied=true]/copy:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M4 13V4.5A1.5 1.5 0 0 1 5.5 3H13"/></svg>
+    <svg class="size-3.5 text-success group-data-[copied=false]/copy:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+    <span class="transaction-hash__status sr-only" aria-live="polite"></span>
+  </button>
+</span>

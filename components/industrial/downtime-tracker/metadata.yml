@@ -1,0 +1,84 @@
+name: "Downtime Tracker"
+short_description: A card breaking a period's total machine downtime into its reasons with a stacked proportion bar and a legend.
+long_visual_description: >
+  A surface card headed "Downtime" with the total duration at the right, a single stacked proportion
+  bar whose coloured segments size to each reason's share of the total, and a legend below listing each
+  reason with a matching colour swatch and its minutes. Segment and swatch colours are supplied per
+  reason so the bar and legend stay in sync.
+
+use_cases:
+  - Downtime Pareto summary on a manufacturing performance dashboard.
+  - Shift report breaking lost time into reason codes.
+  - OEE loss analysis showing where availability went.
+  - Andon board summarising the day's downtime causes.
+  - Continuous-improvement view targeting the biggest downtime reason.
+  - Line efficiency review comparing planned versus unplanned stops.
+
+recommended_for:
+  - Showing how a total downtime splits across a handful of reasons.
+  - Pairing a proportion bar with a labelled legend of durations.
+avoid_for:
+  - A single downtime figure with no breakdown (use a stat-card).
+  - Downtime trended over time (pair with a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a reasons array where each item has a label, its minutes, a precomputed pct (its share of the
+  total, 0-100, summing to 100 across the array) and a tokenised color_class such as bg-primary,
+  bg-warning or bg-danger. Give an optional total_downtime string for the header. The pct drives each
+  segment width and the color_class colours both its bar segment and its legend swatch.
+
+props:
+  total_downtime: Optional preformatted total downtime shown in the header, e.g. "3h 45m".
+  reasons: The reasons in order; each { label, minutes, pct (0-100, summing to 100), color_class }.
+
+example_prompts:
+  - "Show a downtime tracker breaking 3h 45m across changeover, material and breakdown."
+  - "Add a downtime breakdown card split between planned maintenance and a breakdown."
+  - "Build a downtime Pareto card for the shift report."
+
+lifecycle: experimental
+content_model: An optional total downtime and an ordered array of reasons, each with a label, minutes, a precomputed percentage and a colour class.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order reasons largest-share first so the bar reads like a Pareto. Precompute pct against the real
+  total so the segments are honest, and keep color_class consistent for a reason across reports so
+  people learn the colours.
+
+relationships:
+  related:
+    - industrial/oee-gauge
+    - industrial/machine-status-tile
+    - industrial/production-line-status
+
+categorization:
+  category: Manufacturing
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The proportion bar is decorative (role="img" with a label); each reason's share is stated as minutes in the legend text, not by colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

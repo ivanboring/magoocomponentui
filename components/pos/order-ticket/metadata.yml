@@ -1,0 +1,84 @@
+name: "Order Ticket"
+short_description: A receipt-style kitchen ticket listing ordered items, their modifiers, and a kitchen status.
+long_visual_description: >
+  A narrow, receipt-shaped card in the monospace face with dashed dividers. The header carries the
+  ticket number in the heading face with the fired time, table, and server in muted text. Each line
+  shows a right-aligned quantity, the dish name, and any modifiers as indented plus-prefixed
+  sub-lines; a completed line is dimmed and struck through. A full-width status footer at the bottom
+  tints to the kitchen state - info for new, warning for preparing, success for ready.
+
+use_cases:
+  - Kitchen display ticket in a restaurant POS.
+  - Expo or pass station order summary.
+  - Bar or drinks ticket with modifier notes.
+  - Ghost-kitchen order routed from an online channel.
+  - Line-cook station card showing what to fire next.
+  - Order confirmation summary on a counter screen.
+
+recommended_for:
+  - Kitchen and expo displays that fire ordered items.
+  - Any list of items with per-line modifiers and a done state.
+avoid_for:
+  - A customer-facing itemized bill with prices (use check-split).
+  - A running open-tab summary (use tab-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a ticket_number and an items array where each item has qty, name, an optional mods array of
+  modifier strings, and a done boolean. Set status to new, preparing, or ready to colour the footer.
+  Precompute the done flag per line; the template only reflects it.
+
+props:
+  ticket_number: The order or ticket identifier shown in the header.
+  table: Optional table or seat label.
+  server: Optional server name.
+  time: Optional fired-at time as a preformatted string.
+  status: Kitchen state that colours the footer - new, preparing, or ready.
+  items: The ordered lines; each has qty, name, an optional mods array, and a done boolean.
+
+example_prompts:
+  - "Show a kitchen ticket for table 12 with two pizzas and a salad."
+  - "Add an order ticket marked ready with one line struck through as done."
+  - "Render a bar ticket listing three drinks with modifier notes."
+
+lifecycle: experimental
+content_model: A ticket number with optional table, server, and time, plus a list of line items each carrying a quantity, name, modifiers, and done flag, and a kitchen status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-warning
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep dish names short and put substitutions in the modifiers. Order lines in fire sequence. Use
+  the done flag as the cook completes a line rather than removing it.
+
+relationships:
+  related:
+    - pos/check-split
+    - pos/tab-card
+    - pos/modifier-picker
+
+categorization:
+  category: Restaurant POS
+  subcategory: Kitchen
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the footer text, not colour alone; done lines carry a visible strikethrough as well as dimming.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

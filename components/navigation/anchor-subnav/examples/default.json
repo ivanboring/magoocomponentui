@@ -1,0 +1,10 @@
+{
+  "label": "On this page",
+  "items": [
+    { "label": "Overview", "href": "#overview", "active": false },
+    { "label": "Features", "href": "#features", "active": false },
+    { "label": "Pricing", "href": "#pricing", "active": true },
+    { "label": "FAQ", "href": "#faq", "active": false },
+    { "label": "Contact", "href": "#contact", "active": false }
+  ]
+}

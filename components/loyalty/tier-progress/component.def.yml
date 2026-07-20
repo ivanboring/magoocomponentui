@@ -1,0 +1,30 @@
+name: tier-progress
+props:
+  current_tier:
+    type: string
+    required: true
+    title: Current tier
+    description: The tier the member is in now (e.g. Silver).
+    example: "Silver"
+  next_tier:
+    type: string
+    title: Next tier
+    description: Optional next tier to reach; omit when the member is at the top tier.
+    example: "Gold"
+  current_points:
+    type: string
+    required: true
+    title: Current points
+    description: The member's points in this tier cycle, pre-formatted (e.g. "1,750").
+    example: "1,750"
+  pct:
+    type: integer
+    required: true
+    title: Progress percent
+    description: Precomputed progress toward the next tier, 0-100 (caller computes current / threshold).
+    example: 70
+  needed_points:
+    type: string
+    title: Points remaining
+    description: Optional pre-formatted points still needed to reach the next tier (e.g. "750").
+    example: "750"

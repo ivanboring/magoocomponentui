@@ -1,0 +1,27 @@
+name: assistant-hero
+props:
+  heading:
+    type: string
+    default: "How can I help?"
+    title: Heading
+    description: The large centered headline.
+  subheading:
+    type: string
+    title: Subheading
+    description: Optional supporting line beneath the heading.
+    example: "Ask a question, draft something, or start from an example below."
+  placeholder:
+    type: string
+    default: "Ask anything…"
+    title: Placeholder
+    description: Placeholder text for the prompt input.
+  examples:
+    type: array
+    items: object
+    title: Example prompts
+    description: >
+      Suggested prompts shown as chips below the input. Each item: { label }. Clicking a chip fills
+      the input with its label.
+    example:
+      - { label: "Draft a launch email" }
+      - { label: "Summarise this article" }

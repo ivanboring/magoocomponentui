@@ -1,0 +1,11 @@
+<div class="defect-log-row flex items-center gap-3 border-b border-border bg-surface px-4 py-3 last:border-b-0">
+  <span class="defect-log-row__severity inline-flex shrink-0 items-center rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ severity@class }}">{{ severity }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="defect-log-row__type truncate font-medium text-on-surface">{{ defect_type }}</p>
+    <p data-if="part" class="truncate font-mono text-xs text-on-surface-muted">{{ part }}</p>
+  </div>
+  <div class="flex shrink-0 flex-col items-end gap-0.5 text-xs text-on-surface-muted">
+    <span data-if="station">{{ station }}</span>
+    <span data-if="time" class="tabular-nums">{{ time }}</span>
+  </div>
+</div>

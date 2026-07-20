@@ -1,0 +1,18 @@
+name: map-list-toggle
+props:
+  view:
+    type: enum
+    values: [list, map]
+    default: list
+    title: Active view
+    description: Which view is currently active - the list or the map.
+  list_label:
+    type: string
+    default: "List"
+    title: List label
+    description: Text for the list segment.
+  map_label:
+    type: string
+    default: "Map"
+    title: Map label
+    description: Text for the map segment.

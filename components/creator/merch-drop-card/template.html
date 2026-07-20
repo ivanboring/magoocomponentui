@@ -1,0 +1,35 @@
+<article class="merch-drop-card group/card flex h-full flex-col gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-status="{{ status }}">
+  <div class="merch-drop-card__media relative aspect-square overflow-hidden rounded-control bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+  </div>
+
+  <div class="merch-drop-card__head flex items-start justify-between gap-2">
+    <h3 class="merch-drop-card__name font-heading text-on-surface">{{ name }}</h3>
+    <span class="merch-drop-card__badge shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium {{ status@class }}">
+      <span class="hidden group-data-[status=upcoming]/card:inline">Upcoming</span>
+      <span class="hidden group-data-[status=live]/card:inline">Live now</span>
+      <span class="hidden group-data-[status=sold-out]/card:inline">Sold out</span>
+    </span>
+  </div>
+
+  <p class="merch-drop-card__meta flex items-center gap-2 text-sm">
+    <span class="font-heading text-on-surface tabular-nums">{{ price }}</span>
+    <span data-if="drop_date" class="text-on-surface-muted">&middot; {{ drop_date }}</span>
+  </p>
+
+  <div data-if="sold_pct" class="merch-drop-card__progress">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span>Sold</span>
+      <span class="tabular-nums">{{ sold_pct }}%</span>
+    </div>
+    <div class="mt-1 h-1.5 w-full overflow-hidden rounded-pill bg-surface-raised">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ sold_pct }}%"></div>
+    </div>
+  </div>
+
+  <button type="button" class="merch-drop-card__cta mt-auto w-full rounded-button bg-primary px-4 py-2.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:bg-primary/90 group-data-[status=sold-out]/card:pointer-events-none group-data-[status=sold-out]/card:bg-surface-raised group-data-[status=sold-out]/card:text-on-surface-muted">
+    <span class="hidden group-data-[status=upcoming]/card:inline">Notify me</span>
+    <span class="hidden group-data-[status=live]/card:inline">Buy now</span>
+    <span class="hidden group-data-[status=sold-out]/card:inline">Sold out</span>
+  </button>
+</article>

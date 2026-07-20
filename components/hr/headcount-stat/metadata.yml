@@ -1,0 +1,76 @@
+name: "Headcount Stat"
+short_description: A headcount tile with a large count, a direction-coloured change, and an optional per-team breakdown row.
+long_visual_description: >
+  A stat card on the surface colour. A muted label sits above a large count in the heading face, with a
+  change indicator beside it - an up or down arrow and text coloured green for growth or red for decline.
+  When a breakdown is supplied, a divided row of smaller sub-figures (value over a muted label) fans out
+  beneath the count.
+
+use_cases:
+  - A total-headcount tile on an HR or people dashboard.
+  - A hiring-trend figure with a quarter-over-quarter change.
+  - A department-split headcount summary.
+  - An attrition or growth number with a direction cue.
+  - A workforce-size stat in an executive overview.
+  - A headline metric in a people-analytics summary row.
+
+recommended_for:
+  - A single headcount figure with a trend cue.
+  - Adding a light team breakdown under the total.
+avoid_for:
+  - Multiple unrelated KPIs (use several stat cards).
+  - A metric needing a chart or history (use a chart card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a pre-formatted count and an optional label, then a change string with change_dir set to up or
+  down to colour it and pick its arrow. Add a breakdown array of { label, value } to show a per-team
+  split beneath the total; all figures are pre-formatted strings.
+
+props:
+  count: The headcount figure, pre-formatted as a string.
+  label: Optional caption naming the metric.
+  change: Optional pre-formatted change versus the previous period.
+  change_dir: Direction of the change - up colours it green, down colours it red and flips the arrow.
+  breakdown: Optional sub-figures shown in a row; each carries a label and a pre-formatted value.
+
+lifecycle: experimental
+content_model: A formatted count, an optional direction-coloured change, and an optional array of labelled sub-figures.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the label short and the count pre-formatted with grouping. Set change_dir to agree with the
+  change's sign so colour and arrow never contradict the number. Use the breakdown only for a small,
+  comparable set of teams.
+
+relationships:
+  related:
+    - hr/org-chart-node
+    - hr/employee-card
+
+categorization:
+  category: "HR & People"
+  subcategory: Analytics
+  atomic_type: molecule
+  usage_type: [stat, grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The change direction is shown by an arrow and text as well as colour, so it does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

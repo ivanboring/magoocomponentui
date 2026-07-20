@@ -1,0 +1,20 @@
+{
+  "label": "Formatting",
+  "groups": [
+    {
+      "divider": false,
+      "buttons": [
+        { "command": "bold", "label": "Bold", "active": true, "icon": "<svg class='size-5' viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M6 4h5a3 3 0 010 6H6zM6 10h6a3 3 0 010 6H6z'/></svg>" },
+        { "command": "italic", "label": "Italic", "active": false, "icon": "<svg class='size-5' viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M8 4h6M6 16h6M12 4l-4 12'/></svg>" },
+        { "command": "underline", "label": "Underline", "active": false, "icon": "<svg class='size-5' viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M6 4v5a4 4 0 008 0V4M5 17h10'/></svg>" }
+      ]
+    },
+    {
+      "divider": true,
+      "buttons": [
+        { "command": "link", "label": "Insert link", "active": false, "icon": "<svg class='size-5' viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M8 12a3 3 0 010-4l2-2a3 3 0 014 4l-1 1M12 8a3 3 0 010 4l-2 2a3 3 0 01-4-4l1-1'/></svg>" },
+        { "command": "code", "label": "Inline code", "active": false, "icon": "<svg class='size-5' viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M7 6l-4 4 4 4M13 6l4 4-4 4'/></svg>" }
+      ]
+    }
+  ]
+}

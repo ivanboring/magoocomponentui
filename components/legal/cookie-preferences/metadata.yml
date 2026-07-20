@@ -1,0 +1,95 @@
+name: "Cookie Preferences"
+short_description: A granular cookie-consent card with per-category toggle switches and Accept all / Reject all / Save controls.
+long_visual_description: >
+  A surface card with a title and a short intro, then a divided list of cookie categories. Each row
+  shows the category name and description on the left and a pill toggle switch on the right; the
+  switch turns primary-coloured with the knob sliding across when on. Strictly-necessary categories
+  are shown as a disabled "Always on" switch. A footer row holds Reject all and Accept all buttons
+  with a primary Save preferences button pushed to the trailing edge.
+
+use_cases:
+  - A cookie-consent manager linked from a banner's "Manage preferences" action.
+  - A GDPR or ePrivacy granular consent screen.
+  - A privacy settings panel for tracking and analytics categories.
+  - An account page section to review and change cookie choices.
+  - A consent modal body for first-visit cookie selection.
+  - A CCPA "Do not sell" style opt-out grouped by category.
+
+recommended_for:
+  - Letting users allow or deny cookie categories individually.
+  - Consent flows that must record a per-category choice.
+avoid_for:
+  - A single blanket agree/disagree consent (use legal/consent-checkbox-legal).
+  - A slim top-of-page cookie banner (use a banner component and link here).
+
+markets:
+  - Global
+  - EU
+
+example_usage: >
+  Pass a categories array; mark strictly-necessary entries with required: true so they render as a
+  disabled "Always on" switch. Non-required categories toggle on click. Accept all / Reject all set
+  every optional switch at once, and Save preferences dispatches a "cookies:save" event whose
+  detail.preferences maps each category label to its boolean state — persist that from your host.
+
+how_to_use: >
+  Layout and the switch on/off appearance are pure CSS driven by each switch's data-state attribute
+  (data-[state=true] on the track, group-data-[state=true] slides the knob), so the initial state
+  renders with no JavaScript and shows in screenshots. behavior.js wires interaction: clicking a
+  non-required switch flips its data-state and aria-checked; Accept all / Reject all set all
+  toggles; Save reads every switch's aria-label and data-state and dispatches "cookies:save". The
+  portable self-init reads everything from the markup and passes no props object.
+
+props:
+  title: The card heading.
+  intro: A short explanatory line under the title; leave empty to hide it.
+  categories: The cookie categories; each has a label, description, initial on state and a required flag.
+
+example_prompts:
+  - "Add a cookie preferences panel with necessary, analytics and marketing categories."
+  - "Build a granular GDPR consent card with per-category toggles and a Save button."
+
+lifecycle: experimental
+content_model: A title, an intro line, and a list of cookie categories each with a toggle and an optional always-on flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name categories the way regulators expect (Strictly necessary, Functional, Analytics, Marketing)
+  and describe in one line what each enables. Default optional categories to off so consent is
+  opt-in. Keep the intro to a single sentence.
+
+relationships:
+  related:
+    - legal/consent-checkbox-legal
+    - legal/terms-section
+    - overlays/modal
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Consent
+  atomic_type: organism
+  usage_type: [form-control, panel]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each toggle is a button with role="switch" and aria-checked; required switches set aria-disabled and are not focusable; the card and switches carry accessible labels.
+  keyboard_support: Optional switches are focusable buttons that toggle on Enter/Space; the Reject all, Accept all and Save buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

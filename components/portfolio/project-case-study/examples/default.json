@@ -1,0 +1,13 @@
+{
+  "title": "Rebuilding the checkout experience",
+  "client": "Northwind Retail",
+  "hero_image": "/stock/cover-workspace.jpg",
+  "problem": "<p>The legacy checkout lost roughly a third of buyers between the cart and the confirmation screen. Long forms, unclear errors and a full page reload on every step made the flow feel slow and fragile on mobile.</p>",
+  "solution": "<p>We rebuilt checkout as a single page with saved details, inline validation and a persistent order summary. Payment and address steps collapse into one view, and every field validates as the shopper types.</p>",
+  "result": "<p>Conversion from cart to purchase rose sharply within the first month, and support tickets about failed payments dropped by half. The new flow also loads in a fraction of the time on mobile.</p>",
+  "metrics": [
+    { "value": "+38%", "label": "Checkout conversion" },
+    { "value": "-52%", "label": "Payment support tickets" },
+    { "value": "1.2s", "label": "Time to interactive" }
+  ]
+}

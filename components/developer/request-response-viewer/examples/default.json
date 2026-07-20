@@ -1,0 +1,13 @@
+{
+  "method": "get",
+  "request": {
+    "url": "https://api.example.com/v1/orders/ord_123",
+    "headers": "Authorization: Bearer sk_live_...\nAccept: application/json"
+  },
+  "response": {
+    "status": 200,
+    "status_text": "OK",
+    "body": "{\n  \"id\": \"ord_123\",\n  \"amount\": 1999,\n  \"currency\": \"usd\",\n  \"status\": \"paid\"\n}"
+  },
+  "status_tone": "success"
+}

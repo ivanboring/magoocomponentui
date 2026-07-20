@@ -1,0 +1,72 @@
+name: "Tracking Timeline"
+short_description: A vertical timeline of shipment scan events, most recent first, marking done versus pending steps.
+long_visual_description: >
+  A vertical list of scan events connected by a line running through each dot. Completed scans get a
+  filled primary dot with a check and a connecting segment in the primary colour, while pending or
+  expected steps show a hollow muted dot. Each event carries a status line in the heading emphasis
+  with an optional location and timestamp beneath, ordered newest at the top.
+
+use_cases:
+  - A package tracking history on an order or shipment page.
+  - A courier scan log from pickup through delivery.
+  - A freight milestone trail across facilities.
+  - A returns journey from drop-off to refund.
+  - A supply-chain event feed for a single shipment.
+
+recommended_for:
+  - A full chronological trail of scan events for one shipment.
+  - Event data rendered from structured status, location and time fields.
+avoid_for:
+  - A short fixed stage bar (use commerce/order-tracker).
+  - A single status chip (use eta-badge).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an events array ordered most recent first. Mark each completed scan done true and each
+  expected step done false; the connecting line, dots and check marks are drawn from that flag.
+
+props:
+  events: The scan events newest first; each has a status, an optional location and time, and a done flag for completed versus pending.
+
+example_prompts:
+  - "Add a tracking timeline showing the package out for delivery."
+  - "Show a shipment scan history from pickup to delivered."
+  - "List the courier scans with locations and timestamps."
+
+lifecycle: experimental
+content_model: An ordered set of scan events, each with a status, optional location and time, and a done flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+
+editorial_guidance: >
+  Order events newest first and keep status labels short and consistent (In transit, Out for
+  delivery, Delivered). Show locations and timestamps where known and leave pending steps undated
+  or estimated.
+
+relationships:
+  related:
+    - logistics/eta-badge
+    - logistics/carrier-rate-card
+    - commerce/order-tracker
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Tracking
+  atomic_type: organism
+  usage_type: [timeline, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: An ordered list conveys sequence; done state is shown by a check icon and text emphasis, not colour alone, and dots are decorative.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,40 @@
+name: appliance-usage-row
+props:
+  name:
+    type: string
+    required: true
+    title: Appliance name
+    description: The appliance or circuit this row represents.
+    example: "Air conditioner"
+  icon:
+    type: string
+    title: Icon glyph
+    description: >
+      Optional short glyph or emoji shown in the leading badge (e.g. an emoji). When unset
+      a generic plug icon is drawn instead.
+    example: "❄️"
+  watts:
+    type: string
+    title: Current draw
+    description: Instantaneous power draw as a display string (e.g. "1800 W").
+    example: "1800 W"
+  kwh:
+    type: string
+    title: Energy used
+    description: Energy used over the period as a display string (e.g. "4.2 kWh").
+    example: "4.2 kWh"
+  cost:
+    type: string
+    title: Cost
+    description: Cost over the period as a preformatted display string (e.g. "$1.05").
+    example: "$1.05"
+  pct:
+    type: integer
+    title: Share of total
+    description: This appliance's share of total usage, 0-100. Precomputed; drives the bar width.
+    example: 68
+  "on":
+    type: boolean
+    default: false
+    title: On now
+    description: Whether the appliance is currently drawing power; sets the status dot colour.

@@ -1,0 +1,30 @@
+name: reward-catalog-item
+props:
+  name:
+    type: string
+    required: true
+    title: Reward name
+    description: The name of the redeemable reward.
+    example: "$10 gift card"
+  cost:
+    type: string
+    required: true
+    title: Points cost
+    description: Pre-formatted points cost to redeem, shown in the cost pill (e.g. "1,500").
+    example: "1,500"
+  image:
+    type: image
+    title: Image
+    description: Optional reward image; a gift glyph placeholder shows when omitted.
+    example: "/stock/reward-giftcard.jpg"
+  category:
+    type: string
+    title: Category
+    description: Optional kicker above the name (e.g. Gift cards, Merchandise, Experiences).
+    example: "Gift cards"
+  affordable:
+    type: boolean
+    default: true
+    title: Affordable
+    description: Whether the member has enough points; when false the Redeem button is muted and non-interactive.
+    example: true

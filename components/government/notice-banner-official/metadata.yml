@@ -1,0 +1,78 @@
+name: "Official Notice Banner"
+short_description: A bordered public-notice strip with a seal icon, a title and message, and an optional action link, in info, warning, or alert levels.
+long_visual_description: >
+  A tinted, bordered banner carrying an official shield-and-alert seal icon, a bold title, a short
+  message in muted text, and an optional call-to-action link with a chevron. The level (info,
+  warning, alert) tints the background, border, and seal in the info, warning, or danger token
+  colour respectively.
+
+use_cases:
+  - Announce a service disruption or office closure on a public site.
+  - Warn citizens about a scam, deadline, or policy change.
+  - Post an urgent public safety or weather alert.
+  - Flag longer-than-usual processing times for a service.
+  - Notify of scheduled maintenance to an online service.
+  - Highlight an important legal or compliance notice at the top of a page.
+
+recommended_for:
+  - Prominent, single public notices at the top of a government page.
+  - Messages whose urgency should be obvious from colour and a seal.
+avoid_for:
+  - Inline form feedback tied to a user action (use an alert).
+  - Dismissible marketing announcements (use an announcement bar).
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Set level to info, warning, or alert; provide a title and message; optionally pass an action
+  object { label, href } to add a call-to-action link. The level drives the banner tint and seal
+  colour via the variant class map.
+
+props:
+  level: "Severity of the notice: info, warning, or alert. Drives the banner tint and seal colour."
+  title: "Short headline for the notice."
+  message: "One or two lines describing the notice."
+  action: "Optional call to action with a label and href; omit to show no link."
+
+example_prompts:
+  - "Add an official info notice about longer passport processing times with a read-more link."
+  - "Post an alert-level banner announcing an office closure with a rebook link."
+
+lifecycle: experimental
+content_model: A severity level, a short title, a one- to two-line message, and an optional action link.
+
+theming:
+  tokens_used:
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-ring
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Lead the title with what is happening and keep the message to the essentials plus what to do.
+  Reserve alert for genuinely urgent notices so the level stays meaningful, and make the action
+  link the single most useful next step.
+
+relationships:
+  related:
+    - notifications/alert
+    - government/service-finder
+
+categorization:
+  category: Government
+  subcategory: Notices
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses role="note"; the seal icon is aria-hidden; severity is conveyed by the title and message text, not colour alone; the action link has visible focus.
+  keyboard_support: The optional action link is keyboard focusable and activates on Enter.
+  seo_score: 45
+  text_direction: both

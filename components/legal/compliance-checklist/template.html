@@ -1,0 +1,17 @@
+<div class="compliance-checklist rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 data-if="title" class="compliance-checklist__title font-heading text-on-surface">{{ title }}</h3>
+  <ul class="compliance-checklist__items mt-3 divide-y divide-border">
+    <li data-for="item in items" class="compliance-checklist__item flex items-start gap-3 py-3">
+      <span class="compliance-checklist__marker group/mk mt-0.5 shrink-0" data-status="{{ item.status }}">
+        <svg class="hidden size-5 text-success group-data-[status=done]/mk:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10l2.5 2.5 4.5-5"/></svg>
+        <svg class="hidden size-5 text-on-surface-muted group-data-[status=pending]/mk:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="8"/></svg>
+        <svg class="hidden size-5 text-danger group-data-[status=failed]/mk:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M7 7l6 6M13 7l-6 6"/></svg>
+      </span>
+      <div class="min-w-0">
+        <p class="compliance-checklist__label text-sm text-on-surface">{{ item.label }}</p>
+        <p data-if="item.note" class="compliance-checklist__note mt-0.5 text-xs text-on-surface-muted">{{ item.note }}</p>
+      </div>
+    </li>
+  </ul>
+  <p data-if="summary" class="compliance-checklist__summary mt-3 border-t border-border pt-3 text-sm font-medium text-on-surface-muted">{{ summary }}</p>
+</div>

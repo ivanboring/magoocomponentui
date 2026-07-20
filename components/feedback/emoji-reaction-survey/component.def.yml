@@ -1,0 +1,20 @@
+name: emoji-reaction-survey
+props:
+  question:
+    type: string
+    default: "How do you feel?"
+    title: Question
+    description: The prompt shown above the emoji row.
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: >
+      The emoji sentiment choices, in order. Each item: { emoji, label, value, selected }. emoji is
+      the glyph character, label is the caption under it and the accessible name, value is the stored
+      key, and selected (optional boolean) highlights that option initially (only one should be true).
+    example:
+      - { emoji: "😞", label: "Bad", value: "bad", selected: false }
+      - { emoji: "😐", label: "Okay", value: "okay", selected: false }
+      - { emoji: "😀", label: "Great", value: "great", selected: false }

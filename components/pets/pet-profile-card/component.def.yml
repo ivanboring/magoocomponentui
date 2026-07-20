@@ -1,0 +1,31 @@
+name: pet-profile-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Luna"
+  species:
+    type: string
+    title: Species
+    example: "Dog"
+  breed:
+    type: string
+    title: Breed
+    example: "Border Collie"
+  age:
+    type: string
+    title: Age
+    example: "3 years"
+  weight:
+    type: string
+    title: Weight
+    example: "18 kg"
+  gender:
+    type: string
+    title: Gender
+    example: "Female"
+  photo:
+    type: string
+    title: Photo
+    description: "URL of the pet photo. Falls back to a paw glyph tile when empty."

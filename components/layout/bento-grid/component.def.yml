@@ -1,0 +1,30 @@
+name: bento-grid
+props:
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between tiles, from a fixed set of choices. "default" keeps the designed spacing;
+      none/sm/md/lg/xl are explicit fixed overrides.
+  label:
+    type: string
+    default: "Highlights"
+    title: Accessible label
+    description: Accessible name announced for the bento grid region.
+slots:
+  items:
+    title: Items
+    description: >
+      The tiles to place in the grid. Each child carries its own col-span-* / row-span-*
+      classes to claim a footprint; the grid uses dense auto-flow so smaller tiles backfill
+      the gaps left by larger ones.
+variants:
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-8"
+    xl: "gap-12"

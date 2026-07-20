@@ -1,0 +1,8 @@
+{
+  "title": "Sessions",
+  "area_path": "M0,78 L20,60 L40,66 L60,38 L80,46 L100,22 L100,100 L0,100 Z",
+  "line_path": "M0,78 L20,60 L40,66 L60,38 L80,46 L100,22",
+  "y_labels": ["40k", "30k", "20k", "10k", "0"],
+  "x_labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  "grid_lines": ["25", "50", "75"]
+}

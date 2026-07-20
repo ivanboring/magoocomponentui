@@ -1,0 +1,11 @@
+{
+  "invoice_number": "INV-4402",
+  "status": "paid",
+  "line_items": [
+    { "label": "Diagnostic visit", "amount": "$95.00" },
+    { "label": "Filter replacement", "amount": "$34.00" }
+  ],
+  "subtotal": "$129.00",
+  "tax": "$10.32",
+  "total": "$139.32"
+}

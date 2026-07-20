@@ -1,0 +1,88 @@
+name: "Modifier Picker"
+short_description: A card of grouped, selectable option chips for customising a menu item with modifiers.
+long_visual_description: >
+  A card that stacks one block per modifier group. Each group heads with its name and an optional
+  Required tag in a danger-tinted pill, followed by a wrapping row of pill-shaped option chips. A
+  chip shows its label and an optional add-on price; selecting it flips the chip to the primary tint.
+  An optional item name sits at the top as a header.
+
+use_cases:
+  - Choose size, temperature, and extras for a drink.
+  - Build a burger or bowl from modifier groups.
+  - Pick add-ons and substitutions for a dish.
+  - Select toppings on a pizza order.
+  - Configure a coffee with milk and syrup options.
+  - Capture allergy or preference flags on an item.
+
+recommended_for:
+  - Customising a single menu item before adding it to an order.
+  - Grouped choices where some groups are required.
+avoid_for:
+  - Picking whole items to order (use menu-tile-grid).
+  - A long settings form (use a real form).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a groups array where each group has a label, a required boolean, and an options array of
+  { label, price, selected }. Listen for the "modifier:change" event on the element to read the
+  option label and its new selected state from event.detail. Set selected on any options that should
+  start chosen; the required flag is a visual tag only.
+
+how_to_use: >
+  behavior.js reads each chip's initial data-selected attribute, syncs aria-pressed, and on click
+  toggles data-selected and dispatches a bubbling "modifier:change" CustomEvent whose detail carries
+  the option label and its new selected state. No props object is passed to the portable self-init;
+  enforce required-group rules in the host.
+
+props:
+  groups: One block per modifier group; each has a label, a required boolean tag, and an options array of chips.
+  item: Optional name of the item being customised, shown as a header.
+
+example_prompts:
+  - "Add a modifier picker for building a burger with required size and extras."
+  - "Show drink options grouped into size, milk, and syrup with add-on prices."
+  - "Render a modifier picker and log modifier:change when a chip is toggled."
+
+lifecycle: experimental
+content_model: A set of modifier groups, each with a label, a required flag, and selectable option chips carrying a label, optional price, and initial selected state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep group and option labels short. Mark only genuinely required groups and enforce the rule in
+  the host. Show add-on prices only where an option costs extra.
+
+relationships:
+  related:
+    - pos/menu-tile-grid
+    - pos/order-ticket
+    - pos/check-split
+
+categorization:
+  category: Restaurant POS
+  subcategory: Ordering
+  atomic_type: molecule
+  usage_type: [form, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Chips are real buttons with aria-pressed reflecting selection; the Required tag is text, not colour alone.
+  keyboard_support: Every option chip is a focusable button that activates on Enter/Space and toggles its aria-pressed state.
+  seo_score: 15
+  text_direction: both

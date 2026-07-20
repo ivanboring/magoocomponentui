@@ -1,0 +1,12 @@
+name: prompt-suggestions
+props:
+  prompts:
+    type: array
+    items: object
+    required: true
+    title: Prompts
+    description: >
+      The starter prompts to offer as chips. Each item: { label, icon }. label is the prompt text;
+      icon (optional) is a raw inline SVG string shown before the label.
+    example:
+      - { label: "Summarize this page" }

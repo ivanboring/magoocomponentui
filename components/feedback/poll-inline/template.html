@@ -1,0 +1,22 @@
+<section class="poll-inline rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Poll">
+  <p class="poll-inline__question font-heading text-on-surface">{{ question }}</p>
+
+  <ul data-if="voted" class="poll-inline__results mt-4 flex flex-col gap-3">
+    <li data-for="option in options" data-leading="{{ option.leading }}" class="poll-inline__result group/opt">
+      <div class="mb-1 flex items-center justify-between gap-3 text-sm">
+        <span class="text-on-surface group-data-[leading=true]/opt:font-medium">{{ option.label }}</span>
+        <span class="shrink-0 tabular-nums text-on-surface-muted group-data-[leading=true]/opt:font-medium group-data-[leading=true]/opt:text-on-surface">{{ option.pct }}%</span>
+      </div>
+      <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+        <div class="h-full rounded-pill bg-primary/30 transition-all duration-(--duration-token) group-data-[leading=true]/opt:bg-primary" style="width: {{ option.pct }}%"></div>
+      </div>
+      <span data-if="option.votes" class="mt-1 block text-xs tabular-nums text-on-surface-muted">{{ option.votes }} votes</span>
+    </li>
+  </ul>
+
+  <div data-if="!voted" class="poll-inline__options mt-4 flex flex-col gap-2">
+    <button data-for="option in options" type="button" class="poll-inline__option flex w-full items-center rounded-control border border-border bg-surface px-4 py-2.5 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" data-poll-value="{{ option.label }}">{{ option.label }}</button>
+  </div>
+
+  <p data-if="total_votes" class="poll-inline__total mt-3 text-xs tabular-nums text-on-surface-muted">{{ total_votes }} total votes</p>
+</section>

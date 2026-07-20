@@ -1,0 +1,15 @@
+name: pet-health-timeline
+props:
+  events:
+    type: array
+    items: object
+    required: true
+    title: Events
+    description: >
+      The care-history entries, newest first. Each item is an object
+      { type, title, date, body }. type is one of vaccine, visit, med or note and
+      drives the node colour (green, blue, amber, neutral); body is an optional
+      longer note shown under the title.
+    example:
+      - { type: vaccine, title: "Rabies booster", date: "12 Jun 2026", body: "Annual rabies vaccination administered." }
+      - { type: visit, title: "Wellness exam", date: "03 May 2026" }

@@ -1,0 +1,25 @@
+name: workout-timer
+props:
+  work_seconds:
+    type: string
+    default: "45"
+    title: Work seconds
+    description: Length of each work interval in whole seconds (as a string).
+    example: "45"
+  rest_seconds:
+    type: string
+    default: "15"
+    title: Rest seconds
+    description: Length of each rest interval in whole seconds. Set "0" to skip rest.
+    example: "15"
+  rounds:
+    type: string
+    default: "5"
+    title: Rounds
+    description: How many work/rest rounds to run.
+    example: "5"
+  label:
+    type: string
+    title: Label
+    description: Optional heading shown above the timer, e.g. the workout name.
+    example: "Tabata core"

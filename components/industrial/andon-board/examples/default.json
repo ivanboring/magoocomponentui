@@ -1,0 +1,12 @@
+{
+  "stations": [
+    { "name": "Weld 1", "status": "normal" },
+    { "name": "Weld 2", "status": "normal" },
+    { "name": "Assembly 1", "status": "call", "message": "Parts running low" },
+    { "name": "Assembly 2", "status": "fault", "message": "Robot cell E-stop" },
+    { "name": "Paint", "status": "normal" },
+    { "name": "Inspect", "status": "blocked", "message": "Waiting on Assembly 2" },
+    { "name": "Pack", "status": "normal" },
+    { "name": "Ship", "status": "normal" }
+  ]
+}

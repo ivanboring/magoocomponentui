@@ -1,0 +1,88 @@
+name: "Options Chain Row"
+short_description: A single options-chain line - strike, bid and ask, volume and open interest in the mono face, tinted when in-the-money.
+long_visual_description: >
+  A five-column row in the mono face with a small call/put tag beside the strike on the left, a green
+  bid and red ask, and volume and open interest in muted text on the right. In-the-money rows carry a
+  faint primary tint across the whole row; a bottom border separates rows in a stacked chain.
+
+use_cases:
+  - A row in an options chain table for an underlying.
+  - A calls or puts ladder in a trading dashboard.
+  - A strike-by-strike quote list on an options detail page.
+  - A compact chain preview in a modal or drawer.
+  - An expiry ladder showing bid, ask, volume and open interest.
+
+recommended_for:
+  - Dense options chains where strike, bid, ask, volume and OI line up in columns.
+  - Rows that visually flag in-the-money strikes.
+avoid_for:
+  - A single equity quote line (use watchlist-row).
+  - A full order ticket (use order-ticket-trade).
+
+markets:
+  - Global
+
+example_usage: >
+  Preformat strike, bid, ask, volume and oi in the caller so the mono columns align. Set type to call
+  or put for the leading tag and in_the_money to true to tint the row. Volume and open-interest cells
+  stay blank when their props are unset, keeping the grid aligned across rows.
+
+how_to_use: >
+  There is no JavaScript - the row is static markup. in_the_money drives the row tint via a
+  data-[itm=true]:bg-primary/5 utility off the data-itm attribute (rendered as the string true or
+  false). Bid is green and ask is red by convention; the call/put tag simply echoes the type value.
+
+props:
+  strike: "The strike price, preformatted; the row's leading figure."
+  bid: "The bid price, preformatted; shown in green."
+  ask: "The ask price, preformatted; shown in red."
+  volume: "The contract volume, preformatted; cell blank when unset."
+  oi: "Open interest, preformatted; cell blank when unset."
+  in_the_money: "When true the whole row is tinted to mark it in-the-money."
+  type: "call or put - shown as a small tag before the strike."
+
+example_prompts:
+  - "Add an in-the-money call row at the 185 strike."
+  - "Show a put chain row with volume and open interest."
+  - "Build an options chain table of strike rows."
+
+lifecycle: experimental
+content_model: >
+  One options contract at a strike: a call/put type, bid and ask, volume and open interest, and an
+  in-the-money flag.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --radius-pill
+    - --font-body
+    - --font-mono
+
+editorial_guidance: >
+  Keep bid green and ask red so the spread reads at a glance, and reserve the in-the-money tint for
+  strikes that are genuinely in-the-money. Preformat every figure so columns align down the chain.
+
+relationships:
+  related:
+    - trading/order-ticket-trade
+    - trading/watchlist-row
+    - trading/position-card
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Options
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Bid and ask are labelled by their column position and green/red is reinforced by the figures themselves; the in-the-money tint is decorative and not the only signal.
+  keyboard_support: none
+  seo_score: 25
+  text_direction: ltr

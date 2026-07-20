@@ -1,0 +1,12 @@
+{
+  "label": "Save",
+  "href": "#",
+  "menu_label": "More actions",
+  "start_open": false,
+  "items": [
+    { "label": "Save as…", "href": "#", "danger": false },
+    { "label": "Save a copy", "href": "#", "danger": false },
+    { "label": "Rename", "href": "#", "danger": false },
+    { "label": "Delete", "href": "#", "danger": true }
+  ]
+}

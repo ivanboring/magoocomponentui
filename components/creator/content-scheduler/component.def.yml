@@ -1,0 +1,27 @@
+name: content-scheduler
+props:
+  title:
+    type: string
+    default: "Content schedule"
+    title: Title
+    description: Heading shown above the week strip.
+  days:
+    type: array
+    items: object
+    required: true
+    title: Days
+    description: >
+      The day columns, in order (typically a week). Each item:
+      { label, date, posts }. label is the weekday name (e.g. "Mon"); date is an optional short
+      date (e.g. "Mar 3"); posts is an array of scheduled posts for that day, each
+      { title, platform, time, status } where status is one of "scheduled", "published" or "draft".
+      Pre-group posts into their day here — the component does not sort or bucket them.
+    example:
+      - label: "Mon"
+        date: "Mar 3"
+        posts:
+          - { title: "Behind the scenes", platform: "Instagram", time: "9:00", status: "published" }
+      - label: "Tue"
+        date: "Mar 4"
+        posts:
+          - { title: "Tutorial drop", platform: "YouTube", time: "14:00", status: "scheduled" }

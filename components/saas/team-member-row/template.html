@@ -1,0 +1,15 @@
+<div class="team-member-row flex items-center gap-3 bg-surface p-3">
+  <span class="team-member-row__avatar flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised text-sm font-medium text-on-surface-muted">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-medium text-on-surface">{{ name }}</p>
+    <p data-if="email" class="truncate text-sm text-on-surface-muted">{{ email }}</p>
+  </div>
+  <span class="team-member-row__role shrink-0 rounded-pill bg-surface-raised px-2.5 py-0.5 text-xs font-medium text-on-surface-muted">{{ role }}</span>
+  <span data-if="status" class="team-member-row__status shrink-0 rounded-pill bg-warning/10 px-2.5 py-0.5 text-xs font-medium text-warning">{{ status }}</span>
+  <button type="button" class="team-member-row__actions -mr-1 shrink-0 rounded-control p-1.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Member actions">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="4" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/></svg>
+  </button>
+</div>

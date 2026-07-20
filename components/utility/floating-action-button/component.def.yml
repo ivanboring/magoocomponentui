@@ -1,0 +1,29 @@
+name: floating-action-button
+props:
+  label:
+    type: string
+    required: true
+    title: Accessible label
+    description: Accessible name for the FAB (aria-label), e.g. "Create" or "New message".
+    example: "Create"
+  icon:
+    type: html
+    title: Icon
+    description: Raw inline-SVG icon shown in the button. Defaults to a plus. Rotates 45deg when the speed-dial is open.
+    default: "<svg class='size-6' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M12 5v14M5 12h14'/></svg>"
+  actions:
+    type: array
+    items: object
+    title: Speed-dial actions
+    description: >
+      Optional secondary actions revealed above the FAB when it is opened. Each item:
+      { label, icon (raw inline SVG) }. When omitted, the FAB is a single primary action and
+      pressing it emits fab:action instead of opening a dial.
+    example:
+      - { label: "New document", icon: "<svg class='size-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M7 3h7l4 4v14H7z'/><path d='M14 3v4h4'/></svg>" }
+      - { label: "New folder", icon: "<svg class='size-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 7a1 1 0 011-1h5l2 2h8a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1z'/></svg>" }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: When true (and actions are present), the speed-dial is expanded on first render.

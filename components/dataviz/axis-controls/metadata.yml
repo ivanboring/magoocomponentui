@@ -1,0 +1,86 @@
+name: "Axis Controls"
+short_description: A small chart toolbar with a scale toggle, a gridlines switch, and optional zoom controls.
+long_visual_description: >
+  A compact bordered toolbar bar. On the left, a pill-track segmented control toggles the axis
+  scale (e.g. Linear vs Log) with the active option raised onto the surface. Next to it a small
+  switch reflects whether gridlines are shown. When a zoom level is provided, a minus/label/plus
+  zoom cluster sits at the trailing edge. It is a static skeleton - a chart library wires the
+  actual behaviour.
+
+use_cases:
+  - Toggle a chart's axis between linear and log scale.
+  - Show or hide chart gridlines.
+  - Provide zoom in/out controls above a chart.
+  - A shared toolbar sitting above one of the chart shells.
+  - Chart settings row on an analytics dashboard.
+  - Placeholder chart controls in a prototype before wiring behaviour.
+
+recommended_for:
+  - A lightweight control row paired with a chart shell.
+  - Segmented scale choices plus a couple of toggles.
+avoid_for:
+  - A full charting settings panel with many options (use a form).
+  - Standalone use with no chart to control.
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the scale options with one marked active, set show_grid to reflect the gridlines switch,
+  and optionally pass zoom_label to reveal the zoom controls. Place it directly above a chart
+  shell. This is a static skeleton with no behavior.js; a real charting library reads these
+  controls and updates its chart.
+
+props:
+  scales: The segmented scale options; exactly one should be active.
+  show_grid: Whether the gridlines switch reads as on.
+  zoom_label: Optional current zoom level; its presence reveals the zoom +/- controls.
+
+example_prompts:
+  - "Add a chart toolbar with a Linear/Log toggle and a gridlines switch."
+  - "Put axis controls above the line chart with a 100% zoom readout."
+  - "Show a log-scale chart toolbar with gridlines turned off."
+
+relationships:
+  related:
+    - dataviz/line-chart-shell
+    - dataviz/area-chart-shell
+    - dataviz/bar-chart-shell
+    - dataviz/scatter-plot-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+
+lifecycle: experimental
+content_model: A set of scale options, a gridlines on/off state, and an optional zoom level.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  This is a static skeleton toolbar - it renders the control states but ships no behavior.js; a
+  real charting library wires the scale toggle, gridlines switch, and zoom buttons to its chart.
+  Keep the scale labels short (one or two words) and mark exactly one active.
+
+categorization:
+  category: Data Visualization
+  subcategory: Controls
+  atomic_type: molecule
+  usage_type: [control, toolbar]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scale buttons expose aria-pressed, the gridlines switch uses role="switch" with aria-checked, and zoom buttons have accessible labels. State reflects the props; a chart library must wire the interactions.
+  keyboard_support: Buttons and the switch are focusable and activate on Enter/Space; a chart library handles the resulting state change.
+  seo_score: 20
+  text_direction: both

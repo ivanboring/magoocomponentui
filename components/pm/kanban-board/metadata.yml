@@ -1,0 +1,83 @@
+name: "Kanban Board"
+short_description: A horizontal board of workflow columns, each stacking task mini-cards with a tag, priority dot, and assignee avatar.
+long_visual_description: >
+  A row of raised-surface columns that scrolls sideways when it overflows. Each column has a
+  heading with the column name and a pill showing the task count and an optional WIP limit, then
+  a vertical stack of compact task cards. A card shows an optional uppercase tag, the task title,
+  and a footer with a small priority dot (coloured by urgency) on the left and a round initials
+  avatar on the right.
+
+use_cases:
+  - Visualise a team's workflow across To do, In progress, Review, and Done columns.
+  - Sprint board showing the tasks committed for the current iteration.
+  - Support or bug triage lanes ordered by stage.
+  - Editorial pipeline from draft to published.
+  - Any status-based grouping of cards with a per-column WIP limit.
+  - A read-only board snapshot embedded in a report or dashboard.
+
+recommended_for:
+  - Status columns rendered from structured task data.
+  - Boards where each column may carry a WIP limit and task count.
+avoid_for:
+  - A single stream of items with no columns (use a task list).
+  - Rich drag-and-drop editing (this is a skeleton; wire your own DnD).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a columns array, each with a label, a precomputed count, an optional wip limit, and a
+  tasks array. Each task takes a title, optional tag, optional assignee_initials, and a priority
+  (low/medium/high/urgent) that colours the card's priority dot. The count is precomputed because
+  the template language cannot count an array.
+
+props:
+  columns: "The columns left to right. Each: label, count (precomputed task count), wip (optional limit), tasks[]."
+  label: "Accessible name announced for the board region."
+
+example_prompts:
+  - "Add a kanban board with To do, In progress, and Done columns."
+  - "Show a sprint board with a WIP limit of 3 on the In progress column."
+  - "Put the triage tasks on a board grouped by stage."
+
+relationships:
+  related:
+    - pm/task-card
+    - pm/backlog-item
+    - pm/sprint-header
+
+lifecycle: experimental
+content_model: An array of columns, each with a label, a precomputed count, an optional WIP limit, and an array of task mini-cards.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep column labels to the workflow stage names your team uses, and order columns by flow. Match
+  the priority on each task to its urgency so the coloured dots stay meaningful; keep tags short.
+
+categorization:
+  category: Project Management
+  subcategory: Boards
+  atomic_type: organism
+  usage_type: [board, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The board is a labelled region; priority is a decorative dot backed by the surrounding data, so convey urgency in text where it must be perceivable. The track is keyboard-scrollable.
+  keyboard_support: The board region scrolls with the keyboard when focused; the skeleton ships no drag-and-drop.
+  seo_score: 25
+  text_direction: both

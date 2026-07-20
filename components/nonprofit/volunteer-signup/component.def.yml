@@ -1,0 +1,25 @@
+name: volunteer-signup
+props:
+  roles:
+    type: array
+    items: object
+    required: true
+    title: Roles
+    description: >
+      The volunteer roles offered, each with its own set of shifts. Each item:
+      { label, description?, shifts }. `label` names the role; `description` is an
+      optional sentence describing it; `shifts` is an array of { time, slots_left }
+      where `time` is the shift label (e.g. "Sat 9:00-12:00") and `slots_left` is
+      the remaining openings as an integer. A shift whose slots_left is 0 renders
+      muted and non-selectable - pass the real remaining count; the template matches
+      it against 0 with a data-attribute variant, it does no arithmetic.
+    example:
+      - label: "Registration desk"
+        description: "Check runners in and hand out race packets."
+        shifts:
+          - { time: "Sat 7:00-9:00", slots_left: 4 }
+          - { time: "Sat 9:00-11:00", slots_left: 2 }
+      - label: "Water station"
+        description: "Keep cups filled at the halfway mark."
+        shifts:
+          - { time: "Sat 8:00-11:00", slots_left: 0 }

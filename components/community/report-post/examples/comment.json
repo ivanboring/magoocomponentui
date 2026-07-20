@@ -1,0 +1,8 @@
+{
+  "placeholder": "Which part of the comment is a problem?",
+  "reasons": [
+    { "label": "Abusive language", "value": "abuse" },
+    { "label": "Personal attack", "value": "attack" },
+    { "label": "Doxxing or private info", "value": "doxxing" }
+  ]
+}

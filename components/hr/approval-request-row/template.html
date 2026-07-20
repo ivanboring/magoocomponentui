@@ -1,0 +1,22 @@
+<div class="approval-request-row flex flex-wrap items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="approval-request-row__avatar flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-raised font-heading text-sm text-on-surface-muted" aria-hidden="true">{{ initials }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="font-heading text-on-surface">{{ type }}</p>
+    <p class="text-sm text-on-surface-muted">{{ requester }}</p>
+    <p data-if="detail" class="mt-0.5 text-xs text-on-surface-muted">{{ detail }}</p>
+  </div>
+  <div class="flex flex-col items-end text-right">
+    <span data-if="amount" class="approval-request-row__amount font-heading tabular-nums text-on-surface">{{ amount }}</span>
+    <span data-if="date" class="text-xs text-on-surface-muted">{{ date }}</span>
+  </div>
+  <div class="flex shrink-0 items-center gap-2">
+    <button type="button" data-decision="approve" class="approval-request-row__approve inline-flex items-center gap-1.5 rounded-button bg-success/10 px-3 py-1.5 text-sm font-medium text-success transition-colors duration-(--duration-token) hover:bg-success/20">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      Approve
+    </button>
+    <button type="button" data-decision="deny" class="approval-request-row__deny inline-flex items-center gap-1.5 rounded-button bg-danger/10 px-3 py-1.5 text-sm font-medium text-danger transition-colors duration-(--duration-token) hover:bg-danger/20">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      Deny
+    </button>
+  </div>
+</div>

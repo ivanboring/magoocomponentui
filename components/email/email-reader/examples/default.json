@@ -1,0 +1,11 @@
+{
+  "subject": "Q3 planning notes",
+  "sender": { "name": "Ava Chen", "email": "ava@example.com", "initials": "AC" },
+  "to": "you",
+  "date": "Mar 4, 2026, 9:41 AM",
+  "body_html": "<p>Hi team,</p><p>Thanks for a productive session today. Here's a quick recap of where we landed and what's next.</p><p>We agreed to focus Q3 on three themes: onboarding, reliability, and the new reporting view. Owners are listed in the attached doc.</p><p>Please review before Friday and drop comments directly in the file.</p><p>Best,<br>Ava</p>",
+  "attachments": [
+    { "name": "q3-plan.pdf", "size": "2.4 MB" },
+    { "name": "owners.xlsx", "size": "48 KB" }
+  ]
+}

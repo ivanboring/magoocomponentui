@@ -1,0 +1,26 @@
+name: menubar
+props:
+  menus:
+    type: array
+    items: object
+    required: true
+    title: Menus
+    description: >
+      The top-level menus, left to right. Each menu: { label, open, items }. Set open: true
+      to render that menu's panel expanded (used for screenshots); behavior.js toggles it at
+      runtime. Each item: { label, href, shortcut, danger, divider }. Set divider: true for a
+      separator row (its other fields are ignored); shortcut is an optional keystroke hint;
+      danger: true tints a destructive item.
+    example:
+      - label: "File"
+        open: true
+        items:
+          - { label: "New", href: "#", shortcut: "Cmd N" }
+          - { label: "Open", href: "#", shortcut: "Cmd O" }
+          - { divider: true }
+          - { label: "Exit", href: "#", danger: true }
+  label:
+    type: string
+    default: "Menu"
+    title: Accessible label
+    description: Accessible name announced for the menu bar.

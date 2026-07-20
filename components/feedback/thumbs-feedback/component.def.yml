@@ -1,0 +1,15 @@
+name: thumbs-feedback
+props:
+  question:
+    type: string
+    default: "Was this helpful?"
+    title: Question
+    description: The prompt shown before the Yes/No buttons.
+  value:
+    type: enum
+    values: ["", "yes", "no"]
+    default: ""
+    title: Value
+    description: >
+      The current answer. "" is neutral (neither selected); "yes" highlights the Yes/thumbs-up in the
+      success colour; "no" highlights the No/thumbs-down in the danger colour.

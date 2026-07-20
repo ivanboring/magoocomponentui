@@ -1,0 +1,85 @@
+name: "Chat Composer"
+short_description: A message input for AI chat with an auto-growing textarea, attach button, and empty-guarded send.
+long_visual_description: >
+  A rounded, bordered panel on the surface colour that highlights its border on focus. A borderless
+  auto-growing textarea fills the top; below it an attach (paperclip) button sits at the leading
+  edge, a muted keyboard hint in the middle, and a primary send button at the trailing end. The
+  send button is disabled and dimmed until the field has non-whitespace text.
+
+use_cases:
+  - The input row beneath an AI chat thread.
+  - A prompt box in an assistant or copilot panel.
+  - A follow-up question field under a generated answer.
+  - A composer in a support chat widget.
+  - A message box in a playground or sandbox UI.
+  - Any single-field text entry that sends on Enter and grows with content.
+
+recommended_for:
+  - Chat and assistant interfaces that send a message on Enter.
+  - Inputs that should grow with multi-line content up to a cap.
+avoid_for:
+  - A full rich-text editor (this is plain text only).
+  - A standard form field that submits a page (use a form input atom).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop it below a chat-thread. Listen for the bubbling chat:send event (detail.value holds the
+  trimmed text) on a parent to append the message and trigger a reply. Customize the placeholder
+  and send_label per context (Send, Ask, Reply).
+
+how_to_use: >
+  behavior.js auto-grows the textarea from its scrollHeight up to data-max-height (200px by
+  default), keeps the send button disabled while the field is empty or whitespace, and sends on
+  Enter (Shift+Enter inserts a newline) or when the send button is pressed. Sending dispatches a
+  bubbling "chat:send" CustomEvent with { value }, clears the field, and refocuses it. The attach
+  button dispatches "chat:attach" for you to open a file picker.
+
+props:
+  placeholder: "Empty-state hint text in the textarea."
+  send_label: "Text on the send button (Send, Ask, Reply)."
+
+content_model: >
+  A single free-text message the user types, optionally multi-line, sent as one string.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the placeholder inviting and specific to the context. Use a short, active send label. Leave
+  the keyboard hint on for desktop users so they discover Shift+Enter.
+
+relationships:
+  related:
+    - ai/chat-thread
+    - ai/prompt-suggestions
+    - ai/chat-message-ai
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Input
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The attach and send buttons have accessible labels; the textarea takes the placeholder as a hint; send is disabled until there is content.
+  keyboard_support: Enter sends, Shift+Enter inserts a newline; the attach and send buttons are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

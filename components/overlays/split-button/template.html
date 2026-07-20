@@ -1,0 +1,7 @@
+<div class="split-button group/sb relative inline-flex" data-open="{{ start_open }}">
+  <a class="split-button__main inline-flex items-center rounded-l-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ href }}">{{ label }}</a>
+  <button type="button" class="split-button__toggle inline-flex items-center rounded-r-button border-l border-white/25 bg-primary px-2 text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-haspopup="true" aria-expanded="{{ start_open }}" aria-label="{{ menu_label }}"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8l4 4 4-4"/></svg></button>
+  <div class="split-button__menu invisible pointer-events-none absolute right-0 top-full z-20 mt-1 min-w-48 rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]/sb:visible group-data-[open=true]/sb:opacity-100 group-data-[open=true]/sb:pointer-events-auto" role="menu">
+    <a data-for="item in items" role="menuitem" class="block px-4 py-2 text-sm text-on-surface transition-colors hover:bg-surface-raised data-[danger=true]:text-danger" href="{{ item.href }}" data-danger="{{ item.danger }}">{{ item.label }}</a>
+  </div>
+</div>

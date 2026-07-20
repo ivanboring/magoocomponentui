@@ -1,0 +1,76 @@
+name: "Lost Pet Alert"
+short_description: A high-visibility alert card for a missing pet, with photo, details, last-seen location, reward and contact actions.
+long_visual_description: >
+  A surface card ringed by a warning-coloured border and topped by a tinted "Missing"
+  banner with a warning triangle. The body pairs a square photo (or a paw-glyph
+  placeholder when none is supplied) with the pet's name in the heading face, breed and
+  species in muted text, a last-seen line and a reward called out in the warning colour.
+  A footer holds a prominent Contact owner button and a bordered Share button.
+use_cases:
+  - Post a missing-pet notice on a community or shelter site.
+  - Share a lost-pet alert across neighbourhood social channels.
+  - Surface an active alert at the top of a lost-and-found board.
+  - Print or display a found-pet reunification flyer online.
+  - Broadcast an urgent alert with reward details to local owners.
+  - Collect contact taps from anyone who spots the animal.
+recommended_for:
+  - A single urgent missing-pet notice that must stand out.
+  - Boards or feeds where the alert links to the owner's contact.
+avoid_for:
+  - Routine adoption listings (use a calmer card).
+  - Non-urgent found-item notices.
+markets:
+  - Global
+example_usage: >
+  Set name and as many details as are known - species, breed, last_seen, reward and a
+  photo. Provide a contact URL (tel:, mailto: or https:) to make the Contact owner
+  button a link; without one it renders as a plain button. When no photo is given a
+  paw-glyph placeholder fills the space.
+props:
+  name: "The missing pet's name, shown as the heading."
+  species: "The animal type, e.g. Dog or Cat."
+  breed: "The breed, shown under the name."
+  last_seen: "Where and when the pet was last seen."
+  photo: "A photo URL; a paw-glyph placeholder is shown when omitted."
+  reward: "Reward offered for safe return, formatted for display."
+  contact: "A tel:, mailto: or https: URL; renders Contact owner as a link, otherwise a plain button."
+lifecycle: experimental
+content_model: A missing pet's name and details, an optional photo, a last-seen location, an optional reward and a contact link.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+editorial_guidance: >
+  Lead with the most identifying details and a clear last-seen location. Keep the reward
+  short and put a working contact method behind the button so a finder can reach the
+  owner in one tap.
+relationships:
+  related:
+    - pets/vet-clinic-card
+    - pets/pet-health-timeline
+    - notifications/alert
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Community
+  atomic_type: molecule
+  usage_type: [card, highlight, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces the notice; the photo carries the pet name as alt and the placeholder glyph is aria-hidden; actions are labelled controls.
+  keyboard_support: The Contact owner and Share controls are focusable and activate on Enter/Space.
+  seo_score: 45
+  text_direction: both

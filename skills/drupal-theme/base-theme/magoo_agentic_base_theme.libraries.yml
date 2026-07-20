@@ -1,0 +1,11 @@
+global:
+  css:
+    theme:
+      css/dist/base.css: {}
+  # header: true — the color-scheme script must set data-color-scheme on <html> BEFORE first paint,
+  # otherwise a dark-preferring visitor sees a flash of the light palette.
+  header: true
+  js:
+    js/color-scheme.js: {}
+  dependencies:
+    - core/drupal

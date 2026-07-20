@@ -1,0 +1,79 @@
+name: "Defect Log Row"
+short_description: A single quality-defect entry showing the defect type, part, severity, station and time in a compact row.
+long_visual_description: >
+  A bordered row on the surface colour with a coloured severity pill at the left (amber minor, red
+  major and critical), the defect type in medium weight with an optional mono part number beneath it,
+  and the station and time stacked at the right in a muted, tabular face. Rows stack into a defect log
+  with a divider between each.
+
+use_cases:
+  - Row in a quality-control defect log or reject list.
+  - Recent-defects feed on a manufacturing quality dashboard.
+  - Inspection results list at a station terminal.
+  - Non-conformance report line item.
+  - Andon quality board showing the latest logged defects.
+  - Shift quality summary listing defects by severity.
+
+recommended_for:
+  - Stacking many defect entries into a scannable log.
+  - Lists where severity needs an immediate colour cue.
+avoid_for:
+  - A single prominent defect callout (use an alert).
+  - A full defect detail record with photos and disposition.
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row a defect type and a severity of minor, major or critical to colour the pill. Pass an
+  optional part number, station and time. Stack rows inside a bordered container to form the log; the
+  row draws its own bottom divider and drops it on the last entry.
+
+props:
+  defect_type: The kind of defect logged; keep it short.
+  part: Optional part number, shown in a mono face.
+  severity: Defect severity; sets the pill colour (minor, major, critical).
+  time: Preformatted time the defect was logged.
+  station: Optional station or cell where it occurred.
+
+example_prompts:
+  - "Add a minor surface scratch defect on part PN-4471 at station 3."
+  - "Log a critical weld crack defect from the weld cell."
+  - "Build a defect log list for the quality dashboard."
+
+lifecycle: experimental
+content_model: A defect type, an optional part, a severity, and an optional station and time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-mono
+
+editorial_guidance: >
+  Name the defect the way inspectors record it so entries group cleanly. Reserve critical for defects
+  that stop shipment; keep major for reworkable faults and minor for cosmetic ones.
+
+relationships:
+  related:
+    - industrial/work-order-card
+    - industrial/production-line-status
+    - industrial/machine-status-tile
+
+categorization:
+  category: Manufacturing
+  subcategory: Quality
+  atomic_type: molecule
+  usage_type: [list-item, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Severity is conveyed by the pill text as well as its colour, so it does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

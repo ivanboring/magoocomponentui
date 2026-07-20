@@ -1,0 +1,87 @@
+name: "Calorie Tracker"
+short_description: A daily calorie intake-vs-goal card with a headline figure, progress bar and macro breakdown.
+long_visual_description: >
+  A surface card led by a large "consumed / goal kcal" figure with a small "remaining" note on the
+  right. Below it a full-width progress bar fills toward the goal, and an optional macro breakdown
+  lists protein, carbs and fat, each with its grams and a slim coloured bar sized to its share.
+
+use_cases:
+  - A daily calorie budget summary in a diet or nutrition app.
+  - A "today so far" intake card on a fitness dashboard.
+  - A macro-tracking widget for protein/carbs/fat goals.
+  - A cut/bulk progress readout with a calorie target.
+  - A wellness home screen's nutrition tile.
+
+recommended_for:
+  - Showing intake against a goal with an at-a-glance fill and macro split.
+  - Compact daily nutrition summaries.
+avoid_for:
+  - A full food log grouped by meal (use meal-plan-day).
+  - A single generic percentage (use progress-bar or progress-circle).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass consumed and goal as number strings plus consumed_pct as the precomputed fill percent
+  (round(consumed / goal * 100), clamped to 100) since the template does no maths. Optionally add
+  remaining and a macros array; for each macro give a label, grams, a precomputed pct bar width and a
+  tokenized bg-* color_class.
+
+props:
+  consumed: Calories eaten so far, as a plain number string.
+  goal: The daily calorie goal, as a plain number string.
+  consumed_pct: Precomputed 0-100 fill percent for the main bar (clamp at 100).
+  remaining: Optional calories left for the day, as a plain number string.
+  macros: "Optional macro rows. Each: label, grams (number string), pct (precomputed 0-100 bar width) and color_class (a bg-* utility)."
+
+example_prompts:
+  - "Add a calorie tracker at 1450 of 2000 kcal with protein, carbs and fat macros."
+  - "Show today's intake bar with 550 calories remaining."
+  - "Put a macro breakdown card on the nutrition dashboard."
+
+lifecycle: experimental
+content_model: A consumed and goal calorie figure with a precomputed fill percent, optional remaining, and an optional macro breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-accent
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the goal realistic and make consumed_pct agree with the figures. Assign macro colours
+  consistently across your app (e.g. protein primary, carbs info, fat warning) so users learn them.
+
+relationships:
+  related:
+    - fitness/meal-plan-day
+    - fitness/activity-ring
+    - atoms/progress-bar
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Nutrition
+  atomic_type: organism
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The main bar is a labelled role="progressbar" with aria values, and every figure and macro gram count is shown as text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

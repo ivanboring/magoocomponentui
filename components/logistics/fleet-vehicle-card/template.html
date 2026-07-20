@@ -1,0 +1,27 @@
+<div class="fleet-vehicle-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-3">
+    <p class="flex items-center gap-2 font-heading text-on-surface">
+      <svg class="size-5 shrink-0 text-on-surface-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6h11v9H2z"/><path d="M13 9h4l3 3v3h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg>
+      {{ vehicle_id }}
+    </p>
+    <span class="shrink-0 rounded-pill px-3 py-1 text-xs font-medium {{ status@class }}">{{ status }}</span>
+  </div>
+  <div data-if="driver" class="mt-3 flex items-center gap-2">
+    <span data-if="initials" class="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-raised text-xs font-medium text-on-surface-muted">{{ initials }}</span>
+    <span class="truncate text-sm text-on-surface">{{ driver }}</span>
+  </div>
+  <p data-if="location" class="mt-3 flex items-center gap-1.5 text-sm text-on-surface-muted">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 2.5a5 5 0 015 5c0 3.6-5 10-5 10s-5-6.4-5-10a5 5 0 015-5z"/><circle cx="10" cy="7.5" r="1.6"/></svg>
+    <span class="truncate">{{ location }}</span>
+  </p>
+  <div data-if="fuel_pct" class="mt-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span>Fuel</span>
+      <span class="tabular-nums">{{ fuel_pct }}%</span>
+    </div>
+    <div class="mt-1 h-2 overflow-hidden rounded-pill bg-surface-raised">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ fuel_pct }}%"></div>
+    </div>
+  </div>
+  <p data-if="load" class="mt-3 text-sm text-on-surface-muted">Load: {{ load }}</p>
+</div>

@@ -1,0 +1,22 @@
+name: transparency-breakdown
+props:
+  title:
+    type: string
+    title: Title
+    example: "Where your money goes"
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Segments
+    description: >
+      The spending categories that make up 100% of funds. Each item:
+      { label, pct, color_class }. `pct` is the precomputed share as an integer
+      (the segments should sum to about 100; the directive language does no
+      arithmetic, so pass the computed percentage). `color_class` is a tokenized
+      Tailwind background utility (e.g. "bg-primary", "bg-accent") used for both the
+      bar segment and its legend swatch.
+    example:
+      - { label: "Programs", pct: 82, color_class: "bg-primary" }
+      - { label: "Fundraising", pct: 11, color_class: "bg-accent" }
+      - { label: "Administration", pct: 7, color_class: "bg-secondary" }

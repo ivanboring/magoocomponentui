@@ -1,0 +1,47 @@
+name: order-ticket
+props:
+  ticket_number:
+    type: string
+    required: true
+    title: Ticket number
+    description: The kitchen ticket / order identifier shown in the header.
+    example: "#428"
+  table:
+    type: string
+    title: Table
+    description: Optional table or seat label for the order.
+    example: "Table 12"
+  server:
+    type: string
+    title: Server
+    description: Optional name of the server who fired the ticket.
+    example: "Priya"
+  time:
+    type: string
+    title: Time
+    description: Optional fired-at time, passed as a preformatted string.
+    example: "7:42 PM"
+  status:
+    type: enum
+    values: [new, preparing, ready]
+    default: new
+    title: Status
+    description: Kitchen state of the ticket; colours the status footer.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Line items
+    description: >
+      The ordered lines, in fire order. Each item: { qty, name, mods, done }. qty is a
+      preformatted quantity string, name is the dish, mods is an optional array of modifier
+      strings shown as indented sub-lines, and done (boolean) marks a completed line (struck
+      through). Pass done as a real boolean.
+    example:
+      - { qty: "2", name: "Margherita Pizza", mods: ["No basil", "Extra cheese"], done: false }
+      - { qty: "1", name: "Caesar Salad", mods: ["Dressing on side"], done: true }
+variants:
+  status:
+    new: "bg-info/10 text-info"
+    preparing: "bg-warning/10 text-warning"
+    ready: "bg-success/10 text-success"

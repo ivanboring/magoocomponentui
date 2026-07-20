@@ -1,0 +1,74 @@
+name: "Work Tile"
+short_description: A single 4:3 project thumbnail that zooms on hover and reveals the title and category over a dark gradient.
+long_visual_description: >
+  A compact, image-filled tile with a card radius. The thumbnail fills the frame at a 4:3 ratio and
+  scales up gently on hover while a dark gradient fades in from the bottom, revealing a small
+  uppercase category kicker and the project title in white. When a link is set the whole tile is
+  clickable.
+
+use_cases:
+  - A single cell inside a portfolio or work grid.
+  - A related-project thumbnail beneath a case study.
+  - A gallery item in a photography or design showcase.
+  - A featured-work card on a studio home page.
+  - A project thumbnail in a card slider or rail.
+  - A team member's highlighted shipped work.
+
+recommended_for:
+  - The repeating unit of a work grid where hover reveals the label.
+  - Image-led project links that stay clean until hovered.
+avoid_for:
+  - A full case-study layout with narrative and metrics (use project-case-study).
+  - A text-first card where the image is secondary (use a standard content card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an image and title, an optional category kicker, and an optional href to make the whole tile a
+  link. Drop several into a responsive grid, or let portfolio-grid render and filter them for you.
+
+props:
+  image: "The project thumbnail, shown at 4:3 and zoomed slightly on hover."
+  title: "The project name, revealed in the overlay on hover."
+  category: "Optional short kicker shown above the title in the overlay."
+  href: "Optional URL; when set the whole tile becomes a link."
+
+example_prompts:
+  - "Add a work tile for the checkout redesign linking to its case study."
+  - "Show a grid of hover-reveal project thumbnails."
+  - "Make an image tile that shows the title on hover."
+
+lifecycle: experimental
+content_model: A project thumbnail with a title, an optional category, and an optional link.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Use consistent crops and a single subject per thumbnail so a grid of tiles reads evenly. Keep the
+  title short - it appears over the image - and reserve the category kicker for a real taxonomy term.
+
+relationships:
+  related:
+    - portfolio/portfolio-grid
+    - portfolio/project-case-study
+    - cards/card-overlay
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Work Grids
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The image carries an empty alt (decorative; the visible title conveys the label); when linked the tile is a single focusable anchor. Overlay text sits on a dark gradient for contrast on hover.
+  keyboard_support: When a link is set the tile is a single focusable anchor activated on Enter; the overlay is a hover/decorative reveal, not required to use the link.
+  seo_score: 40
+  text_direction: both

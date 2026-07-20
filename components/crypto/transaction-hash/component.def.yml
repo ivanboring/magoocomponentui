@@ -1,0 +1,22 @@
+name: transaction-hash
+props:
+  hash:
+    type: string
+    required: true
+    title: Full hash
+    description: >
+      The full transaction hash. Held in a data attribute and copied client-side; the truncated
+      display is what the viewer reads.
+    example: "0xabc1234def5678901234567890abcdef1234567890abcdef1234567890001234"
+  display:
+    type: string
+    required: true
+    title: Display value
+    description: The truncated hash shown to the viewer (e.g. 0xabc...1234). Shorten it in the caller.
+    example: "0xabc...1234"
+  explorer_url:
+    type: string
+    title: Explorer URL
+    description: Optional block-explorer URL; when set, the display value becomes a link to it.
+    example: "https://etherscan.io/tx/0xabc1234"
+variants: {}

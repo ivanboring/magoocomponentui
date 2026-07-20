@@ -1,0 +1,36 @@
+<section class="check-split flex flex-col rounded-card border border-border bg-surface shadow-card" aria-label="Split the check">
+  <header class="flex flex-wrap items-center justify-between gap-3 border-b border-border p-(--space-card)">
+    <h3 class="font-heading text-on-surface">Split the check</h3>
+    <div data-if="split_count" class="check-split__controls flex items-center gap-2">
+      <span class="text-sm text-on-surface-muted">Split by</span>
+      <div class="flex items-center gap-1 rounded-pill border border-border bg-surface-raised p-0.5">
+        <button type="button" class="check-split__dec flex size-7 items-center justify-center rounded-pill text-on-surface transition-colors duration-(--duration-token) hover:bg-surface" aria-label="Fewer ways">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h10"/></svg>
+        </button>
+        <span class="min-w-6 text-center font-heading text-on-surface tabular-nums">{{ split_count }}</span>
+        <button type="button" class="check-split__inc flex size-7 items-center justify-center rounded-pill text-on-surface transition-colors duration-(--duration-token) hover:bg-surface" aria-label="More ways">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="check-split__guests grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+    <div data-for="guest in guests" class="check-split__guest flex flex-col bg-surface p-(--space-card)">
+      <p class="font-heading text-on-surface">{{ guest.label }}</p>
+      <ul class="mt-3 flex flex-1 flex-col gap-1.5">
+        <li data-for="line in guest.items" class="flex items-baseline justify-between gap-3 text-sm">
+          <span class="min-w-0 flex-1 truncate text-on-surface">{{ line.name }}</span>
+          <span class="shrink-0 text-on-surface-muted tabular-nums">{{ line.price }}</span>
+        </li>
+      </ul>
+      <div class="mt-3 flex items-baseline justify-between gap-3 border-t border-border pt-2">
+        <span class="text-sm text-on-surface-muted">Subtotal</span>
+        <span class="font-heading text-on-surface tabular-nums">{{ guest.subtotal }}</span>
+      </div>
+    </div>
+  </div>
+  <footer data-if="total" class="flex items-baseline justify-between gap-3 border-t border-border p-(--space-card)">
+    <span class="font-heading text-on-surface">Total</span>
+    <span class="font-heading text-xl text-on-surface tabular-nums">{{ total }}</span>
+  </footer>
+</section>

@@ -1,0 +1,25 @@
+name: kanban-board
+props:
+  columns:
+    type: array
+    items: object
+    required: true
+    title: Columns
+    description: >
+      The board columns, left to right. Each column: { label, count, wip, tasks }.
+      label is the column name; count is the precomputed number of tasks in the column
+      (the directive language can't count an array, so the caller passes it); wip is an
+      optional work-in-progress limit shown after the count. tasks is an array of mini-card
+      objects: { title, tag, assignee_initials, priority }. tag/assignee_initials are optional;
+      priority is one of low/medium/high/urgent and colours the card's priority dot.
+    example:
+      - label: "To do"
+        count: "2"
+        tasks:
+          - { title: "Draft release notes", tag: "Docs", assignee_initials: "MG", priority: "medium" }
+          - { title: "Audit empty states", tag: "Design", assignee_initials: "RP", priority: "low" }
+  label:
+    type: string
+    default: "Board"
+    title: Accessible label
+    description: Accessible name announced for the board region.

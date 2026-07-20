@@ -1,0 +1,7 @@
+{
+  "emails": [
+    { "sender": "Newsletter", "subject": "This week in frontend", "snippet": "The five links our editors couldn't stop sharing.", "time": "Mon", "unread": false, "starred": false, "initials": "N" },
+    { "sender": "Calendar", "subject": "Reminder: 1:1 with Dana", "snippet": "Starts in 30 minutes in Meeting Room 2.", "time": "Mon", "unread": false, "starred": false, "initials": "C" },
+    { "sender": "Dana Ortiz", "subject": "Slides for Monday", "snippet": "Attached the final deck — let me know if anything is off.", "time": "Sun", "unread": false, "starred": true, "avatar": "/stock/avatar-woman-1.jpg" }
+  ]
+}

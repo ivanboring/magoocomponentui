@@ -1,0 +1,10 @@
+<div class="sla-timer rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-3">
+    <p data-if="sla_label" class="text-sm font-medium text-on-surface-muted">{{ sla_label }}</p>
+    <span class="shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize data-[status=on-track]:bg-success/10 data-[status=at-risk]:bg-warning/10 data-[status=breached]:bg-danger/10 {{ status@class }}" data-status="{{ status }}">{{ status }}</span>
+  </div>
+  <p class="sla-timer__remaining mt-2 font-heading text-4xl tabular-nums {{ status@class }}">{{ time_remaining }}</p>
+  <div class="sla-timer__bar mt-3 h-2 overflow-hidden rounded-pill bg-surface-raised">
+    <div class="sla-timer__fill h-full rounded-pill data-[status=on-track]:bg-success data-[status=at-risk]:bg-warning data-[status=breached]:bg-danger" data-status="{{ status }}" style="width: {{ pct }}%"></div>
+  </div>
+</div>

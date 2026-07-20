@@ -1,0 +1,85 @@
+name: "CSAT Score"
+short_description: A customer-satisfaction summary card with a headline score and a stacked satisfied/neutral/unsatisfied distribution bar.
+long_visual_description: >
+  A bordered surface card. A muted caption sits above a large headline score rendered as
+  "score / scale" (e.g. 4.6 / 5). Below, a single thin pill bar is split into coloured segments —
+  satisfied in the success colour, neutral in the warning colour, unsatisfied in the danger colour —
+  whose widths come from precomputed percentages. A wrapping legend maps each colour to its label and
+  share, and a footnote states how many responses the score is based on.
+
+use_cases:
+  - Summarise customer satisfaction on a dashboard.
+  - Report weekly or monthly CSAT for a support team.
+  - Show a product's overall satisfaction score with its breakdown.
+  - Surface survey results as a compact scorecard.
+  - Track satisfaction trend snapshots across periods.
+  - Display NPS-style sentiment splits alongside a headline number.
+
+recommended_for:
+  - A read-only satisfaction summary with a distribution breakdown.
+  - Dashboards and reports where the percentages are computed upstream.
+avoid_for:
+  - Collecting a rating from the user (use feedback/testimonial-collect or thumbs-feedback).
+  - A single running poll (use feedback/poll-inline).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the headline score and scale, an optional responses count, and a distribution array whose
+  segments carry a precomputed pct and a tokenized color_class (bg-success, bg-warning, bg-danger).
+  Segment percentages should sum to 100 so the stacked bar fills the track. The color_class values
+  are kept live by a hidden safelist span so Tailwind always compiles them.
+
+props:
+  score: The headline CSAT score; may be fractional and should be pre-rounded.
+  scale: The maximum of the scale, shown after the slash.
+  responses: Number of responses behind the score, shown as a footnote.
+  label: Caption above the score figure.
+  distribution: The breakdown segments; each has a label, a precomputed pct, and a tokenized color_class.
+
+example_prompts:
+  - "Add a CSAT scorecard showing 4.6 out of 5 with a satisfied/neutral/unsatisfied split."
+  - "Show this week's support CSAT at 3.1 with the distribution bar."
+
+lifecycle: experimental
+content_model: A headline satisfaction score, a scale, a response count, and a percentage breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order the distribution from most positive to most negative so the bar reads left-to-right as
+  sentiment declines. Keep segment labels to one word and let the percentages sum to 100.
+
+relationships:
+  related:
+    - feedback/poll-inline
+    - feedback/thumbs-feedback
+    - dashboard/stat-card
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Scores
+  atomic_type: molecule
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The stacked bar carries role="img" with an aria-label; the legend restates every segment's label and percentage as text so colour is not the only cue.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

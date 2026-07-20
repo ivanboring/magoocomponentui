@@ -1,0 +1,37 @@
+name: newsletter-template
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The header title (typically the newsletter or brand name).
+    example: "The Weekly Dispatch"
+  preheader:
+    type: string
+    title: Preheader
+    description: >
+      Optional hidden preview text shown by mail clients in the inbox list; visually hidden in
+      the rendered email.
+    example: "This week: streaming APIs, a new studio, and three quick wins."
+  hero_image:
+    type: image
+    title: Hero image
+    description: Optional banner image shown below the header.
+    example: "/stock/cover-workspace.jpg"
+  body_html:
+    type: html
+    required: true
+    title: Body
+    description: The email body content as raw HTML (headings, paragraphs, lists).
+    example: "<p>Hello there,</p><p>Here is what shipped this week.</p>"
+  cta:
+    type: object
+    required: true
+    title: Call to action
+    description: "The primary button: { label, href }."
+    example: { label: "Read the full update", href: "#" }
+  footer:
+    type: html
+    title: Footer
+    description: Optional muted footer content as raw HTML (address, unsubscribe link).
+    example: "<p>You are receiving this because you subscribed. <a href=\"#\">Unsubscribe</a>.</p>"

@@ -1,0 +1,11 @@
+<div class="rating-slider">
+  <label data-if="label" class="rating-slider__label mb-2 block text-sm font-medium text-on-surface" for="rating-slider__input">{{ label }}</label>
+  <div class="rating-slider__wrap relative h-10 select-none">
+    <div class="rating-slider__bubble pointer-events-none absolute top-0 -translate-x-1/2 rounded-pill bg-primary px-2 py-0.5 text-xs font-medium text-primary-contrast shadow-card" style="left: {{ bubble_left }}%"><span class="rating-slider__value tabular-nums">{{ value }}</span></div>
+    <div class="rating-slider__track absolute inset-x-0 top-7 h-1.5 rounded-pill bg-surface-raised">
+      <div class="rating-slider__fill h-full rounded-pill bg-primary" style="width: {{ fill_pct }}%"></div>
+    </div>
+    <div class="rating-slider__thumb pointer-events-none absolute top-7 size-4 -translate-x-1/2 -translate-y-1/4 rounded-pill border-2 border-primary bg-surface shadow-card" style="left: {{ bubble_left }}%"></div>
+    <input id="rating-slider__input" class="rating-slider__input absolute inset-x-0 top-5 m-0 h-6 w-full cursor-pointer appearance-none bg-transparent opacity-0" type="range" min="{{ min }}" max="{{ max }}" value="{{ value }}" aria-label="{{ label }}">
+  </div>
+</div>

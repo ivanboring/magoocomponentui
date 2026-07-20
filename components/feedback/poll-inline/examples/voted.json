@@ -1,0 +1,10 @@
+{
+  "question": "Which feature should we build next?",
+  "voted": true,
+  "total_votes": 246,
+  "options": [
+    { "label": "Dark mode", "votes": 128, "pct": 52, "leading": true },
+    { "label": "Offline support", "votes": 74, "pct": 30, "leading": false },
+    { "label": "Keyboard shortcuts", "votes": 44, "pct": 18, "leading": false }
+  ]
+}

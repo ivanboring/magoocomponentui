@@ -1,0 +1,46 @@
+<div class="swap-widget flex flex-col gap-2 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="rounded-control border border-border bg-surface-raised p-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span>From</span>
+      <span data-if="from.balance">Balance: {{ from.balance }}</span>
+    </div>
+    <div class="mt-1 flex items-center gap-2">
+      <input type="text" inputmode="decimal" class="swap-widget__from-amount min-w-0 flex-1 bg-transparent font-heading text-2xl text-on-surface outline-none placeholder:text-on-surface-muted" value="{{ from.amount }}" placeholder="0.0" aria-label="Amount to swap from">
+      <button type="button" class="swap-widget__from-token inline-flex shrink-0 items-center gap-1 rounded-pill border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Select token to swap from">
+        <span>{{ from.symbol }}</span>
+        <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="relative z-10 -my-4 flex justify-center">
+    <button type="button" class="swap-widget__flip flex size-9 items-center justify-center rounded-full border-4 border-surface bg-surface-raised text-on-surface transition-colors duration-(--duration-token) hover:bg-surface" aria-label="Flip swap direction">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 4v9M7 13l-2.5-2.5M13 16V7M13 7l2.5 2.5"/></svg>
+    </button>
+  </div>
+
+  <div class="rounded-control border border-border bg-surface-raised p-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span>To</span>
+      <span data-if="to.balance">Balance: {{ to.balance }}</span>
+    </div>
+    <div class="mt-1 flex items-center gap-2">
+      <input type="text" inputmode="decimal" class="swap-widget__to-amount min-w-0 flex-1 bg-transparent font-heading text-2xl text-on-surface outline-none placeholder:text-on-surface-muted" value="{{ to.amount }}" placeholder="0.0" aria-label="Amount to receive">
+      <button type="button" class="swap-widget__to-token inline-flex shrink-0 items-center gap-1 rounded-pill border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Select token to receive">
+        <span>{{ to.symbol }}</span>
+        <svg class="size-4 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div data-if="rate" class="mt-1 flex items-center justify-between px-1 text-xs text-on-surface-muted">
+    <span>Rate</span>
+    <span class="font-mono text-on-surface">{{ rate }}</span>
+  </div>
+  <div data-if="slippage" class="flex items-center justify-between px-1 text-xs text-on-surface-muted">
+    <span>Slippage tolerance</span>
+    <span class="text-on-surface">{{ slippage }}</span>
+  </div>
+
+  <button type="button" class="swap-widget__submit mt-1 w-full rounded-button bg-primary px-4 py-2.5 font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Swap</button>
+</div>

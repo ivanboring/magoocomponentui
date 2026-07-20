@@ -1,0 +1,13 @@
+<form class="chat-composer rounded-card border border-border bg-surface p-2 shadow-card focus-within:border-ring" data-max-height="200">
+  <textarea class="chat-composer__input block max-h-[200px] w-full resize-none bg-transparent px-2 py-1.5 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none" rows="1" placeholder="{{ placeholder }}"></textarea>
+  <div class="mt-1 flex items-center gap-2 px-1">
+    <button type="button" class="chat-composer__attach flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Attach file">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 7l-5.5 5.5a2.5 2.5 0 003.5 3.5L18 10a4 4 0 00-5.6-5.6L6 10.8a5.5 5.5 0 007.8 7.8"/></svg>
+    </button>
+    <span class="text-xs text-on-surface-muted max-sm:hidden">Enter to send, Shift+Enter for a new line</span>
+    <button type="submit" class="chat-composer__send ml-auto inline-flex items-center gap-1.5 rounded-button bg-primary px-3 py-1.5 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 disabled:pointer-events-none disabled:opacity-40" disabled>
+      {{ send_label }}
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg>
+    </button>
+  </div>
+</form>

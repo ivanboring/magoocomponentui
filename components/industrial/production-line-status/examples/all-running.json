@@ -1,0 +1,9 @@
+{
+  "line_name": "Bottling Line 1",
+  "stations": [
+    { "name": "Fill", "status": "ok", "throughput": "120/hr" },
+    { "name": "Cap", "status": "ok", "throughput": "120/hr" },
+    { "name": "Label", "status": "ok", "throughput": "118/hr" },
+    { "name": "Palletize", "status": "ok", "throughput": "116/hr" }
+  ]
+}

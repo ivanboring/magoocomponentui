@@ -1,0 +1,87 @@
+name: "Earnings Calendar Row"
+short_description: A single earnings-calendar entry - ticker, report date, time-of-day chip, EPS estimate, and a confirmed or estimated tag.
+long_visual_description: >
+  A surface row led by a mono ticker with an optional company name beneath it. To the right sits
+  the report date next to a pill chip that shows a sun icon and "Before open" or a moon icon and
+  "After close", then an optional consensus EPS estimate labelled "EPS est.", and finally a tag
+  that reads a green "Confirmed" with a check or a muted "Estimated". The row wraps gracefully on
+  narrow screens.
+
+use_cases:
+  - A row in an upcoming-earnings calendar for a watchlist.
+  - An earnings-this-week list on a markets dashboard.
+  - A per-holding earnings reminder in a portfolio view.
+  - A research feed entry ahead of a company's report.
+  - A screener result row highlighting confirmed report dates.
+  - A notification-style earnings alert with an EPS estimate.
+
+recommended_for:
+  - Listing upcoming earnings reports one per row with date and estimate.
+  - Calendars where before-open vs after-close timing matters.
+avoid_for:
+  - Post-report actuals and surprise (use a results card).
+  - A dense multi-column table of many metrics (use a data table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the symbol and a preformatted date, and optionally the company name, an EPS estimate, and
+  the time-of-day (before-open or after-close). Set confirmed true once the company confirms the
+  date to swap the muted "Estimated" tag for a green "Confirmed" one. Stack several rows to build a
+  calendar.
+
+props:
+  symbol: "The company ticker."
+  name: "Optional company name under the symbol."
+  date: "Report date, preformatted in the caller."
+  time: "before-open (sun chip) or after-close (moon chip); omit if unknown."
+  eps_estimate: "Optional consensus EPS estimate, preformatted with currency."
+  confirmed: "true shows a green Confirmed tag; false shows a muted Estimated tag."
+
+example_prompts:
+  - "Add an earnings calendar row for AAPL reporting after close on Aug 1 with a $1.34 EPS estimate."
+  - "Show an upcoming earnings list with confirmed and estimated dates."
+  - "Put an earnings reminder row for a holding before the market opens."
+
+relationships:
+  related:
+    - trading/price-ticker-tape
+    - trading/trade-confirmation
+    - crypto/token-price-card
+
+lifecycle: experimental
+content_model: A single upcoming earnings entry - ticker, name, date, time of day, EPS estimate, and a confirmed flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the symbol prominent and the company name secondary. Set time only when the session timing
+  is known, and reserve the green Confirmed tag for dates the company has actually confirmed - the
+  tag text distinguishes the two states, so colour is a reinforcement. Preformat the date and EPS
+  estimate consistently across rows.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Market Data
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Session timing and confirmation are conveyed by text ("Before open"/"After close", "Confirmed"/"Estimated") as well as icon and colour.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: ltr

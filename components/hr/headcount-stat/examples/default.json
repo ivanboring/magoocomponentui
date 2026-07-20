@@ -1,0 +1,12 @@
+{
+  "count": "248",
+  "label": "Total headcount",
+  "change": "+12 this quarter",
+  "change_dir": "up",
+  "breakdown": [
+    { "label": "Engineering", "value": "96" },
+    { "label": "Sales", "value": "54" },
+    { "label": "Support", "value": "38" },
+    { "label": "Operations", "value": "60" }
+  ]
+}

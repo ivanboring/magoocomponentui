@@ -1,0 +1,84 @@
+name: "OEE Gauge"
+short_description: A radial gauge showing an overall equipment effectiveness percentage with its availability, performance and quality sub-metrics.
+long_visual_description: >
+  A surface card with a large ring gauge - a muted track circle behind a primary-coloured value arc -
+  and the OEE percentage centred inside the ring with a small "OEE" caption. Below the dial, a three-up
+  row of raised panels breaks the score into its availability, performance and quality factors.
+
+use_cases:
+  - Headline OEE gauge on a manufacturing performance dashboard.
+  - Line or cell effectiveness summary in a shift report.
+  - Plant-floor display showing the current OEE at a glance.
+  - Continuous-improvement view comparing OEE across assets.
+  - Executive operations summary with the A/P/Q breakdown.
+  - Andon board metric highlighting how the day is tracking.
+
+recommended_for:
+  - A single prominent effectiveness figure with its three contributing factors.
+  - Dashboards where OEE needs a visual, not just a number.
+avoid_for:
+  - A plain single metric with a delta (use a stat-card).
+  - OEE trended over time (pair with a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass oee_pct as an integer 0-100 for the centre label and precompute the arc geometry - arc_dash is
+  the full circumference "251" for the r=40 ring and arc_offset is 251 * (1 - oee_pct/100), since the
+  template performs no arithmetic. Optionally pass the availability, performance and quality
+  sub-metrics as preformatted strings including their units.
+
+props:
+  oee_pct: The OEE percentage shown as the centre label, 0-100.
+  availability: Optional preformatted availability sub-metric, e.g. "91%".
+  performance: Optional preformatted performance sub-metric, e.g. "94%".
+  quality: Optional preformatted quality sub-metric, e.g. "96%".
+  arc_dash: Precomputed stroke-dasharray, the full circumference "251" for the r=40 ring.
+  arc_offset: Precomputed stroke-dashoffset driving the arc length, 251 * (1 - oee_pct/100).
+
+example_prompts:
+  - "Add an OEE gauge at 82 percent with availability, performance and quality."
+  - "Show a low OEE gauge around 58 percent for the underperforming line."
+  - "Put an OEE gauge at the top of the manufacturing dashboard."
+
+lifecycle: experimental
+content_model: An OEE percentage, a precomputed arc dash and offset, and three optional sub-metrics.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+    - --space-card
+
+editorial_guidance: >
+  Keep the centre value a short percentage and let the ring carry the emphasis. Only show the A/P/Q
+  panels when you have the breakdown; otherwise the gauge stands alone cleanly.
+
+relationships:
+  related:
+    - industrial/machine-status-tile
+    - industrial/downtime-tracker
+    - industrial/production-line-status
+
+categorization:
+  category: Manufacturing
+  subcategory: Metrics
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The dial is role="img" with a full-sentence aria-label conveying the value; sub-metrics are labelled text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

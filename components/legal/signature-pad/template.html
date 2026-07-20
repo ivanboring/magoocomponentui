@@ -1,0 +1,16 @@
+<div class="signature-pad rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="signature-pad__stage relative">
+    <canvas class="signature-pad__canvas h-40 w-full touch-none rounded-control border border-border bg-surface-raised text-on-surface"></canvas>
+    <div class="signature-pad__baseline pointer-events-none absolute inset-x-5 bottom-8 flex items-center gap-2" aria-hidden="true">
+      <span class="text-lg leading-none text-on-surface-muted">&times;</span>
+      <span class="h-px flex-1 bg-border"></span>
+    </div>
+  </div>
+  <p class="signature-pad__label mt-2 text-sm font-medium text-on-surface">{{ label }}</p>
+  <p data-if="hint" class="signature-pad__hint mt-1 text-xs text-on-surface-muted">{{ hint }}</p>
+  <input data-if="name" type="hidden" class="signature-pad__value" name="{{ name }}">
+  <div class="signature-pad__actions mt-3 flex items-center gap-2">
+    <button type="button" class="signature-pad__clear rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Clear</button>
+    <button type="button" class="signature-pad__done ml-auto rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Done</button>
+  </div>
+</div>

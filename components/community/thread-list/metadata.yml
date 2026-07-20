@@ -1,0 +1,77 @@
+name: "Thread List"
+short_description: A divided list of forum topics — each row shows title, author, tags, reply and view counts, and last activity, with pinned rows highlighted.
+long_visual_description: >
+  A bordered card with a card radius holding a vertically divided list of forum threads. Each row
+  leads with an optional pin icon in the primary colour, then the topic title as a link with the
+  author and tag chips beneath it, and a right-aligned column of reply and view counts above the
+  last-activity time. Pinned rows sit on a faint primary tint so announcements float to the top.
+
+use_cases:
+  - Topic index for a forum board or subforum.
+  - Recent discussions feed on a community home page.
+  - Pinned announcements above regular threads.
+  - Search results list for community topics.
+  - My-threads or watched-threads listing in a profile.
+  - Q and A question list sorted by activity.
+
+recommended_for:
+  - A dense, scannable list of many forum topics.
+  - Boards where reply and view counts matter at a glance.
+avoid_for:
+  - A single standalone topic row (use thread-row).
+  - A rich topic page with the post body (use post-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a threads array where each item has a title, author, replies, last_activity and optional
+  views, pinned flag and tags. Order pinned threads first; the pinned flag adds the pin icon and the
+  faint highlight. Counts and times are pre-formatted strings, so localise or abbreviate them upstream.
+
+props:
+  threads: "The topics, in order. Each item has title, author, replies, optional views, last_activity, an optional pinned boolean, and an optional tags array."
+
+example_prompts:
+  - Show a forum board with a pinned welcome thread on top.
+  - List the ten most recent discussions with reply counts.
+  - Render a topic index grouped by pinned then latest activity.
+
+lifecycle: experimental
+content_model: An ordered array of forum threads, each with title, author, counts, last activity, tags and a pinned flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep titles descriptive and front-load the topic. Order pinned threads first and use tags
+  sparingly so rows stay scannable. Abbreviate large counts (1.2k) upstream since they are plain strings.
+
+relationships:
+  related:
+    - community/thread-row
+    - community/post-detail
+    - community/subforum-card
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: organism
+  usage_type: [list, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The list uses ul/li semantics, each title is a real link, and the pin state carries an accessible label so it is not conveyed by colour alone.
+  keyboard_support: Each thread title is a focusable link; there are no other interactive controls.
+  seo_score: 45
+  text_direction: both

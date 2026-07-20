@@ -1,0 +1,28 @@
+{
+  "plans": [
+    {
+      "name": "Basic",
+      "premium": "$64",
+      "deductible": "$1,500",
+      "coverage_limit": "$50,000",
+      "features": ["Liability coverage", "Roadside assistance", "24/7 claims line"],
+      "recommended": false
+    },
+    {
+      "name": "Standard",
+      "premium": "$92",
+      "deductible": "$750",
+      "coverage_limit": "$150,000",
+      "features": ["Everything in Basic", "Collision coverage", "Rental reimbursement", "Accident forgiveness"],
+      "recommended": true
+    },
+    {
+      "name": "Premium",
+      "premium": "$138",
+      "deductible": "$250",
+      "coverage_limit": "$500,000",
+      "features": ["Everything in Standard", "New car replacement", "Full glass coverage", "Diminishing deductible"],
+      "recommended": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "title": "A calmer onboarding for new members",
+  "client": "Fieldnote",
+  "problem": "<p>New members signed up but rarely reached their first useful moment. The empty dashboard offered no guidance, so many left before creating anything.</p><ul><li>No sense of progress</li><li>Too many choices at once</li></ul>",
+  "solution": "<p>We introduced a short, skippable setup that creates a starter workspace and walks people to their first win. Each step is optional and the progress is always visible.</p>",
+  "result": "<p>Activation within the first session improved markedly, and members who completed setup were far more likely to return the following week.</p>"
+}

@@ -1,0 +1,70 @@
+name: "Pet Weight Tracker"
+short_description: A compact card showing a pet's latest weight, its change since last weigh-in, healthy range and a mini trend line.
+long_visual_description: >
+  A surface card with a small "Current weight" label and, aligned to the right, the
+  change since the last weigh-in tinted amber (up) or green (down) with a matching
+  arrow. Below sits the current weight in a large heading face with the unit in a
+  smaller muted tone. An optional full-width mini sparkline traces the recent trend in
+  the primary colour, and a muted line notes the vet-recommended healthy range.
+use_cases:
+  - Track a pet's weight over time on a health dashboard.
+  - Flag weight gain or loss against a vet-recommended range.
+  - Summarise the latest weigh-in beside a feeding or exercise plan.
+  - Monitor a weight-management programme for an overweight pet.
+  - Show growth progress for a puppy or kitten.
+  - Give a foster carer a quick read on an animal's condition trend.
+recommended_for:
+  - A single pet's current weight with a short trend and target range.
+  - Dashboards that pair the metric with a sparkline the caller precomputes.
+avoid_for:
+  - A full editable weigh-in log or chart (use a dedicated chart component).
+  - Multiple pets at once (render one card each).
+markets:
+  - Global
+example_usage: >
+  Set current_weight and unit for the latest reading. Pass change and change_dir to
+  show the movement since last time (down tints green, up tints amber). Provide
+  ideal_range for context and a precomputed spark_path for the trend line.
+props:
+  current_weight: "The latest weigh-in number, formatted for display; pair with unit."
+  unit: "Weight unit shown after the number, e.g. kg or lb."
+  change: "The change since the last weigh-in, formatted, e.g. 0.2 kg."
+  change_dir: "up tints amber with an up arrow (gaining); down tints green with a down arrow (on track). Omit for neither."
+  ideal_range: "The vet-recommended healthy range, e.g. 4.5-6.0 kg."
+  spark_path: "A precomputed SVG path d for the mini trend line in a 0 0 100 40 viewBox."
+lifecycle: experimental
+content_model: A current weight, an optional change and direction, a healthy range and a precomputed trend path.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+editorial_guidance: >
+  Choose change_dir from the pet's health goal, not raw arithmetic. For a weight-loss
+  plan a lower number is good (green); for a growing puppy gaining is expected. Keep the
+  ideal range short and unit-consistent with the weight.
+relationships:
+  related:
+    - pets/pet-health-timeline
+    - pets/walk-tracker
+    - dashboard/stat-card
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Health records
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The change direction is carried by a data attribute plus an arrow icon, not colour alone; the sparkline is decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

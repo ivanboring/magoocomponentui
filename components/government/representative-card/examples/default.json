@@ -1,0 +1,13 @@
+{
+  "name": "Dana Whitfield",
+  "title": "State Senator",
+  "district": "District 14",
+  "party": "Independent",
+  "avatar": "/stock/avatar-man-1.jpg",
+  "initials": "DW",
+  "contacts": [
+    { "type": "phone", "value": "(555) 014-2200", "href": "tel:+15550142200" },
+    { "type": "email", "value": "dana.whitfield@state.gov", "href": "mailto:dana.whitfield@state.gov" },
+    { "type": "web", "value": "whitfield.state.gov", "href": "https://whitfield.state.gov" }
+  ]
+}

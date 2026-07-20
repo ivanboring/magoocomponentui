@@ -1,0 +1,76 @@
+name: "Dock Schedule"
+short_description: A grid of dock doors by time slot, each cell tinted by whether the slot is free, booked or loading.
+long_visual_description: >
+  A horizontally scrollable grid where each row is a dock door and each cell is a time slot. A dock
+  label with a warehouse glyph anchors the leading edge of every row, and the slot cells fan out to
+  the right showing a time and an optional carrier. Cell tint carries the state - a muted surface for
+  free, a blue info tint for booked, and an amber warning tint for a slot currently loading.
+
+use_cases:
+  - A warehouse dock-door booking board for the day.
+  - A yard or facility appointment grid by time slot.
+  - A cross-dock schedule showing inbound and outbound windows.
+  - A distribution centre loading-bay overview.
+  - A carrier appointment planner across multiple docks.
+
+recommended_for:
+  - A day view of dock doors against fixed time slots.
+  - Schedule data rendered from nested dock and slot arrays.
+avoid_for:
+  - A single shipment's status trail (use tracking-timeline).
+  - A staff shift grid (use hr/shift-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a docks array where each dock has a label and an aligned slots array. Set each slot's status
+  to free, booked, or loading and add a carrier name where booked; the cell colour follows the
+  status. Keep every dock's slots the same length so the columns align.
+
+props:
+  docks: One row per dock; each has a label and an ordered slots array. Each slot has a time, an optional carrier, and a status (free, booked, loading) that tints the cell.
+
+example_prompts:
+  - "Show a dock schedule for four doors across morning and afternoon slots."
+  - "Add a loading-bay board with booked and free time slots."
+  - "Display today's dock appointments by carrier."
+
+lifecycle: experimental
+content_model: A set of dock rows, each with an aligned array of time slots carrying a time, optional carrier, and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-warning
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+
+editorial_guidance: >
+  Keep dock labels short and slot times consistent across rows so the grid lines up. Reserve the
+  loading tint for the slot in progress and use booked for reserved-but-not-yet-active windows.
+
+relationships:
+  related:
+    - logistics/load-board-row
+    - logistics/carrier-rate-card
+    - logistics/tracking-timeline
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [grid, schedule]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each cell shows its time and carrier text alongside the colour tint, so status is not conveyed by colour alone; the grid scrolls horizontally on small screens.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

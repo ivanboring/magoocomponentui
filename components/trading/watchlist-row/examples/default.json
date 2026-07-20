@@ -1,0 +1,9 @@
+{
+  "symbol": "NVDA",
+  "name": "NVIDIA Corp",
+  "price": "$124.30",
+  "change": "+2.18",
+  "change_pct": "+1.78%",
+  "change_dir": "up",
+  "spark_path": "M0 24 L14 20 L28 22 L42 14 L56 16 L70 9 L84 11 L100 3"
+}

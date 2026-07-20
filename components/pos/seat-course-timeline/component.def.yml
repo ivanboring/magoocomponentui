@@ -1,0 +1,21 @@
+name: seat-course-timeline
+props:
+  courses:
+    type: array
+    items: object
+    required: true
+    title: Courses
+    description: >
+      The coursing sequence, left to right (e.g. Appetizer, Entree, Dessert). Each item:
+      { label, status, items } where label is the course name, status is one of served, firing,
+      held or pending and colours the course's dot and status word, and items (optional) is an
+      array of dish name strings shown as hints under the course.
+    example:
+      - { label: "Appetizer", status: "served", items: ["Calamari", "Caesar salad"] }
+      - { label: "Entree", status: "firing", items: ["Ribeye", "Salmon"] }
+      - { label: "Dessert", status: "pending", items: ["Tiramisu"] }
+  label:
+    type: string
+    default: "Course timeline"
+    title: Accessible label
+    description: Accessible name announced for the course timeline.

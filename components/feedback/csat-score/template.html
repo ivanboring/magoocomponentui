@@ -1,0 +1,23 @@
+<figure class="csat-score rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <figcaption class="text-sm text-on-surface-muted">{{ label }}</figcaption>
+  <p class="csat-score__figure mt-1 font-heading text-on-surface">
+    <span class="text-4xl font-semibold tabular-nums">{{ score }}</span>
+    <span class="text-lg text-on-surface-muted"> / {{ scale }}</span>
+  </p>
+
+  <div class="csat-score__bar mt-4 flex h-3 w-full overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Satisfaction distribution">
+    <div data-for="segment in distribution" class="h-full {{ segment.color_class }}" style="width: {{ segment.pct }}%"></div>
+  </div>
+
+  <ul class="csat-score__legend mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+    <li data-for="segment in distribution" class="flex items-center gap-2 text-sm">
+      <span class="size-2.5 shrink-0 rounded-pill {{ segment.color_class }}"></span>
+      <span class="text-on-surface">{{ segment.label }}</span>
+      <span class="tabular-nums text-on-surface-muted">{{ segment.pct }}%</span>
+    </li>
+  </ul>
+
+  <p data-if="responses" class="csat-score__responses mt-3 text-xs tabular-nums text-on-surface-muted">Based on {{ responses }} responses</p>
+
+  <span class="hidden bg-success bg-warning bg-danger bg-info bg-primary bg-secondary bg-accent" aria-hidden="true"></span>
+</figure>

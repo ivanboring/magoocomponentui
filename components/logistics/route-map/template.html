@@ -1,0 +1,29 @@
+<div class="route-map rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="route-map__facade relative overflow-hidden rounded-control border border-border bg-surface-raised">
+    <svg class="pointer-events-none absolute inset-0 size-full text-border" viewBox="0 0 400 120" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+      <path d="M0 30H400M0 60H400M0 90H400" opacity="0.5"/>
+      <path d="M50 0V120M120 0V120M190 0V120M260 0V120M330 0V120" opacity="0.5"/>
+      <path d="M20 96 Q110 96 150 62 T300 34 L384 30" class="text-primary" stroke-width="2.5" stroke-dasharray="7 6" opacity="0.6"/>
+    </svg>
+    <ol class="relative flex items-start justify-between gap-2 p-6">
+      <li data-for="stop in stops" class="route-map__stop group relative flex flex-1 flex-col items-center text-center" data-status="{{ stop.status }}">
+        <span class="route-map__bar absolute top-4 h-0.5 bg-border group-first:hidden group-data-[status=done]:bg-primary group-data-[status=current]:bg-primary" style="right: 50%; left: -50%; width: 100%" aria-hidden="true"></span>
+        <span class="route-map__pin relative z-10 flex size-8 items-center justify-center rounded-full border-2 border-border bg-surface text-sm font-medium text-on-surface-muted shadow-card group-data-[status=done]:border-primary group-data-[status=done]:bg-primary group-data-[status=done]:text-primary-contrast group-data-[status=current]:border-primary group-data-[status=current]:text-primary">{{ stop.order }}</span>
+        <span class="route-map__label mt-2 max-w-20 truncate text-xs text-on-surface-muted group-data-[status=done]:text-on-surface group-data-[status=current]:text-on-surface">{{ stop.label }}</span>
+      </li>
+    </ol>
+  </div>
+  <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+    <p data-if="total_distance" class="flex items-center gap-1.5 text-sm text-on-surface">
+      <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 16l6-12 6 12"/><path d="M7 12h6"/></svg>
+      <span class="text-on-surface-muted">Distance</span>
+      <span class="font-medium">{{ total_distance }}</span>
+    </p>
+    <p data-if="total_time" class="flex items-center gap-1.5 text-sm text-on-surface">
+      <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg>
+      <span class="text-on-surface-muted">Time</span>
+      <span class="font-medium">{{ total_time }}</span>
+    </p>
+  </div>
+  <p class="mt-2 text-xs text-on-surface-muted">Skeleton map facade - swap in a real map (e.g. Leaflet or Mapbox) for live geography.</p>
+</div>

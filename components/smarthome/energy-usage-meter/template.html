@@ -1,0 +1,17 @@
+<div class="energy-usage-meter rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="text-sm text-on-surface-muted">Using now</p>
+  <p class="mt-1 font-heading text-3xl text-on-surface tabular-nums">{{ current_watts }}<span class="ml-1 text-lg text-on-surface-muted">W</span></p>
+  <div class="energy-usage-meter__track mt-3 h-2 overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Current draw relative to peak">
+    <div class="energy-usage-meter__bar h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+  </div>
+  <dl class="mt-3 space-y-1 text-sm">
+    <div data-if="today_kwh" class="flex items-baseline justify-between gap-2">
+      <dt class="text-on-surface-muted">Today</dt>
+      <dd class="energy-usage-meter__kwh font-medium text-on-surface tabular-nums">{{ today_kwh }} kWh</dd>
+    </div>
+    <div data-if="cost" class="flex items-baseline justify-between gap-2">
+      <dt class="text-on-surface-muted">Cost</dt>
+      <dd class="energy-usage-meter__cost font-medium text-on-surface tabular-nums">{{ cost }}</dd>
+    </div>
+  </dl>
+</div>

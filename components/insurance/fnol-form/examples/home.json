@@ -1,0 +1,9 @@
+{
+  "placeholder": "Describe the damage to your home and how it happened...",
+  "incident_types": [
+    { "label": "Fire", "value": "fire" },
+    { "label": "Water damage", "value": "water" },
+    { "label": "Storm or wind", "value": "storm" },
+    { "label": "Break-in", "value": "break_in" }
+  ]
+}

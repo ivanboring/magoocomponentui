@@ -1,0 +1,8 @@
+{
+  "label": "Course timeline",
+  "courses": [
+    { "label": "Appetizer", "status": "served", "items": ["Calamari", "Caesar salad"] },
+    { "label": "Entree", "status": "firing", "items": ["Ribeye", "Salmon"] },
+    { "label": "Dessert", "status": "pending", "items": ["Tiramisu"] }
+  ]
+}

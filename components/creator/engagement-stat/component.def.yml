@@ -1,0 +1,38 @@
+name: engagement-stat
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: Short name of the metric (e.g. "Watch time").
+    example: "New followers"
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The formatted headline figure, including any unit (e.g. "12.4K").
+    example: "12.4K"
+  change:
+    type: string
+    title: Change
+    description: The formatted change vs the previous period (e.g. "+8.2%").
+    example: "+8.2%"
+  change_dir:
+    type: enum
+    values: [up, down]
+    default: up
+    title: Change direction
+    description: Direction of the change; sets the arrow and colours the change text.
+  sparkline_path:
+    type: string
+    title: Sparkline path
+    description: >
+      A precomputed SVG path `d` string drawn in a 100x32 viewBox (x left-to-right, y top-down).
+      Compute the point coordinates from the series before passing them in — the component does no
+      maths. When omitted, no sparkline is drawn.
+    example: "M0 26 L20 22 L40 24 L60 14 L80 16 L100 6"
+  period:
+    type: string
+    title: Period
+    description: The comparison window, shown next to the label (e.g. "30 days").
+    example: "30 days"

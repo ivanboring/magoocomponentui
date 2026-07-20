@@ -1,0 +1,11 @@
+<div class="backlog-item flex items-center gap-3 rounded-control border border-border bg-surface p-3 shadow-card">
+  <span class="backlog-item__type group shrink-0 {{ type@class }}" data-type="{{ type }}" aria-hidden="true">
+    <svg class="hidden size-5 group-data-[type=story]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8a1 1 0 011 1v13l-5-3-5 3V4a1 1 0 011-1z"/></svg>
+    <svg class="hidden size-5 group-data-[type=bug]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6a3 3 0 013 3v3a3 3 0 01-6 0V9a3 3 0 013-3zM7 4l1.5 2M13 4l-1.5 2M4 10H6M14 10h2M4.5 14H6M14 14h1.5"/></svg>
+    <svg class="hidden size-5 group-data-[type=task]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="12" height="12" rx="2"/><path d="M7 10l2 2 4-4"/></svg>
+  </span>
+  <span class="backlog-item__priority size-2 shrink-0 rounded-pill bg-border data-[priority=low]:bg-on-surface-muted data-[priority=medium]:bg-info data-[priority=high]:bg-warning data-[priority=urgent]:bg-danger" data-priority="{{ priority }}" aria-hidden="true"></span>
+  <p class="backlog-item__title min-w-0 flex-1 truncate text-sm text-on-surface">{{ title }}</p>
+  <span data-if="tag" class="backlog-item__tag shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-on-surface-muted">{{ tag }}</span>
+  <span data-if="estimate" class="backlog-item__estimate flex size-7 shrink-0 items-center justify-center rounded-pill bg-surface-raised text-xs font-semibold tabular-nums text-on-surface">{{ estimate }}</span>
+</div>

@@ -1,0 +1,75 @@
+name: "Label Chip"
+short_description: A small coloured pill that tags an email with a named label like Work, Personal or Urgent.
+long_visual_description: >
+  A compact rounded-pill chip with a small colour dot on the leading edge and a short label in
+  small, medium-weight text. The colour prop maps to a tinted background and matching text tone
+  (a 10% tint of the info, success, warning, danger or primary token, or a neutral surface-raised
+  for gray), so the chip stays legible and on-theme in every palette.
+
+use_cases:
+  - Tag an email in an inbox row with a category like Work or Personal.
+  - Mark a thread as Urgent or Follow-up.
+  - Show a Gmail-style label on a message in a reader view.
+  - Group filtered results by a coloured label.
+  - Indicate a project or client label on a conversation.
+  - Display multiple labels in a row on a single message.
+
+recommended_for:
+  - Email inboxes, readers and thread views that categorise messages.
+  - Any list where items carry short, colour-coded tags.
+avoid_for:
+  - Removable filter tokens with a close button (use a chip/tag with dismiss).
+  - Status that must convey meaning by text alone across all themes.
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a short label and pick a colour that matches the category's meaning. Render several in a
+  flex row with a small gap to show all the labels on a message.
+
+props:
+  label: The label text; keep it to one or two words.
+  color: The colour tone (gray, blue, green, amber, red or purple); map it consistently to a meaning.
+
+example_prompts:
+  - "Add a blue Work label chip to each inbox row."
+  - "Show a red Urgent label on the message header."
+  - "Tag the thread with a green Done chip."
+
+lifecycle: experimental
+content_model: A short label string and one of six colour tones.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-primary
+    - --radius-pill
+
+editorial_guidance: >
+  Keep labels short and title-cased. Assign each colour a stable meaning across the product so a
+  colour always reads the same way (e.g. red for urgent, green for done).
+
+relationships:
+  related:
+    - email/email-row
+    - email/inbox-list
+    - email/email-reader
+
+categorization:
+  category: Email
+  subcategory: Labels
+  atomic_type: atom
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The label text carries the meaning; the colour dot is decorative and aria-hidden, so meaning is not conveyed by colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

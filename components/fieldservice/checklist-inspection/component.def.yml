@@ -1,0 +1,30 @@
+name: checklist-inspection
+props:
+  title:
+    type: string
+    default: "Inspection checklist"
+    title: Title
+    description: Heading shown above the checklist.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Checklist items
+    description: >
+      The inspection line items, in order. Each item: { label, result, note }. result is one of the
+      strings "pass", "fail" or "na" and drives the row marker (a green check, a red cross or a muted
+      dash). note is an optional second line under the label.
+    example:
+      - { label: "Smoke detectors operational", result: "pass" }
+      - { label: "Emergency lighting", result: "fail", note: "Unit 2 battery replaced" }
+      - { label: "Sprinkler gauge reading", result: "na" }
+  passed:
+    type: string
+    title: Passed count
+    description: Precomputed number of items that passed, shown in the header. Pass a string or number.
+    example: "8"
+  total:
+    type: string
+    title: Total count
+    description: Precomputed total number of items, shown in the header. Pass a string or number.
+    example: "10"

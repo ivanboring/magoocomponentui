@@ -1,0 +1,41 @@
+name: contact-list-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: Contact's full name; also the avatar's accessible label.
+    example: "Dana Whitfield"
+  company:
+    type: string
+    title: Company
+    description: Organisation the contact belongs to, shown under the name.
+    example: "Northwind Traders"
+  avatar:
+    type: image
+    title: Avatar image
+    description: Optional headshot. When omitted, the precomputed initials show instead.
+    example: "/stock/avatar-woman-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      1-2 characters shown when there is no avatar image, e.g. "DW" for "Dana Whitfield".
+      Precomputed by the caller; the template has no string-slicing directive.
+    example: "DW"
+  last_touch:
+    type: string
+    title: Last touch
+    description: Human-readable time of the last interaction, e.g. "2d ago" or "Jul 12".
+    example: "2d ago"
+  status:
+    type: enum
+    values: [active, cold, new]
+    default: active
+    title: Relationship status
+    description: Colours the status pill. active is a healthy relationship, cold is going stale, new is a fresh contact.
+variants:
+  status:
+    active: "bg-success/10 text-success"
+    cold: "bg-surface-raised text-on-surface-muted"
+    new: "bg-info/10 text-info"

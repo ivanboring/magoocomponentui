@@ -1,0 +1,14 @@
+<figure class="testimonial-spotlight mx-auto max-w-3xl px-4 py-(--space-section) text-center">
+  <svg class="testimonial-spotlight__mark mx-auto size-12 text-primary" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M13 8H6a2 2 0 00-2 2v7a2 2 0 002 2h4v1a4 4 0 01-4 4v3a7 7 0 007-7v-10a2 2 0 00-1-2zm15 0h-7a2 2 0 00-2 2v7a2 2 0 002 2h4v1a4 4 0 01-4 4v3a7 7 0 007-7v-10a2 2 0 00-1-2z"/></svg>
+  <blockquote class="testimonial-spotlight__quote mt-6 font-heading text-2xl leading-snug text-on-surface">&ldquo;{{ quote }}&rdquo;</blockquote>
+  <figcaption class="testimonial-spotlight__author mt-8 flex items-center justify-center gap-4">
+    <span class="inline-flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised" role="img" aria-label="{{ author.name }}">
+      <img data-if="author.avatar" class="size-full object-cover" src="{{ author.avatar }}" alt="">
+    </span>
+    <span class="text-left">
+      <span class="block font-heading text-on-surface">{{ author.name }}</span>
+      <span class="block text-sm text-on-surface-muted">{{ author.role }}<span data-if="author.company">, {{ author.company }}</span></span>
+    </span>
+  </figcaption>
+  <div data-if="company_logo" class="testimonial-spotlight__logo mt-8 flex items-center justify-center opacity-70">{{{ company_logo }}}</div>
+</figure>

@@ -1,0 +1,9 @@
+{
+  "total_affected": "2,110 customers affected",
+  "outages": [
+    { "area": "Downtown", "customers_affected": "1,240 customers", "status": "investigating" },
+    { "area": "Riverside", "customers_affected": "560 customers", "status": "restoring" },
+    { "area": "Westgate", "customers_affected": "310 customers", "status": "restoring" },
+    { "area": "Oak Hill", "customers_affected": "0 customers", "status": "resolved" }
+  ]
+}

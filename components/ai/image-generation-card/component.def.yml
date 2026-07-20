@@ -1,0 +1,24 @@
+name: image-generation-card
+props:
+  image:
+    type: string
+    required: true
+    title: Image
+    description: URL/path of the generated image (rendered square and cover-cropped).
+    example: "/stock/stage1.jpg"
+  prompt:
+    type: string
+    required: true
+    title: Prompt
+    description: The prompt that produced the image; shown as a two-line clamped caption and the image alt text.
+    example: "A neon-lit city street in the rain, cinematic, 35mm"
+  model:
+    type: string
+    title: Model
+    description: Optional generating model name, shown in the meta row.
+    example: "Imagen 3"
+  size:
+    type: string
+    title: Size
+    description: Optional output size, shown in the meta row.
+    example: "1024x1024"

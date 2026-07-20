@@ -1,0 +1,18 @@
+<div class="activity-ring flex flex-col items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card sm:flex-row sm:items-center">
+  <svg class="activity-ring__rings size-32 shrink-0 -rotate-90" viewBox="0 0 36 36" role="img" aria-label="Activity rings">
+    <g data-for="ring in rings">
+      <circle class="text-surface-raised" cx="18" cy="18" r="{{ ring.radius }}" fill="none" stroke="currentColor" stroke-width="2.8"></circle>
+      <circle class="activity-ring__arc transition-all duration-(--duration-token) {{ ring.color_class }}" cx="18" cy="18" r="{{ ring.radius }}" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="{{ ring.dash }}" style="stroke-dashoffset: {{ ring.offset }}"></circle>
+    </g>
+  </svg>
+  <ul class="activity-ring__legend flex w-full flex-col gap-2">
+    <li data-for="ring in rings" class="flex items-center justify-between gap-3 text-sm">
+      <span class="flex items-center gap-2 text-on-surface">
+        <svg class="size-3 shrink-0 {{ ring.color_class }}" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><circle cx="6" cy="6" r="4.5"/></svg>
+        {{ ring.label }}
+      </span>
+      <span class="tabular-nums text-on-surface-muted">{{ ring.value }} / {{ ring.goal }}</span>
+    </li>
+  </ul>
+  <span class="hidden stroke-primary stroke-success stroke-warning stroke-danger stroke-info stroke-accent" aria-hidden="true"></span>
+</div>

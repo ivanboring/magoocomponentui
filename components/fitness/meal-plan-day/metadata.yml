@@ -1,0 +1,76 @@
+name: "Meal Plan Day"
+short_description: A day's meals broken into food items with per-meal and whole-day calorie totals.
+long_visual_description: >
+  A surface card with an optional day heading, then a divided stack of meal sections
+  (Breakfast, Lunch, Dinner, Snacks). Each section shows the meal name with its calorie total on the
+  right, and a list of food items below, each with an optional calorie figure. A bold day total is
+  ruled off at the bottom.
+
+use_cases:
+  - A single day in a weekly meal-plan or nutrition programme.
+  - A diet-app daily log of what was eaten.
+  - A coach-prescribed eating plan shared with a client.
+  - A recipe-box or delivery service's day menu.
+  - A calorie diary entry grouped by meal.
+
+recommended_for:
+  - Structured daily nutrition where meals contain multiple food items.
+  - Plans that need both per-meal and per-day calorie totals.
+avoid_for:
+  - A single recipe or ingredient list (use a recipe component).
+  - A week at a glance (compose several of these).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a meals array; each meal has a name, an items array of { label, kcal } food entries, and an
+  optional total_kcal. Add an optional day heading and a day_total for the footer. Calorie values are
+  plain number strings so the "kcal" unit is appended for you and no arithmetic happens in the
+  template — precompute the meal and day totals in the caller.
+
+props:
+  day: Optional day heading, e.g. "Monday" or "Day 1".
+  meals: "Ordered meals. Each: name (Breakfast/Lunch/...), items (an array of { label, kcal } foods, kcal optional) and an optional total_kcal for the meal."
+  day_total: Optional whole-day calorie total shown in the footer (precomputed by the caller).
+
+example_prompts:
+  - "Add a Monday meal plan with breakfast, lunch, dinner and a snack, with calories."
+  - "Show a 1980 kcal day broken down by meal."
+  - "List today's food log grouped into meals with totals."
+
+lifecycle: experimental
+content_model: A day of meals, each with named food items and calorie figures, plus meal and day totals.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep meal names to the standard set (Breakfast, Lunch, Dinner, Snacks) and food labels concise.
+  Make the per-meal and day totals agree with the item calories so the numbers stay trustworthy.
+
+relationships:
+  related:
+    - fitness/calorie-tracker
+    - fitness/activity-ring
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Nutrition
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Meals are sections with headings and food items are list entries; all calorie values are plain text.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,84 @@
+name: "Equipment Card"
+short_description: A serviced-asset card showing an equipment's name, model, serial, install date, warranty status and last service.
+long_visual_description: >
+  A surface card headed by the equipment name in the heading face with its model in muted text below,
+  and a warranty status pill on the trailing edge coloured by state - green for active, amber for
+  expiring, red for expired. A small definition list follows with the serial number in a monospaced
+  face, the install date and the last service date, each label muted and value aligned to the right.
+
+use_cases:
+  - Identify a serviced asset on a work order.
+  - Show the unit a technician is dispatched to service.
+  - Surface warranty status before quoting a repair.
+  - List installed equipment on a customer account.
+  - Reference an asset's serial and install date during a visit.
+  - Flag equipment whose warranty is expiring soon.
+
+recommended_for:
+  - Field service and asset-management views that key off a physical unit.
+  - Grids or lists of serviced equipment with an at-a-glance warranty cue.
+avoid_for:
+  - A full asset detail page with service history (this is a compact summary).
+  - Non-equipment content such as a person or location.
+
+markets:
+  - Global
+
+example_usage: >
+  Give the card a name and, where known, a model, serial, install date and last service date. Set
+  warranty_status to colour the pill; the value is title-cased for display, so pass the machine value
+  (active, expiring or expired).
+
+props:
+  name: The equipment name shown as the heading.
+  model: Model name or number under the name.
+  serial: Serial number, rendered in a monospaced face.
+  install_date: Preformatted install date string.
+  warranty_status: Warranty state driving the pill colour (active, expiring or expired).
+  last_service: Preformatted date of the most recent service visit.
+
+example_prompts:
+  - "Show an equipment card for a rooftop air handler with an active warranty."
+  - "Add a serviced-asset card whose warranty is expiring soon."
+
+lifecycle: experimental
+content_model: An equipment name, model, serial, install date, warranty status and last service date.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep the name to the recognisable unit and put the precise model number in the model line. Make the
+  warranty status agree with the actual coverage, since its colour is a decision cue for technicians.
+
+relationships:
+  related:
+    - fieldservice/checklist-inspection
+    - fieldservice/dispatch-map
+    - fieldservice/invoice-onsite
+
+categorization:
+  category: Field Service
+  subcategory: Assets
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Warranty state is conveyed by the pill's text label as well as its colour; the details use a semantic definition list.
+  keyboard_support: None - static, non-interactive card.
+  seo_score: 40
+  text_direction: both

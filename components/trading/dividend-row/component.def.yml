@@ -1,0 +1,40 @@
+name: dividend-row
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The instrument ticker paying the dividend.
+    example: "KO"
+  name:
+    type: string
+    title: Name
+    description: The instrument's full name, shown small under the symbol.
+    example: "Coca-Cola Co"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: The dividend amount per share, preformatted with currency in the caller.
+    example: "$0.485"
+  yield_pct:
+    type: string
+    title: Yield
+    description: The dividend yield, preformatted with a percent sign in the caller. Hidden when unset.
+    example: "3.10%"
+  ex_date:
+    type: string
+    title: Ex-dividend date
+    description: The ex-dividend date, preformatted in the caller. Hidden when unset.
+    example: "Jun 14"
+  pay_date:
+    type: string
+    title: Pay date
+    description: The payment date, preformatted in the caller. Hidden when unset.
+    example: "Jul 01"
+  frequency:
+    type: string
+    title: Frequency
+    description: How often the dividend pays (e.g. Quarterly), shown under the amount. Hidden when unset.
+    example: "Quarterly"
+variants: {}

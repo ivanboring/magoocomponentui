@@ -1,0 +1,81 @@
+name: "Sponsorship Card"
+short_description: A brand-deal card showing the sponsor, campaign, deal value, a status pill, and a deliverables count.
+long_visual_description: >
+  A surface card with a rounded logo tile (falling back to a building icon), the brand name and
+  campaign beside it, and a coloured status pill on the trailing edge. A footer row pairs the deal
+  value in the heading face with a deliverables count marked by a checklist icon. The status pill
+  colour tracks the deal stage: proposed reads info, active reads success, completed reads muted.
+
+use_cases:
+  - Listing brand deals on a creator's sponsorships dashboard.
+  - A partnerships pipeline showing proposed, active, and completed deals.
+  - A media-kit summary of a current sponsorship.
+  - A collaboration tracker for influencer campaigns.
+  - A payout view tying a brand deal to its deliverables.
+  - An agency roster of creator sponsorships.
+
+recommended_for:
+  - Summarising a single brand deal at a glance.
+  - Grids or lists of sponsorships grouped by status.
+avoid_for:
+  - Fan tips or memberships (use tip-jar or subscriber-tier-card).
+  - Full contract or invoice detail (use a dedicated detail view).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it the brand and a campaign name, set status to the deal stage, and pass the formatted amount
+  and a precomputed deliverables count. Supply a logo for recognisable brands; otherwise the icon
+  fallback keeps the layout intact.
+
+props:
+  brand: "The sponsoring brand or company name."
+  logo: "Optional brand logo; omit to show a neutral building icon."
+  campaign: "Short campaign or deal name shown under the brand."
+  amount: "Formatted deal value including currency."
+  status: "Deal stage: proposed, active, or completed; drives the pill colour."
+  deliverables: "Precomputed count of deliverables shown beside the checklist icon."
+
+lifecycle: experimental
+content_model: >
+  A brand, an optional logo and campaign, an optional formatted deal value, a status stage, and an
+  optional deliverables count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the campaign name short and the amount formatted consistently across cards. Let the status
+  pill do the stage-signalling rather than repeating it in the campaign text.
+
+relationships:
+  related:
+    - creator/revenue-dashboard
+    - creator/subscriber-tier-card
+
+categorization:
+  category: Creator
+  subcategory: Partnerships
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The logo image has empty alt as decoration beside the text brand name; the status text is real, so colour is not the only cue; icons are aria-hidden.
+  keyboard_support: none
+  seo_score: 35
+  text_direction: both

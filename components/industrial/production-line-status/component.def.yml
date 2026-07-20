@@ -1,0 +1,20 @@
+name: production-line-status
+props:
+  line_name:
+    type: string
+    title: Line name
+    description: Optional name of the production line, shown above the stations.
+    example: "Assembly Line 3"
+  stations:
+    type: array
+    items: object
+    required: true
+    title: Stations
+    description: >
+      The stations along the line, in order. Each item is { name, status, throughput } where status
+      is one of ok, warning, down or idle (drives the node colour) and throughput is an optional
+      preformatted rate string.
+    example:
+      - { name: "Intake", status: "ok", throughput: "48/hr" }
+      - { name: "Weld", status: "warning", throughput: "31/hr" }
+      - { name: "Assemble", status: "down", throughput: "0/hr" }

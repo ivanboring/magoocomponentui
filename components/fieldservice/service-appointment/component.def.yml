@@ -1,0 +1,40 @@
+name: service-appointment
+props:
+  service:
+    type: string
+    title: Service
+    description: The booked service, used as the card title.
+    example: "Annual furnace tune-up"
+  date:
+    type: string
+    required: true
+    title: Date
+    description: Appointment date, preformatted for display.
+    example: "Fri, Jul 24"
+  window:
+    type: string
+    required: true
+    title: Time window
+    description: Appointment time window, preformatted for display.
+    example: "9-11 AM"
+  customer:
+    type: string
+    title: Customer
+    description: Name of the customer the appointment is for.
+    example: "Acme Bakery"
+  technician:
+    type: string
+    title: Technician
+    description: Name of the assigned technician, if any.
+    example: "Dana Ruiz"
+  status:
+    type: enum
+    values: [confirmed, pending, completed]
+    default: pending
+    title: Status
+    description: Booking state; colours the status pill.
+variants:
+  status:
+    confirmed: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"
+    completed: "bg-info/10 text-info"

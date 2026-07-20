@@ -1,0 +1,41 @@
+name: rate-limit-meter
+props:
+  used:
+    type: string
+    required: true
+    title: Used
+    description: Number of calls consumed this window (a formatted string or integer, e.g. "820" or 820).
+    example: "820"
+  limit:
+    type: string
+    required: true
+    title: Limit
+    description: The total allowance for the window (a formatted string or integer, e.g. "1,000").
+    example: "1,000"
+  used_pct:
+    type: string
+    required: true
+    title: Used percent
+    description: >
+      Fill width as a number from 0 to 100. Precompute this from used/limit and pass it in
+      (the directive language cannot divide); it drives the bar's inline width.
+    example: 82
+  reset_at:
+    type: string
+    title: Reset time
+    description: Optional human-readable reset time, e.g. "in 12 min" or "at 15:00 UTC".
+    example: "in 12 min"
+  tone:
+    type: enum
+    values: ["ok", "warning", "danger"]
+    default: "ok"
+    title: Tone
+    description: >
+      Colours the fill bar. Set it to match how close used is to limit — ok while there is
+      plenty of headroom, warning when it is getting close, danger when nearly exhausted.
+    example: "danger"
+variants:
+  tone:
+    "ok": "bg-primary"
+    "warning": "bg-warning"
+    "danger": "bg-danger"

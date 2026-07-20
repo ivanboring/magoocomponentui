@@ -1,0 +1,30 @@
+name: returns-label
+props:
+  rma_number:
+    type: string
+    required: true
+    title: RMA number
+    description: The return merchandise authorization number, shown in a mono face.
+    example: "RMA-48213"
+  order_number:
+    type: string
+    title: Order number
+    description: The originating order number, shown in a mono face.
+    example: "#100482"
+  reason:
+    type: string
+    title: Return reason
+    description: A short reason for the return (e.g. "Wrong size", "Damaged in transit").
+    example: "Wrong size"
+  carrier:
+    type: string
+    title: Carrier
+    description: The return carrier, shown as a pill on the header.
+    example: "USPS"
+  barcode:
+    type: string
+    title: Barcode value
+    description: >
+      An optional human-readable barcode/tracking string shown in a mono face beneath the barcode
+      facade. The bars themselves are a decorative visual, not generated from this value.
+    example: "9400 1000 0000 0000 0000 00"

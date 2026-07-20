@@ -1,0 +1,8 @@
+{
+  "current": "Espanol",
+  "languages": [
+    { "label": "English", "code": "en", "current": false },
+    { "label": "Espanol", "code": "es", "current": true },
+    { "label": "Kreyol", "code": "ht", "current": false }
+  ]
+}

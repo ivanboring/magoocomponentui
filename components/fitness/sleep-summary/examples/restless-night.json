@@ -1,0 +1,10 @@
+{
+  "label": "Last night",
+  "total": "5h 08m",
+  "stages": [
+    { "label": "Deep", "pct": 12, "color_class": "bg-primary" },
+    { "label": "Light", "pct": 48, "color_class": "bg-info" },
+    { "label": "REM", "pct": 22, "color_class": "bg-accent" },
+    { "label": "Awake", "pct": 18, "color_class": "bg-warning" }
+  ]
+}

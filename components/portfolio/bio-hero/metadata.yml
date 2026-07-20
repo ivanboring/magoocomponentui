@@ -1,0 +1,85 @@
+name: "Bio Hero"
+short_description: A personal introduction hero - a portrait beside a name, role, rich intro text, and call-to-action buttons.
+long_visual_description: >
+  A two-column hero. One column holds a square portrait with a card radius and soft shadow; the
+  other stacks the person's name in a large heading face, their role in muted text, one or two
+  paragraphs of introduction, and a row of call-to-action buttons where a primary button is solid
+  and the rest are outlined. The columns stack on small screens.
+
+use_cases:
+  - Open a freelancer's or consultant's personal site.
+  - Head an About page with a portrait and short bio.
+  - Introduce a studio founder or team lead.
+  - Anchor a personal portfolio landing page.
+  - Present a speaker or author with a photo and links.
+  - Give a solo maker a warm, human first impression.
+
+recommended_for:
+  - A single-person introduction that pairs a portrait with a short rich-text bio and CTAs.
+  - Landing pages that lead with who, before what.
+avoid_for:
+  - A product or marketing hero without a person (use hero-split).
+  - Full team listings (use a team grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide name, role, and intro_html (one or two short paragraphs of trusted HTML). Add a portrait
+  image and a ctas array; mark exactly one CTA primary (primary: true) to make it the solid button
+  and leave the rest to render as outlined buttons.
+
+props:
+  name: "The person's name, shown as the hero heading."
+  role: "Their role or tagline, shown in muted text under the name."
+  intro_html: "One or two short paragraphs of trusted HTML introducing the person."
+  portrait: "Optional portrait image URL shown beside the intro; rendered square with a card radius."
+  ctas: "Optional buttons. Each has a label, an href, and a primary boolean - primary renders solid, others outlined."
+
+example_prompts:
+  - "Add a bio hero with my portrait, name, role, a short intro, and View work / Contact buttons."
+  - "Introduce our founder with a photo and two paragraphs about her background."
+  - "Show a personal intro hero with one primary and one outline CTA."
+
+lifecycle: experimental
+content_model: >
+  A name, a role, a short rich-text intro, an optional portrait, and optional CTA buttons (one primary).
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --duration-token
+
+editorial_guidance: >
+  Write the intro in the first person and keep it to one or two tight paragraphs. Lead the CTAs
+  with the single most important action as the primary button.
+
+relationships:
+  related:
+    - portfolio/capabilities-list
+    - portfolio/contact-hero
+    - marketing/hero-split
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Intro
+  atomic_type: organism
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: One h1 for the name, decorative portrait with empty alt, and CTA links with visible focus outlines; primary/outline styling does not rely on colour alone for meaning.
+  keyboard_support: The CTA links are focusable in order and activate on Enter.
+  seo_score: 55
+  text_direction: both

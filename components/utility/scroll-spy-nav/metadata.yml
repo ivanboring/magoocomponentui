@@ -1,0 +1,79 @@
+name: "Scroll-spy Nav"
+short_description: A vertical section-tracking side nav whose active link follows the section currently in view.
+long_visual_description: >
+  A vertical list of section links along a hairline left rule. Each link is muted until active, when
+  it gains a small leading dot, the accent-coloured left border and accent text. As the reader
+  scrolls, the active link moves to match the section in view; clicking a link jumps to its section
+  and activates it immediately.
+
+use_cases:
+  - An "on this page" sidebar for long-form documentation.
+  - A section tracker beside a marketing or landing page.
+  - A recipe or article nav that follows the reader down the page.
+  - A settings page nav where each group is an anchored section.
+  - A single-page site nav that highlights the current section.
+  - A changelog or reference index that tracks scroll position.
+
+recommended_for:
+  - Long pages split into anchored sections the reader scrolls through.
+  - A persistent side nav that should reflect scroll position.
+avoid_for:
+  - Top-of-page horizontal in-page tabs (use anchor-subnav).
+  - Navigation between separate pages (use a normal menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each item a label and an href pointing at an on-page section id (#installation), and mark one
+  active for the base render. On the page, the behavior tracks which section is in view and moves
+  the active state to match.
+
+how_to_use: >
+  behavior.js resolves each link's href to a section via getElementById and observes them with an
+  IntersectionObserver (rootMargin 0px 0px -70% 0px), marking the topmost visible section's link
+  active (data-active + aria-current). Clicking a link activates it immediately. If none of the
+  referenced sections exist (an isolated preview), the observer is skipped and the static active
+  item is left as-is. The click listener and observer are cleaned up on teardown.
+
+props:
+  items: "The section links, in order. Each item: label, href (an on-page anchor like #pricing), and active (marks the current section for the base render)."
+
+example_prompts:
+  - Add an on-this-page side nav that follows the scroll.
+  - Give the docs page a scroll-spy section nav.
+  - Track the current section in a vertical sidebar nav.
+
+lifecycle: experimental
+content_model: A vertical list of in-page section anchors with a scroll-tracked active state.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short and in reading order down the page. Use it alongside clearly delimited, anchored
+  sections so the tracked highlight lines up with what the reader sees.
+
+relationships:
+  related:
+    - navigation/anchor-subnav
+    - editorial/table-of-contents
+
+categorization:
+  category: UI Utilities
+  subcategory: Navigation helpers
+  atomic_type: molecule
+  usage_type: [list, navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The nav has an accessible label and the active link carries aria-current; links are real anchors, so keyboard and no-JS navigation work, with scroll-spy as an enhancement.
+  keyboard_support: Links are focusable anchors activated with Enter; the active item exposes aria-current.
+  seo_score: 30
+  text_direction: both

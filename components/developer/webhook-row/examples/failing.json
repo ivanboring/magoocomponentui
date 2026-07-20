@@ -1,0 +1,6 @@
+{
+  "event": "customer.subscription.deleted",
+  "url": "https://hooks.acme.io/v2/subscriptions/webhook-receiver",
+  "status": "failing",
+  "last": "500 - 1 min ago"
+}

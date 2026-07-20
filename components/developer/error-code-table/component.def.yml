@@ -1,0 +1,15 @@
+name: error-code-table
+props:
+  errors:
+    type: array
+    items: object
+    required: true
+    title: Errors
+    description: >
+      The error codes to document. Each item: { code, name, http, meaning }. code renders
+      monospaced, http (optional HTTP status like "404") is shown plainly, and meaning explains
+      when the error occurs.
+    example:
+      - { code: "invalid_request", name: "Invalid request", http: "400", meaning: "The request was malformed or missing a required field." }
+      - { code: "unauthorized", name: "Unauthorized", http: "401", meaning: "No valid API key was provided." }
+      - { code: "not_found", name: "Not found", http: "404", meaning: "The requested resource does not exist." }

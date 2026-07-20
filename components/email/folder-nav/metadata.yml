@@ -1,0 +1,71 @@
+name: "Folder Nav"
+short_description: A vertical mailbox folder list with per-folder icons and unread count badges.
+long_visual_description: >
+  A narrow, vertical navigation column on the surface colour listing mailbox folders. Each
+  row shows an optional leading icon, the folder label, and a right-aligned pill badge with
+  the unread count (shown only when greater than zero). The active folder is filled with the
+  raised surface and tinted with the primary colour; the others read in muted text and lift
+  to the raised surface on hover.
+
+use_cases:
+  - Left rail of a webmail or inbox interface.
+  - Folder switcher for a support or shared team inbox.
+  - Label list in a Gmail-style mail client.
+  - Navigation between system folders (Inbox, Sent, Drafts, Archive, Trash).
+  - Message-category switcher in a notification centre.
+  - Mailbox picker in an admin messaging tool.
+
+recommended_for:
+  - A persistent folder list where one folder is current and others carry unread counts.
+  - Vertical navigation rendered from structured folder data.
+avoid_for:
+  - A single standalone folder row (use mailbox-folder).
+  - General app section navigation with collapsible groups (use sidebar-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a folders array (each { label, icon, href, active, count }); mark the current folder
+  with active: true and supply count for folders with unread mail. The icon is an optional
+  inline SVG. Badges appear only when count is greater than zero.
+
+props:
+  label: "Accessible name announced for the navigation region."
+  folders: "The folders, in order. Each: label, icon (optional inline SVG), href, active (marks the current folder), count (optional unread count)."
+
+lifecycle: experimental
+content_model: A vertical list of mailbox folders rendered from a folders array.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-control
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short and consistent (single nouns read best). Order system folders first,
+  then custom labels. Only show a count when there is unread mail.
+
+relationships:
+  related:
+    - email/mailbox-folder
+    - navigation/sidebar-nav
+
+categorization:
+  category: Email
+  subcategory: Navigation
+  atomic_type: molecule
+  usage_type: [nav, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label; the active folder sets aria-current; icons are aria-hidden and count badges are plain text within the link.
+  keyboard_support: Each folder is a link, focusable and activated with Enter.
+  seo_score: 20
+  text_direction: both

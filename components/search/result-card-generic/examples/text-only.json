@@ -1,0 +1,6 @@
+{
+  "title": "Handling webhooks reliably",
+  "url": "example.com/guides/webhooks",
+  "snippet": "Verify signatures, retry safely and keep your endpoint idempotent so duplicate deliveries never corrupt your data.",
+  "meta": ["Guide", "8 min read"]
+}

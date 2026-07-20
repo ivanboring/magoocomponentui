@@ -1,0 +1,12 @@
+{
+  "title": "Rooftop unit maintenance",
+  "passed": "5",
+  "total": "5",
+  "items": [
+    { "label": "Filters replaced", "result": "pass" },
+    { "label": "Belt tension and wear", "result": "pass" },
+    { "label": "Refrigerant charge nominal", "result": "pass" },
+    { "label": "Condensate drain clear", "result": "pass" },
+    { "label": "Thermostat calibration verified", "result": "pass" }
+  ]
+}

@@ -1,0 +1,24 @@
+name: progress-photo
+props:
+  before_image:
+    type: image
+    required: true
+    title: Before image
+    description: Path to the earlier ("before") photo, e.g. /stock/stage1.jpg.
+    example: "/stock/stage1.jpg"
+  after_image:
+    type: image
+    required: true
+    title: After image
+    description: Path to the later ("after") photo, e.g. /stock/stage2.jpg.
+    example: "/stock/stage2.jpg"
+  before_date:
+    type: string
+    title: Before date
+    description: Optional date/caption for the before photo.
+    example: "Jan 2026"
+  after_date:
+    type: string
+    title: After date
+    description: Optional date/caption for the after photo.
+    example: "Jul 2026"

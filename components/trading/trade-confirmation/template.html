@@ -1,0 +1,23 @@
+<div class="trade-confirmation flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="status">
+  <div class="flex items-start gap-3">
+    <span class="trade-confirmation__icon group/st flex size-10 shrink-0 items-center justify-center rounded-full {{ status@class }}" data-status="{{ status }}" aria-hidden="true">
+      <svg class="size-5 group-data-[status=pending]/st:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5l4 4 8-9"/></svg>
+      <svg class="hidden size-5 group-data-[status=pending]/st:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg>
+    </span>
+    <div class="min-w-0 flex-1">
+      <p class="flex flex-wrap items-center gap-x-2 gap-y-1 font-heading text-on-surface">
+        <span class="trade-confirmation__side rounded-pill px-2 py-0.5 text-xs font-semibold uppercase tracking-wide data-[side=buy]:bg-success/10 data-[side=buy]:text-success data-[side=sell]:bg-danger/10 data-[side=sell]:text-danger" data-side="{{ side }}">{{ side }}</span>
+        <span class="tabular-nums">{{ shares }} {{ symbol }} @ {{ price }}</span>
+      </p>
+      <p class="mt-1 text-sm text-on-surface-muted">Executed at {{ price }} per share</p>
+    </div>
+  </div>
+  <dl class="trade-confirmation__total flex items-center justify-between border-t border-border pt-3">
+    <dt class="text-sm text-on-surface-muted">Total</dt>
+    <dd class="font-mono text-lg font-semibold tabular-nums text-on-surface">{{ total }}</dd>
+  </dl>
+  <div class="flex items-center justify-between gap-3 text-xs">
+    <span class="trade-confirmation__status rounded-pill px-2 py-0.5 font-medium capitalize {{ status@class }}">{{ status }}</span>
+    <span data-if="time" class="trade-confirmation__time tabular-nums text-on-surface-muted">{{ time }}</span>
+  </div>
+</div>

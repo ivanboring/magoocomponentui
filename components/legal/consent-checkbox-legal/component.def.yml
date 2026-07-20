@@ -1,0 +1,24 @@
+name: consent-checkbox-legal
+props:
+  text:
+    type: string
+    required: true
+    title: Text
+    description: >
+      The consent statement shown next to the checkbox, e.g. "I agree to the". When link_label is
+      set, the link is appended inline after this text, so end it so the link reads naturally.
+  link_label:
+    type: string
+    title: Link label
+    description: Optional inline link text appended after the statement, e.g. "Terms of Service".
+  link_href:
+    type: link
+    title: Link URL
+    description: Where the inline link points (the policy or terms document). Used only when link_label is set.
+  required:
+    type: boolean
+    default: false
+    title: Required
+    description: >
+      When true the checkbox is a required form control (marked aria-required and shown with a
+      "(required)" marker) and must be ticked before the form can be submitted.

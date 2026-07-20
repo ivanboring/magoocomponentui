@@ -1,0 +1,7 @@
+{
+  "title": "As a user I can reset my password by email",
+  "type": "story",
+  "estimate": "5",
+  "tag": "Auth",
+  "priority": "high"
+}

@@ -1,0 +1,12 @@
+<article class="scene-card flex flex-col items-start gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span data-if="icon" class="scene-card__icon flex size-11 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">{{{ icon }}}</span>
+  <div class="min-w-0">
+    <p class="scene-card__name font-heading text-on-surface">{{ name }}</p>
+    <p data-if="devices_count" class="text-sm text-on-surface-muted tabular-nums">{{ devices_count }} devices</p>
+  </div>
+  <button type="button" class="scene-card__activate group mt-1 inline-flex items-center gap-1.5 rounded-button bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-primary/10 data-[active=true]:bg-primary data-[active=true]:text-primary-contrast data-[active=true]:hover:bg-primary" data-active="{{ active }}" aria-pressed="{{ active }}">
+    <svg class="size-4 group-data-[active=false]:hidden" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+    <span class="group-data-[active=true]:hidden">Activate</span>
+    <span class="group-data-[active=false]:hidden">Active</span>
+  </button>
+</article>

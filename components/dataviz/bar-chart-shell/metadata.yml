@@ -1,0 +1,85 @@
+name: "Bar Chart Shell"
+short_description: A card-framed vertical bar-chart skeleton driven by precomputed bar heights.
+long_visual_description: >
+  A surface card with a title header and an optional legend. Below it a row of full-width vertical
+  bars in the primary colour sit on a shared baseline, each scaled by a precomputed height
+  percentage, with a category label underneath and a value that reveals on hover. A column of
+  y-axis tick labels runs down the left edge. Pure flex-and-height markup - no SVG, no charting JS.
+
+use_cases:
+  - Compare a metric across a handful of categories (channels, sources, regions).
+  - Revenue or counts by quarter or month.
+  - Segment or group breakdown widget on a dashboard.
+  - Distribution across a small set of buckets.
+  - A skeleton to drop a real charting library into.
+  - Placeholder chart in a prototype before wiring live data.
+
+recommended_for:
+  - Categorical comparison across a small number of bars.
+  - Cases where the caller can precompute each bar's height percentage.
+avoid_for:
+  - A continuous time trend (use line-chart-shell or area-chart-shell).
+  - Many categories (a horizontal list or table reads better).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each bar's height_pct (0-100) by scaling its value against the dataset maximum, pass
+  labels and display values, and provide y_labels top to bottom. Reveal values on hover; drop a
+  real chart in place of the SVG markup.
+
+props:
+  title: The chart title shown in the header.
+  bars: The bars, each with a label, a display value, and a precomputed height_pct.
+  y_labels: Y-axis tick labels, top to bottom.
+
+example_prompts:
+  - "Add a bar chart card of signups by channel."
+  - "Show revenue by quarter as a bar chart shell."
+  - "Add a categorical bar breakdown widget with a hidden y-axis scale."
+
+relationships:
+  related:
+    - dataviz/line-chart-shell
+    - dataviz/area-chart-shell
+    - dataviz/candlestick-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a set of bars with precomputed heights, and axis labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Each bar's height_pct is precomputed by the caller by scaling values against a consistent
+  maximum - the shell ships no charting math or JS. Keep category labels short and use realistic
+  values so the skeleton reads as a genuine chart. The skeleton renders directly from the
+  precomputed data; for a live, interactive chart, a real charting library replaces the bar
+  markup, and the skeleton then acts as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Labels and values are real text (values reveal on hover but exist in the DOM); bars are illustrative. Provide a data-table alternative in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

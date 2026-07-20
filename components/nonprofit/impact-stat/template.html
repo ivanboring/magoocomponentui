@@ -1,0 +1,8 @@
+<div class="impact-stat flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span data-if="icon" class="impact-stat__icon flex size-12 shrink-0 items-center justify-center rounded-pill bg-primary/10 text-primary">{{{ icon }}}</span>
+  <p class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+    <span class="impact-stat__amount font-heading text-3xl text-primary tabular-nums">{{ amount }}</span>
+    <span class="text-2xl text-on-surface-muted">=</span>
+    <span class="impact-stat__outcome font-heading text-xl text-on-surface">{{ outcome }}</span>
+  </p>
+</div>

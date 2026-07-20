@@ -1,0 +1,8 @@
+{
+  "label": "How likely are you to recommend us?",
+  "min": "0",
+  "max": "10",
+  "value": "5",
+  "fill_pct": "50",
+  "bubble_left": "50"
+}

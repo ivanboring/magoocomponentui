@@ -1,0 +1,15 @@
+name: activity-timeline
+props:
+  activities:
+    type: array
+    items: object
+    required: true
+    title: Activities
+    description: >
+      The log entries, newest first. Each item: { type, title, time, body }.
+      `type` is one of call, email, note, meeting and colours the entry marker.
+      `title` is the headline, `time` is a preformatted timestamp string, and `body`
+      is optional detail text.
+    example:
+      - { type: "call", title: "Discovery call with Priya", time: "2h ago", body: "Walked through pricing and next steps." }
+      - { type: "email", title: "Sent proposal draft", time: "Yesterday" }

@@ -1,0 +1,24 @@
+{
+  "title": "Check if you qualify for the housing grant",
+  "questions": [
+    {
+      "label": "Are you a current resident of the county?",
+      "options": [
+        { "label": "Yes", "value": "yes" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "label": "Is your household income below the threshold?",
+      "options": [
+        { "label": "Below threshold", "value": "below" },
+        { "label": "Above threshold", "value": "above" },
+        { "label": "Not sure", "value": "unsure" }
+      ]
+    }
+  ],
+  "result": {
+    "eligible": false,
+    "message": "Based on your answers, you may not qualify for this grant. Check the other support options available to you."
+  }
+}

@@ -1,0 +1,12 @@
+<div class="room-grid flex flex-col gap-4">
+  <section data-for="room in rooms" class="room-grid__room rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+    <h3 class="room-grid__room-name font-heading text-on-surface">{{ room.name }}</h3>
+    <div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+      <div data-for="device in room.devices" class="room-grid__device flex items-center gap-2 rounded-control border border-border bg-surface-raised px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) data-[on=true]:border-primary data-[on=true]:bg-primary/10 data-[on=true]:text-on-surface" data-on="{{ device.on }}">
+        <span data-if="device.icon" class="shrink-0" aria-hidden="true">{{ device.icon }}</span>
+        <span class="room-grid__device-name min-w-0 flex-1 truncate">{{ device.name }}</span>
+        <span class="room-grid__dot size-2 shrink-0 rounded-full bg-border data-[on=true]:bg-success" data-on="{{ device.on }}" aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
+</div>

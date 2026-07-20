@@ -1,0 +1,34 @@
+name: vet-appointment
+props:
+  clinic:
+    type: string
+    title: Clinic
+    example: "Riverside Veterinary Clinic"
+  vet:
+    type: string
+    title: Vet
+    example: "Dr. Amara Osei"
+  date:
+    type: string
+    required: true
+    title: Date
+    example: "Thu 23 Jul"
+  time:
+    type: string
+    required: true
+    title: Time
+    example: "10:30 AM"
+  reason:
+    type: string
+    title: Reason
+    example: "Annual checkup and booster shots"
+  status:
+    type: enum
+    values: [confirmed, pending]
+    default: confirmed
+    title: Status
+    description: Booking state, shown as a pill. confirmed reads success, pending reads warning.
+variants:
+  status:
+    confirmed: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"

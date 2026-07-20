@@ -1,0 +1,8 @@
+<ul class="chart-legend {{ orientation@class }}">
+  <li data-for="item in items" class="flex items-center gap-2">
+    <span class="size-3 shrink-0 rounded-[3px] {{ item.color_class }}"></span>
+    <span class="text-sm text-on-surface">{{ item.label }}</span>
+    <span data-if="item.value" class="text-sm tabular-nums text-on-surface-muted">{{ item.value }}</span>
+  </li>
+  <li class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></li>
+</ul>

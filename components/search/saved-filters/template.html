@@ -1,0 +1,10 @@
+<div class="saved-filters flex flex-wrap items-center gap-2">
+  <button data-for="filter in filters" type="button" data-active="{{ filter.active }}" data-value="{{ filter.value }}" aria-pressed="{{ filter.active }}" class="saved-filters__pill group/pill inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface px-3 py-1 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast">
+    <span>{{ filter.label }}</span>
+    <span data-if="filter.count" class="saved-filters__count rounded-pill bg-surface-raised px-1.5 text-xs text-on-surface-muted transition-colors duration-(--duration-token) group-data-[active=true]/pill:bg-primary-contrast/20 group-data-[active=true]/pill:text-primary-contrast">{{ filter.count }}</span>
+  </button>
+  <button type="button" class="saved-filters__save inline-flex items-center gap-1 rounded-pill border border-dashed border-border px-3 py-1 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:border-primary hover:text-primary">
+    <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>
+    {{ save_label }}
+  </button>
+</div>

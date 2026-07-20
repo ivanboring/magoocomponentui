@@ -1,0 +1,18 @@
+<div class="online-members rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="mb-3 flex items-center gap-2 font-heading text-on-surface">
+    <span class="size-2 shrink-0 rounded-pill bg-success" aria-hidden="true"></span>
+    Online<span data-if="count" class="text-on-surface-muted"> — {{ count }}</span>
+  </p>
+  <ul class="flex flex-col gap-3">
+    <li data-for="member in members" class="flex items-center gap-3">
+      <span class="relative shrink-0">
+        <span class="online-members__avatar flex size-9 items-center justify-center overflow-hidden rounded-pill bg-surface-raised text-xs font-medium text-on-surface-muted">
+          <img data-if="member.avatar" class="size-full object-cover" src="{{ member.avatar }}" alt="">
+          <span data-if="!member.avatar">{{ member.initials }}</span>
+        </span>
+        <span class="online-members__status absolute -bottom-0.5 -right-0.5 size-3 rounded-pill border-2 border-surface bg-on-surface-muted data-[status=online]:bg-success data-[status=idle]:bg-warning data-[status=dnd]:bg-danger" data-status="{{ member.status }}" aria-hidden="true"></span>
+      </span>
+      <span class="min-w-0 flex-1 truncate text-sm text-on-surface">{{ member.name }}</span>
+    </li>
+  </ul>
+</div>

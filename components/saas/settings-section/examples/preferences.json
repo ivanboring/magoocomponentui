@@ -1,0 +1,6 @@
+{
+  "title": "Preferences",
+  "$slots": {
+    "content": "<div class=\"flex items-center justify-between gap-4 py-3\"><div class=\"min-w-0\"><p class=\"text-sm font-medium text-on-surface\">Language</p><p class=\"text-xs text-on-surface-muted\">Used across the interface.</p></div><select class=\"rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface\"><option>English</option><option>Français</option><option>Deutsch</option></select></div><div class=\"flex items-center justify-between gap-4 py-3\"><div class=\"min-w-0\"><p class=\"text-sm font-medium text-on-surface\">Compact mode</p><p class=\"text-xs text-on-surface-muted\">Tighter spacing across lists.</p></div><button type=\"button\" role=\"switch\" aria-checked=\"false\" data-state=\"false\" class=\"relative inline-flex h-6 w-10 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[state=true]:bg-primary\"><span data-state=\"false\" class=\"ml-0.5 inline-block size-5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[state=true]:translate-x-4\"></span></button></div>"
+  }
+}

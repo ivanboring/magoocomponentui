@@ -1,0 +1,79 @@
+name: "Metro Grid"
+short_description: A grid of uniform square tiles with optional 2x2 feature tiles, for a metro or app-launcher layout.
+long_visual_description: >
+  A two-to-four column grid of equal square cells laid out like a live-tile start screen or app
+  launcher. Base tiles are flat coloured squares, each centering an icon over a short label, in
+  either the primary accent or a bordered surface. A child may span two columns and two rows to
+  become a larger feature tile that stays square. The result reads as a tidy, tappable board rather
+  than an editorial collage.
+
+use_cases:
+  - An app launcher or quick-links board on a dashboard home.
+  - A category or section chooser with an icon per destination.
+  - A settings or admin landing screen of tappable tiles.
+  - A start-screen style navigation for a kiosk or portal.
+  - A uniform photo gallery with one image promoted to a feature tile.
+  - A feature or integration directory laid out as flat tiles.
+
+recommended_for:
+  - Navigation boards where every destination gets equal, tappable weight.
+  - Icon-and-label launchers with an occasional larger feature tile.
+avoid_for:
+  - Editorial layouts mixing tall and wide image tiles (use bento-grid).
+  - Content cards with images, titles and body copy (use card-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop tiles into the items slot. Base tiles carry aspect-square so cells stay square; a child can
+  span col-span-2 row-span-2 to become a larger feature tile (also square). Keep tiles to an icon
+  plus a short label, or a single full-bleed image.
+
+props:
+  gap: "Space between tiles: default, or an explicit none/sm/md/lg/xl."
+  label: "Accessible name announced for the grid region."
+
+slots:
+  items: "The tiles. Single cells should carry aspect-square; a feature tile spans col-span-2 row-span-2 and stays square."
+
+example_prompts:
+  - "Build an app-launcher metro grid with icon tiles and one big feature tile."
+  - "Make a square photo gallery with one promoted 2x2 image."
+  - "Lay out a category chooser as a grid of flat icon tiles."
+
+lifecycle: experimental
+content_model: A grid of uniform square tiles, each an icon-and-label or a single image, with optional 2x2 feature tiles, slotted as child markup.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep labels to one or two words since cells are square and compact. Use the primary accent to pick
+  out the tiles you want tapped first and reserve the 2x2 feature tile for a single hero. Base cells
+  are square; children may span col-span-2 row-span-2 for a larger tile that stays square.
+
+relationships:
+  related:
+    - layout/bento-grid
+    - cards/card-grid
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label; icons are aria-hidden and each tile relies on its text label for its accessible name.
+  keyboard_support: Tiles rendered as links or buttons are focusable and activate on Enter/Space; the grid itself adds no key handling.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,88 @@
+name: "Copy to Clipboard"
+short_description: A button that copies a value to the clipboard and briefly confirms with a "Copied!" state.
+long_visual_description: >
+  A compact button carrying a copy (overlapping-squares) icon. In the default variant the icon sits
+  beside a text label; in the icon variant only the icon shows and the label becomes the accessible
+  name. On a successful copy the icon cross-fades to a success-coloured checkmark and the label
+  switches to "Copied!" for about a second and a half before reverting.
+
+use_cases:
+  - Copy a code snippet or install command from a docs page.
+  - Copy an API key, token or generated secret.
+  - Copy a share link or referral URL.
+  - Copy a hex colour or design token value.
+  - Copy an id, order number or reference code.
+  - Copy a wallet address or coupon code.
+
+recommended_for:
+  - Any short value the reader is likely to paste elsewhere.
+  - Sitting inline next to code blocks, fields, or read-only values.
+avoid_for:
+  - Large or multi-part content better handled by a select-all affordance.
+  - Actions that need a permanent confirmation rather than a transient one.
+
+markets:
+  - Global
+
+example_usage: >
+  Set value to the text to copy and choose the button or icon variant. On click the value is written
+  to the clipboard, the button shows its copied state briefly, and a bubbling "copy" event fires with
+  the value in event.detail for any analytics or toast wiring.
+
+how_to_use: >
+  behavior.js copies data-value via navigator.clipboard.writeText, then toggles data-copied on the
+  button between "true" and "false" (reverting after ~1.5s). The label/icon swap is pure CSS driven
+  by that attribute (group-data-[copied=true]:* variants) rather than a bare hidden class toggled in
+  JS, and the copied/default states cross-fade in place using a grid stack so there is no layout
+  shift. A bubbling "copy" CustomEvent carries { value } in its detail. The click listener and the
+  reset timer are cleaned up on teardown. Clipboard writes can fail in insecure contexts; the visual
+  feedback still shows.
+
+props:
+  value: "The text copied to the clipboard when pressed."
+  label: "Button label and accessible name in the default state."
+  copied_label: "Label shown briefly after a successful copy."
+  variant: "button shows the icon with the text label; icon shows only the icon, with the label as the accessible name."
+
+example_prompts:
+  - Add a copy button next to the install command.
+  - Give the API key field an icon-only copy button.
+  - Let readers copy this hex value with one click.
+
+lifecycle: experimental
+content_model: A single value to copy plus its default and copied labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-ring
+    - --color-success
+    - --radius-button
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label a plain verb ("Copy") and the copied label a short confirmation ("Copied!"). Use
+  the icon variant in tight spots where the surrounding context already names what is copied.
+
+relationships:
+  related:
+    - utility/color-picker-input
+    - atoms/button
+
+categorization:
+  category: UI Utilities
+  subcategory: Clipboard
+  atomic_type: atom
+  usage_type: [action, inline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A real button with an accessible name (label or aria-label); the copied state is a visible cross-fade and the label text changes, so success is conveyed beyond colour alone.
+  keyboard_support: Focusable button activated with Enter or Space; shows a visible focus ring.
+  seo_score: 20
+  text_direction: both

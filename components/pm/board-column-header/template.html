@@ -1,0 +1,7 @@
+<div class="board-column-header flex items-center justify-between gap-2 border-b border-border pb-2">
+  <div class="flex min-w-0 items-center gap-2">
+    <h3 class="board-column-header__label truncate font-heading text-sm font-medium text-on-surface">{{ label }}</h3>
+    <span class="board-column-header__count inline-flex min-w-5 shrink-0 items-center justify-center rounded-pill bg-surface-raised px-1.5 text-xs font-medium text-on-surface-muted tabular-nums">{{ count }}</span>
+  </div>
+  <span data-if="wip_limit" class="board-column-header__wip shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted tabular-nums data-[over=true]:bg-danger/10 data-[over=true]:text-danger" data-over="{{ over_limit }}">{{ count }}/{{ wip_limit }} WIP</span>
+</div>

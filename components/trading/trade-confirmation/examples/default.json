@@ -1,0 +1,9 @@
+{
+  "side": "buy",
+  "symbol": "AAPL",
+  "shares": "25",
+  "price": "$184.20",
+  "total": "$4,605.00",
+  "status": "filled",
+  "time": "Today at 10:42 AM"
+}

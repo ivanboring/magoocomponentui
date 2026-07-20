@@ -1,0 +1,72 @@
+name: "Mosaic Gallery"
+short_description: A row-justified image gallery whose tiles of varying aspect ratio flush-fill each row at a uniform height.
+long_visual_description: >
+  A gallery that lays images out in flush, full-width rows. Every row shares one uniform height and
+  the tiles within it grow proportionally to their aspect ratio so the row's right edge lines up
+  cleanly — landscape images take more width, portrait images less. Images cover their tile, corners
+  are rounded, and an optional caption fades in over a dark gradient at the bottom of a tile. Unlike
+  a masonry grid (which is column-based and leaves ragged bottoms), this is row-based and justified.
+
+use_cases:
+  - An event or trip photo gallery mixing landscape and portrait shots.
+  - A press or media kit image wall on a marketing page.
+  - A portfolio or case-study screenshot set of varying dimensions.
+  - A product or venue photo strip beneath a hero.
+  - A community or user-generated photo feed laid out edge-to-edge.
+  - A recap gallery where every row should fill the full width.
+
+recommended_for:
+  - Image sets of mixed aspect ratios that should tile without gaps at the row edges.
+  - Galleries where a uniform row height reads more cleanly than a column masonry.
+avoid_for:
+  - A strict equal-size thumbnail grid (use a card or image grid).
+  - A column-based ragged-bottom layout (use layout/masonry-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item has image, ar (the width/height ratio as a number), alt and an
+  optional caption. Choose row_height (sm/md/lg) for the uniform row height and gap for the spacing
+  between tiles. The layout is pure CSS flexbox — each tile's flex-grow and flex-basis are derived
+  from its ar so rows justify to the full width.
+
+props:
+  items: "The images, in order. Each item: image, ar (width/height ratio, precomputed by the caller), alt (required), caption (optional overlay)."
+  row_height: "Uniform target height for every row: sm (8rem), md (12rem) or lg (16rem)."
+  gap: "Space between tiles: default, none (flush) or sm (tight)."
+  label: "Accessible name announced for the gallery group."
+
+lifecycle: experimental
+content_model: A justified, row-based set of images rendered from an items array of { image, ar, alt, caption }.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --radius-card
+
+editorial_guidance: >
+  This is a row-justified layout — rows always fill the full width and share a uniform height, so the
+  gallery reads as a tidy grid of edges rather than the ragged bottoms of a column masonry. Because
+  the directive language cannot do arithmetic, the caller must precompute each image's `ar` as its
+  width divided by its height (1.5 landscape, 1 square, 0.8 portrait); that number drives how each
+  tile flexes to fill its row. Keep captions short — they overlay the image.
+
+relationships:
+  related:
+    - video/media-gallery
+    - video/image-lightbox
+    - layout/masonry-grid
+
+categorization:
+  category: Video
+  subcategory: Gallery
+  atomic_type: organism
+  usage_type: [media, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The gallery is a labelled group and every image carries author-supplied alt text; captions are decorative overlays that do not replace alt.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

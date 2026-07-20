@@ -1,0 +1,87 @@
+name: "Assistant Hero"
+short_description: A centered landing hero for an AI assistant - a big heading, a large prompt input, and example-prompt chips.
+long_visual_description: >
+  A centered column with a large headline, an optional subheading, a wide rounded prompt box pairing
+  a growing textarea with a circular send button, and a wrap of pill-shaped example prompts beneath.
+  The input box lifts a focus ring when active.
+
+use_cases:
+  - The empty state of a chat or assistant before the first message.
+  - A landing page hero that starts a conversation.
+  - The entry screen of an AI builder or generator.
+  - A search-like prompt hero on a product homepage.
+  - Onboarding that seeds users with example prompts.
+
+recommended_for:
+  - The first screen a user sees in a chat or generation product.
+  - Any prompt-first hero that offers starter suggestions.
+avoid_for:
+  - An ongoing conversation view (use a message list and composer).
+  - A plain marketing hero with no input (use a marketing hero).
+
+markets:
+  - Global
+
+example_usage: >
+  Set heading and an optional subheading, customise the placeholder, and pass examples (each
+  { label }). Listen for "prompt:pick" when a chip is chosen and "prompt:submit" when the form is
+  sent; the component fills the input from the chip for you.
+
+how_to_use: >
+  behavior.js wires the interaction with no network calls: clicking an example chip copies its label
+  into the textarea, focuses it, and dispatches "prompt:pick" with the value; submitting the form
+  (send button or Enter) dispatches "prompt:submit" with the current input value. A host app listens
+  for those events to actually send the prompt. The portable self-init passes no props object.
+
+props:
+  heading: "The large centered headline."
+  subheading: "Optional supporting line beneath the heading."
+  placeholder: "Placeholder text for the prompt input."
+  examples: "Starter prompts shown as chips; each item is { label } and clicking one fills the input."
+
+example_prompts:
+  - "Add an assistant landing hero that says How can I help with a big prompt box and example chips."
+  - "Create a builder hero asking what the user wants to build with three example ideas."
+
+lifecycle: experimental
+content_model: A heading, optional subheading, a prompt input, and a set of example prompts.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the heading a short, inviting question and the example chips concrete and verb-first, so they
+  read as things the user can do rather than features.
+
+relationships:
+  related:
+    - ai/model-picker
+    - ai/conversation-list
+    - ai/image-generation-card
+
+categorization:
+  category: AI & Chat
+  subcategory: Landing
+  atomic_type: organism
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The textarea has an accessible label, the send button a labelled icon, and chips are real buttons; the focus ring uses --color-ring for a visible focus indicator.
+  keyboard_support: The textarea and chips are in the natural tab order; Enter submits the form; chips activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,76 @@
+name: "Changelog Entry"
+short_description: A single version changelog entry - a version pill, date, and a colour-tagged list of changes.
+long_visual_description: >
+  A card headed by a monospaced version pill and a muted date. Below, a list of changes, each led by
+  a small rounded tag coloured by kind - green for added, blue for fixed, amber for changed, red for
+  removed - followed by the change description in plain readable text.
+
+use_cases:
+  - Render one release in a product or API changelog page.
+  - Show the latest release notes in a "what's new" panel.
+  - Summarise a version's added, fixed, changed and removed items.
+  - Build a stacked release history from newest to oldest.
+  - Highlight breaking (removed) versus additive (added) changes at a glance.
+
+recommended_for:
+  - Changelogs where each release lists categorised changes.
+  - Release-notes feeds rendered from structured data.
+avoid_for:
+  - Free-form prose release posts (use an editorial component).
+  - A single-line "new" badge (use a badge atom).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the version and date, then a changes array where each item has a type (added, fixed, changed
+  or removed) and a text description. Stack several entries newest-first to form a full changelog.
+
+props:
+  version: "The release version or tag, e.g. \"v2.4.0\"."
+  date: "Human-readable release date."
+  changes: "The changes; each item is { type, text } where type is added, fixed, changed or removed."
+
+example_prompts:
+  - "Show a changelog entry for v2.4.0 with added, fixed, changed and removed items."
+  - "Add a small patch release entry with two bug fixes."
+
+lifecycle: experimental
+content_model: A version, a date, and a list of typed change descriptions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+
+editorial_guidance: >
+  Keep each change to one concise line and pick the type that matches its intent. Order changes so
+  removed/breaking items are easy to spot. Use a consistent version and date format across entries.
+
+relationships:
+  related:
+    - developer/schema-table
+    - developer/error-code-table
+
+categorization:
+  category: Developer
+  subcategory: Documentation
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each change type is shown as a text tag, not colour alone; the entry is a semantic article with a time element.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

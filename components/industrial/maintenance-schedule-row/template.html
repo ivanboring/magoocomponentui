@@ -1,0 +1,15 @@
+<div class="maintenance-schedule-row flex flex-wrap items-center gap-x-4 gap-y-2 rounded-card border border-border bg-surface px-4 py-3 shadow-card">
+  <div class="min-w-0 flex-1">
+    <p class="font-heading text-on-surface">{{ asset }}</p>
+    <p class="truncate text-sm text-on-surface-muted">{{ task }}</p>
+  </div>
+  <div class="text-sm tabular-nums">
+    <p class="text-on-surface">{{ due }}</p>
+    <p data-if="interval" class="text-xs text-on-surface-muted">every {{ interval }}</p>
+  </div>
+  <div data-if="technician" class="maintenance-schedule-row__tech flex items-center gap-1.5 text-sm text-on-surface-muted">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 10a3 3 0 100-6 3 3 0 000 6zm0 2c-3.3 0-6 1.8-6 4v1h12v-1c0-2.2-2.7-4-6-4z"/></svg>
+    <span>{{ technician }}</span>
+  </div>
+  <span class="maintenance-schedule-row__status shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+</div>

@@ -1,0 +1,10 @@
+{
+  "current": "English",
+  "languages": [
+    { "label": "English", "code": "en", "current": true },
+    { "label": "Espanol", "code": "es", "current": false },
+    { "label": "Tieng Viet", "code": "vi", "current": false },
+    { "label": "中文", "code": "zh", "current": false },
+    { "label": "Tagalog", "code": "tl", "current": false }
+  ]
+}

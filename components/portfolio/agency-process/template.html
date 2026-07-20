@@ -1,0 +1,9 @@
+<section class="agency-process" aria-label="{{ label }}">
+  <ol class="agency-process__steps grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <li data-for="step in steps" class="agency-process__step flex flex-col">
+      <span class="agency-process__number flex size-12 items-center justify-center rounded-pill bg-primary/10 font-heading text-lg font-semibold text-primary tabular-nums" aria-hidden="true">{{ step.number }}</span>
+      <h3 class="mt-4 font-heading text-lg text-on-surface">{{ step.title }}</h3>
+      <p class="mt-2 text-sm leading-relaxed text-on-surface-muted">{{ step.body }}</p>
+    </li>
+  </ol>
+</section>

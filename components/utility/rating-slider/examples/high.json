@@ -1,0 +1,8 @@
+{
+  "label": "Satisfaction",
+  "min": "0",
+  "max": "10",
+  "value": "9",
+  "fill_pct": "90",
+  "bubble_left": "90"
+}

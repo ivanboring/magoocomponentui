@@ -1,0 +1,9 @@
+{
+  "label": "Our process",
+  "steps": [
+    { "number": "01", "title": "Discover", "body": "We learn your goals, users and constraints before writing a line of code." },
+    { "number": "02", "title": "Design", "body": "We prototype the flows, test them early and agree the direction together." },
+    { "number": "03", "title": "Build", "body": "One team ships the front and back, so the prototype becomes the product." },
+    { "number": "04", "title": "Launch", "body": "We release, measure what matters and iterate on real usage." }
+  ]
+}

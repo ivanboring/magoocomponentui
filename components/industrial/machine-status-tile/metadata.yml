@@ -1,0 +1,87 @@
+name: "Machine Status Tile"
+short_description: A compact tile showing a machine's name, ID, live operating status and its OEE and uptime figures.
+long_visual_description: >
+  A surface card with the machine name in the heading face and an optional mono asset ID beneath it,
+  a coloured status pill with a leading dot in the top-right (green running, amber idle, red down,
+  blue maintenance), and a two-up row of mini-stats on raised panels showing OEE and uptime.
+
+use_cases:
+  - Live machine state tile on a plant-floor monitoring wall.
+  - Asset overview card in a manufacturing dashboard grid.
+  - Equipment health summary in an OEE reporting view.
+  - Line-side terminal showing the status of a single workstation.
+  - Maintenance dashboard flagging machines that are down or in service.
+  - Shift handover board summarising each machine's state.
+
+recommended_for:
+  - Grids of comparable machines where each needs a status colour cue.
+  - At-a-glance plant-floor monitoring on large displays.
+avoid_for:
+  - A full line of connected stations (use production-line-status).
+  - Detailed time-series OEE history (pair with a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each tile a machine name, an optional asset ID, and a status from running, idle, down or
+  maintenance. Pass OEE and uptime as preformatted strings including their units so they align in the
+  mini-stat row. Lay several tiles in a responsive grid for a monitoring wall.
+
+props:
+  name: The machine or asset name; keep it short so it does not truncate.
+  machine_id: Optional asset identifier shown in a mono face below the name.
+  status: Operating state; sets the pill colour and dot (running, idle, down, maintenance).
+  oee: Preformatted OEE figure including the unit, e.g. "87%".
+  uptime: Preformatted uptime figure including the unit, e.g. "142h".
+
+example_prompts:
+  - "Add a machine status tile for CNC Mill 04 running at 87 percent OEE."
+  - "Show a down machine tile for the laser cutter."
+  - "Put a grid of machine status tiles on the plant floor dashboard."
+
+lifecycle: experimental
+content_model: A machine name, an optional ID, an operating status, and preformatted OEE and uptime figures.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Name the machine the way operators recognise it, not the raw system id. Keep OEE and uptime as
+  short preformatted values with units. Status colour must agree with the state text - never a green
+  down tile.
+
+relationships:
+  related:
+    - industrial/production-line-status
+    - industrial/oee-gauge
+    - industrial/work-order-card
+
+categorization:
+  category: Manufacturing
+  subcategory: Monitoring
+  atomic_type: molecule
+  usage_type: [stat, grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text as well as its colour and dot, so it does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

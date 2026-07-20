@@ -1,0 +1,7 @@
+{
+  "total_downtime": "1h 20m",
+  "reasons": [
+    { "label": "Planned maintenance", "minutes": 60, "pct": 75, "color_class": "bg-info" },
+    { "label": "Breakdown", "minutes": 20, "pct": 25, "color_class": "bg-danger" }
+  ]
+}

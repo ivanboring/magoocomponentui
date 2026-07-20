@@ -1,0 +1,9 @@
+{
+  "title": "Morning shift coverage",
+  "label": "Technician dispatch map",
+  "technicians": [
+    { "name": "Dana P.", "initials": "DP", "status": "available", "x_pct": 30, "y_pct": 35 },
+    { "name": "Marcus L.", "initials": "ML", "status": "available", "x_pct": 55, "y_pct": 55 },
+    { "name": "Priya S.", "initials": "PS", "status": "available", "x_pct": 74, "y_pct": 40 }
+  ]
+}

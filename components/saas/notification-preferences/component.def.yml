@@ -1,0 +1,13 @@
+name: notification-preferences
+props:
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      One row per notification type. Each item: { label, email, push, sms }. label names the
+      notification and email/push/sms are booleans setting each channel switch's initial on/off state.
+    example:
+      - { label: "Product updates", email: true, push: false, sms: false }
+      - { label: "Security alerts", email: true, push: true, sms: true }

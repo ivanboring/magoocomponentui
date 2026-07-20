@@ -1,0 +1,29 @@
+name: subtask-checklist
+props:
+  title:
+    type: string
+    default: "Subtasks"
+    title: Title
+    example: "Checklist"
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The checklist rows in order. Each item: { label, done }. label is the subtask text; done is a
+      boolean - a done item shows a filled check and a struck-through label, an undone item shows an
+      empty box. The progress bar is segmented one cell per item, so no percentage is needed.
+    example:
+      - { label: "Write the migration", done: true }
+      - { label: "Backfill existing rows", done: false }
+  done_count:
+    type: string
+    title: Done count
+    description: Precomputed number of completed items (shown as done/total in the header).
+    example: "1"
+  total_count:
+    type: string
+    title: Total count
+    description: Precomputed total number of items (shown as done/total in the header).
+    example: "3"

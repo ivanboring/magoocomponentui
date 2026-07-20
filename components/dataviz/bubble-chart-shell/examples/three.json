@@ -1,0 +1,10 @@
+{
+  "title": "Product mix",
+  "y_labels": ["High margin", "", "Low margin"],
+  "x_labels": ["Low volume", "", "High volume"],
+  "points": [
+    { "x_pct": 28, "y_pct": 32, "r_pct": 16, "label": "Core", "tone": "primary" },
+    { "x_pct": 62, "y_pct": 58, "r_pct": 12, "label": "Growth", "tone": "accent" },
+    { "x_pct": 80, "y_pct": 40, "r_pct": 9, "label": "Emerging", "tone": "success" }
+  ]
+}

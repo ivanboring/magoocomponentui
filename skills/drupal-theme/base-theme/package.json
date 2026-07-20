@@ -1,0 +1,12 @@
+{
+  "name": "magoo_agentic_base_theme",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./css/src/base.css -o ./css/dist/base.css --minify",
+    "dev": "npx @tailwindcss/cli -i ./css/src/base.css -o ./css/dist/base.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

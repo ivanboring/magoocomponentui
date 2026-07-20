@@ -1,0 +1,45 @@
+name: payout-summary
+props:
+  total:
+    type: string
+    required: true
+    title: Payout total
+    description: The formatted headline payout amount, including currency (e.g. "$2,480.00").
+    example: "$2,480.00"
+  period:
+    type: string
+    title: Period
+    description: The period this payout covers, shown above the total (e.g. "March 2026").
+    example: "March 2026"
+  sources:
+    type: array
+    items: object
+    required: true
+    title: Sources
+    description: >
+      The revenue lines that make up the total. Each item: { label, amount }. label names the
+      source (e.g. "Memberships"); amount is the formatted per-source figure (e.g. "$1,200.00").
+    example:
+      - { label: "Memberships", amount: "$1,200.00" }
+      - { label: "Tips", amount: "$680.00" }
+      - { label: "Digital products", amount: "$600.00" }
+  status:
+    type: enum
+    values: [pending, paid]
+    default: pending
+    title: Status
+    description: Whether the payout is still pending or has been paid out; colours the status pill.
+  payout_date:
+    type: string
+    title: Payout date
+    description: The date the payout is/was sent (e.g. "Apr 1, 2026").
+    example: "Apr 1, 2026"
+  method:
+    type: string
+    title: Method
+    description: The destination the payout is sent to (e.g. "Bank ****4291").
+    example: "Bank ****4291"
+variants:
+  status:
+    pending: "bg-warning/10 text-warning"
+    paid: "bg-success/10 text-success"

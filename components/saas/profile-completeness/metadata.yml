@@ -1,0 +1,82 @@
+name: "Profile Completeness"
+short_description: A setup-progress card showing a completion percentage over a bar and a checklist of done and remaining steps.
+long_visual_description: >
+  A bordered card with a heading and a muted "N% complete" figure on the same line, a thin primary
+  progress bar beneath, and a checklist below. Completed steps show a filled success-toned check in a
+  soft circle and are struck through in muted text; pending steps show an empty outlined circle with
+  the label in the normal on-surface colour.
+
+use_cases:
+  - An onboarding nudge to finish account setup.
+  - A profile completeness meter with remaining actions.
+  - A getting-started checklist on a dashboard.
+  - Prompting users to verify email, add a photo, or invite teammates.
+  - Tracking setup progress for a workspace or store.
+  - A verification checklist before going live.
+
+recommended_for:
+  - Dashboards and account setup flows.
+  - Turning a completion percentage into concrete next steps.
+avoid_for:
+  - A bare progress figure with no steps (use progress-bar).
+  - A long, unordered task list (use a checklist or todo component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a precomputed percent (0-100) plus a steps array where each step has a label and a done
+  boolean. Order steps so remaining actions are easy to scan. Compute percent from the steps in your
+  app since the template cannot derive it.
+
+props:
+  title: "The card heading; defaults to \"Complete your profile\"."
+  percent: "Precomputed completion percentage 0-100; drives the number and the bar fill."
+  steps: "The checklist in order. Each: label and done (true shows a struck-through check, false an empty circle)."
+
+example_prompts:
+  - "Add a profile completeness card at 60% with a setup checklist."
+  - "Show an onboarding progress nudge that's 80% done."
+  - "Add a getting-started checklist with a completion bar."
+
+lifecycle: experimental
+content_model: A precomputed completion percentage and an ordered checklist of steps, each done or pending.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Phrase steps as short imperatives (Add a photo, Verify your email). Keep the list focused on
+  actions that actually raise the percentage, and order the pending ones by ease.
+
+relationships:
+  related:
+    - atoms/progress-bar
+    - saas/invite-member
+    - saas/billing-tab
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Onboarding
+  atomic_type: molecule
+  usage_type: [stat, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with aria-valuenow/min/max and a label; step completion is shown by the check icon and text, not colour alone.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 20
+  text_direction: both

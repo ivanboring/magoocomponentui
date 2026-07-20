@@ -1,0 +1,11 @@
+{
+  "title": "GDPR readiness",
+  "summary": "3 of 5 requirements met",
+  "items": [
+    { "label": "Privacy policy published and current", "status": "done", "note": "Reviewed by legal on 12 Jun." },
+    { "label": "Data processing agreements signed with processors", "status": "done" },
+    { "label": "Cookie consent banner in place", "status": "done" },
+    { "label": "Data-subject request process documented", "status": "pending", "note": "Draft in review." },
+    { "label": "Breach notification procedure", "status": "failed", "note": "No documented 72-hour process yet." }
+  ]
+}

@@ -1,0 +1,31 @@
+name: bio-hero
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Alex Rivera"
+  role:
+    type: string
+    required: true
+    title: Role
+    example: "Product Designer & Front-end Developer"
+  intro_html:
+    type: html
+    required: true
+    title: Intro
+    description: The introduction as trusted HTML (one or two short paragraphs).
+    example: "<p>I design and build interfaces that feel effortless. For the last decade I've partnered with startups and studios to ship products people actually enjoy using.</p>"
+  portrait:
+    type: image
+    title: Portrait
+    description: Optional portrait image shown beside the intro.
+    example: "/stock/avatar-man-1.jpg"
+  ctas:
+    type: array
+    items: object
+    title: Call-to-action buttons
+    description: "Optional buttons. Each item: { label, href, primary }. primary (boolean) styles it as the solid primary button; otherwise it is outlined."
+    example:
+      - { label: "View work", href: "#", primary: true }
+      - { label: "Get in touch", href: "#", primary: false }

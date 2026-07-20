@@ -1,0 +1,19 @@
+<div class="tariff-comparison flex flex-col gap-4 md:flex-row md:items-stretch">
+  <div data-for="plan in plans" data-recommended="{{ plan.recommended }}" class="tariff-comparison__col group relative flex flex-1 flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card data-[recommended=true]:border-primary data-[recommended=true]:ring-1 data-[recommended=true]:ring-ring">
+    <span data-if="plan.recommended" class="tariff-comparison__badge absolute -top-3 left-4 rounded-pill bg-primary px-3 py-1 text-xs font-medium text-primary-contrast">Recommended</span>
+
+    <p class="font-heading text-on-surface">{{ plan.name }}</p>
+    <p class="mt-2 font-heading text-3xl text-on-surface tabular-nums">{{ plan.rate }}</p>
+    <p data-if="plan.standing_charge" class="mt-1 text-sm text-on-surface-muted">{{ plan.standing_charge }} standing charge</p>
+    <p data-if="plan.savings" class="mt-2 inline-flex w-fit items-center rounded-pill bg-success/10 px-2 py-1 text-xs font-medium text-success">{{ plan.savings }}</p>
+
+    <ul class="tariff-comparison__features mt-4 flex flex-1 flex-col gap-2 text-sm">
+      <li data-for="feature in plan.features" class="flex items-start gap-2 text-on-surface">
+        <svg class="mt-0.5 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-9"></path></svg>
+        <span>{{ feature }}</span>
+      </li>
+    </ul>
+
+    <button type="button" class="tariff-comparison__switch mt-5 w-full rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised group-data-[recommended=true]:border-transparent group-data-[recommended=true]:bg-primary group-data-[recommended=true]:text-primary-contrast">Switch to {{ plan.name }}</button>
+  </div>
+</div>

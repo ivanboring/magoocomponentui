@@ -1,0 +1,14 @@
+name: chat-thread
+props:
+  messages:
+    type: array
+    items: object
+    required: true
+    title: Messages
+    description: >
+      The conversation transcript, in order. Each item: { role, content, name, time }. role is
+      "user" or "assistant" and drives the bubble alignment and colour; content is the message
+      text; name (optional) labels the speaker above the bubble; time (optional) prints a
+      timestamp below it.
+    example:
+      - { role: "assistant", content: "Hi! How can I help you today?", name: "Assistant", time: "9:41 AM" }

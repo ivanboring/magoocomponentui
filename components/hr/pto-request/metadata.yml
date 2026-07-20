@@ -1,0 +1,81 @@
+name: "PTO Request"
+short_description: A leave-request form with a type select, start and end dates, a reason field and a balance note that emits a pto:request event.
+long_visual_description: >
+  A card-framed form on the surface colour. A leave-type select sits at the top, then a two-column
+  row of start and end date inputs, a multi-line reason field, a muted remaining-balance note, and a
+  primary Submit button. All controls use the control radius, tokenised borders and a focus ring.
+
+use_cases:
+  - Booking vacation or annual leave from a self-service HR portal.
+  - Filing a sick day with an optional note to a manager.
+  - Requesting a personal or unpaid day off.
+  - A quick time-off widget on an employee dashboard.
+  - Submitting leave that a downstream workflow approves.
+  - A modal body for a "request time off" action.
+
+recommended_for:
+  - Employee self-service leave requests.
+  - Any flow that turns a form submission into a structured event.
+avoid_for:
+  - Approving or reviewing existing requests (build a separate view).
+  - Showing remaining balances alone (use time-off-balance).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a types array of { label, value } options and an optional balance string. Listen for the
+  bubbling pto:request event on a parent to receive { type, start, end, reason } and hand it to your
+  own submission logic; the component does no network work itself.
+
+how_to_use: >
+  behavior.js attaches a submit listener to the form root. On submit it calls preventDefault and
+  dispatches a bubbling "pto:request" CustomEvent whose detail is { type, start, end, reason } read
+  from the fields. The portable self-init passes no props object, so all configuration comes from the
+  rendered markup; the listener is removed on cleanup.
+
+props:
+  types: The leave-type options for the select; each entry has a display label and a submitted value.
+  balance: Optional remaining-balance note shown beneath the form.
+
+lifecycle: experimental
+content_model: A set of leave-type options plus an optional balance note; the user fills dates and a reason.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep leave-type labels short and human. The balance note should read as guidance, not a hard rule,
+  since approval usually happens downstream.
+
+relationships:
+  related:
+    - hr/time-off-balance
+    - hr/employee-card
+
+categorization:
+  category: "HR & People"
+  subcategory: Leave
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every control has a visible associated label and a focus-visible ring; the submit is a real button in a form.
+  keyboard_support: All fields and the submit button are natively focusable and operable; Enter submits the form.
+  seo_score: 20
+  text_direction: both

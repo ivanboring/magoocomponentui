@@ -1,0 +1,12 @@
+<article class="changelog-entry rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="flex items-center gap-3">
+    <span class="inline-flex items-center rounded-pill bg-surface-raised px-2.5 py-0.5 font-mono text-sm font-medium text-on-surface">{{ version }}</span>
+    <time class="text-sm text-on-surface-muted">{{ date }}</time>
+  </header>
+  <ul class="mt-3 flex flex-col gap-2">
+    <li data-for="change in changes" class="flex items-start gap-2.5 text-sm text-on-surface">
+      <span data-type="{{ change.type }}" class="mt-px inline-flex shrink-0 items-center rounded-pill px-2 py-0.5 text-xs font-medium capitalize data-[type=added]:bg-success/10 data-[type=added]:text-success data-[type=fixed]:bg-info/10 data-[type=fixed]:text-info data-[type=changed]:bg-warning/10 data-[type=changed]:text-warning data-[type=removed]:bg-danger/10 data-[type=removed]:text-danger">{{ change.type }}</span>
+      <span>{{ change.text }}</span>
+    </li>
+  </ul>
+</article>

@@ -1,0 +1,26 @@
+name: survey-progress
+props:
+  current:
+    type: integer
+    required: true
+    title: Current question
+    description: The question the respondent is on (1-based).
+    example: 3
+  total:
+    type: integer
+    required: true
+    title: Total questions
+    description: How many questions the survey has in total.
+    example: 8
+  pct:
+    type: integer
+    required: true
+    title: Percent complete
+    description: >
+      Completion percentage, 0-100, precomputed by the caller (e.g. round(current / total * 100)).
+      The directive language can't divide, so pass the value already computed.
+    example: 38
+  label:
+    type: string
+    title: Label
+    description: Optional short caption shown in place of the default "Question X of Y" text.

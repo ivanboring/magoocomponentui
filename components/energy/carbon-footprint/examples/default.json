@@ -1,0 +1,9 @@
+{
+  "total_kg": "412",
+  "period": "this month",
+  "sources": [
+    { "label": "Electricity", "kg": "180 kg", "pct": 44, "color_class": "bg-primary" },
+    { "label": "Heating", "kg": "132 kg", "pct": 32, "color_class": "bg-warning" },
+    { "label": "Transport", "kg": "100 kg", "pct": 24, "color_class": "bg-info" }
+  ]
+}

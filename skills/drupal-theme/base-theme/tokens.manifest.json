@@ -1,0 +1,113 @@
+{
+  "groups": [
+    {
+      "key": "brand",
+      "label": "Brand",
+      "description": "Set these five and press Save; every unset token below is derived from them.",
+      "tokens": [
+        { "key": "color_primary", "var": "--color-primary", "type": "color", "label": "Primary", "default": "#4f46e5", "dark": "#818cf8" },
+        { "key": "color_primary_contrast", "var": "--color-primary-contrast", "type": "color", "label": "On primary", "default": "#ffffff", "dark": "#0f172a" },
+        { "key": "color_background", "var": "--color-background", "type": "color", "label": "Background", "default": "#ffffff", "dark": "#0b1120" },
+        { "key": "color_surface", "var": "--color-surface", "type": "color", "label": "Surface", "default": "#ffffff", "dark": "#111827" },
+        { "key": "color_on_surface", "var": "--color-on-surface", "type": "color", "label": "On surface", "default": "#0f172a", "dark": "#e5e7eb" }
+      ]
+    },
+    {
+      "key": "color",
+      "label": "Colors",
+      "description": "Every color token. Leave a field empty to keep the derived value.",
+      "tokens": [
+        { "key": "color_on_background", "var": "--color-on-background", "type": "color", "label": "On background", "default": "#0f172a", "dark": "#e5e7eb" },
+        { "key": "color_surface_raised", "var": "--color-surface-raised", "type": "color", "label": "Surface raised", "default": "#f8fafc", "dark": "#1f2937" },
+        { "key": "color_on_surface_muted", "var": "--color-on-surface-muted", "type": "color", "label": "On surface (muted)", "default": "#64748b", "dark": "#9ca3af" },
+        { "key": "color_secondary", "var": "--color-secondary", "type": "color", "label": "Secondary", "default": "#0f172a", "dark": "#e2e8f0" },
+        { "key": "color_secondary_contrast", "var": "--color-secondary-contrast", "type": "color", "label": "On secondary", "default": "#ffffff", "dark": "#0f172a" },
+        { "key": "color_accent", "var": "--color-accent", "type": "color", "label": "Accent", "default": "#6366f1", "dark": "#a5b4fc" },
+        { "key": "color_accent_contrast", "var": "--color-accent-contrast", "type": "color", "label": "On accent", "default": "#ffffff", "dark": "#0f172a" },
+        { "key": "color_border", "var": "--color-border", "type": "color", "label": "Border", "default": "#e2e8f0", "dark": "#374151" },
+        { "key": "color_ring", "var": "--color-ring", "type": "color", "label": "Focus ring", "default": "#4f46e5", "dark": "#818cf8" },
+        { "key": "color_success", "var": "--color-success", "type": "color", "label": "Success", "default": "#16a34a", "dark": "#4ade80" },
+        { "key": "color_success_contrast", "var": "--color-success-contrast", "type": "color", "label": "On success", "default": "#ffffff", "dark": "#052e16" },
+        { "key": "color_warning", "var": "--color-warning", "type": "color", "label": "Warning", "default": "#d97706", "dark": "#fbbf24" },
+        { "key": "color_warning_contrast", "var": "--color-warning-contrast", "type": "color", "label": "On warning", "default": "#ffffff", "dark": "#451a03" },
+        { "key": "color_danger", "var": "--color-danger", "type": "color", "label": "Danger", "default": "#dc2626", "dark": "#f87171" },
+        { "key": "color_danger_contrast", "var": "--color-danger-contrast", "type": "color", "label": "On danger", "default": "#ffffff", "dark": "#450a0a" },
+        { "key": "color_info", "var": "--color-info", "type": "color", "label": "Info", "default": "#2563eb", "dark": "#60a5fa" },
+        { "key": "color_info_contrast", "var": "--color-info-contrast", "type": "color", "label": "On info", "default": "#ffffff", "dark": "#0b1120" }
+      ]
+    },
+    {
+      "key": "typography",
+      "label": "Typography",
+      "tokens": [
+        { "key": "font_heading", "var": "--font-heading", "type": "text", "label": "Heading family", "default": "\"Inter\", ui-sans-serif, system-ui, sans-serif" },
+        { "key": "font_body", "var": "--font-body", "type": "text", "label": "Body family", "default": "\"Inter\", ui-sans-serif, system-ui, sans-serif" },
+        { "key": "font_mono", "var": "--font-mono", "type": "text", "label": "Mono family", "default": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, monospace" },
+        { "key": "weight_heading", "var": "--weight-heading", "type": "text", "label": "Heading weight", "default": "600" },
+        { "key": "weight_body", "var": "--weight-body", "type": "text", "label": "Body weight", "default": "400" },
+        { "key": "tracking_heading", "var": "--tracking-heading", "type": "text", "label": "Heading tracking", "default": "-0.01em" },
+        { "key": "text_base", "var": "--text-base", "type": "text", "label": "Base font size", "default": "1rem", "description": "Root size of the type scale." },
+        { "key": "scale_ratio", "var": null, "type": "select", "label": "Type scale ratio", "default": "1.25", "options": { "1.125": "Major second (1.125)", "1.2": "Minor third (1.2)", "1.25": "Major third (1.25)", "1.333": "Perfect fourth (1.333)", "1.414": "Augmented fourth (1.414)" }, "description": "Derives --text-sm … --text-5xl from the base size." },
+        { "key": "font_source", "var": null, "type": "select", "label": "Web font source", "default": "none", "options": { "none": "None (system / self-hosted)", "google": "Google Fonts", "bunny": "Bunny Fonts (GDPR-friendly)" } },
+        { "key": "font_url", "var": null, "type": "text", "label": "Web font stylesheet URL", "default": "", "description": "Full href, e.g. https://fonts.bunny.net/css?family=inter:400,600" }
+      ]
+    },
+    {
+      "key": "shape",
+      "label": "Shape",
+      "tokens": [
+        { "key": "radius_control", "var": "--radius-control", "type": "text", "label": "Control radius", "default": "0.375rem" },
+        { "key": "radius_button", "var": "--radius-button", "type": "text", "label": "Button radius", "default": "0.5rem" },
+        { "key": "radius_card", "var": "--radius-card", "type": "text", "label": "Card radius", "default": "0.75rem" },
+        { "key": "radius_pill", "var": "--radius-pill", "type": "text", "label": "Pill radius", "default": "9999px" }
+      ]
+    },
+    {
+      "key": "elevation",
+      "label": "Elevation",
+      "tokens": [
+        { "key": "shadow_rgb", "var": null, "type": "text", "label": "Shadow tint (R, G, B)", "default": "15, 23, 42", "description": "Used to derive the three shadows when they are left at their default." },
+        { "key": "shadow_card", "var": "--shadow-card", "type": "text", "label": "Card shadow", "default": "0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08)" },
+        { "key": "shadow_raised", "var": "--shadow-raised", "type": "text", "label": "Raised shadow", "default": "0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.06)" },
+        { "key": "shadow_focus", "var": "--shadow-focus", "type": "text", "label": "Focus shadow", "default": "0 0 0 3px rgba(79, 70, 229, 0.35)" }
+      ]
+    },
+    {
+      "key": "spacing",
+      "label": "Spacing",
+      "tokens": [
+        { "key": "density", "var": "--spacing", "type": "select", "label": "Density", "default": "0.25rem", "options": { "0.2rem": "Compact", "0.25rem": "Comfortable (default)", "0.3rem": "Spacious" }, "description": "Tailwind's base spacing unit — p-4 is calc(var(--spacing) * 4), so this rescales EVERY component's padding, gap and margin." },
+        { "key": "space_section", "var": "--space-section", "type": "text", "label": "Section spacing", "default": "4rem" },
+        { "key": "space_card", "var": "--space-card", "type": "text", "label": "Card padding", "default": "1.5rem" },
+        { "key": "space_control", "var": "--space-control", "type": "text", "label": "Control padding", "default": "0.75rem" },
+        { "key": "container_max_width", "var": "--container-max", "type": "text", "label": "Container max width", "default": "72rem", "description": "Max width of the contained page regions." }
+      ]
+    },
+    {
+      "key": "motion",
+      "label": "Motion",
+      "tokens": [
+        { "key": "duration_token", "var": "--duration-token", "type": "text", "label": "Transition duration", "default": "150ms" },
+        { "key": "ease_token", "var": "--ease-token", "type": "text", "label": "Easing", "default": "cubic-bezier(0.4, 0, 0.2, 1)" }
+      ]
+    },
+    {
+      "key": "layout",
+      "label": "Layout",
+      "tokens": [
+        { "key": "color_scheme", "var": null, "type": "select", "label": "Color scheme", "default": "light", "options": { "light": "Light only", "dark": "Dark only", "auto": "Follow the OS", "toggle": "Follow the OS + show a toggle" } },
+        { "key": "sidebar_position", "var": null, "type": "select", "label": "Sidebar position", "default": "last", "options": { "first": "Before the content", "last": "After the content" } },
+        { "key": "sticky_header", "var": null, "type": "checkbox", "label": "Sticky header", "default": "0" },
+        { "key": "full_bleed_regions", "var": null, "type": "text", "label": "Full-bleed regions", "default": "header_top,header,primary_menu,secondary_menu,hero,hero_secondary,pre_footer,footer_top,footer_columns,footer_bottom", "description": "Comma-separated region keys rendered edge to edge; every other listed region is centered in the container. Applies to the standalone regions only - the main content column (content_top, content, content_bottom) and the sidebars always sit inside the container by design, so naming them here does nothing." },
+        { "key": "hidden_regions", "var": null, "type": "text", "label": "Hidden regions", "default": "", "description": "Comma-separated region keys to never render. Covers the regions of the page template only; page_top and page_bottom are rendered by the html template and cannot be hidden here." }
+      ]
+    },
+    {
+      "key": "advanced",
+      "label": "Advanced",
+      "tokens": [
+        { "key": "custom_css_vars", "var": null, "type": "textarea", "label": "Extra CSS variables", "default": "", "description": "Raw declarations appended last inside :root, e.g. --color-primary: #ff0000;  They win over everything above." }
+      ]
+    }
+  ]
+}

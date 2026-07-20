@@ -1,0 +1,20 @@
+<section class="feeding-schedule rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="mb-2 flex items-center gap-2">
+    <span class="text-on-surface-muted" aria-hidden="true">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2v6a2 2 0 01-4 0V2M4 2v16M14 2c-1.5 0-2 2.5-2 5s.5 4 2 4 2-1.5 2-4-.5-5-2-5zM14 11v7"/></svg>
+    </span>
+    <h3 class="font-heading text-on-surface">Feeding schedule<span data-if="pet" class="font-normal text-on-surface-muted"> · {{ pet }}</span></h3>
+  </header>
+  <ul class="feeding-schedule__list">
+    <li data-for="meal in meals" class="feeding-schedule__meal group flex items-center gap-3 border-t border-border py-3 first:border-t-0" data-done="{{ meal.done }}">
+      <button type="button" class="feeding-schedule__toggle flex size-6 shrink-0 items-center justify-center rounded-pill border border-border text-transparent transition-colors duration-(--duration-token) group-data-[done=true]:border-success group-data-[done=true]:bg-success group-data-[done=true]:text-primary-contrast" aria-label="Toggle fed" aria-pressed="{{ meal.done }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 10l3 3 7-7"/></svg>
+      </button>
+      <div class="min-w-0 flex-1">
+        <p class="feeding-schedule__food font-heading text-sm text-on-surface group-data-[done=true]:text-on-surface-muted group-data-[done=true]:line-through">{{ meal.food }}</p>
+        <p class="text-xs text-on-surface-muted">{{ meal.amount }}</p>
+      </div>
+      <span class="feeding-schedule__time shrink-0 text-sm font-medium tabular-nums text-on-surface-muted">{{ meal.time }}</span>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,20 @@
+<div class="workout-timer group flex flex-col items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card" data-phase="work" data-work="{{ work_seconds }}" data-rest="{{ rest_seconds }}" data-rounds="{{ rounds }}" role="timer" aria-label="Interval timer">
+  <p data-if="label" class="text-sm font-medium text-on-surface-muted">{{ label }}</p>
+  <p class="workout-timer__phase text-xs font-semibold uppercase tracking-wide group-data-[phase=work]:text-primary group-data-[phase=rest]:text-info group-data-[phase=done]:text-on-surface-muted">Work</p>
+  <p class="workout-timer__time font-heading text-6xl tabular-nums text-on-surface">00:00</p>
+  <p class="workout-timer__round text-sm text-on-surface-muted">Round <span class="tabular-nums">1</span> of <span class="tabular-nums">{{ rounds }}</span></p>
+  <div class="flex flex-wrap items-center justify-center gap-2">
+    <button type="button" class="workout-timer__start inline-flex items-center gap-1.5 rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">
+      <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6V4Z"/></svg>
+      Start
+    </button>
+    <button type="button" class="workout-timer__pause inline-flex items-center gap-1.5 rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4h3v12H6zM11 4h3v12h-3z"/></svg>
+      Pause
+    </button>
+    <button type="button" class="workout-timer__reset inline-flex items-center gap-1.5 rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.8-4.3M4 3v3h3"/></svg>
+      Reset
+    </button>
+  </div>
+</div>

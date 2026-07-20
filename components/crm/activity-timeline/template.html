@@ -1,0 +1,14 @@
+<ol class="activity-timeline relative flex flex-col before:absolute before:left-3 before:top-3 before:bottom-3 before:w-px before:bg-border before:content-['']">
+  <li data-for="activity in activities" class="relative flex gap-3 pb-5 last:pb-0">
+    <span class="activity-timeline__marker relative z-10 flex size-6 shrink-0 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted ring-4 ring-surface data-[type=call]:bg-info/10 data-[type=call]:text-info data-[type=email]:bg-primary/10 data-[type=email]:text-primary data-[type=note]:bg-warning/10 data-[type=note]:text-warning data-[type=meeting]:bg-success/10 data-[type=meeting]:text-success" data-type="{{ activity.type }}">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="4"/></svg>
+    </span>
+    <div class="min-w-0 flex-1 pt-0.5">
+      <div class="flex items-baseline justify-between gap-2">
+        <p class="text-sm font-medium text-on-surface">{{ activity.title }}</p>
+        <time class="shrink-0 text-xs text-on-surface-muted">{{ activity.time }}</time>
+      </div>
+      <p data-if="activity.body" class="mt-0.5 text-sm text-on-surface-muted">{{ activity.body }}</p>
+    </div>
+  </li>
+</ol>

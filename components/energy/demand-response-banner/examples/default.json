@@ -1,0 +1,6 @@
+{
+  "message": "A peak demand event is expected this evening. Reduce usage between 4 and 7 PM to earn credits.",
+  "event_time": "Today, 4:00 - 7:00 PM",
+  "level": "warning",
+  "reward": "Earn $2/kWh saved"
+}

@@ -1,0 +1,92 @@
+name: "Inline Poll"
+short_description: A compact single-question poll that flips from clickable options to a results view with share bars.
+long_visual_description: >
+  A bordered surface card holding a question in the heading face. Before voting, each choice is a
+  full-width outlined button that tints toward the primary colour on hover. After voting, the same
+  choices become read-only rows, each with a label, a percentage, and a thin pill share bar whose
+  width reflects that option's vote share; the leading option is drawn in the full primary colour
+  and slightly bolder. A muted total-votes footnote sits at the bottom.
+
+use_cases:
+  - Gather a quick opinion inline in an article or sidebar.
+  - Run a lightweight product or roadmap preference poll.
+  - Ask a single audience question during a live event.
+  - Collect a snap reaction below a blog post.
+  - Show community sentiment with live-updating result shares.
+  - Embed a "which do you prefer" question in a feedback flow.
+
+recommended_for:
+  - A single-question poll where results are shown after the user votes.
+  - Cases where vote counts and percentages are computed server-side.
+avoid_for:
+  - Multi-question surveys (use a survey flow with survey-progress).
+  - Rating a single item (use feedback/thumbs-feedback).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the question and an options array. Render with voted=false to show clickable buttons; when the
+  host receives the "poll:vote" event it records the choice and re-renders with voted=true, supplying
+  each option's precomputed pct (and optional votes) plus total_votes. Mark the winning option
+  leading=true to highlight it.
+
+how_to_use: >
+  behavior.js wires the option buttons: clicking one dispatches a bubbling "poll:vote" CustomEvent
+  whose detail.value is that option's label (read from data-poll-value). The host listens for the
+  event, persists the vote, and re-renders the component in its voted state with the tallied pct
+  values. The results view is pure markup driven by the precomputed pct widths, so it renders in
+  screenshots with no JavaScript.
+
+props:
+  question: The poll question shown above the options.
+  options: The choices; each has a label plus, for the results view, precomputed pct, optional votes, and a leading flag.
+  total_votes: Total votes cast, shown as a footnote in the results view.
+  voted: false shows clickable vote buttons; true shows read-only result rows.
+
+example_prompts:
+  - "Add an inline poll asking which feature to build next with three options."
+  - "Show the poll results with dark mode leading at 52%."
+
+lifecycle: experimental
+content_model: A single question, a list of options, and (after voting) their vote shares.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the question to one line and the options short and parallel. Show results only after the user
+  has voted so their choice is not anchored by the current tally.
+
+relationships:
+  related:
+    - feedback/survey-progress
+    - feedback/csat-score
+    - feedback/thumbs-feedback
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Polls
+  atomic_type: molecule
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Options are real buttons with visible focus rings; the results view uses plain text so percentages are readable by assistive tech.
+  keyboard_support: Option buttons are focusable and activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

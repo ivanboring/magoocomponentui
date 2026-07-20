@@ -1,0 +1,23 @@
+<div class="equipment-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="font-heading text-on-surface">{{ name }}</h3>
+      <p data-if="model" class="text-sm text-on-surface-muted">{{ model }}</p>
+    </div>
+    <span data-if="warranty_status" class="shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ warranty_status@class }}">{{ warranty_status }}</span>
+  </div>
+  <dl class="mt-4 flex flex-col gap-2 text-sm">
+    <div data-if="serial" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Serial</dt>
+      <dd class="font-mono text-on-surface">{{ serial }}</dd>
+    </div>
+    <div data-if="install_date" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Installed</dt>
+      <dd class="text-on-surface">{{ install_date }}</dd>
+    </div>
+    <div data-if="last_service" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Last service</dt>
+      <dd class="text-on-surface">{{ last_service }}</dd>
+    </div>
+  </dl>
+</div>

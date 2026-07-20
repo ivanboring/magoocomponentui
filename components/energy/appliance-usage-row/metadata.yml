@@ -1,0 +1,89 @@
+name: "Appliance Usage Row"
+short_description: A compact row breaking down one appliance's energy use, with an icon, a share-of-total bar, kWh, cost, and an on or off status dot.
+long_visual_description: >
+  A single surface row led by a rounded icon badge, either a supplied glyph or a generic
+  plug outline. Next to the name a small status dot shows green when the appliance is on
+  now and a muted tone when off, and a thin primary bar beneath the name shows its share of
+  total usage. The trailing edge stacks the energy used in a bold tabular figure over the
+  cost and the current draw in quieter text.
+
+use_cases:
+  - List per appliance energy use on a home energy breakdown screen.
+  - Rank the top energy drawing devices in a smart home app.
+  - Show which circuits are on now alongside their cost.
+  - Break down a monthly bill by appliance in a usage report.
+  - Populate a device list in an energy monitoring dashboard.
+  - Compare standby versus active draw across appliances.
+
+recommended_for:
+  - Stacking several rows into a per appliance usage list.
+  - Cases where the share of total is already computed by the caller.
+  - Pairing energy, cost, and live status in one compact line.
+
+avoid_for:
+  - A single headline metric (use a stat card).
+  - Detailed time series for one device (use a line chart shell).
+  - Rich cards with imagery (use a media card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row a name and precompute pct as its share of total usage for the bar width.
+  Pass kwh, cost and watts as preformatted display strings, set on to reflect live status,
+  and optionally supply an icon glyph. Stack rows to build an appliance breakdown list.
+
+props:
+  name: The appliance or circuit this row represents.
+  icon: Optional glyph or emoji for the leading badge; a plug icon is drawn when unset.
+  watts: Instantaneous power draw as a display string.
+  kwh: Energy used over the period as a display string.
+  cost: Cost over the period as a preformatted display string.
+  pct: Share of total usage, 0-100, precomputed and used for the bar width.
+  on: Whether the appliance is drawing power now, setting the status dot colour.
+
+example_prompts:
+  - Add an appliance row for the air conditioner at 68 percent of usage.
+  - Show a dishwasher row that is off with its kWh and cost.
+  - List my top energy using appliances with share bars.
+
+relationships:
+  related:
+    - energy/bill-estimate
+    - energy/energy-mix-donut
+    - dataviz/pie-chart-shell
+
+lifecycle: experimental
+content_model: An appliance name, an optional icon, a share of total, energy and cost figures, and an on or off state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Keep names short and consistent so a stack of rows scans cleanly. Precompute pct against
+  the same total across all rows so the bars compare fairly, and reserve the on dot for
+  appliances actually drawing power.
+
+categorization:
+  category: Energy
+  subcategory: Usage
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The on or off state is exposed to screen readers with visually hidden text, not the colour dot alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

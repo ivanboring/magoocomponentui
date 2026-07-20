@@ -1,0 +1,28 @@
+name: epic-progress
+props:
+  name:
+    type: string
+    required: true
+    title: Epic name
+    description: The epic's title.
+    example: "Checkout redesign"
+  done:
+    type: integer
+    required: true
+    title: Stories done
+    description: Number of stories completed.
+    example: 12
+  total:
+    type: integer
+    required: true
+    title: Total stories
+    description: Total number of stories in the epic.
+    example: 18
+  pct:
+    type: integer
+    required: true
+    title: Percent complete
+    description: >
+      Completion percentage from 0-100, precomputed by the caller (done / total x 100) since
+      the template performs no arithmetic. Used for the bar width and the aria value.
+    example: 67

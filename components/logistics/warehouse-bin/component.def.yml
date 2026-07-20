@@ -1,0 +1,42 @@
+name: warehouse-bin
+props:
+  bin_id:
+    type: string
+    required: true
+    title: Bin ID
+    description: The storage bin or location identifier.
+    example: "A-12-03"
+  zone:
+    type: string
+    title: Zone
+    description: Warehouse zone or aisle label.
+    example: "A"
+  sku:
+    type: string
+    title: SKU
+    description: SKU stored in the bin, shown in a mono face.
+    example: "SKU-88213"
+  qty:
+    type: string
+    title: Quantity
+    description: Current unit count in the bin.
+    example: 340
+  capacity:
+    type: string
+    title: Capacity
+    description: Maximum unit capacity of the bin.
+    example: 400
+  fill_pct:
+    type: string
+    required: true
+    title: Fill percent
+    description: Precomputed fill level as a whole number 0-100; drives the capacity bar width.
+    example: 85
+  tone:
+    type: enum
+    values: [default, warning, danger]
+    default: default
+    title: Fill tone
+    description: >
+      Colour of the capacity bar, set by the caller from the fill level (e.g. warning when near full,
+      danger when over-allocated). Applied via a data attribute, not the enum class map.

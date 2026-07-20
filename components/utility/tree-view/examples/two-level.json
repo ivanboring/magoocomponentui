@@ -1,0 +1,21 @@
+{
+  "label": "Categories",
+  "nodes": [
+    {
+      "label": "Electronics",
+      "children": [
+        { "label": "Laptops" },
+        { "label": "Phones" },
+        { "label": "Headphones" }
+      ]
+    },
+    {
+      "label": "Home",
+      "children": [
+        { "label": "Kitchen" },
+        { "label": "Furniture" }
+      ]
+    },
+    { "label": "Gift cards" }
+  ]
+}

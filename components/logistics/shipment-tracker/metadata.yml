@@ -1,0 +1,83 @@
+name: "Shipment Tracker"
+short_description: A vertical stop-by-stop shipment timeline from origin scan to delivery, with a tracking number and status header.
+long_visual_description: >
+  A card with a header carrying the tracking number in a mono face and an overall status pill, above
+  a vertical timeline of stop events. Each stop has a dot on a connecting line — completed stops fill
+  with a success check, the in-progress stop is outlined with a ring, and upcoming stops stay muted —
+  followed by a label, location and time.
+
+use_cases:
+  - Show a parcel's scan history from pickup to delivery.
+  - Track a freight shipment across transfer hubs.
+  - Display last-mile delivery progress on an order page.
+  - Give a customer a self-service tracking view by reference number.
+  - Surface an in-transit timeline inside a support ticket.
+  - Present a returns pickup and inbound-scan timeline.
+
+recommended_for:
+  - A detailed, chronological view of a single shipment's stops.
+  - Pages where the tracking number and each scan event both matter.
+
+avoid_for:
+  - A compact one-line parcel summary (use package-status-row).
+  - A horizontal checkout stepper (use order-tracker).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the tracking number, an overall status string, and a stops array in chronological order. Mark
+  each completed stop with done true and the single active stop with current true; leave both false
+  for upcoming stops.
+
+props:
+  tracking_number: The carrier tracking or reference number shown in the header.
+  status: A short overall status label shown as a header pill.
+  stops: The scan events in order; each has a label, location, time, and done/current booleans.
+
+example_prompts:
+  - "Show a shipment tracker for parcel 1Z999 with received, in transit and out for delivery stops."
+  - "Add a delivery timeline with the tracking number and each scan location and time."
+  - "Render a freight shipment progress list from origin to destination."
+
+lifecycle: experimental
+content_model: A tracking number, an overall status, and an ordered list of stop events with location, time and completion state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-ring
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Order stops oldest to newest and keep labels to short scan-event names. Show real timestamps for
+  completed stops and an estimate for upcoming ones.
+
+relationships:
+  related:
+    - logistics/package-status-row
+    - logistics/delivery-proof
+    - commerce/order-tracker
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Tracking
+  atomic_type: organism
+  usage_type: [timeline, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: An ordered list conveys sequence; each stop's state is shown by icon and label emphasis plus a data attribute, not colour alone.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

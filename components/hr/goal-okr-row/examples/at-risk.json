@@ -1,0 +1,10 @@
+{
+  "objective": "Ship the mobile app redesign",
+  "owner": "Product & Design",
+  "progress": 38,
+  "status": "at-risk",
+  "key_results": [
+    { "label": "Screens redesigned", "pct": 55 },
+    { "label": "Usability tests passed", "pct": 20 }
+  ]
+}

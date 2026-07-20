@@ -1,0 +1,22 @@
+{
+  "query": "head",
+  "placeholder": "Search products…",
+  "start_open": true,
+  "groups": [
+    {
+      "label": "Suggestions",
+      "items": [
+        { "label": "headphones", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"9\" r=\"6\"/><path d=\"M14 14l4 4\"/></svg>", "meta": "1,204 results" },
+        { "label": "headset stand", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"9\" r=\"6\"/><path d=\"M14 14l4 4\"/></svg>", "meta": "88 results" },
+        { "label": "headband", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"9\" r=\"6\"/><path d=\"M14 14l4 4\"/></svg>", "meta": "312 results" }
+      ]
+    },
+    {
+      "label": "Categories",
+      "items": [
+        { "label": "Audio", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M4 12v-2a6 6 0 0112 0v2\"/><rect x=\"3\" y=\"11\" width=\"3\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"11\" width=\"3\" height=\"5\" rx=\"1\"/></svg>", "meta": "in Electronics" },
+        { "label": "Accessories", "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><rect x=\"4\" y=\"6\" width=\"12\" height=\"9\" rx=\"1\"/><path d=\"M7 6V5a3 3 0 016 0v1\"/></svg>", "meta": "in Electronics" }
+      ]
+    }
+  ]
+}

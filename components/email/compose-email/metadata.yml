@@ -1,0 +1,90 @@
+name: "Compose Email"
+short_description: A message composer card with To and Subject fields, a body editor, a format toolbar and a Send button.
+long_visual_description: >
+  A card on the surface colour laid out as a form. Stacked, divided rows hold a labelled To field and
+  a Subject field, then a resizable multi-line body area with placeholder text. A bottom toolbar,
+  separated by a divider, groups an attach icon and bold/italic/link format buttons on the left with a
+  primary Send button (paper-plane icon) on the right.
+
+use_cases:
+  - Compose a new email from scratch.
+  - Reply to a message with the recipient and subject pre-filled.
+  - Forward a message with an editable body.
+  - A quick-send composer in a support console.
+  - A contact or feedback form styled as an email.
+  - An inline reply box at the foot of a thread.
+
+recommended_for:
+  - Any email or messaging app's compose and reply flows.
+  - Forms that collect a recipient, subject and body.
+avoid_for:
+  - Rich WYSIWYG editing with real formatting state (wire a full editor).
+  - Reading an existing message (use email-reader).
+
+markets:
+  - Global
+
+example_usage: >
+  Optionally pre-fill to and subject (e.g. for a reply) and set a body placeholder. Listen for the
+  "email:send" event on the form to actually send; its detail carries { to, subject, body } and it is
+  cancelable, so call preventDefault to keep the composer open on a validation error.
+
+how_to_use: >
+  behavior.js intercepts the form submit, prevents the default navigation, and dispatches a bubbling,
+  cancelable CustomEvent "email:send" whose detail is { to, subject, body } read from the current
+  field values. The host app performs the actual send in that listener (and may preventDefault to
+  block it). The format/attach toolbar buttons are inert skeleton affordances — wire them up in the
+  host if you need real formatting. The portable self-init passes no props; there is nothing to
+  configure via data-* attributes.
+
+props:
+  to: Pre-filled recipient(s) for the To field; leave empty for a blank composer.
+  subject: Pre-filled subject line; leave empty for a blank composer.
+  body_placeholder: Placeholder text for the empty body (e.g. "Write your reply…").
+
+example_prompts:
+  - "Add a blank compose email card with a Send button."
+  - "Show a reply composer pre-filled with the recipient and Re: subject."
+  - "Put a compose box at the bottom of the thread."
+
+lifecycle: experimental
+content_model: A recipient field, a subject field, a body editor, and a send action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep placeholders friendly and short. Pre-fill the subject with a "Re:" prefix for replies, and
+  validate recipients in your send listener rather than blocking typing in the field.
+
+relationships:
+  related:
+    - email/email-reader
+    - email/thread-message
+    - email/inbox-list
+
+categorization:
+  category: Email
+  subcategory: Compose
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Inputs and textarea carry aria-labels mirroring their visual labels; toolbar and send buttons have accessible names; icons are aria-hidden.
+  keyboard_support: All fields and buttons are in the natural tab order; the form submits on Enter within a field or by activating Send, which fires email:send.
+  seo_score: 20
+  text_direction: both

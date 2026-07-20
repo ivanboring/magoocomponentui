@@ -1,0 +1,13 @@
+name: citation-list
+props:
+  sources:
+    type: array
+    items: object
+    required: true
+    title: Sources
+    description: >
+      The cited sources, in display order. Each item: { index, title, url, domain, snippet }.
+      index is the citation number shown in the badge; title links to url; domain and snippet are
+      optional.
+    example:
+      - { index: 1, title: "Attention Is All You Need", url: "https://example.com/a", domain: "arxiv.org", snippet: "The dominant sequence transduction models are based on complex recurrent or convolutional networks." }

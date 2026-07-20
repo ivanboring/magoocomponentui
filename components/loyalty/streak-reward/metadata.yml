@@ -1,0 +1,82 @@
+name: "Streak Reward"
+short_description: A daily-streak card with a flame headline, a week of check dots, and the next reward milestone.
+long_visual_description: >
+  A surface card led by a circular flame glyph next to a large "N day streak" headline and an
+  optional next-reward line. Below sits a row of one dot per weekday - completed days show a filled
+  primary check dot, unmet days an empty outline dot - with a muted milestone note beneath telling
+  the member which streak length unlocks the next reward.
+
+use_cases:
+  - Show a member's current daily login or activity streak.
+  - Encourage a habit loop by visualising the week's completed days.
+  - Surface the milestone a streak must reach to earn the next perk.
+  - Reinforce a fitness or learning app's daily-goal streak.
+  - Highlight a rewards-program streak on a member dashboard.
+  - Nudge a member who is close to a streak reward.
+
+recommended_for:
+  - Habit, fitness, and learning apps with daily goals.
+  - Loyalty programs that reward consecutive-day engagement.
+avoid_for:
+  - A generic determinate progress bar (use progress-bar).
+  - A multi-metric dashboard tile (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set days to the current streak length and pass a week array of seven { day, done } entries in
+  order. Add next_reward for a short teaser line and reward_at for the milestone note under the
+  dots. The caller decides which days are done - the component only renders the state.
+
+props:
+  days: The current unbroken streak length in days, shown as the headline number.
+  reward_at: The streak length that unlocks the next reward, shown as a milestone note.
+  next_reward: A short line describing the next reward, shown under the headline.
+  week: One { day, done } entry per weekday in order; done renders a filled check dot.
+
+example_prompts:
+  - "Show a 5 day streak with the next reward at 7 days."
+  - "Add a streak card for a daily login habit."
+  - "Show this week's streak with two days still to go."
+
+lifecycle: experimental
+content_model: A streak count, a week of completed/unmet days, and an optional reward milestone.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the next-reward line short and concrete. Order the week dots chronologically so the filled
+  run reads as an unbroken streak; never colour an unmet day as done.
+
+relationships:
+  related:
+    - loyalty/challenge-progress
+    - atoms/progress-bar
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Engagement
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each day's done state is conveyed by a check icon and dot fill, not colour alone; the week list carries an accessible label.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,9 @@
+{
+  "bin_id": "C-04-19",
+  "zone": "C",
+  "sku": "SKU-40027",
+  "qty": 588,
+  "capacity": 600,
+  "fill_pct": 98,
+  "tone": "warning"
+}

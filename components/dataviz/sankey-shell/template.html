@@ -1,0 +1,9 @@
+<figure class="sankey-shell rounded-card border border-border bg-surface p-4 shadow-card" role="group" aria-label="{{ title }}">
+  <figcaption data-if="title" class="mb-3 font-heading text-on-surface">{{ title }}</figcaption>
+    <svg class="sankey-shell__svg mx-auto block w-full max-w-md overflow-visible" viewBox="0 0 100 100" role="img" aria-label="{{ title }}">
+      <path data-for="l in links" d="{{ l.path }}" fill="none" stroke-linecap="butt" class="[stroke-width:6] opacity-30 {{ l.color_class }}"></path>
+      <rect data-for="n in nodes" x="{{ n.x_pct }}" y="{{ n.y_pct }}" width="{{ n.w_pct }}" height="{{ n.h_pct }}" rx="0.5" class="{{ n.color_class }}"></rect>
+      <text data-for="n in nodes" x="{{ n.label_x }}" y="{{ n.label_y }}" text-anchor="{{ n.label_anchor }}" dominant-baseline="middle" class="fill-on-surface [font-size:4px]">{{ n.label }}</text>
+    </svg>
+  <span class="hidden fill-primary fill-secondary fill-accent fill-success fill-warning fill-danger fill-info stroke-primary stroke-secondary stroke-accent stroke-success stroke-warning stroke-danger stroke-info" aria-hidden="true"></span>
+</figure>

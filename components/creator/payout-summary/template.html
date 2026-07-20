@@ -1,0 +1,27 @@
+<div class="payout-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p data-if="period" class="text-sm text-on-surface-muted">{{ period }}</p>
+      <p class="mt-0.5 font-heading text-3xl text-on-surface tabular-nums">{{ total }}</p>
+    </div>
+    <span class="payout-summary__status shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+
+  <ul class="payout-summary__sources mt-4 divide-y divide-border border-y border-border">
+    <li data-for="source in sources" class="flex items-center justify-between gap-3 py-2 text-sm">
+      <span class="text-on-surface-muted">{{ source.label }}</span>
+      <span class="font-medium text-on-surface tabular-nums">{{ source.amount }}</span>
+    </li>
+  </ul>
+
+  <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-sm text-on-surface-muted">
+    <span data-if="payout_date" class="payout-summary__date inline-flex items-center gap-1.5">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M3 8h14M7 2v3M13 2v3"/></svg>
+      {{ payout_date }}
+    </span>
+    <span data-if="method" class="payout-summary__method inline-flex items-center gap-1.5">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="5" width="16" height="10" rx="2"/><path d="M2 8h16"/></svg>
+      {{ method }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+name: "Crossfade Carousel"
+short_description: A full-width hero rotator that cross-fades between stacked slides with dots and arrows, pausing on hover or focus.
+long_visual_description: >
+  A full-bleed, rounded hero panel showing one slide at a time. All slides are stacked in the same
+  space and cross-faded via opacity rather than scrolling. Each slide is a wide 16:9 (21:9 from the
+  sm breakpoint) image with a dark bottom-up scrim and white caption — an uppercase eyebrow, a large
+  heading, a short subtitle and a solid CTA button. Circular translucent previous/next arrows overlay
+  the left and right edges and a centered row of small dots sits near the bottom.
+
+use_cases:
+  - Homepage hero that cross-fades through featured campaigns.
+  - Elegant banner where a soft fade suits the brand better than a slide.
+  - Product spotlight dissolving between key highlights.
+  - Editorial cover rotator for top stories on a news site.
+  - Photography or portfolio hero that fades between images.
+  - Marketing splash cycling value propositions with a gentle transition.
+
+recommended_for:
+  - A single-slide hero where a crossfade reads better than a horizontal slide.
+  - Full-width promotional banners rendered from structured slide data.
+avoid_for:
+  - Showing several cards in view at once (use carousel-grid).
+  - A horizontal sliding transition instead of a fade (use carousel-autoplay).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, eyebrow, title, subtitle, cta_label, href }) and set the
+  rotation speed with interval (4, 6 or 8 seconds). Autoplay is on by default and pauses on hover or
+  focus; turn it off with autoplay:false to make the carousel purely manual via the arrows and dots.
+
+how_to_use: >
+  All slides are stacked in one grid cell; the template's base state is opacity-100 so the first
+  slide renders with no JavaScript and appears in screenshots. behavior.js calls setActive(0) at init
+  to fade every other slide out, then advances by cross-fading. It reads data-autoplay and
+  data-interval from the root: when data-autoplay is "true" it advances one slide every interval,
+  wrapping around, and pauses on hover/focus (resuming on leave/blur). Autoplay is always suppressed
+  when the visitor prefers reduced motion; the arrows and dots still work in that case. The portable
+  self-init reads config from data-* attributes — no props object is passed.
+
+props:
+  items: "The slides, in order. Each item: image (optional), eyebrow (optional kicker), title, subtitle (optional), cta_label (optional — renders a CTA button), href (the CTA link)."
+  interval: "Seconds each slide shows before cross-fading: 4, 6 or 8."
+  autoplay: "When true the carousel auto-advances and pauses on hover/focus; when false it is manual only. Reduced-motion visitors never get autoplay."
+  show_arrows: "Show the previous/next arrow buttons overlaid on the edges."
+  show_dots: "Show the row of navigation dots (one per slide)."
+  label: "Accessible name announced for the carousel region."
+
+lifecycle: experimental
+content_model: A rotating set of full-width hero slides, cross-faded, rendered from an items array.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-secondary
+    - --color-surface-raised
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --ease-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep captions short — one heading line and a single subtitle sentence read best over an image.
+  Order slides by priority since the first is what most visitors see. A crossfade suits calmer,
+  image-led brands; reach for the sliding autoplay carousel when you want more energy.
+
+relationships:
+  related:
+    - layout/carousel-autoplay
+    - layout/carousel-grid
+
+categorization:
+  category: Layout
+  subcategory: Carousels
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label and aria-roledescription; arrows and dots are labelled buttons, autoplay pauses on hover/focus, and rotation is suppressed for reduced-motion visitors.
+  keyboard_support: Arrows and dots are focusable buttons that activate on Enter/Space; focusing any control pauses autoplay until focus leaves.
+  seo_score: 30
+  text_direction: both

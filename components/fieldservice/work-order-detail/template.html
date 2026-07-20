@@ -1,0 +1,45 @@
+<article class="work-order-detail flex flex-col divide-y divide-border rounded-card border border-border bg-surface shadow-card">
+  <header class="flex items-start justify-between gap-3 p-(--space-card)">
+    <div class="min-w-0">
+      <p class="font-mono text-xs uppercase tracking-wide text-on-surface-muted">Work order</p>
+      <h3 class="font-heading text-lg text-on-surface">{{ order_number }}</h3>
+    </div>
+    <span data-if="status" class="work-order-detail__status inline-flex shrink-0 items-center rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ status }}</span>
+  </header>
+
+  <div data-if="customer" class="flex flex-col gap-1 p-(--space-card) text-sm">
+    <p class="font-medium text-on-surface">{{ customer }}</p>
+    <p data-if="address" class="text-on-surface-muted">{{ address }}</p>
+  </div>
+
+  <div data-if="description_html" class="work-order-detail__description p-(--space-card) text-sm text-on-surface-muted">{{{ description_html }}}</div>
+
+  <section data-if="tasks" class="flex flex-col gap-3 p-(--space-card)">
+    <h4 class="font-heading text-sm text-on-surface">Tasks</h4>
+    <ul class="flex flex-col gap-2">
+      <li data-for="task in tasks" class="flex items-start gap-2.5 text-sm">
+        <span data-if="task.done" class="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-control border-2 border-primary bg-primary text-primary-contrast" aria-hidden="true">
+          <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        </span>
+        <span data-if="!task.done" class="mt-0.5 size-4 shrink-0 rounded-control border-2 border-border" aria-hidden="true"></span>
+        <span data-if="task.done" class="text-on-surface-muted line-through">{{ task.label }}</span>
+        <span data-if="!task.done" class="text-on-surface">{{ task.label }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section data-if="parts" class="flex flex-col gap-3 p-(--space-card)">
+    <h4 class="font-heading text-sm text-on-surface">Parts</h4>
+    <ul class="flex flex-col gap-1.5">
+      <li data-for="part in parts" class="flex items-center justify-between gap-3 text-sm">
+        <span class="min-w-0 truncate text-on-surface">{{ part.name }}</span>
+        <span class="shrink-0 font-mono text-xs text-on-surface-muted">x{{ part.qty }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer data-if="total" class="flex items-center justify-between gap-3 p-(--space-card)">
+    <span class="text-sm font-medium text-on-surface-muted">Total</span>
+    <span class="font-heading text-lg text-on-surface tabular-nums">{{ total }}</span>
+  </footer>
+</article>

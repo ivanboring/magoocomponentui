@@ -1,0 +1,17 @@
+name: recurring-donation-toggle
+props:
+  value:
+    type: enum
+    values: ["one-time", "monthly"]
+    default: "one-time"
+    title: Frequency
+    description: >
+      Which frequency is active. Drives the segmented control's data-state, which
+      highlights the matching segment. Clicking a segment updates it at runtime.
+  monthly_note:
+    type: string
+    title: Recurring note
+    description: >
+      An optional line shown beneath the toggle explaining the impact of giving
+      monthly (e.g. how a recurring gift compounds). Omit to hide the note.
+    example: "A monthly gift of $25 provides 40 meals every month, all year long."

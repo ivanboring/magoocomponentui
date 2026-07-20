@@ -1,0 +1,10 @@
+<div class="body-metrics grid grid-cols-2 gap-4 sm:grid-cols-3">
+  <div data-for="m in metrics" class="body-metrics__tile rounded-card border border-border bg-surface p-4 shadow-card">
+    <p class="text-sm text-on-surface-muted">{{ m.label }}</p>
+    <p class="mt-1 font-heading text-2xl text-on-surface tabular-nums">{{ m.value }}<span data-if="m.unit" class="ml-1 text-sm font-normal text-on-surface-muted">{{ m.unit }}</span></p>
+    <p data-if="m.change" class="mt-1 inline-flex items-center gap-1 text-xs font-medium text-on-surface-muted data-[dir=up]:text-danger data-[dir=down]:text-success" data-dir="{{ m.change_dir }}">
+      <svg data-if="m.change_dir" class="size-3.5 data-[dir=down]:rotate-180" data-dir="{{ m.change_dir }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
+      {{ m.change }}
+    </p>
+  </div>
+</div>

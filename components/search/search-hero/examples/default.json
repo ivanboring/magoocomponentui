@@ -1,0 +1,11 @@
+{
+  "heading": "Search the docs",
+  "subheading": "Find guides, references and answers in seconds.",
+  "placeholder": "Search guides, API and more…",
+  "suggestions": [
+    { "label": "Getting started" },
+    { "label": "Authentication" },
+    { "label": "API reference" },
+    { "label": "Webhooks" }
+  ]
+}

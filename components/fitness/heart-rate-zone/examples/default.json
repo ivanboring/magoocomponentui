@@ -1,0 +1,11 @@
+{
+  "bpm": "148",
+  "zone_label": "Cardio",
+  "zones": [
+    { "label": "Rest", "range": "< 98", "active": false, "color_class": "bg-info" },
+    { "label": "Warm-up", "range": "98-117", "active": false, "color_class": "bg-success" },
+    { "label": "Fat burn", "range": "118-137", "active": false, "color_class": "bg-primary" },
+    { "label": "Cardio", "range": "138-157", "active": true, "color_class": "bg-warning" },
+    { "label": "Peak", "range": "158+", "active": false, "color_class": "bg-danger" }
+  ]
+}

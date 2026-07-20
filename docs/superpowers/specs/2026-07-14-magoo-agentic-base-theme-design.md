@@ -19,7 +19,7 @@ time**. Consequences:
 
 ## Goal
 
-Ship a **base theme** (`magoo_agentic_theme`) installed in the real Drupal 11 site at
+Ship a **base theme** (`magoo_agentic_base_theme`) installed in the real Drupal 11 site at
 `custom_theme/web/themes/custom/`, a **child-theme generator**, and a **spec-kit skill** that turns a
 design reference plus a purpose into a styled child theme with 15+ catalog components — then prove
 the loop end to end on `https://custom-theme.ddev.site/`.
@@ -53,7 +53,7 @@ build strategy below.
 | Layer | Owns |
 |---|---|
 | **Token contract** | The fixed CSS-variable names (`packages/themes/tokens.contract.css`). Never renamed, never extended per theme. |
-| **Base theme** `magoo_agentic_theme` | Regions, templates, SDC + behavior runtime, the settings form, and the runtime `:root` emission. Installed once. |
+| **Base theme** `magoo_agentic_base_theme` | Regions, templates, SDC + behavior runtime, the settings form, and the runtime `:root` emission. Installed once. |
 | **Child theme** | Brand values (`<child>.settings.yml`), its installed components, and **its own Tailwind build**. |
 
 ### Build strategy (decided)
@@ -72,20 +72,20 @@ so it is installable and usable standalone; the child adds its own `css/dist/sty
 Both emit the same contract defaults, and both are overridden at runtime by the inline `:root` block,
 so the overlap is inert.
 
-## Base theme: `magoo_agentic_theme`
+## Base theme: `magoo_agentic_base_theme`
 
 ```
-custom_theme/web/themes/custom/magoo_agentic_theme/
-  magoo_agentic_theme.info.yml        # regions + `settings:` defaults (inherited by children)
-  magoo_agentic_theme.libraries.yml
-  magoo_agentic_theme.theme           # preprocess: emit :root vars, region visibility, font links
+custom_theme/web/themes/custom/magoo_agentic_base_theme/
+  magoo_agentic_base_theme.info.yml        # regions + `settings:` defaults (inherited by children)
+  magoo_agentic_base_theme.libraries.yml
+  magoo_agentic_base_theme.theme           # preprocess: emit :root vars, region visibility, font links
   theme-settings.php                  # the settings form (inherited by every child)
   includes/tokens.php                 # settings -> CSS-variable map + derivation + dark-mode derive
   templates/                          # html, page, region, block, node, field, menu
   css/src/contract.css                # the @theme contract, importable by a child's Tailwind entry
   css/dist/base.css                   # prebuilt (base templates only)
   js/                                 # SDC behavior runtime, color-scheme toggle
-  config/install/magoo_agentic_theme.settings.yml
+  config/install/magoo_agentic_base_theme.settings.yml
 ```
 
 **Regions (~22)** — a superset, so a child can hide what it doesn't want rather than edit Twig:
@@ -123,7 +123,7 @@ version quirk breaks it, fall back to the child's generated `.info.yml` restatin
 New `scripts/theme-cli/create-child.mjs` (+ subcommand in `theme-cli.mjs`), reusing
 `packages/generator` like the existing commands. From an answers JSON it emits:
 
-- `<child>.info.yml` with `base theme: magoo_agentic_theme` and the module dependencies its
+- `<child>.info.yml` with `base theme: magoo_agentic_base_theme` and the module dependencies its
   components need.
 - `<child>.settings.yml` — the token values resolved from the design reference.
 - `package.json` + `css/src/styles.css` (Tailwind entry importing the base contract, `@source`ing the

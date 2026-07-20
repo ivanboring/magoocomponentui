@@ -1,0 +1,80 @@
+name: "Andon Board"
+short_description: A grid of station tiles coloured by status - normal, call, fault or blocked - for a shop-floor andon display.
+long_visual_description: >
+  A responsive grid of large station tiles, one to four across as width allows. Each tile is tinted by
+  its status - green for normal running, amber for an andon call, red for a fault, blue for blocked -
+  with the station name in the heading face, a small status light in the top corner, the status word
+  beneath, and an optional short message giving the reason. At a glance the board shows which stations
+  are healthy and which need attention.
+
+use_cases:
+  - Shop-floor andon status board across production stations.
+  - Line or cell health overview on a plant dashboard.
+  - Workstation call-for-help display in a lean manufacturing cell.
+  - Warehouse zone or pick-station status wall.
+  - Machine availability board on a factory monitor.
+  - Overview of station states in a control room.
+
+recommended_for:
+  - At-a-glance status of many stations on one screen.
+  - Cases where each station reports a normal, call, fault or blocked state.
+avoid_for:
+  - Deep detail for a single station (use a dedicated card).
+  - A time-series or trend view (use a chart shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stations array where each station has a name, a status of normal, call, fault or blocked, and
+  an optional message. The tile colour follows the status, so keep statuses accurate and add a short
+  message on any station in call, fault or blocked to explain why.
+
+props:
+  stations: The stations in order, each with a name, a status and an optional message.
+
+example_prompts:
+  - Add an andon board showing four stations with one in fault.
+  - Show a shop-floor status wall with a blocked station and a reason.
+  - Render a station health board with normal and call states.
+
+relationships:
+  related:
+    - industrial/sensor-alarm-banner
+    - industrial/throughput-chart
+    - industrial/maintenance-schedule-row
+
+lifecycle: experimental
+content_model: A set of stations, each with a name, a status and an optional message.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep station names short and consistent so the grid scans cleanly. The status word and the message
+  carry the meaning; the tile tint reinforces it rather than replacing it. Reserve fault and blocked
+  for states that genuinely need action, and always add a message when a station is not normal.
+
+categorization:
+  category: Manufacturing
+  subcategory: Monitoring
+  atomic_type: organism
+  usage_type: [grid, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each tile states its status in text and an optional message, so status is not colour-only; the status light is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

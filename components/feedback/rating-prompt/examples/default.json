@@ -1,0 +1,11 @@
+{
+  "question": "How was your experience?",
+  "max": "5",
+  "stars": [
+    { "index": 1, "filled": false },
+    { "index": 2, "filled": false },
+    { "index": 3, "filled": false },
+    { "index": 4, "filled": false },
+    { "index": 5, "filled": false }
+  ]
+}

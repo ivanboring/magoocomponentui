@@ -1,0 +1,27 @@
+<section class="form-wizard-gov rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h2 data-if="title" class="form-wizard-gov__title font-heading text-xl text-on-surface">{{ title }}</h2>
+
+  <ol class="form-wizard-gov__steps mt-4 flex flex-col gap-4 sm:flex-row sm:gap-0" aria-label="Progress">
+    <li data-for="step in steps" class="form-wizard-gov__step group flex flex-1 items-center gap-3" data-active="{{ step.active }}" data-done="{{ step.done }}">
+      <span class="form-wizard-gov__marker flex size-8 shrink-0 items-center justify-center rounded-full border-2 border-border text-sm font-medium text-on-surface-muted group-data-[active=true]:border-primary group-data-[active=true]:text-primary group-data-[done=true]:border-success group-data-[done=true]:bg-success group-data-[done=true]:text-primary-contrast">
+        <svg class="hidden size-4 group-data-[done=true]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+        <span class="group-data-[done=true]:hidden">{{ step.number }}</span>
+      </span>
+      <span class="form-wizard-gov__label min-w-0 text-sm font-medium text-on-surface-muted group-data-[active=true]:text-on-surface group-data-[done=true]:text-on-surface">{{ step.label }}</span>
+    </li>
+  </ol>
+
+  <form class="form-wizard-gov__form mt-6 flex flex-col gap-4">
+    <div data-for="field in fields" class="form-wizard-gov__field flex flex-col gap-1">
+      <label class="text-sm font-medium text-on-surface">
+        {{ field.label }}<span data-if="field.required" class="text-danger" aria-hidden="true"> *</span>
+      </label>
+      <input type="text" class="rounded-control border border-border bg-surface-raised px-3 py-2 text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ field.placeholder }}">
+    </div>
+  </form>
+
+  <div class="form-wizard-gov__actions mt-6 flex items-center justify-between gap-3">
+    <button type="button" class="form-wizard-gov__back rounded-button border border-border bg-surface px-5 py-2.5 font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Back</button>
+    <button type="button" class="form-wizard-gov__next rounded-button bg-primary px-6 py-2.5 font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Next</button>
+  </div>
+</section>

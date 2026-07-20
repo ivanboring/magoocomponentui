@@ -1,0 +1,8 @@
+{
+  "symbol": "TSLA",
+  "side": "sell",
+  "order_type": "Limit",
+  "quantity": "25",
+  "price": "246.80",
+  "estimated_cost": "$6,170.00"
+}

@@ -24,6 +24,7 @@ export const PROP_TYPES = new Set([
   "enum",
   "link",
   "image",
+  "video",
   "array",
   "object",
 ]);

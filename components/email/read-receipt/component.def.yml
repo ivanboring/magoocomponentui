@@ -1,0 +1,15 @@
+name: read-receipt
+props:
+  state:
+    type: enum
+    values: ["sent", "delivered", "read"]
+    default: sent
+    title: State
+    description: >
+      Delivery state. "sent" shows a single check in muted colour; "delivered" shows a double
+      check, still muted; "read" shows the double check tinted with the info colour.
+variants:
+  state:
+    sent: "text-on-surface-muted"
+    delivered: "text-on-surface-muted"
+    read: "text-info"

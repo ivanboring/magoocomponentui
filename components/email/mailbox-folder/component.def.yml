@@ -1,0 +1,22 @@
+name: mailbox-folder
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The folder name.
+    example: "Inbox"
+  icon:
+    type: html
+    title: Icon
+    description: An optional leading inline SVG icon (raw HTML).
+  count:
+    type: integer
+    title: Unread count
+    description: Optional unread count; a badge is shown only when it is greater than zero.
+    example: 8
+  active:
+    type: boolean
+    default: false
+    title: Active
+    description: Mark this folder as the current one (filled with the raised surface).

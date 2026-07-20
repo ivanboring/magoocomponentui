@@ -1,0 +1,85 @@
+name: "Gas Fee Selector"
+short_description: A segmented control of three gas-fee tiers (Slow, Normal, Fast), each showing its cost and estimated wait.
+long_visual_description: >
+  Three equal cards in a row, each a fee tier with a small gwei caption, the tier name in the heading
+  face, the formatted cost in the mono face, and an estimated wait in muted text. The chosen card is
+  outlined in the primary colour with a faint primary-tinted background. Choosing one clears the
+  others.
+
+use_cases:
+  - Choosing transaction priority before signing.
+  - A gas settings step inside a swap or send flow.
+  - Letting users trade cost against confirmation speed.
+  - A pre-mint fee picker.
+  - Estimating and selecting fees in a wallet's send screen.
+  - A bridge transfer's speed selector.
+
+recommended_for:
+  - Any confirm flow that offers a few named fee tiers.
+  - Trading off fee cost against wait time in one control.
+avoid_for:
+  - A single non-adjustable fee display (use plain text).
+  - Arbitrary custom-gwei entry (add a numeric input separately).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an options array of exactly three tiers, each { label, tier, fee, time, selected }. Mark one
+  selected to preselect it. Listen for gas:select (detail.tier) to record the choice; the control
+  updates the selected styling itself on click.
+
+how_to_use: >
+  Selection is the data-selected attribute on each option, styled purely by data-[selected=true]
+  utilities, so the preselected tier renders correctly with no JavaScript (and in screenshots).
+  behavior.js wires the choice: clicking a card selects it, clears the others, and fires gas:select
+  with { tier }.
+
+props:
+  options: "The three fee tiers in order. Each: label (name), tier (short gwei caption), fee (cost), time (estimated wait), selected (preselect)."
+
+example_prompts:
+  - "Add a gas fee selector with Slow, Normal and Fast tiers, Normal preselected."
+  - "Let the user pick transaction speed before signing."
+  - "Show three gas options with costs and estimated wait times."
+
+lifecycle: experimental
+content_model: >
+  Three fee tiers, each with a name, a short gwei caption, a formatted cost and an estimated wait,
+  with one selected.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Order the tiers slowest to fastest so cost and speed rise left to right. Keep the wait estimates
+  honest and the fee formatting consistent across tiers.
+
+relationships:
+  related:
+    - crypto/swap-widget
+    - crypto/transaction-hash
+    - crypto/wallet-connect
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Transactions
+  atomic_type: molecule
+  usage_type: [form, action]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The group is a radiogroup and each option a radio with aria-checked; selection is conveyed by border and background, not colour alone, and the tier name is always visible.
+  keyboard_support: Options are focusable radio buttons that activate on Enter/Space; wire arrow-key roving in the host if desired.
+  seo_score: 20
+  text_direction: both

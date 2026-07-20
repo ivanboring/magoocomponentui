@@ -1,0 +1,81 @@
+name: "Chart Legend"
+short_description: A standalone legend of colour swatches with labels and optional values, laid out in a row or a column, for pairing with any chart shell.
+long_visual_description: >
+  A compact list where each entry is a small rounded colour swatch, a label in the
+  on-surface colour, and an optional muted trailing value. It lays out as a wrapping
+  horizontal row or a stacked vertical column. Swatch colours come from tokenized
+  background utilities passed per item, so the legend matches whatever chart it
+  accompanies.
+
+use_cases:
+  - Series key beside a pie, donut, or radar chart.
+  - Category key under a treemap or bar chart.
+  - Colour reference for a map or heatmap.
+  - Status colour key in a dashboard.
+  - Shared legend for several small multiples.
+  - Colour key inside a report figure caption.
+  - Standalone key when the chart itself omits one.
+
+recommended_for:
+  - Pairing with a chart shell that has no built-in legend.
+  - Reusing one key across several charts.
+  - Compact colour references in dashboards and reports.
+avoid_for:
+  - Interactive series toggling (this is static).
+  - Very long lists that would be better as a table.
+  - Conveying values precisely (add a data table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass one item per series with a label, a tokenized background colour class matching the
+  chart, and an optional value. Choose horizontal for a caption-style row or vertical for
+  a sidebar column.
+
+props:
+  items: Legend entries; each has a label, a swatch colour class, and an optional value.
+  orientation: Row (horizontal) or column (vertical) layout.
+
+example_prompts:
+  - "Add a legend for the traffic-source pie with four colours."
+  - "Show a vertical legend next to the storage treemap."
+  - "Put a shared colour key above the small-multiple charts."
+
+relationships:
+  related:
+    - dataviz/pie-chart-shell
+    - dataviz/radar-chart-shell
+    - dataviz/treemap-shell
+    - dataviz/chart-tooltip
+
+lifecycle: experimental
+content_model: A set of entries, each a label plus a colour swatch and an optional value, in a chosen orientation.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-info
+
+editorial_guidance: >
+  Match each swatch colour class to the corresponding series in the chart it accompanies.
+  Keep labels short and consistent with the chart. Use it whenever a chart shell has no
+  built-in key or when one legend should serve several charts.
+
+categorization:
+  category: Data Visualization
+  subcategory: Chart parts
+  atomic_type: molecule
+  usage_type: [list, chart]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Labels are real text, so meaning does not rely on colour alone; the list has semantic markup.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 42
+  text_direction: both

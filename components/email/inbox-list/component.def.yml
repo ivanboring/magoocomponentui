@@ -1,0 +1,15 @@
+name: inbox-list
+props:
+  emails:
+    type: array
+    items: object
+    required: true
+    title: Emails
+    description: >
+      The messages to list, in order. Each item:
+      { sender, subject, snippet, time, unread (bool), starred (optional bool),
+      avatar (optional image URL), initials (optional 1-2 char fallback for the avatar) }.
+      Provide either avatar or initials for each row; when neither is given a generic person
+      glyph is shown.
+    example:
+      - { sender: "Ava Chen", subject: "Q3 planning notes", snippet: "Notes from today's session.", time: "9:41 AM", unread: true, starred: true, initials: "AC" }

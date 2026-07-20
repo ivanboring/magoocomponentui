@@ -1,0 +1,8 @@
+{
+  "won": "24",
+  "lost": "12",
+  "slices": [
+    { "label": "Won", "value": "24", "dash": "66.7 33.3", "offset": "0", "color_class": "stroke-success" },
+    { "label": "Lost", "value": "12", "dash": "33.3 66.7", "offset": "-66.7", "color_class": "stroke-danger" }
+  ]
+}

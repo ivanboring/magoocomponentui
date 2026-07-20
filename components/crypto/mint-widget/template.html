@@ -1,0 +1,31 @@
+<div class="mint-widget flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="mint-widget__title font-heading text-lg text-on-surface">{{ title }}</h3>
+  <div class="mint-widget__price mt-3 flex items-baseline gap-1.5">
+    <svg class="size-4 shrink-0 translate-y-0.5 fill-primary" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l4.7 6.5L10 10.9 5.3 8 10 1.5zm0 10.6l4.7-2.9L10 16.5 5.3 9.2 10 12.1z"></path></svg>
+    <span class="font-mono text-xl text-on-surface tabular-nums">{{ price }}</span>
+    <span class="text-sm text-on-surface-muted">per item</span>
+  </div>
+  <p data-if="supply_total" class="mint-widget__supply mt-4 text-sm text-on-surface-muted">
+    <span class="font-mono text-on-surface tabular-nums">{{ supply_minted }}</span> / <span class="font-mono tabular-nums">{{ supply_total }}</span> minted
+  </p>
+  <div class="mint-widget__stepper mt-5 flex items-center gap-3">
+    <span class="text-sm text-on-surface-muted">Quantity</span>
+    <div class="ml-auto flex items-center rounded-control border border-border">
+      <button type="button" class="mint-widget__dec flex size-9 items-center justify-center rounded-l-control text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Decrease quantity">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h10"></path></svg>
+      </button>
+      <input class="mint-widget__qty w-12 border-x border-border bg-transparent py-1.5 text-center font-mono text-on-surface tabular-nums outline-none" type="number" min="1" value="{{ quantity }}" data-max="{{ max }}" aria-label="Quantity">
+      <button type="button" class="mint-widget__inc flex size-9 items-center justify-center rounded-r-control text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Increase quantity">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M5 10h10"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mint-widget__footer mt-4 flex items-center justify-between border-t border-border pt-4">
+    <span class="text-sm text-on-surface-muted">Total</span>
+    <span class="flex items-baseline gap-1.5">
+      <svg class="size-4 shrink-0 translate-y-0.5 fill-primary" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l4.7 6.5L10 10.9 5.3 8 10 1.5zm0 10.6l4.7-2.9L10 16.5 5.3 9.2 10 12.1z"></path></svg>
+      <span class="mint-widget__total font-mono text-on-surface tabular-nums" data-unit-price="{{ price }}">{{ price }}</span>
+    </span>
+  </div>
+  <button type="button" class="mint-widget__mint mt-5 w-full rounded-button bg-primary px-4 py-3 font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Mint</button>
+</div>

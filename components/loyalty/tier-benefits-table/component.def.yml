@@ -1,0 +1,28 @@
+name: tier-benefits-table
+props:
+  tiers:
+    type: array
+    items: object
+    required: true
+    title: Tiers
+    description: >
+      The tier columns, in order (left to right). Each item: { name, current }. name is the column
+      header; current is an optional boolean - set it true on the member's current tier to highlight
+      that column and mark its header. At most one tier should be current.
+    example:
+      - { name: "Silver", current: false }
+      - { name: "Gold", current: true }
+      - { name: "Platinum", current: false }
+  benefits:
+    type: array
+    items: object
+    required: true
+    title: Benefit rows
+    description: >
+      One row per benefit. Each item: { label, values }. label is the row header; values is an array
+      of strings aligned to tiers (one entry per column, in the same order). A non-empty string is
+      shown as the cell value; an empty string renders an excluded dash for that tier.
+    example:
+      - { label: "Points multiplier", values: ["1x", "1.5x", "2x"] }
+      - { label: "Free shipping", values: ["", "Yes", "Yes"] }
+      - { label: "Concierge line", values: ["", "", "Yes"] }

@@ -1,0 +1,86 @@
+name: "Dispatch Map"
+short_description: A schematic dispatch board facade that plots technician pins by status over a gridded map with a legend.
+long_visual_description: >
+  A surface card headed by a title and a "Live dispatch" pill, above a wide gridded facade on the
+  raised surface. Technician pins sit at precomputed percent positions, each a circular initials
+  badge coloured by status (green available, blue en route, amber on job, muted offline) with a name
+  label beneath. Optional star markers stand in for job locations. A colour legend and a note that
+  the map is a schematic facade, not a geographic map, close the card.
+
+use_cases:
+  - Show which technicians are available, en route or on a job at a glance.
+  - Sketch a dispatch board for a field service overview.
+  - Visualise team coverage across a service area schematically.
+  - Present a live status board on an operations dashboard.
+  - Illustrate a routing or assignment concept without a real map.
+  - Give a coordinator a quick read on who is free to take a call.
+
+recommended_for:
+  - Field service dashboards that need a status-first view of the crew.
+  - Skeleton or prototype layouts standing in for a real map integration.
+avoid_for:
+  - Real geographic routing or navigation (this plots precomputed percent positions, not coordinates).
+  - Precise distance or location decisions.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a technicians array where each has a name, initials, a status (available, en-route, on-job or
+  offline) and precomputed x_pct/y_pct positions. Optionally add jobs with their own positions. The
+  facade is deliberately schematic - compute the positions upstream from whatever layout you want.
+
+props:
+  title: Heading above the map facade.
+  label: Accessible name for the map region.
+  technicians: The technician pins; each has a name, initials, a status colour and x_pct/y_pct position.
+  jobs: Optional job markers, each with a label and x_pct/y_pct position.
+
+example_prompts:
+  - "Show a dispatch map with four technicians coloured by availability."
+  - "Add a schematic technician status board with a legend."
+
+lifecycle: experimental
+content_model: A titled schematic map facade with status-coloured technician pins, optional job markers, and a legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary-contrast
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep initials to two characters and names short so pins stay legible. Make each pin's status honest,
+  since its colour is the whole point, and reserve the facade for overview - link out to a real map
+  for anything geographic.
+
+relationships:
+  related:
+    - fieldservice/time-on-site
+    - fieldservice/equipment-card
+    - fieldservice/checklist-inspection
+
+categorization:
+  category: Field Service
+  subcategory: Dispatch
+  atomic_type: organism
+  usage_type: [highlight, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The map region carries an aria-label and each pin shows a name label; status is reinforced by the legend text, not colour alone, though the facade itself is decorative.
+  keyboard_support: None - static, non-interactive facade.
+  seo_score: 25
+  text_direction: both

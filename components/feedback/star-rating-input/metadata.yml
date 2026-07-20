@@ -1,0 +1,76 @@
+name: "Star Rating Input"
+short_description: An interactive star rating control with hover preview and full keyboard support.
+long_visual_description: >
+  A horizontal row of gold star buttons on their own, with no surrounding card. Stars up to the
+  current value are solid and the rest are dimmed. Hovering or focusing a star previews the fill up
+  to that point; clicking or arrow-keying commits the score. It behaves as a radiogroup with roving
+  focus.
+
+use_cases:
+  - Let a user set a star rating inside a review form.
+  - Collect a product or seller rating at checkout or post-purchase.
+  - Rate a recipe, article, or piece of media.
+  - Provide the input half of a ratings widget backed by a stored value.
+  - Capture a star score inside a survey or feedback step.
+  - Offer an accessible, keyboard-driven alternative to a slider score.
+
+recommended_for:
+  - Interactive star input where the value is read back and stored.
+  - Forms and surveys needing an accessible radiogroup rating.
+avoid_for:
+  - Read-only display of an average rating (use rating-stars).
+  - A one-off "rate this experience" card (use rating-prompt).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute a stars array (one { index, filled } per star, filled = index <= value) and pass value,
+  max, and a label. Listen for the bubbling rating:change event (detail.value is 1-max) on a parent
+  to store the score.
+
+how_to_use: >
+  Each star button carries a 1-based data-index and its glyph's data-filled drives the fill, so the
+  initial value renders in screenshots with no JavaScript. behavior.js previews the fill on hover and
+  focus, commits on click, supports Arrow/Home/End keys with roving tabindex over the radiogroup,
+  keeps aria-checked in sync, and dispatches a bubbling "rating:change" CustomEvent with { value }.
+  The portable self-init reads no props object.
+
+props:
+  value: "The current rating as a string, 0 for unrated up to max."
+  max: "How many stars to offer; should match the stars array length."
+  label: "Accessible name announced for the radiogroup."
+  stars: "Precomputed { index, filled } per star, filled = index <= value, length == max."
+
+lifecycle: experimental
+content_model: A single interactive star score from 0 to a configurable maximum.
+
+theming:
+  tokens_used:
+    - --color-warning
+    - --color-ring
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Give a clear accessible label describing what is being rated. Keep max at the conventional five
+  unless the domain expects otherwise, and pair with a submit action rather than saving on every hover.
+
+relationships:
+  related:
+    - feedback/rating-prompt
+    - atoms/rating-stars
+    - feedback/nps-survey
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Ratings
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A labelled radiogroup of role="radio" buttons with aria-checked and roving tabindex; fully keyboard operable with Arrow/Home/End and a visible focus ring, so state is not conveyed by colour alone.
+  keyboard_support: Tab moves focus into the group; Arrow keys change the score, Home/End jump to first/last, Enter/Space activate the focused star.
+  seo_score: 15
+  text_direction: both

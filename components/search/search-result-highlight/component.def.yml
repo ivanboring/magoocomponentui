@@ -1,0 +1,17 @@
+name: search-result-highlight
+props:
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Text segments
+    description: >
+      The text split into segments, in order. Each item: { text, match }. text is a
+      run of characters; match (boolean) marks whether that run is a matched search term
+      and should be highlighted. Split the string upstream so matched and unmatched runs
+      alternate; include any surrounding spaces in the text so the sentence reads
+      naturally.
+    example:
+      - { text: "Introduction to ", match: false }
+      - { text: "Kafka", match: true }
+      - { text: " streaming", match: false }

@@ -1,0 +1,84 @@
+name: "Backlog Item"
+short_description: A single backlog row with a type icon, priority dot, title, optional tag, and an effort-estimate badge.
+long_visual_description: >
+  A compact row on the surface colour led by a type icon whose glyph and colour change with the
+  work-item type (a blue bookmark for a story, a red glyph for a bug, a green checkbox for a task),
+  followed by a small priority dot, the item title, an optional uppercase tag, and a round estimate
+  badge on the trailing edge. Rows stack to form a groomed backlog list.
+
+use_cases:
+  - A row in a product backlog or refinement list.
+  - A sprint-planning candidate list before commitment.
+  - An epic's child stories with estimates.
+  - A bug list mixed with feature work by type.
+  - Any prioritised, estimated list of work items.
+
+recommended_for:
+  - Backlogs rendered from structured story/bug/task data.
+  - Lists that need a type glyph and an effort estimate per row.
+avoid_for:
+  - A card on a board (use task-card).
+  - Items with no type or estimate.
+
+markets:
+  - Global
+
+example_usage: >
+  Set the type to story, bug, or task to pick the leading icon and its colour, give it a title,
+  and pass a precomputed estimate for the trailing badge. Add an optional tag and a priority
+  (low/medium/high/urgent) that tints the small dot before the title.
+
+props:
+  title: "The work-item title; truncates on one line when long."
+  type: "story, bug, or task; selects the leading icon glyph and colour."
+  estimate: "Precomputed story-point or effort estimate shown in the trailing badge."
+  tag: "Optional short label shown after the title."
+  priority: "Optional low/medium/high/urgent; tints the dot before the title."
+
+example_prompts:
+  - "Add a backlog story estimated at 5 points tagged Auth."
+  - "Show a high-priority bug in the backlog."
+  - "List three backlog tasks with estimates."
+
+relationships:
+  related:
+    - pm/task-card
+    - pm/kanban-board
+    - pm/sprint-header
+
+lifecycle: experimental
+content_model: A title with a work-item type, an optional priority, an optional tag, and a precomputed effort estimate.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-danger
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-body
+
+editorial_guidance: >
+  Match the type to the real nature of the work so the icon and colour stay reliable, and keep
+  estimates precomputed and consistent with your point scale. Reserve the priority dot for items
+  where urgency actually differs.
+
+categorization:
+  category: Project Management
+  subcategory: Backlog
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The type icon and priority dot are decorative (aria-hidden); the title, tag, and estimate are real text, so the row is perceivable without colour. Convey type and priority in adjacent text where they must be announced.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,14 @@
+{
+  "label": "Event gallery",
+  "row_height": "md",
+  "gap": "default",
+  "items": [
+    { "image": "/stock/stage1.jpg", "ar": 1.5, "alt": "Performer on a lit main stage", "caption": "Main stage" },
+    { "image": "/stock/cover-workspace.jpg", "ar": 1.6, "alt": "Overhead view of a busy workspace" },
+    { "image": "/stock/food-plate.jpg", "ar": 1.3, "alt": "Plated dish on a table" },
+    { "image": "/stock/property-house.jpg", "ar": 1.5, "alt": "Exterior of a modern house", "caption": "Venue" },
+    { "image": "/stock/audio-studio-mic.jpg", "ar": 0.75, "alt": "Studio microphone in portrait framing" },
+    { "image": "/stock/blog-dubbing.jpg", "ar": 1.7, "alt": "Sound desk during a dubbing session" },
+    { "image": "/stock/introduction.jpg", "ar": 1.4, "alt": "Welcome scene introducing the event" }
+  ]
+}

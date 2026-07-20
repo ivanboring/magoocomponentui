@@ -1,0 +1,20 @@
+<figure class="candlestick-shell rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="candlestick-shell__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="candlestick-shell__title font-heading text-on-surface">{{ title }}</h3>
+  </header>
+  <div class="candlestick-shell__body flex gap-2">
+    <div class="candlestick-shell__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="candlestick-shell__y-tick">{{ y }}</span>
+    </div>
+    <div class="candlestick-shell__col relative min-w-0 flex-1">
+      <div class="candlestick-shell__plot relative h-48 w-full">
+        <svg class="candlestick-shell__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <g data-for="c in candles" class="candlestick-shell__candle data-[up=true]:stroke-success data-[up=false]:stroke-danger" data-up="{{ c.up }}">
+            <line class="candlestick-shell__wick [stroke-width:1]" x1="{{ c.x_pct }}" x2="{{ c.x_pct }}" y1="{{ c.high_pct }}" y2="{{ c.low_pct }}" vector-effect="non-scaling-stroke"></line>
+            <line class="candlestick-shell__body-bar [stroke-width:7]" x1="{{ c.x_pct }}" x2="{{ c.x_pct }}" y1="{{ c.open_pct }}" y2="{{ c.close_pct }}" vector-effect="non-scaling-stroke"></line>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</figure>

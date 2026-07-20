@@ -1,0 +1,13 @@
+<div class="customer-signoff rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="customer" class="text-sm font-medium text-on-surface-muted">Sign-off for {{ customer }}</p>
+  <p data-if="summary" class="customer-signoff__summary mt-1 text-sm text-on-surface">{{ summary }}</p>
+  <div class="customer-signoff__stage relative mt-4">
+    <canvas class="customer-signoff__canvas h-32 w-full touch-none rounded-control border border-border bg-surface-raised text-on-surface"></canvas>
+    <span class="pointer-events-none absolute inset-x-4 bottom-6 h-px bg-border" aria-hidden="true"></span>
+  </div>
+  <p class="customer-signoff__name-label mt-2 text-xs text-on-surface-muted">{{ name_label }}</p>
+  <div class="customer-signoff__actions mt-3 flex items-center gap-2">
+    <button type="button" class="customer-signoff__clear rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Clear</button>
+    <button type="button" class="customer-signoff__confirm ml-auto rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Confirm &amp; sign</button>
+  </div>
+</div>

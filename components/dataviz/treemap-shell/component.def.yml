@@ -1,0 +1,20 @@
+name: treemap-shell
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown above the treemap.
+    example: "Storage by type"
+  tiles:
+    type: array
+    items: object
+    required: true
+    title: Tiles
+    description: >
+      The rectangles that tile the plot box. All geometry is PRECOMPUTED BY THE CALLER
+      (the directive language has no math). Each item:
+      { x_pct, y_pct, w_pct, h_pct, label, value, color_class }. x/y/w/h_pct are
+      percentages of the plot box (a squarified-treemap layout is computed upstream);
+      color_class is a tokenized Tailwind background utility (e.g. "bg-primary").
+    example:
+      - { x_pct: "0", y_pct: "0", w_pct: "50", h_pct: "55", label: "Videos", value: "48%", color_class: "bg-primary" }

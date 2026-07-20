@@ -1,0 +1,13 @@
+<nav class="settings-nav flex w-56 flex-col gap-6" aria-label="{{ label }}">
+  <div data-for="group in groups" class="settings-nav__group">
+    <p data-if="group.label" class="settings-nav__heading px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ group.label }}</p>
+    <ul class="settings-nav__list flex flex-col gap-0.5">
+      <li data-for="item in group.items">
+        <a class="settings-nav__item flex items-center gap-3 rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">
+          <span data-if="item.icon" class="settings-nav__icon shrink-0 [&>svg]:size-4" aria-hidden="true">{{{ item.icon }}}</span>
+          <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

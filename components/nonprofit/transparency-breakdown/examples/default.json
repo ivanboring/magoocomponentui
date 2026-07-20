@@ -1,0 +1,8 @@
+{
+  "title": "Where your money goes",
+  "segments": [
+    { "label": "Programs", "pct": 82, "color_class": "bg-primary" },
+    { "label": "Fundraising", "pct": 11, "color_class": "bg-accent" },
+    { "label": "Administration", "pct": 7, "color_class": "bg-secondary" }
+  ]
+}

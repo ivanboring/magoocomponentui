@@ -1,0 +1,80 @@
+name: "Marquee"
+short_description: A continuously auto-scrolling horizontal loop of logos or text pills that pauses on hover and respects reduced motion.
+long_visual_description: >
+  A single-row horizontal strip that scrolls endlessly in one direction. Items are either muted
+  logos that reveal their full colour on hover, or bordered text pills. The item list is rendered
+  twice back-to-back so the loop is seamless with no visible jump, and the whole strip pauses while
+  hovered or focused.
+
+use_cases:
+  - A logo wall of partners or press mentions that scrolls to fit more marks in a narrow band.
+  - A ticker of feature or capability keywords beneath a hero.
+  - A "trusted by" strip that keeps moving to draw the eye.
+  - A press-mention bar of publication logos on a landing page.
+  - A tech-stack or integrations strip of product wordmarks.
+  - A tagline strip of short phrases between page sections.
+
+recommended_for:
+  - Decorative, non-essential logo or keyword strips where motion adds life.
+  - Fitting more marks than would fit statically in a single row.
+avoid_for:
+  - Essential navigation or content the user must be able to read at rest (motion hurts legibility).
+  - Long-form text or anything requiring precise interaction.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array of either logos ({ image, alt }) or text pills ({ label }) — do not mix the
+  two in one strip. Choose speed (slow/normal/fast), direction (left/right) and gap. Supply the
+  list once; the component duplicates it internally for the seamless loop.
+
+how_to_use: >
+  behavior.js drives the scroll with requestAnimationFrame — there is no CSS keyframe. It reads
+  data-speed and data-direction from the root, translates the .marquee__track each frame, and wraps
+  the offset by the width of the first .marquee__group so the two duplicated groups tile seamlessly.
+  It pauses on hover and focus-within and does not animate at all when prefers-reduced-motion is
+  set. The portable self-init reads all config from data-* attributes — no props object is passed.
+  Because screenshots do not run behavior.js, the strip renders static (at its start position) in
+  captured images.
+
+props:
+  items: "The strip contents, supplied once. Each item is a logo ({ image, alt }) or a text pill ({ label }); keep a strip to one kind."
+  speed: "Scroll speed: slow, normal or fast."
+  direction: "Travel direction: left (default) or right."
+  gap: "Space between items: default, sm or lg."
+  label: "Accessible name announced for the marquee region."
+
+lifecycle: experimental
+content_model: A single row of logos or short text pills that scrolls in a continuous loop.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-border
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep each strip to a single kind of item and a short, consistent set. Use muted logos for a
+  restrained "trusted by" feel and text pills for capability or feature tickers. Do not put
+  anything a user must read carefully into a marquee — the motion is decorative.
+
+relationships:
+  related:
+    - marketing/logo-cloud
+    - marketing/testimonial-slider
+
+categorization:
+  category: Layout
+  subcategory: Motion
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The strip pauses on hover and focus and does not animate under prefers-reduced-motion; the duplicated group is aria-hidden so screen readers announce each item once.
+  keyboard_support: Focusing an item (a hovered logo or a link inside a pill) pauses the scroll via focus-within; the marquee itself has no interactive controls.
+  seo_score: 20
+  text_direction: both

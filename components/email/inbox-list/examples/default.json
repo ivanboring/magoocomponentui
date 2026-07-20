@@ -1,0 +1,9 @@
+{
+  "emails": [
+    { "sender": "Ava Chen", "subject": "Q3 planning notes", "snippet": "Notes from today's session and a few next steps to review before Friday.", "time": "9:41 AM", "unread": true, "starred": true, "initials": "AC" },
+    { "sender": "Marcus Lee", "subject": "Re: Design review", "snippet": "Looks great — just one comment on the spacing of the cards.", "time": "8:12 AM", "unread": true, "starred": false, "avatar": "/stock/avatar-man-1.jpg" },
+    { "sender": "GitHub", "subject": "[magoo] 3 new pull requests", "snippet": "A summary of activity across your repositories over the last day.", "time": "Yesterday", "unread": false, "starred": false, "initials": "GH" },
+    { "sender": "Priya Nair", "subject": "Lunch on Thursday?", "snippet": "Are you free around noon? Thinking the place near the office.", "time": "Mar 3", "unread": false, "starred": true, "avatar": "/stock/avatar-woman-1.jpg" },
+    { "sender": "Billing", "subject": "Your invoice is ready", "snippet": "Invoice #4821 for March is now available to download.", "time": "Mar 2", "unread": false, "starred": false, "initials": "B" }
+  ]
+}

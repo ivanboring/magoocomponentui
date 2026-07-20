@@ -1,0 +1,15 @@
+<div class="manifest-row flex items-center gap-4 border-b border-border bg-surface px-4 py-3 last:border-b-0">
+  <div class="min-w-0 flex-1">
+    <p class="truncate text-sm text-on-surface">{{ item }}</p>
+    <p data-if="sku" class="truncate font-mono text-xs text-on-surface-muted">{{ sku }}</p>
+  </div>
+  <div class="shrink-0 text-right">
+    <p class="text-xs uppercase tracking-wide text-on-surface-muted">Qty</p>
+    <p class="text-sm text-on-surface tabular-nums">{{ qty }}</p>
+  </div>
+  <div data-if="weight" class="shrink-0 text-right">
+    <p class="text-xs uppercase tracking-wide text-on-surface-muted">Weight</p>
+    <p class="text-sm text-on-surface tabular-nums">{{ weight }}</p>
+  </div>
+  <span data-if="status" class="shrink-0 rounded-pill px-3 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+</div>

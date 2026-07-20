@@ -1,0 +1,87 @@
+name: "App Topbar"
+short_description: The top bar of a SaaS app shell, with a menu toggle, global search, notifications, and a user avatar.
+long_visual_description: >
+  A fixed-height horizontal bar on the surface colour with a bottom border. A hamburger
+  button sits on the leading edge for toggling the sidebar on smaller layouts, followed by
+  a global search input with a leading magnifier icon that grows to fill the middle up to a
+  comfortable maximum width. On the trailing edge a bell button carries an optional danger
+  notification badge, and a circular user button shows either an avatar photo or a
+  monogram of the user's initials.
+
+use_cases:
+  - The persistent header of an app dashboard or console.
+  - Exposing global search across an app.
+  - Surfacing an unread notification count via a bell badge.
+  - Anchoring the account menu with an avatar button.
+  - Providing a hamburger toggle for a collapsible sidebar.
+  - Completing a two-column app shell above the main content.
+
+recommended_for:
+  - SaaS and admin app shells paired with a sidebar.
+  - Apps with a global search affordance.
+  - Products that show notification counts.
+avoid_for:
+  - Marketing site headers (use a navbar).
+  - Layouts without global search or an account menu.
+  - Full-bleed content pages with no chrome.
+
+markets:
+  - Global
+
+example_usage: >
+  Sit this above the main content column, next to an app-sidebar. Feed notifications_count a
+  short display string (cap large numbers as "9+"). Provide user.avatar for a photo, or leave
+  it empty and pass user.initials for a monogram fallback.
+
+props:
+  search_placeholder: Short prompt describing what search covers.
+  notifications_count: Precomputed unread count string; omit to hide the badge.
+  user: The signed-in user; avatar wins over initials when present.
+
+example_prompts:
+  - "Add an app topbar with global search and a notifications bell showing 3 unread."
+  - "Build a SaaS header with a hamburger toggle and a user avatar menu button."
+  - "Show a topbar where the user has no photo so it falls back to initials."
+
+lifecycle: experimental
+content_model: >
+  A search placeholder, an optional notification count, and a user object with a name and
+  either an avatar URL or an initials monogram.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-control
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the search placeholder concrete about scope. Cap notification counts to two glyphs.
+  Prefer a real avatar; fall back to clean two-letter initials.
+
+relationships:
+  related:
+    - saas/app-sidebar
+    - saas/workspace-switcher
+    - overlays/dropdown-menu
+
+categorization:
+  category: SaaS & Settings
+  subcategory: App Shell
+  atomic_type: organism
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Buttons and search input carry accessible labels; icons are aria-hidden; avatar button is labelled by the user's name.
+  keyboard_support: All controls are focusable in order; the search input takes text; buttons activate on Enter/Space.
+  seo_score: 40
+  text_direction: both

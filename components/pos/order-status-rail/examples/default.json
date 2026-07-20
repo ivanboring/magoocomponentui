@@ -1,0 +1,9 @@
+{
+  "label": "Order status",
+  "stages": [
+    { "label": "New", "count": 4, "active": false },
+    { "label": "Preparing", "count": 6, "active": true },
+    { "label": "Ready", "count": 2, "active": false },
+    { "label": "Served", "count": 11, "active": false }
+  ]
+}

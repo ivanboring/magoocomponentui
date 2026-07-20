@@ -1,0 +1,82 @@
+name: "Super Chat Message"
+short_description: A paid, highlighted live-chat message with an avatar, sender name, amount pill, and tier tint.
+long_visual_description: >
+  A tinted highlight row (warning by default, or a per-tier token tint) with a rounded avatar or
+  initials on the leading edge. The sender name sits beside a bordered pill that pairs a star glyph
+  with the formatted paid amount, and the message body runs beneath in on-surface text. The whole
+  panel's background colour signals the paid tier while staying within the theme's token palette.
+
+use_cases:
+  - Highlight a paid super chat in a live-stream chat feed.
+  - Surface a tipped or donated message during a broadcast.
+  - Show a paid shout-out pinned above the chat.
+  - Recap top paid messages after a stream.
+  - Display a supporter's paid highlight in a creator dashboard.
+  - Feature a paid question in a live Q&A.
+
+recommended_for:
+  - Live-stream chat and paid-message highlights.
+  - Tip and donation callouts tied to a sender.
+avoid_for:
+  - A plain unpaid chat message (use a chat-message component).
+  - A running list of tips without messages (use a list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a name, a formatted amount, and the message. Supply an avatar URL or precomputed initials for
+  the fallback, and set tier_color_class to a tokenized background tint (e.g. bg-info/10) to colour
+  the highlight by paid tier. The amount and initials are pre-formatted — the component does no maths.
+
+props:
+  name: The sender's display name.
+  initials: Precomputed initials shown when no avatar image is given.
+  avatar: Optional avatar image URL; initials show when omitted.
+  amount: The formatted paid amount shown in the pill.
+  message: The chat message body.
+  tier_color_class: A tokenized background utility that tints the highlight by paid tier.
+
+example_prompts:
+  - "Show a $20 super chat from Jordan with a warning tint."
+  - "Highlight a paid message tinted by its tier colour."
+  - "Pin a tipped shout-out above the live chat."
+
+lifecycle: experimental
+content_model: A sender name, an avatar or initials, a paid amount, a message, and a tier tint colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-warning
+    - --color-info
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --space-card
+
+editorial_guidance: >
+  Keep the message short so the highlight stays a single glance, and match tier_color_class to the
+  paid tier consistently across the feed. Always show the amount so the paid nature is unmistakable.
+
+relationships:
+  related:
+    - creator/engagement-stat
+    - creator/digital-product-card
+    - creator/payout-summary
+
+categorization:
+  category: Creator
+  subcategory: Live
+  atomic_type: molecule
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The paid amount is stated as text in the pill, not by colour alone; the avatar image is decorative and the initials fallback is aria-hidden.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 25
+  text_direction: both

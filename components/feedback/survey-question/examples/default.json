@@ -1,0 +1,11 @@
+{
+  "question": "How satisfied are you with our support?",
+  "kind": "single",
+  "options": [
+    { "label": "Very satisfied", "value": "very-satisfied" },
+    { "label": "Satisfied", "value": "satisfied" },
+    { "label": "Neutral", "value": "neutral" },
+    { "label": "Dissatisfied", "value": "dissatisfied" },
+    { "label": "Very dissatisfied", "value": "very-dissatisfied" }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="subforum-card flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card sm:flex-row sm:items-center">
+  <div class="flex min-w-0 flex-1 items-start gap-4">
+    <span data-if="icon" class="subforum-card__icon flex size-11 shrink-0 items-center justify-center rounded-card bg-primary/10 text-primary [&_svg]:size-6" aria-hidden="true">{{{ icon }}}</span>
+    <div class="min-w-0">
+      <h3 class="font-heading text-on-surface">
+        <a class="outline-none hover:underline focus-visible:underline" href="#">{{ name }}</a>
+      </h3>
+      <p data-if="description" class="mt-0.5 text-sm text-on-surface-muted">{{ description }}</p>
+    </div>
+  </div>
+  <dl class="flex shrink-0 gap-6 text-center">
+    <div>
+      <dt class="text-xs text-on-surface-muted">Topics</dt>
+      <dd class="font-heading text-on-surface tabular-nums">{{ topics }}</dd>
+    </div>
+    <div>
+      <dt class="text-xs text-on-surface-muted">Posts</dt>
+      <dd class="font-heading text-on-surface tabular-nums">{{ posts }}</dd>
+    </div>
+  </dl>
+  <div data-if="last_post" class="subforum-card__last min-w-0 shrink-0 border-t border-border pt-3 text-xs text-on-surface-muted sm:w-48 sm:border-l sm:border-t-0 sm:pl-4 sm:pt-0">
+    <p class="truncate font-medium text-on-surface">
+      <a class="outline-none hover:underline focus-visible:underline" href="#">{{ last_post.title }}</a>
+    </p>
+    <p class="mt-0.5 truncate">by {{ last_post.author }} · {{ last_post.time }}</p>
+  </div>
+</div>

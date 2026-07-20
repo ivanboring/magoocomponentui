@@ -1,0 +1,37 @@
+name: line-chart-shell
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Weekly active users"
+  line_path:
+    type: string
+    required: true
+    title: Line path
+    description: >
+      Precomputed SVG path for the series line, in a 0-100 x 0-100 cartesian
+      viewBox (y grows downward, so a low number is near the top). The caller
+      computes this from the data; the shell only draws it. Example:
+      "M0,80 L20,55 L40,60 L60,30 L80,40 L100,15".
+    example: "M0,82 L17,70 L33,74 L50,48 L67,52 L83,28 L100,18"
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["20k", "15k", "10k", "5k", "0"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+  grid_lines:
+    type: array
+    items: string
+    title: Gridline positions
+    description: >
+      Precomputed y-percent positions (0-100, top to bottom) for horizontal
+      gridlines. Example: ["20", "40", "60", "80"].
+    example: ["20", "40", "60", "80"]

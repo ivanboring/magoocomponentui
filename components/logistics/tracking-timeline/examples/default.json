@@ -1,0 +1,9 @@
+{
+  "events": [
+    { "status": "Delivered", "location": "Atlanta, GA", "time": "Est. Jul 6", "done": false },
+    { "status": "Out for delivery", "location": "Atlanta, GA", "time": "Jul 6, 8:12 AM", "done": true },
+    { "status": "Arrived at facility", "location": "Atlanta, GA", "time": "Jul 6, 5:40 AM", "done": true },
+    { "status": "In transit", "location": "Memphis, TN", "time": "Jul 5, 9:20 PM", "done": true },
+    { "status": "Picked up", "location": "Dallas, TX", "time": "Jul 5, 2:05 PM", "done": true }
+  ]
+}

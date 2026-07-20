@@ -1,0 +1,6 @@
+{
+  "name": "Rental car cover",
+  "description": "A courtesy car while yours is repaired.",
+  "price": "+$5/mo",
+  "included": false
+}

@@ -1,0 +1,38 @@
+name: csat-score
+props:
+  score:
+    type: string
+    required: true
+    title: Score
+    description: The headline CSAT score (e.g. 4.6). May be fractional; pass it already rounded to your preferred precision.
+    example: 4.6
+  scale:
+    type: string
+    default: "5"
+    title: Scale
+    description: The maximum of the scale the score is out of, shown after the slash (e.g. "5" or "100").
+  responses:
+    type: integer
+    title: Responses
+    description: Number of responses the score is based on, shown as a footnote.
+    example: 1284
+  label:
+    type: string
+    default: "Customer satisfaction"
+    title: Label
+    description: Caption above the score figure.
+  distribution:
+    type: array
+    items: object
+    required: true
+    title: Distribution
+    description: >
+      The satisfaction breakdown segments, in display order (typically satisfied, neutral,
+      unsatisfied). Each item: { label, pct, color_class }. pct is the precomputed percentage share
+      (0-100) used for the stacked-bar segment width — the directive language cannot divide, so pass
+      it computed; color_class is a tokenized background utility (bg-success, bg-warning, bg-danger,
+      …) used for the segment and its legend swatch. Segment pct values should sum to 100.
+    example:
+      - { label: "Satisfied", pct: 72, color_class: "bg-success" }
+      - { label: "Neutral", pct: 19, color_class: "bg-warning" }
+      - { label: "Unsatisfied", pct: 9, color_class: "bg-danger" }

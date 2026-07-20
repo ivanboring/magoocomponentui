@@ -1,0 +1,54 @@
+<div class="try-it-console overflow-hidden rounded-card border border-border bg-surface shadow-card" data-method="{{ method }}">
+  <div class="flex flex-wrap items-center gap-2 border-b border-border p-3">
+    <select class="try-it-console__method rounded-control border border-border bg-surface-raised px-2.5 py-2 font-mono text-sm font-semibold uppercase outline-none focus-visible:ring-2 focus-visible:ring-ring {{ method@class }}" aria-label="HTTP method">
+      <option value="get">GET</option>
+      <option value="post">POST</option>
+      <option value="put">PUT</option>
+      <option value="patch">PATCH</option>
+      <option value="delete">DELETE</option>
+    </select>
+    <input type="text" class="try-it-console__url min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-sm text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" value="{{ url }}" aria-label="Request URL" spellcheck="false">
+    <button type="button" class="try-it-console__send inline-flex shrink-0 items-center gap-1.5 rounded-control bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg>
+      Send
+    </button>
+  </div>
+
+  <div class="try-it-console__tabs flex items-center gap-1 border-b border-border px-3" role="tablist" aria-label="Request">
+    <button type="button" class="try-it-console__tab -mb-px border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" id="console-tab-params" aria-controls="console-panel-params" aria-selected="true" data-active="true" data-console-tab="params">Params</button>
+    <button type="button" class="try-it-console__tab -mb-px border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" id="console-tab-headers" aria-controls="console-panel-headers" aria-selected="false" data-active="false" data-console-tab="headers">Headers</button>
+    <button type="button" class="try-it-console__tab -mb-px border-b-2 border-transparent px-3 py-2.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:text-on-surface" role="tab" id="console-tab-body" aria-controls="console-panel-body" aria-selected="false" data-active="false" data-console-tab="body">Body</button>
+  </div>
+
+  <div class="p-3">
+    <div class="try-it-console__panel flex flex-col gap-2" role="tabpanel" id="console-panel-params" aria-labelledby="console-tab-params" data-console-panel="params">
+      <div class="flex items-center gap-2">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="key" aria-label="Parameter key" spellcheck="false">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="value" aria-label="Parameter value" spellcheck="false">
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="key" aria-label="Parameter key" spellcheck="false">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="value" aria-label="Parameter value" spellcheck="false">
+      </div>
+    </div>
+    <div class="try-it-console__panel flex flex-col gap-2" role="tabpanel" id="console-panel-headers" aria-labelledby="console-tab-headers" data-console-panel="headers" hidden>
+      <div class="flex items-center gap-2">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Authorization" aria-label="Header name" spellcheck="false">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Bearer ..." aria-label="Header value" spellcheck="false">
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Content-Type" aria-label="Header name" spellcheck="false">
+        <input type="text" class="min-w-0 flex-1 rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="application/json" aria-label="Header value" spellcheck="false">
+      </div>
+    </div>
+    <div class="try-it-console__panel" role="tabpanel" id="console-panel-body" aria-labelledby="console-tab-body" data-console-panel="body" hidden>
+      <textarea class="min-h-24 w-full rounded-control border border-border bg-surface-raised px-3 py-2 font-mono text-xs text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{ }" aria-label="Request body" spellcheck="false"></textarea>
+    </div>
+  </div>
+
+  <div class="border-t border-border p-3">
+    <p class="mb-2 text-xs font-medium uppercase tracking-wide text-on-surface-muted">Response</p>
+    <pre data-if="sample_response" class="try-it-console__response overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs text-on-surface">{{ sample_response }}</pre>
+    <p data-if="!sample_response" class="try-it-console__response rounded-control bg-surface-raised p-3 text-xs text-on-surface-muted">Send a request to see the response.</p>
+  </div>
+</div>

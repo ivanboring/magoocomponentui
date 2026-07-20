@@ -1,0 +1,10 @@
+{
+  "label": "Primary",
+  "items": [
+    { "label": "Home", "icon": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M3 11l9-8 9 8'/><path d='M5 10v10h14V10'/></svg>", "href": "#", "active": false },
+    { "label": "Explore", "icon": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='12' r='9'/><path d='M15 9l-2 4-4 2 2-4z'/></svg>", "href": "#", "active": false },
+    { "label": "Create", "icon": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='3' y='3' width='18' height='18' rx='4'/><path d='M12 8v8M8 12h8'/></svg>", "href": "#", "active": true },
+    { "label": "Messages", "icon": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M4 5h16v11H8l-4 4z'/></svg>", "href": "#", "active": false, "badge": "12" },
+    { "label": "Profile", "icon": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='8' r='4'/><path d='M4 21c0-4 4-6 8-6s8 2 8 6'/></svg>", "href": "#", "active": false }
+  ]
+}

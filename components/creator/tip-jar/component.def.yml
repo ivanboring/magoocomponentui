@@ -1,0 +1,37 @@
+name: tip-jar
+props:
+  creator:
+    type: string
+    title: Creator name
+    description: Whose name appears in the "Support {name}" headline. Omit for a generic "Send a tip" headline.
+    example: "Ava Rivera"
+  amounts:
+    type: array
+    items: object
+    required: true
+    title: Preset amounts
+    description: >
+      The preset tip buttons. Each item: { value, selected } where value is the formatted amount
+      string shown on the button and selected (optional boolean) pre-highlights one preset.
+    example:
+      - { value: "$3", selected: false }
+      - { value: "$5", selected: true }
+      - { value: "$10", selected: false }
+  goal:
+    type: string
+    title: Goal amount
+    description: Formatted funding goal. When set, a progress bar with raised/goal labels is shown.
+    example: "$500"
+  raised:
+    type: string
+    title: Raised so far
+    description: Formatted amount raised toward the goal, shown beside the progress bar.
+    example: "$320"
+  pct:
+    type: string
+    default: 0
+    title: Goal progress percent
+    description: >
+      Precomputed progress toward the goal as a percentage (0-100), used for the bar width. The
+      caller computes raised / goal; the directive language cannot do the arithmetic.
+    example: 64

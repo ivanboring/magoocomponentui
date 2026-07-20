@@ -1,0 +1,24 @@
+<article class="digital-product-card flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="digital-product-card__media relative aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <div data-if="!image" class="flex size-full items-center justify-center text-on-surface-muted">
+      <svg class="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg>
+    </div>
+    <span class="digital-product-card__type absolute left-2 top-2 rounded-pill px-2 py-0.5 text-xs font-medium capitalize {{ type@class }}">{{ type }}</span>
+  </div>
+  <div class="flex flex-1 flex-col gap-2 p-4">
+    <h3 class="font-heading text-on-surface">{{ name }}</h3>
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-on-surface-muted">
+      <span data-if="rating" class="inline-flex items-center gap-1">
+        <svg class="size-4 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 15l-5.2 2.7 1-5.8L1.5 7.7l5.9-.9z"/></svg>
+        <span class="tabular-nums text-on-surface">{{ rating }}</span>
+      </span>
+      <span data-if="sales" class="tabular-nums">{{ sales }} sales</span>
+    </div>
+    <p data-if="format" class="text-xs text-on-surface-muted">{{ format }}</p>
+    <div class="mt-auto flex items-center justify-between gap-3 pt-2">
+      <span class="font-heading text-xl text-on-surface tabular-nums">{{ price }}</span>
+      <button type="button" class="digital-product-card__buy rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Buy</button>
+    </div>
+  </div>
+</article>

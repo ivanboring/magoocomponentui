@@ -1,0 +1,10 @@
+{
+  "label": "Distance",
+  "min": 0,
+  "max": 50,
+  "current_min": 5,
+  "current_max": 25,
+  "unit": "km",
+  "track_left": "10",
+  "track_width": "40"
+}

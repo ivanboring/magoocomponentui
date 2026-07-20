@@ -1,0 +1,39 @@
+name: brand-deal-tracker
+props:
+  brand:
+    type: string
+    required: true
+    title: Brand
+    description: The brand or sponsor name shown as the card heading.
+    example: "Northwind Coffee"
+  campaign:
+    type: string
+    title: Campaign
+    description: Optional campaign name shown under the brand.
+    example: "Spring launch"
+  progress_pct:
+    type: integer
+    title: Progress percent
+    description: >
+      Precomputed completion percentage from 0-100 for the progress bar width. Compute it from the
+      deliverables (e.g. approved / total) before passing it in — the component does no maths. Omit
+      to hide the bar.
+    example: 50
+  deliverables:
+    type: array
+    items: object
+    required: true
+    title: Deliverables
+    description: >
+      The deliverables checklist. Each item: { label, status }. label names the deliverable;
+      status is one of "todo", "in-progress", "submitted" or "approved" and colours the item's
+      status pill.
+    example:
+      - { label: "3 feed posts", status: "approved" }
+      - { label: "1 reel", status: "in-progress" }
+      - { label: "Story set", status: "todo" }
+  payment:
+    type: string
+    title: Payment
+    description: Optional payment status note shown in the footer (e.g. "$1,500 - 50% paid").
+    example: "$1,500 - 50% paid"

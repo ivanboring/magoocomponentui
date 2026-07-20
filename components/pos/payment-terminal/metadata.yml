@@ -1,0 +1,80 @@
+name: "Payment Terminal"
+short_description: A card-reader terminal panel showing the charge amount and its state - tap or insert card, processing, approved or declined.
+long_visual_description: >
+  A centred card with a rounded card-reader glyph at the top, a large tabular charge amount in the
+  middle, and a status line below. The status line's message and colour follow the state: a neutral
+  "Tap or insert card" prompt when ready, a spinning ring beside "Processing" in the info colour,
+  a green "Approved", or a red "Declined". The processing spinner only appears while processing.
+
+use_cases:
+  - Checkout card-reader prompt at a POS station.
+  - Pay-at-table handheld terminal state.
+  - Self-service kiosk payment step.
+  - Tap-to-pay confirmation panel.
+  - Order-total capture before tip and signature.
+  - Retry prompt after a declined card.
+
+recommended_for:
+  - Showing the live state of a card payment during checkout.
+  - A focused amount-and-status panel driven by a payment gateway.
+avoid_for:
+  - Collecting card numbers or credentials (this is display only).
+  - A full itemised receipt (use a receipt component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a pre-formatted amount and a state of ready, processing, approved or declined. The message
+  text, its colour and the processing spinner all follow the state; drive state from your payment
+  gateway's callbacks and update the amount before charging.
+
+props:
+  amount: "The pre-formatted charge amount shown large in the centre."
+  state: "The terminal state - ready, processing, approved or declined - which sets the message, its colour, and the spinner."
+
+example_prompts:
+  - "Show a payment terminal ready to tap for $42.50."
+  - "Put the payment terminal in the approved state."
+  - "Show a declined card state on the terminal."
+
+lifecycle: experimental
+content_model: A charge amount and a payment state that drives the status message, colour, and spinner.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the amount pre-formatted with its currency symbol. Let state carry the meaning - a green
+  approved and a red declined should always match the real gateway result.
+
+relationships:
+  related:
+    - pos/shift-report
+    - commerce/checkout-summary
+
+categorization:
+  category: Restaurant POS
+  subcategory: Payments
+  atomic_type: molecule
+  usage_type: [card, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status message is text with a live region, so approval or decline is not signalled by colour alone; the reader glyph and spinner are decorative and hidden from assistive tech.
+  keyboard_support: None - static display driven by state; no interactive controls.
+  seo_score: 20
+  text_direction: both

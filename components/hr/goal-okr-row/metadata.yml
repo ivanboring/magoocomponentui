@@ -1,0 +1,87 @@
+name: "Goal / OKR Row"
+short_description: An objective row with an owner, an overall progress bar and percentage, a status pill and optional key-result mini-bars.
+long_visual_description: >
+  A card on the surface colour showing an objective statement in the heading face with its owner in
+  muted text, and a coloured status pill (on-track, at-risk, behind) on the trailing edge. Below,
+  a labelled overall progress bar fills left-to-right in the primary colour with the percentage in
+  tabular figures. An optional divided list of key results follows, each a small labelled bar with
+  its own percentage, so a whole objective and its measures read at a glance.
+
+use_cases:
+  - A row in a quarterly OKR tracker showing objective progress.
+  - A team goals dashboard with per-goal completion and health.
+  - A performance-review summary of an employee's objectives.
+  - A project outcomes list rolling key results up to an objective.
+  - A department scorecard where each objective shows its status.
+  - A one-on-one agenda item reviewing a goal's key results.
+
+recommended_for:
+  - Reporting objective progress with a determinate percentage.
+  - Rolling several key results up under one objective in a compact row.
+avoid_for:
+  - Editing or checking off tasks (use a task list).
+  - Indeterminate or unmeasured goals with no percentage.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the objective text, an optional owner, and a precomputed overall progress percentage. Set
+  status to colour the health pill, and supply key_results (each { label, pct } with a precomputed
+  percentage) to show the measures as mini-bars beneath the objective.
+
+props:
+  objective: The objective or goal statement in a few words.
+  owner: The accountable person or team, shown muted under the objective.
+  progress: Precomputed overall completion percentage (0-100), used for the bar and the number.
+  status: Delivery health; colours the pill. Omit to hide the pill.
+  key_results: Optional key results as labelled mini-bars, each with a precomputed pct.
+
+example_prompts:
+  - "Add an OKR row for 'Grow qualified pipeline by 30%' at 62%, on-track, owned by Revenue."
+  - "Show an objective at 40% marked at-risk with two key results below it."
+  - "List this quarter's objectives with a progress bar and status each."
+
+lifecycle: experimental
+content_model: An objective, an owner, an overall percentage, a status, and optional key results with their own percentages.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Write the objective as an outcome, not a task. Keep key-result labels measurable. Let the status
+  text carry the meaning alongside its colour, and keep percentages honest and current.
+
+relationships:
+  related:
+    - atoms/progress-bar
+    - hr/team-directory-grid
+    - hr/attendance-row
+
+categorization:
+  category: HR & People
+  subcategory: Performance
+  atomic_type: molecule
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar is a role="progressbar" with aria-valuenow/min/max and a label; the status pill carries text as well as colour.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

@@ -107,6 +107,13 @@ Component markup uses only token-bound utilities (`bg-surface text-on-surface ro
   HTTP server, so `scripts/screenshot.mjs` inlines any `/stock/...` string in the render args as a
   base64 data URI just for that pass (see `inlineStockImages()`) — don't touch the source examples
   to work around that, the inlining is generic and already handles it.
+- **Never combine the bare `hidden` class with a responsive display utility (`hidden md:flex`).**
+  In Drupal, core's stylesheets are **unlayered** while the theme's Tailwind output lives in
+  `@layer utilities` — an unlayered rule beats *any* layered one, so core's `.hidden{display:none}`
+  silently wins over `.md\:flex` and the element stays invisible at every width (this hid navbar's
+  links + actions slot on the real site while looking fine in the Astro preview). Invert it instead:
+  `flex … max-md:hidden` (`max-*` variants generate their own class, so nothing collides). Same
+  applies to `hidden sm:block` etc.
 - **Empty `src`/`href` resolves to the page URL.** A media element rendered with an empty
   attribute (`<audio src="{{ audio_src }}">` when `audio_src` is "") produces `src=""`, and the
   browser resolves the *property* `el.src` to the current page URL — which is truthy. This silently
@@ -215,6 +222,39 @@ a pnpm workspace; `npm install` dies on `workspace:*` with EUNSUPPORTEDPROTOCOL)
 advocate Drupal. **Adding** a component to a theme is done directly; **removing** one is NOT automated
 — tell the user to do it manually and warn about dangling config/paragraph/field references.
 
+## Base theme + child themes (`magoo_agentic_base_theme`) — see `docs/base-theme.md`
+
+The **Drupal 11 base theme** lives in `skills/drupal-theme/base-theme/` (22 regions, `theme-settings.php`,
+`includes/tokens.php`, a prebuilt `css/dist/base.css`). `tokens.manifest.json` is the **single source of
+truth** for all 9 token groups: the PHP settings form, the runtime CSS, `create-child`'s `settings.yml`
+and `scripts/generate-schema.mjs` all loop it. Because Tailwind v4 compiles `bg-primary` to
+`var(--color-primary)`, the theme emits the settings as a runtime `html:root{…}` block in
+`hook_preprocess_html` — **changing a setting restyles every component with no CSS rebuild** (only a
+*new* utility class needs one). The **`drupal-theme-spec` skill** (`skills/drupal-theme-spec/`) is the
+spec-kit: design reference → tokens → >=15 components → wiring mode → scaffold/build/verify.
+
+New `theme-cli` subcommands: **`install-base --out <themes-dir>`**, **`create-child --answers <json>
+[--themes-dir <themes-dir>]`** (answers JSON → child theme: tokens, SDCs, Drupal config, its own
+Tailwind build, a vendored `.claude/skills/magoo-components/`; per-component `config` is
+`canvas|paragraph|node|custom-field`, mixable), **`canvas-check [<ids>]`** (Canvas can't shape-match an
+array-of-object prop → only **251/528** components are Canvas-eligible; `create-child` warns and falls
+back to `paragraph`). Note `create-child --themes-dir` is the themes DIRECTORY (`web/themes/custom`),
+unlike `create-theme --out`, which is a theme dir.
+
+**Invariants — don't regress:**
+- **Edit `skills/drupal-theme/base-theme/`**, never the deployed copy under
+  `custom_theme/web/themes/custom/magoo_agentic_base_theme/` (that's `install-base` output).
+- **The `html:root` selector is deliberate** (0,1,1): Drupal renders html_head *before* the stylesheet,
+  so a plain `:root` block loses to Tailwind's compiled `:root` defaults. Never "simplify" it.
+- **A child declares `dependencies: - magoo_agentic_base_theme/global`** in its `libraries.yml` so the base
+  sheet loads first; **a child has no `theme-settings.php`** (Drupal builds a subtheme's form from the
+  base's — verified in a browser).
+- **The dynamic-class safelist (`css/src/safelist.css`) is child-only** — the base compiling
+  `.grid-cols-1` collides with a child's `.sm:grid-cols-2` at equal specificity and kills every
+  responsive layout. **The child compiles its own CSS** (`npm run build:css` *before* `theme:enable`);
+  the base ships prebuilt.
+- **Styling is tokens + props.** Never a CSS override, never a forked component twig.
+
 ### Drupal-emit invariants (learned building a real theme — don't regress these)
 
 The generator's Drupal output must import + render cleanly with only `paragraphs`,
@@ -319,6 +359,8 @@ servers by port first).
 - Design spec: `docs/superpowers/specs/2026-07-04-skeleton-component-library-design.md`.
 - **Authoring**: `docs/authoring-guide.md` · `docs/template-directives.md` · `docs/metadata-schema.md` · `docs/theming.md` · `docs/drupal-mapping.md` · `docs/taxonomy.md`.
 - **External libraries** (components that depend on a third-party JS lib, e.g. `video-player-live` → hls.js, `two-factor-setup` → qrcode): `docs/external-libraries.md`.
+- **Base theme + child-theme generator + Canvas/wiring modes**: `docs/base-theme.md` (reference doc) · spec-kit skill `skills/drupal-theme-spec/`.
+- **Wiring nav components to Drupal menus** (menu→SDC override, login+primary menus, theme-setting/content-presence visibility gating): `docs/drupal-menus.md`.
 - **Theme generator** (drupal-theme skill + `theme-cli`): `docs/superpowers/specs/2026-07-06-drupal-theme-skill-design.md` + `docs/superpowers/plans/2026-07-06-drupal-theme-skill.md`.
 - **Catalog worklist** (names/ideas only, not built): `docs/catalog/first-200.md` (218) + `docs/catalog/next-500.md` (500) ≈ 718 planned.
 - **Current state / decisions / researched facts**: `.agents/progress.md`, `.agents/decisions.md`, `.agents/references.md`.

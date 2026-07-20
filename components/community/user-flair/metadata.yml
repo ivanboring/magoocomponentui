@@ -1,0 +1,74 @@
+name: "User Flair"
+short_description: A tiny colour-coded pill badge shown next to a username to mark a role like moderator, admin, OP, pro, new or VIP.
+long_visual_description: >
+  A small pill with a rounded shape and a short uppercase-friendly label in a tinted colour scheme
+  matched to its kind: green for a moderator, red for an admin, primary for the original poster,
+  info-blue for a pro member, a neutral surface tint for a newcomer, and amber for a VIP. It sits
+  inline so it can trail a name without disrupting the line.
+
+use_cases:
+  - Mark a moderator or admin beside their name in a thread.
+  - Tag the original poster with an OP badge on replies.
+  - Show a pro or paid-tier membership badge.
+  - Flag a new member so replies are welcoming.
+  - Highlight a VIP or top-contributor status.
+  - Distinguish staff from regular users in a comment list.
+
+recommended_for:
+  - A short, at-a-glance role marker next to a username.
+  - Inline placement in author rows and comment headers.
+avoid_for:
+  - Long descriptive text (keep it to a word or two).
+  - A standalone status that is not tied to a person.
+
+markets:
+  - Global
+
+example_usage: >
+  Place it directly after a username. Pass a short label and pick a kind to set the colour. Use the
+  same kind consistently for the same role across the site so readers learn the colour language.
+
+props:
+  label: "Short role or badge text, ideally one or two words."
+  kind: "The flair type, which sets the pill colour: mod, admin, op, pro, new or vip."
+
+example_prompts:
+  - Add a green Mod flair next to the moderator's name.
+  - Show a red Admin badge on the staff reply.
+  - Tag the thread starter with an OP flair.
+
+lifecycle: experimental
+content_model: A single short role label with a semantic kind that colours it.
+
+theming:
+  tokens_used:
+    - --color-success
+    - --color-danger
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-surface-raised
+    - --color-on-surface-muted
+    - --radius-pill
+
+editorial_guidance: >
+  Keep labels short and consistent (Mod, Admin, OP, Pro, New, VIP). Map each role to one kind and
+  reuse it everywhere so the colour carries meaning. Do not rely on colour alone; the label carries it.
+
+relationships:
+  related:
+    - community/post-detail
+    - community/thread-row
+
+categorization:
+  category: Community
+  subcategory: Identity
+  atomic_type: atom
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The role is spelled out in the label text, so meaning never depends on colour alone.
+  keyboard_support: None; the flair is static, non-interactive text.
+  seo_score: 10
+  text_direction: both

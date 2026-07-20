@@ -1,0 +1,37 @@
+name: sensor-reading
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: What the sensor measures, e.g. "Humidity".
+    example: "Humidity"
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The measured value, e.g. "42".
+    example: "42"
+  unit:
+    type: string
+    title: Unit
+    description: Optional unit suffix shown after the value, e.g. "%" or "°C".
+    example: "%"
+  status:
+    type: enum
+    values: [normal, warning, critical]
+    default: normal
+    title: Status
+    description: Reading status; colours the value.
+    example: normal
+  icon:
+    type: string
+    title: Icon
+    description: >
+      Optional leading glyph as raw HTML (an inline stroke SVG). Rendered unescaped.
+    example: '<svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z"/></svg>'
+variants:
+  status:
+    normal: "text-success"
+    warning: "text-warning"
+    critical: "text-danger"

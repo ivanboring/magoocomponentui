@@ -1,0 +1,32 @@
+name: energy-mix-donut
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown above the chart and used as the SVG accessible label.
+    example: "Where your power came from"
+  sources:
+    type: array
+    items: object
+    required: true
+    title: Sources
+    description: >
+      The generation sources, one donut arc each. All geometry is PRECOMPUTED BY THE
+      CALLER because the template language has no math. Each item:
+      { label, pct, kwh, dash, offset, color_class }. `pct` is a display string like
+      "42%". `dash` is the SVG stroke-dasharray for a circle of circumference 100
+      (r=15.9155), given as "<arc-length> <remainder>" (a 42% slice is "42 58").
+      `offset` is the stroke-dashoffset that rotates the arc to its start position (the
+      negative of the cumulative start percent, e.g. a slice starting at 42% is "-42").
+      `kwh` is an optional display string (e.g. "310 kWh"). `color_class` is a tokenized
+      Tailwind stroke utility such as "stroke-success".
+    example:
+      - { label: "Solar", pct: "42%", kwh: "310 kWh", dash: "42 58", offset: "0", color_class: "stroke-success" }
+  renewable_pct:
+    type: string
+    title: Renewable share
+    description: >
+      Optional display number for the renewable portion, shown large in the donut
+      center (e.g. "82" renders as "82% renewable"). Precompute it from the renewable
+      sources; the template only paints the value.
+    example: "82"

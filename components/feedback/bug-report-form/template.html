@@ -1,0 +1,28 @@
+<form class="bug-report-form flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="Report a bug">
+  <div class="flex flex-col gap-1.5">
+    <label class="text-xs font-medium text-on-surface-muted" for="bug-report-title">Title</label>
+    <input id="bug-report-title" type="text" class="bug-report-form__title w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ title_placeholder }}">
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <label class="text-xs font-medium text-on-surface-muted" for="bug-report-severity">Severity</label>
+    <select id="bug-report-severity" class="bug-report-form__severity w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      <option data-for="severity in severities" value="{{ severity.value }}">{{ severity.label }}</option>
+    </select>
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <label class="text-xs font-medium text-on-surface-muted" for="bug-report-description">Description</label>
+    <textarea id="bug-report-description" class="bug-report-form__description min-h-28 w-full resize-y rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ placeholder }}"></textarea>
+  </div>
+
+  <div class="bug-report-form__dropzone flex flex-col items-center justify-center gap-2 rounded-card border border-dashed border-border bg-surface-raised px-4 py-6 text-center">
+    <svg class="size-6 text-on-surface-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+    <p class="text-sm text-on-surface-muted">{{ dropzone_label }}</p>
+    <button type="button" class="bug-report-form__browse rounded-button border border-border bg-surface px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Browse files</button>
+    <input type="file" multiple class="bug-report-form__file hidden" aria-hidden="true" tabindex="-1">
+    <ul class="bug-report-form__filelist flex w-full flex-col gap-1 text-left text-xs text-on-surface-muted empty:hidden"></ul>
+  </div>
+
+  <button type="submit" class="bug-report-form__submit inline-flex items-center justify-center rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{{ submit_label }}</button>
+</form>

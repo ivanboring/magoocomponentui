@@ -1,0 +1,12 @@
+{
+  "title": "Units per hour by line",
+  "unit": "units/hr",
+  "target_line_pct": "70",
+  "bars": [
+    { "label": "Line A", "value": "128", "height_pct": 92, "target_met": true },
+    { "label": "Line B", "value": "74", "height_pct": 53, "target_met": false },
+    { "label": "Line C", "value": "112", "height_pct": 80, "target_met": true },
+    { "label": "Line D", "value": "61", "height_pct": 44, "target_met": false },
+    { "label": "Line E", "value": "104", "height_pct": 74, "target_met": true }
+  ]
+}

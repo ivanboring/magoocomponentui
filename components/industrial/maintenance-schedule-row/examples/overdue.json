@@ -1,0 +1,8 @@
+{
+  "asset": "Hydraulic Press 02",
+  "task": "Inspect and re-torque tie rods",
+  "due": "Overdue 3 days",
+  "interval": "monthly",
+  "status": "overdue",
+  "technician": "M. Alvarez"
+}

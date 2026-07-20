@@ -1,0 +1,18 @@
+<figure class="portfolio-allocation-crypto rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="group" aria-label="{{ title }}">
+  <figcaption class="mb-4 font-heading text-on-surface">{{ title }}</figcaption>
+  <div class="flex flex-col items-center gap-6 sm:flex-row sm:items-center">
+    <svg class="portfolio-allocation-crypto__svg size-40 shrink-0" viewBox="0 0 36 36" role="img" aria-label="{{ title }}">
+      <circle cx="18" cy="18" r="15.9155" fill="none" class="stroke-surface-raised [stroke-width:4]"></circle>
+      <circle data-for="s in slices" cx="18" cy="18" r="15.9155" fill="none" stroke-linecap="butt" class="[stroke-width:4] {{ s.color_class }}" stroke-dasharray="{{ s.dash }}" stroke-dashoffset="{{ s.offset }}" transform="rotate(-90 18 18)"></circle>
+    </svg>
+    <ul class="portfolio-allocation-crypto__legend flex w-full flex-col gap-2.5">
+      <li data-for="s in slices" class="flex items-center gap-2 text-sm">
+        <svg class="h-3 w-4 shrink-0" viewBox="0 0 20 6" aria-hidden="true"><path d="M3 3h14" fill="none" stroke-linecap="round" class="[stroke-width:6] {{ s.color_class }}"></path></svg>
+        <span class="text-on-surface">{{ s.label }}</span>
+        <span class="ml-auto tabular-nums text-on-surface-muted">{{ s.pct }}</span>
+        <span class="w-20 text-right font-mono tabular-nums text-on-surface">{{ s.value }}</span>
+      </li>
+    </ul>
+  </div>
+  <span class="hidden stroke-primary stroke-secondary stroke-accent stroke-success stroke-warning stroke-danger stroke-info" aria-hidden="true"></span>
+</figure>

@@ -1,0 +1,20 @@
+{
+  "employee": "Sam Lee",
+  "pct": 100,
+  "groups": [
+    {
+      "label": "Before day one",
+      "items": [
+        { "label": "Sign offer letter", "done": true },
+        { "label": "Submit tax forms", "done": true }
+      ]
+    },
+    {
+      "label": "First week",
+      "items": [
+        { "label": "Set up laptop and accounts", "done": true },
+        { "label": "Meet the team", "done": true }
+      ]
+    }
+  ]
+}

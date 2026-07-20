@@ -1,0 +1,11 @@
+<nav class="policy-toc sticky top-6" aria-label="{{ title }}">
+  <p class="policy-toc__title mb-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ title }}</p>
+  <ol class="policy-toc__list flex flex-col border-l border-border">
+    <li data-for="section in sections">
+      <a class="policy-toc__item -ml-px flex gap-2 border-l-2 border-transparent py-1.5 pl-3 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:border-primary data-[active=true]:font-medium data-[active=true]:text-primary" href="{{ section.href }}" data-active="{{ section.active }}" aria-current="{{ section.active }}">
+        <span class="policy-toc__number shrink-0 tabular-nums">{{ section.number }}</span>
+        <span class="policy-toc__label">{{ section.label }}</span>
+      </a>
+    </li>
+  </ol>
+</nav>

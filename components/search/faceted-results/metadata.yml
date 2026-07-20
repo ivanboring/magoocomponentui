@@ -1,0 +1,77 @@
+name: "Faceted Results"
+short_description: A search results layout with a facet-filter sidebar beside a column of result cards.
+long_visual_description: >
+  A two-column layout that stacks on small screens: a left sidebar of facet groups (each a heading
+  over a list of checkbox options with a match count), and a main column that opens with a result
+  count and lists result cards. Each card shows a green breadcrumb URL, a primary-colour linked
+  title, a two-line snippet and a dot-separated meta row.
+
+use_cases:
+  - A site or app search results page with category, type and date filters.
+  - A documentation search with facets for section and content type.
+  - A product or listing search where results are refined by attributes.
+  - A knowledge base filtered by product area and tag.
+  - A media or archive search filtered by format and topic.
+
+recommended_for:
+  - Search results that need a persistent, multi-group filter sidebar.
+  - Result sets rendered from structured records (title, url, snippet, meta).
+avoid_for:
+  - A simple single-select chip filter over cards (use filter-grid).
+  - A results page with no facets (use a plain list of result-card-generic).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a facets array (each { label, options: [{ label, count, checked }] }) for the sidebar and a
+  results array (each { title, url, snippet, meta }) for the main column, plus an optional total
+  string like "128 results". The facet checkboxes are display-only skeleton controls; wire them to
+  your own filtering.
+
+props:
+  facets: "Sidebar filter groups. Each { label, options }; each option { label, count, checked? }."
+  results: "Result records. Each { title, url?, snippet, meta? }; url makes the title a link and shows a breadcrumb; meta is a dot-separated string array."
+  total: "Result count summary above the list, e.g. \"128 results\"; omit to hide it."
+
+lifecycle: experimental
+content_model: A facet sidebar plus a list of result records rendered from a results array.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep facet groups short and label options plainly, and always show counts so users can gauge how
+  a filter narrows results. Write snippets that lead with the matched context; they clamp to two
+  lines. Order results by relevance.
+
+relationships:
+  related:
+    - search/result-card-generic
+    - search/filter-chip-row
+    - search/sort-and-view
+
+categorization:
+  category: Search
+  subcategory: Results
+  atomic_type: organism
+  usage_type: [list, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region and its parts use headings and labelled checkboxes; each result title is a real link and the URL breadcrumb precedes it. Colour is not the only signal.
+  keyboard_support: Checkboxes and result links are in the tab order and operate with standard controls.
+  seo_score: 45
+  text_direction: both

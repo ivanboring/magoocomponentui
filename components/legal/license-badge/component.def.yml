@@ -1,0 +1,30 @@
+name: license-badge
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The text shown in the badge, e.g. the license or compliance name.
+    example: "MIT License"
+  type:
+    type: enum
+    values: [mit, apache, gpl, cc, soc2, iso, gdpr]
+    default: mit
+    title: Type
+    description: >
+      The kind of mark, which picks the tint. Software licenses (mit, apache, gpl, cc) and
+      compliance marks (soc2, iso, gdpr) each carry a themed colour.
+  href:
+    type: string
+    title: Link
+    description: Optional URL; when set the badge renders as a link to the license or certificate.
+    example: "https://opensource.org/license/mit"
+variants:
+  type:
+    mit: "bg-info/10 text-info"
+    apache: "bg-info/10 text-info"
+    gpl: "bg-primary/10 text-primary"
+    cc: "bg-success/10 text-success"
+    soc2: "bg-success/10 text-success"
+    iso: "bg-primary/10 text-primary"
+    gdpr: "bg-info/10 text-info"

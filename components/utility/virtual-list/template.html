@@ -1,0 +1,7 @@
+<div class="virtual-list h-80 overflow-y-auto rounded-card border border-border bg-surface">
+  <p data-if="total" class="sticky top-0 z-10 border-b border-border bg-surface px-4 py-2 text-xs text-on-surface-muted">Showing a window of {{ total }} rows</p>
+  <div data-for="row in rows" class="virtual-list__row flex items-center justify-between gap-3 border-b border-border px-4 text-sm text-on-surface" style="height:{{ row_height }}">
+    <span class="min-w-0 truncate">{{ row.label }}</span>
+    <span data-if="row.meta" class="shrink-0 font-mono text-xs text-on-surface-muted">{{ row.meta }}</span>
+  </div>
+</div>

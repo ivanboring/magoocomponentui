@@ -1,0 +1,25 @@
+<div class="defi-pool-row flex flex-wrap items-center gap-4 rounded-card border border-border bg-surface p-4 shadow-card">
+  <div class="flex min-w-0 items-center gap-3">
+    <span data-if="icons" class="defi-pool-row__icons flex shrink-0 items-center">{{{ icons }}}</span>
+    <span data-if="!icons" class="defi-pool-row__icons flex shrink-0 items-center" aria-hidden="true">
+      <span class="size-7 rounded-pill border-2 border-surface bg-primary/20"></span>
+      <span class="-ml-2 size-7 rounded-pill border-2 border-surface bg-accent/20"></span>
+    </span>
+    <span class="defi-pool-row__pair font-heading text-on-surface">{{ pair }}</span>
+  </div>
+  <dl class="ml-auto flex items-center gap-6 text-sm">
+    <div class="text-right">
+      <dt class="text-xs text-on-surface-muted">TVL</dt>
+      <dd class="font-mono text-on-surface tabular-nums">{{ tvl }}</dd>
+    </div>
+    <div class="text-right">
+      <dt class="text-xs text-on-surface-muted">APR</dt>
+      <dd class="font-mono text-success tabular-nums">{{ apr }}</dd>
+    </div>
+    <div data-if="volume" class="text-right max-sm:hidden">
+      <dt class="text-xs text-on-surface-muted">Volume 24h</dt>
+      <dd class="font-mono text-on-surface tabular-nums">{{ volume }}</dd>
+    </div>
+  </dl>
+  <button type="button" class="defi-pool-row__add rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Add liquidity</button>
+</div>

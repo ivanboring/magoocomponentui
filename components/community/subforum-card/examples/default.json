@@ -1,0 +1,8 @@
+{
+  "name": "General Discussion",
+  "description": "Anything and everything about the product.",
+  "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='1.6'><path d='M4 5h12v8H8l-4 3V5z'/></svg>",
+  "topics": "1.2k",
+  "posts": "18.4k",
+  "last_post": { "title": "Roadmap for the next quarter", "author": "Ada L.", "time": "12m ago" }
+}

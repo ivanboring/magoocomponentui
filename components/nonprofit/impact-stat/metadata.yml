@@ -1,0 +1,77 @@
+name: "Impact Stat"
+short_description: A bold "amount equals outcome" statement translating a donation into concrete impact.
+long_visual_description: >
+  A card on the surface colour with an optional icon in a soft primary badge on the leading edge,
+  then a bold statement reading amount (in the heading face, primary colour), an equals sign, and
+  the outcome (in the heading face, on-surface colour). Wraps gracefully on narrow widths.
+
+use_cases:
+  - An impact line in a donation appeal ("$50 = 10 meals").
+  - A row of impact tiers next to suggested amounts.
+  - A "your gift at work" callout in an email landing page.
+  - An impact statement in an annual report or case for support.
+  - A tooltip-style justification beside a preset amount.
+  - A stewardship message confirming what a gift accomplished.
+
+recommended_for:
+  - Making abstract amounts tangible with a concrete outcome.
+  - Reinforcing suggested amounts with their real-world impact.
+avoid_for:
+  - Tracking progress toward a goal (use fundraiser-progress).
+  - A generic metric with a trend (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a formatted amount and the concrete outcome it funds, and optionally an inline SVG icon.
+  Place a few in a column beside a donation form to justify each suggested amount.
+
+props:
+  amount: "The donation amount, formatted with currency."
+  outcome: "What the amount pays for, stated concretely."
+  icon: "Optional decorative inline SVG shown in a badge before the amount."
+
+example_prompts:
+  - "Add an impact stat that says $50 equals 10 school meals."
+  - "Show a row of impact tiers next to the donation amounts."
+  - "Add a 'your gift at work' line with an icon."
+
+lifecycle: experimental
+content_model: A donation amount paired with the concrete outcome it funds, plus an optional icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Tie each amount to a single, concrete, verifiable outcome and keep the phrasing tight. Match the
+  amounts to the suggested giving levels so the two reinforce each other.
+
+relationships:
+  related:
+    - nonprofit/donation-form
+    - nonprofit/donation-amount-picker
+    - nonprofit/campaign-card
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: molecule
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The statement is plain text (the equals sign is read literally); the icon is decorative and carries no essential meaning.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,15 @@
+name: andon-board
+props:
+  stations:
+    type: array
+    items: object
+    required: true
+    title: Stations
+    description: >
+      The stations shown on the board, in order. Each station: { name, status, message }. status is
+      one of "normal", "call", "fault" or "blocked" and colours the tile - normal green, call amber,
+      fault red, blocked blue. message is an optional short line beneath the status (a reason, an
+      andon call detail, a blocking upstream station).
+    example:
+      - { name: "Weld 1", status: "normal" }
+      - { name: "Assembly 2", status: "fault", message: "Robot cell E-stop" }

@@ -1,0 +1,42 @@
+{
+  "label": "Our team",
+  "members": [
+    {
+      "name": "Ada Rivera",
+      "role": "Founder & CEO",
+      "avatar": "/stock/avatar-woman-1.jpg",
+      "initials": "AR",
+      "socials": [
+        { "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-4\" aria-hidden=\"true\"><path d=\"M4 4h4l4 8 4-8h4l-6 12v4h-4v-4z\"/></svg>", "href": "#" },
+        { "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-4\" aria-hidden=\"true\"><path d=\"M4 4h16v16H4z\" opacity=\"0\"/><circle cx=\"6\" cy=\"6\" r=\"2\"/><path d=\"M4 9h4v11H4zM10 9h4v2a3 3 0 016 0v9h-4v-8a1 1 0 00-2 0v8h-4z\"/></svg>", "href": "#" }
+      ]
+    },
+    {
+      "name": "Marcus Okonkwo",
+      "role": "Head of Design",
+      "avatar": "/stock/avatar-man-1.jpg",
+      "initials": "MO",
+      "socials": [
+        { "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-4\" aria-hidden=\"true\"><path d=\"M4 4h4l4 8 4-8h4l-6 12v4h-4v-4z\"/></svg>", "href": "#" }
+      ]
+    },
+    {
+      "name": "Priya Nair",
+      "role": "Engineering Lead",
+      "avatar": "/stock/avatar-woman-1.jpg",
+      "initials": "PN",
+      "socials": [
+        { "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-4\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"2\"/><path d=\"M4 9h4v11H4zM10 9h4v2a3 3 0 016 0v9h-4v-8a1 1 0 00-2 0v8h-4z\"/></svg>", "href": "#" }
+      ]
+    },
+    {
+      "name": "Tom Bergstrom",
+      "role": "Client Partner",
+      "avatar": "/stock/avatar-man-1.jpg",
+      "initials": "TB",
+      "socials": [
+        { "icon": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" class=\"size-4\" aria-hidden=\"true\"><path d=\"M4 4h4l4 8 4-8h4l-6 12v4h-4v-4z\"/></svg>", "href": "#" }
+      ]
+    }
+  ]
+}

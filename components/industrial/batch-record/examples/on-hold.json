@@ -1,0 +1,14 @@
+{
+  "batch_number": "B-2211-C",
+  "product": "Coating resin R-40",
+  "quantity": "320 kg",
+  "start": "13:05",
+  "end": "16:22",
+  "status": "On hold",
+  "params": [
+    { "label": "Temperature", "value": "62 C", "in_spec": true },
+    { "label": "Viscosity", "value": "980 cP", "in_spec": false },
+    { "label": "Solids", "value": "48.1 %", "in_spec": true },
+    { "label": "pH", "value": "5.9", "in_spec": false }
+  ]
+}

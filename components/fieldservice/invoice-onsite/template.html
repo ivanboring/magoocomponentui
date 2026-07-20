@@ -1,0 +1,30 @@
+<div class="invoice-onsite rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <p class="text-sm text-on-surface-muted">Invoice</p>
+      <p data-if="invoice_number" class="font-heading text-on-surface">{{ invoice_number }}</p>
+    </div>
+    <span data-if="status" class="shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+  <ul class="invoice-onsite__lines mt-4 flex flex-col divide-y divide-border">
+    <li data-for="line in line_items" class="flex items-center justify-between gap-3 py-2 text-sm">
+      <span class="min-w-0 text-on-surface">{{ line.label }}</span>
+      <span class="shrink-0 font-mono tabular-nums text-on-surface">{{ line.amount }}</span>
+    </li>
+  </ul>
+  <dl class="invoice-onsite__totals mt-3 flex flex-col gap-1 border-t border-border pt-3 text-sm">
+    <div data-if="subtotal" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Subtotal</dt>
+      <dd class="font-mono tabular-nums text-on-surface">{{ subtotal }}</dd>
+    </div>
+    <div data-if="tax" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Tax</dt>
+      <dd class="font-mono tabular-nums text-on-surface">{{ tax }}</dd>
+    </div>
+    <div class="flex items-center justify-between gap-3">
+      <dt class="font-medium text-on-surface">Total</dt>
+      <dd class="font-mono text-base font-semibold tabular-nums text-on-surface">{{ total }}</dd>
+    </div>
+  </dl>
+  <button type="button" class="invoice-onsite__pay mt-4 w-full rounded-button bg-primary px-4 py-2.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Collect payment</button>
+</div>

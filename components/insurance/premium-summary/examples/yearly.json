@@ -1,0 +1,8 @@
+{
+  "total": "$1,620.00",
+  "period": "yearly",
+  "line_items": [
+    { "label": "Base cover", "amount": "$1,440.00" },
+    { "label": "Home contents add-on", "amount": "$180.00" }
+  ]
+}

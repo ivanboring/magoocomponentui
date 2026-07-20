@@ -1,0 +1,41 @@
+name: fluid-grid
+props:
+  min:
+    type: enum
+    values: ["xs", "sm", "md", "lg"]
+    default: "md"
+    title: Min card width
+    description: >
+      The minimum width each card is allowed to shrink to before the grid drops a column. The
+      column count is derived from this and the available width (no breakpoints): xs packs many
+      narrow cards, lg keeps fewer, wider cards.
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between cards, from a fixed set of choices. "default" keeps the designed spacing;
+      none/sm/md/lg/xl are explicit fixed overrides.
+  label:
+    type: string
+    default: "Items"
+    title: Accessible label
+    description: Accessible name announced for the grid region.
+slots:
+  items:
+    title: Items
+    description: The child cards to lay out; the grid fills each row with as many as fit the min width.
+variants:
+  min:
+    "xs": "[--fg-min:9rem]"
+    "sm": "[--fg-min:12rem]"
+    "md": "[--fg-min:16rem]"
+    "lg": "[--fg-min:20rem]"
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-8"
+    xl: "gap-12"

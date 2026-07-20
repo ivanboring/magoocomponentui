@@ -1,0 +1,31 @@
+{
+  "title": "Check if you qualify for the housing grant",
+  "questions": [
+    {
+      "label": "Are you a current resident of the county?",
+      "options": [
+        { "label": "Yes", "value": "yes" },
+        { "label": "No", "value": "no" }
+      ]
+    },
+    {
+      "label": "Is your household income below the threshold?",
+      "options": [
+        { "label": "Below threshold", "value": "below" },
+        { "label": "Above threshold", "value": "above" },
+        { "label": "Not sure", "value": "unsure" }
+      ]
+    },
+    {
+      "label": "Do you own or rent your home?",
+      "options": [
+        { "label": "Own", "value": "own" },
+        { "label": "Rent", "value": "rent" }
+      ]
+    }
+  ],
+  "result": {
+    "eligible": true,
+    "message": "Based on your answers, you appear to qualify. Continue to start your application."
+  }
+}

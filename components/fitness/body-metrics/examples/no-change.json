@@ -1,0 +1,8 @@
+{
+  "metrics": [
+    { "label": "Weight", "value": "74.2", "unit": "kg" },
+    { "label": "BMI", "value": "22.8", "unit": "" },
+    { "label": "Body fat", "value": "18.4", "unit": "%" },
+    { "label": "Muscle", "value": "34.1", "unit": "kg" }
+  ]
+}

@@ -1,0 +1,86 @@
+name: "EV Charging Status"
+short_description: A card showing an EV charge session - battery state of charge, status, power, time remaining, and range added.
+long_visual_description: >
+  A surface card with the vehicle name top-left and a coloured status label top-right (blue while
+  charging, green when complete, muted when idle, red on fault). A horizontal battery glyph fills to
+  the current state of charge next to a large percentage figure, and a three-up row below reports the
+  charge power in kW, the estimated time remaining, and the range added this session.
+
+use_cases:
+  - Home charger status tile in an EV or energy app.
+  - Live session readout on a public charging network dashboard.
+  - Fleet vehicle charging overview card.
+  - Smart-home panel widget showing the car's charge.
+  - Charging schedule screen summarising the active session.
+
+recommended_for:
+  - A single vehicle's live or last charge session at a glance.
+  - Values formatted upstream with a precomputed charge percentage.
+avoid_for:
+  - A charging history chart over time (use a line chart shell).
+  - Multiple simultaneous sessions in one tile (use one card each).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass charge_pct as a precomputed 0-100 whole number to fill the battery and headline figure, set
+  status to charging, complete, idle, or fault to colour the label, and optionally add power_kw,
+  time_remaining, and range_added for the detail row.
+
+props:
+  vehicle: The vehicle name or label shown top-left; omit to hide.
+  charge_pct: Precomputed 0-100 state of charge; drives the battery fill and headline percent.
+  status: charging, complete, idle, or fault; colours the status label.
+  power_kw: Current charge power without a unit; renders a "kW" figure. Omit to hide.
+  time_remaining: Estimated time to target, formatted for display. Omit to hide.
+  range_added: Range added this session with unit. Omit to hide.
+
+example_prompts:
+  - "Add an EV charging card at 72 percent, charging at 7.4 kW with 1h 25m remaining."
+  - "Show a completed charge session at 100 percent."
+  - "Put a home charger status tile with a fault state on the dashboard."
+
+lifecycle: experimental
+content_model: A vehicle label, a precomputed charge percentage, a session status, and optional power, time remaining, and range added.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-info
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Precompute charge_pct and set status to match the reading - charging while power flows, complete at
+  the target, idle when parked, fault on an error. Keep the detail figures formatted and short.
+
+relationships:
+  related:
+    - energy/solar-production-card
+    - energy/grid-status
+    - energy/meter-reading-row
+
+categorization:
+  category: Energy
+  subcategory: EV Charging
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status is conveyed by text as well as colour, the battery glyph carries an accessible label with the percentage, and detail figures are real text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

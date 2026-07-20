@@ -1,0 +1,29 @@
+name: walk-tracker
+props:
+  distance:
+    type: string
+    title: Distance
+    description: Distance walked, formatted for display, e.g. "2.4 km".
+    example: "2.4 km"
+  duration:
+    type: string
+    title: Duration
+    description: Time spent, formatted for display, e.g. "38 min".
+    example: "38 min"
+  date:
+    type: string
+    title: Date
+    description: When the walk happened.
+    example: "Today, 7:15 AM"
+  route_points:
+    type: string
+    title: Route path
+    description: >
+      A precomputed SVG polyline "points" attribute for the route facade, plotted in
+      a 0 0 100 48 viewBox. Omit to hide the route facade. This is decorative only.
+    example: "4,40 22,30 38,34 55,16 72,22 96,8"
+  goal_pct:
+    type: integer
+    title: Goal percentage
+    description: Progress toward the daily walk goal, 0-100 (precomputed by the caller).
+    example: 80

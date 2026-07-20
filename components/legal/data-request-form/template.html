@@ -1,0 +1,28 @@
+<form class="data-request-form mx-auto max-w-md rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="data-request-form__field">
+    <label class="block text-sm font-medium text-on-surface" for="dsar-type">Request type</label>
+    <div class="relative mt-1">
+      <select id="dsar-type" name="request_type" class="data-request-form__type w-full appearance-none rounded-control border border-border bg-surface px-3 py-2 pr-9 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) focus:border-ring">
+        <option data-for="type in request_types" value="{{ type.value }}">{{ type.label }}</option>
+      </select>
+      <svg class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+    </div>
+  </div>
+
+  <div class="data-request-form__field mt-4">
+    <label class="block text-sm font-medium text-on-surface" for="dsar-email">Email<span class="text-danger" aria-hidden="true"> *</span></label>
+    <input id="dsar-email" name="email" type="email" required class="data-request-form__email mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-ring" placeholder="you@example.com">
+  </div>
+
+  <div class="data-request-form__field mt-4">
+    <label class="block text-sm font-medium text-on-surface" for="dsar-details">Details</label>
+    <textarea id="dsar-details" name="details" rows="4" class="data-request-form__details mt-1 w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-ring" placeholder="{{ placeholder }}"></textarea>
+  </div>
+
+  <div class="data-request-form__field mt-4 flex items-start gap-2.5">
+    <input id="dsar-consent" name="consent" type="checkbox" required class="data-request-form__consent mt-0.5 size-4 shrink-0 rounded border-border text-primary focus:ring-ring">
+    <label class="text-sm text-on-surface-muted" for="dsar-consent">I confirm the details above are accurate and I am the person the request concerns.</label>
+  </div>
+
+  <button type="submit" class="data-request-form__submit mt-6 inline-flex w-full items-center justify-center rounded-button bg-primary px-4 py-2.5 font-heading text-sm text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">Submit request</button>
+</form>

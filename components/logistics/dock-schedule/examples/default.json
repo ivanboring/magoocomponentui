@@ -1,0 +1,31 @@
+{
+  "docks": [
+    {
+      "label": "Dock 1",
+      "slots": [
+        { "time": "8:00", "status": "loading", "carrier": "UPS" },
+        { "time": "10:00", "status": "booked", "carrier": "DHL" },
+        { "time": "12:00", "status": "free" },
+        { "time": "14:00", "status": "booked", "carrier": "FedEx" }
+      ]
+    },
+    {
+      "label": "Dock 2",
+      "slots": [
+        { "time": "8:00", "status": "free" },
+        { "time": "10:00", "status": "booked", "carrier": "XPO" },
+        { "time": "12:00", "status": "loading", "carrier": "Estes" },
+        { "time": "14:00", "status": "free" }
+      ]
+    },
+    {
+      "label": "Dock 3",
+      "slots": [
+        { "time": "8:00", "status": "booked", "carrier": "Old Dominion" },
+        { "time": "10:00", "status": "free" },
+        { "time": "12:00", "status": "free" },
+        { "time": "14:00", "status": "loading", "carrier": "Knight" }
+      ]
+    }
+  ]
+}

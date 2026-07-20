@@ -1,0 +1,11 @@
+{
+  "ticket_number": "#431",
+  "table": "Bar 3",
+  "server": "Marco",
+  "time": "7:55 PM",
+  "status": "ready",
+  "items": [
+    { "qty": "1", "name": "Old Fashioned", "mods": ["Extra bitters"], "done": true },
+    { "qty": "2", "name": "House Lager", "done": true }
+  ]
+}

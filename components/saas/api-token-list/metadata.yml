@@ -1,0 +1,87 @@
+name: "API Token List"
+short_description: A list of API tokens showing each token's name, masked key with copy button, scope chips, meta, and a revoke action.
+long_visual_description: >
+  A vertical stack of bordered cards, one per token. Each card shows the token name in the heading
+  face, a masked key in a mono chip on a raised surface with a small copy button beside it, a row of
+  mono scope chips, and a line of muted meta (created / last used). An outlined danger "Revoke"
+  button sits on the trailing edge, stacking below the details on narrow screens.
+
+use_cases:
+  - A developer settings page listing personal access tokens.
+  - Managing API keys for a workspace or project.
+  - Showing service tokens with their scopes and last-used time.
+  - Auditing which tokens exist before rotating credentials.
+  - Listing OAuth app secrets with copy and revoke.
+  - A CI/CD integrations page of machine tokens.
+
+recommended_for:
+  - Developer and API settings screens.
+  - Any list of credentials that need copy and revoke controls.
+avoid_for:
+  - Displaying a full, unmasked secret (only ever pass a masked value).
+  - A one-off token shown right after creation (use a reveal-once panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a tokens array; each token needs a name and a token_masked value (never the full secret),
+  plus optional scopes, created, and last_used strings. The copy button copies the masked value
+  shown. Wire Revoke to a confirmation flow in your app.
+
+how_to_use: >
+  behavior.js wires every copy button: on click it reads the masked value from the sibling
+  code[data-token], writes it to the clipboard via navigator.clipboard, and swaps the button label
+  to "Copied!" for about 1.5 seconds before restoring it. The portable self-init reads everything
+  from the DOM (no props object). All listeners and timers are cleaned up on teardown.
+
+props:
+  tokens: "The tokens in order. Each: name, token_masked (the only value ever exposed), scopes (array of scope strings), created (optional), last_used (optional)."
+
+example_prompts:
+  - "List two API tokens with scopes and a copy and revoke button each."
+  - "Show a personal access token with repo and read:org scopes."
+  - "Add an API tokens list to the developer settings page."
+
+lifecycle: experimental
+content_model: A list of tokens, each with a name, a masked key, scope labels, and optional created / last-used meta.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Always show a masked key, never the full secret. Keep scope labels lowercase and machine-like.
+  Use relative times for last used (2 hours ago, Yesterday) and dates for created.
+
+relationships:
+  related:
+    - saas/danger-zone
+    - saas/billing-tab
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Developer
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Copy and revoke are labelled buttons; the copy icon is aria-hidden and feedback is conveyed by the text label change.
+  keyboard_support: Copy and revoke buttons are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

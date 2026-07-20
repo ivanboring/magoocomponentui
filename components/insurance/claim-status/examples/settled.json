@@ -1,0 +1,12 @@
+{
+  "claim_number": "CLM-2026-00612",
+  "type": "Water damage",
+  "amount": "$8,750",
+  "status": "Approved",
+  "steps": [
+    { "label": "Claim filed", "done": true },
+    { "label": "Under review", "done": true },
+    { "label": "Adjuster assigned", "done": true },
+    { "label": "Settlement paid", "done": true, "current": true }
+  ]
+}

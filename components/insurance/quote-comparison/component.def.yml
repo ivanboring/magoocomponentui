@@ -1,0 +1,25 @@
+name: quote-comparison
+props:
+  plans:
+    type: array
+    items: object
+    required: true
+    title: Quote plans
+    description: >
+      The quotes to compare side by side. Each item is { name, premium, deductible, coverage_limit,
+      features, recommended } where premium/deductible/coverage_limit are pre-formatted display
+      strings, features is an array of plain strings, and recommended (optional) highlights one plan
+      with a primary border and badge.
+    example:
+      - name: "Basic"
+        premium: "$64"
+        deductible: "$1,500"
+        coverage_limit: "$50,000"
+        features: ["Liability coverage", "Roadside assistance", "24/7 claims line"]
+        recommended: false
+      - name: "Standard"
+        premium: "$92"
+        deductible: "$750"
+        coverage_limit: "$150,000"
+        features: ["Everything in Basic", "Collision coverage", "Rental reimbursement", "Accident forgiveness"]
+        recommended: true

@@ -1,0 +1,19 @@
+<article class="workout-card flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div data-if="image" class="workout-card__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+    <img class="size-full object-cover" src="{{ image }}" alt="">
+  </div>
+  <div class="flex flex-1 flex-col gap-2 p-4">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <div class="mt-auto flex flex-wrap items-center gap-2 text-sm text-on-surface-muted">
+      <span class="inline-flex items-center gap-1">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2.5"/></svg>
+        <span class="tabular-nums">{{ duration }}</span>
+      </span>
+      <span class="workout-card__level inline-flex items-center rounded-pill px-2 py-0.5 text-xs font-medium capitalize {{ level@class }}">{{ level }}</span>
+      <span data-if="kcal" class="inline-flex items-center gap-1">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 2c1 2.5-1 3.5-1 5a3 3 0 0 0 5 2c1 2-.5 5-4 5a4.5 4.5 0 0 1-2-8.5C9.5 9 8 6 10 2Z"/></svg>
+        <span class="tabular-nums">{{ kcal }} kcal</span>
+      </span>
+    </div>
+  </div>
+</article>

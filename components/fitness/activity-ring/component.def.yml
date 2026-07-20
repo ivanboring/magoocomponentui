@@ -1,0 +1,17 @@
+name: activity-ring
+props:
+  rings:
+    type: array
+    items: object
+    required: true
+    title: Rings
+    description: >
+      Concentric progress rings, outermost first. Each item:
+      { label, value, goal, radius, dash, offset, color_class }.
+      radius/dash/offset are PRECOMPUTED by the caller because the template does no arithmetic:
+      radius is the SVG circle radius in a 36x36 viewBox (outer ~15.9155, then ~12, then ~8.5);
+      dash is that circle's full circumference (2 * PI * radius); offset is the stroke-dashoffset for
+      the filled arc, i.e. dash * (1 - min(value/goal, 1)). color_class is a tokenized stroke-*
+      utility (stroke-primary/success/warning/danger/info/accent). Pass 1-3 rings.
+    example:
+      - { label: "Move", value: 420, goal: 600, radius: 15.9155, dash: "100", offset: "30", color_class: "stroke-danger" }

@@ -1,0 +1,7 @@
+{
+  "title": "Mar 2026",
+  "rows": [
+    { "label": "Revenue", "value": "$48,210", "color_class": "bg-primary" },
+    { "label": "Target", "value": "$45,000", "color_class": "bg-accent" }
+  ]
+}

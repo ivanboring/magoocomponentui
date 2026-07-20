@@ -1,0 +1,88 @@
+name: "Petition Signer"
+short_description: A petition card with a running signature count, optional goal progress, and a quick name/email sign form.
+long_visual_description: >
+  A surface card led by the petition title in the heading face. When a goal is set, a slim primary
+  progress bar sits under the title. A muted line reports the signature count ("N have signed",
+  optionally "of N goal"). Below, a name field, an email field, and a primary Sign button lay out in
+  a row on wider screens and stack on narrow ones.
+
+use_cases:
+  - Collect signatures for an advocacy or campaign petition.
+  - Show momentum with a live signature count and goal.
+  - Add a sign-on form to an issue or action page.
+  - Rally supporters toward a signature milestone.
+  - Embed a compact petition CTA in an article or email.
+
+recommended_for:
+  - A lightweight petition sign-on with just name and email.
+  - Showing progress toward a signature goal.
+avoid_for:
+  - Collecting detailed constituent data or comments (use a full form).
+  - Donations or payments (use a donation form).
+
+markets:
+  - Global
+
+example_usage: >
+  Set title and signatures (a display string). Add goal plus pct (the precomputed
+  signatures/goal percentage) to show the progress bar and "of N goal" text; omit goal to show just
+  the count. Listen for petition:sign to capture { name, email } when the visitor signs.
+
+how_to_use: >
+  The count and goal are display-only. behavior.js wires the form: pressing Sign dispatches
+  petition:sign with { name, email } read from the two inputs (empty strings when blank). It does
+  not change the displayed total - that stays server-driven. Config is read from the DOM; the
+  portable self-init passes no props object.
+
+props:
+  title: "The petition headline."
+  signatures: "Current signature count as a display string (e.g. 8,421)."
+  goal: "Optional signature goal as a display string; presence shows the progress bar and 'of N goal' text."
+  pct: "Precomputed progress percent 0-100 (signatures / goal); sets the bar width and aria-valuenow."
+
+example_prompts:
+  - "Add a petition signer titled 'Protect the old-growth forest' at 8,421 of 10,000 signatures."
+  - "Show a petition sign-on with a name and email field and no goal bar."
+
+lifecycle: experimental
+content_model: A petition title, a signature count, an optional goal with progress, and a name/email sign-on form.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  State the petition as the change you want, not the problem. Keep the count honest and current -
+  it is the social proof that drives sign-ons. Ask only for what you need (name and email).
+
+relationships:
+  related:
+    - nonprofit/cause-hero
+    - nonprofit/volunteer-signup
+    - nonprofit/transparency-breakdown
+
+categorization:
+  category: Nonprofit
+  subcategory: Advocacy
+  atomic_type: molecule
+  usage_type: [form, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The optional progress bar carries role="progressbar" with aria-valuenow/min/max; both inputs have aria-labels matching their placeholders; Sign is a real button.
+  keyboard_support: The name and email inputs and the Sign button are focusable in order; Sign activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,22 @@
+name: bulk-actions-bar
+props:
+  selected_count:
+    type: string
+    required: true
+    title: Selected count
+    description: >
+      How many items are currently selected, shown as "{count} selected". A string so a
+      formatted or large value ("1,204") passes through unchanged.
+    example: "3"
+  actions:
+    type: array
+    items: object
+    required: true
+    title: Actions
+    description: >
+      The batch actions to offer, in order. Each action: { label, icon }. icon is an optional
+      inline SVG (raw HTML) shown before the label.
+    example:
+      - { label: "Archive" }
+      - { label: "Mark read" }
+      - { label: "Delete" }

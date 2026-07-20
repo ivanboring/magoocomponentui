@@ -1,0 +1,24 @@
+name: workspace-switcher
+props:
+  current:
+    type: string
+    default: "Acme Inc"
+    title: Current workspace
+    description: The label of the currently selected workspace, shown in the trigger.
+  workspaces:
+    type: array
+    items: object
+    required: true
+    title: Workspaces
+    description: >
+      The list of switchable workspaces. Each: { name, plan, avatar, current }. plan is an
+      optional tier label (e.g. "Pro"); avatar is an optional logo URL (a generic workspace
+      tile shows when empty); current marks the checked workspace.
+    example:
+      - { name: "Acme Inc", plan: "Pro", avatar: "", current: true }
+      - { name: "Globex", plan: "Free", avatar: "", current: false }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render with the menu already open (useful for previews and screenshots).

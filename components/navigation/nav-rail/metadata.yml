@@ -1,0 +1,74 @@
+name: "Navigation Rail"
+short_description: An icon-only vertical app rail that expands to reveal labels on hover or focus.
+long_visual_description: >
+  A narrow left rail of stacked line-style icons against a surface background with a right
+  border. On hover or when any item is focused, the rail slides wider and each icon gains its
+  text label; the active item is highlighted with a raised background and primary tint.
+
+use_cases:
+  - App-shell left navigation that stays compact until needed.
+  - Dashboard primary navigation on space-constrained desktop layouts.
+  - Tool or editor sidebar switching between major views.
+  - Admin console navigation with a persistent icon rail.
+  - Workspace section switcher that expands to show full labels.
+  - Secondary navigation beside a wider content or detail pane.
+
+recommended_for:
+  - Desktop app shells that want a persistent but minimal-footprint left navigation.
+avoid_for:
+  - Marketing sites (use navbar).
+  - Touch-primary mobile layouts where hover is unavailable (use bottom-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide items with an inline-SVG icon and a short label; mark one active. The rail is
+  collapsed to icons by default and expands on hover or keyboard focus - no JavaScript. Place
+  it as a full-height column in an app-shell grid or flex layout.
+
+props:
+  label: Accessible name for the whole navigation region.
+  items: The rail items, each with icon, label, href, and active state.
+
+example_prompts:
+  - "Add an icon rail with Dashboard, Reports, Calendar, Messages, and Settings."
+  - "Add a collapsible left nav rail that expands on hover to show labels."
+
+lifecycle: experimental
+content_model: A vertical list of top-level destinations, each an icon and a short label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels to one or two words so they fit the expanded width. The screenshot pipeline
+  captures the collapsed (icon-only) state - that is expected; labels reveal only on live
+  hover or focus.
+
+relationships:
+  related:
+    - navigation/sidebar-nav
+    - navigation/bottom-nav
+    - navigation/navbar
+
+categorization:
+  category: Navigation
+  subcategory: Menus
+  atomic_type: organism
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active item sets aria-current; labels reveal on focus-within so keyboard users see them, and icons are decorative (aria-hidden).
+  keyboard_support: Items are links, focusable in order; focusing any item expands the rail (focus-within) so labels are visible.
+  seo_score: 40
+  text_direction: both

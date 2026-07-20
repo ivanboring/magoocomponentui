@@ -1,0 +1,80 @@
+name: "Team Member Row"
+short_description: A single team-member row showing avatar, name, email, role, an optional status pill, and an actions menu button.
+long_visual_description: >
+  A horizontal row on the surface colour. A round avatar (photo, or muted initials on a raised
+  surface when no image is set) leads, followed by the member's name in medium weight above their
+  email in muted text. On the trailing edge sit a role pill on a raised surface, an optional
+  highlighted status pill (e.g. a warning-toned "Pending"), and a three-dot actions button.
+
+use_cases:
+  - A row in a workspace or organisation members list.
+  - Showing pending invitations alongside active members.
+  - A collaborators list on a project or document.
+  - A permissions/roles management table.
+  - Listing seats used against a plan's limit.
+  - An admin view of users with their access level.
+
+recommended_for:
+  - Team and members management screens.
+  - Any list mapping people to a role or status.
+avoid_for:
+  - A rich profile card (use a profile card component).
+  - A contact with no role or membership context.
+
+markets:
+  - Global
+
+example_usage: >
+  Render one per member inside a bordered, divided list. Provide name, email, and role; pass avatar
+  for a photo or initials for the fallback. Set status to "Pending" (or similar) for invites that
+  have not been accepted. Wire the actions button to a menu (change role, remove, resend invite).
+
+props:
+  name: The member's full name.
+  email: The member's email address, shown in muted text under the name.
+  avatar: Optional avatar image URL; when omitted the initials fallback is shown.
+  initials: Precomputed one or two uppercase letters shown when there is no avatar.
+  role: The member's role or permission level, shown as a pill (e.g. Admin, Member).
+  status: Optional membership status pill such as "Pending"; omit for an active member.
+
+example_prompts:
+  - "Add a team member row for Ada Lovelace as an Admin."
+  - "Show a pending invite row for grace@company.com."
+  - "List workspace members with their roles and a menu button each."
+
+lifecycle: experimental
+content_model: A person (name, email, avatar or initials), a role, and an optional membership status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --radius-pill
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep role names short and consistent (Admin, Member, Viewer). Use the status pill only for
+  non-active states like Pending or Suspended, not to repeat the role.
+
+relationships:
+  related:
+    - saas/invite-member
+    - saas/danger-zone
+    - forms/form-field-toggle
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Team
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Avatar image is decorative (empty alt) with a text name beside it; the actions button has an accessible label.
+  keyboard_support: The actions button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,77 @@
+name: "Seat Course Timeline"
+short_description: A horizontal coursing timeline - Appetizer to Entree to Dessert - with a status dot and dish hints for each course.
+long_visual_description: >
+  A horizontal timeline of courses connected by a thin line, one node per course. Each node has a
+  status dot, the course name, a status word, and an optional short list of the dishes in that
+  course. The dot and status word are coloured by coursing status - green served, amber firing, red
+  held, muted pending - so a server or expo can read where the table is in its coursing at a glance.
+
+use_cases:
+  - Coursing timeline for a table in fine-dining service.
+  - Expo view of where each course sits for a seated party.
+  - Server handheld coursing tracker per table.
+  - Pacing tool to hold or fire the next course.
+  - Tasting-menu progression display.
+  - Banquet or private-dining course sequencing.
+
+recommended_for:
+  - Showing a table's coursing sequence and each course's status.
+  - Pacing multi-course service with fire and hold cues.
+avoid_for:
+  - A single order's line items (use a receipt or ticket component).
+  - The whole kitchen's open tickets (use kitchen-display).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a courses array of { label, status, items }, ordered from first to last course. Set status
+  to served, firing, held or pending per course and list the course's dishes in items. The dot and
+  status word share the status colour; the timeline scrolls horizontally on narrow screens.
+
+props:
+  courses: "The coursing sequence, each with a label, a served/firing/held/pending status, and an optional list of dish names."
+  label: "Accessible name announced for the course timeline."
+
+example_prompts:
+  - "Show a course timeline with the appetizer served and the entree firing."
+  - "Add a coursing tracker holding the dessert course."
+  - "Display a tasting-menu progression across four courses."
+
+lifecycle: experimental
+content_model: An ordered set of courses, each with a name, a coursing status, and an optional list of dishes.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Keep course labels and dish hints short. Use firing for the course being made now, held for one
+  intentionally paused, and served for one already delivered, so the colours track real pacing.
+
+relationships:
+  related:
+    - pos/kitchen-display
+    - pos/order-status-rail
+
+categorization:
+  category: Restaurant POS
+  subcategory: Coursing
+  atomic_type: molecule
+  usage_type: [timeline, status]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each course's status is spelled out as a word beside its coloured dot, so coursing status does not rely on colour alone; the timeline is an ordered list with an accessible name.
+  keyboard_support: The timeline scrolls with the keyboard when focused; courses are static, non-interactive content.
+  seo_score: 20
+  text_direction: both

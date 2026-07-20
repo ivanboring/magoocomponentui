@@ -1,0 +1,30 @@
+name: delivery-proof
+props:
+  recipient:
+    type: string
+    title: Recipient
+    description: Name of the person who received the delivery.
+    example: "J. Alvarez"
+  time:
+    type: string
+    title: Delivered time
+    description: When the delivery was completed, shown in the header.
+    example: "Jul 5, 1:22 PM"
+  signature_image:
+    type: string
+    title: Signature image
+    description: >
+      URL of a captured signature image. When omitted, a placeholder signature mark is drawn instead.
+    example: "/stock/property-house.jpg"
+  photo:
+    type: string
+    title: Proof photo
+    description: >
+      URL of a proof-of-delivery photo (e.g. the package at the door). When omitted, a camera
+      placeholder is shown.
+    example: "/stock/property-house.jpg"
+  note:
+    type: string
+    title: Note
+    description: Optional courier note about the drop-off.
+    example: "Left at front porch, behind the planter."

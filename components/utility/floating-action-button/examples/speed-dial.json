@@ -1,0 +1,10 @@
+{
+  "label": "New",
+  "start_open": true,
+  "icon": "<svg class='size-6' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M12 5v14M5 12h14'/></svg>",
+  "actions": [
+    { "label": "New document", "icon": "<svg class='size-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M7 3h7l4 4v14H7z'/><path d='M14 3v4h4'/></svg>" },
+    { "label": "New folder", "icon": "<svg class='size-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 7a1 1 0 011-1h5l2 2h8a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1z'/></svg>" },
+    { "label": "Upload", "icon": "<svg class='size-5' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M12 16V4M7 9l5-5 5 5M5 20h14'/></svg>" }
+  ]
+}

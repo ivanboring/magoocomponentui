@@ -1,0 +1,7 @@
+<nav class="folder-nav flex w-60 flex-col gap-0.5 bg-surface p-2" aria-label="{{ label }}">
+  <a data-for="folder in folders" class="folder-nav__item flex items-center gap-3 rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-primary" href="{{ folder.href }}" data-active="{{ folder.active }}" aria-current="{{ folder.active }}">
+    <span data-if="folder.icon" class="folder-nav__icon shrink-0" aria-hidden="true">{{{ folder.icon }}}</span>
+    <span class="min-w-0 flex-1 truncate">{{ folder.label }}</span>
+    <span data-if="folder.count" class="folder-nav__count shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium tabular-nums text-on-surface-muted">{{ folder.count }}</span>
+  </a>
+</nav>

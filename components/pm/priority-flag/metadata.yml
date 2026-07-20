@@ -1,0 +1,67 @@
+name: "Priority Flag"
+short_description: A small flag icon and label that signals a task's priority level by colour.
+long_visual_description: >
+  A tiny inline pennant flag next to a short capitalised label. The whole mark is tinted by the
+  priority: muted grey for low, an info tone for medium, a warning tone for high, and a danger
+  tone for urgent, so the level reads at a glance in a dense list or on a card.
+
+use_cases:
+  - Flag a task or ticket's priority on a board card.
+  - Show priority in a backlog or issue table row.
+  - Mark an item as urgent in a triage queue.
+  - Indicate severity alongside a bug report.
+  - Sort or scan work by priority in a sprint list.
+
+recommended_for:
+  - A compact, colour-coded priority cue with a text label.
+  - Fixed low/medium/high/urgent priority scales.
+avoid_for:
+  - Arbitrary status labels that are not priorities (use a badge or pill).
+  - Numeric severity scores (show the number).
+
+markets:
+  - Global
+
+example_usage: >
+  Set level to one of low, medium, high, or urgent. The label text is the level name and the
+  colour is applied automatically from the level variant map.
+
+props:
+  level: The priority; drives both the label text and the colour.
+
+example_prompts:
+  - "Flag this ticket as high priority."
+  - "Add an urgent priority flag to the incident card."
+
+lifecycle: experimental
+content_model: A single priority level from a fixed scale.
+
+theming:
+  tokens_used:
+    - --color-on-surface-muted
+    - --color-info
+    - --color-warning
+    - --color-danger
+
+editorial_guidance: >
+  Keep the four levels meaningful and reserve urgent for genuinely time-critical work so its
+  danger colour keeps its weight.
+
+relationships:
+  related:
+    - pm/dependency-link
+    - pm/board-column-header
+    - pm/project-health-card
+
+categorization:
+  category: Project Management
+  subcategory: Indicators
+  atomic_type: atom
+  usage_type: [list-item, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Priority is conveyed by the text label, not colour alone; the flag icon is decorative.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

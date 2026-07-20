@@ -1,0 +1,5 @@
+<div class="star-rating-input inline-flex items-center gap-1" role="radiogroup" aria-label="{{ label }}" data-value="{{ value }}" data-max="{{ max }}">
+  <button data-for="star in stars" type="button" role="radio" aria-checked="false" class="star-rating-input__star flex size-9 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="{{ star.index }}" aria-label="{{ star.index }} stars">
+    <svg class="star-rating-input__glyph size-6 data-[filled=false]:opacity-25" data-filled="{{ star.filled }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+  </button>
+</div>

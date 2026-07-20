@@ -1,0 +1,82 @@
+name: "Bulk Actions Bar"
+short_description: A selection bar showing the selected count and a row of batch action buttons.
+long_visual_description: >
+  A horizontal bar on the raised surface with a card radius and border. A select-all checkbox
+  leads, followed by a "{count} selected" label, a thin divider, then a row of batch action
+  buttons — each an optional line icon plus label — that lift on hover. It reads as the contextual
+  toolbar that appears once one or more list rows are selected.
+
+use_cases:
+  - Batch toolbar over a selected set of email messages.
+  - Multi-select actions in a file or media list.
+  - Bulk operations on table rows (archive, delete, move).
+  - Selection actions in a moderation or review queue.
+  - Batch tagging or status changes in an admin list.
+  - Multi-select toolbar in a notification inbox.
+
+recommended_for:
+  - A contextual action bar shown when list items are selected.
+  - Exposing a small set of batch operations over a selection.
+avoid_for:
+  - A single-item action menu (use dropdown-menu).
+  - A permanent page toolbar unrelated to selection.
+
+markets:
+  - Global
+
+example_usage: >
+  Show it when one or more rows are selected. Pass the current selected_count and an actions
+  array (each { label, icon }). Each action button dispatches bulk:action with its label.
+
+how_to_use: >
+  The bar is styled purely with tokenized utilities and renders with no JavaScript. behavior.js
+  wires the buttons: clicking an action dispatches a bubbling bulk:action event with
+  { label } so the host can apply the operation to the current selection. The select-all
+  checkbox and the selected_count value are supplied by the host. The portable self-init reads
+  no props object.
+
+props:
+  selected_count: "How many items are selected, shown as \"{count} selected\" (a string so formatted values pass through)."
+  actions: "The batch actions, in order. Each: label and an optional inline SVG icon."
+
+example_prompts:
+  - "Add a bulk actions bar with Archive, Mark read, and Delete for selected messages."
+  - "Show a selection toolbar with a count and batch actions above the list."
+
+lifecycle: experimental
+content_model: A selected count and an ordered list of batch actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --duration-token
+
+editorial_guidance: >
+  Keep action labels to a single verb and order them least-to-most destructive, with Delete
+  last. Only surface the actions that make sense for a mixed selection.
+
+relationships:
+  related:
+    - email/folder-nav
+    - overlays/dropdown-menu
+
+categorization:
+  category: Email
+  subcategory: Actions
+  atomic_type: molecule
+  usage_type: [banner, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The select-all checkbox has an accessible label; action icons are aria-hidden and each button carries a visible text label.
+  keyboard_support: The checkbox and every action button are focusable and activate on Enter/Space.
+  seo_score: 10
+  text_direction: both

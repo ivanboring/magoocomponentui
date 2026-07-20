@@ -1,0 +1,20 @@
+<div class="parts-list rounded-card border border-border bg-surface shadow-card">
+  <ul class="divide-y divide-border">
+    <li data-for="part in parts" class="parts-list__row flex items-start justify-between gap-3 p-4">
+      <div class="min-w-0">
+        <p class="truncate text-sm font-medium text-on-surface">{{ part.name }}</p>
+        <div class="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-on-surface-muted">
+          <span data-if="part.sku" class="font-mono">{{ part.sku }}</span>
+          <span data-if="part.sku">&middot;</span>
+          <span>Qty {{ part.qty }}</span>
+          <span data-if="part.status" class="parts-list__status inline-flex items-center rounded-pill px-2 py-0.5 font-medium uppercase tracking-wide data-[status=in-stock]:bg-success/10 data-[status=in-stock]:text-success data-[status=ordered]:bg-warning/10 data-[status=ordered]:text-warning data-[status=installed]:bg-info/10 data-[status=installed]:text-info" data-status="{{ part.status }}">{{ part.status }}</span>
+        </div>
+      </div>
+      <span data-if="part.price" class="shrink-0 text-sm text-on-surface tabular-nums">{{ part.price }}</span>
+    </li>
+  </ul>
+  <div data-if="total" class="flex items-center justify-between gap-3 border-t border-border p-4">
+    <span class="text-sm font-medium text-on-surface-muted">Total</span>
+    <span class="font-heading text-on-surface tabular-nums">{{ total }}</span>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+name: load-board-row
+props:
+  origin:
+    type: string
+    required: true
+    title: Origin
+    description: The pickup location (city, state, or facility).
+    example: "Dallas, TX"
+  destination:
+    type: string
+    required: true
+    title: Destination
+    description: The drop-off location (city, state, or facility).
+    example: "Atlanta, GA"
+  weight:
+    type: string
+    title: Weight
+    description: The load weight, formatted with a unit (e.g. "42,000 lbs").
+    example: "42,000 lbs"
+  rate:
+    type: string
+    title: Rate
+    description: The offered rate for the load, formatted with currency (e.g. "$2,150").
+    example: "$2,150"
+  pickup_date:
+    type: string
+    title: Pickup date
+    description: When the load is available for pickup, shown with a calendar icon.
+    example: "Jul 3"
+  equipment:
+    type: string
+    title: Equipment
+    description: The trailer or equipment type required (e.g. "Dry Van", "Reefer", "Flatbed").
+    example: "Dry Van"

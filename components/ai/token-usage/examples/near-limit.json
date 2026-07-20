@@ -1,0 +1,8 @@
+{
+  "label": "Context window",
+  "used": "19,200",
+  "limit": "20,000",
+  "used_pct": 96,
+  "cost": "$0.58",
+  "tone": "danger"
+}

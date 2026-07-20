@@ -1,0 +1,87 @@
+name: "Public Record Row"
+short_description: A list row for a public record — document icon, title and type, a mono date, an access badge, and a View or Request action.
+long_visual_description: >
+  A horizontal row on the surface colour with a document glyph in a rounded raised tile at the left,
+  the record title and its type stacked beside it, a mono-face date, a rounded access badge (success
+  green "Public" or warning amber "Restricted"), and a small outlined action button at the right that
+  reads "View" for public records and "Request" for restricted ones. The date hides on the narrowest
+  screens.
+
+use_cases:
+  - A row in a public records or FOIA document index.
+  - A meeting minutes or agenda archive listing.
+  - A budget, contract, or permit document row.
+  - A transparency portal file list.
+  - A results row where some documents require a formal request.
+  - An open-data catalog entry with an access level.
+
+recommended_for:
+  - Long, scannable lists of government documents.
+  - Records that mix openly available and request-only access.
+avoid_for:
+  - Rich document previews with thumbnails (use a media card).
+  - A single featured document (use a card instead of a row).
+
+markets:
+  - Government
+  - Legal
+
+example_usage: >
+  Give each row a title, an optional type, and a preformatted date. Set access to public for openly
+  available records (success badge, View action) or restricted for request-only records (warning
+  badge, Request action), and point href at the document or the request form. Stack many rows in a
+  list to build an index.
+
+props:
+  title: The record's name or subject.
+  type: Optional short category such as "Minutes" or "Budget".
+  date: The record's date, shown in a mono face; pass it preformatted.
+  access: "public gives a success badge and a View action; restricted gives a warning badge and a Request action."
+  href: Where the View/Request action points.
+
+example_prompts:
+  - "Add a public record row for the June council minutes, public, View link."
+  - "Show a restricted budget document row with a Request action."
+  - "List the meeting agenda archive as public record rows by date."
+
+lifecycle: experimental
+content_model: A record title and optional type, a date, an access level, and a link to view or request the document.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep titles specific enough to scan (include the body or date in the title when types repeat). Use
+  restricted honestly — only for records that genuinely require a request — so the amber badge stays
+  meaningful.
+
+relationships:
+  related:
+    - government/representative-card
+    - government/ballot-measure
+
+categorization:
+  category: Government
+  subcategory: Records
+  atomic_type: molecule
+  usage_type: [list-item, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Access level is conveyed by the badge text (Public/Restricted) and the action label, not colour alone; the icon is decorative.
+  keyboard_support: The View/Request action is a focusable link that activates on Enter.
+  seo_score: 40
+  text_direction: both

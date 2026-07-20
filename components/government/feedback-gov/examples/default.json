@@ -1,0 +1,11 @@
+{
+  "placeholder": "Describe the issue and where it is located...",
+  "categories": [
+    { "label": "Pothole", "value": "pothole" },
+    { "label": "Streetlight outage", "value": "streetlight" },
+    { "label": "Graffiti", "value": "graffiti" },
+    { "label": "Illegal dumping", "value": "dumping" },
+    { "label": "Damaged sign", "value": "sign" },
+    { "label": "Other", "value": "other" }
+  ]
+}

@@ -1,0 +1,92 @@
+name: "Schedule Timer"
+short_description: A device automation tile showing on/off times, a weekday strip, and an enable switch.
+long_visual_description: >
+  A surface card headed by a clock glyph, the device name, and a pill enable switch that slides to
+  primary when active. Two rows list the on time (with a sun glyph) and off time (with a moon glyph),
+  each showing a monospaced time on the right. Below, a row of round weekday dots fills the active
+  days in primary and leaves inactive days as muted outlines.
+
+use_cases:
+  - A porch or exterior light on a dusk-to-late schedule.
+  - A thermostat setback timer for weekdays versus weekends.
+  - A sprinkler or irrigation run window on selected days.
+  - A coffee maker or appliance morning routine.
+  - An away-mode lighting schedule to simulate occupancy.
+  - A pet feeder or aquarium light daily automation.
+
+recommended_for:
+  - Recurring on/off automations tied to times and weekdays.
+  - Schedules that need a quick enable/disable without editing the times.
+avoid_for:
+  - One-off countdown timers (use a countdown component).
+  - Complex multi-step scenes or conditional automations.
+
+markets:
+  - Global
+
+example_usage: >
+  Name the device, set on_time and off_time as display strings, and pass days as a full weekday
+  strip of { label, active } with the active flag precomputed. Set enabled for the switch position.
+
+how_to_use: >
+  Layout is static and renders with no JavaScript, so the times, weekday dots and switch position
+  reflect the props at render time. Because the directive language can't test membership, pass days
+  as a per-day { label, active } list rather than a set of active names. behavior.js wires the switch:
+  clicking it flips data-state on the button and knob (and aria-checked) and dispatches a bubbling
+  "timer:toggle" event with the new enabled state. The portable self-init reads state from the DOM.
+
+props:
+  device: Name of the device the schedule controls.
+  on_time: Display string for when the device turns on; its row hides when omitted.
+  off_time: Display string for when the device turns off; its row hides when omitted.
+  days: The full weekday strip as { label, active } entries, with active precomputed per day.
+  enabled: Whether the schedule is active; drives the switch.
+
+example_prompts:
+  - "Add a porch light schedule that turns on at 18:30 and off at 23:00 on weekdays."
+  - "Show a sprinkler timer that runs on weekends, currently disabled."
+  - "Set up a thermostat setback timer with a weekday strip."
+
+lifecycle: experimental
+content_model: A device name, on/off times, a weekday strip with active days, and an enabled state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Use short single-letter weekday initials and keep times in the household's usual clock format.
+  Let the filled dots show the recurrence rather than spelling out "every weekday" in text.
+
+relationships:
+  related:
+    - smarthome/light-control
+    - smarthome/device-group-card
+    - smarthome/room-grid
+
+categorization:
+  category: Smart Home
+  subcategory: Automation
+  atomic_type: molecule
+  usage_type: [card, control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The enable control is a role="switch" with aria-checked; active weekdays are shown by fill and text weight alongside colour, and the time-row glyphs are aria-hidden.
+  keyboard_support: The enable switch is focusable and toggles on Enter/Space.
+  seo_score: 20
+  text_direction: both

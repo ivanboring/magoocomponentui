@@ -1,0 +1,27 @@
+name: meal-plan-day
+props:
+  day:
+    type: string
+    title: Day
+    description: Optional day label heading, e.g. "Monday" or "Day 1".
+    example: "Monday"
+  meals:
+    type: array
+    items: object
+    required: true
+    title: Meals
+    description: >
+      The meals for the day, in order. Each item: { name, items, total_kcal }. name is the meal
+      title (Breakfast/Lunch/...); items is an array of { label, kcal } food entries (kcal optional,
+      a plain number string); total_kcal is the optional meal total (plain number string).
+    example:
+      - name: "Breakfast"
+        total_kcal: "420"
+        items:
+          - { label: "Oats with berries", kcal: "320" }
+          - { label: "Black coffee", kcal: "5" }
+  day_total:
+    type: string
+    title: Day total
+    description: Optional total calories for the whole day (plain number string).
+    example: "1980"

@@ -1,0 +1,8 @@
+{
+  "total_affected": "No active outages",
+  "outages": [
+    { "area": "Downtown", "customers_affected": "0 customers", "status": "resolved" },
+    { "area": "Riverside", "customers_affected": "0 customers", "status": "resolved" },
+    { "area": "Oak Hill", "customers_affected": "0 customers", "status": "resolved" }
+  ]
+}

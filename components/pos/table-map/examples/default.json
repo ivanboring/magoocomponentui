@@ -1,0 +1,15 @@
+{
+  "label": "Main dining room",
+  "tables": [
+    { "label": "1", "seats": "2", "status": "open", "shape": "round" },
+    { "label": "2", "seats": "4", "status": "seated", "shape": "square" },
+    { "label": "3", "seats": "4", "status": "reserved", "shape": "square" },
+    { "label": "4", "seats": "2", "status": "dirty", "shape": "round" },
+    { "label": "5", "seats": "6", "status": "seated", "shape": "square" },
+    { "label": "6", "seats": "2", "status": "open", "shape": "round" },
+    { "label": "7", "seats": "8", "status": "reserved", "shape": "square" },
+    { "label": "8", "seats": "4", "status": "open", "shape": "square" },
+    { "label": "9", "seats": "2", "status": "seated", "shape": "round" },
+    { "label": "10", "seats": "4", "status": "dirty", "shape": "square" }
+  ]
+}

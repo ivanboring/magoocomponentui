@@ -1,0 +1,10 @@
+{
+  "current": "Ethereum",
+  "start_open": false,
+  "networks": [
+    { "name": "Ethereum", "icon": "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2l5 8-5 3-5-3zM5 11l5 3 5-3-5 6z'/></svg>", "current": true },
+    { "name": "Polygon", "icon": "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 3l6 3.5v7L10 17l-6-3.5v-7z'/></svg>", "current": false },
+    { "name": "Arbitrum", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='1.6' aria-hidden='true'><path d='M10 3l5 12H5z'/></svg>", "current": false },
+    { "name": "Optimism", "icon": "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2a8 8 0 100 16 8 8 0 000-16zm0 5a3 3 0 110 6 3 3 0 010-6z'/></svg>", "current": false }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "office": "City Hall Registration Desk",
+  "address": "1 Market Square, Manchester M2 5DB",
+  "dates": [
+    {
+      "label": "Wed 23 Jul",
+      "slots": [
+        { "time": "09:30", "available": true, "selected": false },
+        { "time": "11:00", "available": true, "selected": false },
+        { "time": "14:30", "available": false, "selected": false }
+      ]
+    },
+    {
+      "label": "Thu 24 Jul",
+      "slots": [
+        { "time": "09:30", "available": false, "selected": false },
+        { "time": "11:00", "available": true, "selected": false },
+        { "time": "14:30", "available": true, "selected": false }
+      ]
+    }
+  ]
+}

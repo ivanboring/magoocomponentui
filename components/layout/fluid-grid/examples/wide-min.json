@@ -1,0 +1,8 @@
+{
+  "min": "lg",
+  "gap": "lg",
+  "label": "Collections",
+  "$slots": {
+    "items": "<article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><img class=\"aspect-[3/2] w-full object-cover\" src=\"/stock/food-plate.jpg\" alt=\"\"><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">Seasonal menu</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Fresh plates every week.</p></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><img class=\"aspect-[3/2] w-full object-cover\" src=\"/stock/product-sneaker.jpg\" alt=\"\"><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">New arrivals</h3><p class=\"mt-1 text-sm text-on-surface-muted\">The latest drops.</p></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><img class=\"aspect-[3/2] w-full object-cover\" src=\"/stock/property-house.jpg\" alt=\"\"><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">Featured homes</h3><p class=\"mt-1 text-sm text-on-surface-muted\">Just listed near you.</p></div></article><article class=\"flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card\"><div class=\"aspect-[3/2] bg-surface-raised\"></div><div class=\"p-4\"><h3 class=\"font-heading text-on-surface\">Coming soon</h3><p class=\"mt-1 text-sm text-on-surface-muted\">A preview of what is next.</p></div></article>"
+  }
+}

@@ -1,0 +1,19 @@
+<div class="points-balance-card rounded-card border border-border bg-primary/5 p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p class="text-sm text-on-surface-muted">Points balance</p>
+      <div class="mt-1 flex items-baseline gap-2">
+        <span class="points-balance-card__points font-heading text-4xl text-on-surface tabular-nums">{{ points }}</span>
+        <span class="text-sm text-on-surface-muted">{{ currency_label }}</span>
+      </div>
+    </div>
+    <span data-if="tier" class="points-balance-card__tier inline-flex shrink-0 items-center gap-1 rounded-pill bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+      <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
+      {{ tier }}
+    </span>
+  </div>
+  <div data-if="expiring" class="points-balance-card__expiring mt-4 flex items-start gap-2 rounded-control bg-warning/10 p-3 text-sm text-warning">
+    <svg class="mt-0.5 size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2"/></svg>
+    <span class="min-w-0"><span class="font-medium tabular-nums">{{ expiring }}</span> {{ currency_label }} expiring <span data-if="expiring_date">on {{ expiring_date }}</span></span>
+  </div>
+</div>

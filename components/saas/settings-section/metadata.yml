@@ -1,0 +1,83 @@
+name: "Settings Section"
+short_description: A titled settings group that wraps related setting rows in a bordered, divided card.
+long_visual_description: >
+  A titled block whose header carries a heading and an optional muted one-line description.
+  Below the header sits a card on the surface colour with a border and a soft shadow; its
+  content slot holds a vertical stack of setting rows separated by hairline dividers, so a
+  run of toggle and select rows reads as one grouped panel.
+
+use_cases:
+  - Grouping related settings under one heading.
+  - The right-hand panels of a settings page.
+  - A Notifications block of toggle rows.
+  - A Preferences block mixing selects and toggles.
+  - Separating account, security, and workspace settings.
+  - Structuring a long settings form into scannable sections.
+
+recommended_for:
+  - Settings and preferences pages.
+  - Grouping toggle-setting-row and select-setting-row items.
+  - Two-column settings layouts beside settings-nav.
+avoid_for:
+  - A single standalone control (no grouping needed).
+  - Marketing feature lists (use a feature grid).
+  - Data tables (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a clear title and optional description, then slot a stack of toggle-setting-row and
+  select-setting-row items into content. The card wrapper adds the border, shadow, and the
+  dividers between rows automatically.
+
+props:
+  title: The section heading; keep it to one or two words.
+  description: Optional one-line context under the title.
+
+slots:
+  content: The setting rows for this section; dividers separate them automatically.
+
+example_prompts:
+  - "Add a Notifications settings section with three toggle rows."
+  - "Build a Preferences section with a language select and a compact-mode toggle."
+  - "Group security settings under a titled card panel."
+
+lifecycle: experimental
+content_model: >
+  A title, an optional description, and a slot holding one or more setting rows (toggles,
+  selects, or similar).
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Titles are short nouns; descriptions are a single plain sentence. Group only genuinely
+  related settings so each section stays scannable.
+
+relationships:
+  children:
+    - saas/toggle-setting-row
+    - saas/select-setting-row
+  related:
+    - saas/settings-nav
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Settings
+  atomic_type: organism
+  usage_type: [highlight, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses a section with an h2 heading; content rows carry their own accessible controls.
+  keyboard_support: No interactivity of its own; focus flows through the slotted rows.
+  seo_score: 50
+  text_direction: both

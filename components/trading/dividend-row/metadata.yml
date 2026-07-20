@@ -1,0 +1,88 @@
+name: "Dividend Row"
+short_description: A dividend line - symbol and name, the dividend amount and frequency, the yield, and the ex-dividend and pay dates.
+long_visual_description: >
+  A horizontal row on the surface colour with the ticker and name on the left, the dividend amount in
+  the mono face over its frequency, the yield in green, and a pair of ex-date and pay-date columns on
+  the right. Optional cells fold away cleanly when their props are unset and the row wraps on narrow
+  widths.
+
+use_cases:
+  - A row in a dividend calendar or schedule.
+  - A holdings income list in a portfolio dashboard.
+  - A dividend-history line on an asset detail page.
+  - A high-yield screener result row.
+  - A payout summary in an income-investing view.
+
+recommended_for:
+  - Listing dividends with amount, yield and key dates in a scannable row.
+  - Income-focused lists where ex-date and pay-date matter.
+avoid_for:
+  - A price and change quote line (use watchlist-row).
+  - A full holding with P/L (use position-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a symbol and a preformatted amount; add yield_pct, ex_date, pay_date and frequency as
+  available and each folds away when unset. Preformat the amount and yield in the caller so the mono
+  figures line up down a list.
+
+how_to_use: >
+  There is no JavaScript - the row is static markup. The optional yield, ex-date and pay-date blocks
+  are gated with data-if so they only render when their props are set. The row wraps with flex-wrap
+  on narrow widths.
+
+props:
+  symbol: "The paying instrument's ticker; the row's heading."
+  name: "The full name, shown small under the symbol; omit to hide."
+  amount: "The dividend amount per share, preformatted with currency."
+  yield_pct: "The dividend yield, preformatted with a percent sign; hidden when unset."
+  ex_date: "The ex-dividend date, preformatted; hidden when unset."
+  pay_date: "The payment date, preformatted; hidden when unset."
+  frequency: "How often the dividend pays, shown under the amount; hidden when unset."
+
+example_prompts:
+  - "Add a dividend row for KO paying $0.485 quarterly at a 3.1% yield."
+  - "Show a monthly REIT dividend row with ex and pay dates."
+  - "Build a dividend calendar of payout rows."
+
+lifecycle: experimental
+content_model: >
+  One dividend: the paying symbol and name, an amount and frequency, a yield, and the ex-dividend
+  and payment dates.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep amounts and yields preformatted and consistent across a list so the mono figures align, and
+  use short date formats for ex-date and pay-date to keep the row compact.
+
+relationships:
+  related:
+    - trading/position-card
+    - trading/watchlist-row
+    - trading/portfolio-rebalance
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Income
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each figure is labelled (Yield, Ex-date, Pay date) and colour is not the only signal; the row is plain text and mono figures.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

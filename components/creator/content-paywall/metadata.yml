@@ -1,0 +1,84 @@
+name: "Content Paywall"
+short_description: A locked-content card with a blurred preview, a lock badge, benefits, and an unlock call to action.
+long_visual_description: >
+  A card whose top is a wide preview area: an optional teaser image blurred behind a dark scrim, or
+  a plain raised-surface panel, with a circular lock badge floating in the centre. Below, a centered
+  body names the content, states which tiers include it, lists what unlocking grants as a
+  checkmarked list, and ends with a primary Unlock button that can carry the price.
+
+use_cases:
+  - Gating premium video, audio, or articles behind a membership.
+  - A teaser for paid posts on a creator page.
+  - Locking a downloadable resource behind a purchase.
+  - A preview of a members-only stream replay.
+  - Upselling free readers to a paid tier inline.
+  - Blurring the tail of a long-form piece with an unlock prompt.
+
+recommended_for:
+  - Membership or pay-per-item content gates.
+  - Teasers that need to show something is there without revealing it.
+avoid_for:
+  - Hard authentication walls (use a login form or modal).
+  - Simple upgrade banners with no locked preview (use cta-simple).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a title and the benefits of unlocking, optionally a blurred preview_image and the tiers
+  that include the content. Set price to append it to the Unlock button. The button is a facade for
+  the caller to wire to a real purchase or upgrade flow.
+
+props:
+  title: "Headline naming the locked content."
+  preview_image: "Optional teaser image shown blurred under a scrim; omit for a plain panel."
+  price: "Formatted price appended to the Unlock button; omit for a bare Unlock label."
+  tiers: "Short phrase naming which membership tier(s) unlock the content."
+  benefits: "What unlocking grants, one short checkmarked phrase each."
+
+lifecycle: experimental
+content_model: >
+  A title, an optional blurred preview image, an optional price and tier phrase, and a short list of
+  what unlocking grants.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Show enough to entice without giving the content away; keep the blur heavy. Lead the benefits with
+  the single most compelling perk. Make the button's value obvious by including the price.
+
+relationships:
+  related:
+    - creator/subscriber-tier-card
+    - marketing/pricing-tiers
+    - creator/tip-jar
+
+categorization:
+  category: Creator
+  subcategory: Monetization
+  atomic_type: organism
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The blurred image and lock badge are aria-hidden decoration; the heading and benefits are real text; Unlock is a real button.
+  keyboard_support: The Unlock button is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

@@ -1,0 +1,24 @@
+<article class="sponsorship-card flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="sponsorship-card__head flex items-center gap-3">
+    <span class="sponsorship-card__logo flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-control bg-surface-raised">
+      <img data-if="logo" class="size-full object-contain p-1.5" src="{{ logo }}" alt="">
+      <svg data-if="!logo" class="size-5 text-on-surface-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 21V7l8-4 8 4v14"/><path d="M4 21h16M9 21v-5h6v5"/></svg>
+    </span>
+    <div class="min-w-0 flex-1">
+      <h3 class="sponsorship-card__brand truncate font-heading text-on-surface">{{ brand }}</h3>
+      <p data-if="campaign" class="sponsorship-card__campaign truncate text-sm text-on-surface-muted">{{ campaign }}</p>
+    </div>
+    <span data-if="status" class="sponsorship-card__status shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </header>
+
+  <div class="sponsorship-card__meta flex items-end justify-between gap-3">
+    <div data-if="amount" class="sponsorship-card__amount">
+      <p class="text-xs uppercase tracking-wide text-on-surface-muted">Deal value</p>
+      <p class="font-heading text-xl text-on-surface tabular-nums">{{ amount }}</p>
+    </div>
+    <p data-if="deliverables" class="sponsorship-card__deliverables flex items-center gap-1.5 text-sm text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h12M4 10h12M4 14h8"/></svg>
+      <span>{{ deliverables }} deliverables</span>
+    </p>
+  </div>
+</article>

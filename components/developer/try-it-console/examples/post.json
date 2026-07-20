@@ -1,0 +1,5 @@
+{
+  "method": "post",
+  "url": "https://api.example.com/v1/charges",
+  "sample_response": "HTTP/1.1 201 Created\n\n{\n  \"id\": \"ch_1M8b\",\n  \"amount\": 4200,\n  \"currency\": \"usd\",\n  \"status\": \"succeeded\"\n}"
+}

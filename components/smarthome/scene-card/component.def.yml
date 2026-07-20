@@ -1,0 +1,24 @@
+name: scene-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The scene name.
+    example: "Movie night"
+  icon:
+    type: string
+    title: Icon
+    description: >
+      Optional scene glyph as raw HTML (an inline stroke SVG). Rendered unescaped.
+    example: '<svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="14" height="10" rx="2"/><path d="M3 8h14"/></svg>'
+  devices_count:
+    type: integer
+    title: Devices count
+    description: Optional number of devices the scene controls; hidden when zero or unset.
+    example: 6
+  active:
+    type: boolean
+    default: false
+    title: Active
+    description: Whether the scene is currently active; drives the button label and style.

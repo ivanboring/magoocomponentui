@@ -1,0 +1,10 @@
+<div class="payment-terminal flex flex-col items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card" data-state="{{ state }}">
+  <span class="payment-terminal__reader flex size-14 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
+  </span>
+  <p class="payment-terminal__amount font-heading text-4xl tabular-nums text-on-surface">{{ amount }}</p>
+  <div class="flex items-center justify-center">
+    <span class="payment-terminal__spinner h-4 w-0 shrink-0 animate-spin overflow-hidden rounded-full border-2 border-current border-t-transparent opacity-0 data-[state=processing]:mr-2 data-[state=processing]:w-4 data-[state=processing]:opacity-100 {{ state@class }}" data-state="{{ state }}" aria-hidden="true"></span>
+    <p class="payment-terminal__message font-heading {{ state@class }} data-[state=ready]:before:content-['Tap_or_insert_card'] data-[state=processing]:before:content-['Processing'] data-[state=approved]:before:content-['Approved'] data-[state=declined]:before:content-['Declined']" data-state="{{ state }}" role="status" aria-live="polite"></p>
+  </div>
+</div>

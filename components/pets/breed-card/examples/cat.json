@@ -1,0 +1,8 @@
+{
+  "breed": "Maine Coon",
+  "species": "Cat",
+  "image": "",
+  "size": "Large",
+  "temperament": ["Gentle", "Playful", "Affectionate"],
+  "lifespan": "10-13 years"
+}

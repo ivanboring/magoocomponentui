@@ -1,0 +1,85 @@
+name: "Sales Forecast"
+short_description: A quota-versus-pipeline card with headline figures and horizontal bars for committed, best-case, and pipeline.
+long_visual_description: >
+  A card leading with the period quota in the heading face and the committed figure to its right,
+  with an optional best-case line beneath. Below sit horizontal bars - one per measure such as
+  committed, best case, and pipeline - each labelled with its amount and filled to a precomputed
+  width in its own colour. A small legend restates the bars with colour swatches.
+
+use_cases:
+  - A sales quota attainment summary for a period.
+  - A forecast widget on a rep or team dashboard.
+  - A pipeline coverage view against quota.
+  - A commit-versus-best-case roll-up for a manager.
+  - A board-ready revenue forecast snapshot.
+  - A territory or segment forecast comparison card.
+
+recommended_for:
+  - Comparing a few forecast measures against a quota target.
+  - Dashboards needing a compact, at-a-glance forecast.
+avoid_for:
+  - A deal-by-deal breakdown (use pipeline-board).
+  - A time-series trend (use a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a quota and committed figure, an optional best-case, and a bars array. For each bar give a
+  label, a preformatted value, a whole-number pct width computed by the caller (for example amount
+  over quota), and a tokenized background color_class. Include the widest measure at pct 100 to set
+  the scale.
+
+props:
+  quota: "The period quota target, preformatted."
+  committed: "Committed or closed amount, preformatted."
+  best_case: "Optional best-case amount, preformatted."
+  bars: "The horizontal bars. Each has a label, a preformatted value, a precomputed pct width 0-100, and a tokenized background color_class."
+
+example_prompts:
+  - Show a sales forecast card with committed, best case, and pipeline bars against a $500k quota.
+  - Add a quota attainment widget to the dashboard.
+  - Render pipeline coverage versus quota with coloured bars.
+
+lifecycle: experimental
+content_model: A quota and committed figure, an optional best case, and a set of labelled forecast bars with precomputed widths.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-accent
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Compute each bar's pct against a consistent basis (usually the quota) so widths are comparable.
+  Keep the bar set small and ordered from most to least certain. Match each bar's colour to its
+  meaning consistently across your dashboard.
+
+relationships:
+  related:
+    - crm/pipeline-board
+    - crm/deal-card
+    - crm/quote-builder
+
+categorization:
+  category: CRM & Sales
+  subcategory: Forecasting
+  atomic_type: organism
+  usage_type: [stat, card, chart]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar's value is stated in text beside it, so meaning is not carried by bar colour or length alone; the legend restates labels.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

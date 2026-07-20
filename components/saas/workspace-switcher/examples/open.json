@@ -1,0 +1,9 @@
+{
+  "current": "Acme Inc",
+  "start_open": true,
+  "workspaces": [
+    { "name": "Acme Inc", "plan": "Pro plan", "avatar": "", "current": true },
+    { "name": "Globex", "plan": "Free plan", "avatar": "", "current": false },
+    { "name": "Initech", "plan": "Team plan", "avatar": "", "current": false }
+  ]
+}

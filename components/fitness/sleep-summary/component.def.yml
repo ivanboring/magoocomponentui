@@ -1,0 +1,28 @@
+name: sleep-summary
+props:
+  label:
+    type: string
+    default: "Last night"
+    title: Label
+    description: Small kicker above the total, e.g. the period covered.
+  total:
+    type: string
+    required: true
+    title: Total sleep
+    description: The total time asleep, preformatted, e.g. "7h 32m".
+    example: "7h 32m"
+  stages:
+    type: array
+    items: object
+    required: true
+    title: Sleep stages
+    description: >
+      The sleep stages in order, left to right along the stacked bar. Each item:
+      { label, pct, color_class }. pct is the stage's share of the night (0-100), precomputed by the
+      caller so the segment widths sum to 100; color_class is a tokenized bg-* utility for the
+      segment and its legend swatch (e.g. bg-info, bg-primary, bg-accent).
+    example:
+      - { label: "Deep", pct: 22, color_class: "bg-primary" }
+      - { label: "Light", pct: 55, color_class: "bg-info" }
+      - { label: "REM", pct: 18, color_class: "bg-accent" }
+      - { label: "Awake", pct: 5, color_class: "bg-surface-raised" }

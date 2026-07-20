@@ -1,0 +1,24 @@
+name: work-tile
+props:
+  image:
+    type: image
+    required: true
+    title: Thumbnail
+    description: The project thumbnail, shown at a 4:3 ratio and zoomed slightly on hover.
+    example: "/stock/cover-workspace.jpg"
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The project name, revealed in the overlay on hover.
+    example: "Checkout redesign"
+  category:
+    type: string
+    title: Category
+    description: Optional short kicker shown above the title in the hover overlay.
+    example: "Web"
+  href:
+    type: string
+    title: Link
+    description: Optional URL; when set the whole tile is a link to the project.
+    example: "#"

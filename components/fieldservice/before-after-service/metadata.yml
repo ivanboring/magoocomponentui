@@ -1,0 +1,73 @@
+name: "Before / After Service"
+short_description: A side-by-side pair of before and after photos documenting completed field-service work.
+long_visual_description: >
+  Two equal image panes in a two-column grid, each a rounded framed area labelled Before or After.
+  When no photo is supplied the pane shows a muted camera glyph on a raised surface. An optional
+  caption below describes the work shown.
+
+use_cases:
+  - Proof-of-work photos on a completed job.
+  - Before and after comparison in a service report.
+  - Visual record attached to a work order or invoice.
+  - Portfolio of completed repairs on a service site.
+  - Quality-check evidence submitted by a technician.
+
+recommended_for:
+  - Documenting the visible result of a repair or clean.
+  - A compact photo comparison inside a job or report view.
+avoid_for:
+  - A single hero image (use a plain image component).
+  - An interactive draggable comparison slider.
+
+markets:
+  - Global
+
+example_usage: >
+  Provide before_image and after_image URLs to fill the panes, or leave them empty to show the
+  placeholder. Override before_label and after_label if needed and add a note describing the work.
+
+props:
+  before_image: "Optional URL of the before photo; a placeholder shows when empty."
+  after_image: "Optional URL of the after photo; a placeholder shows when empty."
+  before_label: "Caption for the left image (defaults to Before)."
+  after_label: "Caption for the right image (defaults to After)."
+  note: "Optional caption describing the work shown."
+
+example_prompts:
+  - "Add a before and after photo pair for the completed repair."
+  - "Show proof-of-work images with a caption on the job."
+
+lifecycle: experimental
+content_model: A pair of before and after images with labels and an optional caption.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+
+editorial_guidance: >
+  Shoot both photos from the same angle and framing so the comparison reads clearly. Keep the note
+  to one line describing what changed.
+
+relationships:
+  related:
+    - fieldservice/work-order-detail
+    - fieldservice/job-dispatch-card
+
+categorization:
+  category: Field Service
+  subcategory: Work Orders
+  atomic_type: molecule
+  usage_type: [media, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Panes are labelled Before and After in visible text; photos are decorative with empty alt and the placeholder glyph is aria-hidden.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

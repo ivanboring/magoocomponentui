@@ -1,0 +1,16 @@
+{
+  "incident_number": "INC-2026-0417",
+  "date": "July 12, 2026 - 4:20 PM",
+  "location": "5th Ave & Main St, Springfield",
+  "type": "Collision",
+  "description_html": "<p>Vehicle was rear-ended while stopped at a red light. Damage is limited to the rear bumper and tail light. No injuries reported at the scene.</p>",
+  "parties": [
+    { "name": "Alex Morgan", "role": "Driver" },
+    { "name": "Sam Patel", "role": "Other driver" },
+    { "name": "Chris Lee", "role": "Witness" }
+  ],
+  "photos": [
+    "/stock/property-house.jpg",
+    "/stock/cover-workspace.jpg"
+  ]
+}

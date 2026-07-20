@@ -1,0 +1,8 @@
+{
+  "title": "The Weekly Dispatch",
+  "preheader": "This week: streaming APIs, a new studio, and three quick wins.",
+  "hero_image": "/stock/cover-workspace.jpg",
+  "body_html": "<h2>What shipped this week</h2><p>Hello there,</p><p>We rolled out streaming APIs, opened the new recording studio, and cleaned up a handful of rough edges you told us about.</p><p>Hit the button below for the full write-up, including the migration notes.</p>",
+  "cta": { "label": "Read the full update", "href": "#" },
+  "footer": "<p>You are receiving this because you subscribed to product updates.<br><a href=\"#\">Unsubscribe</a> &middot; <a href=\"#\">Manage preferences</a></p>"
+}

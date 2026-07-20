@@ -1,0 +1,10 @@
+{
+  "label": "Workspace gallery",
+  "show_arrows": false,
+  "items": [
+    { "image": "/stock/stage1.jpg", "alt": "Wide view of the workspace", "caption": "The workspace, ready for the day." },
+    { "image": "/stock/stage2.jpg", "alt": "Desk detail with notes", "caption": "Notes and a plan pinned up close." },
+    { "image": "/stock/stage3.jpg", "alt": "Screens showing the build", "caption": "The build coming together on screen." },
+    { "image": "/stock/cover-workspace.jpg", "alt": "Finished workspace overview", "caption": "Everything in its place at last." }
+  ]
+}

@@ -1,0 +1,30 @@
+<div class="grid-status rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-3">
+    <span class="grid-status__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-surface-raised {{ status@class }}" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"></path>
+      </svg>
+    </span>
+    <div class="min-w-0">
+      <p class="text-sm text-on-surface-muted">Grid status</p>
+      <p class="font-heading text-2xl capitalize {{ status@class }}">{{ status }}</p>
+    </div>
+  </div>
+
+  <p data-if="regions" class="mt-3 text-sm text-on-surface-muted">{{ regions }}</p>
+
+  <div data-if="frequency" class="mt-3 flex items-baseline justify-between text-sm">
+    <span class="text-on-surface-muted">Frequency</span>
+    <span class="font-mono tabular-nums text-on-surface">{{ frequency }}</span>
+  </div>
+
+  <div data-if="load_pct" class="grid-status__load mt-3">
+    <div class="mb-1 flex items-center justify-between text-xs text-on-surface-muted">
+      <span>Load</span>
+      <span class="tabular-nums">{{ load_pct }}%</span>
+    </div>
+    <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ load_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Grid load">
+      <div class="grid-status__load-fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ load_pct }}%"></div>
+    </div>
+  </div>
+</div>

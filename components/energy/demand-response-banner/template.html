@@ -1,0 +1,29 @@
+<div class="demand-response-banner group flex flex-wrap items-start gap-3 rounded-card border p-(--space-card) {{ level@class }}" role="status" data-state="prompt">
+  <span class="demand-response-banner__icon mt-0.5 shrink-0" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 1L3 11h5l-1 8 8-11h-5z"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="demand-response-banner__message font-heading text-on-surface">{{ message }}</p>
+    <p data-if="event_time" class="mt-0.5 text-sm text-on-surface-muted">{{ event_time }}</p>
+    <p data-if="reward" class="mt-2 inline-flex items-center gap-1.5 rounded-pill bg-surface px-2.5 py-1 text-xs font-medium text-on-surface">
+      <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L2.5 7.7l5.4-.8z"/></svg>
+      {{ reward }}
+    </p>
+
+    <div class="demand-response-banner__actions mt-3 flex flex-wrap gap-2 group-data-[state=in]:hidden group-data-[state=out]:hidden">
+      <button type="button" class="demand-response-banner__optin rounded-button bg-primary px-3 py-1.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Opt in</button>
+      <button type="button" class="demand-response-banner__optout rounded-button border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Opt out</button>
+    </div>
+
+    <div class="demand-response-banner__status mt-3 text-sm font-medium group-data-[state=prompt]:hidden" aria-live="polite">
+      <span class="inline-flex items-center gap-1.5 text-on-surface group-data-[state=out]:hidden">
+        <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+        You are opted in to this event.
+      </span>
+      <span class="inline-flex items-center gap-1.5 text-on-surface-muted group-data-[state=in]:hidden">
+        <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        You have opted out of this event.
+      </span>
+    </div>
+  </div>
+</div>

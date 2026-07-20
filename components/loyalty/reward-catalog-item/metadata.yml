@@ -1,0 +1,85 @@
+name: "Reward Catalog Item"
+short_description: A card for a redeemable loyalty reward with its image, points cost, and a Redeem button.
+long_visual_description: >
+  A leaf card with a reward image (or a gift-glyph placeholder) above an optional category kicker and
+  the reward name in the heading face. A footer row pairs a points-cost pill in the primary tint with
+  a Redeem button. When the member cannot afford it, the button dims and stops responding while the
+  card stays fully legible.
+
+use_cases:
+  - A tile in a rewards catalog grid.
+  - Featured redemption on a loyalty dashboard.
+  - Gift-card or merchandise redemption option.
+  - Experience or perk a member can claim with points.
+  - Cross-sell of a reward just within reach of a member's balance.
+  - Marketplace of points-priced items in a membership app.
+
+recommended_for:
+  - Browsable catalogs of points-priced rewards.
+  - Showing affordability state per member balance.
+avoid_for:
+  - A logged redemption entry (use redemption-row).
+  - A stamp-based reward (use punch-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each item a name and a pre-formatted cost, plus an optional image and category. Set affordable
+  from the member's balance versus the cost - false mutes and disables the Redeem button via the
+  data-affordable attribute. Lay several in a card grid.
+
+props:
+  name: The reward's name in sentence case.
+  cost: Pre-formatted points cost shown in the pill.
+  image: Optional reward image; a gift glyph shows when omitted.
+  category: Optional kicker above the name.
+  affordable: Whether the member can redeem; false mutes and disables the button.
+
+example_prompts:
+  - "Add a reward catalog item for a $10 gift card costing 1,500 points."
+  - "Show a rewards grid with one item the member cannot afford yet."
+  - "Add a merchandise reward with an image and a Redeem button."
+
+lifecycle: experimental
+content_model: A reward name, a points cost, an optional image and category, and an affordability flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Name the reward plainly and keep the cost formatted. Use affordable honestly so members are not
+  invited to redeem something out of reach.
+
+relationships:
+  parents:
+    - cards/card-grid
+  related:
+    - loyalty/points-balance-card
+    - loyalty/redemption-row
+    - loyalty/punch-card
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Catalog
+  atomic_type: molecule
+  usage_type: [grid, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The Redeem button carries an accessible name; the unaffordable state is non-interactive via data-affordable, not colour alone.
+  keyboard_support: The Redeem button is focusable and activates on Enter/Space when affordable.
+  seo_score: 35
+  text_direction: both

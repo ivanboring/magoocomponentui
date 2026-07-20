@@ -1,0 +1,18 @@
+name: pto-request
+props:
+  types:
+    type: array
+    items: object
+    title: Leave types
+    description: >
+      The leave-type options for the select. Each item is { label, value }; label is shown to the
+      user and value is submitted with the pto:request event.
+    example:
+      - { label: "Vacation", value: "vacation" }
+      - { label: "Sick leave", value: "sick" }
+      - { label: "Personal day", value: "personal" }
+  balance:
+    type: string
+    title: Balance note
+    description: "Remaining balance shown beneath the form (e.g. 18 days remaining this year)."
+    example: "18 days remaining this year"

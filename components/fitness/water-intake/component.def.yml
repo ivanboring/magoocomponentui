@@ -1,0 +1,46 @@
+name: water-intake
+props:
+  label:
+    type: string
+    default: "Water intake"
+    title: Label
+    description: Heading for the tracker card.
+  current_ml:
+    type: integer
+    required: true
+    title: Current (ml)
+    description: Millilitres consumed so far today.
+    example: 1500
+  goal_ml:
+    type: integer
+    required: true
+    title: Goal (ml)
+    description: The daily hydration goal in millilitres.
+    example: 2500
+  pct:
+    type: integer
+    required: true
+    title: Percent complete
+    description: >
+      Percentage of the goal reached (0-100), precomputed by the caller as
+      round(current_ml / goal_ml * 100). The directive language cannot divide, so pass it in.
+    example: 60
+  cups:
+    type: array
+    items: object
+    required: true
+    title: Cups
+    description: >
+      One entry per glass/cup in the day's plan, in order. Each item: { filled }. Set filled true
+      for cups already consumed and false for the remaining ones (the caller decides the split).
+    example:
+      - { filled: true }
+      - { filled: true }
+      - { filled: true }
+      - { filled: false }
+      - { filled: false }
+  step:
+    type: integer
+    default: 250
+    title: Add step (ml)
+    description: How many millilitres the add button logs; also carried in the water:add event detail.

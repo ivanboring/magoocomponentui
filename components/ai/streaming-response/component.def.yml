@@ -1,0 +1,14 @@
+name: streaming-response
+props:
+  text:
+    type: string
+    title: Streamed text
+    description: >
+      The partial text streamed so far. When empty the component shows three bouncing dots (a
+      "typing" state); when present it shows the text with a blinking caret.
+    example: "Sure! Here's a quick outline to get you started"
+  show_stop:
+    type: boolean
+    default: true
+    title: Show stop button
+    description: Show a Stop button to cancel the in-progress generation.

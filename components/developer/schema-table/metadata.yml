@@ -1,0 +1,74 @@
+name: "Schema Table"
+short_description: A parameters/fields reference table - name, type, required flag and description with optional defaults.
+long_visual_description: >
+  A bordered table on the surface colour with four columns: a monospaced field Name, a muted
+  monospaced Type, a Required column showing a red "required" or muted "optional" pill, and a
+  Description. When a field has a default it appears as a small muted "Default:" line with the value
+  in code under its description. Rows are top-aligned so multi-line descriptions stay tidy.
+
+use_cases:
+  - Document a request body or query parameters in API reference docs.
+  - Describe the fields of a resource or object schema.
+  - List configuration options with their types and defaults.
+  - Show required versus optional inputs for an endpoint.
+  - Present a form's field contract to integrators.
+
+recommended_for:
+  - Reference documentation for structured parameters or fields.
+  - Any typed field list where required and default matter.
+avoid_for:
+  - Live editable data (use data-table or a form).
+  - Prose API guides (use an editorial component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a fields array where each item has name, type, a required boolean, a description, and an
+  optional default. Required renders as a pill; the default is shown beneath the description.
+
+props:
+  fields: "The fields to document; each is { name, type, required, description, default? }."
+
+example_prompts:
+  - "Document the request body for a charge with a schema table."
+  - "Add a parameters table listing required and optional query fields."
+
+lifecycle: experimental
+content_model: A list of typed fields, each with a name, type, required flag, description and optional default.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+
+editorial_guidance: >
+  Order fields with required ones first, then optional. Keep types canonical (string, integer,
+  object) and descriptions to a sentence. Show a default only when there truly is one.
+
+relationships:
+  related:
+    - developer/error-code-table
+    - developer/try-it-console
+    - developer/changelog-entry
+
+categorization:
+  category: Developer
+  subcategory: Documentation
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A real table with scoped column headers; required state is a text pill, not colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 45
+  text_direction: both

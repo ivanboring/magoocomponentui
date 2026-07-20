@@ -1,0 +1,7 @@
+<nav class="dock mx-auto flex w-max items-end gap-2 rounded-pill border border-border bg-surface/80 p-2 shadow-raised backdrop-blur" aria-label="{{ label }}">
+  <a data-for="item in items" class="dock__item group/dock relative flex size-12 items-center justify-center rounded-control bg-surface-raised text-on-surface transition-transform duration-(--duration-token) hover:-translate-y-2 hover:scale-125" href="{{ item.href }}" data-active="{{ item.active }}">
+    <span class="size-6">{{{ item.icon }}}</span>
+    <span class="dock__tip pointer-events-none absolute -top-9 whitespace-nowrap rounded-control bg-on-surface px-2 py-1 text-xs text-surface opacity-0 transition-opacity duration-(--duration-token) group-hover/dock:opacity-100">{{ item.label }}</span>
+    <span data-if="item.active" class="absolute -bottom-1 size-1 rounded-pill bg-on-surface"></span>
+  </a>
+</nav>

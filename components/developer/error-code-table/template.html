@@ -1,0 +1,23 @@
+<div class="error-code-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="error-code-table__table w-full text-sm">
+    <thead>
+      <tr class="border-b border-border">
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Code</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Name</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">HTTP</th>
+        <th class="px-4 py-3 text-left font-medium text-on-surface-muted" scope="col">Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="error in errors" class="border-b border-border last:border-0 align-top">
+        <td class="px-4 py-3 font-mono text-on-surface">{{ error.code }}</td>
+        <td class="px-4 py-3 text-on-surface">{{ error.name }}</td>
+        <td class="px-4 py-3 font-mono text-on-surface-muted">
+          <span data-if="error.http">{{ error.http }}</span>
+          <span data-if="!error.http" aria-hidden="true">-</span>
+        </td>
+        <td class="px-4 py-3 text-on-surface-muted">{{ error.meaning }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

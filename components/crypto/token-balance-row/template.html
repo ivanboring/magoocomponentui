@@ -1,0 +1,14 @@
+<div class="token-balance-row flex items-center gap-3 rounded-card border border-border bg-surface p-4 shadow-card">
+  <span data-if="icon" class="token-balance-row__icon flex size-9 shrink-0 items-center justify-center rounded-full bg-surface-raised text-on-surface" aria-hidden="true">{{{ icon }}}</span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-on-surface">{{ name }}</p>
+    <p class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ symbol }}</p>
+  </div>
+  <div class="shrink-0 text-right">
+    <p class="font-mono text-on-surface">{{ amount }}</p>
+    <p class="text-sm text-on-surface-muted">
+      <span>{{ value_usd }}</span>
+      <span data-if="change" class="ml-1 font-medium data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ change_dir }}">{{ change }}</span>
+    </p>
+  </div>
+</div>

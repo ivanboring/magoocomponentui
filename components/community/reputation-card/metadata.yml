@@ -1,0 +1,81 @@
+name: "Reputation Card"
+short_description: A karma summary tile showing a member's points, level, progress to the next level and a points breakdown.
+long_visual_description: >
+  A card on the surface colour with a large reputation figure in the heading face top-left and an
+  optional level pill in a faint primary tint top-right. A muted "Reputation points" caption sits
+  below, then an optional slim progress bar filled in the primary colour toward the next level with a
+  percentage caption, and an optional divided list breaking the points down by source (posts,
+  comments, awards).
+
+use_cases:
+  - Member karma summary in a profile sidebar.
+  - Reputation panel on a forum profile page.
+  - Gamified points widget on a community dashboard.
+  - Contributor standing shown next to a post.
+  - Progress-to-next-rank tracker for a member.
+  - Points breakdown on an account overview.
+
+recommended_for:
+  - Showing a single member's standing at a glance.
+  - Communities with levels or ranks and a points system.
+avoid_for:
+  - Comparing many members (use a leaderboard).
+  - Non-numeric achievements (use badge-showcase).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a pre-formatted points figure and an optional level name. Provide a precomputed next_level_pct
+  (0-100) to show the progress bar, and an optional breakdown array of { label, value } rows.
+
+props:
+  points: The pre-formatted reputation figure, e.g. "1,240".
+  level: Optional rank or level name shown as a pill.
+  next_level_pct: Precomputed 0-100 percentage toward the next level; shows a progress bar when set.
+  breakdown: Optional rows crediting where the points came from; value is pre-formatted.
+
+example_prompts:
+  - "Add a reputation card showing 1,240 points at the Trusted level, 65% to the next."
+  - "Show a member karma summary with a posts and comments breakdown."
+  - "Put a progress-to-next-rank widget in the profile sidebar."
+
+lifecycle: experimental
+content_model: A points figure, optional level, optional precomputed progress percentage and an optional labelled breakdown.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the points figure pre-formatted with separators. Name levels in a way members recognise, and
+  make sure the progress percentage agrees with the copy around it.
+
+relationships:
+  related:
+    - community/badge-showcase
+    - community/online-members
+    - community/pinned-post
+
+categorization:
+  category: Community
+  subcategory: Reputation
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Progress is conveyed by both the bar and a text percentage caption, not colour alone; digits use tabular figures.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 30
+  text_direction: both

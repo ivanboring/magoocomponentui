@@ -1,0 +1,21 @@
+<header class="app-topbar flex h-14 items-center gap-4 border-b border-border bg-surface px-4">
+  <button type="button" class="app-topbar__menu -ml-1 shrink-0 rounded-control p-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Open navigation menu">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+  </button>
+
+  <div class="app-topbar__search relative flex-1 max-w-md">
+    <svg class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+    <input type="search" class="app-topbar__search-input w-full rounded-control border border-border bg-surface-raised py-2 pl-9 pr-3 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none focus:ring-2 focus:ring-ring" placeholder="{{ search_placeholder }}" aria-label="{{ search_placeholder }}">
+  </div>
+
+  <div class="app-topbar__actions ml-auto flex shrink-0 items-center gap-2">
+    <button type="button" class="app-topbar__bell relative rounded-control p-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Notifications">
+      <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8a4 4 0 018 0c0 4 1.5 5 1.5 5h-11S6 12 6 8z"/><path d="M8.5 16a1.5 1.5 0 003 0"/></svg>
+      <span data-if="notifications_count" class="app-topbar__badge absolute -right-0.5 -top-0.5 min-w-4 rounded-pill bg-danger px-1 text-center text-[10px] font-semibold leading-4 text-primary-contrast">{{ notifications_count }}</span>
+    </button>
+    <button type="button" class="app-topbar__user flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:ring-2 hover:ring-ring" aria-label="{{ user.name }}">
+      <img data-if="user.avatar" class="size-full object-cover" src="{{ user.avatar }}" alt="">
+      <span data-if="!user.avatar" aria-hidden="true">{{ user.initials }}</span>
+    </button>
+  </div>
+</header>

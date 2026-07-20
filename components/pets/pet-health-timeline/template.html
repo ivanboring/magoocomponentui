@@ -1,0 +1,17 @@
+<ol class="pet-health-timeline flex flex-col">
+  <li data-for="event in events" data-type="{{ event.type }}" class="pet-health-timeline__event group flex gap-4">
+    <div class="flex flex-col items-center">
+      <span class="pet-health-timeline__node z-10 flex size-9 shrink-0 items-center justify-center rounded-pill border-2 border-border bg-surface text-on-surface-muted group-data-[type=vaccine]:border-success group-data-[type=vaccine]:bg-success/10 group-data-[type=vaccine]:text-success group-data-[type=visit]:border-info group-data-[type=visit]:bg-info/10 group-data-[type=visit]:text-info group-data-[type=med]:border-warning group-data-[type=med]:bg-warning/10 group-data-[type=med]:text-warning">
+        <svg class="size-3" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+      </span>
+      <span class="pet-health-timeline__line w-0.5 flex-1 bg-border group-last:hidden" aria-hidden="true"></span>
+    </div>
+    <div class="min-w-0 flex-1 pb-6 group-last:pb-0">
+      <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+        <h3 class="font-heading text-on-surface">{{ event.title }}</h3>
+        <time class="shrink-0 text-xs text-on-surface-muted tabular-nums">{{ event.date }}</time>
+      </div>
+      <p data-if="event.body" class="mt-1 text-sm text-on-surface-muted">{{ event.body }}</p>
+    </div>
+  </li>
+</ol>

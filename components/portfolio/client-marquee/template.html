@@ -1,0 +1,10 @@
+<div class="client-marquee group relative overflow-hidden" role="group" aria-label="{{ label }}" data-speed="{{ speed }}">
+  <div class="client-marquee__track flex w-max items-center gap-12 will-change-transform">
+    <div class="client-marquee__group flex shrink-0 items-center gap-12">
+      <img data-for="logo in logos" class="client-marquee__item h-8 w-auto shrink-0 object-contain opacity-60 grayscale transition duration-(--duration-token) hover:opacity-100 hover:grayscale-0" src="{{ logo.image }}" alt="{{ logo.alt }}">
+    </div>
+    <div class="client-marquee__group flex shrink-0 items-center gap-12" aria-hidden="true">
+      <img data-for="logo in logos" class="client-marquee__item h-8 w-auto shrink-0 object-contain opacity-60 grayscale transition duration-(--duration-token) hover:opacity-100 hover:grayscale-0" src="{{ logo.image }}" alt="{{ logo.alt }}">
+    </div>
+  </div>
+</div>

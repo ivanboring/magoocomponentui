@@ -1,0 +1,10 @@
+<div class="task-followup-row flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="task-followup-row__check flex size-5 shrink-0 items-center justify-center rounded-control border border-border text-transparent data-[done=true]:border-success data-[done=true]:bg-success data-[done=true]:text-success-contrast" data-done="{{ done }}" role="checkbox" aria-checked="{{ done }}" aria-label="Follow-up complete">
+    <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-on-surface data-[done=true]:text-on-surface-muted data-[done=true]:line-through" data-done="{{ done }}">{{ title }}</p>
+    <p data-if="contact" class="truncate text-sm text-on-surface-muted">{{ contact }}</p>
+  </div>
+  <span class="task-followup-row__due shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium tabular-nums text-on-surface-muted data-[overdue=true]:bg-danger/10 data-[overdue=true]:text-danger" data-overdue="{{ overdue }}">{{ due }}</span>
+</div>

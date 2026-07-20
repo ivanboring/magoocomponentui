@@ -1,0 +1,18 @@
+name: online-members
+props:
+  members:
+    type: array
+    items: object
+    required: true
+    title: Members
+    description: >
+      The people to list, in order. Each item: { name, avatar, initials, status } where avatar is an
+      optional image URL, initials is the precomputed fallback shown when there is no avatar, and
+      status is one of "online", "idle" or "dnd" (colours the status dot).
+    example:
+      - { name: "Ada L.", avatar: "/stock/avatar-woman-1.jpg", status: "online" }
+  count:
+    type: string
+    title: Count
+    description: Optional pre-formatted total shown in the header (e.g. "12").
+    example: "12"

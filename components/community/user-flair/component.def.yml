@@ -1,0 +1,24 @@
+name: user-flair
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: Short role or badge text shown in the pill.
+    example: "Mod"
+  kind:
+    type: enum
+    values: [mod, admin, op, pro, new, vip]
+    default: mod
+    title: Kind
+    description: >
+      The flair type, which picks the pill's colour: mod (success), admin (danger), op (primary),
+      pro (info), new (neutral surface), vip (warning).
+variants:
+  kind:
+    mod: "bg-success/10 text-success"
+    admin: "bg-danger/10 text-danger"
+    op: "bg-primary/10 text-primary"
+    pro: "bg-info/10 text-info"
+    new: "bg-surface-raised text-on-surface-muted"
+    vip: "bg-warning/10 text-warning"

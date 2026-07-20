@@ -1,0 +1,83 @@
+name: "Quality Control Checklist"
+short_description: A card-framed QC inspection checklist where each step shows a pass, fail or pending result marker.
+long_visual_description: >
+  A surface card with an optional title header and a pass/total badge on the trailing edge. Below,
+  a divided list of inspection steps. Each row leads with a status marker driven by its result -
+  a green check for pass, a red cross for fail, a muted dot for pending - followed by the step
+  label and an optional smaller note beneath (a measurement, a defect location, an inspector
+  remark). Digits use tabular figures so counts and readings align.
+
+use_cases:
+  - Pre-shipment or final inspection checklist on a production line.
+  - Incoming goods and supplier quality verification.
+  - First-article inspection sign-off for a new run.
+  - In-process quality gates between manufacturing stations.
+  - Defect containment review during a hold or quarantine.
+  - Calibration verification steps for a piece of equipment.
+
+recommended_for:
+  - QC and inspection procedures with a fixed set of pass/fail steps.
+  - Cases where the caller precomputes the passed and total counts.
+avoid_for:
+  - Free-form task lists without a pass/fail outcome (use a plain checklist).
+  - Editable, interactive forms (this is a read-only skeleton).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array where each item carries a label, a result of pass, fail or pending, and an
+  optional note. Precompute the passed and total counts for the header badge. Order the steps as
+  the inspector works through them.
+
+props:
+  title: Optional heading naming the inspection or QC procedure.
+  items: The inspection steps in order, each with a label, a result and an optional note.
+  passed: Number of passing items for the header badge, precomputed by the caller.
+  total: Total number of items for the header badge, precomputed by the caller.
+
+example_prompts:
+  - Add a pre-shipment QC checklist with pass and fail steps.
+  - Show a first-article inspection card with a passed count badge.
+  - Render an incoming goods inspection checklist with a pending step.
+
+relationships:
+  related:
+    - industrial/batch-record
+    - industrial/shift-handover
+    - industrial/maintenance-schedule-row
+
+lifecycle: experimental
+content_model: An optional title, a passed/total count, and an ordered set of inspection steps each with a result and optional note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep step labels short and specific and use the note line for the measured value or defect
+  detail. Colour never carries the result alone - the marker shape and the row text state the
+  outcome. Precompute the passed and total counts against the same item set the list renders.
+
+categorization:
+  category: Manufacturing
+  subcategory: Quality
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Result is conveyed by marker shape and text, not colour alone; markers are aria-hidden and the step label carries the meaning.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

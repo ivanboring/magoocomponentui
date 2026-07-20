@@ -1,0 +1,40 @@
+{
+  "day": "Monday",
+  "day_total": "1980",
+  "meals": [
+    {
+      "name": "Breakfast",
+      "total_kcal": "420",
+      "items": [
+        { "label": "Oats with berries", "kcal": "320" },
+        { "label": "Greek yogurt", "kcal": "95" },
+        { "label": "Black coffee", "kcal": "5" }
+      ]
+    },
+    {
+      "name": "Lunch",
+      "total_kcal": "620",
+      "items": [
+        { "label": "Grilled chicken salad", "kcal": "480" },
+        { "label": "Whole-grain roll", "kcal": "140" }
+      ]
+    },
+    {
+      "name": "Dinner",
+      "total_kcal": "720",
+      "items": [
+        { "label": "Salmon fillet", "kcal": "380" },
+        { "label": "Roasted vegetables", "kcal": "180" },
+        { "label": "Brown rice", "kcal": "160" }
+      ]
+    },
+    {
+      "name": "Snacks",
+      "total_kcal": "220",
+      "items": [
+        { "label": "Apple", "kcal": "95" },
+        { "label": "Almonds (28g)", "kcal": "125" }
+      ]
+    }
+  ]
+}

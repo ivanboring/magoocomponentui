@@ -1,0 +1,8 @@
+{
+  "count": "3",
+  "members": [
+    { "name": "Sam R.", "initials": "SR", "status": "online" },
+    { "name": "Priya N.", "initials": "PN", "status": "dnd" },
+    { "name": "Diego M.", "initials": "DM", "status": "idle" }
+  ]
+}

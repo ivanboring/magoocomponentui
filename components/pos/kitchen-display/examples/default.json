@@ -1,0 +1,50 @@
+{
+  "label": "Kitchen tickets",
+  "tickets": [
+    {
+      "ticket_number": "#A12",
+      "table": "Table 6",
+      "time": "12:40",
+      "elapsed": "8m",
+      "status": "cooking",
+      "items": [
+        { "qty": 2, "name": "Cheeseburger" },
+        { "qty": 1, "name": "Fries" },
+        { "qty": 1, "name": "Caesar salad" }
+      ]
+    },
+    {
+      "ticket_number": "#A13",
+      "table": "Table 2",
+      "time": "12:44",
+      "elapsed": "4m",
+      "status": "new",
+      "items": [
+        { "qty": 1, "name": "Margherita pizza" },
+        { "qty": 2, "name": "Garlic bread" }
+      ]
+    },
+    {
+      "ticket_number": "#A10",
+      "table": "Bar 3",
+      "time": "12:33",
+      "elapsed": "15m",
+      "status": "ready",
+      "items": [
+        { "qty": 1, "name": "Fish and chips" },
+        { "qty": 1, "name": "Side slaw" }
+      ]
+    },
+    {
+      "ticket_number": "#A14",
+      "table": "Takeout",
+      "time": "12:46",
+      "elapsed": "2m",
+      "status": "new",
+      "items": [
+        { "qty": 3, "name": "Chicken tacos" },
+        { "qty": 1, "name": "Guacamole" }
+      ]
+    }
+  ]
+}

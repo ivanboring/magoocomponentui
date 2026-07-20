@@ -1,0 +1,35 @@
+name: solar-production-card
+props:
+  current_kw:
+    type: string
+    required: true
+    title: Current output
+    description: The instantaneous solar output, formatted with its unit stripped (the "kW" suffix is rendered by the template). E.g. "4.2".
+    example: "4.2"
+  today_kwh:
+    type: string
+    title: Energy today
+    description: Total energy generated so far today, formatted without unit (a "kWh" suffix is rendered). E.g. "23.8".
+    example: "23.8"
+  peak_kw:
+    type: string
+    title: Peak output today
+    description: The highest output reached today, formatted without unit. E.g. "5.1".
+    example: "5.1"
+  self_consumption_pct:
+    type: integer
+    title: Self-consumption percent
+    description: >
+      Share of generation used on-site rather than exported, as a PRECOMPUTED whole number 0-100.
+      Drives the bar fill width; the template does no math. Omit to hide the bar.
+    example: 68
+  status:
+    type: enum
+    values: [producing, idle]
+    default: producing
+    title: Status
+    description: Whether the array is currently producing. Colours the status pill.
+variants:
+  status:
+    producing: "text-success"
+    idle: "text-on-surface-muted"

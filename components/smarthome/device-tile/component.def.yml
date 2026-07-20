@@ -1,0 +1,29 @@
+name: device-tile
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The device name.
+    example: "Living room lamp"
+  room:
+    type: string
+    title: Room
+    description: Optional room or zone the device belongs to.
+    example: "Living room"
+  icon:
+    type: string
+    title: Icon
+    description: >
+      Optional leading glyph as raw HTML (an inline stroke SVG). Rendered unescaped.
+    example: '<svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2a5 5 0 00-3 9v2h6v-2a5 5 0 00-3-9z"/><path d="M8 17h4"/></svg>'
+  on:
+    type: boolean
+    default: false
+    title: On
+    description: Whether the device is currently on. Drives the switch and the highlighted tile state.
+  status_text:
+    type: string
+    title: Status text
+    description: Optional short status line, e.g. "80% brightness" or "Off".
+    example: "80% brightness"

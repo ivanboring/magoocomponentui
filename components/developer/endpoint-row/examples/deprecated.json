@@ -1,0 +1,6 @@
+{
+  "method": "delete",
+  "path": "/v1/legacy/carts/{id}",
+  "summary": "Delete a cart - use /v1/orders instead",
+  "deprecated": true
+}

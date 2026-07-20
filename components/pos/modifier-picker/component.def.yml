@@ -1,0 +1,23 @@
+name: modifier-picker
+props:
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Modifier groups
+    description: >
+      One block per modifier group. Each item: { label, required, options }. label names the group,
+      required (boolean) shows a "Required" tag, and options is an array of { label, price, selected }
+      chips - price is an optional preformatted add-on price and selected (boolean) is the initial
+      chosen state. Pass required and selected as real booleans.
+    example:
+      - label: "Size"
+        required: true
+        options:
+          - { label: "Small", selected: true }
+          - { label: "Large", price: "+$1.50", selected: false }
+  item:
+    type: string
+    title: Item name
+    description: Optional name of the item being customised, shown as a header.
+    example: "Build your burger"

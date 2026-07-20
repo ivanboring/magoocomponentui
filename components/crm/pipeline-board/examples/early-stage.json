@@ -1,0 +1,26 @@
+{
+  "stages": [
+    {
+      "label": "New leads",
+      "total": "8",
+      "deals": [
+        { "name": "Wonka Industries", "value": "$12,500" },
+        { "name": "Stark Solutions", "value": "$40,000", "owner": "Priya Nair", "initials": "PN" },
+        { "name": "Hooli trial", "value": "$6,000" }
+      ]
+    },
+    {
+      "label": "Contacted",
+      "total": "3",
+      "deals": [
+        { "name": "Pied Piper pilot", "value": "$22,000", "owner": "Sam Ortiz", "initials": "SO" }
+      ]
+    },
+    {
+      "label": "Demo booked",
+      "deals": [
+        { "name": "Vehement Capital", "value": "$88,000", "owner": "Dana Lee", "initials": "DL" }
+      ]
+    }
+  ]
+}

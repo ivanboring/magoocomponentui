@@ -1,0 +1,13 @@
+<section class="volunteer-signup rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div data-for="role in roles" class="volunteer-signup__role mt-6 border-t border-border pt-6 first:mt-0 first:border-0 first:pt-0" data-role="{{ role.label }}">
+    <h3 class="volunteer-signup__role-label font-heading text-on-surface">{{ role.label }}</h3>
+    <p data-if="role.description" class="mt-1 text-sm text-on-surface-muted">{{ role.description }}</p>
+    <div class="volunteer-signup__shifts mt-3 flex flex-wrap gap-2">
+      <button data-for="shift in role.shifts" type="button" data-time="{{ shift.time }}" data-slots="{{ shift.slots_left }}" class="volunteer-signup__shift inline-flex items-center gap-2 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:border-primary data-[selected=true]:border-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary data-[slots=0]:pointer-events-none data-[slots=0]:opacity-40">
+        <span class="font-medium">{{ shift.time }}</span>
+        <span class="text-xs text-on-surface-muted">{{ shift.slots_left }} left</span>
+      </button>
+    </div>
+    <button type="button" class="volunteer-signup__signup mt-4 inline-flex items-center rounded-button bg-primary px-4 py-2 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Sign up</button>
+  </div>
+</section>

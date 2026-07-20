@@ -1,0 +1,81 @@
+name: "Check Split"
+short_description: A bill-splitting card with a column per guest, per-guest subtotals, a grand total, and split-by controls.
+long_visual_description: >
+  A wide card whose header pairs a heading with a pill-shaped split-by stepper. Below, a responsive
+  grid gives each guest their own column - a name, a list of item lines with right-aligned prices,
+  and a bordered subtotal at the foot of the column. Hairline dividers separate the columns and a
+  grand total sits in the footer, all using tabular figures so amounts line up.
+
+use_cases:
+  - Split a restaurant check evenly or by seat.
+  - Assign items to individual diners before paying.
+  - Show each guest their share on a POS terminal.
+  - Review a group bill before running cards.
+  - Bar tab divided across a party.
+  - Itemized share summary on a handheld POS.
+
+recommended_for:
+  - Dividing one check across multiple guests with subtotals.
+  - Reviewing per-guest items before payment.
+avoid_for:
+  - A single guest's kitchen ticket (use order-ticket).
+  - A running open-tab summary (use tab-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a guests array where each guest has a label, an items array of { name, price } lines, and a
+  preformatted subtotal. Add a grand total and a split_count for the stepper. Precompute every price
+  and subtotal - the component only lays them out. The split-by stepper is a skeleton facade to wire
+  in your app.
+
+props:
+  guests: One column per guest; each has a label, an items array of name and price lines, and a subtotal.
+  total: Optional grand total across all guests, shown in the footer.
+  split_count: Optional number shown in the split-by stepper; the stepper itself is a skeleton facade.
+
+example_prompts:
+  - "Split a dinner check three ways with per-guest subtotals and a total."
+  - "Show a bill divided by seat with itemized lines for each diner."
+  - "Add a check-split card with a split-by stepper set to four."
+
+lifecycle: experimental
+content_model: A set of guest columns each carrying a label, itemized name and price lines, and a subtotal, plus an optional grand total and split count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep item names short and prices preformatted with currency. Make each guest label recognisable at
+  the table. Ensure the sum of the subtotals matches the grand total you pass.
+
+relationships:
+  related:
+    - pos/order-ticket
+    - pos/tab-card
+    - pos/pos-keypad
+
+categorization:
+  category: Restaurant POS
+  subcategory: Payments
+  atomic_type: organism
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Amounts are plain text with tabular figures; the split-by stepper buttons carry accessible labels.
+  keyboard_support: The split-by stepper buttons are focusable and activate on Enter/Space; wire their behaviour in your app.
+  seo_score: 20
+  text_direction: both

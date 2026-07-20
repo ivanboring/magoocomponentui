@@ -1,0 +1,86 @@
+name: "FNOL Form"
+short_description: A first-notice-of-loss form card - incident type, date of loss, description, photo dropzone and submit.
+long_visual_description: >
+  A form card headed "Report a claim" that stacks an incident-type select, a date-of-loss input, a
+  description textarea and a dashed photo dropzone that highlights on hover, above a full-width
+  primary submit button. On submit it dispatches a claim event rather than navigating, so a host can
+  capture the first notice of loss.
+
+use_cases:
+  - Filing the first notice of loss to open an insurance claim.
+  - A "start a claim" step in a member self-service portal.
+  - A quick claim intake form embedded in a policy page.
+  - Capturing incident details and photos before an adjuster review.
+  - A mobile-friendly claim report after an accident.
+  - An agent-assisted intake form during a phone claim.
+
+recommended_for:
+  - Collecting the essential first details and photos of a loss.
+  - Kicking off a claim workflow with a single submit event.
+avoid_for:
+  - Displaying an existing claim's progress (use claim-status).
+  - A multi-step wizard with document upload and signatures.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass incident_types as an array of { label, value } to populate the select, and optionally a
+  placeholder for the description. Listen for the bubbling "fnol:submit" event on the form, whose
+  detail carries type, date, description and photoCount, to send the notice to your claims backend.
+
+how_to_use: >
+  behavior.js intercepts the form submit, prevents the default navigation, reads the incident type,
+  date of loss, description and attached photo count from the fields, and dispatches a bubbling
+  "fnol:submit" CustomEvent with those values in its detail. The portable self-init needs no props
+  object and the listener is removed on cleanup. The photo input is visually hidden and opened by
+  clicking the dropzone label.
+
+props:
+  incident_types: The options for the incident-type select; each item is a label and a value. When omitted the select shows only its placeholder.
+  placeholder: Placeholder text for the description textarea.
+
+lifecycle: experimental
+content_model: A claim intake form capturing incident type, date of loss, a description and photos.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep incident-type options aligned with the lines of business you underwrite, and use a plain,
+  reassuring tone since members reach this form after something has gone wrong. Ask only for the
+  essentials up front and let the backend request more detail later.
+
+relationships:
+  related:
+    - insurance/claim-status
+    - insurance/policy-card
+    - insurance/agent-card
+
+categorization:
+  category: Insurance
+  subcategory: Claims
+  atomic_type: organism
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every field is labelled by a wrapping label, the dropzone label opens the visually hidden file input, and focus states use the ring token; the submit dispatches an event rather than navigating.
+  keyboard_support: All fields and the submit button are focusable and operable by keyboard; the dropzone label opens the file picker on Enter or Space.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,85 @@
+name: "Deal Card"
+short_description: An opportunity summary card with value, stage, owner, and an optional win-probability bar.
+long_visual_description: >
+  A card on the surface colour showing the deal name with a stage pill beneath it and a small owner
+  monogram in the top-right. A large value in the heading face dominates the middle, with the owner
+  and expected close date in a muted meta row below. When a win probability is supplied it renders a
+  labelled progress bar filled in the primary colour.
+
+use_cases:
+  - A single opportunity summary in a CRM deal list.
+  - The mini-card unit stacked inside a pipeline board column.
+  - A deal highlight on an account overview page.
+  - A forecast detail row showing value and win probability.
+  - A shared deal snapshot in a sales digest or email preview.
+  - A quick-reference card in a rep's daily focus list.
+
+recommended_for:
+  - Summarising one opportunity with its value, stage, and owner.
+  - Showing win probability as a simple bar rather than a chart.
+avoid_for:
+  - Many deals grouped by stage (use pipeline-board).
+  - A person's contact details (use contact-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a name and a preformatted value. Add a stage pill, an owner with precomputed initials, an
+  expected close date, and a whole-number probability to render the win bar. Omit probability to
+  drop the bar entirely.
+
+props:
+  name: "The opportunity name; keep it short."
+  value: "The deal amount, preformatted with currency and separators."
+  stage: "Current pipeline stage shown as a pill."
+  owner: "The rep who owns the deal."
+  initials: "A precomputed 1-3 char monogram for the owner avatar."
+  close_date: "Expected close date, preformatted for display."
+  probability: "Win probability 0-100 as a whole number; renders the bar and label."
+
+example_prompts:
+  - Show a deal card for the Acme renewal worth $48,000 at 65% probability.
+  - Add an opportunity card with stage Proposal and owner Dana Lee.
+  - Render a deal summary with value and a win probability bar.
+
+lifecycle: experimental
+content_model: A deal name, a value, and optional stage, owner, initials, close date, and win probability.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Preformat the value and close date. Keep the stage label consistent with your pipeline stages.
+  Supply probability only when it is a real, computed figure; a placeholder bar misleads.
+
+relationships:
+  related:
+    - crm/pipeline-board
+    - crm/deal-stage-progress
+    - crm/contact-card
+
+categorization:
+  category: CRM & Sales
+  subcategory: Deals
+  atomic_type: molecule
+  usage_type: [card, list-item, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The probability bar exposes value via role=progressbar and aria-valuenow; meaning is not colour-only.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

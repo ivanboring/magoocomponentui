@@ -1,0 +1,7 @@
+{
+  "balances": [
+    { "label": "Vacation", "used": 6, "total": 24, "pct": 25, "color_class": "bg-primary" },
+    { "label": "Sick leave", "used": 3, "total": 10, "pct": 30, "color_class": "bg-info" },
+    { "label": "Personal days", "used": 1, "total": 5, "pct": 20, "color_class": "bg-accent" }
+  ]
+}

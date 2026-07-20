@@ -1,0 +1,85 @@
+name: "Shift Handover"
+short_description: A card summarising shift-to-shift handover notes, with flagged items highlighted and a sign-off footer.
+long_visual_description: >
+  A surface card whose header names the outgoing and incoming shifts with an arrow between them and
+  the handover date on the trailing edge. Below sits a stack of categorised note panels on the
+  raised surface - each led by a small uppercase category kicker and its body text. Notes flagged
+  for attention gain a warning tint and a small flag glyph. When the handover is signed off, a
+  success-coloured confirmation line closes the card.
+
+use_cases:
+  - Shift-to-shift production handover on a manufacturing line.
+  - Control room or plant operations pass-down log.
+  - Warehouse or logistics crew changeover notes.
+  - Maintenance team handover with flagged outstanding work.
+  - Healthcare or lab shift report summary.
+  - End-of-shift safety and status briefing.
+
+recommended_for:
+  - Structured handover notes grouped by category with attention flags.
+  - Read-only summaries of what the incoming shift needs to know.
+avoid_for:
+  - A live, editable log or ticketing queue.
+  - A single announcement (use an alert or announcement bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Set from_shift and to_shift and a date, then pass a notes array where each note has a category, a
+  body text and an optional flag. Flag the notes the incoming shift must act on. Turn on signed_off
+  once the outgoing lead confirms the handover.
+
+props:
+  from_shift: The outgoing shift handing over.
+  to_shift: The incoming shift receiving the handover.
+  date: Date or timestamp shown in the header.
+  notes: The handover entries in order, each with a category, a body text and an optional flag.
+  signed_off: Show the sign-off confirmation footer once the handover is confirmed.
+
+example_prompts:
+  - Add a shift handover card from day to night crew with a flagged safety note.
+  - Show a maintenance handover with outstanding work highlighted.
+  - Render a signed-off production handover summary.
+
+relationships:
+  related:
+    - industrial/quality-control-checklist
+    - industrial/sensor-alarm-banner
+    - industrial/andon-board
+
+lifecycle: experimental
+content_model: Outgoing and incoming shift names, a date, a set of categorised notes with attention flags, and an optional sign-off.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group notes by a short category and keep each entry to one or two lines. Flag only the notes that
+  genuinely need the incoming shift to act - over-flagging drowns the signal. The flagged tint is a
+  cue, not the message, so the note text must stand on its own.
+
+categorization:
+  category: Manufacturing
+  subcategory: Operations
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Flagged notes carry a glyph and text alongside the tint, so the highlight is not colour-only; the flag glyph is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

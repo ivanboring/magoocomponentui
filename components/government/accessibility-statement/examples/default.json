@@ -1,0 +1,14 @@
+{
+  "standard": "WCAG 2.1 Level AA",
+  "intro": "The Department of Civic Services is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply the relevant accessibility standards to this website.",
+  "commitments": [
+    "All pages meet WCAG 2.1 Level AA success criteria.",
+    "The entire site is operable with a keyboard alone, with no time limits on input.",
+    "Every image, icon, and control has a meaningful text alternative or label.",
+    "Color is never the only means of conveying information.",
+    "Content reflows to a single column and remains readable at 400% zoom.",
+    "We test with screen readers, including NVDA, VoiceOver, and JAWS."
+  ],
+  "contact_email": "accessibility@civicservices.gov",
+  "updated": "June 2026"
+}

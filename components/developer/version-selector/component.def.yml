@@ -1,0 +1,30 @@
+name: version-selector
+props:
+  label:
+    type: string
+    default: "Version"
+    title: Label
+    description: Short prefix shown before the current version on the trigger and as the menu's accessible name.
+  current:
+    type: string
+    required: true
+    title: Current version
+    description: The currently selected version label, shown on the trigger (e.g. v2.4).
+    example: "v2.4"
+  versions:
+    type: array
+    items: object
+    required: true
+    title: Versions
+    description: >
+      The selectable versions, in menu order. Each item: { label, badge, current }. label is the
+      version string, badge an optional tag (e.g. Latest, Beta), and current marks the selected one
+      (show a check). Mark the same version current as the top-level current prop.
+    example:
+      - { label: "v2.4", badge: "Latest", current: true }
+      - { label: "v2.3", current: false }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: When true the menu renders open (used for previews and the open example); normally false.

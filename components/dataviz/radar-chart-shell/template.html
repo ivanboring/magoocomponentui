@@ -1,0 +1,9 @@
+<figure class="radar-chart-shell rounded-card border border-border bg-surface p-4 shadow-card" role="group" aria-label="{{ title }}">
+  <figcaption data-if="title" class="mb-3 font-heading text-on-surface">{{ title }}</figcaption>
+    <svg class="radar-chart-shell__svg mx-auto block size-56 overflow-visible" viewBox="0 0 100 100" role="img" aria-label="{{ title }}">
+      <polygon data-for="ring in rings" points="{{ ring }}" fill="none" class="stroke-border [stroke-width:0.5]"></polygon>
+      <line data-for="line in axis_lines" x1="50" y1="50" x2="{{ line.x2 }}" y2="{{ line.y2 }}" class="stroke-border [stroke-width:0.5]"></line>
+      <polygon points="{{ polygon_points }}" class="fill-primary/20 stroke-primary [stroke-width:1.5]"></polygon>
+      <text data-for="a in axes" x="{{ a.x }}" y="{{ a.y }}" text-anchor="middle" dominant-baseline="middle" class="fill-on-surface-muted [font-size:5px]">{{ a.label }}</text>
+    </svg>
+</figure>

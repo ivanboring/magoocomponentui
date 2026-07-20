@@ -1,0 +1,16 @@
+{
+  "label": "Platform capabilities",
+  "speed": "slow",
+  "direction": "left",
+  "gap": "sm",
+  "items": [
+    { "label": "Realtime sync" },
+    { "label": "Edge caching" },
+    { "label": "Type safe" },
+    { "label": "Zero config" },
+    { "label": "Auto scaling" },
+    { "label": "Observability" },
+    { "label": "Webhooks" },
+    { "label": "Audit logs" }
+  ]
+}

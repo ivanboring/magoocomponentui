@@ -1,0 +1,11 @@
+{
+  "title": "Signups by channel",
+  "y_labels": ["1.5k", "1k", "500", "0"],
+  "bars": [
+    { "label": "Organic", "value": "1,240", "height_pct": 88 },
+    { "label": "Referral", "value": "860", "height_pct": 55 },
+    { "label": "Paid", "value": "620", "height_pct": 42 },
+    { "label": "Social", "value": "980", "height_pct": 68 },
+    { "label": "Direct", "value": "410", "height_pct": 30 }
+  ]
+}

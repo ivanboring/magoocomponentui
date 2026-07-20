@@ -1,0 +1,25 @@
+<section class="service-finder rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h2 data-if="heading" class="service-finder__heading font-heading text-xl text-on-surface">{{ heading }}</h2>
+  <form class="service-finder__search mt-4 flex flex-col gap-2 sm:flex-row" role="search">
+    <div class="relative flex-1">
+      <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-on-surface-muted" aria-hidden="true">
+        <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </span>
+      <input type="search" class="service-finder__input w-full rounded-control border border-border bg-surface-raised py-3 pl-10 pr-3 text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ placeholder }}" aria-label="Search services">
+    </div>
+    <button type="submit" class="service-finder__submit shrink-0 rounded-button bg-primary px-6 py-3 font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Search</button>
+  </form>
+
+  <div class="service-finder__categories mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+    <button data-for="category in categories" type="button" class="service-finder__tile flex flex-col items-start gap-2 rounded-card border border-border bg-surface-raised p-4 text-left transition-colors duration-(--duration-token) hover:border-primary/30 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      <span class="service-finder__tile-icon text-primary" aria-hidden="true">{{{ category.icon }}}</span>
+      <span class="font-medium text-on-surface">{{ category.label }}</span>
+      <span data-if="category.count" class="text-xs text-on-surface-muted">{{ category.count }} services</span>
+    </button>
+  </div>
+
+  <div data-if="popular" class="service-finder__popular mt-5 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+    <span class="font-medium text-on-surface-muted">Popular:</span>
+    <a data-for="item in popular" href="#" class="rounded-pill text-primary underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{{ item.label }}</a>
+  </div>
+</section>

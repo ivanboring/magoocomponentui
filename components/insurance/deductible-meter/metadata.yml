@@ -1,0 +1,80 @@
+name: "Deductible Meter"
+short_description: A card showing progress toward a plan's deductible with an optional out-of-pocket maximum bar.
+long_visual_description: >
+  A card headed "Deductible" with a right-aligned "met of total met" summary. Below sits a slim
+  primary progress bar on the raised surface whose width comes from a precomputed percentage. An
+  optional second block labels the out-of-pocket maximum and shows a matching accent-coloured bar
+  for spend toward that cap.
+
+use_cases:
+  - Showing a member how much of their annual deductible is met.
+  - A benefits dashboard widget tracking deductible progress.
+  - A health plan summary pairing the deductible with the out-of-pocket max.
+  - An explanation of remaining cost-share before coverage kicks in.
+  - A claims sidebar showing how a new claim moves the deductible.
+  - A year-to-date spending snapshot in a member portal.
+
+recommended_for:
+  - Communicating progress toward a deductible as a share of the total.
+  - Pairing the deductible with an out-of-pocket maximum in one card.
+avoid_for:
+  - A breakdown of many coverage lines (use coverage-breakdown).
+  - A generic labelled percentage bar (use atoms/progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass met and deductible as pre-formatted strings and pct as the precomputed met-over-deductible
+  percentage, since the template does no arithmetic. Add out_of_pocket_max and its precomputed
+  oop_pct to show the second bar; omit oop_pct to show the maximum as text only.
+
+props:
+  met: The pre-formatted amount of the deductible met so far.
+  deductible: The pre-formatted total deductible.
+  pct: The precomputed met-over-deductible bar width from 0-100.
+  out_of_pocket_max: The pre-formatted out-of-pocket maximum, shown as an optional second line.
+  oop_pct: The precomputed spend-over-out-of-pocket-max bar width from 0-100.
+
+lifecycle: experimental
+content_model: A deductible amount met out of a total with a precomputed percentage, plus an optional out-of-pocket maximum and its percentage.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Precompute both percentages before rendering and keep the amounts pre-formatted with a currency
+  symbol. Show the out-of-pocket maximum alongside the deductible when the plan has one so members
+  understand both thresholds at once.
+
+relationships:
+  related:
+    - insurance/coverage-breakdown
+    - insurance/policy-card
+    - atoms/progress-bar
+
+categorization:
+  category: Insurance
+  subcategory: Coverage
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each bar has a role of progressbar with aria value attributes and a paired text amount, so progress never depends on width or colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

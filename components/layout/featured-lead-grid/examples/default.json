@@ -1,0 +1,17 @@
+{
+  "label": "Latest stories",
+  "gap": "default",
+  "lead": {
+    "image": "/stock/cover-workspace.jpg",
+    "eyebrow": "Featured",
+    "title": "The state of the studio in 2026",
+    "subtitle": "A look at the tools and workflows reshaping how creative teams build.",
+    "href": "#"
+  },
+  "items": [
+    { "image": "/stock/blog-api-streaming.jpg", "eyebrow": "Engineering", "title": "Streaming APIs, explained", "subtitle": "Push updates to clients in real time.", "href": "#" },
+    { "image": "/stock/blog-voice-cloning.jpg", "eyebrow": "Product", "title": "Voice cloning for everyone", "subtitle": "Bring your own voice to every project.", "href": "#" },
+    { "image": "/stock/blog-dubbing.jpg", "eyebrow": "Tutorial", "title": "Automatic dubbing in minutes", "subtitle": "Localize a video into any language.", "href": "#" },
+    { "image": "/stock/audio-studio-mic.jpg", "eyebrow": "Studio", "title": "Recording basics", "subtitle": "Capture a clean take on the first try.", "href": "#" }
+  ]
+}

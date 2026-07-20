@@ -1,0 +1,83 @@
+name: "Tab Card"
+short_description: A compact open-tab card showing the guest, item count, and running total.
+long_visual_description: >
+  A small card on the surface colour with a guest avatar or an initials fallback beside the guest
+  name and an optional tab number. A divider separates the header from a footer row that pairs an
+  item count and the opened time on the left with a large running total in the heading face on the
+  right, using tabular figures so amounts align across a row of cards.
+
+use_cases:
+  - Open bar tab shown on a POS terminal.
+  - Running restaurant check for a seated party.
+  - Cafe order held under a customer name.
+  - Retail hold or layaway summary.
+  - Server section overview listing each active tab.
+  - Quick-glance total before closing a check.
+
+recommended_for:
+  - Grids or lists of active tabs on a POS home screen.
+  - A running total the server needs at a glance.
+avoid_for:
+  - A full itemized breakdown (use check-split or order-ticket).
+  - A single headline metric unrelated to a guest (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each card a guest name and a preformatted total. Add a tab_number, items_count, and
+  opened_at for context, and supply either an avatar image or precomputed initials for the leading
+  glyph. Lay several in a responsive grid for a section overview.
+
+props:
+  name: The guest or party name the tab is opened under.
+  total: The running total, preformatted with currency.
+  tab_number: Optional tab or check identifier.
+  items_count: Optional preformatted item count such as "6 items".
+  opened_at: Optional preformatted time the tab was opened.
+  avatar: Optional guest photo; falls back to initials when absent.
+  initials: Fallback initials shown when there is no avatar; precompute from the name.
+
+example_prompts:
+  - "Show an open bar tab for Jordan Lee totalling $84.50 with six items."
+  - "List four active table tabs in a grid on the POS home screen."
+  - "Add a tab card with an avatar and the time it was opened."
+
+lifecycle: experimental
+content_model: A guest name and running total with an optional tab number, item count, opened time, and an avatar or initials.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the name short and the total current. Show the item count and opened time only when they help
+  the server prioritise; otherwise let the total dominate.
+
+relationships:
+  related:
+    - pos/order-ticket
+    - pos/check-split
+    - dashboard/stat-card
+
+categorization:
+  category: Restaurant POS
+  subcategory: Tabs
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Avatar and initials fallback are decorative and aria-hidden; all data is plain text with sufficient contrast.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

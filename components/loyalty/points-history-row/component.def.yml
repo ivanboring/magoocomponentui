@@ -1,0 +1,37 @@
+name: points-history-row
+props:
+  description:
+    type: string
+    required: true
+    title: Description
+    description: What earned or spent the points (e.g. the order, action, or redemption).
+    example: "Order #4821"
+  points:
+    type: string
+    required: true
+    title: Points
+    description: >
+      The points amount as a formatted, unsigned string (e.g. "250" or "1,200"). The sign (+ or -)
+      is added automatically from direction, so do not include it here.
+    example: "250"
+  direction:
+    type: enum
+    values: [earned, spent]
+    default: earned
+    title: Direction
+    description: earned shows a green "+" delta; spent shows a red "-" delta.
+    example: earned
+  date:
+    type: string
+    title: Date
+    description: A short date or timestamp shown under the description.
+    example: "Jul 18"
+  balance:
+    type: string
+    title: Running balance
+    description: The formatted balance after this entry, shown under the points delta. Omit to hide.
+    example: "3,450"
+variants:
+  direction:
+    earned: "text-success"
+    spent: "text-danger"

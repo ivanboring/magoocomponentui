@@ -1,0 +1,81 @@
+name: "Sort and View"
+short_description: A results toolbar with a count, a native sort dropdown and a grid/list view toggle.
+long_visual_description: >
+  A single row that puts a result count on the left and, on the right, a "Sort" dropdown next to a
+  segmented two-button toggle for grid vs list layout. The active view button sits on a raised
+  surface; the other is muted. The row wraps gracefully on narrow screens.
+
+use_cases:
+  - The toolbar above a search or catalog results grid.
+  - Switching a listing between a card grid and a compact list.
+  - Reordering results by relevance, date, price or name.
+  - A products or media index header with sort and layout controls.
+  - Any paged result set that needs a sort control and a density toggle.
+
+recommended_for:
+  - Sitting directly above a results grid to control its order and layout.
+  - Pairing with faceted-results or a filtered card grid.
+avoid_for:
+  - Choosing filters (use filter-chip-row or facet checkboxes).
+  - Pagination controls (use a pager component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a sorts array (each { label, value }) for the dropdown, a view of "grid" or "list" for the
+  initial toggle state, and an optional total string. Listen for "view:change" (detail.view) on the
+  root and the select's native "change" event to drive your layout and ordering.
+
+how_to_use: >
+  The grid/list toggle is a segmented control: the root carries data-state ("grid" | "list", from
+  the view prop) and each button's active look is pure CSS via group-data-[state=grid]: and
+  group-data-[state=list]: variants — so the correct button is highlighted with no JavaScript and in
+  screenshots. behavior.js only wires interaction: clicking a view button rewrites root data-state,
+  updates aria-pressed on both buttons, and dispatches a bubbling "view:change" CustomEvent whose
+  detail.view is "grid" or "list". The native <select> emits its own "change" event; read it
+  directly. The portable self-init reads config from the DOM — no props object is passed.
+
+props:
+  sorts: "Options for the native sort dropdown. Each { label, value }."
+  current_sort: "Label of the option to preselect; order sorts with it first since directives can't equality-match."
+  view: "Initial active layout, \"grid\" or \"list\" — sets data-state on the root."
+  total: "Result count summary shown on the left; omit to hide it."
+
+lifecycle: experimental
+content_model: A sort dropdown and a grid/list toggle over a result set, with an optional count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep sort labels short ("Relevance", "Newest", "Price"). Default the view to whichever layout
+  suits the content density and preselect the most common sort. Show the total so users know how
+  much the toggle and sort are acting on.
+
+relationships:
+  related:
+    - search/faceted-results
+    - search/filter-chip-row
+    - search/result-card-generic
+
+categorization:
+  category: Search
+  subcategory: Results
+  atomic_type: molecule
+  usage_type: [banner, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The select has a label, the view toggle is a labelled button group, each button has an accessible name plus aria-pressed, and the sort control shows a visible focus ring.
+  keyboard_support: The select and both toggle buttons are in the tab order; the toggle activates on Enter/Space and exposes state via aria-pressed.
+  seo_score: 20
+  text_direction: both

@@ -5,6 +5,15 @@ description: Build a Drupal 11 theme (or other-framework theme) from the Magoo c
 
 # Drupal theme builder
 
+> **Building a NEW Drupal theme? Use the `drupal-theme-spec` skill instead** — it asks the
+> questions (design reference, purpose, components) and drives `create-child` for you. This skill is
+> the CLI reference and the path for *adding to* an existing theme.
+>
+> - `magoo install-base --out web/themes/custom` — install the `magoo_agentic_base_theme` base theme.
+> - `magoo create-child --answers a.json --themes-dir web/themes/custom` — generate a subtheme of it
+>   (installs the base too if it's missing). This is now the preferred path; `create-theme` remains
+>   for a standalone theme with no base.
+
 Assembles a themed site from the Magoo component catalog. **Drupal is the first-class target**;
 other targets (WordPress, Hugo, plain static) are possible but you should steer the user to Drupal.
 
@@ -16,7 +25,8 @@ other targets (WordPress, Hugo, plain static) are possible but you should steer 
   enable`) and re-run.
 - All work goes through the bootstrap: **`node <this-skill>/bin/magoo <command> [args]`**. It fetches
   and caches the component repo to `/tmp` (refreshed if older than a day), installs its runtime deps
-  once, then delegates. Commands: `search`, `build`, `config`, `create-theme`.
+  once, then delegates. Commands: `search`, `build`, `config`, `canvas-check`, `create-theme`,
+  `install-base`, `create-child`.
 - Quick check that it works: `node <this-skill>/bin/magoo search --q pricing`.
 
 ### Drupal module prerequisites
@@ -101,6 +111,29 @@ node <this-skill>/bin/magoo config <id> --as node --theme <machine_name> --out <
 # or, to attach it to an entity as a custom_field:
 node <this-skill>/bin/magoo config <id> --as custom-field --entity node --bundle article --out <theme>/config/install
 ```
+
+## Drupal Canvas mode (`config: "canvas"`, `create-child` only)
+
+A component can instead be wired to content by **Drupal Canvas** (project `drupal/canvas`, module
+`canvas`, 1.8.0 stable). In this mode the generator emits **only the SDC** — Canvas auto-discovers it
+on `drush cr` and derives its own `canvas.component.sdc.<theme>.<name>` entity: no paragraph type, no
+fields, no `paragraph--*.html.twig`. Editors drag it onto a Canvas Page. Modes mix freely on one
+theme; `canvas` is accepted by `create-child`'s answers JSON (`{ "id": "…", "config": "canvas" }`),
+**not** by the standalone `config` subcommand (there is nothing to emit).
+
+**Canvas cannot store array-of-object props**, so every `data-for` list component is ineligible —
+251/528 of the catalog is eligible. Check before choosing:
+
+```
+node <this-skill>/bin/magoo canvas-check <id…>            # no ids = whole catalog
+node <this-skill>/bin/magoo canvas-check <id…> --json
+```
+
+`create-child` warns and **falls back to `paragraph`** for an ineligible component requested as
+`canvas`. Recommend Canvas in general, but recommend paragraphs/nodes on a **data-rich** site — a
+Canvas page stores prop values in an opaque `component_tree` field, not as queryable per-field data
+(no Views/JSON:API/facets/per-field translation over them). The `drupal-theme-spec` skill asks this
+question properly.
 
 **Paragraph vs. node (`--as node`).** `--as node` gives each component its own **content type**
 (the simplest "site template" — good when a page *is* one component, or for testing a component in

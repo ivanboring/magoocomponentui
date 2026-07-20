@@ -1,0 +1,7 @@
+{
+  "sources": [
+    { "index": 1, "title": "Attention Is All You Need", "url": "https://example.com/attention", "domain": "arxiv.org", "snippet": "We propose the Transformer, a model architecture relying entirely on attention mechanisms." },
+    { "index": 2, "title": "A Survey of Large Language Models", "url": "https://example.com/llm-survey", "domain": "arxiv.org", "snippet": "This survey reviews recent advances in large language models across pre-training and adaptation." },
+    { "index": 3, "title": "How retrieval-augmented generation works", "url": "https://example.com/rag", "domain": "docs.example.com" }
+  ]
+}

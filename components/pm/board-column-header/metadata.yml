@@ -1,0 +1,73 @@
+name: "Board Column Header"
+short_description: A kanban column header with a card count and an optional WIP-limit pill that flags overages.
+long_visual_description: >
+  A single-line header sitting above a board column: the column name with a small rounded count
+  chip beside it on the left, and a "count/limit WIP" pill on the right. The pill is muted while
+  the column is within its limit and switches to a danger tone when the count exceeds the limit.
+
+use_cases:
+  - Head a column on a kanban or sprint board.
+  - Show how many cards are in each stage of a workflow.
+  - Enforce and surface a work-in-progress limit per column.
+  - Warn when a stage is overloaded past its WIP limit.
+  - Label swimlane or status buckets in a task board.
+
+recommended_for:
+  - Column headers on a kanban-style board with optional WIP limits.
+  - Surfacing over-limit stages with a colour cue.
+avoid_for:
+  - A page-level section heading (use a heading component).
+  - Columns that never carry a count (use a plain heading).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass label and count. Optionally set wip_limit to show the WIP pill, and set over_limit (the
+  precomputed count > wip_limit result) to turn that pill danger; the template does no comparison.
+
+props:
+  label: The column's name; truncates if long.
+  count: How many cards are in the column.
+  wip_limit: Optional WIP limit; when set, shows the "count/limit WIP" pill.
+  over_limit: Precomputed over-the-limit flag that turns the WIP pill danger.
+
+example_prompts:
+  - "Add an In Progress column header with 5 cards and a WIP limit of 4, over the limit."
+  - "Show a To Do column header with 8 cards and no WIP limit."
+
+lifecycle: experimental
+content_model: A column label, a card count, and an optional WIP limit with an over-limit flag.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Name columns for the workflow stage, not the team, and set WIP limits that reflect real
+  capacity so the over-limit danger colour stays meaningful.
+
+relationships:
+  related:
+    - pm/priority-flag
+    - pm/assignee-avatars
+    - pm/dependency-link
+
+categorization:
+  category: Project Management
+  subcategory: Boards
+  atomic_type: molecule
+  usage_type: [banner, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The count and WIP text are always shown, so the over-limit state is not conveyed by colour alone.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

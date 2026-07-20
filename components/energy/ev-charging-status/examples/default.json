@@ -1,0 +1,8 @@
+{
+  "vehicle": "Model Y - Home charger",
+  "charge_pct": 72,
+  "status": "charging",
+  "power_kw": "7.4",
+  "time_remaining": "1h 25m",
+  "range_added": "212 mi"
+}

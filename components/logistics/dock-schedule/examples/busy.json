@@ -1,0 +1,20 @@
+{
+  "docks": [
+    {
+      "label": "Bay A",
+      "slots": [
+        { "time": "6:00", "status": "loading", "carrier": "Maersk" },
+        { "time": "9:00", "status": "booked", "carrier": "Schneider" },
+        { "time": "12:00", "status": "booked", "carrier": "J.B. Hunt" }
+      ]
+    },
+    {
+      "label": "Bay B",
+      "slots": [
+        { "time": "6:00", "status": "booked", "carrier": "Werner" },
+        { "time": "9:00", "status": "loading", "carrier": "Swift" },
+        { "time": "12:00", "status": "free" }
+      ]
+    }
+  ]
+}

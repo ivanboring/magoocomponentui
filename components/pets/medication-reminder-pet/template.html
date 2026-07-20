@@ -1,0 +1,21 @@
+<div class="medication-reminder-pet rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="pet" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ pet }}</p>
+  <div class="mt-1 flex items-start justify-between gap-3">
+    <h3 class="font-heading text-lg text-on-surface">{{ medication }}</h3>
+    <span data-if="dosage" class="shrink-0 rounded-pill bg-surface-raised px-2.5 py-1 text-xs text-on-surface-muted">{{ dosage }}</span>
+  </div>
+  <p data-if="schedule" class="mt-1 text-sm text-on-surface-muted">{{ schedule }}</p>
+
+  <div data-if="next_dose" class="medication-reminder-pet__next mt-3 flex items-center gap-2 rounded-control bg-primary/10 px-3 py-2 text-sm font-medium text-on-surface">
+    <svg class="size-4 shrink-0 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg>
+    <span>Next dose <span class="text-on-surface-muted">{{ next_dose }}</span></span>
+  </div>
+
+  <ul class="medication-reminder-pet__doses mt-3 flex flex-wrap gap-2">
+    <li data-for="dose in doses" data-given="{{ dose.given }}" class="medication-reminder-pet__dose group flex items-center gap-2 rounded-pill border border-border bg-surface-raised px-3 py-1 text-sm text-on-surface data-[given=true]:border-success data-[given=true]:text-success">
+      <svg class="hidden size-4 shrink-0 group-data-[given=true]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10l3 3 7-7"/></svg>
+      <span class="tabular-nums">{{ dose.time }}</span>
+      <button data-if="!dose.given" type="button" class="medication-reminder-pet__mark rounded-control px-1 text-xs font-medium text-primary transition-colors duration-(--duration-token) hover:underline group-data-[given=true]:hidden" data-time="{{ dose.time }}">Mark given</button>
+    </li>
+  </ul>
+</div>

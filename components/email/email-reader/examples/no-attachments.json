@@ -1,0 +1,7 @@
+{
+  "subject": "Lunch on Thursday?",
+  "sender": { "name": "Priya Nair", "email": "priya@example.com", "avatar": "/stock/avatar-woman-1.jpg" },
+  "to": "you",
+  "date": "Mar 3, 2026, 11:02 AM",
+  "body_html": "<p>Hey,</p><p>Are you free around noon on Thursday? Thinking the place near the office that does the good ramen.</p><p>Let me know and I'll book a table.</p>"
+}

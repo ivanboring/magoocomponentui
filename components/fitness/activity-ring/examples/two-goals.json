@@ -1,0 +1,6 @@
+{
+  "rings": [
+    { "label": "Steps", "value": 9200, "goal": 10000, "radius": 15.9155, "dash": "100", "offset": "8", "color_class": "stroke-primary" },
+    { "label": "Water", "value": 5, "goal": 8, "radius": 12, "dash": "75.4", "offset": "28.27", "color_class": "stroke-info" }
+  ]
+}

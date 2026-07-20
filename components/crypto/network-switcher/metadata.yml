@@ -1,0 +1,92 @@
+name: "Network Switcher"
+short_description: A chain-select dropdown - a trigger showing the active network and a menu of chains with a check on the current one.
+long_visual_description: >
+  A bordered trigger button showing a small green status dot, the active network's name and a
+  chevron that rotates when open. Clicking it reveals a dropdown of chains, each a brand glyph beside
+  its name, with a primary-coloured check marking the current chain. The active row also carries a
+  faint raised-surface background.
+
+use_cases:
+  - Switching the active chain in a dApp header.
+  - Prompting a network switch before an unsupported action.
+  - Choosing a chain in a bridge or cross-chain flow.
+  - A network picker in wallet or app settings.
+  - Showing and changing the connected chain beside the wallet control.
+  - Selecting a testnet during development.
+
+recommended_for:
+  - Any dApp that supports more than one chain.
+  - Pairing with a wallet control to show and change the active network.
+avoid_for:
+  - Connecting or showing the wallet account (use wallet-connect).
+  - A general action menu (use overlays/dropdown-menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the current network label and a networks array (each { name, icon, current }), with
+  current: true on the active chain. Listen for network:switch (detail.network) to actually change
+  chains; the control updates the trigger label and the check marker itself on click. Icons are raw
+  inline SVG strings.
+
+how_to_use: >
+  Open/closed state is the data-open attribute on the root, revealed purely by the
+  group-data-[open=true] utilities - no JavaScript is needed for the reveal (so it renders open in
+  screenshots when start_open is set). behavior.js wires interaction: the trigger toggles the menu,
+  choosing a chain moves the check, updates the trigger label, fires network:switch with { network }
+  and closes, and Escape or an outside click closes.
+
+props:
+  current: "The active network's label, shown on the trigger."
+  networks: "The chains offered. Each: name, a raw inline-SVG icon, and current (marks the active chain with a check)."
+  start_open: "When true the dropdown renders already open."
+
+example_prompts:
+  - "Add a network switcher for Ethereum, Polygon, Arbitrum and Optimism."
+  - "Let the user change chains from the header, showing the current one checked."
+  - "Show a chain dropdown next to the connect wallet button."
+
+lifecycle: experimental
+content_model: >
+  An active network label and a list of chains, each with a name and a glyph, one marked current.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-success
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-button
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep network names short and consistent with each chain's own branding. Order the most-used chains
+  first and always mark the current one so the active state is unambiguous.
+
+relationships:
+  related:
+    - crypto/wallet-connect
+    - crypto/swap-widget
+    - crypto/transaction-hash
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Wallet
+  atomic_type: molecule
+  usage_type: [action, menu]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup and aria-expanded; the menu is a listbox of options with aria-selected; Escape and outside clicks close it and focus returns to the trigger.
+  keyboard_support: The trigger opens on Enter/Space and focuses the current chain; Escape closes and restores focus; options activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

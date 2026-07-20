@@ -1,0 +1,7 @@
+{
+  "title": "Product Notes",
+  "preheader": "A short note about tomorrow's maintenance window.",
+  "body_html": "<h2>Scheduled maintenance</h2><p>Hi,</p><p>We will be performing scheduled maintenance tomorrow from 02:00 to 03:00 UTC. During this window the dashboard may be briefly unavailable.</p><p>No action is needed on your side.</p>",
+  "cta": { "label": "View status page", "href": "#" },
+  "footer": "<p>Sent by the Northwind team.<br><a href=\"#\">Unsubscribe</a></p>"
+}

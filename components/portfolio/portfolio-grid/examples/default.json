@@ -1,0 +1,17 @@
+{
+  "label": "Selected work",
+  "all_label": "All",
+  "filters": [
+    { "label": "Web", "value": "web" },
+    { "label": "Brand", "value": "brand" },
+    { "label": "Product", "value": "product" }
+  ],
+  "items": [
+    { "image": "/stock/cover-workspace.jpg", "title": "Checkout redesign", "category": "web", "href": "#" },
+    { "image": "/stock/introduction.jpg", "title": "Onboarding flow", "category": "product", "href": "#" },
+    { "image": "/stock/stage1.jpg", "title": "Brand refresh", "category": "brand", "href": "#" },
+    { "image": "/stock/stage2.jpg", "title": "Marketing site", "category": "web", "href": "#" },
+    { "image": "/stock/stage3.jpg", "title": "Mobile app", "category": "product", "href": "#" },
+    { "image": "/stock/food-plate.jpg", "title": "Packaging system", "category": "brand", "href": "#" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "label": "Authenticate a request",
+  "samples": [
+    {
+      "language": "curl",
+      "active": true,
+      "code": "curl https://api.example.com/v1/me \\\n  -H \"Authorization: Bearer sk_live_...\""
+    },
+    {
+      "language": "Python",
+      "active": false,
+      "code": "import requests\n\nres = requests.get(\n    \"https://api.example.com/v1/me\",\n    headers={\"Authorization\": f\"Bearer {api_key}\"},\n)"
+    }
+  ]
+}

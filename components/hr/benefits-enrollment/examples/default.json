@@ -1,0 +1,26 @@
+{
+  "label": "Choose a medical plan",
+  "plans": [
+    {
+      "name": "Standard PPO",
+      "tier": "PPO",
+      "premium": "$182/mo",
+      "selected": true,
+      "features": ["$20 primary care copay", "Nationwide network", "Dental included"]
+    },
+    {
+      "name": "High-Deductible HSA",
+      "tier": "HDHP",
+      "premium": "$96/mo",
+      "selected": false,
+      "features": ["Employer HSA match", "Lower monthly premium", "Preventive care covered"]
+    },
+    {
+      "name": "Local HMO",
+      "tier": "HMO",
+      "premium": "$134/mo",
+      "selected": false,
+      "features": ["Assigned primary doctor", "Regional network", "No claim paperwork"]
+    }
+  ]
+}

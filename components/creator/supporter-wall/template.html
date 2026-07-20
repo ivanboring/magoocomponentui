@@ -1,0 +1,25 @@
+<section class="supporter-wall rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="supporter-wall__head flex items-center justify-between gap-3">
+    <h3 class="supporter-wall__title font-heading text-lg text-on-surface">Top supporters</h3>
+    <span data-if="total_supporters" class="text-sm text-on-surface-muted tabular-nums">{{ total_supporters }} total</span>
+  </header>
+
+  <ul class="supporter-wall__grid mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <li data-for="supporter in supporters" class="supporter-wall__tile flex flex-col gap-2 rounded-control border border-border bg-surface-raised p-3">
+      <div class="flex items-center gap-3">
+        <span class="supporter-wall__avatar flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface font-heading text-sm font-medium text-on-surface">
+          <img data-if="supporter.avatar" class="size-full object-cover" src="{{ supporter.avatar }}" alt="">
+          <span data-if="!supporter.avatar">{{ supporter.initials }}</span>
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="supporter-wall__name truncate font-medium text-on-surface">{{ supporter.name }}</p>
+          <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-on-surface-muted">
+            <span data-if="supporter.amount" class="font-medium tabular-nums text-on-surface">{{ supporter.amount }}</span>
+            <span data-if="supporter.tier" class="rounded-pill bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">{{ supporter.tier }}</span>
+          </p>
+        </div>
+      </div>
+      <p data-if="supporter.message" class="supporter-wall__message text-sm text-on-surface-muted">{{ supporter.message }}</p>
+    </li>
+  </ul>
+</section>

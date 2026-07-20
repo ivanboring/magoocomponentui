@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "type": "vaccine", "title": "Rabies booster", "date": "12 Jun 2026", "body": "Annual rabies vaccination administered. Next due Jun 2027." },
+    { "type": "visit", "title": "Wellness exam", "date": "03 May 2026", "body": "Healthy weight and coat. No concerns noted." },
+    { "type": "med", "title": "Started flea prevention", "date": "18 Apr 2026", "body": "Monthly topical treatment for the season." },
+    { "type": "note", "title": "Microchip registered", "date": "02 Feb 2026" }
+  ]
+}

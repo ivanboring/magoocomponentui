@@ -1,0 +1,73 @@
+name: "Tree View"
+short_description: A nested, expandable tree for file explorers and hierarchical data, built from native details/summary with no JavaScript.
+long_visual_description: >
+  A vertical tree up to three levels deep. Group rows carry a folder icon and a chevron that
+  rotates from pointing right to down when expanded; nested levels are indented behind a faint
+  left-border rail. Leaf rows show a file icon (or a supplied icon) next to their label and
+  highlight on hover. Groups start expanded.
+
+use_cases:
+  - A file and folder explorer for a code or asset browser.
+  - Nested category or taxonomy tree in an admin UI.
+  - A JSON or data structure viewer with collapsible nodes.
+  - Organisation or hierarchy display (departments, regions, teams).
+  - A settings or configuration tree grouped into sections.
+
+recommended_for:
+  - Displaying hierarchical data up to three levels where branches expand and collapse.
+  - File-tree style navigation of a content or asset library.
+avoid_for:
+  - Primary site navigation with links per item (use tree-nav or sidebar-nav).
+  - Flat, single-level lists (use a plain list component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass nodes as a tree. Each node is either a leaf { label, icon (optional raw SVG) } or a group
+  { label, children: [...] }. Nest children up to three levels; the third level holds leaves
+  only. Groups render as native details elements, open by default. Supply an icon on a leaf to
+  override the default file glyph (e.g. a language-specific file icon).
+
+props:
+  label: "Accessible label for the tree region."
+  nodes: "The tree entries. Leaves have { label, icon? }, groups have { label, children: [...] }, up to three levels."
+
+example_prompts:
+  - "Add a collapsible file tree for the project browser."
+  - "Show this nested category data as an expandable tree."
+
+lifecycle: experimental
+content_model: A nested list of groups and leaves (files) up to three levels deep.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short and limit depth to three levels. Order groups before leaves within a level so
+  the structure reads top-down, and reserve custom leaf icons for meaningful file-type cues.
+
+relationships:
+  related:
+    - navigation/tree-nav
+    - utility/code-editor-shell
+    - navigation/sidebar-nav
+
+categorization:
+  category: UI Utilities
+  subcategory: Data Display
+  atomic_type: organism
+  usage_type: [tree, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries role="tree" with an aria-label and role="treeitem"/"group" on nodes; expand/collapse uses native details/summary so keyboard and screen-reader support is built in and icons are aria-hidden.
+  keyboard_support: Group summaries are focusable and toggle on Enter/Space (native details); the tree needs no custom scripting.
+  seo_score: 25
+  text_direction: both

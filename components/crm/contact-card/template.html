@@ -1,0 +1,19 @@
+<div class="contact-card flex items-start gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <img data-if="avatar" class="size-12 shrink-0 rounded-pill object-cover" src="{{ avatar }}" alt="">
+  <span data-if="initials" class="flex size-12 shrink-0 items-center justify-center rounded-pill bg-surface-raised text-sm font-semibold text-on-surface">{{ initials }}</span>
+
+  <div class="min-w-0 flex-1">
+    <h3 class="font-heading text-on-surface">{{ name }}</h3>
+    <p data-if="title" class="text-sm text-on-surface-muted">{{ title }}</p>
+    <p data-if="company" class="text-sm text-on-surface-muted">{{ company }}</p>
+
+    <div class="mt-3 flex gap-2">
+      <a data-if="email" class="contact-card__email flex size-9 items-center justify-center rounded-control border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="mailto:{{ email }}" aria-label="Email {{ name }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="M3 5l7 5 7-5"/></svg>
+      </a>
+      <a data-if="phone" class="contact-card__phone flex size-9 items-center justify-center rounded-control border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="tel:{{ phone }}" aria-label="Call {{ name }}">
+        <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3H4a1.5 1.5 0 00-1.5 1.6A13 13 0 0015.4 17.5 1.5 1.5 0 0017 16v-2l-3-1-1.4 1.4a10 10 0 01-4-4L10 9 9 6 6 3z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>

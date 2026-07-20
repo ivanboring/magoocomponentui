@@ -1,0 +1,94 @@
+name: "Testimonial Collector"
+short_description: A request-a-testimonial card with an interactive star rating, name/role fields, and a message box.
+long_visual_description: >
+  A bordered surface card. At the top, a heading invites the visitor to share their experience with
+  an optional supporting line. Below sits a row of five interactive stars that fill in the warning
+  colour up to the selected rating, then a two-up row of name and role/company inputs, a
+  multi-line testimonial textarea, and a primary submit button spanning the card.
+
+use_cases:
+  - Ask a happy customer to leave a written testimonial.
+  - Collect a star rating plus a quote for a case-study wall.
+  - Gather product reviews with a reviewer name and location.
+  - Request feedback after a completed project or purchase.
+  - Power a "leave a review" widget on a marketing site.
+  - Capture social proof at the end of an onboarding flow.
+
+recommended_for:
+  - Soliciting a rating and a written quote together.
+  - Post-purchase or post-project review prompts.
+avoid_for:
+  - A binary helpfulness vote (use feedback/thumbs-feedback).
+  - Reporting a problem or bug (use feedback/bug-report-form).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop the card where you want to request a testimonial and set heading/prompt to match the context.
+  The host listens for the "testimonial:submit" event to persist the rating, name, role, and message.
+  Placeholders for each field are overridable for different verticals (e.g. product reviews).
+
+how_to_use: >
+  behavior.js makes the stars interactive: clicking a star writes the rating (0-5) to the root's
+  data-rating attribute and fills every star up to it via the data-active CSS variant, while the star
+  radios update aria-checked. Submitting the form is intercepted (preventDefault) and re-broadcast as
+  a bubbling "testimonial:submit" CustomEvent with { rating, name, role, message }; the host is
+  responsible for validation and storage. Screenshots show the empty (zero-rating) state since
+  behavior does not run there.
+
+props:
+  heading: The card heading inviting a testimonial.
+  prompt: Optional supporting line describing what to write about.
+  name_placeholder: Placeholder for the name input.
+  role_placeholder: Placeholder for the role/company input.
+  message_placeholder: Placeholder for the testimonial textarea.
+  submit_label: Text on the submit button.
+
+example_prompts:
+  - "Add a testimonial collection card with a star rating and a message field."
+  - "Show a product review form with name, location, and a post review button."
+
+lifecycle: experimental
+content_model: A rating, a reviewer name and role, and a free-text testimonial.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the heading warm and the prompt specific about what makes a useful review. Never pre-fill a
+  rating; let the visitor choose so the testimonial reads as genuine.
+
+relationships:
+  related:
+    - feedback/thumbs-feedback
+    - feedback/csat-score
+    - feedback/bug-report-form
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Collection Forms
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stars are a labelled radiogroup with aria-checked; every input and the textarea carry accessible names; the submit is a real button.
+  keyboard_support: Stars, inputs, textarea, and submit are all focusable; stars toggle on Enter/Space and the form submits on Enter within a field.
+  seo_score: 40
+  text_direction: both

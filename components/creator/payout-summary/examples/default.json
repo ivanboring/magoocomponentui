@@ -1,0 +1,12 @@
+{
+  "total": "$2,480.00",
+  "period": "March 2026",
+  "status": "pending",
+  "payout_date": "Apr 1, 2026",
+  "method": "Bank ****4291",
+  "sources": [
+    { "label": "Memberships", "amount": "$1,200.00" },
+    { "label": "Tips", "amount": "$680.00" },
+    { "label": "Digital products", "amount": "$600.00" }
+  ]
+}

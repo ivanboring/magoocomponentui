@@ -1,0 +1,11 @@
+{
+  "title": "Storage by type",
+  "tiles": [
+    { "x_pct": "0", "y_pct": "0", "w_pct": "50", "h_pct": "55", "label": "Videos", "value": "48%", "color_class": "bg-primary" },
+    { "x_pct": "50", "y_pct": "0", "w_pct": "50", "h_pct": "30", "label": "Images", "value": "22%", "color_class": "bg-accent" },
+    { "x_pct": "50", "y_pct": "30", "w_pct": "25", "h_pct": "25", "label": "Docs", "value": "9%", "color_class": "bg-info" },
+    { "x_pct": "75", "y_pct": "30", "w_pct": "25", "h_pct": "25", "label": "Audio", "value": "7%", "color_class": "bg-success" },
+    { "x_pct": "0", "y_pct": "55", "w_pct": "50", "h_pct": "45", "label": "Backups", "value": "10%", "color_class": "bg-warning" },
+    { "x_pct": "50", "y_pct": "55", "w_pct": "50", "h_pct": "45", "label": "Other", "value": "4%", "color_class": "bg-secondary" }
+  ]
+}

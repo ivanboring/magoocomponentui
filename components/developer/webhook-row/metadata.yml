@@ -1,0 +1,76 @@
+name: "Webhook Row"
+short_description: A single webhook endpoint row showing its event, destination URL, delivery status and last attempt.
+long_visual_description: >
+  A bordered row card. On the left the subscribed event name sits above its destination URL in a
+  muted monospaced, truncating line. On the right an optional last-delivery time precedes a small
+  status pill coloured by health - green for active, red for failing, and a muted grey for disabled.
+
+use_cases:
+  - List configured webhook endpoints in a developer settings page.
+  - Show delivery health per endpoint in an integrations dashboard.
+  - Flag a failing webhook that needs attention.
+  - Present event subscriptions with their target URLs.
+  - Row inside a list of outgoing integrations or callbacks.
+
+recommended_for:
+  - Endpoint management lists where each row is one event to one URL.
+  - Surfacing at-a-glance delivery status across many hooks.
+avoid_for:
+  - Full delivery logs or per-attempt payload inspection (use a table).
+  - A generic key/value row (use a list-row primitive).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one per configured endpoint. Pass the event name and destination url, set status to the
+  endpoint's current health, and optionally pass last to show when it was last called.
+
+props:
+  event: "The subscribed event name, e.g. \"invoice.paid\"."
+  url: "The destination URL; shown monospaced and truncated when long."
+  status: "Delivery health: active, failing, or disabled - drives the pill colour."
+  last: "Optional time of the most recent delivery attempt."
+
+example_prompts:
+  - "List webhook endpoints with a status pill for each."
+  - "Show a failing webhook row for the subscription.deleted event."
+
+lifecycle: experimental
+content_model: An event name, a destination URL, a delivery status, and an optional last-attempt time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Use canonical dotted event names and keep URLs full so they read as real endpoints. Make status
+  agree with reality - a failing pill should mean recent errors, not a one-off.
+
+relationships:
+  related:
+    - developer/status-service-row
+    - developer/rate-limit-meter
+    - developer/error-code-table
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is stated as a text label in the pill, not colour alone; the row is plain readable text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

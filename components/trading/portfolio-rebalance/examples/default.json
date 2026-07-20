@@ -1,0 +1,8 @@
+{
+  "holdings": [
+    { "label": "US equities", "target_pct": 50, "actual_pct": 58, "drift": "+8.0%", "color_class": "bg-primary" },
+    { "label": "International equities", "target_pct": 20, "actual_pct": 17, "color_class": "bg-accent" },
+    { "label": "Bonds", "target_pct": 20, "actual_pct": 14, "drift": "-6.0%", "color_class": "bg-info" },
+    { "label": "Cash", "target_pct": 10, "actual_pct": 11, "color_class": "bg-success" }
+  ]
+}

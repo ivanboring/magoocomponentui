@@ -1,0 +1,17 @@
+name: signature-pad
+props:
+  label:
+    type: string
+    default: "Sign here"
+    title: Label
+    description: The caption shown under the signing area, describing what the signature is for.
+  name:
+    type: string
+    title: Field name
+    description: >
+      Optional form-field name. When set, a hidden input with this name is rendered and, on Done,
+      populated with the signature as a PNG data URL so the pad can submit inside a form.
+  hint:
+    type: string
+    title: Hint
+    description: Optional helper line under the label, e.g. "Draw your signature using a mouse or finger".

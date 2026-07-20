@@ -1,0 +1,9 @@
+{
+  "ratio": "70-30",
+  "start_label": "Document",
+  "end_label": "Outline",
+  "$slots": {
+    "start": "<p class=\"text-on-surface-muted\">A wide primary pane with a narrow companion sidebar. The 70-30 ratio gives most of the room to the document while keeping the outline in view.</p>",
+    "end": "<ul class=\"flex flex-col gap-1 text-on-surface-muted\"><li>Introduction</li><li>Getting started</li><li>Configuration</li><li>Summary</li></ul>"
+  }
+}

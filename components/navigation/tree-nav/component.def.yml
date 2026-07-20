@@ -1,0 +1,19 @@
+name: tree-nav
+props:
+  label:
+    type: string
+    default: "Docs"
+    title: Label
+    description: "Accessible label for the nav landmark."
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: "Tree entries, up to 3 levels. Each item is EITHER a leaf { label, href, active } OR a group { label, children: [ ...items ] }. Groups render as native <details> (open at the top level); leaves render as links."
+    example:
+      - label: "Getting Started"
+        children:
+          - { label: "Introduction", href: "/docs/intro", active: true }
+          - { label: "Install", href: "/docs/install" }
+      - { label: "Reference", href: "/docs/reference" }

@@ -1,0 +1,12 @@
+{
+  "total": "$3,915.50",
+  "period": "February 2026",
+  "status": "paid",
+  "payout_date": "Mar 1, 2026",
+  "method": "PayPal creator@studio.co",
+  "sources": [
+    { "label": "Memberships", "amount": "$2,100.00" },
+    { "label": "Super chats", "amount": "$915.50" },
+    { "label": "Sponsorships", "amount": "$900.00" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "regions": [
+    { "name": "West", "rep": "Dana Whitfield", "deals": "12", "color_class": "bg-primary/10" },
+    { "name": "Midwest", "rep": "Marcus Lindqvist", "deals": "8", "color_class": "bg-accent/10" },
+    { "name": "South", "rep": "Priya Anand", "deals": "15", "color_class": "bg-success/10" },
+    { "name": "Northeast", "rep": "Tom Becker", "deals": "6", "color_class": "bg-info/10" },
+    { "name": "Mountain", "rep": "Lena Ortiz", "deals": "4", "color_class": "bg-warning/10" },
+    { "name": "Pacific NW", "rep": "Sam Cole", "deals": "9", "color_class": "bg-danger/10" }
+  ]
+}

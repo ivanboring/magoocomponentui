@@ -1,0 +1,86 @@
+name: "Line Chart Shell"
+short_description: A card-framed line-chart skeleton that draws a precomputed series path with axes and gridlines.
+long_visual_description: >
+  A surface card with a title header and an optional legend on the trailing edge. Below it a
+  plot area shows faint horizontal gridlines and a single primary-colour trend line stretched
+  across a full-width SVG, with a column of y-axis tick labels on the left and a row of x-axis
+  tick labels underneath. The line geometry is supplied precomputed, so the shell renders a real
+  chart without any charting code.
+
+use_cases:
+  - Show a time-series trend (users, revenue, sessions) in a dashboard.
+  - Sparkline-style KPI trend beside a headline number.
+  - A skeleton to drop a real charting library into.
+  - Report figure for a metric measured over days, weeks, or months.
+  - Compact trend widget in an analytics summary row.
+  - Placeholder chart in a design/prototype before wiring live data.
+
+recommended_for:
+  - A single continuous series over an ordered axis.
+  - Cases where the caller can precompute the SVG path from data.
+avoid_for:
+  - Categorical comparison (use bar-chart-shell).
+  - Filled magnitude emphasis (use area-chart-shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute the line_path in a 0-100 by 0-100 viewBox (y grows downward) from your data, pass
+  y_labels top to bottom and x_labels left to right, and optionally grid_lines as y-percent
+  positions. Drop a real chart in place of the SVG markup.
+
+props:
+  title: The chart title shown in the header.
+  line_path: Precomputed SVG path for the series line (0-100 cartesian viewBox).
+  y_labels: Y-axis tick labels, top to bottom.
+  x_labels: X-axis tick labels, left to right.
+  grid_lines: Precomputed y-percent positions for horizontal gridlines.
+
+example_prompts:
+  - "Add a line chart card of weekly active users trending up."
+  - "Show a monthly revenue trend line with a y-axis in thousands."
+  - "Put a trend chart shell in the dashboard and swap the SVG markup for a real chart."
+
+relationships:
+  related:
+    - dataviz/area-chart-shell
+    - dataviz/scatter-plot-shell
+    - dataviz/bar-chart-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a precomputed series path, axis labels, and gridline positions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  The chart geometry (line_path, grid_lines) is precomputed by the caller from the underlying
+  data - the shell ships no charting math or JS. Supply realistic values so the skeleton reads as
+  a genuine chart, and keep axis labels short. The skeleton renders directly from the precomputed
+  data; for a live, interactive chart, a real charting library replaces the SVG markup, and the
+  skeleton then acts as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; axis labels are real text. Provide a data-table alternative for the series in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

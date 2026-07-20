@@ -1,0 +1,21 @@
+name: translate-bar
+props:
+  languages:
+    type: array
+    items: object
+    required: true
+    title: Languages
+    description: >
+      The languages to offer. Each item: { label, code, current } — label is the display name,
+      code is the BCP-47 language code (used in the change event and the button's lang), and current
+      (boolean) marks the initially selected language.
+    example:
+      - { label: "English", code: "en", current: true }
+      - { label: "Espanol", code: "es", current: false }
+      - { label: "Tieng Viet", code: "vi", current: false }
+  current:
+    type: string
+    required: true
+    title: Current language
+    description: The display label of the currently selected language (used in the region's accessible name).
+    example: "English"

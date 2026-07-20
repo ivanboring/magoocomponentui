@@ -1,0 +1,18 @@
+<div class="subtask-checklist rounded-card border border-border bg-surface p-4 shadow-card">
+  <div class="subtask-checklist__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="subtask-checklist__title font-heading text-sm text-on-surface">{{ title }}</h3>
+    <span data-if="total_count" class="subtask-checklist__count text-xs font-medium tabular-nums text-on-surface-muted">{{ done_count }}/{{ total_count }}</span>
+  </div>
+  <div class="subtask-checklist__bar mb-4 flex gap-1" aria-hidden="true">
+    <span data-for="item in items" class="h-1.5 flex-1 rounded-pill bg-border data-[done=true]:bg-success" data-done="{{ item.done }}"></span>
+  </div>
+  <ul class="subtask-checklist__list flex flex-col gap-2">
+    <li data-for="item in items" class="subtask-checklist__item flex items-center gap-2.5">
+      <span data-if="item.done" class="subtask-checklist__check flex size-4 shrink-0 items-center justify-center rounded-control bg-success text-primary-contrast">
+        <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+      </span>
+      <span data-if="!item.done" class="subtask-checklist__box size-4 shrink-0 rounded-control border border-border" aria-hidden="true"></span>
+      <span class="subtask-checklist__label text-sm text-on-surface data-[done=true]:text-on-surface-muted data-[done=true]:line-through" data-done="{{ item.done }}">{{ item.label }}</span>
+    </li>
+  </ul>
+</div>

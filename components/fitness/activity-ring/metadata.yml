@@ -1,0 +1,89 @@
+name: "Activity Ring"
+short_description: Concentric radial progress rings (move / exercise / stand) with a labelled goal legend.
+long_visual_description: >
+  A set of up to three nested ring gauges — each a muted track with a coloured arc drawn over it —
+  sitting beside a legend that names each ring and shows its value against its goal. On wider viewports
+  the rings and legend sit side by side; on narrow ones they stack. Colours come from tokenized stroke
+  utilities so each ring reads distinctly.
+
+use_cases:
+  - An Apple-Watch-style move/exercise/stand summary on a fitness home screen.
+  - Daily goal completion across several metrics in one compact gauge.
+  - A weekly training-load snapshot with multiple targets.
+  - Habit or wellness ring tracking (hydration, mindfulness, steps).
+  - A profile header showing today's activity at a glance.
+
+recommended_for:
+  - Showing two or three related goals as nested rings with one legend.
+  - Compact, glanceable multi-metric progress.
+avoid_for:
+  - A single metric (use progress-circle).
+  - Long linear progress with inline labels (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a rings array, outermost first. Because the template does no maths, precompute each ring's
+  geometry: radius is the SVG circle radius in a 36x36 viewBox (about 15.9155, 12 and 8.5 for three
+  rings), dash is that ring's circumference (2 * PI * radius), and offset is dash * (1 - value/goal)
+  clamped so a met goal is a full ring. Set color_class to a tokenized stroke-* utility and include
+  the ring's label, value and goal for the legend.
+
+how_to_use: >
+  Static SVG — no behavior.js. The arc length is entirely driven by the precomputed stroke-dasharray
+  (dash) and stroke-dashoffset (offset) you pass per ring, so the component renders identically in
+  screenshots and live pages. The colour of each arc is the tokenized stroke-* class in color_class;
+  a hidden safelist span keeps stroke-primary/success/warning/danger/info/accent in the built CSS.
+
+props:
+  rings: "Concentric rings, outermost first. Each: label, value, goal, radius (SVG r in a 36x36 viewBox), dash (circumference), offset (precomputed stroke-dashoffset) and color_class (a stroke-* utility)."
+
+example_prompts:
+  - "Add an activity ring with move 420/600, exercise 25/30 and stand 10/12."
+  - "Show two wellness rings for hydration and mindfulness goals."
+  - "Put a three-ring daily activity gauge on the dashboard."
+
+lifecycle: experimental
+content_model: One to three progress rings, each with a label, a value, a goal and precomputed arc geometry and colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-accent
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep ring labels to one word and order the rings from outer (largest goal or most important) inward.
+  Choose distinct token colours so the rings and their legend entries stay easy to tell apart.
+
+relationships:
+  related:
+    - atoms/progress-circle
+    - fitness/calorie-tracker
+    - dashboard/stat-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The ring group carries role="img" with a label and every value is repeated as text in the legend, so colour is never the only cue.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

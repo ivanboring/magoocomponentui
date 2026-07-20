@@ -1,0 +1,6 @@
+{
+  "event": "invoice.paid",
+  "url": "https://api.example.com/hooks/billing",
+  "status": "active",
+  "last": "2 min ago"
+}

@@ -1,0 +1,87 @@
+name: "Pricing Quote"
+short_description: A request-a-quote card - title, optional starting price and description, an included-features checklist, and a primary CTA.
+long_visual_description: >
+  A bordered surface card with a card radius and soft shadow. The title sits at the top in the
+  heading face, an optional "Starting at" price line and a muted description follow, then a checklist
+  of included items each led by a small success-tinted check. A full-width primary button (typically
+  "Request a quote") closes the card.
+
+use_cases:
+  - Offer a custom or bespoke tier that ends in an enquiry instead of checkout.
+  - Present an agency service package with a "from" price and a quote button.
+  - Show a project scope with what's included and a call to get in touch.
+  - Add an enterprise or "let's talk" plan beside fixed pricing.
+  - Pitch a retainer with its deliverables and a request CTA.
+  - Give a freelancer a simple, honest package card.
+
+recommended_for:
+  - Services and packages whose real price is scoped per client, ending in a quote request.
+  - Cards that list what's included and drive to a contact or brief form.
+avoid_for:
+  - Self-serve plans with a fixed price and instant checkout (use a pricing card).
+  - Feature-by-feature comparison across many tiers (use a pricing table).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a title and a cta ({ label, href }). Add a starting_price for a "from" line, a description
+  for context, and a features array of plain strings for the included checklist. Point the CTA at
+  your contact or brief form (e.g. a contact-hero section).
+
+props:
+  title: "The package or tier name."
+  description: "Optional short paragraph describing who the package is for."
+  starting_price: "Optional preformatted 'from' price shown under the title."
+  features: "Optional list of included items; each string renders as a checked line."
+  cta: "The request button: a label and an href, usually pointing at a contact form."
+
+example_prompts:
+  - "Add a request-a-quote card for a custom project starting at $8,000."
+  - "Show a bespoke package card with an included-features list and a Request a quote button."
+  - "Create an enterprise 'let's talk' card that links to our contact form."
+
+lifecycle: experimental
+content_model: >
+  A title, an optional starting price and description, an optional list of included features, and a
+  required call-to-action button.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Be honest that the price is a starting point and keep feature lines to concrete deliverables. Make
+  the CTA verb-first ("Request a quote", "Start a brief") and point it at a real next step.
+
+relationships:
+  related:
+    - portfolio/capabilities-list
+    - portfolio/contact-hero
+    - cards/card-pricing
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Pricing
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic heading and list, decorative check badges are aria-hidden, and the CTA is a labelled link with a visible focus outline.
+  keyboard_support: The CTA link is focusable and activates on Enter.
+  seo_score: 50
+  text_direction: both

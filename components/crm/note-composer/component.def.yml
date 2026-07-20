@@ -1,0 +1,19 @@
+name: note-composer
+props:
+  placeholder:
+    type: string
+    default: "Add a note or @mention a teammate..."
+    title: Placeholder
+    description: Placeholder text shown in the empty note field.
+  avatar:
+    type: image
+    title: Avatar image
+    description: Optional headshot of the current user. When omitted, precomputed initials show instead.
+    example: "/stock/avatar-man-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      1-2 characters shown when there is no avatar image, e.g. "JD". Precomputed by the
+      caller; the template has no string-slicing directive.
+    example: "JD"

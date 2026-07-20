@@ -1,0 +1,11 @@
+{
+  "count": "6",
+  "members": [
+    { "name": "Ada Lovelace", "avatar": "/stock/avatar-woman-1.jpg", "status": "online" },
+    { "name": "Grace Hopper", "initials": "GH", "status": "online" },
+    { "name": "Alan Turing", "avatar": "/stock/avatar-man-1.jpg", "status": "idle" },
+    { "name": "Katherine Johnson", "initials": "KJ", "status": "online" },
+    { "name": "Linus T.", "initials": "LT", "status": "dnd" },
+    { "name": "Margaret Hamilton", "initials": "MH", "status": "idle" }
+  ]
+}

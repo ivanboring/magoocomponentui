@@ -1,0 +1,9 @@
+{
+  "pet": "Luna",
+  "service": "Full groom & bath",
+  "groomer": "Sam Rivera",
+  "date": "Sat 25 Jul",
+  "time": "11:00 AM",
+  "price": "$65",
+  "addons": ["Nail trim", "De-shed"]
+}

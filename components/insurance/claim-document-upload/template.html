@@ -1,0 +1,22 @@
+<div class="claim-document-upload rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <ul class="flex flex-col gap-2">
+    <li data-for="doc in documents" class="flex items-center gap-3 rounded-control border border-border bg-surface-raised p-3">
+      <span class="shrink-0 text-on-surface-muted" aria-hidden="true">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 2H5a1 1 0 00-1 1v14a1 1 0 001 1h10a1 1 0 001-1V7l-5-5z"/><path d="M11 2v5h5"/></svg>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="truncate text-sm font-medium text-on-surface">{{ doc.label }}</p>
+        <span data-if="doc.required" class="text-xs text-on-surface-muted">Required</span>
+      </div>
+      <span data-status="{{ doc.status }}" class="shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize data-[status=missing]:bg-danger/10 data-[status=missing]:text-danger data-[status=uploaded]:bg-success/10 data-[status=uploaded]:text-success data-[status=reviewing]:bg-warning/10 data-[status=reviewing]:text-warning">{{ doc.status }}</span>
+      <button type="button" class="claim-document-upload__pick shrink-0 rounded-button border border-border px-3 py-1.5 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface">Upload</button>
+    </li>
+  </ul>
+  <div class="claim-document-upload__dropzone mt-3 flex flex-col items-center justify-center gap-1 rounded-card border-2 border-dashed border-border p-6 text-center">
+    <span class="text-on-surface-muted" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15V4"/><path d="M8 8l4-4 4 4"/><path d="M4 15v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+    </span>
+    <p class="text-sm text-on-surface-muted">Drag files here or <span class="font-medium text-primary">browse</span></p>
+    <p class="text-xs text-on-surface-muted">PDF, JPG or PNG up to 10MB</p>
+  </div>
+</div>

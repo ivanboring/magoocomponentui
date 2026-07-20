@@ -1,0 +1,21 @@
+name: impact-stat
+props:
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: The donation amount, formatted with currency (e.g. "$50").
+    example: "$50"
+  outcome:
+    type: string
+    required: true
+    title: Outcome
+    description: What the amount pays for (e.g. "10 school meals").
+    example: "10 school meals"
+  icon:
+    type: html
+    title: Icon
+    description: >
+      Optional decorative icon markup (an inline SVG) shown in a rounded badge before the amount.
+      Raw HTML — pass a small inline stroke/fill SVG.
+    example: '<svg viewBox="0 0 20 20" fill="currentColor" class="size-6"><path d="M10 3l2.5 5 5.5.5-4 3.5 1 5.5-5-3-5 3 1-5.5-4-3.5 5.5-.5z"/></svg>'

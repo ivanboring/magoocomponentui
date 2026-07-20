@@ -1,0 +1,28 @@
+<form class="feedback-gov flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex flex-col gap-1">
+    <h3 class="font-heading text-lg text-on-surface">Report an issue</h3>
+    <p class="text-sm text-on-surface-muted">Tell us what needs attention and we'll route it to the right department.</p>
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <label class="text-sm font-medium text-on-surface" for="feedback-gov-category">Category</label>
+    <select id="feedback-gov-category" class="feedback-gov__category rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) focus:border-primary focus:outline-none">
+      <option data-for="category in categories" value="{{ category.value }}">{{ category.label }}</option>
+    </select>
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <label class="text-sm font-medium text-on-surface" for="feedback-gov-details">Description</label>
+    <textarea id="feedback-gov-details" rows="4" placeholder="{{ placeholder }}" class="feedback-gov__details rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-primary focus:outline-none"></textarea>
+  </div>
+
+  <div class="flex flex-col gap-1.5">
+    <label class="text-sm font-medium text-on-surface" for="feedback-gov-location">Location <span class="font-normal text-on-surface-muted">(optional)</span></label>
+    <input id="feedback-gov-location" type="text" placeholder="Nearest address or intersection" class="feedback-gov__location rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) placeholder:text-on-surface-muted focus:border-primary focus:outline-none">
+  </div>
+
+  <button type="submit" class="feedback-gov__submit inline-flex items-center justify-center gap-2 rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M17 3L9 11M17 3l-5 14-3-6-6-3 14-5z" stroke-linejoin="round"/></svg>
+    Submit report
+  </button>
+</form>

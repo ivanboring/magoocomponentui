@@ -1,0 +1,10 @@
+{
+  "prompts": [
+    { "label": "Draft a project plan" },
+    { "label": "Review my code" },
+    { "label": "Translate to Spanish" },
+    { "label": "Suggest a headline" },
+    { "label": "Fix my grammar" },
+    { "label": "Turn notes into a doc" }
+  ]
+}

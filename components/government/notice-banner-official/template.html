@@ -1,0 +1,13 @@
+<div class="notice-banner-official flex items-start gap-3 rounded-card border p-4 {{ level@class }}" role="note">
+  <span class="notice-banner-official__icon mt-0.5 shrink-0" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 9.6C8 19.3 5 15.4 5 11V6z"/><path d="M12 9v4"/><path d="M12 16h.01"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="notice-banner-official__title font-heading font-semibold text-on-surface">{{ title }}</p>
+    <p class="notice-banner-official__message mt-1 text-sm text-on-surface-muted">{{ message }}</p>
+    <a data-if="action" href="{{ action.href }}" class="notice-banner-official__action mt-2 inline-flex items-center gap-1 text-sm font-medium underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      {{ action.label }}
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>

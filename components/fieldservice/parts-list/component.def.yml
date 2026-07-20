@@ -1,0 +1,19 @@
+name: parts-list
+props:
+  parts:
+    type: array
+    items: object
+    required: true
+    title: Parts
+    description: >
+      The parts used or required. Each part: { name, sku, qty, price, status } where sku, price and
+      status are optional and status is one of in-stock | ordered | installed.
+    example:
+      - { name: "Igniter assembly", sku: "IGN-204", qty: "1", price: "$86.00", status: "installed" }
+      - { name: "Flame sensor", sku: "FLS-118", qty: "1", price: "$24.00", status: "in-stock" }
+      - { name: "Blower capacitor", sku: "CAP-045", qty: "2", price: "$18.00", status: "ordered" }
+  total:
+    type: string
+    title: Total
+    description: Preformatted total for all parts.
+    example: "$146.00"

@@ -1,0 +1,19 @@
+{
+  "rooms": [
+    {
+      "name": "Bedroom",
+      "devices": [
+        { "name": "Bedside lamp", "on": true, "icon": "🛏️" },
+        { "name": "Ceiling light", "on": false, "icon": "💡" },
+        { "name": "Fan", "on": true, "icon": "🌀" }
+      ]
+    },
+    {
+      "name": "Hallway",
+      "devices": [
+        { "name": "Night light", "on": true, "icon": "🌙" },
+        { "name": "Main light", "on": false, "icon": "💡" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<div class="void-comp-row flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="void-comp-row__kind shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ kind@class }}">{{ kind }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="void-comp-row__item truncate font-heading text-on-surface">{{ item }}</p>
+    <div class="mt-0.5 flex flex-wrap gap-x-2 text-xs text-on-surface-muted">
+      <span data-if="reason" class="void-comp-row__reason">{{ reason }}</span>
+      <span data-if="authorized_by" class="void-comp-row__auth">Auth: {{ authorized_by }}</span>
+    </div>
+  </div>
+  <span class="void-comp-row__amount shrink-0 font-heading tabular-nums text-on-surface">{{ amount }}</span>
+</div>

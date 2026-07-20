@@ -1,0 +1,85 @@
+name: "Inventory Bin Row"
+short_description: A stock-bin row showing a material, SKU, on-hand quantity, a fill bar against the reorder point, and its stock status.
+long_visual_description: >
+  A bordered row on the surface colour with the material name and an optional mono SKU at the left, a
+  thin fill bar in the middle that tints by stock status (success in-stock, amber low, red out) with
+  its reorder point beneath, and the on-hand quantity with a coloured status label at the right. The
+  fill bar hides on the narrowest screens to keep the row readable.
+
+use_cases:
+  - Row in a raw-material or WIP inventory list.
+  - Stock-level view on a warehouse or line-side dashboard.
+  - Reorder-alert list highlighting bins running low.
+  - Kanban bin status on a shop-floor replenishment board.
+  - Cycle-count worksheet showing current on-hand levels.
+  - Materials readiness check before a production run.
+
+recommended_for:
+  - Stacking many bins into a scannable stock-level list.
+  - Lists where low and out-of-stock bins need an immediate colour cue.
+avoid_for:
+  - A single prominent low-stock alert (use an alert).
+  - A full item detail record with lot and location history.
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row a material, an on-hand quantity, a precomputed fill_pct (on-hand as a fraction of bin
+  capacity, 0-100) and a status of in-stock, low or out that tints both the bar and the status label.
+  Pass an optional SKU and reorder point. Stack rows in a bordered container to form the list.
+
+props:
+  material: The material or part held in the bin.
+  sku: Optional stock-keeping unit, shown in a mono face.
+  on_hand: Preformatted on-hand quantity.
+  reorder_point: Optional preformatted reorder threshold, shown under the bar.
+  fill_pct: Precomputed fill-bar width from 0-100.
+  status: Stock status; tints the bar and the status label (in-stock, low, out).
+
+example_prompts:
+  - "Add an inventory bin row for M8 hex bolts, 1240 on hand, in stock."
+  - "Show a low-stock bin row for 2mm aluminum sheet below its reorder point."
+  - "Build a materials stock-level list for the warehouse dashboard."
+
+lifecycle: experimental
+content_model: A material, an optional SKU, an on-hand quantity, a precomputed fill percentage, an optional reorder point, and a stock status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep material names consistent with your item master so rows sort cleanly. Precompute fill_pct
+  against real bin capacity so the bar is meaningful, and set status to agree with the level - a low
+  bar should read low, not in-stock.
+
+relationships:
+  related:
+    - industrial/work-order-card
+    - industrial/machine-status-tile
+    - industrial/downtime-tracker
+
+categorization:
+  category: Manufacturing
+  subcategory: Inventory
+  atomic_type: molecule
+  usage_type: [list-item, list, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stock status is conveyed by the status label text as well as the bar and label colour, so it does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

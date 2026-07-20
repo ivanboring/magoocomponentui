@@ -1,0 +1,61 @@
+name: "Pet Health Timeline"
+short_description: A vertical care-history timeline for a pet, colour-coding each entry by type (vaccine, visit, med, note).
+long_visual_description: >
+  A single vertical rail of dated entries connected by a thin line. Each entry has a
+  round node whose colour and tint reflect its type (green for a vaccine, blue for a
+  visit, amber for a medication, neutral for a note), a heading-face title, a muted
+  date aligned to the right, and an optional muted body note beneath. The last entry
+  drops its connector so the rail ends cleanly.
+use_cases:
+  - Show a pet's vaccination and booster history on a profile page.
+  - List past vet visits and wellness exams in date order.
+  - Track a course of medication alongside notes and observations.
+  - Give a shelter or foster carer a running record of an animal's care.
+  - Summarise recent health events for a hand-off between owners or clinics.
+  - Display a puppy or kitten's early-life milestones and first shots.
+recommended_for:
+  - A read-only history of dated care events for one animal.
+  - Profile or record pages where entries should be scannable by type.
+avoid_for:
+  - Scheduling future appointments (use a reminder or calendar component).
+  - A single upcoming dose (use medication-reminder-pet).
+markets:
+  - Global
+example_usage: >
+  Pass an events array, newest first. Give each event a type (vaccine, visit, med or
+  note), a title, a date and an optional body. The type controls only the node colour,
+  so keep titles descriptive on their own.
+props:
+  events: "The dated care entries, newest first. Each item has a type (vaccine, visit, med or note), a title, a date and an optional longer body note."
+lifecycle: experimental
+content_model: A chronological list of dated care events, each typed for colour coding.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --font-heading
+editorial_guidance: >
+  Order entries newest first and keep titles self-explanatory, since the type only sets
+  colour. Use the body for the one detail that matters, not a full clinical note.
+relationships:
+  related:
+    - pets/medication-reminder-pet
+    - pets/weight-tracker-pet
+    - pets/vet-clinic-card
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Health records
+  atomic_type: organism
+  usage_type: [list, timeline]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: An ordered list conveys sequence; type is carried by both a data attribute and node colour, with titles readable independently of colour.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

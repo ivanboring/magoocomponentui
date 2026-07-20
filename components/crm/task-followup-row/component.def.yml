@@ -1,0 +1,29 @@
+name: task-followup-row
+props:
+  title:
+    type: string
+    required: true
+    title: Task title
+    description: What the follow-up is, e.g. "Send proposal to Northwind".
+    example: "Send proposal to Northwind"
+  due:
+    type: string
+    required: true
+    title: Due
+    description: Human-readable due date shown in the pill, e.g. "Tomorrow" or "Jul 20".
+    example: "Tomorrow"
+  contact:
+    type: string
+    title: Contact
+    description: Person or account the follow-up relates to, shown muted under the title.
+    example: "Dana Whitfield"
+  overdue:
+    type: boolean
+    default: false
+    title: Overdue
+    description: When true the due pill turns danger-coloured to flag a missed date.
+  done:
+    type: boolean
+    default: false
+    title: Done
+    description: When true the checkbox fills and the title is struck through and muted.

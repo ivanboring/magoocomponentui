@@ -1,0 +1,19 @@
+<section class="quality-control-checklist rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header data-if="title" class="quality-control-checklist__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="total" class="quality-control-checklist__count shrink-0 rounded-pill bg-success/10 px-2.5 py-0.5 text-sm font-medium text-success tabular-nums">{{ passed }}/{{ total }} passed</span>
+  </header>
+  <ul class="quality-control-checklist__items flex flex-col divide-y divide-border">
+    <li data-for="item in items" data-result="{{ item.result }}" class="quality-control-checklist__item group flex items-start gap-3 py-2.5">
+      <span class="quality-control-checklist__marker mt-0.5 flex size-5 shrink-0 items-center justify-center" aria-hidden="true">
+        <svg class="hidden size-5 text-success group-data-[result=pass]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"/></svg>
+        <svg class="hidden size-5 text-danger group-data-[result=fail]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"/></svg>
+        <span class="hidden size-2 rounded-pill bg-on-surface-muted group-data-[result=pending]:block"></span>
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="text-sm text-on-surface">{{ item.label }}</p>
+        <p data-if="item.note" class="mt-0.5 text-xs text-on-surface-muted">{{ item.note }}</p>
+      </div>
+    </li>
+  </ul>
+</section>

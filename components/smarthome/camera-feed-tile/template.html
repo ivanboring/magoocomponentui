@@ -1,0 +1,14 @@
+<figure class="camera-feed-tile overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="camera-feed-tile__preview relative aspect-video bg-surface-raised">
+    <span class="absolute inset-0 flex items-center justify-center text-on-surface-muted" aria-hidden="true">
+      <svg class="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg>
+    </span>
+    <span class="camera-feed-tile__status absolute left-2 top-2 inline-flex items-center gap-1.5 rounded-pill px-2 py-1 text-xs font-medium capitalize {{ status@class }}">
+      <span class="size-1.5 rounded-full bg-current" aria-hidden="true"></span>{{ status }}
+    </span>
+  </div>
+  <figcaption class="flex items-center justify-between gap-2 p-3">
+    <span class="camera-feed-tile__name text-sm font-medium text-on-surface">{{ name }}</span>
+    <span data-if="timestamp" class="camera-feed-tile__time text-xs text-on-surface-muted tabular-nums">{{ timestamp }}</span>
+  </figcaption>
+</figure>

@@ -1,0 +1,11 @@
+<div class="email-row flex items-center gap-3 px-4 py-3 data-[unread=true]:bg-surface-raised" data-unread="{{ unread }}">
+  <button type="button" class="email-row__star shrink-0 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-warning data-[starred=true]:text-warning" data-starred="{{ starred }}" aria-label="Star">
+    <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5 5.53.8-4 3.9.94 5.5L10 14.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8z"/></svg>
+  </button>
+  <span class="email-row__sender w-32 shrink-0 truncate text-sm text-on-surface data-[unread=true]:font-semibold" data-unread="{{ unread }}">{{ sender }}</span>
+  <p class="email-row__subject min-w-0 flex-1 truncate text-sm">
+    <span class="text-on-surface data-[unread=true]:font-semibold" data-unread="{{ unread }}">{{ subject }}</span>
+    <span class="text-on-surface-muted"> — {{ snippet }}</span>
+  </p>
+  <span class="email-row__time shrink-0 text-xs text-on-surface-muted">{{ time }}</span>
+</div>

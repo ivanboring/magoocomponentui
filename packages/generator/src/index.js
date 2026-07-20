@@ -20,8 +20,10 @@ import { emitStorybook, defaultArgs, sampleValue } from "./emit/storybook.js";
 import { emitDrupal } from "./emit/drupal.js";
 import { astToTwig } from "./emit/twig.js";
 import { wrapPortable } from "./emit/behavior.js";
+import { canvasEligibility } from "./canvas.js";
 
 export {
+  canvasEligibility,
   parseTemplate,
   parseInterpolation,
   normalizeDef,
@@ -50,6 +52,7 @@ export {
  *   metadata?: any,
  *   examples?: Record<string, any>|null,
  *   themeMachineName?: string,  // Drupal theme machine name for the paragraph {% embed %} (default your_theme)
+ *   canvas?: boolean,  // emit the SDC with media-entity $ref props for Drupal Canvas
  * }} source
  * @returns {{ ast: any[], files: Record<string, string> }}
  */
@@ -69,7 +72,7 @@ export function generate(source) {
   );
 
   for (const [file, contents] of Object.entries(
-    emitSdc({ name, def: source.def, ast, behavior, metadata }),
+    emitSdc({ name, def: source.def, ast, behavior, metadata, canvas: Boolean(source.canvas) }),
   )) {
     files[`sdc/${name}/${file}`] = contents;
   }

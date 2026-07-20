@@ -1,0 +1,9 @@
+{
+  "level": "high",
+  "score": 91,
+  "factors": [
+    { "label": "Prior claims", "impact": "high" },
+    { "label": "Location risk", "impact": "high" },
+    { "label": "Credit profile", "impact": "medium" }
+  ]
+}

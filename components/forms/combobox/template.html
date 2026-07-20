@@ -1,0 +1,10 @@
+<div class="combobox group/cb relative" data-open="{{ start_open }}">
+  <label data-if="label" class="combobox__label mb-1 block text-sm font-medium text-on-surface">{{ label }}</label>
+  <div class="combobox__control flex items-center rounded-control border border-border bg-surface focus-within:ring-2 focus-within:ring-ring">
+    <input type="text" name="{{ name }}" class="combobox__input w-full bg-transparent px-3 py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted" placeholder="{{ placeholder }}" role="combobox" aria-expanded="{{ start_open }}" aria-autocomplete="list" autocomplete="off">
+    <button type="button" class="combobox__toggle px-2 text-on-surface-muted" aria-label="Toggle options" tabindex="-1"><svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8l4 4 4-4"/></svg></button>
+  </div>
+  <ul class="combobox__list invisible pointer-events-none absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]/cb:visible group-data-[open=true]/cb:opacity-100 group-data-[open=true]/cb:pointer-events-auto" role="listbox">
+    <li data-for="option in options" class="combobox__option cursor-pointer px-3 py-2 text-sm text-on-surface transition-colors hover:bg-surface-raised data-[active=true]:bg-surface-raised data-[hidden=true]:hidden" role="option" data-value="{{ option.value }}" data-label="{{ option.label }}">{{ option.label }}</li>
+  </ul>
+</div>

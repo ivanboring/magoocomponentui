@@ -1,0 +1,87 @@
+name: "Chart Tooltip"
+short_description: A small floating card that shows a hovered data point's category and its series values, for a chart library to position on hover.
+long_visual_description: >
+  A compact elevated card on the surface colour with a control radius and a raised
+  shadow. A bold title line names the hovered category, and below it each series is one
+  row: a small colour swatch, a muted label, and a right-aligned mono value so figures
+  align. It is a static display; a charting library positions it next to the cursor or
+  the active point.
+
+use_cases:
+  - Hover readout for a line, bar, or area chart.
+  - Point detail on a scatter plot.
+  - Category detail on a pie or treemap hover.
+  - Crosshair value box on a time series.
+  - Map region value on hover.
+  - Combined multi-series readout at one x value.
+  - Sparkline detail popover.
+
+recommended_for:
+  - Pairing with a chart library that handles positioning.
+  - Showing one or more series values at a hovered point.
+  - Consistent, tokenized tooltip styling across charts.
+avoid_for:
+  - Long-form content or actions (use a popover).
+  - Persistent always-on labels (use axis labels).
+  - Positioning logic (this component only renders content).
+
+markets:
+  - Global
+
+example_usage: >
+  Render it with the hovered category as the title and one row per series with a label, a
+  formatted value, and a swatch colour class matching the chart. The chart library owns
+  placement; this component owns the content and styling.
+
+props:
+  title: The hovered category or x-axis label shown as the heading.
+  rows: One entry per series with a label, a formatted value, and a swatch colour class.
+
+how_to_use: >
+  This component is static markup with no behavior of its own. A charting library shows,
+  hides, and positions it (typically absolutely, next to the cursor or active point) and
+  swaps its title/rows as the hover target changes.
+
+example_prompts:
+  - "Add a chart tooltip showing revenue and target at the hovered month."
+  - "Show a single-value tooltip for active users on the line chart."
+  - "Style the hover readout for the bar chart."
+
+relationships:
+  related:
+    - dataviz/chart-legend
+    - dataviz/pie-chart-shell
+    - dataviz/data-point-callout
+
+lifecycle: experimental
+content_model: A category title and one row per series, each a label, a value, and a colour swatch.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-border
+    - --radius-control
+    - --shadow-raised
+    - --font-mono
+
+editorial_guidance: >
+  Match each row's swatch colour class to its series in the chart. Keep the title to the
+  category name and values formatted with units. The chart library positions the tooltip;
+  this component only renders its content, so it needs no behavior of its own.
+
+categorization:
+  category: Data Visualization
+  subcategory: Chart parts
+  atomic_type: molecule
+  usage_type: [overlay, chart]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Labels and values are real text; colour swatches are supplementary. Positioning and focus handling belong to the chart library.
+  keyboard_support: None — content-only; the chart library manages show/hide.
+  seo_score: 30
+  text_direction: both

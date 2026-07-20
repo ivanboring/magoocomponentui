@@ -1,0 +1,98 @@
+name: "Wallet Connect"
+short_description: A connect-wallet control that opens a wallet picker, then shows the connected account as a masked-address pill.
+long_visual_description: >
+  In the disconnected state, a primary "Connect wallet" button that opens a small menu of
+  wallet options, each a raw brand glyph beside its name. In the connected state, the button is
+  replaced by a rounded pill showing a colourful blockie dot, the masked wallet address in the
+  mono face, and an optional balance separated by a thin divider. The picker floats over the
+  button and reveals on click.
+
+use_cases:
+  - The primary connect entry point in a dApp header.
+  - Gating a mint, swap or stake action behind a wallet connection.
+  - Showing the active account and balance once connected.
+  - Offering a choice of injected and mobile wallets.
+  - A Web3 onboarding step that asks the user to link a wallet.
+  - A wallet chip in an account or settings menu.
+
+recommended_for:
+  - dApp headers and any flow that needs an account before continuing.
+  - Surfaces that must present both the disconnected and connected states.
+avoid_for:
+  - Switching networks/chains (use network-switcher).
+  - Showing a full token portfolio (use token-balance-row in a list).
+
+markets:
+  - Global
+
+example_usage: >
+  Render with connected=false and a wallets array to show the picker; pass connected=true with a
+  masked address and optional balance to show the account pill. The wallet icons are raw inline
+  SVG strings. Listen for the wallet:connect event (detail.wallet) to run the actual connection.
+
+how_to_use: >
+  Open/closed state is the data-open attribute on the root, revealed purely by the
+  group-data-[open=true] utilities - no JavaScript is needed for the reveal (so it renders in
+  screenshots). behavior.js wires interaction: the trigger toggles the picker, choosing a wallet
+  fires wallet:connect with { wallet } and closes, and Escape or an outside click closes. In the
+  connected state there is no trigger, so init is a safe no-op.
+
+props:
+  connected: "Toggles between the account pill (true) and the Connect wallet button plus picker (false)."
+  address: "Masked wallet address shown when connected; shorten it in the caller (e.g. 0x1a2...9f4c)."
+  balance: "Optional formatted balance shown beside the address when connected."
+  wallets: "The wallets offered in the picker. Each item: name and a raw inline-SVG icon."
+  start_open: "When true the picker renders already open (disconnected state only)."
+
+example_prompts:
+  - "Add a connect wallet button that offers MetaMask, Coinbase Wallet and WalletConnect."
+  - "Show the connected account pill with a masked address and the ETH balance."
+  - "Put a wallet connect control in the dApp header."
+
+lifecycle: experimental
+content_model: >
+  Either a connected account (masked address plus optional balance) or a list of selectable
+  wallets, each with a name and a brand glyph.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-button
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the button label to "Connect wallet". List the most common wallets first. Always mask the
+  address (leading and trailing characters only) and never render a full private address.
+
+relationships:
+  related:
+    - crypto/network-switcher
+    - crypto/token-balance-row
+    - crypto/transaction-hash
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Wallet
+  atomic_type: molecule
+  usage_type: [action, menu]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup and aria-expanded; the picker is a labelled menu of menuitem buttons; Escape and outside clicks close it and focus returns to the trigger.
+  keyboard_support: The trigger opens on Enter/Space and focuses the first wallet; Escape closes and restores focus; wallet items activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

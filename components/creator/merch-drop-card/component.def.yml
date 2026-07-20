@@ -1,0 +1,44 @@
+name: merch-drop-card
+props:
+  name:
+    type: string
+    required: true
+    title: Product name
+    example: "Tour Hoodie 2026"
+  image:
+    type: string
+    format: uri-reference
+    title: Product image
+    description: Square product image; falls back to a plain raised-surface panel when omitted.
+    example: "/stock/product-sneaker.jpg"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: Formatted price including currency.
+    example: "$48"
+  drop_date:
+    type: string
+    title: Drop date
+    description: Short date or time label for when the item drops, shown beside the price.
+    example: "Drops Aug 2"
+  sold_pct:
+    type: string
+    title: Percent sold
+    description: >
+      Precomputed percentage sold (0-100) for the progress bar. Omit to hide the bar (e.g. for
+      upcoming drops). The caller computes sold / stock.
+    example: 72
+  status:
+    type: enum
+    values: ["upcoming", "live", "sold-out"]
+    default: live
+    title: Status
+    description: >
+      Drop state. Drives the badge label and colour and the button label: upcoming shows "Notify
+      me", live shows "Buy now", sold-out shows a disabled "Sold out".
+variants:
+  status:
+    upcoming: "bg-info/10 text-info"
+    live: "bg-danger/10 text-danger"
+    sold-out: "bg-surface-raised text-on-surface-muted"

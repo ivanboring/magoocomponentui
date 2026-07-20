@@ -1,0 +1,7 @@
+{
+  "rows": [
+    { "label": "Billing receipts", "email": true, "push": true, "sms": true },
+    { "label": "Login from new device", "email": true, "push": true, "sms": true },
+    { "label": "Team invitations", "email": true, "push": true, "sms": false }
+  ]
+}

@@ -1,0 +1,14 @@
+<form class="donation-form flex flex-col gap-5 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="donation-form__amounts grid grid-cols-3 gap-2">
+    <button data-for="amount in amounts" type="button" data-amount="{{ amount.value }}" data-selected="{{ amount.selected }}" class="donation-form__amount rounded-button border border-border bg-surface px-3 py-2 text-center font-heading text-on-surface transition-colors duration-(--duration-token) hover:border-primary data-[selected=true]:border-primary data-[selected=true]:bg-primary/10 data-[selected=true]:text-primary">{{ amount.label }}</button>
+  </div>
+  <label class="donation-form__custom-field flex items-center gap-2 rounded-control border border-border bg-surface-raised px-3 py-2 focus-within:border-primary">
+    <span class="shrink-0 text-on-surface-muted">{{ currency }}</span>
+    <input class="donation-form__custom min-w-0 flex-1 bg-transparent text-on-surface outline-none placeholder:text-on-surface-muted" type="number" inputmode="decimal" min="1" placeholder="Other amount" aria-label="Custom donation amount">
+  </label>
+  <div class="donation-form__toggle group grid grid-cols-2 gap-1 rounded-pill border border-border bg-surface-raised p-1" role="group" aria-label="Donation frequency" data-frequency="{{ frequency }}">
+    <button data-freq="one-time" type="button" class="donation-form__freq rounded-pill px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[frequency=one-time]:bg-surface group-data-[frequency=one-time]:text-on-surface group-data-[frequency=one-time]:shadow-card">One-time</button>
+    <button data-freq="monthly" type="button" class="donation-form__freq rounded-pill px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[frequency=monthly]:bg-surface group-data-[frequency=monthly]:text-on-surface group-data-[frequency=monthly]:shadow-card">Monthly</button>
+  </div>
+  <button type="button" class="donation-form__donate rounded-button bg-primary px-4 py-3 text-center font-heading text-primary-contrast shadow-card transition-colors duration-(--duration-token) hover:bg-primary/90">Donate</button>
+</form>

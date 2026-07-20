@@ -1,0 +1,77 @@
+name: "Supporter Wall"
+short_description: A thank-you wall of top supporters, each a tile with an avatar, name, amount or tier, and an optional message.
+long_visual_description: >
+  A surface card headed "Top supporters" with an optional total count on the right. Below sits a
+  responsive one- or two-column grid of raised-surface tiles. Each tile pairs a circular avatar (an
+  image, or precomputed initials on a plain circle) with the supporter's name and a line combining
+  their amount and a small tier pill, plus an optional quoted message beneath.
+
+use_cases:
+  - A public thank-you wall of top supporters on a creator page.
+  - A recent-backers grid for a crowdfunding campaign.
+  - A donor recognition board with tiers and messages.
+  - A members spotlight highlighting long-time supporters.
+  - A stream credits panel listing top tippers.
+  - A community shout-out section under a post.
+
+recommended_for:
+  - Recognising supporters with names, amounts, and messages.
+  - Grids of backers grouped by prominence or tier.
+avoid_for:
+  - A single featured supporter (use a simpler card).
+  - A full leaderboard with ranks and sorting (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a supporters array ordered by prominence, each with a name and either an avatar image or
+  precomputed initials, plus optional amount, tier, and message. Set total_supporters for the header
+  count. The component renders exactly what it is given and does no ranking.
+
+props:
+  supporters: "The supporters, most prominent first; each has a name, an avatar or initials, and optional amount, tier, and message."
+  total_supporters: "Formatted total count shown in the header."
+
+lifecycle: experimental
+content_model: >
+  A list of supporters, each with a name, an avatar or initials, and optional amount, tier, and
+  short message, plus an optional overall count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order supporters by the prominence you want to reward, not strictly by amount. Keep messages short
+  and let a few carry personality rather than filling every tile.
+
+relationships:
+  related:
+    - creator/tip-jar
+    - creator/subscriber-tier-card
+    - creator/live-stream-chrome
+
+categorization:
+  category: Creator
+  subcategory: Community
+  atomic_type: organism
+  usage_type: [grid, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Supporters are a semantic list; avatar images use empty alt beside the text name, and initials render as text; the tier pill text conveys the tier, not colour alone.
+  keyboard_support: none
+  seo_score: 40
+  text_direction: both

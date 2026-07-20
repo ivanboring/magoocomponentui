@@ -1,0 +1,90 @@
+name: "Note Composer"
+short_description: A compact quick-note input for CRM timelines, with mention and attach affordances and a Save action.
+long_visual_description: >
+  A round author avatar sits at the leading edge next to a bordered card that holds a
+  multi-line note field. Along the bottom of the card a thin toolbar carries a mention (at)
+  icon and an attach (paperclip) icon on the left and a filled primary Save button on the
+  right. The border lifts to the ring colour while the field is focused.
+
+use_cases:
+  - Quick internal note on a contact or account timeline.
+  - Logging a call summary or meeting recap.
+  - Leaving an at-mention for a teammate on a deal.
+  - Comment box under an activity feed entry.
+  - Capturing a follow-up thought before it is lost.
+  - Adding context to a lead during qualification.
+
+recommended_for:
+  - Inline note entry inside a CRM record's activity stream.
+  - Any place a short, saveable note with mentions is needed.
+avoid_for:
+  - Long-form rich documents (use a full editor).
+  - Threaded public comments with replies (use a comment thread).
+
+markets:
+  - Global
+
+example_usage: >
+  Place it at the top of a contact or account activity feed. Provide the current user's avatar
+  or initials and an optional placeholder. Listen for the "note:save" event on the element to
+  persist the note; the field clears itself after each save.
+
+how_to_use: >
+  behavior.js wires the interaction. On form submit (the Save button, or Enter in a browser that
+  submits) it dispatches a bubbling "note:save" CustomEvent whose detail.value is the trimmed
+  note text, then clears and refocuses the field. Empty notes are ignored. There is no network
+  call - the host app listens for the event and persists the note. The portable self-init reads
+  no props object; any config would come from data-* attributes.
+
+props:
+  placeholder: Prompt text shown in the empty note field.
+  avatar: Optional headshot of the current user; falls back to initials.
+  initials: One or two precomputed characters shown when there is no avatar image.
+
+example_prompts:
+  - "Add a quick-note composer to the contact activity feed."
+  - "Put a note box with mention and attach buttons on the deal page."
+  - "Let reps log a call summary with an at-mention."
+
+relationships:
+  related:
+    - crm/contact-list-row
+    - crm/task-followup-row
+
+lifecycle: experimental
+content_model: A single note author plus the free-text note the user types before saving.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the placeholder inviting and short. The mention and attach icons are affordances the host
+  app wires up; the skeleton only signals they exist. Save is a primary action, so keep it the
+  single filled button in the toolbar.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Activity
+  atomic_type: molecule
+  usage_type: [form, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The field has an associated label, every control has an accessible name, and focus is visible via the ring-coloured border.
+  keyboard_support: The textarea and toolbar buttons are focusable; submitting the form saves the note and returns focus to the field.
+  seo_score: 20
+  text_direction: both

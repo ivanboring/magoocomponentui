@@ -1,0 +1,17 @@
+<section class="terms-section scroll-mt-24" id="terms-{{ number }}" aria-labelledby="terms-{{ number }}-heading">
+  <h2 id="terms-{{ number }}-heading" class="terms-section__heading flex gap-2 font-heading text-xl font-semibold text-on-surface">
+    <span class="terms-section__number text-on-surface-muted">{{ number }}.</span>
+    <span>{{ title }}</span>
+  </h2>
+  <div class="terms-section__body mt-3 text-on-surface-muted [&_p]:my-3 [&_p]:leading-relaxed [&_ul]:my-3 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:my-3 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:my-1 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_strong]:font-semibold [&_strong]:text-on-surface [&_em]:italic">{{{ body_html }}}</div>
+
+  <div data-if="subsections" class="terms-section__subsections mt-4 flex flex-col gap-4 border-l border-border pl-4">
+    <section data-for="sub in subsections" class="terms-section__subsection scroll-mt-24" id="terms-sub-{{ sub.number }}">
+      <h3 class="terms-section__subheading flex gap-2 font-heading text-base font-semibold text-on-surface">
+        <span class="terms-section__subnumber text-on-surface-muted">{{ sub.number }}</span>
+        <span>{{ sub.title }}</span>
+      </h3>
+      <div class="terms-section__subbody mt-2 text-sm text-on-surface-muted [&_p]:my-2 [&_p]:leading-relaxed [&_ul]:my-2 [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:my-2 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:my-1 [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_strong]:font-semibold [&_strong]:text-on-surface [&_em]:italic">{{{ sub.body_html }}}</div>
+    </section>
+  </div>
+</section>

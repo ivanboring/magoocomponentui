@@ -1,0 +1,84 @@
+name: "Throughput Chart"
+short_description: A card-framed vertical bar chart of production throughput with an optional target line and below-target bars tinted warning.
+long_visual_description: >
+  A surface card with an optional title and unit header. Below, a row of full-width vertical bars in
+  the primary colour sit on a shared baseline, each scaled by a precomputed height percentage, with a
+  value that reveals on hover and a category label underneath. A dashed target reference line can be
+  drawn across the plot, and any bar that falls short of target is tinted warning so under-performing
+  lines or periods stand out. Pure flex-and-height markup - no SVG chart, no charting JS.
+
+use_cases:
+  - Units-per-hour throughput by production line or cell.
+  - Output by shift compared against a target rate.
+  - OEE or utilisation bars across machines.
+  - Daily or weekly production volume with a target reference.
+  - Yield or good-parts count per station.
+  - Takt-time attainment across a set of workstations.
+
+recommended_for:
+  - Categorical production comparison against a target.
+  - Cases where the caller precomputes each bar height and the target percentage.
+avoid_for:
+  - A continuous time trend (use a line or area chart shell).
+  - Many categories at once (a table reads better).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each bar height_pct (0-100) by scaling its value against the dataset maximum, and set
+  target_met false on any bar below target so it tints warning. Optionally pass target_line_pct as a
+  precomputed percentage of the plot height to draw the dashed target rule. Values reveal on hover.
+
+props:
+  title: Optional chart heading.
+  unit: Optional unit label shown in the header.
+  bars: The bars, each with a label, a display value, a precomputed height_pct and a target_met flag.
+  target_line_pct: Optional target reference line as a precomputed percentage of the plot height.
+
+example_prompts:
+  - Add a throughput chart of units per hour by line with a target line.
+  - Show production output by shift with below-target bars flagged.
+  - Render a yield-by-station bar chart against a target reference.
+
+relationships:
+  related:
+    - dataviz/bar-chart-shell
+    - industrial/andon-board
+    - industrial/quality-control-checklist
+
+lifecycle: experimental
+content_model: An optional title and unit, a set of bars with precomputed heights and target flags, and an optional target line.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Each bar height_pct is precomputed by the caller by scaling values against a consistent maximum -
+  the shell ships no charting math. Set target_met false where a bar is below target and pass a
+  matching target_line_pct so the warning tint and the reference line agree. Keep labels short and
+  values realistic so the skeleton reads as a genuine chart.
+
+categorization:
+  category: Manufacturing
+  subcategory: Production
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Labels and values are real text (values reveal on hover but exist in the DOM); below-target state is conveyed by tint and should be paired with a data-table alternative in production.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

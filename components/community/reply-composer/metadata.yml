@@ -1,0 +1,86 @@
+name: "Reply Composer"
+short_description: A compact reply editor — an avatar beside a bordered field with a small formatting toolbar and a primary Reply button.
+long_visual_description: >
+  A horizontal row with the current user's round avatar (image or a neutral user glyph) beside a
+  bordered container on the surface colour. Inside sits a multi-line text field with a muted
+  placeholder, and a divided footer bar with a small formatting toolbar (bold, italic, link, code)
+  on the left and a primary-coloured Reply button on the right. The field border brightens to the
+  ring colour on focus.
+
+use_cases:
+  - Inline reply box at the bottom of a forum thread.
+  - Comment composer under an article or post.
+  - Quick answer field in a Q and A thread.
+  - Message input in a lightweight discussion widget.
+  - Add-a-note field in a moderation queue.
+  - Reply-to-review input for a business.
+
+recommended_for:
+  - A short-to-medium reply with light formatting affordances.
+  - Placing directly beneath a post or a list of replies.
+avoid_for:
+  - A full rich-text article editor with many controls.
+  - A single-line search or comment input.
+
+markets:
+  - Global
+
+example_usage: >
+  Drop it below a post or reply list. Set placeholder to guide the reader and pass an avatar URL for
+  the signed-in user. Listen for the bubbling reply:submit event (detail.value is the textarea text)
+  on a parent to persist the reply; the field clears itself after submit.
+
+how_to_use: >
+  behavior.js wires the Reply button: on click it reads the textarea value, dispatches a bubbling
+  "reply:submit" CustomEvent with { value }, then clears and refocuses the field. The toolbar buttons
+  are skeleton affordances with no wired behaviour. No props object is passed to init.
+
+props:
+  placeholder: "Placeholder text for the empty reply field."
+  avatar: "Optional avatar image URL for the current user; falls back to a neutral user glyph."
+
+example_prompts:
+  - Add a reply box under the thread with the user's avatar.
+  - Show a comment composer with a Write a reply placeholder.
+  - Put a quick answer field at the bottom of the Q and A.
+
+lifecycle: experimental
+content_model: A single draft reply the user types before submitting it.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep the placeholder short and inviting. Use it for quick replies; route long-form writing to a
+  full editor. Label the Reply button with the action, not the noun.
+
+relationships:
+  related:
+    - community/post-detail
+    - community/thread-list
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The textarea has an associated label, every toolbar and submit control is a labelled button, and focus is visible via the ring-coloured border.
+  keyboard_support: The field, toolbar buttons and Reply button are all focusable; Reply activates on Enter/Space and the field accepts multi-line text.
+  seo_score: 15
+  text_direction: both

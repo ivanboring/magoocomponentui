@@ -1,0 +1,80 @@
+name: "Energy Usage Meter"
+short_description: A live power-usage card showing current watts, a usage bar, and today's energy and cost.
+long_visual_description: >
+  A card on the surface colour with a muted "Using now" label above a large current-watts figure in
+  the heading face, a unit suffix trailing it. A thin rounded usage bar fills with the primary colour
+  to a precomputed percentage of peak draw, and a small two-row list below states today's energy in
+  kilowatt-hours and its cost, both in tabular figures.
+
+use_cases:
+  - Show a home's live electricity draw on an energy dashboard.
+  - Track a single circuit or appliance's current power use.
+  - Summarise today's energy and cost at a glance.
+  - Warn visually when draw approaches a peak with a filled bar.
+  - Pair with device tiles to show what is consuming power.
+
+recommended_for:
+  - Energy and consumption dashboards.
+  - Home or appliance power monitoring widgets.
+avoid_for:
+  - Detailed usage history over time (use a chart).
+  - Non-energy metrics (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute pct as the current draw over a chosen maximum, since the template does no arithmetic.
+  Keep current_watts, today_kwh, and cost as preformatted strings with their units and currency.
+
+props:
+  current_watts: The current power draw figure, without the unit (the card adds W).
+  today_kwh: Optional energy used today; the card adds the kWh unit.
+  cost: Optional cost for today, formatted with currency.
+  pct: Precomputed whole-number percent of peak driving the usage bar width.
+
+example_prompts:
+  - "Add an energy meter showing 480 watts now, 6.2 kWh and $1.24 today."
+  - "Show current power draw near peak on the energy dashboard."
+  - "Add a live usage card for the kitchen circuit."
+
+lifecycle: experimental
+content_model: A current watts figure, a precomputed percent of peak, and optional daily energy and cost.
+
+relationships:
+  related:
+    - smarthome/device-tile
+    - smarthome/thermostat-dial
+    - smarthome/sensor-reading
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep figures preformatted and consistent. Let the bar carry the "how close to peak" cue; keep the
+  labels short.
+
+categorization:
+  category: Smart Home
+  subcategory: Energy
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The usage bar has an accessible label; the numbers are conveyed as text, not colour alone.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

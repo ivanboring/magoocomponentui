@@ -1,0 +1,20 @@
+{
+  "brand": "Northwind",
+  "sections": [
+    {
+      "label": "Workspace",
+      "items": [
+        { "label": "Dashboard", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 10l7-6 7 6'/><path d='M5 9v7h10V9'/></svg>", "href": "/dashboard", "active": true },
+        { "label": "Inbox", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 5h14v10H3z'/><path d='M3 8l7 4 7-4'/></svg>", "href": "/inbox", "active": false, "badge": "5" },
+        { "label": "Projects", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 6h5l2 2h7v8H3z'/></svg>", "href": "/projects", "active": false }
+      ]
+    },
+    {
+      "label": "Account",
+      "items": [
+        { "label": "Team", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><circle cx='7' cy='7' r='3'/><path d='M2 17a5 5 0 0110 0'/><path d='M13 5a3 3 0 010 6'/></svg>", "href": "/team", "active": false },
+        { "label": "Settings", "icon": "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><circle cx='10' cy='10' r='3'/><path d='M10 2v3M10 15v3M2 10h3M15 10h3'/></svg>", "href": "/settings", "active": false }
+      ]
+    }
+  ]
+}

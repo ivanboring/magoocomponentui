@@ -1,0 +1,21 @@
+name: dock
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Apps
+    description: >
+      The app icons in the dock, left to right. Each item: { label, icon, href, active }.
+      icon is a raw inline-SVG string (a simple stroke icon sized to fill the 24px slot);
+      label is shown as a tooltip on hover; active: true marks the running app with a dot.
+    example:
+      - label: "Mail"
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-full"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>'
+        href: "#"
+        active: true
+  label:
+    type: string
+    default: "Apps"
+    title: Accessible label
+    description: Accessible name announced for the dock navigation.

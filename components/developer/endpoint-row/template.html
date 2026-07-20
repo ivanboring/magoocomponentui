@@ -1,0 +1,6 @@
+<div class="endpoint-row flex items-center gap-3 rounded-card border border-border bg-surface px-4 py-3">
+  <span class="inline-flex shrink-0 rounded-control px-2 py-0.5 text-xs font-semibold uppercase font-mono {{ method@class }}">{{ method }}</span>
+  <code class="endpoint-row__path shrink-0 font-mono text-sm text-on-surface data-[deprecated=true]:text-on-surface-muted data-[deprecated=true]:line-through" data-deprecated="{{ deprecated }}">{{ path }}</code>
+  <span data-if="summary" class="min-w-0 flex-1 truncate text-sm text-on-surface-muted">{{ summary }}</span>
+  <span data-if="deprecated" class="ml-auto inline-flex shrink-0 items-center rounded-pill bg-warning/10 px-2 py-0.5 text-xs font-medium text-warning">Deprecated</span>
+</div>

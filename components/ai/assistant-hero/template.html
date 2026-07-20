@@ -1,0 +1,17 @@
+<section class="assistant-hero mx-auto flex max-w-2xl flex-col items-center gap-6 px-4 py-16 text-center">
+  <div class="flex flex-col gap-3">
+    <h1 class="font-heading text-3xl text-on-surface sm:text-4xl">{{ heading }}</h1>
+    <p data-if="subheading" class="text-on-surface-muted">{{ subheading }}</p>
+  </div>
+  <form class="assistant-hero__form w-full">
+    <div class="flex items-end gap-2 rounded-card border border-border bg-surface p-2 shadow-card transition-shadow duration-(--duration-token) focus-within:ring-2 focus-within:ring-ring">
+      <textarea class="assistant-hero__input max-h-40 min-h-11 flex-1 resize-none bg-transparent px-2 py-2 text-on-surface placeholder:text-on-surface-muted focus:outline-none" rows="1" placeholder="{{ placeholder }}" aria-label="{{ heading }}"></textarea>
+      <button type="submit" class="assistant-hero__send inline-flex size-10 shrink-0 items-center justify-center rounded-button bg-primary text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90" aria-label="Send">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
+      </button>
+    </div>
+  </form>
+  <div data-if="examples" class="flex flex-wrap justify-center gap-2">
+    <button data-for="example in examples" type="button" class="assistant-hero__chip rounded-pill border border-border bg-surface px-4 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" data-prompt="{{ example.label }}">{{ example.label }}</button>
+  </div>
+</section>

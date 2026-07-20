@@ -1,0 +1,78 @@
+name: "Fluid Grid"
+short_description: A breakpoint-free responsive grid whose column count is derived from the available width and a chosen minimum card width.
+long_visual_description: >
+  A grid of equal-width cards that fills each row with as many columns as fit at the chosen minimum
+  card width, then wraps the rest onto the next row. There are no per-breakpoint column counts: as
+  the container narrows, columns drop one at a time and the surviving cards stretch to share the row.
+  Cards are simple surface panels with a media area over a title and subtitle.
+
+use_cases:
+  - A product or collection grid that should reflow smoothly at any container width.
+  - Card galleries embedded in a sidebar or a narrow column where fixed breakpoints look wrong.
+  - Logo, avatar or thumbnail walls that pack as tightly as the width allows.
+  - Dashboards or catalogs where the card count varies and a fixed column grid leaves gaps.
+  - Any card set that must adapt to its container rather than the viewport.
+  - Teasers rendered inside a resizable panel or split view.
+
+recommended_for:
+  - Grids that should respond to their container width, not fixed viewport breakpoints.
+  - Uniform cards whose ideal minimum width is known but whose count varies.
+
+avoid_for:
+  - A grid with an exact, designer-chosen column count per breakpoint (use card-grid).
+  - A staggered, variable-height masonry layout (use masonry-grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop child cards into the items slot and pick a min value (xs-lg) for how narrow each card may
+  get. The grid uses CSS repeat(auto-fill, minmax(var(--fg-min), 1fr)) to compute the column count
+  from the available width, so it reflows with no JavaScript and no media queries.
+
+props:
+  min: "How narrow each card may shrink before a column is dropped: xs (dense), sm, md or lg (fewer, wider cards)."
+  gap: "Space between cards: default, or an explicit none/sm/md/lg/xl."
+  label: "Accessible name announced for the grid region."
+
+slots:
+  items: "The child cards to lay out; each row is filled with as many as fit the chosen min width, the rest wrap."
+
+content_model: A set of uniform child cards laid out in a width-driven, auto-filling grid.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  There are no breakpoints here: columns fill the row based on the minimum card width, so pick min
+  by card density. Use xs/sm for compact thumbnails or logos and md/lg for richer teasers with a
+  title and subtitle. Keep the cards a single type so the auto-fill reads as an even grid.
+
+relationships:
+  related:
+    - cards/card-grid
+    - layout/masonry-grid
+    - layout/carousel-grid
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The grid is a labelled group region; it adds no interaction of its own, so accessibility depends on the child cards.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both
+
+lifecycle: experimental

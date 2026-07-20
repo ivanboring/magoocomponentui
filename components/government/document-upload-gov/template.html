@@ -1,0 +1,22 @@
+<section class="document-upload-gov rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <ul class="document-upload-gov__list flex flex-col divide-y divide-border">
+    <li data-for="document in documents" class="document-upload-gov__item flex flex-wrap items-center gap-3 py-3">
+      <span class="min-w-0 flex-1">
+        <span class="block font-medium text-on-surface">{{ document.label }}</span>
+        <span data-if="document.required" class="text-xs text-on-surface-muted">Required</span>
+      </span>
+      <span class="document-upload-gov__badge inline-flex items-center gap-1.5 rounded-pill border px-2.5 py-1 text-xs font-medium capitalize data-[status=pending]:border-border data-[status=pending]:bg-surface-raised data-[status=pending]:text-on-surface-muted data-[status=uploaded]:border-success/30 data-[status=uploaded]:bg-success/10 data-[status=uploaded]:text-success data-[status=rejected]:border-danger/30 data-[status=rejected]:bg-danger/10 data-[status=rejected]:text-danger" data-status="{{ document.status }}">
+        <span class="size-1.5 rounded-full bg-current" aria-hidden="true"></span>{{ document.status }}
+      </span>
+      <button type="button" class="document-upload-gov__upload shrink-0 rounded-button border border-border bg-surface px-4 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Upload</button>
+    </li>
+  </ul>
+
+  <div class="document-upload-gov__dropzone mt-4 flex flex-col items-center gap-2 rounded-card border-2 border-dashed border-border bg-surface-raised px-4 py-8 text-center">
+    <span class="text-on-surface-muted" aria-hidden="true">
+      <svg class="size-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V4"/><path d="M8 8l4-4 4 4"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+    </span>
+    <p class="text-sm text-on-surface">Drag files here or <span class="font-medium text-primary">browse</span> to upload</p>
+    <p class="text-xs text-on-surface-muted">PDF, JPG or PNG, up to 10 MB each</p>
+  </div>
+</section>

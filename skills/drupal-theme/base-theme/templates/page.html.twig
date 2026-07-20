@@ -1,0 +1,80 @@
+{#
+  Page layout. Regions listed in the "Full-bleed regions" setting run edge to edge; every other
+  region is centered in a container capped at --container-max. Region visibility and sidebar
+  position also come from theme settings (see magoo_agentic_base_theme_preprocess_page()).
+#}
+{% set bleed = magoo.full_bleed %}
+{% set header_class = magoo.sticky_header ? 'sticky top-0 z-50' : '' %}
+
+{% macro region(page, name, bleed, extra) %}
+  {% if page[name] %}
+    {% if name in bleed %}
+      <div class="region region--{{ name }} {{ extra }}">{{ page[name] }}</div>
+    {% else %}
+      <div class="region region--{{ name }} {{ extra }}">
+        <div class="mx-auto w-full px-4" style="max-width: var(--container-max);">{{ page[name] }}</div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+{% import _self as r %}
+
+{#
+  Dark-mode switch, rendered only for color_scheme = "toggle". js/color-scheme.js (loaded in the
+  <head>, before paint) sets data-color-scheme on <html>, keeps aria-pressed in sync and persists
+  the choice. Tokenized Tailwind utilities only — the theme ships no custom CSS.
+#}
+{% set show_scheme_toggle = magoo.color_scheme == 'toggle' %}
+
+<div class="page min-h-screen bg-background font-body text-on-background">
+  {{ r.region(page, 'header_top', bleed, '') }}
+
+  {% if page.header or show_scheme_toggle %}
+    {% set header_inner = 'header' in bleed ? '' : 'mx-auto w-full px-4' %}
+    <div class="region region--header {{ header_class }} bg-surface">
+      <div class="{{ header_inner }} flex items-center gap-4" {% if 'header' not in bleed %}style="max-width: var(--container-max);"{% endif %}>
+        <div class="min-w-0 flex-1">{{ page.header }}</div>
+        {% if show_scheme_toggle %}
+          <button type="button"
+                  class="magoo-color-scheme-toggle inline-flex shrink-0 items-center gap-2 rounded-(--radius-button) border border-border bg-surface-raised px-3 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) ease-(--ease-token) hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  aria-pressed="false"
+                  aria-label="{{ 'Toggle dark mode'|t }}">
+            <span aria-hidden="true">&#9680;</span>
+            <span>{{ 'Dark mode'|t }}</span>
+          </button>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  {{ r.region(page, 'primary_menu', bleed, '') }}
+  {{ r.region(page, 'secondary_menu', bleed, '') }}
+  {{ r.region(page, 'search', bleed, '') }}
+  {{ r.region(page, 'breadcrumb', bleed, '') }}
+  {{ r.region(page, 'highlighted', bleed, '') }}
+  {{ r.region(page, 'hero', bleed, '') }}
+  {{ r.region(page, 'hero_secondary', bleed, '') }}
+  {{ r.region(page, 'content_above', bleed, '') }}
+
+  <main class="flex flex-col gap-(--space-section) py-(--space-section)">
+    {% set has_sidebar = page.sidebar_first or page.sidebar_second %}
+    <div class="mx-auto flex w-full flex-col gap-8 px-4 lg:flex-row {{ magoo.sidebar_position == 'first' ? 'lg:flex-row-reverse' : '' }}" style="max-width: var(--container-max);">
+      <div class="min-w-0 flex-1">
+        {% if page.content_top %}<div class="region region--content_top">{{ page.content_top }}</div>{% endif %}
+        <div class="region region--content">{{ page.content }}</div>
+        {% if page.content_bottom %}<div class="region region--content_bottom">{{ page.content_bottom }}</div>{% endif %}
+      </div>
+      {% if has_sidebar %}
+        <aside class="w-full shrink-0 lg:w-72">
+          {% if page.sidebar_first %}<div class="region region--sidebar_first">{{ page.sidebar_first }}</div>{% endif %}
+          {% if page.sidebar_second %}<div class="region region--sidebar_second">{{ page.sidebar_second }}</div>{% endif %}
+        </aside>
+      {% endif %}
+    </div>
+  </main>
+
+  {{ r.region(page, 'content_below', bleed, '') }}
+  {{ r.region(page, 'pre_footer', bleed, '') }}
+  {{ r.region(page, 'footer_top', bleed, '') }}
+  {{ r.region(page, 'footer_columns', bleed, '') }}
+  {{ r.region(page, 'footer_bottom', bleed, 'bg-surface-raised text-on-surface-muted') }}
+</div>

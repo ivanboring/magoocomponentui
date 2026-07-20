@@ -1,0 +1,10 @@
+{
+  "won": "18",
+  "lost": "7",
+  "open": "5",
+  "slices": [
+    { "label": "Won", "value": "18", "dash": "60 40", "offset": "0", "color_class": "stroke-success" },
+    { "label": "Lost", "value": "7", "dash": "23.3 76.7", "offset": "-60", "color_class": "stroke-danger" },
+    { "label": "Open", "value": "5", "dash": "16.7 83.3", "offset": "-83.3", "color_class": "stroke-on-surface-muted" }
+  ]
+}

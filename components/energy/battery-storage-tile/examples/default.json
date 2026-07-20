@@ -1,0 +1,7 @@
+{
+  "charge_pct": 76,
+  "status": "charging",
+  "capacity_kwh": "13.5 kWh",
+  "power_kw": "3.2 kW",
+  "backup_hours": "11 hrs"
+}

@@ -1,0 +1,8 @@
+{
+  "tags": [
+    { "label": "General" },
+    { "label": "Help", "active": true },
+    { "label": "Bugs", "active": true },
+    { "label": "Ideas" }
+  ]
+}

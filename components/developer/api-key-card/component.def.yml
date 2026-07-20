@@ -1,0 +1,26 @@
+name: api-key-card
+props:
+  key:
+    type: string
+    required: true
+    title: Key value
+    description: >
+      The real API key value. Held in a data attribute and revealed/copied client-side; only render
+      into pages where exposing the key to the viewer is acceptable.
+    example: "mk_demo_EXAMPLE_full_access_key_9f2a"
+  masked:
+    type: string
+    required: true
+    title: Masked value
+    description: The obscured value shown by default (e.g. sk_live_ followed by bullets and the last 4 chars).
+    example: "sk_live_************9f2a"
+  scope:
+    type: string
+    title: Scope
+    description: Optional scope/permission label shown as a small pill (e.g. Full access, Read only).
+    example: "Full access"
+  created:
+    type: string
+    title: Created
+    description: Optional human-readable created date shown in the meta row.
+    example: "Jan 12, 2026"

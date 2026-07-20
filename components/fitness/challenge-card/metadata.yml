@@ -1,0 +1,91 @@
+name: "Challenge Card"
+short_description: A fitness-challenge card with an optional cover image, meta row, and a join button that toggles to a joined state.
+long_visual_description: >
+  A surface card with an optional 16:9 cover image, a heading title and a short description, a muted
+  meta row pairing a people icon with a participant count and a calendar icon with the duration, and
+  a primary "Join challenge" button that flips to a soft-success "Joined" pill with a check once the
+  user has joined.
+
+use_cases:
+  - Browsable challenge in a fitness community or app.
+  - Featured monthly challenge on a wellness home screen.
+  - Team or workplace step-challenge signup card.
+  - Programme enrolment tile in a training app.
+  - Social fitness feed entry inviting users to join.
+
+recommended_for:
+  - Presenting a joinable challenge with a clear call to action.
+  - Grids or rails of challenges a user can opt into.
+avoid_for:
+  - Non-interactive informational cards (use a plain content card).
+  - A paid programme checkout (use a commerce card).
+
+markets:
+  - Global
+
+how_to_use: >
+  The join state lives on the button's data-joined attribute; the template's data-[joined=true]:*
+  and group-data-[joined=true]/jc:* variants swap the label and colour with no JavaScript, so the
+  static render and screenshots honour the joined prop. behavior.js flips data-joined on click,
+  updates aria-pressed, and dispatches a bubbling challenge:join CustomEvent (detail { joined }) for
+  a host to persist. Images use a /stock path in the catalog.
+
+example_usage: >
+  Pass a title and optional description, an optional image (a /stock cover), and preformatted
+  participants and days strings for the meta row. Set joined true to render the card in its joined
+  state.
+
+props:
+  title: The challenge name.
+  description: A short line describing the challenge.
+  image: Optional cover image URL (a /stock path in the catalog).
+  participants: Preformatted count of people taking part, e.g. "1,240 joined".
+  days: Preformatted duration or time remaining, e.g. "30 days".
+  joined: Whether the user has joined; toggles the button to its Joined state.
+
+example_prompts:
+  - "Add a challenge card for a 30-day plank challenge with a cover image and a join button."
+  - "Show a challenge card the user has already joined."
+
+lifecycle: experimental
+content_model: A challenge title, optional description and cover image, participant and duration meta, and a join affordance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title short and action-oriented and the description to one line. Use participants and days
+  as social proof and urgency. The joined state reads through the label and check, not colour alone.
+
+relationships:
+  related:
+    - fitness/streak-card
+    - cards/card-grid
+    - dashboard/stat-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Motivation
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The join button carries a text label and aria-pressed reflecting state; the joined state is shown by the "Joined" label and check icon, not colour alone; the cover image is decorative with an empty alt.
+  keyboard_support: The join button is focusable and toggles on Enter/Space.
+  seo_score: 40
+  text_direction: both

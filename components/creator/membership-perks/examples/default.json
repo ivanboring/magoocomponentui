@@ -1,0 +1,11 @@
+{
+  "tier": "Supporter",
+  "price": "$5/mo",
+  "perks": [
+    { "label": "Members-only posts", "included": true },
+    { "label": "Early access to videos", "included": true },
+    { "label": "Community Discord", "included": true },
+    { "label": "Monthly live call", "included": false },
+    { "label": "1:1 mentoring", "included": false }
+  ]
+}

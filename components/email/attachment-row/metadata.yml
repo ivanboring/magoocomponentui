@@ -1,0 +1,79 @@
+name: "Attachment Row"
+short_description: A single email attachment line showing a file-type icon, name, size and a download button.
+long_visual_description: >
+  A bordered control-radius row on the surface colour. A leading file icon takes a colour tone from
+  the file kind (neutral for a generic file, info-blue for images, danger-red for PDFs, warning-amber
+  for archives, primary for documents). The file name fills the middle and truncates when long, a
+  muted size sits to its right, and a download icon button caps the trailing edge.
+
+use_cases:
+  - List a PDF attachment under an email message.
+  - Show an image attachment with its size in a reader view.
+  - Present a downloadable archive (zip) in a message footer.
+  - Render a document attachment with a download affordance.
+  - Stack several attachments as a vertical list beneath a body.
+  - Offer a single downloadable file in a notification or share panel.
+
+recommended_for:
+  - Email readers and message views that list attachments.
+  - Any place a named file needs a size and a download action.
+avoid_for:
+  - Upload progress or drag-and-drop dropzones (use an uploader).
+  - Rich media galleries with previews (use a media grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the file name and a pre-formatted size, and set kind so the icon colour matches the file
+  type. Stack multiple rows in a column with a small gap to list all attachments on a message.
+
+props:
+  name: The file name including its extension; it truncates when it does not fit.
+  size: A human-readable size string you format (e.g. "2.4 MB").
+  kind: The file category (file, image, pdf, zip or doc); it only tints the leading icon.
+
+example_prompts:
+  - "Show a PDF attachment row named quarterly-report.pdf at 2.4 MB."
+  - "List an image attachment with a download button."
+  - "Add a zip archive attachment under the message."
+
+lifecycle: experimental
+content_model: A file name, a size string, and a file kind that tints the icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-danger
+    - --color-warning
+    - --color-primary
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep the file name intact (extension included) and let it truncate rather than abbreviating it.
+  Format sizes consistently (KB/MB) and match the kind to the real file type.
+
+relationships:
+  parents:
+    - email/email-reader
+  related:
+    - email/thread-message
+    - email/email-reader
+
+categorization:
+  category: Email
+  subcategory: Attachments
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The download button has an accessible label that includes the file name; the icon is decorative and aria-hidden; the kind colour only reinforces the name.
+  keyboard_support: The download button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

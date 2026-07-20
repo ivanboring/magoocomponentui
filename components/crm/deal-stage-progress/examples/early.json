@@ -1,0 +1,9 @@
+{
+  "stages": [
+    { "label": "Lead", "done": true },
+    { "label": "Contacted", "current": true },
+    { "label": "Demo" },
+    { "label": "Proposal" },
+    { "label": "Closed" }
+  ]
+}

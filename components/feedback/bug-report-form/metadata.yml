@@ -1,0 +1,91 @@
+name: "Bug Report Form"
+short_description: A report-an-issue form with a title, severity select, description, and a dashed file-attach dropzone.
+long_visual_description: >
+  A bordered surface card stacking labelled fields: a single-line title input, a severity dropdown, a
+  multi-line description textarea, and a dashed-border dropzone with an upload glyph, an instruction
+  line, and a "Browse files" button. Selected or dropped files are listed by name beneath the
+  dropzone. A primary submit button closes the card.
+
+use_cases:
+  - Let users file a bug from inside the product.
+  - Provide a support contact form with severity triage.
+  - Collect QA issues with reproduction steps and screenshots.
+  - Power an in-app "report a problem" panel.
+  - Gather crash or error reports with attached logs.
+  - Offer a feedback form that routes by severity.
+
+recommended_for:
+  - Structured issue reports that need a severity and attachments.
+  - In-product bug and support intake.
+avoid_for:
+  - Praise or testimonials (use feedback/testimonial-collect).
+  - A quick satisfaction vote (use feedback/thumbs-feedback).
+
+markets:
+  - Global
+
+example_usage: >
+  Supply the severities array (each { label, value }) to match your triage scheme and override the
+  placeholders per context (support vs. engineering). The host listens for the "bug:report" event to
+  receive the title, severity, description, and attached File objects and send them to its backend.
+
+how_to_use: >
+  behavior.js opens the hidden native file input when "Browse files" is clicked, accepts files
+  dropped onto the dropzone (toggling a data-dragging attribute while a drag is over it), and lists
+  every chosen file by name. Submitting the form is intercepted (preventDefault) and re-broadcast as
+  a bubbling "bug:report" CustomEvent with { title, severity, description, files }; the host owns
+  validation and upload. Screenshots show the empty form since behavior does not run there.
+
+props:
+  severities: The severity options for the select; each has a visible label and a submitted value.
+  title_placeholder: Placeholder for the title input.
+  placeholder: Placeholder for the description textarea.
+  dropzone_label: Instructional text inside the file-attach dropzone.
+  submit_label: Text on the submit button.
+
+example_prompts:
+  - "Add a bug report form with low/medium/high/critical severities and a screenshot upload."
+  - "Show a support intake form with a file attachment and a send button."
+
+lifecycle: experimental
+content_model: A title, a severity level, a description, and optional file attachments.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep severity labels short and unambiguous. Prompt for reproduction steps in the description
+  placeholder so reports arrive actionable.
+
+relationships:
+  related:
+    - feedback/testimonial-collect
+    - feedback/thumbs-feedback
+    - feedback/poll-inline
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Collection Forms
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every field has a visible label tied by for/id; the severity is a native select; the dropzone offers a real button that opens the file input.
+  keyboard_support: All fields, the browse button, and submit are focusable in order; the browse button opens the native file picker on Enter/Space.
+  seo_score: 30
+  text_direction: both

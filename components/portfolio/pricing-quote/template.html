@@ -1,0 +1,14 @@
+<div class="pricing-quote flex h-full flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="pricing-quote__title font-heading text-xl text-on-surface">{{ title }}</h3>
+  <p data-if="starting_price" class="pricing-quote__price mt-2 text-on-surface-muted">Starting at <span class="font-heading text-on-surface">{{ starting_price }}</span></p>
+  <p data-if="description" class="pricing-quote__description mt-3 text-sm text-on-surface-muted">{{ description }}</p>
+  <ul data-if="features" class="pricing-quote__features mt-5 space-y-2.5">
+    <li data-for="feature in features" class="pricing-quote__feature flex items-start gap-2.5 text-sm text-on-surface">
+      <span class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-success/10 text-success" aria-hidden="true">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 10l4 4 8-9"/></svg>
+      </span>
+      <span class="min-w-0">{{ feature }}</span>
+    </li>
+  </ul>
+  <a class="pricing-quote__cta mt-6 inline-flex w-full items-center justify-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" href="{{ cta.href }}">{{ cta.label }}</a>
+</div>

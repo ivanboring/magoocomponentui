@@ -1,0 +1,78 @@
+name: "Project Health Card"
+short_description: A card summarising a project's health status, a one-line note, and a few key metrics.
+long_visual_description: >
+  A card on the surface colour with the project name on the left and a rounded status pill on the
+  right — success-tinted for on-track, warning for at-risk, danger for off-track. An optional
+  muted summary line sits below, followed by a wrapping row of small label/value metric pairs.
+
+use_cases:
+  - Summarise a project's status on a portfolio dashboard.
+  - Give stakeholders an on-track / at-risk / off-track cue.
+  - Roll up progress and key dates for a program review.
+  - Flag at-risk projects in a status report.
+  - Show health alongside a handful of headline metrics.
+
+recommended_for:
+  - A per-project status tile with a colour-coded health pill.
+  - Portfolio or program overviews of several projects.
+avoid_for:
+  - A single metric (use a stat-card).
+  - Detailed project plans or timelines (use a fuller view).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name and status (on-track, at-risk, or off-track); the pill colour follows from status.
+  Add an optional summary line and a metrics array of { label, value } pairs for headline figures.
+
+props:
+  name: The project's title; truncates if long.
+  status: The health status; drives the pill colour.
+  summary: Optional one-line status note.
+  metrics: Optional headline figures, each a { label, value } pair.
+
+example_prompts:
+  - "Add a project health card for Mobile checkout that is at risk."
+  - "Show an on-track project health card with progress and due-date metrics."
+
+lifecycle: experimental
+content_model: A project name, a health status, an optional summary, and optional key metrics.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Set status honestly and keep the summary to one actionable line; reserve off-track for projects
+  that genuinely need intervention so its danger colour keeps its signal.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - pm/epic-progress
+    - pm/priority-flag
+
+categorization:
+  category: Project Management
+  subcategory: Status
+  atomic_type: molecule
+  usage_type: [card, stat, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Health is conveyed by the status label text, not colour alone; metrics are label/value pairs.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

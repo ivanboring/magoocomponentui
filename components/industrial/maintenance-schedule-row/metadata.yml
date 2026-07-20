@@ -1,0 +1,85 @@
+name: "Maintenance Schedule Row"
+short_description: A single preventive-maintenance task row showing asset, task, due date, interval, technician and a status pill.
+long_visual_description: >
+  A horizontal surface row bordered and lightly shadowed. The asset name in the heading face leads,
+  with the task in muted text beneath. A due date and its recurrence interval sit in the middle in
+  tabular figures, an optional assigned technician follows with a small person glyph, and a coloured
+  status pill closes the row - blue-toned for scheduled, red for overdue, green for done. The row
+  wraps gracefully on narrow widths.
+
+use_cases:
+  - Row in a preventive-maintenance (PM) schedule table.
+  - Upcoming and overdue maintenance list on a CMMS dashboard.
+  - Asset service calendar entry.
+  - Work-order queue line for a maintenance crew.
+  - Equipment inspection due-list item.
+  - Fleet or facility servicing schedule row.
+
+recommended_for:
+  - Lists of scheduled maintenance tasks with a clear status.
+  - Cases where the caller precomputes and formats the due date.
+avoid_for:
+  - A full work-order detail view (use a dedicated card or page).
+  - Editable scheduling controls (this is a read-only skeleton).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows in a list to form a maintenance schedule. Give each an asset, a task, a
+  precomputed due string and an optional interval and technician, and set status to scheduled,
+  overdue or done so the pill colour matches.
+
+props:
+  asset: The machine or asset the task belongs to.
+  task: Short description of the maintenance task.
+  due: The due date, precomputed and formatted by the caller.
+  interval: How often the task recurs, shown beneath the due date.
+  status: Drives the status pill colour - scheduled, overdue or done.
+  technician: The assigned technician or crew.
+
+example_prompts:
+  - Add an overdue maintenance row for CNC Mill 04 filter replacement.
+  - Show a scheduled PM task assigned to a technician with a monthly interval.
+  - List a completed maintenance task row with a done status.
+
+relationships:
+  related:
+    - industrial/quality-control-checklist
+    - industrial/andon-board
+    - industrial/batch-record
+
+lifecycle: experimental
+content_model: An asset, a task, a due date, an optional interval and technician, and a status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-danger
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the task line to a single action and format the due date consistently across rows. Set
+  status to agree with the due date - a past due date should read overdue. The pill colour supports
+  the status word, which always states the meaning on its own.
+
+categorization:
+  category: Manufacturing
+  subcategory: Maintenance
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is stated as text in the pill, not colour alone; the technician glyph is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

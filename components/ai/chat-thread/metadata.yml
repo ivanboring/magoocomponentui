@@ -1,0 +1,71 @@
+name: "Chat Thread"
+short_description: A conversation transcript of user and assistant messages as aligned, colour-coded bubbles.
+long_visual_description: >
+  A vertical stack of chat bubbles. User messages align to the right in the primary colour with
+  contrast text; assistant messages align to the left on a raised surface with on-surface text.
+  Each bubble can carry a small speaker name above it and a timestamp below, both in muted text.
+  Bubbles cap at 80% width so long messages wrap rather than stretching edge to edge.
+
+use_cases:
+  - Render a full AI chat conversation on a support or assistant page.
+  - Show a saved transcript of a past conversation for review.
+  - Display the message history above a chat composer input.
+  - Preview a sample dialogue in product marketing or docs.
+  - Log a bot-to-human handoff conversation for auditing.
+  - Present a tutoring or Q and A exchange step by step.
+
+recommended_for:
+  - Any assistant, chatbot, or support conversation view.
+  - A message list rendered from a structured array of turns.
+avoid_for:
+  - A single standalone assistant reply with actions (use chat-message-ai).
+  - A live typing or streaming state (use streaming-response).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a messages array where each item has a role ("user" or "assistant") and content. Add an
+  optional name and time per message to label speakers and timestamps. Place a chat-composer below
+  it to accept the next message.
+
+props:
+  messages: "The transcript in order. Each item: role (user or assistant), content, optional name shown above the bubble, optional time shown below it."
+
+content_model: >
+  An ordered list of conversation turns, each with a speaker role and text, optionally a name and
+  a timestamp. No media.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+
+editorial_guidance: >
+  Keep speaker names short and consistent (You, Assistant). Use a single timezone for timestamps.
+  Let the roles do the visual work rather than prefixing messages with the speaker in the text.
+
+relationships:
+  related:
+    - ai/chat-message-ai
+    - ai/chat-composer
+    - ai/streaming-response
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Conversation
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Messages are plain text bubbles with sufficient contrast; role drives alignment and colour but text is not colour-dependent.
+  keyboard_support: none
+  seo_score: 20
+  text_direction: both

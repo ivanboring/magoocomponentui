@@ -1,0 +1,14 @@
+{
+  "label": "Photography",
+  "all_label": "Everything",
+  "filters": [
+    { "label": "Interiors", "value": "interiors" },
+    { "label": "Food", "value": "food" }
+  ],
+  "items": [
+    { "image": "/stock/property-house.jpg", "title": "Coastal house", "category": "interiors", "href": "#" },
+    { "image": "/stock/food-plate.jpg", "title": "Plated dinner", "category": "food", "href": "#" },
+    { "image": "/stock/cover-workspace.jpg", "title": "Studio loft", "category": "interiors" },
+    { "image": "/stock/introduction.jpg", "title": "Market produce", "category": "food" }
+  ]
+}

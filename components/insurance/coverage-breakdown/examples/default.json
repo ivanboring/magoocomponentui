@@ -1,0 +1,8 @@
+{
+  "coverages": [
+    { "label": "Bodily injury", "limit": "$100,000", "used": "$12,000", "pct": 12, "color_class": "bg-primary" },
+    { "label": "Property damage", "limit": "$50,000", "used": "$41,000", "pct": 82, "color_class": "bg-warning" },
+    { "label": "Collision", "limit": "$25,000", "used": "$3,200", "pct": 13, "color_class": "bg-primary" },
+    { "label": "Medical payments", "limit": "$5,000", "color_class": "bg-info" }
+  ]
+}

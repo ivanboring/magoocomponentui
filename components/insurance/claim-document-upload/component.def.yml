@@ -1,0 +1,14 @@
+name: claim-document-upload
+props:
+  documents:
+    type: array
+    items: object
+    required: true
+    title: Documents
+    description: >
+      The documents a claim requires. Each item: { label, required, status }. required is a
+      boolean; status is one of "missing", "uploaded" or "reviewing" and drives the status badge.
+    example:
+      - { label: "Police report", required: true, status: "missing" }
+      - { label: "Repair estimate", required: true, status: "uploaded" }
+      - { label: "Photos of damage", required: false, status: "reviewing" }

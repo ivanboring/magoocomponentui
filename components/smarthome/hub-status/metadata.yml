@@ -1,0 +1,83 @@
+name: "Hub Status"
+short_description: A smart-home hub tile showing online/offline state, paired-device count, offline count, and signal strength.
+long_visual_description: >
+  A surface card. The top row pairs a rounded hub glyph and the hub name against a status pill with a
+  coloured dot reading Online in green or Offline in red. Below, a muted paired-device count sits
+  opposite a small signal-bars readout coloured by strength (strong green, fair amber, weak red), and
+  an optional amber line flags how many devices are offline.
+
+use_cases:
+  - A smart-home hub or bridge health tile on a dashboard.
+  - A connectivity summary for a Zigbee or Z-Wave controller.
+  - An at-a-glance check that the hub is online before leaving.
+  - A troubleshooting card surfacing offline devices and weak signal.
+  - A multi-hub home showing each bridge's status side by side.
+  - A network status entry in a system or settings panel.
+
+recommended_for:
+  - Surfacing a hub's connection state and device reachability.
+  - Panels that need a quick online/offline and signal cue.
+avoid_for:
+  - Per-device control (use light-control or a switch tile).
+  - Detailed network diagnostics or logs (use a dedicated view).
+
+markets:
+  - Global
+
+example_usage: >
+  Set online for the status pill, pass precomputed device_count and offline_count, and give a signal
+  band to colour the strength readout. Name the hub for multi-hub homes.
+
+props:
+  hub_name: The hub or bridge name; the title hides when omitted.
+  online: Whether the hub is connected; drives the status dot and label.
+  device_count: Number of paired devices (precomputed); its line hides when omitted.
+  offline_count: Number of unreachable devices (precomputed); its line hides when omitted or zero.
+  signal: Connection strength band; colours the signal readout and hides when omitted.
+
+example_prompts:
+  - "Add a hub status tile that is online with 24 devices and a strong signal."
+  - "Show the garage bridge offline with a weak signal and all devices down."
+  - "Put a hub health card on the system dashboard."
+
+lifecycle: experimental
+content_model: A hub name, an online/offline state, a paired-device count, an offline count, and a signal band.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Let the status word and dot agree; reserve the offline line for when devices are genuinely
+  unreachable. Keep the signal band honest so weak never reads green.
+
+relationships:
+  related:
+    - smarthome/room-grid
+    - smarthome/device-group-card
+    - smarthome/air-quality-tile
+
+categorization:
+  category: Smart Home
+  subcategory: System
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Online/offline is conveyed by the word plus a dot, and signal by a labelled word alongside colour, so neither relies on colour alone; the hub and signal glyphs are aria-hidden.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,10 @@
+{
+  "title": "Revenue by quarter",
+  "y_labels": ["$3M", "$2M", "$1M", "$0"],
+  "bars": [
+    { "label": "Q1", "value": "$1.8M", "height_pct": 60 },
+    { "label": "Q2", "value": "$2.1M", "height_pct": 70 },
+    { "label": "Q3", "value": "$2.7M", "height_pct": 90 },
+    { "label": "Q4", "value": "$2.4M", "height_pct": 80 }
+  ]
+}

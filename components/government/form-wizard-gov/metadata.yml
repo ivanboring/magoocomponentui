@@ -1,0 +1,94 @@
+name: "Government Form Wizard"
+short_description: A multi-step official form with a numbered stepper header, a current-step field area, and Back/Next controls.
+long_visual_description: >
+  A surface card with an optional title, a numbered stepper header where completed steps fill
+  with the success colour and show a checkmark, the active step carries a primary outline, and
+  upcoming steps stay muted. Below the header is the current step's form area with a few labelled
+  fields, and a Back / Next control row at the foot. Back and Next advance the active step.
+
+use_cases:
+  - Permit or licence application split across several stages.
+  - Benefits or grant application collected step by step.
+  - Register a birth, death, or marriage in a guided flow.
+  - Tax return or self-assessment wizard.
+  - Multi-stage citizen onboarding or account verification.
+  - Any long official form broken into digestible steps with progress shown.
+
+recommended_for:
+  - Long government forms that need clear progress and one step at a time.
+  - Flows where the citizen should see completed, current, and remaining stages.
+avoid_for:
+  - A single short form (render the fields directly).
+  - Free navigation between unrelated sections (use tabs).
+
+markets:
+  - Government
+  - Public sector
+
+example_usage: >
+  Provide steps with a number, label, and the active/done booleans (exactly one active), plus a
+  small fields array for the current step. Back and Next move the active step; each change fires a
+  "wizard:step" event so the host can swap the field set.
+
+how_to_use: >
+  Step state is data-driven: each .form-wizard-gov__step carries data-active and data-done, and
+  the marker/label styling is pure CSS from those attributes (so screenshots render the state you
+  author). behavior.js wires the controls: Next marks the current step done and activates the next;
+  Back reactivates the previous step; both dispatch a bubbling "wizard:step" CustomEvent with
+  { index, number } in detail. The portable self-init reads no props object and no data-* config.
+
+props:
+  title: "Optional heading above the stepper."
+  steps: "The ordered steps; each has a number, label, and active/done flags. Keep exactly one active."
+  fields: "A small sample of labelled fields for the current step; each has a label, placeholder, and required flag."
+
+example_prompts:
+  - "Add a four-step government permit wizard currently on step 2 with name and address fields."
+  - "Build a register-a-birth form wizard with Start, Parents, Child, and Confirm steps."
+
+lifecycle: experimental
+content_model: An ordered set of steps (number, label, status) plus the current step's labelled fields.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-danger
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep step labels to one or two words and order them exactly as the citizen completes them. Group
+  related questions into the same step so no step feels overwhelming, and lead each step's fields
+  with the required ones.
+
+relationships:
+  related:
+    - navigation/stepper
+    - government/eligibility-checker
+    - government/document-upload-gov
+
+categorization:
+  category: Government
+  subcategory: Forms
+  atomic_type: organism
+  usage_type: [form, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The stepper is an ordered list; step state is encoded on data-attributes; fields use real labels; the checkmark is aria-hidden and required fields are marked.
+  keyboard_support: All fields and the Back/Next buttons are keyboard focusable and activate on Enter/Space; Next and Back advance the active step.
+  seo_score: 30
+  text_direction: both

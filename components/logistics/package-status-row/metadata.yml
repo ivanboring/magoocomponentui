@@ -1,0 +1,87 @@
+name: "Package Status Row"
+short_description: A compact one-line parcel summary with carrier, tracking number, a colour-coded status pill and an ETA.
+long_visual_description: >
+  A horizontal row on the surface colour: a boxed carrier glyph on the leading edge, the tracking
+  number in a mono face with the carrier and destination beneath it, and on the trailing edge a
+  rounded status pill whose colour reflects the delivery state (in transit, out for delivery,
+  delivered, delayed, exception) above a small ETA line.
+
+use_cases:
+  - List every parcel in a customer's order history.
+  - Show tracked packages in an account dashboard.
+  - Summarise a shipment inside a support conversation.
+  - Render a scannable list of in-transit deliveries.
+  - Flag delayed or exception parcels in an operations queue.
+  - Give a quick delivery status without the full timeline.
+
+recommended_for:
+  - Dense lists of parcels where each needs a status at a glance.
+  - Order pages that summarise one shipment per line.
+
+avoid_for:
+  - A full scan-by-scan history (use shipment-tracker).
+  - Proof-of-delivery evidence (use delivery-proof).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the tracking number and pick a status enum for the pill colour; pass a friendly status_label
+  for the pill text. Add carrier, destination and eta to round out the row.
+
+props:
+  tracking_number: The parcel tracking number, shown in a mono face.
+  carrier: Carrier name shown under the tracking number.
+  status: Delivery state; drives the pill colour only.
+  status_label: Human-readable text shown in the pill; keep it short.
+  eta: Estimated or actual delivery time on the trailing edge.
+  destination: Delivery destination shown under the tracking number.
+
+example_prompts:
+  - "Add a package status row for a UPS parcel that is out for delivery."
+  - "Show a delivered package summary with carrier, tracking number and destination."
+  - "List a delayed shipment row with an ETA."
+
+lifecycle: experimental
+content_model: A single parcel's tracking number, carrier, destination, delivery state and ETA.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+
+editorial_guidance: >
+  Keep status_label to two or three words in sentence case and match the status enum to intent so
+  the colour and wording agree. Use the ETA line for an arrival estimate, not a full address.
+
+relationships:
+  related:
+    - logistics/shipment-tracker
+    - logistics/delivery-proof
+    - logistics/manifest-row
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill label text as well as colour; the carrier glyph is aria-hidden.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

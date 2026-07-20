@@ -1,0 +1,31 @@
+name: terms-section
+props:
+  number:
+    type: string
+    required: true
+    title: Number
+    description: >
+      The section number as displayed, e.g. "1" or "4". Shown before the title in the heading and
+      used to build the anchor id (id="terms-<number>") so a table of contents can link to it.
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The section heading text, shown after the number.
+  body_html:
+    type: html
+    required: true
+    title: Body
+    description: >
+      The section body as rich HTML (paragraphs, lists, emphasis, links). Rendered unescaped, so
+      pass sanitised markup only.
+  subsections:
+    type: array
+    items: object
+    title: Subsections
+    description: >
+      Optional nested clauses under this section. Each item: { number, title, body_html }. number
+      is the display label (e.g. "1.1"), title is the clause heading, body_html is rich HTML.
+    example:
+      - { number: "1.1", title: "Eligibility", body_html: "<p>You must be at least 18 years old to use the Service.</p>" }
+      - { number: "1.2", title: "Account security", body_html: "<p>You are responsible for keeping your credentials confidential.</p>" }

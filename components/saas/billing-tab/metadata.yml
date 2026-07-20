@@ -1,0 +1,86 @@
+name: "Billing Tab"
+short_description: A billing summary pairing a current-plan card and a payment-method card, with an optional usage bar below.
+long_visual_description: >
+  Two bordered cards side by side (stacking on mobile). The left card shows the current plan name in
+  the heading face, a large price with a "/period" suffix, a check-marked feature list, and a
+  full-width outlined "Change plan" button. The right card shows the card brand chip, a masked number
+  ending in the last four digits, the expiry, and a full-width "Update" button. An optional full-width
+  usage card below shows a labelled percentage over a primary-filled progress bar.
+
+use_cases:
+  - The billing tab of an account or workspace settings page.
+  - Summarising the active subscription and payment method together.
+  - Showing plan features alongside the card on file.
+  - Surfacing seat or quota usage next to the plan.
+  - A pre-checkout review of the current plan before changing it.
+  - An admin overview of an organisation's subscription.
+
+recommended_for:
+  - Subscription and billing settings screens.
+  - A compact snapshot of plan plus payment.
+avoid_for:
+  - Choosing a new plan (use a pricing table).
+  - A full invoice history (use a billing history table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a plan object (name, price, period, optional features), a payment object (brand, last4,
+  expires), and optionally a usage object (label, precomputed used_pct 0-100) to show the bar. Wire
+  the Change plan and Update buttons to your billing flows.
+
+props:
+  plan: "The current plan: name, price (formatted), period (e.g. month), and an optional features string array shown with checks."
+  payment: "The card on file: brand (network), last4 (last four digits), and expires."
+  usage: "Optional usage summary: label and used_pct (precomputed 0-100 for the bar fill)."
+
+example_prompts:
+  - "Show a billing tab on the Pro plan at $29/month with a Visa ending 4242."
+  - "Add a billing summary with a plan card, payment card, and a seats-used bar."
+  - "Show the free plan billing tab with no usage bar."
+
+lifecycle: experimental
+content_model: A current plan (name, price, period, features), a payment method (brand, last4, expiry), and an optional usage percentage.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep feature bullets short and benefit-led. Always mask the card number to the last four digits.
+  Match the usage label to what is metered (seats, storage, requests).
+
+relationships:
+  related:
+    - saas/api-token-list
+    - saas/danger-zone
+    - atoms/progress-bar
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Billing
+  atomic_type: organism
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The usage bar uses role="progressbar" with aria-valuenow/min/max and a label; the check icons are aria-hidden with text beside them.
+  keyboard_support: The Change plan and Update buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

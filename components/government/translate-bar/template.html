@@ -1,0 +1,10 @@
+<nav class="translate-bar flex flex-wrap items-center gap-2 rounded-card border border-border bg-surface px-3 py-2 shadow-card" aria-label="Select language, current: {{ current }}">
+  <span class="translate-bar__icon flex shrink-0 items-center text-on-surface-muted" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2.2 2 3.4 4.8 3.4 7.5S12.2 15.5 10 17.5C7.8 15.5 6.6 12.7 6.6 10S7.8 4.5 10 2.5z"/></svg>
+  </span>
+  <ul class="translate-bar__list flex flex-wrap items-center gap-1">
+    <li data-for="lang in languages">
+      <button type="button" lang="{{ lang.code }}" data-code="{{ lang.code }}" data-label="{{ lang.label }}" data-current="{{ lang.current }}" aria-pressed="{{ lang.current }}" class="translate-bar__lang rounded-pill px-3 py-1 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[current=true]:bg-primary data-[current=true]:text-primary-contrast">{{ lang.label }}</button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,12 @@
+{
+  "title": "Upgrades to paid",
+  "nodes": [
+    { "x_pct": "2", "y_pct": "15", "w_pct": "4", "h_pct": "30", "label": "Trial", "label_x": "4", "label_y": "11", "label_anchor": "middle", "color_class": "fill-primary" },
+    { "x_pct": "2", "y_pct": "58", "w_pct": "4", "h_pct": "27", "label": "Free", "label_x": "4", "label_y": "54", "label_anchor": "middle", "color_class": "fill-accent" },
+    { "x_pct": "94", "y_pct": "28", "w_pct": "4", "h_pct": "44", "label": "Paid", "label_x": "96", "label_y": "24", "label_anchor": "middle", "color_class": "fill-success" }
+  ],
+  "links": [
+    { "path": "M6,30 C50,30 50,42 94,42", "color_class": "stroke-primary" },
+    { "path": "M6,71 C50,71 50,60 94,60", "color_class": "stroke-accent" }
+  ]
+}

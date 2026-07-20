@@ -1,0 +1,18 @@
+name: birthday-reward
+props:
+  message:
+    type: string
+    default: "Happy birthday!"
+    title: Message
+    description: The celebratory headline message.
+    example: "Happy birthday, Sam!"
+  reward:
+    type: string
+    title: Reward
+    description: The birthday reward, shown as a highlighted callout. Omit to hide the callout.
+    example: "A free dessert on us"
+  expires:
+    type: string
+    title: Expiry note
+    description: A short note about when the reward expires, shown muted at the bottom. Omit to hide.
+    example: "Redeem by Aug 3"

@@ -1,0 +1,15 @@
+<button class="copy-to-clipboard copy-to-clipboard__btn group inline-flex items-center border border-border bg-surface text-sm text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring {{ variant@class }}" type="button" data-copied="false" data-variant="{{ variant }}" data-value="{{ value }}" data-copied-label="{{ copied_label }}" aria-label="{{ label }}">
+  <span class="relative inline-grid shrink-0 place-items-center">
+    <svg class="col-start-1 row-start-1 size-4 transition-opacity duration-(--duration-token) group-data-[copied=true]:opacity-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <rect x="7" y="7" width="9" height="9" rx="1.5"/>
+      <path d="M4 13V4.5A1.5 1.5 0 015.5 3H13"/>
+    </svg>
+    <svg class="col-start-1 row-start-1 size-4 text-success opacity-0 transition-opacity duration-(--duration-token) group-data-[copied=true]:opacity-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M4 10l4 4 8-8"/>
+    </svg>
+  </span>
+  <span class="copy-to-clipboard__label group-data-[variant=icon]:hidden">
+    <span class="group-data-[copied=true]:hidden">{{ label }}</span>
+    <span class="group-data-[copied=false]:hidden">{{ copied_label }}</span>
+  </span>
+</button>

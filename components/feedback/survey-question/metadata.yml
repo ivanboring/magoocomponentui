@@ -1,0 +1,88 @@
+name: "Survey Question"
+short_description: A single survey question with selectable option rows for single, multi, or scale answers.
+long_visual_description: >
+  A card on the surface colour with the question in the heading face as a legend, followed by a stack
+  of full-width selectable option rows. Each row has a leading round or square marker and its label;
+  the selected rows fill with a soft primary tint, a primary border, and a checked marker. It reads as
+  a fieldset so the whole question is grouped for assistive tech.
+
+use_cases:
+  - Ask a single-choice satisfaction or preference question in a survey.
+  - Collect a multi-select "choose all that apply" answer.
+  - Present an ordered 1-5 style scale as selectable rows.
+  - Build a multi-step questionnaire from one question per step.
+  - Gather structured feedback with fixed answer options.
+  - Run a poll with a small set of predefined choices.
+
+recommended_for:
+  - One survey question with a fixed set of options.
+  - Composing longer questionnaires from repeated instances.
+avoid_for:
+  - Free-text answers (pair with a textarea field).
+  - A recommend score on the standard 0-10 scale (use nps-survey).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a question, a kind (single, multi, or scale), and an options array (each { label, value }).
+  kind is advisory and surfaced as data-kind; the host owns validation of the answer shape. Listen for
+  the bubbling survey:answer event (detail.value, detail.selected, detail.values) on a parent to store
+  the response.
+
+how_to_use: >
+  Because the directive language cannot branch on an enum value, the options always render as
+  selectable rows and the kind is carried as data-kind on the root for the host. Each option's
+  data-selected drives its highlight (data-[selected=true]:...), so a preset selection renders in
+  screenshots with no JavaScript. behavior.js reads data-kind: "single" clears the other options when
+  one is chosen, while "multi" and "scale" toggle each independently; every change syncs aria-pressed
+  and dispatches a bubbling "survey:answer" CustomEvent with { value, selected, values }. The portable
+  self-init reads no props object.
+
+props:
+  question: "The survey question shown above the options."
+  kind: "Advisory answer kind (single, multi, scale) surfaced as data-kind and steering behavior.js."
+  options: "The answer choices, each { label, value }."
+
+lifecycle: experimental
+content_model: One question and a set of predefined answer options treated as single, multi, or scale.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the question specific and the options mutually clear. For multi-select say "select all that
+  apply"; for single-select keep the set short so one obvious choice stands out.
+
+relationships:
+  related:
+    - feedback/nps-survey
+    - feedback/emoji-reaction-survey
+    - feedback/rating-prompt
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Surveys
+  atomic_type: molecule
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The question is a fieldset legend; each option is a button with aria-pressed reflecting selection and a checked marker, so state is not conveyed by colour alone. The host should map single-select to radios where strict semantics are required.
+  keyboard_support: Each option is focusable and toggles on Enter/Space with a visible focus ring.
+  seo_score: 20
+  text_direction: both

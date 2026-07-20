@@ -1,0 +1,92 @@
+name: "Vet Appointment"
+short_description: A pet vet visit card showing the clinic, vet, date, time, reason, a status pill, and Reschedule and Cancel actions.
+long_visual_description: >
+  A card on the surface colour with the clinic name in the heading face, the vet below it in muted
+  text, and a rounded status pill on the trailing edge that reads success when confirmed and warning
+  when pending. A calendar glyph precedes the appointment date and time, an optional reason line
+  follows, and two full-width buttons at the foot offer Reschedule and a danger-toned Cancel.
+
+use_cases:
+  - Upcoming vet visit card on a pet owner dashboard.
+  - Confirmation summary after booking a clinic appointment.
+  - Reminder tile for a scheduled checkup or booster.
+  - Telehealth vet consultation summary.
+  - List entry of a pet upcoming appointments.
+  - Post-booking screen with manage actions.
+
+recommended_for:
+  - Showing a single scheduled vet visit with manage actions.
+  - Confirmations that let the owner reschedule or cancel.
+avoid_for:
+  - Picking a day and time to book (use appointment-booker).
+  - A full shots history (use vaccination-record).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the date and time plus optional clinic, vet, and reason. Set status to confirmed or
+  pending. Listen for vet-appointment:reschedule and vet-appointment:cancel to handle the buttons.
+
+how_to_use: >
+  The card is static markup; behavior.js only wires the two footer buttons. Clicking Reschedule
+  dispatches a bubbling vet-appointment:reschedule event and Cancel dispatches
+  vet-appointment:cancel, both from the card root, so the host page can open a flow or confirm.
+  The portable self-init passes no props object and reads no configuration.
+
+props:
+  clinic: The clinic name shown in the heading face.
+  vet: The attending vet, shown in muted text under the clinic.
+  date: The appointment date shown beside the calendar glyph.
+  time: The appointment time shown after the date.
+  reason: An optional visit reason line under the date and time.
+  status: Booking state, confirmed or pending, shown as a colour-coded pill.
+
+example_prompts:
+  - Add a confirmed vet appointment card with reschedule and cancel.
+  - Show an upcoming checkup at Riverside Veterinary with the date and time.
+  - Put a pending vet visit summary on the pet dashboard.
+
+lifecycle: experimental
+content_model: An appointment date and time, optional clinic, vet, and reason, and a confirmed or pending status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the clinic, keep the reason to one short line, and reserve the danger tone for Cancel
+  only. Match the status pill to the real booking state.
+
+relationships:
+  related:
+    - pets/vaccination-record
+    - pets/grooming-booking
+    - pets/pet-profile-card
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Scheduling
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by pill text and colour together; the calendar glyph is aria-hidden; both actions are labelled buttons.
+  keyboard_support: Reschedule and Cancel are focusable buttons that activate on Enter/Space.
+  seo_score: 35
+  text_direction: both

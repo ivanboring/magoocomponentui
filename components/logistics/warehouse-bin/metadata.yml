@@ -1,0 +1,87 @@
+name: "Warehouse Bin"
+short_description: A storage-bin card showing its ID, zone, stored SKU and a capacity fill bar with a tone that flags near-full bins.
+long_visual_description: >
+  A compact card with the bin ID in the heading face and its zone beneath, the stored SKU in a mono
+  face with the current-of-capacity count on the trailing edge, and a thin capacity bar whose fill
+  width reflects the fill percent. The bar colour is set by a caller-supplied tone so near-full or
+  over-allocated bins can read as warning or danger.
+
+use_cases:
+  - Show a storage bin's fill level in a warehouse dashboard.
+  - Flag bins that are near full and need attention.
+  - List slot capacity across an aisle or zone.
+  - Summarise stock location and quantity for a SKU.
+  - Give pickers a quick bin capacity read.
+  - Highlight over-allocated bins in an inventory audit.
+
+recommended_for:
+  - Inventory and warehouse dashboards showing one card per bin.
+  - Capacity-at-a-glance grids across zones.
+
+avoid_for:
+  - A full inventory table with many columns (use a data table).
+  - A single parcel's delivery status (use package-status-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the bin ID and a precomputed fill_pct for the bar width. Add zone, sku, qty and capacity for
+  context, and set tone to warning or danger from the fill level so near-full bins stand out.
+
+props:
+  bin_id: The storage bin or location identifier.
+  zone: Warehouse zone or aisle label.
+  sku: SKU stored in the bin, shown in a mono face.
+  qty: Current unit count.
+  capacity: Maximum unit capacity.
+  fill_pct: Precomputed fill level 0-100; drives the bar width.
+  tone: Bar colour flag set by the caller from the fill level.
+
+example_prompts:
+  - "Add a warehouse bin card for A-12-03 at 85 percent capacity."
+  - "Show a near-full bin in warning tone with its SKU and quantity."
+  - "Render a bin card for zone B holding 340 of 400 units."
+
+lifecycle: experimental
+content_model: One bin's ID, zone, stored SKU, quantity, capacity and computed fill level.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Precompute fill_pct and pick a matching tone so the bar colour and number agree - reserve warning
+  and danger for genuinely near-full or over-allocated bins. Keep bin IDs in your warehouse's own
+  slotting format.
+
+relationships:
+  related:
+    - logistics/manifest-row
+    - logistics/fleet-vehicle-card
+    - dashboard/stat-card
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Warehouse
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The fill percent is shown as text next to the bar, so the bar colour is not the only signal; tone is a caller-set data attribute.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

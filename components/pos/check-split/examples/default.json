@@ -1,0 +1,30 @@
+{
+  "total": "$96.00",
+  "split_count": "3",
+  "guests": [
+    {
+      "label": "Guest 1",
+      "subtotal": "$32.00",
+      "items": [
+        { "name": "Ribeye", "price": "$28.00" },
+        { "name": "Sparkling water", "price": "$4.00" }
+      ]
+    },
+    {
+      "label": "Guest 2",
+      "subtotal": "$34.00",
+      "items": [
+        { "name": "Salmon", "price": "$24.00" },
+        { "name": "House red", "price": "$10.00" }
+      ]
+    },
+    {
+      "label": "Guest 3",
+      "subtotal": "$30.00",
+      "items": [
+        { "name": "Mushroom risotto", "price": "$22.00" },
+        { "name": "Tiramisu", "price": "$8.00" }
+      ]
+    }
+  ]
+}

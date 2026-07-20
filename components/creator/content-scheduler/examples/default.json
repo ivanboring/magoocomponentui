@@ -1,0 +1,25 @@
+{
+  "title": "This week",
+  "days": [
+    { "label": "Mon", "date": "Mar 3", "posts": [
+      { "title": "Behind the scenes", "platform": "Instagram", "time": "9:00", "status": "published" }
+    ] },
+    { "label": "Tue", "date": "Mar 4", "posts": [
+      { "title": "Tutorial drop", "platform": "YouTube", "time": "14:00", "status": "scheduled" },
+      { "title": "Poll: next topic", "platform": "X", "time": "18:00", "status": "scheduled" }
+    ] },
+    { "label": "Wed", "date": "Mar 5", "posts": [
+      { "title": "Newsletter", "platform": "Email", "time": "8:00", "status": "draft" }
+    ] },
+    { "label": "Thu", "date": "Mar 6", "posts": [
+      { "title": "Live Q&A", "platform": "Twitch", "time": "20:00", "status": "scheduled" }
+    ] },
+    { "label": "Fri", "date": "Mar 7", "posts": [
+      { "title": "Preset pack teaser", "platform": "TikTok", "time": "12:00", "status": "draft" }
+    ] },
+    { "label": "Sat", "date": "Mar 8", "posts": [] },
+    { "label": "Sun", "date": "Mar 9", "posts": [
+      { "title": "Week recap", "platform": "Instagram", "time": "17:00", "status": "scheduled" }
+    ] }
+  ]
+}

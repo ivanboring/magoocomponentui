@@ -1,0 +1,11 @@
+{
+  "total": "42 products",
+  "view": "list",
+  "current_sort": "Price: Low to high",
+  "sorts": [
+    { "label": "Price: Low to high", "value": "price-asc" },
+    { "label": "Price: High to low", "value": "price-desc" },
+    { "label": "Best selling", "value": "best-selling" },
+    { "label": "Top rated", "value": "rating" }
+  ]
+}

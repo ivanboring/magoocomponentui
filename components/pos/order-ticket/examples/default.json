@@ -1,0 +1,13 @@
+{
+  "ticket_number": "#428",
+  "table": "Table 12",
+  "server": "Priya",
+  "time": "7:42 PM",
+  "status": "preparing",
+  "items": [
+    { "qty": "2", "name": "Margherita Pizza", "mods": ["No basil", "Extra cheese"], "done": false },
+    { "qty": "1", "name": "Caesar Salad", "mods": ["Dressing on side"], "done": true },
+    { "qty": "3", "name": "Garlic Bread", "done": false },
+    { "qty": "1", "name": "Tiramisu", "mods": ["Birthday plate"], "done": false }
+  ]
+}

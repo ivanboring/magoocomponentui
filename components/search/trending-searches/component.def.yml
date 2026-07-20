@@ -1,0 +1,22 @@
+name: trending-searches
+props:
+  heading:
+    type: string
+    default: "Trending"
+    title: Heading
+    description: The panel heading shown above the list of popular queries.
+  queries:
+    type: array
+    items: object
+    required: true
+    title: Queries
+    description: >
+      The popular searches, in display order. Each item:
+      { label, rank, trend, href }. rank is an optional position number (int or
+      string) shown at the left; trend is an optional direction ("up" | "down" |
+      "flat") that colours and points a small indicator; href is optional and
+      makes the label a link. Only label is required.
+    example:
+      - { label: "wireless earbuds", rank: 1, trend: "up", href: "#" }
+      - { label: "mechanical keyboard", rank: 2, trend: "flat", href: "#" }
+      - { label: "standing desk", rank: 3, trend: "down", href: "#" }

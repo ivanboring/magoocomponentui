@@ -1,0 +1,15 @@
+<div class="weight-tracker-pet rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <p class="text-sm text-on-surface-muted">Current weight</p>
+    <span class="weight-tracker-pet__change group inline-flex items-center gap-1 text-sm font-medium text-on-surface-muted data-[dir=up]:text-warning data-[dir=down]:text-success" data-dir="{{ change_dir }}" data-if="change">
+      <svg class="hidden size-4 group-data-[dir=up]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+      <svg class="hidden size-4 group-data-[dir=down]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M6 11l4 4 4-4"/></svg>
+      {{ change }}
+    </span>
+  </div>
+  <p class="mt-2 font-heading text-3xl text-on-surface tabular-nums">{{ current_weight }} <span class="text-lg text-on-surface-muted">{{ unit }}</span></p>
+  <svg data-if="spark_path" class="weight-tracker-pet__spark mt-3 h-10 w-full text-primary" viewBox="0 0 100 40" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <path d="{{ spark_path }}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <p data-if="ideal_range" class="mt-3 text-xs text-on-surface-muted">Ideal range {{ ideal_range }}</p>
+</div>

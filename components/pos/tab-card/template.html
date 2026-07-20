@@ -1,0 +1,17 @@
+<article class="tab-card flex w-full max-w-xs flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-3">
+    <img data-if="avatar" class="size-11 shrink-0 rounded-pill object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" class="flex size-11 shrink-0 items-center justify-center rounded-pill bg-surface-raised font-heading text-sm text-on-surface-muted" aria-hidden="true">{{ initials }}</span>
+    <div class="min-w-0 flex-1">
+      <p class="truncate font-heading text-on-surface">{{ name }}</p>
+      <p data-if="tab_number" class="truncate text-xs text-on-surface-muted">{{ tab_number }}</p>
+    </div>
+  </div>
+  <div class="flex items-end justify-between gap-3 border-t border-border pt-3">
+    <div class="min-w-0">
+      <p data-if="items_count" class="truncate text-sm text-on-surface-muted">{{ items_count }}</p>
+      <p data-if="opened_at" class="truncate text-xs text-on-surface-muted">Opened {{ opened_at }}</p>
+    </div>
+    <p class="shrink-0 font-heading text-2xl text-on-surface tabular-nums">{{ total }}</p>
+  </div>
+</article>

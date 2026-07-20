@@ -1,0 +1,20 @@
+name: rep-counter
+props:
+  count:
+    type: string
+    default: "0"
+    title: Count
+    description: The starting rep count, as a string. Interaction increments it from here.
+    example: "12"
+  label:
+    type: string
+    title: Label
+    description: Optional caption above the count, e.g. the exercise name.
+    example: "Push-ups"
+  target:
+    type: string
+    title: Target
+    description: >
+      Optional goal count. When set, it is shown as "/ target" and the +1 button stops incrementing
+      once the count reaches it.
+    example: "20"

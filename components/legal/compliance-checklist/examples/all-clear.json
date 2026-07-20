@@ -1,0 +1,10 @@
+{
+  "title": "SOC 2 controls",
+  "summary": "All controls verified",
+  "items": [
+    { "label": "Access reviews completed quarterly", "status": "done" },
+    { "label": "Change management process enforced", "status": "done" },
+    { "label": "Encryption at rest and in transit", "status": "done" },
+    { "label": "Incident response plan tested", "status": "done" }
+  ]
+}

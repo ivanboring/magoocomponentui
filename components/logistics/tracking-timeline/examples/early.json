@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "status": "Delivered", "location": "Portland, OR", "time": "Jul 4, 11:02 AM", "done": true },
+    { "status": "Out for delivery", "location": "Portland, OR", "time": "Jul 4, 7:30 AM", "done": true },
+    { "status": "In transit", "location": "Seattle, WA", "time": "Jul 3, 6:15 PM", "done": true },
+    { "status": "Label created", "location": "Seattle, WA", "time": "Jul 2, 9:00 AM", "done": true }
+  ]
+}

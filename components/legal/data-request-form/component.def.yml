@@ -1,0 +1,20 @@
+name: data-request-form
+props:
+  request_types:
+    type: array
+    items: object
+    required: true
+    title: Request types
+    description: >
+      The kinds of data-subject request offered in the select. Each item: { label, value }. Typical
+      set: Access, Delete, Export, Correct.
+    example:
+      - { label: "Access my data", value: "access" }
+      - { label: "Delete my data", value: "delete" }
+      - { label: "Export my data", value: "export" }
+      - { label: "Correct my data", value: "correct" }
+  placeholder:
+    type: string
+    default: "Tell us what you need and any details that help us find your records."
+    title: Details placeholder
+    description: Placeholder text for the free-form details textarea.

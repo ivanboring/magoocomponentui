@@ -1,0 +1,7 @@
+<form class="invite-member flex flex-col gap-2 sm:flex-row">
+  <input type="email" class="invite-member__email min-w-0 flex-1 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ placeholder }}" aria-label="Email address" required>
+  <select class="invite-member__role rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label="Role">
+    <option data-for="role in roles" value="{{ role.value }}">{{ role.label }}</option>
+  </select>
+  <button type="submit" class="invite-member__submit shrink-0 rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:bg-primary/90">Invite</button>
+</form>

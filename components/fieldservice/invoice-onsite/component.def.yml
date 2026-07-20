@@ -1,0 +1,44 @@
+name: invoice-onsite
+props:
+  invoice_number:
+    type: string
+    title: Invoice number
+    description: The invoice reference shown in the header.
+    example: "INV-4471"
+  line_items:
+    type: array
+    items: object
+    required: true
+    title: Line items
+    description: >
+      The billed lines, in order. Each item: { label, amount }. amount is a preformatted display
+      string including the currency symbol, e.g. "$180.00".
+    example:
+      - { label: "Labour (2h)", amount: "$180.00" }
+  subtotal:
+    type: string
+    title: Subtotal
+    description: Preformatted subtotal amount shown in the totals block.
+    example: "$180.00"
+  tax:
+    type: string
+    title: Tax
+    description: Preformatted tax amount shown in the totals block.
+    example: "$14.40"
+  total:
+    type: string
+    required: true
+    title: Total
+    description: Preformatted grand total amount, emphasised in the totals block.
+    example: "$194.40"
+  status:
+    type: enum
+    values: [draft, sent, paid]
+    default: draft
+    title: Status
+    description: Drives the status pill - neutral draft, info sent, success paid.
+variants:
+  status:
+    draft: "bg-surface-raised text-on-surface-muted"
+    sent: "bg-info/10 text-info"
+    paid: "bg-success/10 text-success"

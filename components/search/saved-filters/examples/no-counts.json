@@ -1,0 +1,8 @@
+{
+  "save_label": "Save view",
+  "filters": [
+    { "label": "Open", "active": false, "value": "open" },
+    { "label": "In progress", "active": true, "value": "in-progress" },
+    { "label": "Closed", "active": false, "value": "closed" }
+  ]
+}

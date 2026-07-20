@@ -1,0 +1,46 @@
+name: subscriber-tier-card
+props:
+  name:
+    type: string
+    required: true
+    title: Tier name
+    example: "Supporter"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The formatted price string, including currency symbol.
+    example: "$8"
+  period:
+    type: string
+    title: Billing period
+    description: The unit the price is charged per (e.g. month, year). Rendered after a slash.
+    example: "month"
+  benefits:
+    type: array
+    items: string
+    required: true
+    title: Benefits
+    description: The perks included in this tier, one per line with a checkmark.
+    example:
+      - "Members-only posts"
+      - "Community Discord access"
+      - "Early episode drops"
+  subscribers:
+    type: string
+    title: Subscriber count
+    description: Formatted count of current subscribers on this tier (optional social proof).
+    example: "1,240"
+  popular:
+    type: boolean
+    default: false
+    title: Most popular
+    description: Highlights the tier with a primary border, raised shadow, and a "Most popular" badge.
+  color_class:
+    type: string
+    title: Accent dot class
+    description: >
+      Optional caller-supplied tokenized background utility for the small accent dot beside the
+      tier name (e.g. bg-primary, bg-accent, bg-success). Leave empty to omit the dot. Values are
+      safelisted in the template.
+    example: "bg-primary"

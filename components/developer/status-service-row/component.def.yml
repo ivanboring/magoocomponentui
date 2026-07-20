@@ -1,0 +1,28 @@
+name: status-service-row
+props:
+  name:
+    type: string
+    required: true
+    title: Service name
+    description: The name of the service or component, e.g. "API".
+    example: "API"
+  status:
+    type: enum
+    values: ["operational", "degraded", "partial", "down"]
+    default: "operational"
+    title: Status
+    description: >
+      Current state of the service. operational - all good; degraded - slow or reduced;
+      partial - a partial outage; down - a full outage. Drives the dot and label colour.
+    example: "degraded"
+  uptime:
+    type: string
+    title: Uptime
+    description: Optional uptime figure for the period, e.g. "99.98%".
+    example: "99.98%"
+variants:
+  status:
+    "operational": "text-success"
+    "degraded": "text-warning"
+    "partial": "text-warning"
+    "down": "text-danger"

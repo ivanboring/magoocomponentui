@@ -1,0 +1,82 @@
+name: "Claim Status"
+short_description: A claim summary card with a monospace claim number, status pill, amount and a vertical progress timeline.
+long_visual_description: >
+  A card whose header pairs a monospace claim number and type on the left with a status pill and a
+  bold amount on the right. Below a divider runs a vertical timeline of lifecycle steps; each step
+  has a circular node connected by a line. Completed nodes fill with the primary colour and show a
+  check, the current node keeps a primary outline, and upcoming nodes stay muted, so progress reads
+  top to bottom.
+
+use_cases:
+  - Tracking an open insurance claim from filing to settlement.
+  - A claim detail page header showing where the claim stands.
+  - A member dashboard widget summarising an in-progress claim.
+  - An adjuster's view of a claim's lifecycle stage.
+  - A status update embedded in a claim notification email or portal.
+  - A post-submission confirmation showing the next steps.
+
+recommended_for:
+  - Communicating a claim's current stage within its full lifecycle.
+  - Pairing a claim's identity and amount with a progress timeline.
+avoid_for:
+  - A simple policy summary without a timeline (use policy-card).
+  - A generic horizontal order tracker (use commerce/order-tracker).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass claim_number and a steps array where each item is { label, done, current }. Mark done true
+  for every stage up to and including the one in progress, and set current true on the single active
+  stage so it reads as the outlined node. Optionally add type, amount and a short status label for
+  the pill.
+
+props:
+  claim_number: The claim reference, rendered monospace.
+  type: A short description of the claim, shown under the number.
+  amount: Pre-formatted claim or settlement amount text.
+  status: A short standing label rendered as a pill, such as "In review" or "Approved".
+  steps: The lifecycle stages in order; each carries a label, a done flag and an optional current flag.
+
+lifecycle: experimental
+content_model: A claim identity and amount plus an ordered list of lifecycle steps, each with a done and optional current flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep step labels to two or three words and order them by the real claim workflow. Always mark the
+  current stage so members can see exactly where their claim sits, and use the status pill for a
+  human-readable summary of that stage.
+
+relationships:
+  related:
+    - insurance/policy-card
+    - insurance/coverage-breakdown
+    - commerce/order-tracker
+
+categorization:
+  category: Insurance
+  subcategory: Claims
+  atomic_type: organism
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each step carries a text label and completed steps show a check icon, so stage progress never depends on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

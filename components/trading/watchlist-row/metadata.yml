@@ -1,0 +1,91 @@
+name: "Watchlist Row"
+short_description: A single watchlist line - symbol and name, current price, a change pill coloured by direction, and an optional mini sparkline.
+long_visual_description: >
+  A horizontal row on the surface colour with the ticker symbol in the heading face over the full
+  name on the left, an optional small sparkline in the middle (hidden on the narrowest widths) drawn
+  in the up/down colour, and a right-aligned price in the mono face above a change pill that shows
+  the absolute change and percent in green (up) or red (down).
+
+use_cases:
+  - A row in a markets or portfolio watchlist.
+  - A quotes list in a trading dashboard sidebar.
+  - A movers or trending tickers rail.
+  - A compact holdings glance without the full position detail.
+  - A search-result line for an instrument lookup.
+
+recommended_for:
+  - Dense lists of instruments with price and change at a glance.
+  - Rows that optionally carry a trend sparkline.
+avoid_for:
+  - A full position with P/L and cost basis (use position-card).
+  - A price card with a large price and full-width sparkline (use crypto/token-price-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a preformatted price, change and change_pct (all with sign), and set change_dir to up or down
+  to colour the pill and sparkline. Supply a precomputed spark_path to show the mini sparkline, or
+  omit it for a text-only row. The sparkline plots in a 100x30 viewBox, so compute geometry in the
+  caller.
+
+how_to_use: >
+  There is no JavaScript - the row is static markup. change_dir drives colour via data-[dir=up] and
+  data-[dir=down] utilities on both the change pill and the sparkline stroke. The sparkline is gated
+  by data-if on spark_path and hidden below the sm breakpoint with a max-sm:hidden utility.
+
+props:
+  symbol: "The instrument ticker; the row's heading."
+  name: "The full name, shown small under the symbol; omit to hide."
+  price: "The current price, preformatted with currency in the caller."
+  change: "The absolute change shown in the pill; include the sign in the caller."
+  change_pct: "The percentage change shown in the pill; include the sign in the caller."
+  change_dir: "up or down - colours the pill and sparkline."
+  spark_path: "An optional precomputed SVG path 'd' for the mini sparkline in a 100x30 viewBox; omit to hide it."
+
+example_prompts:
+  - "Add a watchlist row for NVDA up 1.78% with a rising sparkline."
+  - "Show a watchlist row in the red for a falling stock."
+  - "Build a watchlist of several ticker rows."
+
+lifecycle: experimental
+content_model: >
+  One instrument: symbol and name, a current price, an absolute and percentage change with a
+  direction, and an optional precomputed sparkline path.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep the sign, direction and sparkline shape telling the same story - an up row should read green
+  with a rising line. Preformat price and change so the mono figures align across rows.
+
+relationships:
+  related:
+    - trading/position-card
+    - trading/dividend-row
+    - crypto/token-price-card
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Markets
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The sparkline is aria-hidden decoration; the change text carries its sign so direction is not conveyed by colour alone.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

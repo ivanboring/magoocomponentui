@@ -1,0 +1,80 @@
+name: "Beneficiary Row"
+short_description: A row showing a policy beneficiary, their relationship, allocated share percentage, and primary or contingent standing.
+long_visual_description: >
+  A horizontal row on the surface colour with a circular initials avatar on the leading edge,
+  the beneficiary's name in the heading face above a muted relationship line, a share-percentage
+  pill in the primary tint, and a trailing tag that reads "Primary" in the success colour or a
+  muted "Contingent" depending on standing.
+
+use_cases:
+  - List the beneficiaries on a life or accident policy.
+  - Show how a benefit is split across several people.
+  - Distinguish primary beneficiaries from contingent ones.
+  - Confirm allocation percentages before a policy is bound.
+  - Review beneficiary designations in an account summary.
+  - Present each recipient's share in a payout breakdown.
+
+recommended_for:
+  - A stacked list of beneficiaries with allocation shares.
+  - Policy detail and account overview screens.
+avoid_for:
+  - A single-figure metric tile (use stat-card).
+  - Editing beneficiary details inline (pair with a form).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows to show a full beneficiary list. Pass name and share_pct for each, add a
+  relationship for context, provide pre-computed initials for the avatar, and set primary on the
+  main recipient so contingent beneficiaries read as the fallback.
+
+props:
+  name: The beneficiary's full name.
+  relationship: How they relate to the policyholder; optional.
+  share_pct: The allocated share as a whole-number percentage.
+  initials: Pre-computed initials for the avatar circle.
+  primary: When true shows a Primary tag, otherwise a muted Contingent tag.
+
+example_prompts:
+  - "Add a primary beneficiary Jordan Ellis, spouse, at 60 percent."
+  - "List two contingent beneficiaries splitting the remainder."
+
+lifecycle: experimental
+content_model: A name, an optional relationship, a whole-number share percentage, optional initials, and a primary flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Keep names as people write them and relationships to a single word where possible. Make sure the
+  share percentages across a list add up to 100, and reserve Primary for the first recipient.
+
+relationships:
+  related:
+    - insurance/premium-summary
+    - atoms/avatar
+    - dashboard/stat-card
+
+categorization:
+  category: Insurance
+  subcategory: Policy
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Standing is conveyed by the Primary or Contingent text label, not colour alone; the avatar is decorative and aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

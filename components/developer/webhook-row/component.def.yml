@@ -1,0 +1,33 @@
+name: webhook-row
+props:
+  event:
+    type: string
+    required: true
+    title: Event
+    description: The event name this endpoint subscribes to, e.g. "invoice.paid".
+    example: "invoice.paid"
+  url:
+    type: string
+    required: true
+    title: Endpoint URL
+    description: The destination URL called when the event fires (rendered monospaced, truncated).
+    example: "https://api.example.com/hooks/billing"
+  status:
+    type: enum
+    values: ["active", "failing", "disabled"]
+    default: "active"
+    title: Status
+    description: >
+      Delivery health of the endpoint. active - delivering normally; failing - recent deliveries
+      are erroring; disabled - turned off and not being called.
+    example: "failing"
+  last:
+    type: string
+    title: Last delivery
+    description: Optional human-readable time of the most recent delivery attempt, e.g. "2 min ago".
+    example: "2 min ago"
+variants:
+  status:
+    "active": "bg-success/10 text-success"
+    "failing": "bg-danger/10 text-danger"
+    "disabled": "bg-surface-raised text-on-surface-muted"

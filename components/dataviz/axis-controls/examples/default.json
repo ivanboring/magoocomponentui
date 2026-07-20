@@ -1,0 +1,8 @@
+{
+  "scales": [
+    { "label": "Linear", "value": "linear", "active": true },
+    { "label": "Log", "value": "log", "active": false }
+  ],
+  "show_grid": true,
+  "zoom_label": "100%"
+}

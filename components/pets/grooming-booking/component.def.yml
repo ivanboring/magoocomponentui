@@ -1,0 +1,32 @@
+name: grooming-booking
+props:
+  pet:
+    type: string
+    title: Pet
+    example: "Luna"
+  service:
+    type: string
+    title: Service
+    example: "Full groom & bath"
+  groomer:
+    type: string
+    title: Groomer
+    example: "Sam Rivera"
+  date:
+    type: string
+    title: Date
+    example: "Sat 25 Jul"
+  time:
+    type: string
+    title: Time
+    example: "11:00 AM"
+  price:
+    type: string
+    title: Price
+    example: "$65"
+  addons:
+    type: array
+    items: string
+    title: Add-ons
+    description: "Optional extra service chips, e.g. Nail trim, De-shed, Teeth brushing."
+    example: ["Nail trim", "De-shed"]

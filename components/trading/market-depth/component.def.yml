@@ -1,0 +1,27 @@
+name: market-depth
+props:
+  bids:
+    type: array
+    items: object
+    required: true
+    title: Bids
+    description: >
+      The bid side of the order book, best bid first. Each item: { price, size, depth_pct }.
+      price and size are preformatted strings; depth_pct is a PRECOMPUTED number (0-100) for the
+      depth bar's width, since the directive language has no math. Bars are right-aligned.
+    example:
+      - { price: "421.50", size: "1,200", depth_pct: 100 }
+      - { price: "421.45", size: "860", depth_pct: 72 }
+  asks:
+    type: array
+    items: object
+    required: true
+    title: Asks
+    description: >
+      The ask side of the order book, best ask first. Each item: { price, size, depth_pct }.
+      price and size are preformatted strings; depth_pct is a PRECOMPUTED number (0-100) for the
+      depth bar's width. Bars are left-aligned.
+    example:
+      - { price: "421.60", size: "940", depth_pct: 80 }
+      - { price: "421.65", size: "1,510", depth_pct: 100 }
+variants: {}

@@ -1,0 +1,29 @@
+name: copy-to-clipboard
+props:
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The text copied to the clipboard when the button is pressed.
+  label:
+    type: string
+    default: "Copy"
+    title: Label
+    description: Button label (and accessible name) in the default state.
+  copied_label:
+    type: string
+    default: "Copied!"
+    title: Copied label
+    description: Label shown briefly after a successful copy.
+  variant:
+    type: enum
+    values: [button, icon]
+    default: button
+    title: Variant
+    description: >
+      "button" shows a copy icon with the text label; "icon" shows only the icon (the label becomes
+      the accessible name).
+variants:
+  variant:
+    button: "gap-2 rounded-button px-3 py-2"
+    icon: "justify-center rounded-control p-2"

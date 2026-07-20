@@ -1,0 +1,15 @@
+name: customer-signoff
+props:
+  customer:
+    type: string
+    title: Customer
+    description: Name of the customer signing off, shown above the summary.
+  summary:
+    type: string
+    title: Summary
+    description: A short description of the work being signed off, e.g. what was completed on site.
+  name_label:
+    type: string
+    default: "Customer signature"
+    title: Signature line label
+    description: The caption shown under the signature line describing whose signature is expected.

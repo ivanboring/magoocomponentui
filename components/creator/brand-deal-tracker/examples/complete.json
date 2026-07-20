@@ -1,0 +1,11 @@
+{
+  "brand": "Aurora Skincare",
+  "campaign": "Summer collab",
+  "progress_pct": 100,
+  "payment": "$2,000 - paid",
+  "deliverables": [
+    { "label": "2 reels", "status": "approved" },
+    { "label": "1 tutorial video", "status": "approved" },
+    { "label": "Newsletter feature", "status": "approved" }
+  ]
+}

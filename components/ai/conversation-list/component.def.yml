@@ -1,0 +1,21 @@
+name: conversation-list
+props:
+  new_label:
+    type: string
+    default: "New chat"
+    title: New-chat label
+    description: Text of the button at the top that starts a new conversation.
+  groups:
+    type: array
+    items: object
+    required: true
+    title: Groups
+    description: >
+      Past conversations bucketed by time, in display order. Each group: { label, items }, where
+      each item is { title, time, active, href }. label is a heading like "Today"; active marks the
+      current conversation; time and href are optional.
+    example:
+      - label: "Today"
+        items:
+          - { title: "Onboarding email draft", active: true, time: "2m", href: "#" }
+          - { title: "Q3 revenue summary", time: "1h", href: "#" }

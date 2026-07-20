@@ -1,0 +1,9 @@
+{
+  "label": "Product tour",
+  "show_arrows": true,
+  "items": [
+    { "image": "/stock/stage1.jpg", "title": "Plan", "subtitle": "Line up the work ahead.", "href": "#" },
+    { "image": "/stock/stage2.jpg", "title": "Make", "subtitle": "Turn the plan into a product.", "href": "#" },
+    { "image": "/stock/stage3.jpg", "title": "Measure", "subtitle": "Learn from how it is used.", "href": "#" }
+  ]
+}

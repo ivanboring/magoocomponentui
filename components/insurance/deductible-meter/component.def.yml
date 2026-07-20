@@ -1,0 +1,30 @@
+name: deductible-meter
+props:
+  met:
+    type: string
+    required: true
+    title: Amount met
+    description: The pre-formatted amount of the deductible met so far (e.g. "$500").
+    example: "$500"
+  deductible:
+    type: string
+    required: true
+    title: Deductible
+    description: The pre-formatted total deductible (e.g. "$1,500").
+    example: "$1,500"
+  pct:
+    type: integer
+    required: true
+    title: Percent met
+    description: The precomputed met-over-deductible bar width from 0-100. The template does no arithmetic.
+    example: 33
+  out_of_pocket_max:
+    type: string
+    title: Out-of-pocket maximum
+    description: The pre-formatted out-of-pocket maximum, shown as an optional second line (e.g. "$6,000").
+    example: "$6,000"
+  oop_pct:
+    type: integer
+    title: Percent to out-of-pocket max
+    description: The precomputed spend-over-out-of-pocket-max bar width from 0-100. Omit to hide the second bar.
+    example: 18

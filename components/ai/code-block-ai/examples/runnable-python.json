@@ -1,0 +1,5 @@
+{
+  "language": "python",
+  "runnable": true,
+  "code": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n\nprint([fib(i) for i in range(10)])"
+}

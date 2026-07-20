@@ -1,0 +1,83 @@
+name: "Submenu Dropdown"
+short_description: A dropdown menu where some entries open a cascading flyout submenu to the right.
+long_visual_description: >
+  A labeled trigger button that opens a surface panel of actions; group entries carry a right
+  chevron and, on hover or focus, reveal a second flyout panel to their right listing that
+  group's children. Leaf actions sit inline and a destructive one can be tinted.
+
+use_cases:
+  - A file menu with New and Open plus Share and Export groups that cascade.
+  - An account menu where Settings expands into a nested set of preferences.
+  - A toolbar Options menu grouping related export formats under one entry.
+  - Admin actions where bulk operations cascade into per-type choices.
+  - Any compact menu that needs a second level without a full mega-menu.
+  - Editor menus grouping insert or format actions into cascading submenus.
+
+recommended_for:
+  - Menus that need one level of nesting kept out of the way until hovered.
+avoid_for:
+  - Flat menus with no nesting (use dropdown-menu).
+  - Deep, many-column navigation (use navbar-mega).
+  - Right-click contextual menus (use context-menu).
+
+markets:
+  - Global
+
+example_usage: >
+  List leaf actions as { label, href, danger } and nested groups as { label, children }.
+  The trigger toggles the root menu (Escape/outside-click close it); each group's flyout opens
+  purely on hover or keyboard focus. Use start_open only to capture the open state.
+
+props:
+  items: The menu entries; a leaf action or a group with children that cascades to the right.
+  trigger_label: The visible label on the button that opens the menu.
+  start_open: Render with the root menu already open (screenshots); runtime still toggles it.
+  label: Accessible label for the opened menu panel.
+
+example_prompts:
+  - "Add an Options menu with New, Open, and a Share submenu for Email and Copy link."
+  - "Give me a dropdown whose Export entry cascades into PDF, PNG, and CSV."
+
+relationships:
+  related:
+    - overlays/dropdown-menu
+    - overlays/context-menu
+    - navigation/navbar-mega
+
+lifecycle: experimental
+content_model: A trigger plus a list of leaf actions and nested groups of children.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-danger
+    - --radius-button
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels short and verb- or noun-first; reserve groups for entries that truly have
+  siblings, and place any destructive leaf last, tinted with danger.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [action]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup/aria-expanded; panels use role="menu"/"menuitem"; group flyouts open on hover and keyboard focus (focus-within); Escape closes the root and restores focus; outside click closes.
+  keyboard_support: The trigger toggles the root menu; Tab moves through items and reveals each group's flyout via focus-within; Escape closes the root and returns focus to the trigger.
+  seo_score: 10
+  text_direction: both
+
+how_to_use: >
+  Provide items as a mix of leaf actions ({ label, href, danger }) and groups ({ label,
+  children }). The trigger opens the root menu via data-open (closes on Escape or outside
+  click); the group flyouts are pure CSS, opening on hover/focus with no JS. Set start_open:
+  true only to show the open menu in a screenshot.

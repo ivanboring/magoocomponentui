@@ -1,0 +1,22 @@
+<div class="axis-controls flex flex-wrap items-center gap-3 rounded-card border border-border bg-surface p-2 shadow-card">
+  <div class="axis-controls__scale flex items-center gap-1 rounded-pill bg-surface-raised p-1" role="group" aria-label="Axis scale">
+    <button data-for="s in scales" type="button" class="axis-controls__scale-btn rounded-pill px-3 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-surface data-[active=true]:text-on-surface data-[active=true]:shadow-card" data-active="{{ s.active }}" aria-pressed="{{ s.active }}">{{ s.label }}</button>
+  </div>
+
+  <span class="axis-controls__grid flex items-center gap-2 text-xs text-on-surface">
+    <button type="button" role="switch" class="axis-controls__grid-switch group relative inline-flex h-5 w-9 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[on=true]:bg-primary" data-on="{{ show_grid }}" aria-checked="{{ show_grid }}" aria-label="Toggle gridlines">
+      <span class="axis-controls__grid-knob size-4 translate-x-0.5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) group-data-[on=true]:translate-x-4"></span>
+    </button>
+    <span>Gridlines</span>
+  </span>
+
+  <div data-if="zoom_label" class="axis-controls__zoom ml-auto flex items-center gap-1">
+    <button type="button" class="axis-controls__zoom-out flex size-7 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Zoom out">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 10h10"/></svg>
+    </button>
+    <span class="axis-controls__zoom-label min-w-12 text-center text-xs text-on-surface-muted tabular-nums">{{ zoom_label }}</span>
+    <button type="button" class="axis-controls__zoom-in flex size-7 items-center justify-center rounded-control border border-border bg-surface text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised" aria-label="Zoom in">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M5 10h10"/></svg>
+    </button>
+  </div>
+</div>

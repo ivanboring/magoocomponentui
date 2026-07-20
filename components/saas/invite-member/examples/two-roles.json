@@ -1,0 +1,7 @@
+{
+  "placeholder": "teammate@example.com",
+  "roles": [
+    { "label": "Editor", "value": "editor" },
+    { "label": "Read only", "value": "viewer" }
+  ]
+}

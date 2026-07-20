@@ -1,0 +1,10 @@
+<ol class="seat-course-timeline flex items-start gap-2 overflow-x-auto pt-1" aria-label="{{ label }}">
+  <li data-for="course in courses" class="seat-course-timeline__course relative flex min-w-28 flex-1 flex-col items-center gap-1.5 px-2 text-center before:absolute before:right-1/2 before:top-1.5 before:-z-10 before:h-0.5 before:w-full before:bg-border first:before:hidden" data-status="{{ course.status }}">
+    <span class="seat-course-timeline__dot size-3 shrink-0 rounded-pill bg-surface-raised ring-2 ring-surface data-[status=served]:bg-success data-[status=firing]:bg-warning data-[status=held]:bg-danger data-[status=pending]:bg-surface-raised" data-status="{{ course.status }}"></span>
+    <span class="seat-course-timeline__label font-heading text-sm text-on-surface">{{ course.label }}</span>
+    <span class="seat-course-timeline__status text-xs font-medium capitalize text-on-surface-muted data-[status=served]:text-success data-[status=firing]:text-warning data-[status=held]:text-danger" data-status="{{ course.status }}">{{ course.status }}</span>
+    <ul data-if="course.items" class="mt-0.5 flex flex-col gap-0.5">
+      <li data-for="dish in course.items" class="seat-course-timeline__dish text-xs text-on-surface-muted">{{ dish }}</li>
+    </ul>
+  </li>
+</ol>

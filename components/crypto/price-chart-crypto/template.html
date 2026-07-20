@@ -1,0 +1,16 @@
+<figure class="price-chart-crypto rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="price-chart-crypto__header mb-4 flex flex-wrap items-center justify-between gap-3">
+    <h3 class="price-chart-crypto__title font-heading text-on-surface">{{ title }}</h3>
+    <div class="price-chart-crypto__ranges flex gap-1 rounded-pill bg-surface-raised p-1" role="tablist" aria-label="Time range">
+      <button data-for="r in ranges" type="button" class="price-chart-crypto__range rounded-pill px-2.5 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) data-[active=true]:bg-surface data-[active=true]:text-on-surface data-[active=true]:shadow-card" role="tab" data-active="{{ r.active }}" aria-selected="{{ r.active }}">{{ r.label }}</button>
+    </div>
+  </header>
+  <div class="price-chart-crypto__plot relative h-56 w-full">
+    <svg class="price-chart-crypto__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <g data-for="c in candles" class="price-chart-crypto__candle data-[up=true]:stroke-success data-[up=false]:stroke-danger" data-up="{{ c.up }}">
+        <line class="price-chart-crypto__wick [stroke-width:1]" x1="{{ c.x_pct }}" x2="{{ c.x_pct }}" y1="{{ c.high_pct }}" y2="{{ c.low_pct }}" vector-effect="non-scaling-stroke"></line>
+        <line class="price-chart-crypto__body [stroke-width:7]" x1="{{ c.x_pct }}" x2="{{ c.x_pct }}" y1="{{ c.open_pct }}" y2="{{ c.close_pct }}" vector-effect="non-scaling-stroke"></line>
+      </g>
+    </svg>
+  </div>
+</figure>

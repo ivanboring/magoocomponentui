@@ -1,0 +1,7 @@
+{
+  "label": "Layout",
+  "segments": [
+    { "label": "List", "value": "list", "active": false },
+    { "label": "Grid", "value": "grid", "active": true }
+  ]
+}

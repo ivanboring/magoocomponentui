@@ -1,0 +1,8 @@
+<div class="award-row flex items-center gap-4 border-b border-border py-4">
+  <span class="award-row__year shrink-0 font-mono text-sm text-on-surface-muted">{{ year }}</span>
+  <div class="award-row__body min-w-0 flex-1">
+    <p class="award-row__name font-heading text-on-surface">{{ award }}</p>
+    <p data-if="organization" class="award-row__org text-sm text-on-surface-muted">{{ organization }}</p>
+  </div>
+  <span data-if="category" class="award-row__category shrink-0 rounded-pill bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{{ category }}</span>
+</div>

@@ -1,0 +1,82 @@
+name: "Select Setting Row"
+short_description: A settings row pairing a label and help text with a native select of options.
+long_visual_description: >
+  A horizontal row with the setting label and an optional muted help line on the leading edge
+  and a compact native select on the trailing edge. The select sits on the surface colour with
+  a border and control radius and lists its options in the order supplied. Padding matches the
+  toggle row so mixed stacks align inside a settings-section card.
+
+use_cases:
+  - Choosing one option from a small set in settings.
+  - Picking a theme, language, or timezone.
+  - Setting profile visibility or default view.
+  - Selecting a plan interval or currency.
+  - Rows inside a grouped settings panel.
+  - Any single-choice preference with named options.
+
+recommended_for:
+  - Settings and preferences panels.
+  - Single-choice preferences with a handful of options.
+  - Stacks mixing selects and toggles in a settings-section.
+avoid_for:
+  - Boolean on/off choices (use toggle-setting-row).
+  - Very long option lists better served by a searchable combobox.
+  - Multi-select choices.
+
+markets:
+  - Global
+
+example_usage: >
+  Slot into a settings-section content stack. Provide the options in display order; the host
+  marks the current one selected when rendering (the skeleton has no equality test). Pass a name
+  for form submission.
+
+props:
+  label: The setting name; also the select's accessible label.
+  help: Optional one-line explanation under the label.
+  options: The choices in display order, each a label and value.
+  value: The current value; the host uses it to mark the selected option.
+  name: Optional field name applied to the select element.
+
+example_prompts:
+  - "Add a theme select row with System, Light, and Dark."
+  - "Build a profile visibility setting with Public, Team only, and Private."
+  - "Create a labelled select row with help text for a timezone choice."
+
+lifecycle: experimental
+content_model: >
+  A label, an optional help line, a list of options (label and value), an optional current
+  value, and an optional field name.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep option labels short and parallel. Order options from most to least common, or in a
+  natural order (e.g. System, Light, Dark). Help text stays one plain sentence.
+
+relationships:
+  parents:
+    - saas/settings-section
+  related:
+    - saas/toggle-setting-row
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Settings
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Native select with an accessible label from the setting name; keyboard and screen-reader support come from the platform control.
+  keyboard_support: The select is focusable and operated with the platform's native keys; the current value is exposed by the browser.
+  seo_score: 40
+  text_direction: both

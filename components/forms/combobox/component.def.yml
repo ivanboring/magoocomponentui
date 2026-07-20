@@ -1,0 +1,31 @@
+name: combobox
+props:
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: >
+      Each option: { label, value }. The behavior filters options case-insensitively by
+      their label as the user types and selects one into the input.
+    example:
+      - { label: "React", value: "react" }
+  placeholder:
+    type: string
+    default: "Search…"
+    title: Placeholder
+  label:
+    type: string
+    default: "Choose an option"
+    title: Label
+    description: Visible field label; omit to render the input without a label.
+  name:
+    type: string
+    default: "combobox"
+    title: Field name
+    description: The input's name attribute for form submission.
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render the option list already open (used for screenshots/previews).

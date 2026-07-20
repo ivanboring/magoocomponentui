@@ -1,0 +1,85 @@
+name: "Contact List Row"
+short_description: A single CRM contact row showing avatar, name, company, last-touch time, and a relationship-status pill.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and soft shadow. A round avatar
+  (headshot or initials fallback) sits at the leading edge, the contact's name in the heading
+  face and their company muted beneath it fill the middle, and at the trailing edge a small
+  last-touch timestamp sits beside a rounded status pill coloured by relationship health -
+  green for active, muted for cold, blue for new.
+
+use_cases:
+  - Row in a CRM contact list or address book.
+  - Recently contacted people in a sidebar widget.
+  - Account team or stakeholder roster on a deal page.
+  - Assignee or owner picker results.
+  - Leads queue where each lead shows last-touch recency.
+  - Segment membership list with per-contact status.
+
+recommended_for:
+  - Dense, scannable lists of people with a health cue.
+  - Any list where last-contact recency matters.
+avoid_for:
+  - A full contact profile (use a detail card).
+  - Non-person entities such as companies (use company-account-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several in a bordered list or card. Give each a name, an optional company, either an
+  avatar image or precomputed initials, a formatted last-touch string, and a status that
+  reflects how warm the relationship is.
+
+props:
+  name: Contact's full name; also the avatar's accessible label.
+  company: Organisation shown muted under the name; optional.
+  avatar: Optional headshot image path; falls back to initials when omitted.
+  initials: One or two precomputed characters shown when there is no avatar image.
+  last_touch: Human-readable recency of the last interaction, e.g. "2d ago".
+  status: Relationship health that colours the pill - active, cold, or new.
+
+example_prompts:
+  - "Add a contact row for Dana Whitfield at Northwind, last touched 2 days ago, active."
+  - "Show a cold lead row with initials and no photo."
+  - "List the account team as contact rows with status pills."
+
+relationships:
+  related:
+    - crm/company-account-card
+    - crm/task-followup-row
+    - crm/note-composer
+
+lifecycle: experimental
+content_model: A person with a name, optional company, an avatar or initials, a last-touch time, and a relationship status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep names and companies short so the row stays on one line. Set the status to match reality -
+  active for warm relationships, cold when a follow-up is overdue, new for fresh leads. The pill
+  text names the status so colour is never the only signal.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Contacts
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status is conveyed by pill text, not colour alone; the avatar carries an accessible label from the name.
+  keyboard_support: None - static, non-interactive row.
+  seo_score: 35
+  text_direction: both

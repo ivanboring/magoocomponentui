@@ -1,0 +1,12 @@
+<nav class="conversation-list flex flex-col gap-4" aria-label="Conversations">
+  <button type="button" class="conversation-list__new inline-flex items-center gap-2 rounded-button border border-border bg-surface px-3 py-2 text-sm font-medium text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4v12M4 10h12"/></svg>{{ new_label }}
+  </button>
+  <div data-for="group in groups" class="flex flex-col gap-1">
+    <p class="px-3 pb-1 text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ group.label }}</p>
+    <a data-for="item in group.items" class="conversation-list__item flex items-center gap-2 rounded-control px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-primary" data-active="{{ item.active }}" href="{{ item.href }}">
+      <span class="min-w-0 flex-1 truncate">{{ item.title }}</span>
+      <span data-if="item.time" class="shrink-0 text-xs text-on-surface-muted">{{ item.time }}</span>
+    </a>
+  </div>
+</nav>

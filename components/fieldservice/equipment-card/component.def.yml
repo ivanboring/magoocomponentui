@@ -1,0 +1,38 @@
+name: equipment-card
+props:
+  name:
+    type: string
+    required: true
+    title: Equipment name
+    example: "Rooftop Air Handler"
+  model:
+    type: string
+    title: Model
+    description: Model name or number shown under the equipment name.
+    example: "Carrier 48TC-A08"
+  serial:
+    type: string
+    title: Serial number
+    description: Serial number, shown in a monospaced face.
+    example: "SN-4471-22C"
+  install_date:
+    type: string
+    title: Install date
+    description: When the unit was installed, as a preformatted date string.
+    example: "Mar 2021"
+  warranty_status:
+    type: enum
+    values: [active, expired, expiring]
+    default: active
+    title: Warranty status
+    description: Drives the warranty pill colour - green for active, amber for expiring, red for expired.
+  last_service:
+    type: string
+    title: Last service
+    description: Date of the most recent service visit, as a preformatted string.
+    example: "12 May 2026"
+variants:
+  warranty_status:
+    active: "bg-success/10 text-success"
+    expiring: "bg-warning/10 text-warning"
+    expired: "bg-danger/10 text-danger"

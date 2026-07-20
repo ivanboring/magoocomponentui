@@ -1,0 +1,26 @@
+{
+  "plans": [
+    {
+      "name": "Fixed 12",
+      "rate": "24.5p / kWh",
+      "standing_charge": "42p / day",
+      "savings": "Save 120 / yr",
+      "recommended": true,
+      "features": ["Price fixed for 12 months", "100% renewable electricity", "No exit fees"]
+    },
+    {
+      "name": "Flexible",
+      "rate": "27.1p / kWh",
+      "standing_charge": "45p / day",
+      "recommended": false,
+      "features": ["Variable rate", "Leave any time", "Smart-meter ready"]
+    },
+    {
+      "name": "EV Saver",
+      "rate": "9.9p / kWh off-peak",
+      "standing_charge": "48p / day",
+      "recommended": false,
+      "features": ["Cheap overnight rate", "Ideal for EV owners", "100% renewable electricity"]
+    }
+  ]
+}

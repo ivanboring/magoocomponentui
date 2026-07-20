@@ -1,0 +1,72 @@
+name: "Survey Progress"
+short_description: A step "Question X of Y" indicator with a precomputed completion bar for multi-step surveys and quizzes.
+long_visual_description: >
+  A thin full-width pill track in a muted surface tone with a primary-colour fill growing
+  left-to-right. Above it, a small caption reads "Question X of Y" on the leading edge and the
+  completion percentage on the trailing edge. The fill width comes from a precomputed percentage,
+  so it renders identically with no JavaScript.
+
+use_cases:
+  - Show how far a respondent is through a multi-step survey.
+  - Track progress across the questions of a quiz or assessment.
+  - Indicate completion of an onboarding questionnaire.
+  - Head a poll wizard so users know how many steps remain.
+  - Reassure users mid-form that only a few questions are left.
+  - Pair with a research or feedback flow that spans several screens.
+
+recommended_for:
+  - Determinate, step-based progress where current, total and percentage are known.
+  - Survey and quiz flows that show one question per screen.
+avoid_for:
+  - Generic file or task progress (use atoms/progress-bar).
+  - Indeterminate loading (use a spinner).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass current (the 1-based question number), total, and pct (the precomputed completion
+  percentage). Override label to replace the default "Question X of Y" caption with your own text.
+
+props:
+  current: The question the respondent is on, 1-based.
+  total: Total number of questions in the survey.
+  pct: Completion percentage 0-100, precomputed by the caller because the directive language cannot divide.
+  label: Optional caption shown instead of the default "Question X of Y".
+
+example_prompts:
+  - "Add a survey progress bar showing question 3 of 8."
+  - "Show quiz progress near the end, question 7 of 8."
+
+lifecycle: experimental
+content_model: A current step, a total, and a precomputed completion percentage.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface-muted
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep the caption to the "Question X of Y" pattern or a short custom label; do not repeat the word
+  "progress" alongside the percentage.
+
+relationships:
+  related:
+    - atoms/progress-bar
+    - feedback/poll-inline
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Progress
+  atomic_type: molecule
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="progressbar" with aria-valuenow/min/max and an aria-label; the caption text is readable independently.
+  keyboard_support: "none"
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "How do I center a div in CSS?", "name": "You", "time": "9:40 AM" },
+    { "role": "assistant", "content": "The simplest way is a flex parent: set display:flex, then justify-content:center and align-items:center. The child lands in the middle on both axes.", "name": "Assistant", "time": "9:40 AM" },
+    { "role": "user", "content": "What if I want it centered only horizontally?", "name": "You", "time": "9:41 AM" },
+    { "role": "assistant", "content": "Keep justify-content:center and drop align-items, or use margin-inline:auto on a block-level child with a set width.", "name": "Assistant", "time": "9:41 AM" }
+  ]
+}

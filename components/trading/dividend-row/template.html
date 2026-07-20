@@ -1,0 +1,24 @@
+<div class="dividend-row flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card border border-border bg-surface px-4 py-3 shadow-card">
+  <div class="min-w-0 flex-1">
+    <p class="font-heading text-on-surface">{{ symbol }}</p>
+    <p data-if="name" class="truncate text-xs text-on-surface-muted">{{ name }}</p>
+  </div>
+  <div class="text-right">
+    <p class="font-mono text-on-surface tabular-nums">{{ amount }}</p>
+    <p data-if="frequency" class="text-xs text-on-surface-muted">{{ frequency }}</p>
+  </div>
+  <div data-if="yield_pct" class="text-right">
+    <p class="text-xs text-on-surface-muted">Yield</p>
+    <p class="font-mono text-success tabular-nums">{{ yield_pct }}</p>
+  </div>
+  <dl class="flex gap-6 text-xs">
+    <div data-if="ex_date">
+      <dt class="text-on-surface-muted">Ex-date</dt>
+      <dd class="text-on-surface">{{ ex_date }}</dd>
+    </div>
+    <div data-if="pay_date">
+      <dt class="text-on-surface-muted">Pay date</dt>
+      <dd class="text-on-surface">{{ pay_date }}</dd>
+    </div>
+  </dl>
+</div>

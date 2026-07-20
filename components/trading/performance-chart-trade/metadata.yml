@@ -1,0 +1,102 @@
+name: "Trade Performance Chart"
+short_description: A card-framed price-performance line chart with a timeframe selector, an optional filled area, and a direction-tinted line.
+long_visual_description: >
+  A surface card with a title on the left of its header and a pill-style timeframe selector
+  (1D / 1W / 1M / 1Y) on the right, the active range raised on a surface chip. Below, a full-width
+  SVG plot draws a single price line - green when the period is up, red when down, or neutral
+  primary when no direction is given - over an optional faint area fill in the same hue, with a
+  column of y-axis price labels on the left and time labels underneath. The geometry is supplied
+  precomputed, so the shell renders a real chart with no charting code.
+
+use_cases:
+  - An instrument price-performance chart on a trading detail page.
+  - A portfolio value trend with 1D/1W/1M/1Y timeframe tabs.
+  - A holding's performance card in a brokerage watchlist.
+  - A fund or ETF return chart in a research view.
+  - A crypto token price chart above the order entry panel.
+  - A benchmark comparison line in a wealth dashboard.
+
+recommended_for:
+  - A single price or value series over a selectable timeframe.
+  - Cases where up/down performance should tint the whole line and fill.
+avoid_for:
+  - Categorical comparison (use a bar chart shell).
+  - Multi-series overlays or candlesticks (use a dedicated chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute line_path in a 0-100 by 0-100 viewBox (y grows downward) from your price data, and
+  optionally area_path as the same line closed to the baseline. Pass y_labels top to bottom and
+  x_labels left to right, an optional ranges array (mark exactly one active), and set change_dir to
+  up or down to tint the line and fill (omit for neutral primary). Drop a real chart in place of
+  the SVG markup when live interaction is needed.
+
+how_to_use: >
+  The chart is a static skeleton: line_path, area_path and the axis labels are all precomputed by
+  the caller because the directive language has no arithmetic, and the range tabs are
+  presentational (no behavior.js). The line and area colour follow change_dir via data-attribute
+  variants (data-[dir=up]/data-[dir=down]); with no change_dir the line falls back to primary. For
+  a live, interactive chart, a real charting library replaces the SVG markup and the skeleton acts
+  as the themed card frame.
+
+props:
+  title: "Header label - the instrument, fund, or portfolio name."
+  line_path: "Precomputed SVG path for the price line (0-100 cartesian viewBox, y downward)."
+  area_path: "Optional precomputed fill path - the line closed down to the baseline."
+  y_labels: "Y-axis price tick labels, top to bottom."
+  x_labels: "X-axis time tick labels, left to right."
+  ranges: "Optional timeframe tabs, each { label, active }; mark exactly one active."
+  change_dir: "up or down tints the line and area green or red; unset draws neutral primary."
+
+example_prompts:
+  - "Add a price performance chart for AAPL with 1D 1W 1M 1Y tabs, trending up."
+  - "Show a portfolio value chart tinted red for a down day with a filled area."
+  - "Put a token price chart with a timeframe selector above the order panel."
+
+relationships:
+  related:
+    - dataviz/line-chart-shell
+    - dataviz/area-chart-shell
+    - trading/price-ticker-tape
+    - crypto/token-price-card
+
+lifecycle: experimental
+content_model: A title, a timeframe selector, a precomputed price line and optional area, axis labels, and a performance direction.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+    - --space-card
+
+editorial_guidance: >
+  The chart geometry (line_path, area_path) is precomputed by the caller from the price data - the
+  shell ships no charting math. Set change_dir to match the period's actual return so colour and
+  shape agree, keep axis labels short, and mark exactly one active range tab. Supply realistic
+  values so the skeleton reads as a genuine chart.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; axis labels are real text and direction is also implied by shape. Provide a data-table alternative for the series in production.
+  keyboard_support: The range tabs are focusable buttons; the chart itself is a static skeleton.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,5 @@
+{
+  "from": { "symbol": "USDC", "amount": "1000", "balance": "5,240 USDC" },
+  "to": { "symbol": "DAI", "amount": "999.40" },
+  "rate": "1 USDC = 0.9994 DAI"
+}

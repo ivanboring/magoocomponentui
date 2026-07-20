@@ -1,0 +1,9 @@
+{
+  "sources": [
+    { "index": 1, "title": "The economics of renewable energy in 2026", "url": "https://example.com/renewables", "domain": "iea.org", "snippet": "Solar and wind now account for the majority of new generating capacity added worldwide." },
+    { "index": 2, "title": "Grid-scale battery storage explained", "url": "https://example.com/storage", "domain": "nrel.gov" },
+    { "index": 3, "title": "Offshore wind cost trends", "url": "https://example.com/offshore", "domain": "bloomberg.com", "snippet": "Levelized costs have fallen sharply over the past decade." },
+    { "index": 4, "title": "Policy incentives and their impact", "url": "https://example.com/policy", "domain": "brookings.edu" },
+    { "index": 5, "title": "Global emissions dashboard", "url": "https://example.com/emissions", "domain": "ourworldindata.org", "snippet": "Interactive data on per-capita and total emissions by country and sector." }
+  ]
+}

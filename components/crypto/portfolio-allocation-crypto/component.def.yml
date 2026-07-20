@@ -1,0 +1,25 @@
+name: portfolio-allocation-crypto
+props:
+  title:
+    type: string
+    default: "Allocation"
+    title: Title
+    description: Heading above the donut; also the SVG's accessible label.
+  slices:
+    type: array
+    items: object
+    required: true
+    title: Holdings
+    description: >
+      The donut arcs, one per holding. All geometry is PRECOMPUTED BY THE CALLER because the
+      template language has no math. Each item:
+      { label, value, pct, dash, offset, color_class }. `dash` is the SVG stroke-dasharray for a
+      circle of circumference 100 (r=15.9155), given as "<arc-length> <remainder>" (a 45% slice is
+      "45 55"). `offset` is the stroke-dashoffset that rotates the arc to its start position - the
+      negative of the slice's cumulative start percent (a slice beginning at 45% is "-45").
+      `pct` is the display percentage string (e.g. "45%") and `value` the display holding value
+      (e.g. "$45,000"). `color_class` is a tokenized Tailwind stroke utility (e.g. "stroke-primary")
+      and must be one of the classes listed in the hidden safelist span in the template.
+    example:
+      - { label: "Bitcoin", value: "$45,000", pct: "45%", dash: "45 55", offset: "0", color_class: "stroke-primary" }
+      - { label: "Ethereum", value: "$30,000", pct: "30%", dash: "30 70", offset: "-45", color_class: "stroke-accent" }

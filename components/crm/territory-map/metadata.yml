@@ -1,0 +1,83 @@
+name: "Territory Map"
+short_description: A CRM territory-assignment facade - a stylized grid of region tiles showing the assigned rep and open-deal count, standing in for a real map.
+long_visual_description: >
+  A card on the surface colour with a header carrying a map glyph, a "Territories" title, and a
+  "Map preview" pill. Below sits a responsive grid of region tiles, each on an optional colour tint,
+  showing the territory name in the heading face, the assigned rep with a small person glyph, and a
+  large open-deal count. It is a skeleton facade; a real mapping library replaces the tile grid when
+  a true geographic map is needed.
+
+use_cases:
+  - Territory ownership overview on a sales-ops page.
+  - Region assignment summary in a planning tool.
+  - Book-of-business split across geographies.
+  - Coverage gaps view showing unassigned regions.
+  - Quota-by-region planning board.
+  - Placeholder facade before a real map integration ships.
+
+recommended_for:
+  - Showing who owns which region and how much pipeline sits there.
+  - A lightweight, no-dependency stand-in for a geographic map.
+avoid_for:
+  - Actual geospatial rendering or coordinates (integrate a map library).
+  - A single account or contact (use company-account-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a regions array, each with a name and optional rep, deal count, and a tokenized background
+  tint class (e.g. bg-primary/10). The tiles lay out in a responsive grid. This is a facade - swap
+  the tile grid for a real map component when live geography and interactivity are required; the
+  skeleton stands as the static render for screenshots and no-dependency contexts.
+
+props:
+  regions: The territory tiles - each with a name, an optional rep, an optional deal count, and an optional background-tint colour class.
+
+example_prompts:
+  - "Add a territory map facade with West, Midwest, and East regions and their reps."
+  - "Show region assignment tiles with open-deal counts."
+  - "Put a coverage overview of sales territories on the ops dashboard."
+
+relationships:
+  related:
+    - crm/company-account-card
+    - crm/win-loss-summary
+    - crm/contact-list-row
+
+lifecycle: experimental
+content_model: A set of territory regions, each with a name, an assigned rep, an open-deal count, and a tint colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Be explicit that this is a facade, not a real map - the "Map preview" pill signals that, and a
+  real map library should replace the grid for live geography. Keep region names short. Use the tint
+  colours to group or distinguish territories, and pair each with a rep so ownership is clear; the
+  name and count carry the meaning so colour is never the only cue.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Territories
+  atomic_type: organism
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Region name, rep, and deal count are all text; the tint colour is decorative and never the only signal. The map glyph and pill make the facade nature explicit.
+  keyboard_support: None - static, non-interactive facade.
+  seo_score: 30
+  text_direction: both

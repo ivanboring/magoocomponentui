@@ -1,0 +1,13 @@
+<section class="team-grid grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4" aria-label="{{ label }}">
+  <div data-for="m in members" class="team-grid__member flex flex-col items-center text-center">
+    <div class="team-grid__avatar size-24 overflow-hidden rounded-pill bg-surface-raised">
+      <img data-if="m.avatar" class="size-full object-cover" src="{{ m.avatar }}" alt="">
+      <span data-if="!m.avatar" class="flex size-full items-center justify-center font-heading text-2xl text-on-surface-muted">{{ m.initials }}</span>
+    </div>
+    <h3 class="mt-4 font-heading text-on-surface">{{ m.name }}</h3>
+    <p class="text-sm text-on-surface-muted">{{ m.role }}</p>
+    <div data-if="m.socials" class="team-grid__socials mt-3 flex items-center gap-2">
+      <a data-for="s in m.socials" class="flex size-8 items-center justify-center rounded-pill text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-primary" href="{{ s.href }}">{{{ s.icon }}}</a>
+    </div>
+  </div>
+</section>

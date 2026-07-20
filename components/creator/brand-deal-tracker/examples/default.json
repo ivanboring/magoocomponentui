@@ -1,0 +1,12 @@
+{
+  "brand": "Northwind Coffee",
+  "campaign": "Spring launch",
+  "progress_pct": 50,
+  "payment": "$1,500 - 50% paid",
+  "deliverables": [
+    { "label": "3 feed posts", "status": "approved" },
+    { "label": "1 reel", "status": "submitted" },
+    { "label": "Story set", "status": "in-progress" },
+    { "label": "Discount code post", "status": "todo" }
+  ]
+}

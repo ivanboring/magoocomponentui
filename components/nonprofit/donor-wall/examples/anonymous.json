@@ -1,0 +1,7 @@
+{
+  "donors": [
+    { "name": "Anonymous", "amount": "$500", "time": "just now" },
+    { "name": "Anonymous", "amount": "$20", "time": "1h ago" },
+    { "name": "Marcus B.", "amount": "$75", "time": "3h ago", "avatar": "/stock/avatar-man-1.jpg" }
+  ]
+}

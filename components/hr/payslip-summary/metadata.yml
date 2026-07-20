@@ -1,0 +1,77 @@
+name: "Payslip Summary"
+short_description: A pay-period card summarising gross and net pay with itemised earnings and deductions lists.
+long_visual_description: >
+  A card on the surface colour headed by the pay period and a "Payslip" kicker. Two figure tiles sit
+  below - gross pay on the raised surface and net pay highlighted in a primary-tinted tile. Under them,
+  a two-column layout lists earnings on the left and deductions on the right, each row pairing a muted
+  label with a right-aligned tabular amount (deductions rendered in the danger colour).
+
+use_cases:
+  - A payslip overview inside an employee self-service portal.
+  - A pay-period summary on a payroll dashboard.
+  - A downloadable pay statement preview.
+  - A compensation breakdown shown after payroll runs.
+  - An expandable row detail in a pay history list.
+  - A net-versus-gross explainer for a single period.
+
+recommended_for:
+  - Summarising one pay period with earnings and deductions.
+  - Making net pay stand out against gross.
+avoid_for:
+  - A multi-period pay history table (use a table).
+  - Interactive payroll editing (this is read-only).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the period label, formatted gross and net strings, and earnings and deductions arrays of
+  { label, amount }. Amounts are pre-formatted strings, so include the currency symbol and grouping in
+  the value; the component only lays them out.
+
+props:
+  period: The pay period label shown in the heading.
+  gross: Formatted gross-pay figure including currency.
+  net: Formatted net-pay figure; rendered in the highlighted tile.
+  earnings: Earnings line items, each a label and a formatted amount.
+  deductions: Deduction line items, each a label and a formatted amount.
+
+lifecycle: experimental
+content_model: A pay period, formatted gross and net figures, and arrays of earnings and deduction line items.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep amounts consistently formatted with the same currency and decimal places. Order earnings and
+  deductions from largest to smallest so the biggest lines read first.
+
+relationships:
+  related:
+    - hr/time-off-balance
+    - hr/employee-card
+
+categorization:
+  category: "HR & People"
+  subcategory: Payroll
+  atomic_type: organism
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Deduction amounts are labelled in text, not colour alone; the structure uses real lists and headings.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

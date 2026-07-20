@@ -1,0 +1,14 @@
+{
+  "title": "Apply for a resident parking permit",
+  "steps": [
+    { "number": 1, "label": "Eligibility", "active": false, "done": true },
+    { "number": 2, "label": "Your details", "active": true, "done": false },
+    { "number": 3, "label": "Vehicle", "active": false, "done": false },
+    { "number": 4, "label": "Review", "active": false, "done": false }
+  ],
+  "fields": [
+    { "label": "Full name", "placeholder": "As shown on your ID", "required": true },
+    { "label": "Home address", "placeholder": "House number and street", "required": true },
+    { "label": "Contact email", "placeholder": "you@example.com", "required": false }
+  ]
+}

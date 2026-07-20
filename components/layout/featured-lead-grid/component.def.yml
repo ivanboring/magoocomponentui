@@ -1,0 +1,42 @@
+name: featured-lead-grid
+props:
+  lead:
+    type: object
+    required: true
+    title: Lead item
+    description: >
+      The large featured item: { image, eyebrow, title, subtitle, href }. image/eyebrow/subtitle/href
+      are optional; title carries the item. It spans two columns and two rows on desktop.
+    example:
+      { image: "/stock/cover-workspace.jpg", eyebrow: "Featured", title: "The state of the studio in 2026", subtitle: "A look at the tools reshaping how teams build.", href: "#" }
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The smaller items: each { image, eyebrow, title, subtitle, href }. image/eyebrow/subtitle/href
+      are optional; title carries the item.
+    example:
+      - { image: "/stock/blog-api-streaming.jpg", eyebrow: "Engineering", title: "Streaming APIs", subtitle: "Push updates to clients in real time.", href: "#" }
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between cards, from a fixed set of choices. "default" keeps the designed spacing;
+      none/sm/md/lg/xl are explicit fixed overrides.
+  label:
+    type: string
+    default: "Featured"
+    title: Accessible label
+    description: Accessible name announced for the grid region.
+variants:
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-8"
+    xl: "gap-12"

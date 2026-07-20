@@ -1,0 +1,90 @@
+name: "Position Card"
+short_description: A holding summary card - symbol and shares, market value, a coloured profit/loss figure with percent, and average cost vs current price.
+long_visual_description: >
+  A card on the surface colour with the held symbol and share count on the left and the total market
+  value on the right, a large profit/loss figure below that reads green (up) or red (down) with its
+  percent beside it, and a bottom row splitting average cost and current price in the mono face.
+
+use_cases:
+  - A holding tile in a portfolio grid.
+  - A position summary in a brokerage dashboard.
+  - A single-holding glance on an asset detail page.
+  - A card in a positions rail alongside an order ticket.
+  - A paper-trading portfolio's holding card.
+
+recommended_for:
+  - Showing a holding's value and unrealised P/L at a glance.
+  - Any surface pairing cost basis with current price and profit/loss.
+avoid_for:
+  - A quotes-only row without holdings (use watchlist-row).
+  - A trade entry form (use order-ticket-trade).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass preformatted shares, avg_cost, current_price, market_value, pl and pl_pct (with signs), and
+  set pl_dir to up or down to colour the profit/loss figure. All figures are formatted in the caller
+  so the mono numbers line up.
+
+how_to_use: >
+  There is no JavaScript - the card is static markup. pl_dir drives the profit/loss colour via
+  data-[dir=up]:text-success and data-[dir=down]:text-danger utilities off the data-dir attribute.
+  Preformat every figure (including the P/L sign) in the caller.
+
+props:
+  symbol: "The held instrument's ticker; the card's heading."
+  shares: "The number of shares or units held, preformatted."
+  avg_cost: "The average cost basis per share, preformatted with currency."
+  current_price: "The current price per share, preformatted with currency."
+  market_value: "The total market value of the holding, preformatted with currency."
+  pl: "The absolute profit or loss, preformatted with sign and currency."
+  pl_pct: "The profit or loss as a percentage, preformatted with sign."
+  pl_dir: "up or down - colours the profit/loss figure green or red."
+
+example_prompts:
+  - "Add a position card for MSFT up 35.9% on the year."
+  - "Show a losing position card in the red."
+  - "Build a portfolio grid of position cards."
+
+lifecycle: experimental
+content_model: >
+  One holding: symbol and share count, market value, absolute and percentage profit/loss with a
+  direction, and average cost versus current price.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the P/L sign and pl_dir in agreement - a gain should read green with a leading plus. Preformat
+  cost, price and value so the mono figures align across a grid of cards.
+
+relationships:
+  related:
+    - trading/watchlist-row
+    - trading/order-ticket-trade
+    - trading/dividend-row
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Portfolio
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The profit/loss text carries its sign so direction is not conveyed by colour alone; labels name each figure.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

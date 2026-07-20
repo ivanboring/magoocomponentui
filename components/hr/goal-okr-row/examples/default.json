@@ -1,0 +1,11 @@
+{
+  "objective": "Grow qualified pipeline by 30%",
+  "owner": "Revenue Team",
+  "progress": 62,
+  "status": "on-track",
+  "key_results": [
+    { "label": "New SQLs booked", "pct": 70 },
+    { "label": "Win rate", "pct": 45 },
+    { "label": "Average deal size", "pct": 58 }
+  ]
+}

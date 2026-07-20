@@ -1,0 +1,9 @@
+{
+  "title": "Traffic by source",
+  "slices": [
+    { "label": "Direct", "value": "40%", "dash": "40 60", "offset": "0", "color_class": "stroke-primary" },
+    { "label": "Organic search", "value": "30%", "dash": "30 70", "offset": "-40", "color_class": "stroke-accent" },
+    { "label": "Referral", "value": "20%", "dash": "20 80", "offset": "-70", "color_class": "stroke-success" },
+    { "label": "Social", "value": "10%", "dash": "10 90", "offset": "-90", "color_class": "stroke-warning" }
+  ]
+}

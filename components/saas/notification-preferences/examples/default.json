@@ -1,0 +1,8 @@
+{
+  "rows": [
+    { "label": "Product updates", "email": true, "push": false, "sms": false },
+    { "label": "Security alerts", "email": true, "push": true, "sms": true },
+    { "label": "Weekly digest", "email": true, "push": false, "sms": false },
+    { "label": "Mentions and comments", "email": false, "push": true, "sms": false }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "total": "$48.00",
+  "split_count": "2",
+  "guests": [
+    {
+      "label": "Alex",
+      "subtotal": "$26.00",
+      "items": [
+        { "name": "Burger", "price": "$16.00" },
+        { "name": "Draft beer", "price": "$7.00" },
+        { "name": "Fries", "price": "$3.00" }
+      ]
+    },
+    {
+      "label": "Sam",
+      "subtotal": "$22.00",
+      "items": [
+        { "name": "Caesar salad", "price": "$14.00" },
+        { "name": "Iced tea", "price": "$4.00" },
+        { "name": "Cookie", "price": "$4.00" }
+      ]
+    }
+  ]
+}

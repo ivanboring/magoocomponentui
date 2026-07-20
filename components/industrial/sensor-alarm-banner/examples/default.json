@@ -1,0 +1,7 @@
+{
+  "sensor": "Bearing temp - Motor 3",
+  "value": "84 C",
+  "threshold": "80 C",
+  "severity": "warning",
+  "time": "18:42:07"
+}

@@ -1,0 +1,16 @@
+{
+  "bids": [
+    { "price": "421.50", "size": "1,200", "depth_pct": 100 },
+    { "price": "421.45", "size": "860", "depth_pct": 72 },
+    { "price": "421.40", "size": "540", "depth_pct": 45 },
+    { "price": "421.35", "size": "310", "depth_pct": 26 },
+    { "price": "421.30", "size": "150", "depth_pct": 13 }
+  ],
+  "asks": [
+    { "price": "421.60", "size": "940", "depth_pct": 62 },
+    { "price": "421.65", "size": "1,510", "depth_pct": 100 },
+    { "price": "421.70", "size": "720", "depth_pct": 48 },
+    { "price": "421.75", "size": "430", "depth_pct": 28 },
+    { "price": "421.80", "size": "200", "depth_pct": 13 }
+  ]
+}

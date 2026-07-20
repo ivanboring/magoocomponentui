@@ -1,0 +1,9 @@
+{
+  "number": "1",
+  "title": "Acceptance of Terms",
+  "body_html": "<p>By accessing or using the Service you agree to be bound by these Terms. If you do not agree to all of the Terms, you may not use the Service.</p><p>We may update these Terms from time to time. Continued use of the Service after a change takes effect constitutes acceptance of the revised Terms.</p>",
+  "subsections": [
+    { "number": "1.1", "title": "Eligibility", "body_html": "<p>You must be at least 18 years old, or the age of majority in your jurisdiction, to use the Service.</p>" },
+    { "number": "1.2", "title": "Account security", "body_html": "<p>You are responsible for keeping your account credentials confidential and for all activity that occurs under your account.</p>" }
+  ]
+}

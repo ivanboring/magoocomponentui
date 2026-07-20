@@ -1,0 +1,15 @@
+{
+  "label": "Top picks",
+  "gap": "lg",
+  "lead": {
+    "image": "/stock/introduction.jpg",
+    "eyebrow": "Editor's pick",
+    "title": "Everything you can build this year",
+    "subtitle": "A quick tour of the features worth your time.",
+    "href": "#"
+  },
+  "items": [
+    { "image": "/stock/blog-voice-cloning.jpg", "eyebrow": "Product", "title": "Voice cloning for everyone", "subtitle": "Bring your own voice to every project.", "href": "#" },
+    { "image": "/stock/audio-studio-mic.jpg", "eyebrow": "Studio", "title": "Recording basics", "subtitle": "Capture a clean take on the first try.", "href": "#" }
+  ]
+}

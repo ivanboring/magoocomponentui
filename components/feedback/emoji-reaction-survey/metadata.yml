@@ -1,0 +1,82 @@
+name: "Emoji Reaction Survey"
+short_description: A row of big emoji faces for capturing a quick sentiment reaction to a question.
+long_visual_description: >
+  A centered card on the surface colour with a short question in the heading face and a row of large
+  emoji buttons below, each with a small caption. The buttons sit on plain surface until chosen; the
+  selected one lifts into a soft primary-tinted tile with a primary ring. Only one can be active at a
+  time.
+
+use_cases:
+  - Capture a fast sentiment reaction after a release or change.
+  - Ask how a feature made someone feel in a lightweight survey.
+  - Gather mood or satisfaction on a confirmation page.
+  - Collect quick reactions to content in a knowledge base ("Was this helpful?").
+  - Run a one-tap pulse check inside an app or email.
+  - Offer a friendlier alternative to a numeric scale for casual feedback.
+
+recommended_for:
+  - A single-choice emoji sentiment question.
+  - Casual, consumer-facing feedback moments.
+avoid_for:
+  - Precise measurement that needs a numeric scale (use nps-survey).
+  - Multi-select answers (use survey-question with kind multi).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a question and an options array (each { emoji, label, value, selected }). Preset one option's
+  selected to reflect a stored choice. Listen for the bubbling emoji:react event (detail.value is the
+  option's value) on a parent to persist the reaction.
+
+how_to_use: >
+  Each option button carries a data-value and a data-selected that drives the highlight
+  (data-[selected=true]:...), so a preset selection renders in screenshots with no JavaScript.
+  behavior.js selects the clicked option and clears the others, keeps aria-checked in sync, and
+  dispatches a bubbling "emoji:react" CustomEvent with { value }. The portable self-init reads no
+  props object.
+
+props:
+  question: "The prompt shown above the emoji row."
+  options: "The sentiment choices, each { emoji, label, value, selected }; only one selected."
+
+lifecycle: experimental
+content_model: A single-choice sentiment reaction picked from a small set of emoji options.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-ring
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the emoji set small (three to five) and evenly spaced from negative to positive. Pair each
+  face with a plain-word caption so meaning does not rest on the emoji alone.
+
+relationships:
+  related:
+    - feedback/nps-survey
+    - feedback/rating-prompt
+    - feedback/survey-question
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Surveys
+  atomic_type: molecule
+  usage_type: [highlight, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A labelled radiogroup of role="radio" buttons; each carries a text caption and accessible label and toggles aria-checked, so the reaction is not conveyed by emoji or colour alone.
+  keyboard_support: Each option is focusable and activates on Enter/Space with a visible focus ring.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,29 @@
+name: member-card
+props:
+  member_name:
+    type: string
+    required: true
+    title: Member name
+    description: The member's full name shown on the card.
+    example: "Jordan Rivera"
+  member_number:
+    type: string
+    required: true
+    title: Member number
+    description: The membership number, shown in a mono face.
+    example: "4821 0093 5567"
+  tier:
+    type: string
+    title: Tier
+    description: Optional membership tier shown as a badge (e.g. Gold, Platinum).
+    example: "Platinum"
+  points:
+    type: string
+    title: Points
+    description: Optional pre-formatted points balance shown on the card.
+    example: "12,480"
+  barcode:
+    type: string
+    title: Barcode number
+    description: Optional human-readable number printed under the barcode facade (the bars are decorative).
+    example: "4821 0093 5567"

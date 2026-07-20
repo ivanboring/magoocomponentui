@@ -1,0 +1,9 @@
+{
+  "symbol": "WBTC",
+  "name": "Wrapped Bitcoin",
+  "amount": "0.0412",
+  "value_usd": "$2,684.55",
+  "icon": "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2a8 8 0 100 16 8 8 0 000-16zM8 6h3.2a1.8 1.8 0 010 3.6H8zm0 4.4h3.6a1.8 1.8 0 010 3.6H8z'/></svg>",
+  "change_dir": "down",
+  "change": "-2.6%"
+}

@@ -1,0 +1,11 @@
+{
+  "heading": "How can I help?",
+  "subheading": "Ask a question, draft something, or start from an example below.",
+  "placeholder": "Ask anything…",
+  "examples": [
+    { "label": "Draft a launch email" },
+    { "label": "Summarise this article" },
+    { "label": "Plan a 3-day trip to Lisbon" },
+    { "label": "Explain quantum computing simply" }
+  ]
+}

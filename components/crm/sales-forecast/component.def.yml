@@ -1,0 +1,34 @@
+name: sales-forecast
+props:
+  quota:
+    type: string
+    required: true
+    title: Quota
+    description: The period quota target, preformatted (e.g. "$500k").
+    example: "$500k"
+  committed:
+    type: string
+    required: true
+    title: Committed
+    description: Committed / closed amount, preformatted.
+    example: "$320k"
+  best_case:
+    type: string
+    title: Best case
+    description: Optional best-case amount, preformatted.
+    example: "$430k"
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: >
+      The horizontal bars, drawn top to bottom. Each item:
+      { label, value, pct, color_class }. `value` is a preformatted amount string;
+      `pct` is the bar width as a whole number 0-100, PRECOMPUTED BY THE CALLER
+      (e.g. amount / quota * 100); `color_class` is a tokenized Tailwind background
+      utility (e.g. "bg-primary", "bg-success", "bg-info").
+    example:
+      - { label: "Committed", value: "$320k", pct: 64, color_class: "bg-primary" }
+      - { label: "Best case", value: "$430k", pct: 86, color_class: "bg-info" }
+      - { label: "Pipeline", value: "$610k", pct: 100, color_class: "bg-accent" }

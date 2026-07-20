@@ -1,0 +1,25 @@
+name: compliance-checklist
+props:
+  title:
+    type: string
+    default: "Compliance checklist"
+    title: Title
+    description: Heading shown above the checklist.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Requirements
+    description: >
+      The checklist rows, in order. Each item: { label, status, note }. status is one of "done",
+      "pending", or "failed" and drives the row's marker (a success check, a muted circle, or a
+      danger cross); note is optional muted supporting text.
+    example:
+      - { label: "Privacy policy published", status: "done", note: "Reviewed by legal on 12 Jun." }
+      - { label: "Data processing agreement signed", status: "pending" }
+      - { label: "Breach notification process", status: "failed", note: "No documented process yet." }
+  summary:
+    type: string
+    title: Summary
+    description: Optional footer line, e.g. a count of completed requirements.
+    example: "1 of 3 requirements met"

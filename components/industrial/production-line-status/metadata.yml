@@ -1,0 +1,81 @@
+name: "Production Line Status"
+short_description: A horizontal view of a production line's stations, each a status-coloured node with its throughput, connected in sequence.
+long_visual_description: >
+  A surface card with an optional line name above a horizontal row of connected station nodes. Each
+  station is a round node coloured by its status (green ok, amber warning, red down, muted idle) joined
+  to its neighbours by thin rails, with the station name and an optional throughput rate beneath it.
+  The row scrolls horizontally on narrow screens.
+
+use_cases:
+  - Live line overview on a plant-floor monitoring wall.
+  - Station-by-station status strip in a manufacturing dashboard.
+  - Andon-style display flagging which station is down.
+  - Process flow health summary in a shift report.
+  - Bottleneck view showing throughput dropping along the line.
+  - Supervisor board tracking every station on a line at once.
+
+recommended_for:
+  - Showing a whole line's stations and where a problem is, in sequence.
+  - Compact process-flow health on a dashboard or wall display.
+avoid_for:
+  - A single machine's detail (use machine-status-tile).
+  - Branching or non-linear process graphs (this is a linear sequence).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stations array in line order, each with a name, a status of ok, warning, down or idle, and an
+  optional preformatted throughput rate. The node colour is driven per station by a data-status
+  attribute, so any number of stations render with the right colour. Give the line a name to label it.
+
+props:
+  line_name: Optional name of the line, shown above the stations.
+  stations: The stations in order; each { name, status (ok, warning, down, idle), throughput }.
+
+example_prompts:
+  - "Show the status of assembly line 3 with a down station."
+  - "Add a production line status strip for the bottling line, all running."
+  - "Build a plant-floor line overview with throughput per station."
+
+lifecycle: experimental
+content_model: An optional line name and an ordered array of stations, each with a name, status and optional throughput.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  List stations in the real process order so the strip reads left to right like the line. Keep station
+  names short so they do not truncate, and pass throughput as a consistent rate unit across stations.
+
+relationships:
+  related:
+    - industrial/machine-status-tile
+    - industrial/oee-gauge
+    - industrial/work-order-card
+
+categorization:
+  category: Manufacturing
+  subcategory: Monitoring
+  atomic_type: organism
+  usage_type: [highlight, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each station's status is conveyed by its name and throughput text alongside the coloured node; the nodes and rails are decorative.
+  keyboard_support: None - static; the station row is keyboard-scrollable when focused.
+  seo_score: 30
+  text_direction: both

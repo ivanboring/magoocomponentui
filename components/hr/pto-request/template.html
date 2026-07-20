@@ -1,0 +1,27 @@
+<form class="pto-request rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="pto-request__title font-heading text-on-surface">Request time off</h3>
+  <div class="mt-4 flex flex-col gap-4">
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="font-medium text-on-surface">Leave type</span>
+      <select class="pto-request__type rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring">
+        <option data-for="type in types" value="{{ type.value }}">{{ type.label }}</option>
+      </select>
+    </label>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <label class="flex flex-col gap-1 text-sm">
+        <span class="font-medium text-on-surface">Start date</span>
+        <input type="date" class="pto-request__start rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      </label>
+      <label class="flex flex-col gap-1 text-sm">
+        <span class="font-medium text-on-surface">End date</span>
+        <input type="date" class="pto-request__end rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring">
+      </label>
+    </div>
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="font-medium text-on-surface">Reason</span>
+      <textarea rows="3" class="pto-request__reason rounded-control border border-border bg-surface px-3 py-2 text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="Optional note for your manager"></textarea>
+    </label>
+    <p data-if="balance" class="pto-request__balance text-sm text-on-surface-muted">{{ balance }}</p>
+    <button type="submit" class="pto-request__submit inline-flex items-center justify-center rounded-button bg-primary px-4 py-2 font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring">Submit request</button>
+  </div>
+</form>

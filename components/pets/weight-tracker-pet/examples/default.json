@@ -1,0 +1,8 @@
+{
+  "current_weight": "5.4",
+  "unit": "kg",
+  "change": "0.2 kg",
+  "change_dir": "down",
+  "ideal_range": "4.5-6.0 kg",
+  "spark_path": "M0 28 L20 30 L40 24 L60 26 L80 20 L100 18"
+}

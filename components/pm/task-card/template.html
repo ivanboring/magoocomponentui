@@ -1,0 +1,17 @@
+<article class="task-card rounded-card border border-border bg-surface p-4 shadow-card">
+  <span data-if="tag" class="task-card__tag mb-2 inline-block rounded-pill bg-surface-raised px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-on-surface-muted">{{ tag }}</span>
+  <h3 class="task-card__title font-heading text-sm text-on-surface">{{ title }}</h3>
+  <div class="task-card__footer mt-3 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-2">
+      <span data-if="priority" class="task-card__priority rounded-pill px-2 py-0.5 text-[11px] font-medium capitalize {{ priority@class }}">{{ priority }}</span>
+      <span data-if="subtasks_total" class="task-card__subtasks inline-flex items-center gap-1 text-xs tabular-nums text-on-surface-muted">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+        {{ subtasks_done }}/{{ subtasks_total }}
+      </span>
+    </div>
+    <div class="flex items-center gap-2">
+      <span data-if="due" class="task-card__due text-xs text-on-surface-muted">{{ due }}</span>
+      <span data-if="initials" class="task-card__avatar flex size-6 items-center justify-center rounded-pill bg-surface-raised text-[11px] font-medium text-on-surface-muted" aria-label="{{ assignee }}" title="{{ assignee }}">{{ initials }}</span>
+    </div>
+  </div>
+</article>

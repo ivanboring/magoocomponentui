@@ -1,0 +1,11 @@
+{
+  "title": "Complete your profile",
+  "percent": 60,
+  "steps": [
+    { "label": "Add a profile photo", "done": true },
+    { "label": "Verify your email", "done": true },
+    { "label": "Connect a calendar", "done": true },
+    { "label": "Invite a teammate", "done": false },
+    { "label": "Set up billing", "done": false }
+  ]
+}

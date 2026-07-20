@@ -1,0 +1,21 @@
+{
+  "label": "Keep exploring",
+  "cols_mobile": "1",
+  "cols_tablet": "2",
+  "cols_desktop": "4",
+  "peek": "md",
+  "gap": "md",
+  "loop": true,
+  "end_at_start": true,
+  "show_arrows": true,
+  "show_pager": false,
+  "show_image": true,
+  "items": [
+    { "image": "/stock/blog-api-streaming.jpg", "eyebrow": "Engineering", "title": "Streaming APIs", "subtitle": "Push updates to clients in real time.", "href": "#" },
+    { "image": "/stock/blog-voice-cloning.jpg", "eyebrow": "Product", "title": "Voice cloning", "subtitle": "Bring your own voice to every project.", "href": "#" },
+    { "image": "/stock/blog-dubbing.jpg", "eyebrow": "Tutorial", "title": "Automatic dubbing", "subtitle": "Localize a video into any language.", "href": "#" },
+    { "image": "/stock/audio-studio-mic.jpg", "eyebrow": "Studio", "title": "Recording basics", "subtitle": "Capture a clean take on the first try.", "href": "#" },
+    { "image": "/stock/cover-workspace.jpg", "eyebrow": "Guide", "title": "Getting started", "subtitle": "Set up your first project in minutes.", "href": "#" },
+    { "image": "/stock/introduction.jpg", "eyebrow": "Welcome", "title": "Introduction", "subtitle": "A quick tour of everything you can build.", "href": "#" }
+  ]
+}

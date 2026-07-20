@@ -1,0 +1,21 @@
+<section class="load-more-grid" aria-label="{{ label }}" data-initial="{{ initial }}" data-step="{{ step }}">
+  <div class="load-more-grid__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 {{ gap@class }}">
+    <article data-for="item in items" class="load-more-grid__item group relative flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+      <div data-if="item.image" class="load-more-grid__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+        <img class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+      </div>
+      <div data-if="!item.image" class="load-more-grid__media aspect-[3/2] shrink-0 bg-surface-raised"></div>
+      <div class="flex flex-1 flex-col gap-1 p-4">
+        <span data-if="item.eyebrow" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ item.eyebrow }}</span>
+        <h3 class="font-heading text-on-surface">
+          <a data-if="item.href" class="outline-none after:absolute after:inset-0 hover:underline focus-visible:underline" href="{{ item.href }}">{{ item.title }}</a>
+          <span data-if="!item.href">{{ item.title }}</span>
+        </h3>
+        <p data-if="item.subtitle" class="text-sm text-on-surface-muted">{{ item.subtitle }}</p>
+      </div>
+    </article>
+  </div>
+  <div class="mt-6 flex justify-center">
+    <button type="button" class="load-more-grid__more rounded-button border border-border bg-surface px-5 py-2.5 font-heading text-sm text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised">{{ button_label }}</button>
+  </div>
+</section>

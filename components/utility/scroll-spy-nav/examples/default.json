@@ -1,0 +1,9 @@
+{
+  "items": [
+    { "label": "Overview", "href": "#overview", "active": false },
+    { "label": "Installation", "href": "#installation", "active": true },
+    { "label": "Configuration", "href": "#configuration", "active": false },
+    { "label": "API reference", "href": "#api-reference", "active": false },
+    { "label": "Examples", "href": "#examples", "active": false }
+  ]
+}

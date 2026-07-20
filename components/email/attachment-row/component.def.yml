@@ -1,0 +1,27 @@
+name: attachment-row
+props:
+  name:
+    type: string
+    required: true
+    title: File name
+    description: The attachment's file name, including extension.
+    example: "quarterly-report.pdf"
+  size:
+    type: string
+    required: true
+    title: File size
+    description: Human-readable file size (pre-formatted by the caller, e.g. "2.4 MB").
+    example: "2.4 MB"
+  kind:
+    type: enum
+    values: [file, image, pdf, zip, doc]
+    default: file
+    title: File kind
+    description: The file category; sets the leading icon's colour tone.
+variants:
+  kind:
+    file: "text-on-surface-muted"
+    image: "text-info"
+    pdf: "text-danger"
+    zip: "text-warning"
+    doc: "text-primary"

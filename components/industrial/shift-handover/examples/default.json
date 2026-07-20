@@ -1,0 +1,12 @@
+{
+  "from_shift": "Day shift",
+  "to_shift": "Night shift",
+  "date": "18 Jul 2026, 18:00",
+  "signed_off": true,
+  "notes": [
+    { "category": "Safety", "text": "Guard on press 2 reported loose and tagged out - maintenance ticket raised.", "flag": true },
+    { "category": "Production", "text": "Order 4471 running ahead of schedule, 620 of 800 units complete.", "flag": false },
+    { "category": "Maintenance", "text": "Conveyor 3 bearing replaced at 14:20, running normally since.", "flag": false },
+    { "category": "Quality", "text": "Batch B-2209 held pending dimensional recheck on night shift.", "flag": true }
+  ]
+}

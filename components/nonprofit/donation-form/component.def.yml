@@ -1,0 +1,27 @@
+name: donation-form
+props:
+  amounts:
+    type: array
+    items: object
+    required: true
+    title: Preset amounts
+    description: >
+      The preset donation buttons, in order. Each item: { value, label, selected }. value is the
+      raw amount used in the donate:submit event (e.g. "25"); label is what the button shows (e.g.
+      "$25"); selected (optional boolean) pre-highlights that button on load. At most one item
+      should set selected: true.
+    example:
+      - { value: "25", label: "$25", selected: false }
+      - { value: "50", label: "$50", selected: true }
+      - { value: "100", label: "$100", selected: false }
+  frequency:
+    type: enum
+    values: ["one-time", "monthly"]
+    default: "one-time"
+    title: Frequency
+    description: Which giving cadence is selected on load in the One-time / Monthly toggle.
+  currency:
+    type: string
+    default: "$"
+    title: Currency symbol
+    description: Symbol shown in front of the custom amount input.

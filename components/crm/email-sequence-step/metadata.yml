@@ -1,0 +1,82 @@
+name: "Email Sequence Step"
+short_description: A single step in a sales email cadence, showing its order, subject, send delay, and delivery status.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and soft shadow. A round numbered
+  badge leads the row, the email subject in the heading face with an optional delay note muted
+  beneath it fills the middle, and a rounded status pill with a coloured dot sits at the trailing
+  edge - green for sent, blue for scheduled, muted for draft.
+
+use_cases:
+  - Row in a sales cadence or drip-sequence builder.
+  - Timeline of steps on an outreach campaign page.
+  - Preview of an automated nurture sequence.
+  - Onboarding email series overview.
+  - Follow-up cadence attached to a lead.
+  - Sequence step list in a sales-engagement tool.
+
+recommended_for:
+  - Ordered lists of emails in a multi-touch cadence.
+  - Showing per-step delivery status at a glance.
+avoid_for:
+  - Composing a single email (use an editor).
+  - Non-email tasks in a sequence (use task-followup-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several in order to render a cadence. Give each a step number, a subject, an optional
+  delay describing when it fires, and a status. The status colours the pill and its dot via the
+  status@class variant map.
+
+props:
+  step_number: Position of the step in the cadence, shown in the badge.
+  subject: The email subject line for this step.
+  delay: When the step fires relative to the previous one; optional.
+  status: Delivery state - sent, scheduled, or draft - which colours the pill.
+
+example_prompts:
+  - "Add step 1 of the cadence, subject 'Quick intro', sent."
+  - "Show a scheduled follow-up email as day 3 of the sequence."
+  - "List the outreach cadence steps with their statuses."
+
+relationships:
+  related:
+    - crm/task-followup-row
+    - crm/contact-list-row
+    - crm/note-composer
+
+lifecycle: experimental
+content_model: A cadence step with an order number, a subject, an optional delay, and a delivery status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep subjects realistic and short - they are the scannable part. Set the status honestly so the
+  colour and its label agree; the dot and the word together mean colour is never the only cue.
+  Use the delay to tell the reader the cadence rhythm, e.g. "Day 1", "3 days later".
+
+categorization:
+  category: CRM & Sales
+  subcategory: Sequences
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by pill text plus a dot, not colour alone; the numbered badge is decorative and hidden from assistive tech.
+  keyboard_support: None - static, non-interactive row.
+  seo_score: 30
+  text_direction: both

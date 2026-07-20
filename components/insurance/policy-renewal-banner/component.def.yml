@@ -1,0 +1,30 @@
+name: policy-renewal-banner
+props:
+  policy:
+    type: string
+    title: Policy name
+    description: An optional policy name or number shown as an eyebrow above the renewal line.
+    example: "Auto - POL-4821"
+  renewal_date:
+    type: string
+    required: true
+    title: Renewal date
+    description: The pre-formatted renewal date, e.g. "March 14, 2026".
+    example: "March 14, 2026"
+  days_left:
+    type: integer
+    title: Days left
+    description: An optional number of days remaining until renewal.
+    example: 12
+  level:
+    type: enum
+    values: [info, warning, urgent]
+    default: info
+    title: Urgency
+    description: The urgency band; drives the banner's tint and border (info, warning, urgent).
+    example: warning
+variants:
+  level:
+    info: "bg-info/10 text-info border-info/30"
+    warning: "bg-warning/10 text-warning border-warning/30"
+    urgent: "bg-danger/10 text-danger border-danger/30"

@@ -1,0 +1,87 @@
+name: "Bubble Chart Shell"
+short_description: A card-framed bubble-chart skeleton that plots precomputed x/y points sized by a third value.
+long_visual_description: >
+  A surface card with a title header and an optional legend. The plot area shows translucent
+  circles placed at precomputed x/y positions and sized by a precomputed radius, so each bubble
+  encodes three values at once. Bubbles default to the primary colour but can be tinted per point
+  with an accent or success tone. A y-axis label column runs down the left and x-axis labels along
+  the bottom. All geometry is supplied precomputed.
+
+use_cases:
+  - Plot three metrics at once (x, y, and size) such as reach, engagement, and revenue.
+  - Market-position or opportunity map on a dashboard.
+  - Product or portfolio mix by volume, margin, and size.
+  - Segment comparison where a third dimension matters.
+  - A skeleton to drop a real charting library into.
+  - Placeholder chart in a prototype before wiring live data.
+
+recommended_for:
+  - Three-dimensional comparisons where bubble size carries meaning.
+  - Cases where the caller can precompute x, y, and radius.
+avoid_for:
+  - Two-dimensional comparison only (use scatter-plot-shell).
+  - Many overlapping bubbles (readability drops sharply).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each bubble's x_pct, y_pct, and r_pct in a 0-100 cartesian viewBox (y grows
+  downward), scaling the radius from the third value. Optionally set a per-bubble tone (primary,
+  accent, success). Drop a real chart in place of the SVG markup.
+
+props:
+  title: The chart title shown in the header.
+  points: The bubbles, each with precomputed x_pct, y_pct, r_pct, an optional label, and an optional tone.
+  y_labels: Y-axis tick labels, top to bottom.
+  x_labels: X-axis tick labels, left to right.
+
+example_prompts:
+  - "Add a bubble chart of market position sized by revenue."
+  - "Show a product mix bubble chart with three tinted bubbles."
+  - "Put an opportunity-map bubble chart shell in the dashboard."
+
+relationships:
+  related:
+    - dataviz/scatter-plot-shell
+    - dataviz/line-chart-shell
+    - dataviz/bar-chart-shell
+    - dataviz/chart-legend
+    - dataviz/chart-tooltip
+    - dataviz/axis-controls
+
+lifecycle: experimental
+content_model: A title, a set of precomputed x/y/radius bubbles with optional tones, and axis labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Every bubble's position and radius is precomputed by the caller by mapping three values onto the
+  axes and a size scale - the shell ships no charting math or JS. Use the tone field sparingly to
+  group or highlight bubbles, and supply realistic sizes so the skeleton reads as a genuine chart.
+  The skeleton renders directly from the precomputed data; for a live, interactive chart, a real
+  charting library replaces the SVG markup, and the skeleton then acts as the themed card frame.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; axis labels are real text. Provide a data-table alternative for the bubbles in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

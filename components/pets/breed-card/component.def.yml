@@ -1,0 +1,29 @@
+name: breed-card
+props:
+  breed:
+    type: string
+    required: true
+    title: Breed
+    example: "Border Collie"
+  species:
+    type: string
+    title: Species
+    example: "Dog"
+  image:
+    type: string
+    title: Image
+    description: "URL of the breed image. Falls back to a paw glyph tile when empty."
+  size:
+    type: string
+    title: Size
+    example: "Medium"
+  temperament:
+    type: array
+    items: string
+    title: Temperament
+    description: "Trait chips, e.g. Energetic, Smart, Loyal."
+    example: ["Energetic", "Smart", "Loyal"]
+  lifespan:
+    type: string
+    title: Lifespan
+    example: "12-15 years"

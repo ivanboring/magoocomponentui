@@ -1,0 +1,8 @@
+{
+  "name": "Priya Nair",
+  "role": "Independent Brand Strategist",
+  "intro_html": "<p>I help founders find the words for what they're building, then turn those words into a brand that carries across everything they ship.</p>",
+  "ctas": [
+    { "label": "Read case studies", "href": "#", "primary": true }
+  ]
+}

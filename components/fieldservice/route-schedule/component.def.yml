@@ -1,0 +1,19 @@
+name: route-schedule
+props:
+  date:
+    type: string
+    title: Date
+    description: The day the route covers, preformatted for display.
+    example: "Friday, Jul 24"
+  jobs:
+    type: array
+    items: object
+    required: true
+    title: Jobs
+    description: >
+      The day's stops in order. Each job: { time, customer, service, address, status } where
+      service and address are optional and status is one of done | current | upcoming.
+    example:
+      - { time: "8:00 AM", customer: "Acme Bakery", service: "HVAC tune-up", address: "142 Maple Ave", status: "done" }
+      - { time: "10:30 AM", customer: "Riverside Apartments", service: "Leak repair", address: "88 Dockside Rd", status: "current" }
+      - { time: "1:00 PM", customer: "Green Grocer", service: "Freezer service", address: "5 Market St", status: "upcoming" }

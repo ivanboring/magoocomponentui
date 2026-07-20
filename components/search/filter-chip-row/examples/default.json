@@ -1,0 +1,9 @@
+{
+  "clear_label": "Clear all",
+  "chips": [
+    { "label": "Category: Guides", "value": "category:guides" },
+    { "label": "Product: SDK", "value": "product:sdk" },
+    { "label": "Updated: Past month", "value": "updated:month" },
+    { "label": "Language: English", "value": "lang:en" }
+  ]
+}

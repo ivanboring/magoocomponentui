@@ -1,0 +1,8 @@
+<div class="birthday-reward rounded-card border border-primary/20 bg-primary/10 p-(--space-card) text-center shadow-card">
+  <span class="mx-auto flex size-12 items-center justify-center rounded-pill bg-primary text-primary-contrast" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21h16v-8H4v8Zm0-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M12 7v4M12 7a2 2 0 1 0-2-2c0 1 2 2 2 2Zm0 0a2 2 0 1 0 2-2c0 1-2 2-2 2Z"/></svg>
+  </span>
+  <p data-if="message" class="mt-3 font-heading text-lg text-on-surface">{{ message }}</p>
+  <p data-if="reward" class="mx-auto mt-3 inline-block rounded-pill bg-surface px-4 py-1.5 text-sm font-medium text-primary shadow-card">{{ reward }}</p>
+  <p data-if="expires" class="mt-3 text-xs text-on-surface-muted">{{ expires }}</p>
+</div>

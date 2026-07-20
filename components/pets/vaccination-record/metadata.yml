@@ -1,0 +1,79 @@
+name: "Vaccination Record"
+short_description: A pet shots history card listing each vaccine with its date, next due date, and a colour-coded status pill.
+long_visual_description: >
+  A card on the surface colour headed by a syringe glyph, the words Vaccination record, and an
+  optional pet name. Below sits a divided list where each row shows the vaccine name in the heading
+  face, a muted given date and optional next due date, and a rounded status pill on the trailing
+  edge. The pill colour tracks status: green for current, amber for due, red for overdue.
+
+use_cases:
+  - Vaccination summary on a pet health dashboard.
+  - Immunization history inside a vet patient record.
+  - Boarding or daycare proof-of-vaccination checklist.
+  - Travel or pet passport shots overview.
+  - Reminder surface highlighting overdue booster shots.
+  - Shelter intake vaccination status list.
+
+recommended_for:
+  - Listing several vaccines with per-row status at a glance.
+  - Surfacing which shots are current, due, or overdue.
+avoid_for:
+  - A single upcoming appointment (use vet-appointment).
+  - A pet identity summary (use pet-profile-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a vaccines array, each with a name, a given date, an optional next due date, and a status
+  of current, due, or overdue. The status pill colour is set from that value per row.
+
+props:
+  pet: Optional pet name shown after the header title.
+  vaccines: The shots history rows, each with a name, date, optional next_due, and status.
+
+example_prompts:
+  - Show a vaccination record listing rabies and distemper with statuses.
+  - Add a shots history card that flags an overdue booster.
+  - List my dog immunizations with next due dates.
+
+lifecycle: experimental
+content_model: An optional pet name and a list of vaccines, each with a name, date, optional next due date, and a status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Order rows so overdue and due shots surface first. Keep vaccine names short and dates in a
+  single consistent format across rows.
+
+relationships:
+  related:
+    - pets/pet-profile-card
+    - pets/vet-appointment
+    - pets/pet-health-timeline
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Records
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text and colour together, not colour alone; the header glyph is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

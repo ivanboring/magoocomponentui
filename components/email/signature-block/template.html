@@ -1,0 +1,22 @@
+<div class="signature-block flex items-start gap-4 border-l-2 border-primary pl-4 font-body text-on-surface">
+  <img data-if="avatar" class="signature-block__avatar size-14 shrink-0 rounded-full object-cover" src="{{ avatar }}" alt="">
+  <div class="min-w-0">
+    <p class="signature-block__name font-heading font-semibold text-on-surface">{{ name }}</p>
+    <p data-if="title" class="text-sm text-on-surface-muted">{{ title }}</p>
+    <p data-if="company" class="text-sm font-medium text-on-surface-muted">{{ company }}</p>
+    <div class="signature-block__contact mt-2 flex flex-col gap-1 text-sm">
+      <a data-if="phone" class="flex items-center gap-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="tel:{{ phone }}">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 3h3l1.5 4-2 1.5a11 11 0 005 5l1.5-2 4 1.5V17a1 1 0 01-1 1A14 14 0 013 5a1 1 0 011-2z"/></svg>
+        {{ phone }}
+      </a>
+      <a data-if="email" class="flex items-center gap-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="mailto:{{ email }}">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 6l7 5 7-5"/></svg>
+        {{ email }}
+      </a>
+      <a data-if="website" class="flex items-center gap-2 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" href="{{ website }}">
+        <svg class="size-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2.2 2.4 2.2 12.6 0 15M10 2.5c-2.2 2.4-2.2 12.6 0 15"/></svg>
+        {{ website }}
+      </a>
+    </div>
+  </div>
+</div>

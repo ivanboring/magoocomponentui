@@ -1,0 +1,13 @@
+{
+  "title": "Market position",
+  "y_labels": ["High", "", "Mid", "", "Low"],
+  "x_labels": ["Small", "", "Medium", "", "Large"],
+  "points": [
+    { "x_pct": 22, "y_pct": 66, "r_pct": 7, "label": "Alpha", "tone": "primary" },
+    { "x_pct": 38, "y_pct": 44, "r_pct": 11, "label": "Bravo", "tone": "accent" },
+    { "x_pct": 54, "y_pct": 58, "r_pct": 6, "label": "Carta", "tone": "primary" },
+    { "x_pct": 66, "y_pct": 34, "r_pct": 13, "label": "Delta", "tone": "success" },
+    { "x_pct": 78, "y_pct": 52, "r_pct": 8, "label": "Echo", "tone": "primary" },
+    { "x_pct": 86, "y_pct": 26, "r_pct": 5, "label": "Foxtrot", "tone": "accent" }
+  ]
+}

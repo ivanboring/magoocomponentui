@@ -1,0 +1,14 @@
+name: feedback-widget
+props:
+  label:
+    type: string
+    default: "Feedback"
+    title: Launcher label
+    description: Text on the floating launcher button that opens the feedback panel.
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: >
+      Whether the feedback panel is open on load. Sets the root's data-open attribute; the panel
+      reveal is pure CSS via group-data-[open=true], so the open state renders with no JavaScript.

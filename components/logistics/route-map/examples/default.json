@@ -1,0 +1,10 @@
+{
+  "stops": [
+    { "label": "Depot", "order": 1, "status": "done" },
+    { "label": "Elm St", "order": 2, "status": "done" },
+    { "label": "5th Ave", "order": 3, "status": "current" },
+    { "label": "Pier 9", "order": 4, "status": "upcoming" }
+  ],
+  "total_distance": "42 mi",
+  "total_time": "1 hr 20 min"
+}

@@ -1,0 +1,10 @@
+{
+  "total": "$142.50",
+  "period": "monthly",
+  "discount": "-$18.00",
+  "line_items": [
+    { "label": "Base cover", "amount": "$120.00" },
+    { "label": "Roadside assistance", "amount": "$12.50" },
+    { "label": "Taxes and fees", "amount": "$28.00" }
+  ]
+}

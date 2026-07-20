@@ -1,0 +1,17 @@
+<section class="order-book-ladder rounded-card border border-border bg-surface p-(--space-card) shadow-card" role="group" aria-label="{{ title }}">
+  <header data-if="title" class="order-book-ladder__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="font-heading text-on-surface">{{ title }}</h3>
+  </header>
+  <div class="order-book-ladder__cols grid grid-cols-3 border-b border-border pb-1.5 text-[11px] font-medium uppercase tracking-wide text-on-surface-muted">
+    <span class="text-left">Bid size</span>
+    <span class="text-center">Price</span>
+    <span class="text-right">Ask size</span>
+  </div>
+  <ul class="order-book-ladder__rows mt-1 flex flex-col">
+    <li data-for="row in rows" class="order-book-ladder__row grid grid-cols-3 items-center rounded-control text-sm data-[spread=true]:my-0.5 data-[spread=true]:bg-surface-raised" data-spread="{{ row.is_spread }}">
+      <span class="order-book-ladder__bid rounded-l-control px-2 py-1 text-left font-mono tabular-nums text-success data-[has=true]:bg-success/10" data-has="{{ row.bid_size }}">{{ row.bid_size }}</span>
+      <span class="order-book-ladder__price px-2 py-1 text-center font-mono tabular-nums text-on-surface data-[spread=true]:font-semibold data-[spread=true]:text-on-surface-muted" data-spread="{{ row.is_spread }}">{{ row.price }}</span>
+      <span class="order-book-ladder__ask rounded-r-control px-2 py-1 text-right font-mono tabular-nums text-danger data-[has=true]:bg-danger/10" data-has="{{ row.ask_size }}">{{ row.ask_size }}</span>
+    </li>
+  </ul>
+</section>

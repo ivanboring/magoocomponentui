@@ -1,0 +1,83 @@
+name: "Notification Preferences"
+short_description: A matrix of notification types against Email, Push, and SMS channels, each cell a toggle switch.
+long_visual_description: >
+  A bordered card holding a table. The header row reads Notification, Email, Push, SMS. Each body row
+  names a notification type on the left and places three pill toggle switches across the channel
+  columns; an on switch fills with the primary colour and slides its knob to the right. The table
+  scrolls horizontally on very narrow screens.
+
+use_cases:
+  - A notification settings page controlling channels per event type.
+  - Letting users choose email vs push vs SMS per alert.
+  - Managing marketing, security, and product notification opt-ins.
+  - Per-workspace notification routing preferences.
+  - Digest and mention settings across channels.
+  - An account preferences matrix for communication.
+
+recommended_for:
+  - Notification and communication settings screens.
+  - Any many-types-by-few-channels on/off matrix.
+avoid_for:
+  - A single on/off setting (use a toggle row).
+  - More than a few channels (a wide matrix stops fitting; rethink the layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a rows array; each row has a label and email/push/sms booleans for the initial switch states.
+  Listen for prefs:change to persist edits. Keep the row labels to recognisable event names.
+
+how_to_use: >
+  Each cell is a role="switch" button carrying data-channel and a data-state boolean mirrored onto
+  its knob; the primary track fill and knob position are driven by data-[state=true] variants, so the
+  initial state renders with no JavaScript (and in screenshots). behavior.js flips data-state and
+  aria-checked on click and dispatches a bubbling prefs:change CustomEvent with detail { label,
+  channel, on }. The portable self-init reads config from the DOM (no props object) and removes all
+  listeners on teardown.
+
+props:
+  rows: "One row per notification type. Each: label (the event name) and email, push, sms booleans for the initial switch states."
+
+example_prompts:
+  - "Add a notification preferences matrix with Email, Push, and SMS columns."
+  - "Show notification settings for product updates, security alerts, and digests."
+  - "Let users toggle each alert type across email, push, and SMS."
+
+lifecycle: experimental
+content_model: A set of notification types, each with an on/off state for the email, push, and SMS channels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Name rows by the event the user recognises (Security alerts, Weekly digest), not the system topic.
+  Keep security-critical notifications on by default across channels.
+
+relationships:
+  related:
+    - forms/form-field-toggle
+    - saas/team-member-row
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Preferences
+  atomic_type: organism
+  usage_type: [form, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each switch is a role="switch" with aria-checked and an aria-label naming its channel and row; state is conveyed by position and label, not colour alone.
+  keyboard_support: Each switch is focusable and toggles on Enter/Space.
+  seo_score: 15
+  text_direction: both

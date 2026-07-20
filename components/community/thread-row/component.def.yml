@@ -1,0 +1,40 @@
+name: thread-row
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "How do I reset my API token?"
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Katherine J."
+  replies:
+    type: string
+    required: true
+    title: Replies
+    description: Pre-formatted reply count.
+    example: "7"
+  views:
+    type: string
+    title: Views
+    description: Optional pre-formatted view count.
+    example: "312"
+  last_activity:
+    type: string
+    required: true
+    title: Last activity
+    description: Pre-formatted relative time of the most recent reply.
+    example: "12m ago"
+  pinned:
+    type: boolean
+    default: false
+    title: Pinned
+    description: Highlights the row and shows a pin icon.
+  tags:
+    type: array
+    items: string
+    title: Tags
+    description: Optional label chips shown under the title.
+    example: ["help", "api"]

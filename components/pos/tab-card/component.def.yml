@@ -1,0 +1,39 @@
+name: tab-card
+props:
+  name:
+    type: string
+    required: true
+    title: Guest name
+    description: The guest or party name the tab is opened under.
+    example: "Jordan Lee"
+  total:
+    type: string
+    required: true
+    title: Running total
+    description: The preformatted running total for the tab, including currency.
+    example: "$84.50"
+  tab_number:
+    type: string
+    title: Tab number
+    description: Optional tab or check identifier.
+    example: "Tab 07"
+  items_count:
+    type: string
+    title: Item count
+    description: Optional preformatted count of items on the tab (e.g. "6 items").
+    example: "6 items"
+  opened_at:
+    type: string
+    title: Opened at
+    description: Optional preformatted time the tab was opened.
+    example: "6:12 PM"
+  avatar:
+    type: image
+    title: Avatar image
+    description: Optional guest photo URL. When absent, the initials fallback is shown.
+    example: "/stock/avatar-man-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: Fallback initials shown when no avatar image is provided. Precompute from the name.
+    example: "JL"

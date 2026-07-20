@@ -1,0 +1,24 @@
+<div class="price-ticker-tape group relative overflow-hidden rounded-control border border-border bg-surface" role="group" aria-label="{{ label }}" data-speed="{{ speed }}">
+  <div class="price-ticker-tape__track flex w-max items-stretch will-change-transform">
+    <div class="price-ticker-tape__group flex shrink-0 items-stretch">
+      <span data-for="q in quotes" class="price-ticker-tape__item flex shrink-0 items-center gap-2 whitespace-nowrap border-r border-border px-4 py-2 text-sm">
+        <span class="font-mono font-semibold text-on-surface">{{ q.symbol }}</span>
+        <span class="tabular-nums text-on-surface-muted">{{ q.price }}</span>
+        <span class="price-ticker-tape__change inline-flex items-center gap-0.5 font-medium tabular-nums data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ q.change_dir }}">
+          <svg class="size-3 data-[dir=down]:rotate-180" data-dir="{{ q.change_dir }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
+          {{ q.change_pct }}
+        </span>
+      </span>
+    </div>
+    <div class="price-ticker-tape__group flex shrink-0 items-stretch" aria-hidden="true">
+      <span data-for="q in quotes" class="price-ticker-tape__item flex shrink-0 items-center gap-2 whitespace-nowrap border-r border-border px-4 py-2 text-sm">
+        <span class="font-mono font-semibold text-on-surface">{{ q.symbol }}</span>
+        <span class="tabular-nums text-on-surface-muted">{{ q.price }}</span>
+        <span class="price-ticker-tape__change inline-flex items-center gap-0.5 font-medium tabular-nums data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ q.change_dir }}">
+          <svg class="size-3 data-[dir=down]:rotate-180" data-dir="{{ q.change_dir }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M5 10l5-5 5 5"/></svg>
+          {{ q.change_pct }}
+        </span>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{
+  "method": "get",
+  "url": "https://api.example.com/v1/charges?limit=3",
+  "sample_response": "HTTP/1.1 200 OK\n\n{\n  \"object\": \"list\",\n  \"has_more\": true,\n  \"data\": [\n    { \"id\": \"ch_1M8a\", \"amount\": 4200, \"status\": \"succeeded\" }\n  ]\n}"
+}

@@ -1,0 +1,14 @@
+name: did-you-mean
+props:
+  query:
+    type: string
+    required: true
+    title: Original query
+    description: The term the user actually typed, offered as a "search instead" fallback.
+    example: "recieve payments"
+  suggestion:
+    type: string
+    required: true
+    title: Suggested query
+    description: The corrected term to promote, shown as an emphasized link.
+    example: "receive payments"

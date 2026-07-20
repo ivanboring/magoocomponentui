@@ -1,0 +1,40 @@
+name: rating-slider
+props:
+  label:
+    type: string
+    title: Label
+    description: Optional label shown above the slider and used as the input's accessible name.
+    example: "How likely are you to recommend us?"
+  min:
+    type: string
+    default: "0"
+    title: Min
+    description: Minimum value of the range input.
+  max:
+    type: string
+    default: "10"
+    title: Max
+    description: Maximum value of the range input.
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The current value, shown in the bubble and set on the range input.
+    example: "7"
+  fill_pct:
+    type: string
+    required: true
+    title: Fill percent
+    description: >
+      Precomputed track fill as a percentage (no unit), i.e. (value - min) / (max - min) * 100.
+      The directive language does no arithmetic, so pass the computed number (e.g. 70 for 7 of
+      0-10). behavior.js recomputes it live as the user drags.
+    example: "70"
+  bubble_left:
+    type: string
+    required: true
+    title: Bubble position percent
+    description: >
+      Precomputed horizontal position of the value bubble and thumb as a percentage (no unit),
+      normally the same as fill_pct. behavior.js recomputes it live as the user drags.
+    example: "70"

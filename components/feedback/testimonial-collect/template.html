@@ -1,0 +1,33 @@
+<form class="testimonial-collect flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-rating="0" aria-label="{{ heading }}">
+  <div class="flex flex-col gap-1">
+    <h3 class="testimonial-collect__heading font-heading text-on-surface">{{ heading }}</h3>
+    <p data-if="prompt" class="text-sm text-on-surface-muted">{{ prompt }}</p>
+  </div>
+
+  <div class="testimonial-collect__stars flex items-center gap-1" role="radiogroup" aria-label="Rating">
+    <button type="button" class="testimonial-collect__star text-border transition-colors duration-(--duration-token) hover:text-warning data-[active=true]:text-warning" data-star-value="1" role="radio" aria-checked="false" aria-label="1 star">
+      <svg class="size-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9z"/></svg>
+    </button>
+    <button type="button" class="testimonial-collect__star text-border transition-colors duration-(--duration-token) hover:text-warning data-[active=true]:text-warning" data-star-value="2" role="radio" aria-checked="false" aria-label="2 stars">
+      <svg class="size-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9z"/></svg>
+    </button>
+    <button type="button" class="testimonial-collect__star text-border transition-colors duration-(--duration-token) hover:text-warning data-[active=true]:text-warning" data-star-value="3" role="radio" aria-checked="false" aria-label="3 stars">
+      <svg class="size-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9z"/></svg>
+    </button>
+    <button type="button" class="testimonial-collect__star text-border transition-colors duration-(--duration-token) hover:text-warning data-[active=true]:text-warning" data-star-value="4" role="radio" aria-checked="false" aria-label="4 stars">
+      <svg class="size-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9z"/></svg>
+    </button>
+    <button type="button" class="testimonial-collect__star text-border transition-colors duration-(--duration-token) hover:text-warning data-[active=true]:text-warning" data-star-value="5" role="radio" aria-checked="false" aria-label="5 stars">
+      <svg class="size-6" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.6l1-5.8L1.5 7.7l5.9-.9z"/></svg>
+    </button>
+  </div>
+
+  <div class="grid gap-3 sm:grid-cols-2">
+    <input type="text" class="testimonial-collect__name w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ name_placeholder }}" aria-label="{{ name_placeholder }}">
+    <input type="text" class="testimonial-collect__role w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ role_placeholder }}" aria-label="{{ role_placeholder }}">
+  </div>
+
+  <textarea class="testimonial-collect__message min-h-24 w-full resize-y rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" placeholder="{{ message_placeholder }}" aria-label="Testimonial"></textarea>
+
+  <button type="submit" class="testimonial-collect__submit inline-flex items-center justify-center rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{{ submit_label }}</button>
+</form>

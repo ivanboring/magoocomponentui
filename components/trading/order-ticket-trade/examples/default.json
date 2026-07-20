@@ -1,0 +1,8 @@
+{
+  "symbol": "AAPL",
+  "side": "buy",
+  "order_type": "Market",
+  "quantity": "10",
+  "price": "189.40",
+  "estimated_cost": "$1,894.00"
+}

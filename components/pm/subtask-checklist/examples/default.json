@@ -1,0 +1,10 @@
+{
+  "title": "Subtasks",
+  "done_count": "1",
+  "total_count": "3",
+  "items": [
+    { "label": "Write the migration", "done": true },
+    { "label": "Backfill existing rows", "done": false },
+    { "label": "Add a rollback path", "done": false }
+  ]
+}

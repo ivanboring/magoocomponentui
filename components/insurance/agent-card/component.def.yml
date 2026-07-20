@@ -1,0 +1,39 @@
+name: agent-card
+props:
+  name:
+    type: string
+    required: true
+    title: Agent name
+    description: The agent's full name.
+    example: "Dana Reyes"
+  title:
+    type: string
+    title: Title
+    description: The agent's role or title, shown under the name.
+    example: "Licensed Insurance Agent"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar image
+    description: URL of the agent's headshot. When set it replaces the initials fallback.
+    example: "/stock/agent-portrait.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: Precomputed initials shown in the avatar circle when no avatar image is set (e.g. "DR").
+    example: "DR"
+  phone:
+    type: string
+    title: Phone
+    description: Phone number for the call button; used to build a tel link.
+    example: "+15125550142"
+  email:
+    type: string
+    title: Email
+    description: Email address for the email button; used to build a mailto link.
+    example: "dana.reyes@example.com"
+  rating:
+    type: string
+    title: Rating
+    description: Precomputed rating text shown beside a star (e.g. "4.9" or "4.9 (128)").
+    example: "4.9"

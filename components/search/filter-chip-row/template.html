@@ -1,0 +1,9 @@
+<div class="filter-chip-row flex flex-wrap items-center gap-2" role="group" aria-label="Active filters">
+  <span data-for="chip in chips" class="filter-chip-row__chip inline-flex items-center gap-1.5 rounded-pill bg-surface-raised px-3 py-1 text-sm text-on-surface">
+    {{ chip.label }}
+    <button type="button" class="filter-chip-row__remove -mr-1 flex size-4 shrink-0 items-center justify-center rounded-pill text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-border hover:text-on-surface" data-value="{{ chip.value }}" aria-label="Remove filter">
+      <svg class="size-3" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+    </button>
+  </span>
+  <button data-if="chips" type="button" class="filter-chip-row__clear rounded-control px-2 py-1 text-sm text-on-surface-muted underline-offset-2 transition-colors duration-(--duration-token) hover:text-on-surface hover:underline">{{ clear_label }}</button>
+</div>

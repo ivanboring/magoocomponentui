@@ -1,0 +1,39 @@
+name: gantt-row
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The task or phase name shown at the start of the row.
+    example: "Design system"
+  bar_left:
+    type: string
+    required: true
+    title: Bar left (%)
+    description: >
+      Precomputed left offset of the bar as a percentage (0-100) of the track width. The caller
+      maps the task's start date onto the timeline; the row only positions the bar. Passed as a
+      number without the percent sign (e.g. "12").
+    example: "12"
+  bar_width:
+    type: string
+    required: true
+    title: Bar width (%)
+    description: >
+      Precomputed width of the bar as a percentage (0-100) of the track width, from the task's
+      duration. Passed as a number without the percent sign (e.g. "34").
+    example: "34"
+  color_class:
+    type: string
+    default: "bg-primary"
+    title: Bar colour class
+    description: >
+      A tokenized background utility for the bar (bg-primary, bg-secondary, bg-accent, bg-success,
+      bg-warning, bg-danger, bg-info). Defaults to bg-primary. Every allowed value is present in a
+      hidden safelist span so Tailwind compiles it.
+    example: "bg-primary"
+  dates:
+    type: string
+    title: Dates
+    description: Optional human-readable date range shown after the label.
+    example: "Mar 3 - Mar 21"

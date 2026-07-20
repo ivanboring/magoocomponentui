@@ -1,0 +1,34 @@
+name: approval-request-row
+props:
+  requester:
+    type: string
+    required: true
+    title: Requester
+    description: The person who submitted the request.
+    example: "Priya Raman"
+  initials:
+    type: string
+    title: Initials
+    description: One or two precomputed initials for the requester's avatar circle.
+    example: "PR"
+  type:
+    type: string
+    required: true
+    title: Request type
+    description: The kind of request, e.g. "Time off" or "Expense".
+    example: "Time off"
+  detail:
+    type: string
+    title: Detail
+    description: A short supporting line, e.g. the dates or purpose.
+    example: "Mar 4 - Mar 8, vacation"
+  date:
+    type: string
+    title: Date
+    description: Preformatted submission or requested date.
+    example: "Submitted Feb 20"
+  amount:
+    type: string
+    title: Amount
+    description: Preformatted amount for expense-type requests, e.g. "$420.00".
+    example: "$420.00"

@@ -1,0 +1,77 @@
+name: "Route Schedule"
+short_description: A technician's day laid out as a vertical timeline of scheduled stops with per-stop status.
+long_visual_description: >
+  A surface card headed by the day's date. Below it, a vertical timeline connects the day's stops:
+  each stop has a status dot on a running line (done stops filled green with a check, the current
+  stop ringed in the primary colour, upcoming stops muted) beside a time, customer, service and
+  address.
+
+use_cases:
+  - A technician's daily route on a mobile app.
+  - Dispatcher view of one technician's planned day.
+  - Timeline of visits with the current stop highlighted.
+  - Day sheet printed or shown before a shift.
+  - Progress view of a route as stops are completed.
+
+recommended_for:
+  - One technician's ordered stops for a single day.
+  - Showing which stop is current versus done or upcoming.
+avoid_for:
+  - A single job summary (use job-dispatch-card).
+  - A bookable appointment slot (use service-appointment).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an optional date for the header and jobs as an ordered array of { time, customer, service,
+  address, status }; status is one of done, current or upcoming, which drives each stop's dot and
+  the connecting line.
+
+props:
+  date: "Preformatted day the route covers, shown in the header."
+  jobs: "Ordered stops, each { time, customer, service, address, status }; status is done, current or upcoming."
+
+example_prompts:
+  - "Show today's route with stops and the current job highlighted."
+  - "Add a day schedule timeline for a technician's visits."
+
+lifecycle: experimental
+content_model: An ordered list of a day's field-service stops with times, customers and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Order stops by time and keep exactly one stop marked current. Mark stops done as the day
+  progresses so the filled line shows how much of the route is complete at a glance.
+
+relationships:
+  related:
+    - fieldservice/job-dispatch-card
+    - fieldservice/technician-card
+    - fieldservice/service-appointment
+
+categorization:
+  category: Field Service
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [timeline, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The ordered list conveys sequence; stop status is shown by a check icon, a ring and text emphasis, not colour alone. Dot glyphs are decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

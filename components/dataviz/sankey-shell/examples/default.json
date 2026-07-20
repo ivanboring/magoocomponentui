@@ -1,0 +1,16 @@
+{
+  "title": "Signup funnel flow",
+  "nodes": [
+    { "x_pct": "2", "y_pct": "8", "w_pct": "4", "h_pct": "24", "label": "Direct", "label_x": "4", "label_y": "5", "label_anchor": "middle", "color_class": "fill-primary" },
+    { "x_pct": "2", "y_pct": "40", "w_pct": "4", "h_pct": "20", "label": "Referral", "label_x": "4", "label_y": "37", "label_anchor": "middle", "color_class": "fill-accent" },
+    { "x_pct": "2", "y_pct": "68", "w_pct": "4", "h_pct": "24", "label": "Search", "label_x": "4", "label_y": "65", "label_anchor": "middle", "color_class": "fill-success" },
+    { "x_pct": "94", "y_pct": "12", "w_pct": "4", "h_pct": "34", "label": "Signup", "label_x": "96", "label_y": "9", "label_anchor": "middle", "color_class": "fill-info" },
+    { "x_pct": "94", "y_pct": "54", "w_pct": "4", "h_pct": "34", "label": "Bounce", "label_x": "96", "label_y": "51", "label_anchor": "middle", "color_class": "fill-warning" }
+  ],
+  "links": [
+    { "path": "M6,20 C50,20 50,24 94,24", "color_class": "stroke-primary" },
+    { "path": "M6,50 C50,50 50,36 94,36", "color_class": "stroke-accent" },
+    { "path": "M6,80 C50,80 50,44 94,44", "color_class": "stroke-success" },
+    { "path": "M6,80 C50,80 50,68 94,68", "color_class": "stroke-warning" }
+  ]
+}

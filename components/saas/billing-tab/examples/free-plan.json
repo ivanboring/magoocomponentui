@@ -1,0 +1,16 @@
+{
+  "plan": {
+    "name": "Free",
+    "price": "$0",
+    "period": "month",
+    "features": [
+      "1 project",
+      "Community support"
+    ]
+  },
+  "payment": {
+    "brand": "Mastercard",
+    "last4": "5309",
+    "expires": "11/26"
+  }
+}

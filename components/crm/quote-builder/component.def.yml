@@ -1,0 +1,38 @@
+name: quote-builder
+props:
+  line_items:
+    type: array
+    items: object
+    required: true
+    title: Line items
+    description: >
+      The quote rows. Each item: { name, qty, price, total }. `qty` is a quantity;
+      `price` and `total` are preformatted numeric strings (the caller does the math -
+      the template never multiplies). Do not include the currency symbol in these
+      strings; set it once via the currency prop.
+    example:
+      - { name: "Platform license (annual)", qty: "5", price: "1,200", total: "6,000" }
+      - { name: "Onboarding package", qty: "1", price: "2,500", total: "2,500" }
+  subtotal:
+    type: string
+    required: true
+    title: Subtotal
+    description: Preformatted subtotal, without the currency symbol.
+    example: "8,500"
+  tax:
+    type: string
+    title: Tax
+    description: Preformatted tax amount, without the currency symbol. Omit to hide the row.
+    example: "680"
+  total:
+    type: string
+    required: true
+    title: Total
+    description: Preformatted grand total, without the currency symbol.
+    example: "9,180"
+  currency:
+    type: string
+    default: "$"
+    title: Currency symbol
+    description: Prefixed to every amount (e.g. "$", "EUR ").
+    example: "$"

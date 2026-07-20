@@ -1,0 +1,28 @@
+{
+  "rooms": [
+    {
+      "name": "Living room",
+      "devices": [
+        { "name": "Ceiling light", "on": true, "icon": "💡" },
+        { "name": "TV", "on": false, "icon": "📺" },
+        { "name": "Floor lamp", "on": true, "icon": "🛋️" },
+        { "name": "Thermostat", "on": true, "icon": "🌡️" }
+      ]
+    },
+    {
+      "name": "Kitchen",
+      "devices": [
+        { "name": "Downlights", "on": true, "icon": "💡" },
+        { "name": "Coffee maker", "on": false, "icon": "☕" },
+        { "name": "Dishwasher", "on": false, "icon": "🍽️" }
+      ]
+    },
+    {
+      "name": "Bedroom",
+      "devices": [
+        { "name": "Bedside lamp", "on": false, "icon": "🛏️" },
+        { "name": "Fan", "on": true, "icon": "🌀" }
+      ]
+    }
+  ]
+}

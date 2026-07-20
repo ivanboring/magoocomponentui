@@ -1,0 +1,26 @@
+<div class="delivery-proof rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-3">
+    <p class="flex items-center gap-2 font-heading text-on-surface">
+      <svg class="size-5 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6.5 10l2.5 2.5 4.5-5"/></svg>
+      Delivered
+    </p>
+    <span data-if="time" class="text-xs text-on-surface-muted">{{ time }}</span>
+  </div>
+  <div class="mt-4 grid gap-3 sm:grid-cols-2">
+    <figure class="delivery-proof__photo aspect-[4/3] overflow-hidden rounded-control border border-border bg-surface-raised">
+      <img data-if="photo" class="size-full object-cover" src="{{ photo }}" alt="Photo of the delivered package">
+      <div data-if="!photo" class="flex size-full flex-col items-center justify-center gap-1 text-on-surface-muted">
+        <svg class="size-7" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6.5h3l1.5-2h5l1.5 2h3v9H3z"/><circle cx="10" cy="11" r="3"/></svg>
+        <span class="text-xs">No photo</span>
+      </div>
+    </figure>
+    <figure class="delivery-proof__signature flex aspect-[4/3] items-center justify-center overflow-hidden rounded-control border border-border bg-surface-raised p-3">
+      <img data-if="signature_image" class="max-h-full max-w-full object-contain" src="{{ signature_image }}" alt="Recipient signature">
+      <svg data-if="!signature_image" class="h-10 w-full text-on-surface-muted" viewBox="0 0 120 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 30c8 0 6-18 12-18s4 22 10 22 6-26 12-26 3 24 9 24 7-14 13-14 8 8 16 8 12-6 20-6"/></svg>
+    </figure>
+  </div>
+  <div data-if="recipient" class="mt-4 border-t border-border pt-3">
+    <p class="text-sm text-on-surface">Received by {{ recipient }}</p>
+    <p data-if="note" class="mt-1 text-sm text-on-surface-muted">{{ note }}</p>
+  </div>
+</div>

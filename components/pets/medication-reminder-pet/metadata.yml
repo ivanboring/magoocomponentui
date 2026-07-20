@@ -1,0 +1,82 @@
+name: "Pet Medication Reminder"
+short_description: A card for a pet's medication with dosage, schedule, the next dose highlighted and a row of markable dose times.
+long_visual_description: >
+  A surface card led by an optional pet name eyebrow, the medication name in the heading
+  face and a dosage pill to the right, with the schedule in muted text beneath. A tinted
+  band highlights the next dose with a clock icon. Below, a wrapping row of pill-shaped
+  dose times shows each time; a given dose turns green with a check, while an outstanding
+  one carries a "Mark given" button that, once tapped, flips the pill to the given state.
+use_cases:
+  - Remind an owner of a pet's daily medication and dosage.
+  - Track which of the day's doses have already been given.
+  - Show the next dose due for a pet on a care dashboard.
+  - Coordinate dosing between family members or co-carers.
+  - Support a post-surgery or chronic-condition treatment plan.
+  - Log a course of antibiotics or supplements for a foster animal.
+recommended_for:
+  - A single medication with a small set of daily dose times.
+  - Interactive check-off of doses as they are given.
+avoid_for:
+  - A full medication history (use pet-health-timeline).
+  - Complex tapering schedules across many weeks.
+markets:
+  - Global
+example_usage: >
+  Set medication and optionally pet, dosage and schedule. Provide next_dose for the
+  highlighted band and a doses array of { time, given }. Listen for the bubbling
+  "dose:given" event to persist a dose being marked; the card updates its own visual
+  state.
+how_to_use: >
+  Layout and the given/outstanding states are pure CSS driven by each dose's
+  data-given attribute, so the card renders correctly with no JavaScript (and in
+  screenshots). behavior.js only wires the "Mark given" buttons: a click sets the dose's
+  data-given to "true" (revealing the check and hiding the button via CSS) and
+  dispatches a bubbling "dose:given" CustomEvent whose detail.time is the dose time. The
+  portable self-init reads the dose time from the button's data-time attribute; no props
+  object is passed.
+props:
+  pet: "The pet the medication is for, shown as an eyebrow."
+  medication: "The medication name, shown as the card heading."
+  dosage: "Amount per dose, shown as a pill, e.g. 16 mg tablet."
+  schedule: "How often it is given, e.g. Twice daily with food."
+  next_dose: "When the next dose is due, shown in a highlighted band."
+  doses: "The day's doses. Each item has a time and a given boolean; given shows a check, outstanding shows a Mark given button."
+lifecycle: experimental
+content_model: A medication with dosage and schedule, a next-dose time, and a set of dose times each flagged given or outstanding.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+editorial_guidance: >
+  Name the medication as the label says on the packet and keep the schedule to a short
+  phrase. List doses in chronological order so the next outstanding one reads naturally
+  after the given ones.
+relationships:
+  related:
+    - pets/pet-health-timeline
+    - pets/pet-insurance-card
+    - notifications/alert
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Care reminders
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The given state is carried by a data attribute and a check icon, not colour alone; the Mark given control is a labelled button reachable by keyboard.
+  keyboard_support: The Mark given buttons are focusable and activate on Enter/Space.
+  seo_score: 25
+  text_direction: both

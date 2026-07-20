@@ -1,0 +1,6 @@
+{
+  "method": "get",
+  "path": "/v1/orders/{id}",
+  "summary": "Retrieve a single order by id",
+  "deprecated": false
+}

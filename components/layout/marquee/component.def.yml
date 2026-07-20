@@ -1,0 +1,43 @@
+name: marquee
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The strip of items that scrolls in a loop. Each item is either a logo — { image, alt } — or
+      a text pill — { label }. The list is rendered twice internally so the loop is seamless; you
+      supply it once.
+    example:
+      - { image: "/stock/nike-3-logo-svgrepo-com.svg", alt: "Nike" }
+  speed:
+    type: enum
+    values: [slow, normal, fast]
+    default: normal
+    title: Speed
+    description: >
+      How fast the strip scrolls. slow/normal/fast map to fixed per-frame pixel steps in
+      behavior.js.
+  direction:
+    type: enum
+    values: [left, right]
+    default: left
+    title: Direction
+    description: The direction the strip travels — left (default) or right.
+  gap:
+    type: enum
+    values: [default, sm, lg]
+    default: default
+    title: Gap
+    description: Space between items, from a fixed set of choices.
+  label:
+    type: string
+    default: "Partners"
+    title: Accessible label
+    description: Accessible name announced for the marquee region.
+variants:
+  gap:
+    default: "gap-10"
+    sm: "gap-6"
+    lg: "gap-16"

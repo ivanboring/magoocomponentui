@@ -1,0 +1,49 @@
+name: task-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Fix pagination on the reports page"
+  tag:
+    type: string
+    title: Tag
+    description: Optional short category label shown above the title.
+    example: "Bug"
+  priority:
+    type: enum
+    values: [low, medium, high, urgent]
+    default: medium
+    title: Priority
+    description: Colours the priority pill in the footer.
+  assignee:
+    type: string
+    title: Assignee name
+    description: Full name of the assignee, used as the avatar's accessible label.
+    example: "Maria Gomez"
+  initials:
+    type: string
+    title: Assignee initials
+    description: Precomputed 1-2 letter initials shown in the avatar circle.
+    example: "MG"
+  due:
+    type: string
+    title: Due
+    description: Human-readable due date.
+    example: "Fri"
+  subtasks_done:
+    type: string
+    title: Subtasks done
+    description: Precomputed count of completed subtasks (shown as done/total).
+    example: "2"
+  subtasks_total:
+    type: string
+    title: Subtasks total
+    description: Precomputed total subtask count (shown as done/total).
+    example: "5"
+variants:
+  priority:
+    low: "bg-surface-raised text-on-surface-muted"
+    medium: "bg-info/10 text-info"
+    high: "bg-warning/10 text-warning"
+    urgent: "bg-danger/10 text-danger"

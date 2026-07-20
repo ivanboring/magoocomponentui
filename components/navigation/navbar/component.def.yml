@@ -5,6 +5,12 @@ props:
     required: true
     title: Logo text
     example: "Acme"
+  logo_image:
+    type: image
+    title: Logo image
+    description: >
+      Optional image wordmark/lockup. When set it replaces the text wordmark and uses `logo_text`
+      as its alt text; when unset the navbar falls back to rendering `logo_text` as type.
   logo_href:
     type: link
     default: "/"

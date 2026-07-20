@@ -1,0 +1,25 @@
+name: menu-tile-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Menu items
+    description: >
+      The menu buttons, in order. Each item: { name, price, color_class }. name is the item label,
+      price is a preformatted price string, and color_class is an optional tokenized tint chosen from
+      a fixed set - one of "bg-primary/10 text-primary", "bg-success/10 text-success",
+      "bg-warning/10 text-warning", "bg-danger/10 text-danger", "bg-info/10 text-info", or
+      "bg-surface-raised text-on-surface" (all safelisted in the template). Omit color_class for the
+      default surface tile.
+    example:
+      - { name: "Espresso", price: "$3.00", color_class: "bg-primary/10 text-primary" }
+      - { name: "Latte", price: "$4.50" }
+  categories:
+    type: array
+    items: string
+    title: Category tabs
+    description: >
+      Optional category labels shown as a scrollable row of pills above the grid. Decorative facade
+      - the first is highlighted; wire real filtering in your app.
+    example: ["Coffee", "Tea", "Pastries"]

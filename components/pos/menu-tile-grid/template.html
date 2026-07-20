@@ -1,0 +1,12 @@
+<div class="menu-tile-grid flex flex-col gap-3">
+  <div data-if="categories" class="menu-tile-grid__cats flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <span data-for="cat in categories" class="shrink-0 rounded-pill border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface-muted first:border-primary first:bg-primary first:text-primary-contrast">{{ cat }}</span>
+  </div>
+  <div class="menu-tile-grid__grid grid grid-cols-3 gap-2 sm:grid-cols-4">
+    <button data-for="item in items" type="button" data-name="{{ item.name }}" data-price="{{ item.price }}" class="menu-tile-grid__tile flex aspect-square flex-col items-center justify-center gap-1 rounded-card border border-border bg-surface p-2 text-center text-on-surface shadow-card transition-transform duration-(--duration-token) hover:-translate-y-0.5 {{ item.color_class }}">
+      <span class="font-heading text-sm leading-tight">{{ item.name }}</span>
+      <span data-if="item.price" class="text-xs tabular-nums opacity-80">{{ item.price }}</span>
+    </button>
+  </div>
+  <span class="hidden bg-primary/10 text-primary bg-success/10 text-success bg-warning/10 text-warning bg-danger/10 text-danger bg-info/10 text-info bg-surface-raised text-on-surface" aria-hidden="true"></span>
+</div>

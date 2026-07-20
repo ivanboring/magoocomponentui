@@ -1,0 +1,20 @@
+name: feedback-thumbs
+props:
+  value:
+    type: enum
+    values: ["", "up", "down"]
+    default: ""
+    title: Value
+    description: >
+      The current rating. "" is neutral (neither selected); "up" highlights the thumbs-up in the
+      success colour; "down" highlights the thumbs-down in the danger colour.
+  up_label:
+    type: string
+    default: "Good response"
+    title: Up label
+    description: Accessible label for the thumbs-up button.
+  down_label:
+    type: string
+    default: "Bad response"
+    title: Down label
+    description: Accessible label for the thumbs-down button.

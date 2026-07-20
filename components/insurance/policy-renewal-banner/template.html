@@ -1,0 +1,11 @@
+<div class="policy-renewal-banner flex items-center gap-3 rounded-card border p-(--space-card) {{ level@class }}" role="status">
+  <span class="policy-renewal-banner__icon shrink-0" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 4v4h-4"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p data-if="policy" class="text-xs font-medium uppercase tracking-wide opacity-80">{{ policy }}</p>
+    <p class="font-heading">Renews {{ renewal_date }}</p>
+    <p data-if="days_left" class="text-sm opacity-80">{{ days_left }} days left</p>
+  </div>
+  <button type="button" class="policy-renewal-banner__renew shrink-0 rounded-button border border-current px-3 py-1.5 text-sm font-medium transition-opacity duration-(--duration-token) hover:opacity-80">Renew now</button>
+</div>

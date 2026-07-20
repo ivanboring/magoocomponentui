@@ -1,0 +1,6 @@
+{
+  "name": "Good morning",
+  "icon": "<svg class=\"size-5\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><circle cx=\"10\" cy=\"11\" r=\"3.5\"/><path d=\"M10 3v2M10 17v0M3.5 11h1M15.5 11h1M5.4 6.4l.7.7M13.9 6.4l-.7.7\"/></svg>",
+  "devices_count": 4,
+  "active": true
+}

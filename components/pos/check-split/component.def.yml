@@ -1,0 +1,30 @@
+name: check-split
+props:
+  guests:
+    type: array
+    items: object
+    required: true
+    title: Guests
+    description: >
+      One column per guest. Each item: { label, items, subtotal }. label names the guest or seat,
+      items is an array of { name, price } lines (price preformatted with currency), and subtotal is
+      that guest's preformatted running total. Precompute every price and subtotal - the component
+      does no arithmetic.
+    example:
+      - label: "Guest 1"
+        subtotal: "$32.00"
+        items:
+          - { name: "Ribeye", price: "$28.00" }
+          - { name: "Sparkling water", price: "$4.00" }
+  total:
+    type: string
+    title: Grand total
+    description: Optional preformatted grand total across all guests, shown in the footer.
+    example: "$96.00"
+  split_count:
+    type: string
+    title: Split count
+    description: >
+      Optional preformatted number of ways the check is split, shown in the split-by controls (e.g.
+      "3"). The minus/plus controls are a skeleton facade; wire them in your app.
+    example: "3"

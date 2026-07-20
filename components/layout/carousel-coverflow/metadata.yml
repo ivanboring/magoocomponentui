@@ -1,0 +1,83 @@
+name: "Coverflow Carousel"
+short_description: A center-stage carousel where the centred slide is full-size and emphasized while its neighbours scale down and dim.
+long_visual_description: >
+  A horizontally scrolling row of portrait cards with generous leading and trailing padding so the
+  first and last slide can each sit dead centre. The slide nearest the track's centre is shown at
+  full size and full opacity; the slides on either side are scaled down, dimmed and slightly
+  blurred, giving a focus-on-the-middle "coverflow" effect. Circular previous/next arrows at the
+  edges recenter the neighbouring slide.
+
+use_cases:
+  - Featured content spotlight where one slide should dominate at a time.
+  - A portfolio or case-study reel that puts the focus on the centred item.
+  - App or product screenshots shown one hero at a time with a hint of the next.
+  - A stage-by-stage tour where the current step is emphasized.
+  - Editorial cover carousel for magazines, albums or shows.
+  - Any gallery where the middle item should read as the primary selection.
+
+recommended_for:
+  - A gallery that emphasizes a single centred slide with dimmed neighbours.
+  - Portrait or cover-style cards rendered from structured data.
+avoid_for:
+  - Showing several equally-weighted cards per view (use carousel-grid).
+  - A crossfading single-image stage (use carousel-fade).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, title, subtitle, href }). The centred slide is emphasized by
+  default; behavior.js tracks which slide is centred on scroll and dims the rest, and the arrows
+  scroll the neighbour of the centred slide into the centre.
+
+how_to_use: >
+  The emphasized full-size look is the CSS base state so it renders correctly with no JavaScript
+  (and in screenshots). behavior.js only marks the non-centred slides dimmed: on scroll
+  (rAF-throttled) it finds the slide whose centre is nearest the track's horizontal centre, sets
+  data-active="true" on it and data-active="false" on the others, which triggers the scale/opacity/
+  blur dimming. The prev/next arrows scroll the neighbour of the centred slide to the centre. The
+  portable self-init reads no props object.
+
+props:
+  items: "The slides, in order. Each item: image (optional), title, subtitle (optional), href (optional — makes the whole card a link)."
+  show_arrows: "Show the previous/next arrow buttons that recenter the neighbouring slide."
+  label: "Accessible name announced for the carousel region."
+
+lifecycle: experimental
+content_model: A horizontal, snap-scrolling set of cover cards that emphasizes the centred slide, rendered from an items array.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the slides a single type and portrait-oriented so the scale-and-dim effect reads clearly.
+  Order them by importance — the first slide starts centred. Use short titles; the neighbours are
+  dimmed, so put the message on the centred card.
+
+relationships:
+  related:
+    - layout/carousel-grid
+    - fashion/trend-carousel
+    - layout/carousel-fade
+
+categorization:
+  category: Layout
+  subcategory: Carousels
+  atomic_type: organism
+  usage_type: [media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label and aria-roledescription; the track is keyboard-scrollable and the arrow controls are labelled buttons.
+  keyboard_support: The arrows are focusable and activate on Enter/Space; the track scrolls with the keyboard when focused.
+  seo_score: 30
+  text_direction: both

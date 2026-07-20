@@ -1,0 +1,13 @@
+<div class="project-health-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="project-health-card__name min-w-0 truncate font-heading text-on-surface">{{ name }}</h3>
+    <span class="project-health-card__status shrink-0 rounded-pill px-2 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+  <p data-if="summary" class="mt-2 text-sm text-on-surface-muted">{{ summary }}</p>
+  <dl data-if="metrics" class="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+    <div data-for="metric in metrics" class="min-w-0">
+      <dt class="text-xs text-on-surface-muted">{{ metric.label }}</dt>
+      <dd class="font-heading text-sm text-on-surface tabular-nums">{{ metric.value }}</dd>
+    </div>
+  </dl>
+</div>

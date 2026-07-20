@@ -1,0 +1,18 @@
+<div class="premium-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="text-sm text-on-surface-muted">Your premium</p>
+  <p class="mt-1 flex items-baseline gap-1">
+    <span class="premium-summary__total font-heading text-4xl text-on-surface tabular-nums">{{ total }}</span>
+    <span data-if="period" class="text-sm text-on-surface-muted">/{{ period }}</span>
+  </p>
+  <ul class="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+    <li data-for="item in line_items" class="flex items-center justify-between gap-4 text-sm">
+      <span class="text-on-surface-muted">{{ item.label }}</span>
+      <span class="font-medium text-on-surface tabular-nums">{{ item.amount }}</span>
+    </li>
+  </ul>
+  <p data-if="discount" class="mt-2 flex items-center justify-between gap-4 text-sm font-medium text-success">
+    <span>Discount</span>
+    <span class="tabular-nums">{{ discount }}</span>
+  </p>
+  <button type="button" class="premium-summary__pay mt-4 w-full rounded-button bg-primary px-4 py-2.5 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Pay {{ total }}</button>
+</div>

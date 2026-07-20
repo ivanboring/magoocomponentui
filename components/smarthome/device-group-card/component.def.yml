@@ -1,0 +1,28 @@
+name: device-group-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The group name shown as the card title.
+    example: "Downstairs lights"
+  icon:
+    type: string
+    title: Icon
+    description: Optional glyph or emoji shown in the badge; falls back to a default devices icon.
+    example: "💡"
+  device_count:
+    type: integer
+    title: Device count
+    description: Total number of devices in the group (precomputed).
+    example: 6
+  on_count:
+    type: integer
+    title: On count
+    description: How many devices in the group are currently on (precomputed).
+    example: 4
+  all_on:
+    type: boolean
+    default: false
+    title: All on
+    description: Master switch state; true when every device in the group is on.

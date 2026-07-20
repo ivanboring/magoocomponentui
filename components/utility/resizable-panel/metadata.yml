@@ -1,0 +1,85 @@
+name: "Resizable Panel"
+short_description: A panel with a draggable edge handle that resizes its width or height.
+long_visual_description: >
+  A bordered surface panel with an optional uppercase title along the top and a scrolling body. A
+  slim handle runs along one edge - the right edge for width or the bottom edge for height - and
+  turns the accent colour on hover. Dragging the handle resizes the panel between sensible bounds;
+  it starts at a comfortable default size.
+
+use_cases:
+  - A resizable filters or facets sidebar next to results.
+  - A draggable console or log drawer under a workspace.
+  - A tool palette the user can widen for longer labels.
+  - A properties or inspector panel beside a canvas.
+  - A preview pane whose height the reader can grow.
+  - A chat or comments column that can be widened on demand.
+
+recommended_for:
+  - A single panel whose size the reader should control.
+  - Sidebars and drawers where the ideal width or height varies by content.
+avoid_for:
+  - Resizing the split between two panes (use split-pane).
+  - Fixed-size panels that should not move.
+
+markets:
+  - Global
+
+example_usage: >
+  Fill the content slot, give the panel a title, and choose which edge carries the handle - right
+  to resize width, bottom to resize height. The panel keeps a default size so it looks right before
+  any JavaScript runs.
+
+how_to_use: >
+  The panel ships with a default size (w-72 / h-64) so the base render is correct with no
+  JavaScript. behavior.js reads the data-edge attribute and drags that edge with Pointer Events
+  (pointerdown/move/up with setPointerCapture), updating the panel's inline width (right edge) or
+  height (bottom edge) and clamping to sensible min/max bounds. All listeners are removed on
+  cleanup.
+
+props:
+  title: "Optional heading shown at the top of the panel."
+  edge: "Which edge carries the drag handle: right resizes width, bottom resizes height."
+
+slots:
+  content: "The panel body; scrolls when it overflows the panel size."
+
+example_prompts:
+  - Make the filters sidebar resizable by dragging its right edge.
+  - Add a console drawer I can drag taller from its bottom edge.
+  - Give this inspector panel a draggable resize handle.
+
+lifecycle: experimental
+content_model: A single content panel the reader can resize by dragging one edge.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Give the panel a short, noun title (Filters, Console, Inspector). Choose the edge that matches how
+  the content grows - width for lists of options, height for logs and streams.
+
+relationships:
+  related:
+    - utility/split-pane
+    - layout/split-view
+
+categorization:
+  category: UI Utilities
+  subcategory: Layout helpers
+  atomic_type: molecule
+  usage_type: [container, panel]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The handle is a role="separator" with an accessible label; resizing is a progressive enhancement over a usable default size, so keyboard and no-JS users get a functional fixed-size panel.
+  keyboard_support: The panel is usable at its default size without JavaScript; pointer drag is a mouse/touch enhancement.
+  seo_score: 20
+  text_direction: both

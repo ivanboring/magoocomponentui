@@ -1,0 +1,27 @@
+<div class="renewable-goal rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">Renewable energy</p>
+  <p class="mt-1 font-heading text-on-surface">
+    <span class="text-4xl leading-none tabular-nums">{{ current_pct }}%</span>
+    <span class="ml-1 text-base text-on-surface-muted">renewable this month</span>
+  </p>
+
+  <div class="relative mt-4">
+    <div class="h-3 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ current_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Renewable energy share">
+      <div class="renewable-goal__fill h-full rounded-pill bg-success transition-all duration-(--duration-token)" style="width: {{ current_pct }}%"></div>
+    </div>
+    <div data-if="goal_pct" class="absolute top-0 h-3 w-0.5 -translate-x-1/2 rounded bg-on-surface" style="left: {{ goal_pct }}%" aria-hidden="true"></div>
+  </div>
+  <p data-if="goal_pct" class="mt-2 text-sm text-on-surface-muted">Goal <span class="tabular-nums font-medium text-on-surface">{{ goal_pct }}%</span></p>
+
+  <div data-if="sources" class="mt-4 border-t border-border pt-4">
+    <ul class="flex flex-col gap-2">
+      <li data-for="s in sources" class="flex items-center gap-3 text-sm">
+        <span class="w-20 shrink-0 truncate text-on-surface">{{ s.label }}</span>
+        <div class="h-1.5 flex-1 overflow-hidden rounded-pill bg-surface-raised">
+          <div class="h-full rounded-pill bg-success" style="width: {{ s.pct }}%"></div>
+        </div>
+        <span class="w-10 shrink-0 text-right tabular-nums text-on-surface-muted">{{ s.pct }}%</span>
+      </li>
+    </ul>
+  </div>
+</div>

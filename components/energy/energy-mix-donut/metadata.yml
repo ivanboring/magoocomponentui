@@ -1,0 +1,92 @@
+name: "Energy Mix Donut"
+short_description: A tokenized SVG donut that breaks down where a home or grid's electricity came from, with a renewable share in the center.
+long_visual_description: >
+  A surface card with an optional heading, a centered donut ring, and a legend below.
+  The ring is a full-circle track in the raised-surface tone overlaid by one coloured arc
+  per generation source (solar, wind, gas and so on); each arc's length and start angle
+  come from precomputed stroke-dasharray and stroke-dashoffset values, and its colour from
+  a tokenized stroke utility. A large renewable percentage sits in the middle of the ring.
+  The legend lists each source with a colour swatch, an optional kWh figure, and a
+  right-aligned percentage, using tabular figures so the numbers line up.
+
+use_cases:
+  - Show the fuel mix behind a household's monthly electricity on an energy dashboard.
+  - Summarise grid generation by source for a utility status page.
+  - Break down a solar plus battery home's energy origins over a billing period.
+  - Report renewable versus fossil share for a sustainability scorecard.
+  - Visualise a community energy program's generation split.
+  - Compare contracted supply sources for a commercial energy account.
+
+recommended_for:
+  - A small number of sources (up to about six) that sum to a whole.
+  - Dashboards where the renewable share is the headline figure.
+  - Cases where the caller already computes arc geometry server side.
+
+avoid_for:
+  - Time series or trends over a period (use a line or bar chart shell).
+  - Many tiny sources that are hard to tell apart.
+  - Precise value comparison, where a bar chart reads more accurately.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each source's stroke-dasharray (arc then remainder, circumference 100) and a
+  stroke-dashoffset equal to the negative of its cumulative start percent, then pass the
+  sources with a tokenized stroke colour class each. Set renewable_pct to the combined
+  renewable share to fill the donut center.
+
+props:
+  title: Short heading above the chart and the SVG accessible label.
+  sources: >
+    Array of generation sources with precomputed dash and offset geometry, a display
+    percent, an optional kWh figure, and a tokenized stroke colour class each.
+  renewable_pct: Combined renewable share shown large in the donut center; precomputed by the caller.
+
+example_prompts:
+  - Add a donut of my home energy mix with solar, wind, hydro and gas.
+  - Show the grid generation split with the renewable share in the middle.
+  - Put an energy sources donut on the sustainability dashboard.
+
+relationships:
+  related:
+    - energy/renewable-goal
+    - energy/bill-estimate
+    - dataviz/pie-chart-shell
+
+lifecycle: experimental
+content_model: A title, a renewable share, and a set of precomputed sources each with a value, a colour class, and dash and offset geometry.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  All arc geometry is precomputed by the caller because the directive language has no
+  arithmetic; the shell only paints the values it is given. Keep the source count low and
+  the labels short, and reserve the greener stroke tokens for the renewable sources so the
+  colour reinforces the center figure.
+
+categorization:
+  category: Energy
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Values are conveyed by the text legend and center figure, not colour alone; the SVG carries an accessible label.
+  keyboard_support: "none"
+  seo_score: 35
+  text_direction: both

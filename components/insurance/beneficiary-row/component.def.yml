@@ -1,0 +1,29 @@
+name: beneficiary-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The beneficiary's full name.
+    example: "Jordan Ellis"
+  relationship:
+    type: string
+    title: Relationship
+    description: How the beneficiary relates to the policyholder, e.g. "Spouse".
+    example: "Spouse"
+  share_pct:
+    type: integer
+    required: true
+    title: Share percentage
+    description: The percentage of the benefit allocated to this beneficiary (0-100).
+    example: 60
+  initials:
+    type: string
+    title: Initials
+    description: Pre-computed initials shown in the avatar circle, e.g. "JE".
+    example: "JE"
+  primary:
+    type: boolean
+    default: false
+    title: Primary beneficiary
+    description: When true, shows a "Primary" tag; otherwise a muted "Contingent" tag.

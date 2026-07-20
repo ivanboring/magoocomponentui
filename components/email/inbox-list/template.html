@@ -1,0 +1,17 @@
+<ul class="inbox-list divide-y divide-border rounded-card border border-border bg-surface" role="list">
+  <li data-for="email in emails" class="inbox-list__row flex items-center gap-3 px-4 py-3 data-[unread=true]:bg-surface-raised" data-unread="{{ email.unread }}">
+    <button type="button" class="inbox-list__star shrink-0 text-on-surface-muted transition-colors duration-(--duration-token) hover:text-warning data-[starred=true]:text-warning" data-starred="{{ email.starred }}" aria-label="Star">
+      <svg class="size-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5 5.53.8-4 3.9.94 5.5L10 14.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8z"/></svg>
+    </button>
+    <span class="inbox-list__avatar flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-raised text-xs font-medium text-on-surface-muted">
+      <img data-if="email.avatar" class="size-full object-cover" src="{{ email.avatar }}" alt="">
+      <span data-if="!email.avatar">{{ email.initials }}</span>
+    </span>
+    <span class="inbox-list__sender w-32 shrink-0 truncate text-sm text-on-surface data-[unread=true]:font-semibold" data-unread="{{ email.unread }}">{{ email.sender }}</span>
+    <p class="inbox-list__subject min-w-0 flex-1 truncate text-sm">
+      <span class="text-on-surface data-[unread=true]:font-semibold" data-unread="{{ email.unread }}">{{ email.subject }}</span>
+      <span class="text-on-surface-muted"> — {{ email.snippet }}</span>
+    </p>
+    <span class="inbox-list__time shrink-0 text-xs text-on-surface-muted">{{ email.time }}</span>
+  </li>
+</ul>

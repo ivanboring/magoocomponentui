@@ -1,0 +1,16 @@
+<figure class="throughput-chart rounded-card border border-border bg-surface p-4 shadow-card">
+  <header data-if="title" class="throughput-chart__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="throughput-chart__title font-heading text-on-surface">{{ title }}</h3>
+    <span data-if="unit" class="text-xs text-on-surface-muted">{{ unit }}</span>
+  </header>
+  <div class="throughput-chart__plot relative flex h-48 items-end gap-2">
+    <div data-if="target_line_pct" class="throughput-chart__target pointer-events-none absolute inset-x-0 z-10 border-t-2 border-dashed border-on-surface-muted/50" style="bottom: {{ target_line_pct }}%" aria-hidden="true"></div>
+    <div data-for="bar in bars" data-met="{{ bar.target_met }}" class="throughput-chart__bar-col group relative flex h-full flex-1 flex-col items-center justify-end gap-1">
+      <span class="throughput-chart__value text-[11px] font-medium text-on-surface-muted opacity-0 transition-opacity duration-(--duration-token) group-hover:opacity-100 tabular-nums">{{ bar.value }}</span>
+      <div class="throughput-chart__bar w-full rounded-t-control bg-primary transition-colors duration-(--duration-token) group-data-[met=false]:bg-warning" style="height: {{ bar.height_pct }}%"></div>
+    </div>
+  </div>
+  <div class="throughput-chart__labels mt-2 flex gap-2">
+    <span data-for="bar in bars" class="throughput-chart__label flex-1 text-center text-[11px] text-on-surface-muted">{{ bar.label }}</span>
+  </div>
+</figure>

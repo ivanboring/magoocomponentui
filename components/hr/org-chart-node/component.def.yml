@@ -1,0 +1,32 @@
+name: org-chart-node
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dana Reyes"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "VP of Engineering"
+  avatar:
+    type: string
+    title: Avatar
+    description: "Avatar image URL for the manager. When empty, the initials fallback shows."
+    example: "/stock/avatar-woman-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: "Precomputed initials shown when no avatar is set (e.g. DR)."
+    example: "DR"
+  reports:
+    type: array
+    items: object
+    title: Direct reports
+    description: >
+      The direct reports shown as mini-cards below the manager. Each item is
+      { name, title, initials } where initials is a precomputed fallback for the mini-avatar.
+    example:
+      - { name: "Sam Lee", title: "Frontend Lead", initials: "SL" }
+      - { name: "Priya Nair", title: "Platform Lead", initials: "PN" }

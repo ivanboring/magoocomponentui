@@ -1,0 +1,10 @@
+<div class="andon-board grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+  <div data-for="station in stations" data-status="{{ station.status }}" class="andon-board__tile flex min-h-24 flex-col justify-between gap-2 rounded-card border border-border bg-surface p-4 text-on-surface shadow-card data-[status=normal]:border-success/30 data-[status=normal]:bg-success/10 data-[status=normal]:text-success data-[status=call]:border-warning/30 data-[status=call]:bg-warning/10 data-[status=call]:text-warning data-[status=fault]:border-danger/30 data-[status=fault]:bg-danger/10 data-[status=fault]:text-danger data-[status=blocked]:border-info/30 data-[status=blocked]:bg-info/10 data-[status=blocked]:text-info">
+    <div class="flex items-center justify-between gap-2">
+      <span class="andon-board__name font-heading text-on-surface">{{ station.name }}</span>
+      <span class="andon-board__light size-2.5 shrink-0 rounded-pill bg-current" aria-hidden="true"></span>
+    </div>
+    <p class="andon-board__status text-sm font-medium capitalize">{{ station.status }}</p>
+    <p data-if="station.message" class="andon-board__message text-xs text-on-surface">{{ station.message }}</p>
+  </div>
+</div>

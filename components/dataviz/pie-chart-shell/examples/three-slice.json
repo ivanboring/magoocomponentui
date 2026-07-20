@@ -1,0 +1,8 @@
+{
+  "title": "Plan distribution",
+  "slices": [
+    { "label": "Free", "value": "50%", "dash": "50 50", "offset": "0", "color_class": "stroke-primary" },
+    { "label": "Pro", "value": "30%", "dash": "30 70", "offset": "-50", "color_class": "stroke-info" },
+    { "label": "Enterprise", "value": "20%", "dash": "20 80", "offset": "-80", "color_class": "stroke-success" }
+  ]
+}

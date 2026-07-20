@@ -1,0 +1,81 @@
+name: "Points Balance Card"
+short_description: A card showing a loyalty member's points total, tier, and any points about to expire.
+long_visual_description: >
+  A card washed in a faint primary tint. A muted "Points balance" label sits above a large points
+  figure in the heading face with its unit (points, miles, stars) beside it, and an optional tier
+  badge in the top-right. When points are due to lapse, a soft amber warning strip appears below with
+  a clock glyph, the expiring amount, and its date.
+
+use_cases:
+  - Headline points total on a loyalty or rewards dashboard.
+  - Account summary showing a member's current balance.
+  - Wallet or profile panel with tier and expiry at a glance.
+  - Airline or hotel miles balance with an expiry nudge.
+  - Cafe or retail rewards balance in an app home screen.
+  - Post-purchase confirmation showing updated points.
+
+recommended_for:
+  - The primary balance figure in a rewards program.
+  - Surfacing an expiry warning to prompt redemption.
+avoid_for:
+  - Progress toward the next tier (use tier-progress).
+  - A full redemption history (use redemption-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a pre-formatted points string and a currency_label for the unit. Add tier for the badge and,
+  when relevant, expiring plus expiring_date to show the lapse warning strip.
+
+props:
+  points: The current balance, pre-formatted with separators (e.g. "12,480").
+  currency_label: What one unit is called - points, miles, stars, coins.
+  tier: Optional tier name shown as a badge top-right.
+  expiring: Pre-formatted amount of points about to expire; shows the warning strip when set.
+  expiring_date: Optional date the expiring points lapse, appended to the warning.
+
+example_prompts:
+  - "Show a points balance card with 12,480 points at Gold tier."
+  - "Add a rewards balance with 500 points expiring on Aug 31."
+  - "Show a miles balance card for a Platinum member."
+
+lifecycle: experimental
+content_model: A formatted points total, a unit label, an optional tier, and an optional expiring amount with date.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the figure formatted and let the unit label carry the meaning. Only show the expiry strip when
+  points genuinely lapse soon, so the warning stays credible.
+
+relationships:
+  related:
+    - loyalty/tier-progress
+    - loyalty/member-card
+    - loyalty/reward-catalog-item
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Balances
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The expiry warning conveys meaning through text and a glyph, not colour alone; digits use tabular figures.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

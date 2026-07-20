@@ -1,0 +1,9 @@
+<div class="select-setting-row flex items-center justify-between gap-4 py-3">
+  <div class="min-w-0">
+    <p class="select-setting-row__label text-sm font-medium text-on-surface">{{ label }}</p>
+    <p data-if="help" class="select-setting-row__help text-xs text-on-surface-muted">{{ help }}</p>
+  </div>
+  <select class="select-setting-row__select shrink-0 rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface transition-colors duration-(--duration-token) focus:outline-none focus:ring-2 focus:ring-ring" aria-label="{{ label }}" name="{{ name }}">
+    <option data-for="opt in options" value="{{ opt.value }}">{{ opt.label }}</option>
+  </select>
+</div>

@@ -1,0 +1,86 @@
+name: "App Sidebar"
+short_description: The primary left-hand navigation rail for a SaaS app, with grouped, icon-led links.
+long_visual_description: >
+  A fixed-width vertical rail on the surface colour with a right border. A brand header sits
+  at the top with a square logo tile and the product name. Below it, one or more sections
+  each carry an optional uppercase muted heading and a list of icon-and-label links. The
+  active link takes a raised surface background with primary-coloured text; an optional pill
+  badge (a count or short label) floats on the trailing edge of any item. The link list
+  scrolls independently when it overflows.
+
+use_cases:
+  - Primary navigation for an app dashboard or admin console.
+  - Grouping sections such as Workspace, Analytics, and Account.
+  - Showing unread or pending counts on nav items via badges.
+  - Highlighting the current route with an active state.
+  - Anchoring a two-column app shell alongside an app-topbar.
+  - Navigating a multi-tool SaaS product from one rail.
+
+recommended_for:
+  - Desktop-first SaaS and admin layouts.
+  - Products with more than a handful of top-level destinations.
+  - Apps that group navigation into labelled sections.
+avoid_for:
+  - Marketing or content sites (use a horizontal navbar).
+  - Small apps with two or three destinations (use tabs).
+  - Mobile-only layouts without a persistent rail.
+
+markets:
+  - Global
+
+example_usage: >
+  Pair with app-topbar in a two-column shell: the sidebar owns primary navigation, the
+  topbar owns search, notifications, and the user menu. Mark exactly one item active per
+  route and keep icons to a single consistent stroke set.
+
+props:
+  brand: The product or workspace name; also seeds the logo tile initials.
+  sections: Ordered groups of links; give each a short heading unless it is the primary group.
+
+example_prompts:
+  - "Add an app sidebar for a project management tool with Workspace and Account sections."
+  - "Build a left nav rail with an inbox item showing an unread badge."
+  - "Create a SaaS sidebar with an analytics section and a New badge on Reports."
+
+lifecycle: experimental
+content_model: >
+  A brand name plus ordered sections, each an optional heading and a list of links. Each
+  link has a label, an inline SVG icon, an href, an active flag, and an optional badge.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-control
+    - --radius-pill
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Use short, noun-based labels. Keep section headings to one or two words. Reserve badges
+  for genuinely actionable counts, not decoration.
+
+relationships:
+  related:
+    - saas/app-topbar
+    - saas/workspace-switcher
+    - saas/settings-nav
+    - navigation/sidebar-nav
+
+categorization:
+  category: SaaS & Settings
+  subcategory: App Shell
+  atomic_type: organism
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav landmark with an accessible label; icons are aria-hidden; active link sets aria-current.
+  keyboard_support: Links are in normal tab order; active link exposes aria-current="true".
+  seo_score: 45
+  text_direction: both

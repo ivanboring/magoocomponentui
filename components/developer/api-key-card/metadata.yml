@@ -1,0 +1,90 @@
+name: "API Key Card"
+short_description: A card that displays an API key masked, with reveal, copy, and rotate actions plus scope and created meta.
+long_visual_description: >
+  A surface card headed "API key" with an optional scope pill at the top-right. Below sits a raised
+  monospace field showing the key masked (prefix, bullets, last four characters) with an eye button
+  to reveal or hide the full value. A meta row underneath shows the created date on the left and Copy
+  and Rotate buttons on the right; Copy briefly changes to "Copied!" after use.
+
+use_cases:
+  - Show a generated API key on a developer dashboard.
+  - List a project's keys with reveal and copy controls.
+  - Present a newly created secret with a rotate action.
+  - Display a personal access token in account settings.
+  - Manage service credentials in an admin panel.
+  - Offer a webhook signing secret with copy-to-clipboard.
+
+recommended_for:
+  - Surfacing a single secret with reveal, copy, and rotate.
+  - Dashboards where a key must be masked by default.
+avoid_for:
+  - Rendering secrets to users who should never see them (this exposes the value client-side).
+  - A plain read-only credential label with no actions.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the real key and a masked display string, plus an optional scope and created date. The card
+  shows the masked value; the eye toggles the real one, Copy writes the real key to the clipboard,
+  and Rotate dispatches an event for the host to regenerate the key.
+
+how_to_use: >
+  The masked and real values are carried on the value element's data-masked and data-key attributes,
+  so the card renders masked with no JavaScript (and in screenshots). behavior.js wires the reveal
+  toggle (swaps the field text and the eye icon and updates aria-pressed), the copy button (calls
+  navigator.clipboard.writeText with the real key and shows "Copied!"), and the rotate button (fires
+  a bubbling apikey:rotate event the host page listens for to mint a new key and re-render). The
+  portable self-init reads everything from the DOM - no props object is passed.
+
+props:
+  key: "The real key value; held in a data attribute and exposed on reveal/copy. Only use where showing the key to the viewer is acceptable."
+  masked: "The obscured value shown by default - typically the prefix, bullets, and the last four characters."
+  scope: "Optional scope/permission label shown as a pill (e.g. Full access, Read only)."
+  created: "Optional created date shown in the meta row."
+
+example_prompts:
+  - "Show the new API key masked with reveal, copy, and rotate buttons."
+  - "Add a read-only scoped key card to the settings page."
+
+lifecycle: experimental
+content_model: One API key - real value, masked display, optional scope and created date.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-border
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Always mask by default and only ever show the last few characters in the masked string. Pair the
+  reveal with copy so users rarely need to keep the key on screen, and make rotate feel deliberate -
+  it should replace, not append.
+
+relationships:
+  related:
+    - developer/api-method-badge
+    - developer/endpoint-row
+
+categorization:
+  category: Developer
+  subcategory: Credentials
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The reveal button exposes state via aria-pressed and updates its label between Reveal key and Hide key; copy and rotate are labelled buttons; the value is marked up as a code element.
+  keyboard_support: Reveal, copy, and rotate are focusable buttons activated with Enter/Space; the reveal button toggles aria-pressed.
+  seo_score: 20
+  text_direction: ltr

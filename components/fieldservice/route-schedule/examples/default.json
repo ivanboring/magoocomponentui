@@ -1,0 +1,9 @@
+{
+  "date": "Friday, Jul 24",
+  "jobs": [
+    { "time": "8:00 AM", "customer": "Acme Bakery", "service": "HVAC tune-up", "address": "142 Maple Ave", "status": "done" },
+    { "time": "10:30 AM", "customer": "Riverside Apartments", "service": "Leak repair", "address": "88 Dockside Rd, Unit 3B", "status": "current" },
+    { "time": "1:00 PM", "customer": "Green Grocer", "service": "Freezer service", "address": "5 Market St", "status": "upcoming" },
+    { "time": "3:30 PM", "customer": "Northside Clinic", "service": "Thermostat swap", "address": "210 Cedar Blvd", "status": "upcoming" }
+  ]
+}

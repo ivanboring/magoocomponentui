@@ -1,0 +1,25 @@
+name: network-switcher
+props:
+  current:
+    type: string
+    required: true
+    title: Current network
+    description: The label of the active network, shown on the trigger button (e.g. Ethereum).
+    example: "Ethereum"
+  networks:
+    type: array
+    items: object
+    required: true
+    title: Networks
+    description: >
+      The chains offered in the dropdown. Each item: { name, icon, current }. icon is a raw inline
+      SVG string; set current: true on the active chain to show a check beside it.
+    example:
+      - { name: "Ethereum", icon: "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2l5 8-5 3-5-3z'/></svg>", current: true }
+      - { name: "Polygon", icon: "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 3l6 3.5v7L10 17l-6-3.5v-7z'/></svg>", current: false }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: When true, the network dropdown renders already open.
+variants: {}

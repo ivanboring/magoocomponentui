@@ -1,0 +1,13 @@
+{
+  "label": "Market quotes",
+  "speed": "normal",
+  "quotes": [
+    { "symbol": "AAPL", "price": "$184.20", "change_pct": "+1.4%", "change_dir": "up" },
+    { "symbol": "TSLA", "price": "$242.10", "change_pct": "-0.8%", "change_dir": "down" },
+    { "symbol": "NVDA", "price": "$121.35", "change_pct": "+3.2%", "change_dir": "up" },
+    { "symbol": "MSFT", "price": "$429.80", "change_pct": "+0.6%", "change_dir": "up" },
+    { "symbol": "AMZN", "price": "$178.90", "change_pct": "-1.1%", "change_dir": "down" },
+    { "symbol": "META", "price": "$512.40", "change_pct": "+2.0%", "change_dir": "up" },
+    { "symbol": "GOOGL", "price": "$168.25", "change_pct": "-0.3%", "change_dir": "down" }
+  ]
+}

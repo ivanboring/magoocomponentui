@@ -1,0 +1,12 @@
+name: chat-composer
+props:
+  placeholder:
+    type: string
+    default: "Message the assistant…"
+    title: Placeholder
+    description: Placeholder text shown in the empty textarea.
+  send_label:
+    type: string
+    default: "Send"
+    title: Send label
+    description: Text on the send button.

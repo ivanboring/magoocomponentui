@@ -1,0 +1,75 @@
+name: "Consent Checkbox (Legal)"
+short_description: A checkbox with an agreement statement and an optional inline link to a policy, for capturing legal consent in a form.
+long_visual_description: >
+  A single-line consent control: a checkbox on the leading edge followed by an agreement statement
+  in muted body text, with an optional inline link (in the primary colour, underlined) to the
+  referenced terms or policy. When marked required, a small muted "(required)" marker follows the
+  statement and the checkbox becomes a required form control.
+
+use_cases:
+  - Agree to the terms of service before creating an account.
+  - Consent to a privacy policy or data-processing notice at signup.
+  - Opt in to marketing or newsletter communications.
+  - Acknowledge an acceptable-use or community-guidelines document.
+  - Confirm age or eligibility before checkout.
+  - Accept cookie or tracking consent inside a form.
+
+recommended_for:
+  - Signup, checkout and settings forms that must capture explicit consent.
+  - Any single agreement tied to a linkable policy document.
+avoid_for:
+  - Granular per-category cookie choices (use legal/cookie-preferences).
+  - A general form checkbox without a legal statement (use forms/form-field-checkbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Place inside a form near the submit button. Put the lead-in wording in text (e.g. "I agree to
+  the") and the policy name in link_label with link_href pointing at the document. Set required
+  when the consent must be given before the form can be submitted.
+
+props:
+  text: The consent statement; end it so the inline link reads naturally when link_label is set.
+  link_label: Optional inline link text for the referenced terms or policy.
+  link_href: The URL the inline link points to; used only when link_label is set.
+  required: When true the checkbox is required and shows a "(required)" marker.
+
+example_prompts:
+  - "Add a required checkbox to agree to the Terms of Service with a link."
+  - "Add a consent checkbox for the privacy policy at signup."
+
+lifecycle: experimental
+content_model: A short agreement statement, an optional link to a policy document, and a required flag.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --color-ring
+
+editorial_guidance: >
+  Keep the statement short and in the first person ("I agree to..."). Name the exact document in
+  the link so the user knows what they are consenting to. Only mark it required when consent is a
+  genuine precondition.
+
+relationships:
+  related:
+    - legal/terms-section
+    - legal/cookie-preferences
+    - forms/form-field-checkbox
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Consent
+  atomic_type: molecule
+  usage_type: [form-control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The checkbox is wrapped in a label so the whole statement is its accessible name; required state sets aria-required and a visible marker; the inline link is a real anchor.
+  keyboard_support: The checkbox is focusable and toggles on Space; the inline link is focusable and activates on Enter.
+  seo_score: 25
+  text_direction: both

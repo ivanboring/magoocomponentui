@@ -1,0 +1,8 @@
+{
+  "label": "Advisors",
+  "members": [
+    { "name": "Ada Rivera", "role": "Founder", "avatar": "/stock/avatar-woman-1.jpg", "initials": "AR" },
+    { "name": "Jordan Lee", "role": "Product Advisor", "initials": "JL" },
+    { "name": "Sam Okafor", "role": "Finance Advisor", "initials": "SO" }
+  ]
+}

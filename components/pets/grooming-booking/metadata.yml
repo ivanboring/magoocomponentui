@@ -1,0 +1,84 @@
+name: "Grooming Booking"
+short_description: A pet grooming service card showing the service, groomer, date and time, add-on chips, price, and a Book button.
+long_visual_description: >
+  A card on the surface colour with the service name in the heading face and the groomer below it,
+  balanced by the price in the top corner. A paw glyph line names the pet, a calendar glyph precedes
+  the date and time, a labelled row of pill-shaped add-on chips in the primary accent lists extras,
+  and a full-width primary Book button closes the card.
+
+use_cases:
+  - Grooming appointment summary on a pet care app.
+  - Service selection card in a groomer booking flow.
+  - Confirmation tile after choosing a grooming package.
+  - Mobile groomer visit summary.
+  - Add-on upsell card for extra grooming services.
+  - Salon service listing with a price and book action.
+
+recommended_for:
+  - Summarising a grooming service with price and a book action.
+  - Showing chosen add-ons alongside the base service.
+avoid_for:
+  - A medical visit (use vet-appointment).
+  - Picking a day and time from a calendar (use appointment-booker).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the service and groomer plus optional pet, date, time, price, and an add-ons array. Each
+  add-on renders as a chip. The Book button is a placeholder the host page can wire to a checkout.
+
+props:
+  pet: Optional pet name shown with a paw glyph.
+  service: The grooming service name shown in the heading face.
+  groomer: The groomer name, shown under the service.
+  date: The appointment date shown beside the calendar glyph.
+  time: The appointment time shown after the date.
+  price: The service price shown in the top corner.
+  addons: An array of extra service strings, each rendered as a chip.
+
+example_prompts:
+  - Add a grooming booking for a full groom and bath at 11 AM.
+  - Show a groomer service card with nail trim and de-shed add-ons.
+  - Put a grooming appointment summary with a price and book button.
+
+lifecycle: experimental
+content_model: An optional pet, a service and groomer, an optional date, time, and price, and an array of add-on services.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name the service plainly and keep add-ons to short two-word labels. Show the price inclusive of the
+  base service so the total reads clearly.
+
+relationships:
+  related:
+    - pets/vet-appointment
+    - pets/pet-profile-card
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Services
+  atomic_type: molecule
+  usage_type: [card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The paw and calendar glyphs are aria-hidden; the Book action is a labelled button.
+  keyboard_support: The Book button is focusable and activates on Enter/Space.
+  seo_score: 40
+  text_direction: both

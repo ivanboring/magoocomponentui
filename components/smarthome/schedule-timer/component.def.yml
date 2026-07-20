@@ -1,0 +1,38 @@
+name: schedule-timer
+props:
+  device:
+    type: string
+    title: Device
+    description: Name of the device this schedule controls.
+    example: "Porch light"
+  on_time:
+    type: string
+    title: On time
+    description: When the device turns on, e.g. "18:30". The row hides when omitted.
+    example: "18:30"
+  off_time:
+    type: string
+    title: Off time
+    description: When the device turns off, e.g. "23:00". The row hides when omitted.
+    example: "23:00"
+  days:
+    type: array
+    items: object
+    title: Days
+    description: >
+      The weekday strip, one entry per day in display order: { label, active }. active (a precomputed
+      boolean) fills the dot; label is a short 1-2 character weekday initial. The directive language
+      can't test membership, so pass a per-day active flag rather than a list of active day names.
+    example:
+      - { label: "M", active: true }
+      - { label: "T", active: true }
+      - { label: "W", active: true }
+      - { label: "T", active: true }
+      - { label: "F", active: true }
+      - { label: "S", active: false }
+      - { label: "S", active: false }
+  enabled:
+    type: boolean
+    default: true
+    title: Enabled
+    description: Whether the schedule is active. Drives the switch.

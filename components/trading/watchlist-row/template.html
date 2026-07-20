@@ -1,0 +1,16 @@
+<div class="watchlist-row flex items-center gap-4 rounded-card border border-border bg-surface px-4 py-3 shadow-card">
+  <div class="min-w-0 flex-1">
+    <p class="font-heading text-on-surface">{{ symbol }}</p>
+    <p data-if="name" class="truncate text-xs text-on-surface-muted">{{ name }}</p>
+  </div>
+  <svg data-if="spark_path" class="watchlist-row__spark h-8 w-20 shrink-0 max-sm:hidden" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true">
+    <path d="{{ spark_path }}" data-dir="{{ change_dir }}" class="fill-none stroke-success [stroke-width:2] data-[dir=down]:stroke-danger" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <div class="shrink-0 text-right">
+    <p class="font-mono text-on-surface tabular-nums">{{ price }}</p>
+    <span class="watchlist-row__change inline-flex items-center gap-1 rounded-pill px-1.5 py-0.5 font-mono text-xs font-medium tabular-nums data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ change_dir }}">
+      <span>{{ change }}</span>
+      <span>{{ change_pct }}</span>
+    </span>
+  </div>
+</div>

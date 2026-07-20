@@ -1,0 +1,31 @@
+<section class="carousel-grid relative" role="group" aria-roledescription="carousel" aria-label="{{ label }}" data-loop="{{ loop }}">
+  <div class="carousel-grid__track flex snap-x snap-mandatory overflow-x-auto scroll-smooth py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden gap-[var(--cc-gap)] scroll-pl-[var(--cc-peek)] {{ cols_mobile@class }} {{ cols_tablet@class }} {{ cols_desktop@class }} {{ peek@class }} {{ gap@class }} [--cc-item:calc((100%_-_2_*_var(--cc-peek)_-_var(--cc-gap)_*_(var(--cc-cols)_-_1))/var(--cc-cols))]">
+    <div data-for="item in items" class="carousel-grid__slide shrink-0 grow-0 snap-start basis-[var(--cc-item)]">
+      <article class="group relative flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+        <div data-if="show_image" class="carousel-grid__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+          <img data-if="item.image" class="size-full object-cover transition-transform duration-(--duration-token) group-hover:scale-105" src="{{ item.image }}" alt="">
+        </div>
+        <div class="flex flex-1 flex-col gap-1 p-4">
+          <span data-if="item.eyebrow" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ item.eyebrow }}</span>
+          <h3 class="font-heading text-on-surface">
+            <a data-if="item.href" class="outline-none after:absolute after:inset-0 hover:underline focus-visible:underline" href="{{ item.href }}">{{ item.title }}</a>
+            <span data-if="!item.href">{{ item.title }}</span>
+          </h3>
+          <p data-if="item.subtitle" class="text-sm text-on-surface-muted">{{ item.subtitle }}</p>
+        </div>
+      </article>
+    </div>
+    <div data-if="end_at_start" class="carousel-grid__spacer shrink-0 grow-0 basis-[calc(100%_-_var(--cc-item)_-_var(--cc-peek)_-_var(--cc-gap))]" aria-hidden="true"></div>
+  </div>
+
+  <button data-if="show_arrows" type="button" class="carousel-grid__prev absolute -left-3 top-[38%] flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised disabled:pointer-events-none disabled:opacity-40" aria-label="Previous">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+  </button>
+  <button data-if="show_arrows" type="button" class="carousel-grid__next absolute -right-3 top-[38%] flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface text-on-surface shadow-card transition-colors duration-(--duration-token) hover:bg-surface-raised disabled:pointer-events-none disabled:opacity-40" aria-label="Next">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+  </button>
+
+  <div data-if="show_pager" class="carousel-grid__pager mt-3 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Carousel pages">
+    <button data-for="item in items" type="button" class="carousel-grid__dot size-2 rounded-pill bg-border transition-colors duration-(--duration-token) data-[active=true]:bg-primary" aria-label="Go to card"></button>
+  </div>
+</section>

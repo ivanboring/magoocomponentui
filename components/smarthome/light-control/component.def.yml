@@ -1,0 +1,29 @@
+name: light-control
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The light or group name shown as the card title.
+    example: "Living room"
+  "on":
+    type: boolean
+    default: false
+    title: On
+    description: Whether the light is currently on. Drives the power switch state.
+  brightness_pct:
+    type: integer
+    default: 100
+    title: Brightness
+    description: >
+      Current brightness as a whole number 0-100 (precomputed by the caller). Sets both the slider
+      fill width and the range input's initial value; the directive language does no arithmetic, so
+      pass the already-scaled percentage.
+    example: 70
+  color_hex:
+    type: string
+    title: Colour
+    description: >
+      Optional CSS colour (hex or any valid colour string) for a tunable-colour bulb; renders a
+      round swatch. Omit for a plain dimmable/white light.
+    example: "#f7c948"

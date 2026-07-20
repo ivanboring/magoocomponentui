@@ -1,0 +1,85 @@
+name: "Split Button"
+short_description: A primary action button with an attached caret that opens a menu of related actions.
+long_visual_description: >
+  A pill-shaped primary button whose right edge carries a small caret toggle, split by a
+  hairline divider. Clicking the caret reveals a right-anchored surface panel of related
+  actions dropping below the button, the last of which can be tinted as a destructive option.
+
+use_cases:
+  - A Save button whose caret offers Save as, Save a copy, Rename, and Delete.
+  - A primary Send with alternate Send later or Schedule actions.
+  - A Create button offering New document, folder, or from template.
+  - A Publish button with Publish now, Schedule, and Unpublish options.
+  - Any dominant call to action that has a small cluster of secondary variants.
+  - Editor toolbars that pair a default action with rarer sibling actions.
+
+recommended_for:
+  - A single clear primary action that has a few closely related alternatives.
+avoid_for:
+  - A menu with no obvious default action (use dropdown-menu instead).
+  - Right-click contextual menus (use context-menu).
+  - Long lists of unrelated navigation links.
+
+markets:
+  - Global
+
+example_usage: >
+  Set label to the dominant action and list its siblings in items; mark the destructive one
+  with danger: true. The main link uses href; the caret opens the menu (Escape/outside-click
+  close it). Use start_open only to capture the open state.
+
+props:
+  label: The primary action's label on the large button.
+  href: Where the primary action navigates.
+  items: The related actions in the caret menu; mark a destructive one with danger.
+  start_open: Render with the menu already open (screenshots); runtime still toggles it.
+  menu_label: Accessible label for the caret toggle.
+
+example_prompts:
+  - "Add a split button labeled Save with Save as, Save a copy, Rename, and a Delete action."
+  - "Give me a primary Publish button with a caret menu for Schedule and Unpublish."
+
+relationships:
+  related:
+    - overlays/dropdown-menu
+    - atoms/button
+    - overlays/context-menu
+
+lifecycle: experimental
+content_model: A primary action plus an ordered list of related action items.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-danger
+    - --radius-button
+    - --radius-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep the primary label a short verb; make the menu items its close siblings and place any
+  destructive action last, tinted with danger.
+
+categorization:
+  category: Overlays
+  subcategory: Menus
+  atomic_type: molecule
+  usage_type: [action]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The caret exposes aria-haspopup/aria-expanded and an aria-label; the panel uses role="menu"/"menuitem"; Escape closes and restores focus to the caret; outside click closes.
+  keyboard_support: The caret toggles the menu; Escape closes it and returns focus to the caret. Menu items are links reachable by Tab.
+  seo_score: 10
+  text_direction: both
+
+how_to_use: >
+  Put the dominant action in label/href and its siblings in items (danger: true tints a
+  destructive one). The caret toggle opens the menu via data-open; it closes on Escape or an
+  outside click. Set start_open: true only to show the open menu in a screenshot.

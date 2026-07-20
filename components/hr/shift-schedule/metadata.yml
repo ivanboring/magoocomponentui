@@ -1,0 +1,85 @@
+name: "Shift Schedule"
+short_description: A weekly staff-by-day grid where each cell holds an optional coloured shift chip.
+long_visual_description: >
+  A horizontally scrollable week grid on the surface colour. A shaded header row lists the day
+  columns after a leading Staff column; each staff row then shows an initials avatar and name on the
+  left and one cell per day. A worked day holds a small rounded chip with the shift label, tinted by
+  a tokenized colour so shift types are colour-coded; days off stay blank. Column and row borders
+  keep the roster readable, and the whole grid scrolls sideways on narrow screens.
+
+use_cases:
+  - A weekly staff rota for a shop, cafe or clinic.
+  - A team on-call or coverage calendar for the week.
+  - A support-desk shift plan across the working days.
+  - A production or warehouse crew schedule.
+  - A volunteer or event staffing grid.
+  - A classroom or lab supervision timetable.
+
+recommended_for:
+  - Seeing who works which days across a week at a glance.
+  - Colour-coding shift types (day, evening, on-call) per cell.
+avoid_for:
+  - A single person's day-by-hour timeline (use a day agenda).
+  - Editing or drag-assigning shifts (this is a display grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a days array for the column headers and a staff array of rows. Each staff member has a name,
+  precomputed initials, and a cells array aligned one-to-one with the days; a cell with a label
+  shows a chip, and its color_class picks a tokenized tint from the safelisted set. Leave a cell
+  empty for a day off.
+
+props:
+  days: "The column headers in order (the week's days)."
+  staff: "One row per person. Each: name, initials (precomputed), and cells aligned to days - each cell is { label, color_class } with color_class from the safelisted tint set."
+
+example_prompts:
+  - "Build a weekly shift schedule for five staff across Monday to Sunday."
+  - "Show a rota with morning shifts in one colour and evening shifts in another."
+  - "Add a coverage grid for the support team this week."
+
+lifecycle: experimental
+content_model: A set of day columns and staff rows, each row holding an optional labelled, colour-tinted shift per day.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep shift labels terse (a time range like "9-5"). Use one colour consistently per shift type
+  across the whole grid so the coding stays legible. Leave days off blank rather than labelling them.
+
+relationships:
+  related:
+    - hr/attendance-row
+    - hr/team-directory-grid
+    - hr/approval-request-row
+
+categorization:
+  category: HR & People
+  subcategory: Scheduling
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Shift chips carry a text label, not colour alone; avatars are decorative and aria-hidden; the grid scrolls horizontally without clipping content.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

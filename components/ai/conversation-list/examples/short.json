@@ -1,0 +1,11 @@
+{
+  "new_label": "New chat",
+  "groups": [
+    {
+      "label": "Today",
+      "items": [
+        { "title": "Welcome - your first conversation", "active": true, "time": "now", "href": "#" }
+      ]
+    }
+  ]
+}

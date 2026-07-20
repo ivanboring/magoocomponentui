@@ -1,0 +1,10 @@
+{
+  "errors": [
+    { "code": "invalid_request", "name": "Invalid request", "http": "400", "meaning": "The request was malformed or missing a required field." },
+    { "code": "unauthorized", "name": "Unauthorized", "http": "401", "meaning": "No valid API key was provided." },
+    { "code": "forbidden", "name": "Forbidden", "http": "403", "meaning": "The API key lacks permission for this resource." },
+    { "code": "not_found", "name": "Not found", "http": "404", "meaning": "The requested resource does not exist." },
+    { "code": "rate_limited", "name": "Too many requests", "http": "429", "meaning": "You have exceeded the rate limit; retry after the reset window." },
+    { "code": "server_error", "name": "Server error", "http": "500", "meaning": "Something went wrong on our end; retry the request." }
+  ]
+}

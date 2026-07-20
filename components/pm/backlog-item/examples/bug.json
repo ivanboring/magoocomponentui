@@ -1,0 +1,7 @@
+{
+  "title": "CSV export returns 500 over 10k rows",
+  "type": "bug",
+  "estimate": "3",
+  "tag": "Reports",
+  "priority": "urgent"
+}

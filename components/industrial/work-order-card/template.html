@@ -1,0 +1,24 @@
+<article class="work-order-card flex flex-col gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p class="text-xs text-on-surface-muted">Work order</p>
+      <h3 class="work-order-card__number truncate font-mono font-heading text-on-surface">{{ order_number }}</h3>
+      <p data-if="product" class="mt-0.5 truncate text-sm text-on-surface">{{ product }}</p>
+    </div>
+    <span data-if="status" class="work-order-card__status inline-flex shrink-0 items-center rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+  <dl class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+    <div data-if="quantity" class="flex flex-col">
+      <dt class="text-xs text-on-surface-muted">Quantity</dt>
+      <dd class="font-heading tabular-nums text-on-surface">{{ quantity }}</dd>
+    </div>
+    <div data-if="due" class="flex flex-col">
+      <dt class="text-xs text-on-surface-muted">Due</dt>
+      <dd class="font-heading tabular-nums text-on-surface">{{ due }}</dd>
+    </div>
+  </dl>
+  <div data-if="priority" class="work-order-card__priority inline-flex items-center gap-1.5 self-start rounded-control bg-surface-raised px-2 py-1 text-xs font-medium text-on-surface-muted">
+    <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3v14M5 4h9l-2 3 2 3H5z"/></svg>
+    {{ priority }}
+  </div>
+</article>

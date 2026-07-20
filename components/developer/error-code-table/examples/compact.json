@@ -1,0 +1,6 @@
+{
+  "errors": [
+    { "code": "card_declined", "name": "Card declined", "http": "402", "meaning": "The card was declined by the issuing bank." },
+    { "code": "idempotency_error", "name": "Idempotency error", "meaning": "The same idempotency key was reused with a different request body." }
+  ]
+}

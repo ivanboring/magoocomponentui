@@ -1,0 +1,97 @@
+name: "Order Ticket (Trade)"
+short_description: A buy/sell order ticket - a green/red side toggle, order-type select, quantity and price inputs, an estimated cost and a place-order button.
+long_visual_description: >
+  A card-shaped form with the instrument symbol at the top, a two-button segmented Buy/Sell toggle
+  whose active side fills green (buy) or red (danger, sell), an order-type select (Market, Limit,
+  Stop), a two-up row of quantity and price inputs in the mono face, an estimated-cost line, and a
+  full-width place-order button that takes the same green or red tint as the selected side.
+
+use_cases:
+  - A trade entry panel in a brokerage or trading dashboard.
+  - A quick-order ticket in an asset detail page sidebar.
+  - A buy/sell form in a paper-trading or simulator app.
+  - An order pad inside a watchlist or portfolio view.
+  - A compact ticket in a modal or drawer opened from a chart.
+
+recommended_for:
+  - Collecting a single equity or crypto order with a side, type, quantity and price.
+  - Any surface that needs a side toggle that recolours the primary action.
+avoid_for:
+  - A multi-leg or options-strategy builder (needs a richer, per-leg form).
+  - Read-only order confirmations (use a summary card instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Set symbol and an initial side (buy or sell); the toggle recolours the active side and the place
+  button green or red. Pass an order_type (carried in the dispatched event), optional quantity and
+  price to prefill the inputs, and estimated_cost to show the cost line above the button.
+
+how_to_use: >
+  The buy/sell colouring is pure CSS driven by the root data-state attribute (set from the side
+  prop), so it renders statically. behavior.js wires interaction: clicking a side button updates
+  data-state, which restyles the toggle and the place button; submitting the form calls
+  preventDefault and dispatches an order:submit CustomEvent (bubbles) whose detail carries symbol,
+  side, orderType, quantity and price. The order_type prop is carried on data-order-type and used as
+  the event fallback. The portable self-init reads config from data-* attributes - no props object.
+
+props:
+  symbol: "The instrument ticker shown at the top of the ticket."
+  side: "buy or sell - the initial active side; colours the toggle and place button green or red."
+  order_type: "The pre-selected order type carried into the dispatched event; the select lists Market, Limit and Stop."
+  quantity: "Prefills the quantity input; preformatted in the caller."
+  price: "Prefills the price input (for limit and stop orders); preformatted in the caller."
+  estimated_cost: "The estimated order cost shown above the button; hidden when unset."
+
+example_prompts:
+  - "Add a buy ticket for AAPL with 10 shares at market."
+  - "Show a sell order ticket for TSLA with a limit price."
+  - "Put a trade entry form in the asset sidebar."
+
+lifecycle: experimental
+content_model: >
+  One order: a symbol, a side (buy or sell), an order type, a quantity, an optional price and an
+  estimated cost.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the side toggle honest - a buy ticket should read green throughout and a sell ticket red.
+  Preformat quantity, price and estimated cost in the caller so the mono figures line up.
+
+relationships:
+  related:
+    - trading/position-card
+    - trading/watchlist-row
+    - trading/options-chain-row
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Trading
+  atomic_type: molecule
+  usage_type: [form, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The side toggle buttons carry aria-pressed reflecting the active side, inputs have visible labels, and the place button is a real submit; side is conveyed by the button label as well as colour.
+  keyboard_support: All controls are native form elements - the toggle buttons, select, inputs and submit button are focusable and operable with the keyboard.
+  seo_score: 20
+  text_direction: both

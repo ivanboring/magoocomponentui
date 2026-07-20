@@ -1,0 +1,85 @@
+name: "Automation Rule Row"
+short_description: An if/then automation row with trigger and action chips and an enable switch.
+long_visual_description: >
+  A horizontal row on the surface colour with an optional round primary-tinted glyph on the leading
+  edge. The middle reads as a sentence — a mono "IF" label, the trigger in a raised chip, a "THEN"
+  label, and the action in a second chip — while a pill toggle switch on the trailing edge shows and
+  controls whether the rule is enabled.
+
+use_cases:
+  - List a home's automations as scannable if/then rows.
+  - Enable or pause a single automation without leaving the list.
+  - Show a trigger and its resulting action at a glance.
+  - Build an automations settings screen from stacked rows.
+  - Review which routines are active across a household.
+
+recommended_for:
+  - Automation and routine list screens.
+  - Settings pages where rules are toggled on and off.
+avoid_for:
+  - Editing the rule's logic (use a rule builder form).
+  - Multi-condition rules that need more than one trigger chip.
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several in a list. Pass the enabled state; the switch mirrors it and, on toggle, dispatches
+  rule:toggle so the host can activate or pause the automation.
+
+how_to_use: >
+  Interactive. The role="switch" button flips on click: it sets data-state (and aria-checked) on the
+  switch and its knob and dispatches a bubbling "rule:toggle" CustomEvent with detail { enabled }.
+  Read the current state from the switch's data-state attribute.
+
+props:
+  trigger: The "if" condition shown in the first chip.
+  action: The "then" outcome shown in the second chip.
+  enabled: Whether the rule is active; drives the switch.
+  icon: Optional leading glyph as raw inline-SVG HTML; keep it decorative.
+
+example_prompts:
+  - "Add an if/then automation row for motion in the hallway turning on the porch light."
+  - "List the home automations with enable switches."
+  - "Add a disabled rule that closes the blinds at sunset."
+
+lifecycle: experimental
+content_model: A trigger condition, an action, an enabled state, and an optional icon.
+
+relationships:
+  related:
+    - smarthome/scene-card
+    - smarthome/device-tile
+    - smarthome/sensor-reading
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Phrase the trigger and action as short, concrete clauses so the row reads as a sentence.
+
+categorization:
+  category: Smart Home
+  subcategory: Automations
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The toggle uses role="switch" with aria-checked and a label; enabled state is not colour-only.
+  keyboard_support: The switch is a native button — focusable and toggles on Enter/Space.
+  seo_score: 25
+  text_direction: both

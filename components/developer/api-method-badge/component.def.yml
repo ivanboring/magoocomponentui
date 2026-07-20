@@ -1,0 +1,15 @@
+name: api-method-badge
+props:
+  method:
+    type: enum
+    values: ["get", "post", "put", "patch", "delete"]
+    default: "get"
+    title: HTTP method
+    description: The HTTP verb this badge represents; drives the pill colour.
+variants:
+  method:
+    get: "bg-info/10 text-info"
+    post: "bg-success/10 text-success"
+    put: "bg-warning/10 text-warning"
+    patch: "bg-warning/10 text-warning"
+    delete: "bg-danger/10 text-danger"

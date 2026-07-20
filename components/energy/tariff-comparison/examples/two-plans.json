@@ -1,0 +1,19 @@
+{
+  "plans": [
+    {
+      "name": "Standard Variable",
+      "rate": "28.6p / kWh",
+      "standing_charge": "46p / day",
+      "recommended": false,
+      "features": ["No fixed term", "Prices can change"]
+    },
+    {
+      "name": "Fixed 24",
+      "rate": "23.9p / kWh",
+      "standing_charge": "41p / day",
+      "savings": "Save 210 / yr",
+      "recommended": true,
+      "features": ["Price fixed for 24 months", "100% renewable electricity", "No exit fees", "Award-winning support"]
+    }
+  ]
+}

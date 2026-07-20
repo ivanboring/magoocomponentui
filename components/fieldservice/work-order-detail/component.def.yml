@@ -1,0 +1,49 @@
+name: work-order-detail
+props:
+  order_number:
+    type: string
+    required: true
+    title: Order number
+    description: The work-order reference shown in the header.
+    example: "WO-4821"
+  status:
+    type: string
+    title: Status
+    description: Current work-order state, preformatted for display.
+    example: "In progress"
+  customer:
+    type: string
+    title: Customer
+    description: Name of the customer the work order is for.
+    example: "Acme Bakery"
+  address:
+    type: string
+    title: Service address
+    description: Where the work is performed.
+    example: "142 Maple Ave, Springfield"
+  description_html:
+    type: html
+    title: Description
+    description: Rich-text description of the work to be done (raw HTML).
+  tasks:
+    type: array
+    items: object
+    title: Tasks
+    description: "Checklist items. Each task: { label, done } where done is a boolean."
+    example:
+      - { label: "Diagnose fault", done: true }
+      - { label: "Replace igniter", done: true }
+      - { label: "Test heating cycle", done: false }
+  parts:
+    type: array
+    items: object
+    title: Parts
+    description: "Parts required. Each part: { name, qty }."
+    example:
+      - { name: "Igniter assembly", qty: "1" }
+      - { name: "Flame sensor", qty: "1" }
+  total:
+    type: string
+    title: Total
+    description: Preformatted total for the work order.
+    example: "$248.00"

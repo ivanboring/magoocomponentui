@@ -1,0 +1,17 @@
+<div class="engagement-stat rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-2">
+    <p class="text-sm text-on-surface-muted">{{ label }}</p>
+    <span data-if="period" class="text-xs text-on-surface-muted">{{ period }}</span>
+  </div>
+  <p class="mt-1 font-heading text-3xl text-on-surface tabular-nums">{{ value }}</p>
+  <div class="mt-2 flex items-end justify-between gap-3">
+    <p data-if="change" data-dir="{{ change_dir }}" class="engagement-stat__change inline-flex items-center gap-1 text-sm font-medium data-[dir=up]:text-success data-[dir=down]:text-danger">
+      <svg class="size-4 data-[dir=down]:hidden" data-dir="{{ change_dir }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 15V5M6 9l4-4 4 4"/></svg>
+      <svg class="hidden size-4 data-[dir=down]:block" data-dir="{{ change_dir }}" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 5v10M6 11l4 4 4-4"/></svg>
+      <span class="tabular-nums">{{ change }}</span>
+    </p>
+    <svg data-if="sparkline_path" class="engagement-stat__sparkline h-8 w-24 shrink-0 text-primary" viewBox="0 0 100 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="none" aria-hidden="true">
+      <path d="{{ sparkline_path }}"/>
+    </svg>
+  </div>
+</div>

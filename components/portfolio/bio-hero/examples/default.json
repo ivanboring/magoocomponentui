@@ -1,0 +1,10 @@
+{
+  "name": "Alex Rivera",
+  "role": "Product Designer & Front-end Developer",
+  "intro_html": "<p>I design and build interfaces that feel effortless. For the last decade I've partnered with startups and studios to ship products people actually enjoy using.</p><p>Lately I've been focused on design systems that let small teams move like big ones.</p>",
+  "portrait": "/stock/avatar-man-1.jpg",
+  "ctas": [
+    { "label": "View work", "href": "#", "primary": true },
+    { "label": "Get in touch", "href": "#", "primary": false }
+  ]
+}

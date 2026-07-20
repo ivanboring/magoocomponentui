@@ -1,0 +1,11 @@
+{
+  "label": "Profile visibility",
+  "help": "Who can see your profile details.",
+  "value": "team",
+  "name": "profile_visibility",
+  "options": [
+    { "label": "Public", "value": "public" },
+    { "label": "Team only", "value": "team" },
+    { "label": "Private", "value": "private" }
+  ]
+}

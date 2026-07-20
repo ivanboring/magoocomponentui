@@ -1,0 +1,73 @@
+name: "Bottom Tab Bar"
+short_description: A mobile bottom tab bar with icon-plus-label tabs, an active state, and optional badges.
+long_visual_description: >
+  A horizontal bar with a top border, evenly dividing its width into 3-5 tabs. Each tab
+  stacks a line-style icon over a small label; the active tab is tinted with the primary
+  colour, and any tab may carry a small danger-coloured count pill on its icon.
+
+use_cases:
+  - Primary navigation for a mobile web app or PWA.
+  - Switching between top-level sections (home, search, profile) on small screens.
+  - Surfacing unread counts on a notifications or messages tab.
+  - Bottom navigation for a content or media app.
+  - Quick section switching in a mobile-first dashboard.
+  - Companion navigation to a hidden hamburger menu on phones.
+
+recommended_for:
+  - Mobile-first apps with 3-5 equally important top-level destinations.
+avoid_for:
+  - Desktop-primary layouts (use navbar or sidebar-nav).
+  - More than five destinations (crowds the labels; use a menu).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide 3-5 items, each with an inline-SVG icon and a one-word label; mark one item
+  active. The root renders as a plain in-flow bar - wrap it in a positioned container
+  (e.g. class "fixed inset-x-0 bottom-0 z-40") to pin it to the bottom of the viewport.
+
+props:
+  label: Accessible name for the whole navigation region.
+  items: The tabs, each with icon, label, href, active state, and optional badge.
+
+example_prompts:
+  - "Add a mobile bottom tab bar with Home, Search, Alerts, and Profile."
+  - "Add a bottom nav with an unread badge on the Messages tab."
+
+lifecycle: experimental
+content_model: A short list of top-level destinations, each an icon, a label, and an optional badge count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --color-danger
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep labels to a single word and badges to a short count (e.g. "3", "9+"). The bar is not
+  fixed by default; the consuming app is responsible for pinning it with a "fixed inset-x-0
+  bottom-0" wrapper and reserving matching bottom padding on the page content.
+
+relationships:
+  related:
+    - navigation/navbar
+    - navigation/sidebar-nav
+    - navigation/nav-rail
+
+categorization:
+  category: Navigation
+  subcategory: Bars
+  atomic_type: molecule
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: nav has an aria-label; the active tab sets aria-current; icons are decorative (aria-hidden) with a visible text label.
+  keyboard_support: Tabs are links, focusable in order and activated on Enter.
+  seo_score: 40
+  text_direction: both

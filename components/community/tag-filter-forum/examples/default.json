@@ -1,0 +1,10 @@
+{
+  "tags": [
+    { "label": "General", "count": 128, "active": true },
+    { "label": "Help", "count": 96 },
+    { "label": "Announcements", "count": 12 },
+    { "label": "Show and tell", "count": 54 },
+    { "label": "Feature requests", "count": 41 },
+    { "label": "Off-topic", "count": 73 }
+  ]
+}

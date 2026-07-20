@@ -1,0 +1,243 @@
+# GENERATED FILE - do not edit by hand.
+# Source: tokens.manifest.json (via scripts/generate-schema.mjs).
+# Every design token in the manifest becomes a theme setting named magoo_<key>;
+# color tokens additionally get a magoo_<key>_dark counterpart.
+
+magoo_agentic_base_theme.settings:
+  type: theme_settings
+  label: 'Magoo Agentic Base Theme settings'
+  mapping:
+    # Brand
+    magoo_color_primary:
+      type: string
+      label: 'Primary'
+    magoo_color_primary_dark:
+      type: string
+      label: 'Primary (dark)'
+    magoo_color_primary_contrast:
+      type: string
+      label: 'On primary'
+    magoo_color_primary_contrast_dark:
+      type: string
+      label: 'On primary (dark)'
+    magoo_color_background:
+      type: string
+      label: 'Background'
+    magoo_color_background_dark:
+      type: string
+      label: 'Background (dark)'
+    magoo_color_surface:
+      type: string
+      label: 'Surface'
+    magoo_color_surface_dark:
+      type: string
+      label: 'Surface (dark)'
+    magoo_color_on_surface:
+      type: string
+      label: 'On surface'
+    magoo_color_on_surface_dark:
+      type: string
+      label: 'On surface (dark)'
+    # Colors
+    magoo_color_on_background:
+      type: string
+      label: 'On background'
+    magoo_color_on_background_dark:
+      type: string
+      label: 'On background (dark)'
+    magoo_color_surface_raised:
+      type: string
+      label: 'Surface raised'
+    magoo_color_surface_raised_dark:
+      type: string
+      label: 'Surface raised (dark)'
+    magoo_color_on_surface_muted:
+      type: string
+      label: 'On surface (muted)'
+    magoo_color_on_surface_muted_dark:
+      type: string
+      label: 'On surface (muted) (dark)'
+    magoo_color_secondary:
+      type: string
+      label: 'Secondary'
+    magoo_color_secondary_dark:
+      type: string
+      label: 'Secondary (dark)'
+    magoo_color_secondary_contrast:
+      type: string
+      label: 'On secondary'
+    magoo_color_secondary_contrast_dark:
+      type: string
+      label: 'On secondary (dark)'
+    magoo_color_accent:
+      type: string
+      label: 'Accent'
+    magoo_color_accent_dark:
+      type: string
+      label: 'Accent (dark)'
+    magoo_color_accent_contrast:
+      type: string
+      label: 'On accent'
+    magoo_color_accent_contrast_dark:
+      type: string
+      label: 'On accent (dark)'
+    magoo_color_border:
+      type: string
+      label: 'Border'
+    magoo_color_border_dark:
+      type: string
+      label: 'Border (dark)'
+    magoo_color_ring:
+      type: string
+      label: 'Focus ring'
+    magoo_color_ring_dark:
+      type: string
+      label: 'Focus ring (dark)'
+    magoo_color_success:
+      type: string
+      label: 'Success'
+    magoo_color_success_dark:
+      type: string
+      label: 'Success (dark)'
+    magoo_color_success_contrast:
+      type: string
+      label: 'On success'
+    magoo_color_success_contrast_dark:
+      type: string
+      label: 'On success (dark)'
+    magoo_color_warning:
+      type: string
+      label: 'Warning'
+    magoo_color_warning_dark:
+      type: string
+      label: 'Warning (dark)'
+    magoo_color_warning_contrast:
+      type: string
+      label: 'On warning'
+    magoo_color_warning_contrast_dark:
+      type: string
+      label: 'On warning (dark)'
+    magoo_color_danger:
+      type: string
+      label: 'Danger'
+    magoo_color_danger_dark:
+      type: string
+      label: 'Danger (dark)'
+    magoo_color_danger_contrast:
+      type: string
+      label: 'On danger'
+    magoo_color_danger_contrast_dark:
+      type: string
+      label: 'On danger (dark)'
+    magoo_color_info:
+      type: string
+      label: 'Info'
+    magoo_color_info_dark:
+      type: string
+      label: 'Info (dark)'
+    magoo_color_info_contrast:
+      type: string
+      label: 'On info'
+    magoo_color_info_contrast_dark:
+      type: string
+      label: 'On info (dark)'
+    # Typography
+    magoo_font_heading:
+      type: string
+      label: 'Heading family'
+    magoo_font_body:
+      type: string
+      label: 'Body family'
+    magoo_font_mono:
+      type: string
+      label: 'Mono family'
+    magoo_weight_heading:
+      type: string
+      label: 'Heading weight'
+    magoo_weight_body:
+      type: string
+      label: 'Body weight'
+    magoo_tracking_heading:
+      type: string
+      label: 'Heading tracking'
+    magoo_text_base:
+      type: string
+      label: 'Base font size'
+    magoo_scale_ratio:
+      type: string
+      label: 'Type scale ratio'
+    magoo_font_source:
+      type: string
+      label: 'Web font source'
+    magoo_font_url:
+      type: string
+      label: 'Web font stylesheet URL'
+    # Shape
+    magoo_radius_control:
+      type: string
+      label: 'Control radius'
+    magoo_radius_button:
+      type: string
+      label: 'Button radius'
+    magoo_radius_card:
+      type: string
+      label: 'Card radius'
+    magoo_radius_pill:
+      type: string
+      label: 'Pill radius'
+    # Elevation
+    magoo_shadow_rgb:
+      type: string
+      label: 'Shadow tint (R, G, B)'
+    magoo_shadow_card:
+      type: string
+      label: 'Card shadow'
+    magoo_shadow_raised:
+      type: string
+      label: 'Raised shadow'
+    magoo_shadow_focus:
+      type: string
+      label: 'Focus shadow'
+    # Spacing
+    magoo_density:
+      type: string
+      label: 'Density'
+    magoo_space_section:
+      type: string
+      label: 'Section spacing'
+    magoo_space_card:
+      type: string
+      label: 'Card padding'
+    magoo_space_control:
+      type: string
+      label: 'Control padding'
+    magoo_container_max_width:
+      type: string
+      label: 'Container max width'
+    # Motion
+    magoo_duration_token:
+      type: string
+      label: 'Transition duration'
+    magoo_ease_token:
+      type: string
+      label: 'Easing'
+    # Layout
+    magoo_color_scheme:
+      type: string
+      label: 'Color scheme'
+    magoo_sidebar_position:
+      type: string
+      label: 'Sidebar position'
+    magoo_sticky_header:
+      type: boolean
+      label: 'Sticky header'
+    magoo_full_bleed_regions:
+      type: string
+      label: 'Full-bleed regions'
+    magoo_hidden_regions:
+      type: string
+      label: 'Hidden regions'
+    # Advanced
+    magoo_custom_css_vars:
+      type: string
+      label: 'Extra CSS variables'

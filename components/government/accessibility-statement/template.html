@@ -1,0 +1,32 @@
+<section class="accessibility-statement mx-auto flex max-w-2xl flex-col gap-6" aria-labelledby="accessibility-statement-heading">
+  <header class="flex flex-col gap-3">
+    <h2 id="accessibility-statement-heading" class="font-heading text-2xl text-on-surface">Accessibility statement</h2>
+    <span data-if="standard" class="accessibility-statement__badge inline-flex w-fit items-center gap-2 rounded-pill bg-success/10 px-3 py-1 text-sm font-medium text-success">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Conforms to {{ standard }}
+    </span>
+  </header>
+
+  <p data-if="intro" class="accessibility-statement__intro text-on-surface-muted">{{ intro }}</p>
+
+  <div data-if="commitments" class="flex flex-col gap-3">
+    <h3 class="font-heading text-lg text-on-surface">Our commitments</h3>
+    <ul class="accessibility-statement__commitments flex flex-col gap-2">
+      <li data-for="item in commitments" class="flex items-start gap-3 text-on-surface">
+        <svg class="mt-1 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>{{ item }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div data-if="contact_email" class="accessibility-statement__feedback rounded-card border border-border bg-surface-raised p-(--space-card)">
+    <h3 class="mb-1 font-heading text-lg text-on-surface">Report a barrier</h3>
+    <p class="text-sm text-on-surface-muted">Encountered an accessibility problem? Let us know and we will work to fix it.</p>
+    <a class="mt-3 inline-flex items-center gap-2 rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90" href="mailto:{{ contact_email }}">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 5h14v10H3z"/><path d="M3 6l7 5 7-5" stroke-linejoin="round"/></svg>
+      {{ contact_email }}
+    </a>
+  </div>
+
+  <p data-if="updated" class="accessibility-statement__updated text-xs text-on-surface-muted">Last reviewed {{ updated }}.</p>
+</section>

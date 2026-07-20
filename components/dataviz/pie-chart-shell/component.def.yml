@@ -1,0 +1,24 @@
+name: pie-chart-shell
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown above the chart. Also used as the SVG accessible label.
+    example: "Traffic by source"
+  slices:
+    type: array
+    items: object
+    required: true
+    title: Slices
+    description: >
+      The donut arcs. All geometry is PRECOMPUTED BY THE CALLER because the template
+      language has no math. Each item:
+      { label, value, dash, offset, color_class }. `dash` is the SVG
+      stroke-dasharray for a circle of circumference 100 (r=15.9155), given as
+      "<arc-length> <remainder>" (e.g. a 40% slice is "40 60"). `offset` is the
+      stroke-dashoffset that rotates the arc to its starting position (the negative of
+      the slice's cumulative start percent, e.g. a slice beginning at 40% is "-40").
+      `color_class` is a tokenized Tailwind stroke utility (e.g. "stroke-primary").
+    example:
+      - { label: "Direct", value: "40%", dash: "40 60", offset: "0", color_class: "stroke-primary" }
+      - { label: "Search", value: "30%", dash: "30 70", offset: "-40", color_class: "stroke-accent" }

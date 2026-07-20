@@ -1,0 +1,33 @@
+name: tip-out-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dana Wells"
+  role:
+    type: string
+    title: Role
+    description: The staff member's role or section (e.g. "Server", "Bartender").
+    example: "Server"
+  initials:
+    type: string
+    title: Initials
+    description: Pre-computed initials shown in the avatar circle when no photo is used.
+    example: "DW"
+  sales:
+    type: string
+    title: Sales
+    description: Pre-formatted net sales attributed to this staff member.
+    example: "$1,240"
+  tip_pct:
+    type: string
+    title: Tip percentage
+    description: Pre-formatted tip-out rate applied to sales (e.g. "3%").
+    example: "3%"
+  tip_amount:
+    type: string
+    required: true
+    title: Tip amount
+    description: Pre-formatted tip-out owed to or paid to this staff member.
+    example: "$37.20"

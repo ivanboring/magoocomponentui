@@ -1,0 +1,18 @@
+{
+  "language": "CSS",
+  "tabs": [
+    { "name": "reset.css", "active": false },
+    { "name": "theme.css", "active": true },
+    { "name": "layout.css", "active": false }
+  ],
+  "lines": [
+    { "num": 1, "code": ":root {" },
+    { "num": 2, "code": "  --color-primary: #4f46e5;" },
+    { "num": 3, "code": "  --radius-card: 0.75rem;" },
+    { "num": 4, "code": "}" },
+    { "num": 5, "code": "" },
+    { "num": 6, "code": ".card {" },
+    { "num": 7, "code": "  border-radius: var(--radius-card);" },
+    { "num": 8, "code": "}" }
+  ]
+}

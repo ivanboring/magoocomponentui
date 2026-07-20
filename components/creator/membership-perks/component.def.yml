@@ -1,0 +1,24 @@
+name: membership-perks
+props:
+  tier:
+    type: string
+    title: Tier
+    description: The membership tier name shown as the card heading (e.g. "Supporter").
+    example: "Supporter"
+  price:
+    type: string
+    title: Price
+    description: Optional formatted price shown next to the tier name (e.g. "$5/mo").
+    example: "$5/mo"
+  perks:
+    type: array
+    items: object
+    required: true
+    title: Perks
+    description: >
+      The perk lines for this tier. Each item: { label, included }. label names the perk;
+      included is a boolean — true shows a success check, false shows a muted crossed-out row.
+    example:
+      - { label: "Members-only posts", included: true }
+      - { label: "Early access", included: true }
+      - { label: "Monthly live call", included: false }

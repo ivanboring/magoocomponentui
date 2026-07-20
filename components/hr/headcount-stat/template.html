@@ -1,0 +1,17 @@
+<div class="headcount-stat rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="label" class="text-sm text-on-surface-muted">{{ label }}</p>
+  <div class="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+    <p class="headcount-stat__count font-heading text-4xl text-on-surface tabular-nums">{{ count }}</p>
+    <span data-if="change" class="headcount-stat__change group inline-flex items-center gap-1 text-sm font-medium text-on-surface-muted data-[dir=up]:text-success data-[dir=down]:text-danger" data-dir="{{ change_dir }}">
+      <svg class="hidden size-4 group-data-[dir=up]:inline" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
+      <svg class="hidden size-4 group-data-[dir=down]:inline" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 4v12M5 11l5 5 5-5"/></svg>
+      <span>{{ change }}</span>
+    </span>
+  </div>
+  <div data-if="breakdown" class="headcount-stat__breakdown mt-4 flex flex-wrap gap-x-6 gap-y-3 border-t border-border pt-3">
+    <div data-for="seg in breakdown" class="flex flex-col">
+      <span class="font-heading text-lg text-on-surface tabular-nums">{{ seg.value }}</span>
+      <span class="text-xs text-on-surface-muted">{{ seg.label }}</span>
+    </div>
+  </div>
+</div>

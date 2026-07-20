@@ -1,0 +1,75 @@
+name: "Terms Section"
+short_description: A numbered legal section with a heading, rich-HTML body and optional nested subsections, for building terms and policy documents.
+long_visual_description: >
+  A single numbered clause in a legal document. The heading pairs a muted section number with the
+  title in the heading face, followed by a rich-HTML body in muted body text (paragraphs, lists,
+  links). Optional subsections sit indented behind a left border rail, each with its own smaller
+  numbered heading and body. The section carries an anchor id so a table of contents can jump to it.
+
+use_cases:
+  - A single clause in a terms of service or terms and conditions page.
+  - A section of a privacy policy or data-processing agreement.
+  - An article in an acceptable use or community-guidelines document.
+  - A numbered paragraph in an end-user license agreement (EULA).
+  - A refund, shipping or returns policy broken into numbered sections.
+  - A cookie or GDPR notice organised as linkable sections.
+
+recommended_for:
+  - Long legal or policy documents assembled from many numbered sections.
+  - Content that a table-of-contents or policy-toc links into via anchor ids.
+avoid_for:
+  - Plain marketing or editorial prose (use editorial/rich-text).
+  - A short single-paragraph notice (use notifications/alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Repeat this component once per top-level clause of the document, passing number, title and the
+  body as sanitised HTML. Add subsections for nested clauses (e.g. 1.1, 1.2). Each section renders
+  an id of the form terms-<number>, so a policy-toc or table-of-contents can link straight to it.
+
+props:
+  number: The display number shown before the title and used to build the anchor id.
+  title: The clause heading, shown after the number.
+  body_html: The clause body as sanitised rich HTML (paragraphs, lists, links, emphasis).
+  subsections: Optional nested clauses, each with its own number, title and body_html.
+
+example_prompts:
+  - "Add a numbered terms-of-service section with two subsections."
+  - "Build a privacy policy from numbered, linkable legal sections."
+
+lifecycle: experimental
+content_model: A numbered heading, a rich-HTML body, and an optional list of numbered subsections.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --font-heading
+
+editorial_guidance: >
+  Keep numbering consistent with the rest of the document and match subsection numbers to their
+  parent (1 then 1.1, 1.2). Write bodies in plain, unambiguous language; reserve emphasis for
+  defined terms.
+
+relationships:
+  related:
+    - legal/policy-toc
+    - editorial/table-of-contents
+    - editorial/rich-text
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Documents
+  atomic_type: organism
+  usage_type: [content]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The section is labelled by its heading via aria-labelledby; headings use a real h2/h3 hierarchy and the anchor id supports in-page navigation.
+  keyboard_support: none
+  seo_score: 60
+  text_direction: both

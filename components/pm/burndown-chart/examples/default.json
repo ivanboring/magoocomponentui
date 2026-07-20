@@ -1,0 +1,7 @@
+{
+  "title": "Sprint 24 burndown",
+  "ideal_path": "M0,8 L100,92",
+  "actual_path": "M0,8 L17,14 L33,32 L50,28 L67,52 L83,60 L100,74",
+  "y_labels": ["40", "30", "20", "10", "0"],
+  "x_labels": ["D1", "D2", "D3", "D4", "D5", "D6", "D7"]
+}

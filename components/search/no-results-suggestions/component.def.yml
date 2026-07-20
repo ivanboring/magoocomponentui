@@ -1,0 +1,28 @@
+name: no-results-suggestions
+props:
+  query:
+    type: string
+    required: true
+    title: Query
+    description: The search term that returned no results, echoed back in the heading.
+  suggestions:
+    type: array
+    items: object
+    required: true
+    title: Alternative suggestions
+    description: >
+      Alternative queries to offer as clickable chips. Each item: { label }.
+      The label is the suggested search term shown on the chip.
+    example:
+      - { label: "wireless headphones" }
+      - { label: "bluetooth earbuds" }
+  tips:
+    type: array
+    items: string
+    title: Search tips
+    description: >
+      Optional plain-text tips shown as a muted list below the chips (e.g.
+      "Check your spelling", "Try fewer or more general words"). Each entry is a string.
+    example:
+      - "Check your spelling"
+      - "Try more general words"

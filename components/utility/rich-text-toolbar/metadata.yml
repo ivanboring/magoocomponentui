@@ -1,0 +1,83 @@
+name: "Rich-text Toolbar"
+short_description: A compact formatting toolbar of grouped icon buttons that emit format commands for a rich-text editor.
+long_visual_description: >
+  A single horizontal bar with a surface background, thin border and rounded corners, holding
+  rows of square icon buttons. The buttons are organised into logical groups (text style,
+  lists, insert, alignment) separated by faint vertical dividers. Each button highlights with
+  a raised surface and primary-tinted icon when its formatting is active, and lifts on hover.
+
+use_cases:
+  - Formatting controls above a rich-text or comment editor.
+  - A toolbar for a CMS body field or blog composer.
+  - Inline formatting for a note-taking or wiki editing surface.
+  - Toolbar for a markdown or WYSIWYG description field.
+  - Controls above a message composer that supports bold/italic and lists.
+
+recommended_for:
+  - Skeleton formatting controls that dispatch commands to a host editor engine.
+  - Toolbars whose button set and active states are driven from structured data.
+avoid_for:
+  - The editable content region itself (this is only the control strip).
+  - A full application menu bar (use a menubar/navbar component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a groups array; each group holds buttons with a command, a label, a raw inline-SVG icon
+  and an optional active flag. Set divider: true on every group after the first to draw the
+  separator. Listen for the bubbling format:command event (detail.command, detail.active) and
+  apply the formatting to your editor. Pre-mark a button active when the current selection
+  already carries that style.
+
+how_to_use: >
+  The toolbar is self-contained skeleton UI: it does not edit any content itself. Clicking a
+  button toggles its own pressed state (data-active and aria-pressed) and dispatches a bubbling
+  CustomEvent "format:command" with { command, active }. Wire a listener on the toolbar (or a
+  parent) to run the actual formatting against your editor. The portable self-init reads the
+  command from each button's data-command attribute; no props object is passed.
+
+props:
+  label: "Accessible name for the toolbar landmark (aria-label)."
+  groups: "Ordered button groups. Each group: { divider (true on all but the first), buttons: [ { command, label, icon (raw SVG), active } ] }."
+
+example_prompts:
+  - "Add a formatting toolbar above the comment editor."
+  - "Give the body field bold, italic, list and alignment controls."
+
+lifecycle: experimental
+content_model: A set of formatting command buttons grouped into a single toolbar row.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep icons conventional so the commands are recognisable at a glance, and group related
+  actions together. Only pre-set active on buttons that reflect the current selection's state.
+
+relationships:
+  related:
+    - navigation/tabs
+    - forms/range-slider
+    - utility/segmented-control
+
+categorization:
+  category: UI Utilities
+  subcategory: Editing
+  atomic_type: molecule
+  usage_type: [toolbar, controls]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar is a role="toolbar" with an aria-label; each control is a real button with an aria-label and aria-pressed reflecting its toggle state.
+  keyboard_support: Each button is focusable and activates on Enter/Space; pressed state is exposed via aria-pressed.
+  seo_score: 20
+  text_direction: both

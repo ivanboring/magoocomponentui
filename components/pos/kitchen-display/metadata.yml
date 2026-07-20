@@ -1,0 +1,81 @@
+name: "Kitchen Display"
+short_description: A kitchen display board of open order tickets, each colour-coded by status so line cooks can read the pass at a glance.
+long_visual_description: >
+  A horizontally scrolling board of narrow ticket cards. Each card has a header with the order
+  number, table, order time and elapsed age, a body listing the ordered line items with their
+  quantities, and a footer status pill. A thick left accent border and the pill colour track the
+  ticket status - blue for new, amber for cooking and green for ready - so the board reads by
+  colour before it is read by text.
+
+use_cases:
+  - Kitchen display system (KDS) at the line showing all open tickets.
+  - Expo station board tracking which orders are ready to run.
+  - Bar or barista queue of drink tickets by preparation stage.
+  - Ghost-kitchen board splitting tickets across concepts.
+  - Prep board that colours tickets as they age toward being late.
+  - Food-truck order queue on a mounted screen.
+
+recommended_for:
+  - Back-of-house order boards driven by live POS ticket data.
+  - Any queue where status needs a strong at-a-glance colour cue.
+avoid_for:
+  - A single order receipt or itemised bill (use a receipt component).
+  - Front-of-house order status shown to guests (use order-status-rail).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a tickets array, each with a ticket_number, optional table, time and elapsed age, an items
+  list of { qty, name } lines, and a status of new, cooking or ready. The board renders the tickets
+  left to right and colours each by status; pre-format elapsed as a short age string like "8m".
+
+props:
+  tickets: "The open tickets in board order; each carries a number, optional table/time/elapsed, an items list of { qty, name }, and a new/cooking/ready status."
+  label: "Accessible name announced for the ticket board region."
+
+example_prompts:
+  - "Show a kitchen display with three tickets across new, cooking and ready."
+  - "Add a KDS board where each ticket lists items and turns green when ready."
+  - "Put an expo board of open orders coloured by status on the screen."
+
+lifecycle: experimental
+content_model: A board of order tickets, each with a number, optional table/time/elapsed age, a list of line items, and a preparation status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-warning
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep line item names short and order tickets by urgency or age. Status colour and the pill text
+  carry the same meaning, so the board stays readable for colour-blind users.
+
+relationships:
+  related:
+    - pos/order-status-rail
+    - pos/seat-course-timeline
+    - pos/shift-report
+
+categorization:
+  category: Restaurant POS
+  subcategory: Kitchen
+  atomic_type: organism
+  usage_type: [board, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by both the accent colour and the labelled pill text, not colour alone; the board is a labelled scrollable region.
+  keyboard_support: The board scrolls with the keyboard when focused; tickets are static, non-interactive content.
+  seo_score: 20
+  text_direction: both

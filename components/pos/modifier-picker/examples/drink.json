@@ -1,0 +1,32 @@
+{
+  "item": "Customise your latte",
+  "groups": [
+    {
+      "label": "Size",
+      "required": true,
+      "options": [
+        { "label": "Small", "selected": false },
+        { "label": "Medium", "selected": true },
+        { "label": "Large", "price": "+$0.75", "selected": false }
+      ]
+    },
+    {
+      "label": "Milk",
+      "required": true,
+      "options": [
+        { "label": "Whole", "selected": true },
+        { "label": "Oat", "price": "+$0.60", "selected": false },
+        { "label": "Almond", "price": "+$0.60", "selected": false }
+      ]
+    },
+    {
+      "label": "Syrup",
+      "required": false,
+      "options": [
+        { "label": "Vanilla", "price": "+$0.50", "selected": false },
+        { "label": "Caramel", "price": "+$0.50", "selected": false },
+        { "label": "Hazelnut", "price": "+$0.50", "selected": false }
+      ]
+    }
+  ]
+}

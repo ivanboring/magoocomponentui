@@ -1,0 +1,25 @@
+name: tree-view
+props:
+  label:
+    type: string
+    default: "Files"
+    title: Label
+    description: Accessible label for the tree region.
+  nodes:
+    type: array
+    items: object
+    required: true
+    title: Nodes
+    description: >
+      Tree entries, up to 3 levels. Each node is EITHER a leaf { label, icon (optional raw
+      inline SVG) } OR a group { label, children: [ ...nodes ] }. Groups render as native
+      <details> (open by default) with a folder icon and a chevron; leaves render as a row
+      with a file icon (or the supplied icon).
+    example:
+      - label: "src"
+        children:
+          - { label: "index.js" }
+          - label: "components"
+            children:
+              - { label: "button.js" }
+      - { label: "README.md" }

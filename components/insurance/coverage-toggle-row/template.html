@@ -1,0 +1,10 @@
+<div class="coverage-toggle-row flex items-center gap-4 rounded-card border border-border bg-surface p-4" data-name="{{ name }}">
+  <div class="min-w-0 flex-1">
+    <p class="font-heading text-on-surface">{{ name }}</p>
+    <p data-if="description" class="text-sm text-on-surface-muted">{{ description }}</p>
+  </div>
+  <span data-if="price" class="shrink-0 text-sm font-medium tabular-nums text-on-surface">{{ price }}</span>
+  <button type="button" role="switch" data-state="{{ included }}" aria-checked="{{ included }}" aria-label="Toggle {{ name }}" class="coverage-toggle-row__switch relative inline-flex h-5 w-9 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[state=true]:bg-primary">
+    <span class="coverage-toggle-row__knob inline-block size-4 translate-x-0.5 rounded-pill bg-surface shadow-card transition-transform duration-(--duration-token) data-[state=true]:translate-x-4" aria-hidden="true"></span>
+  </button>
+</div>

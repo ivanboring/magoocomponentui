@@ -1,0 +1,82 @@
+name: "Workout Card"
+short_description: A compact card for a single workout — cover image, title, duration, intensity and calorie burn.
+long_visual_description: >
+  A surface card with an optional 3:2 cover image on top. Below it the workout title sits in the
+  heading face, and a wrapping meta row shows the session duration with a clock glyph, a coloured
+  intensity pill (green easy, amber medium, red hard) and an optional flame-marked calorie estimate.
+
+use_cases:
+  - A routine tile in a workout library or program grid.
+  - A "today's session" card on a fitness dashboard.
+  - A class listing in a studio or gym app.
+  - A recommended workout in a personalised plan.
+  - A saved/bookmarked workout in a user's collection.
+  - A quick-start card for a guided training video.
+
+recommended_for:
+  - Browsable grids of workouts where intensity and length matter at a glance.
+  - Program builders that list sessions by difficulty.
+avoid_for:
+  - A full workout detail page with exercise breakdowns (compose exercise-row instead).
+  - Non-fitness content.
+
+markets:
+  - Global
+
+example_usage: >
+  Give each card a short title, a duration string like "30 min", a level of easy/medium/hard and an
+  optional kcal number. Provide an image path (e.g. /stock/stage1.jpg) for a cover, or omit it for a
+  text-only card. Lay several in a responsive grid.
+
+props:
+  title: The workout name in sentence case; keep it short.
+  duration: Human-readable session length, e.g. "30 min" or "45 min".
+  level: Difficulty tier that colours the pill; set it honestly (easy/medium/hard).
+  image: Optional cover image path; omit for a text-only card.
+  kcal: Optional estimated calorie burn as a plain number; the unit label is added for you.
+
+example_prompts:
+  - "Add a workout card for a 30 minute full-body HIIT at hard intensity burning 320 kcal."
+  - "Show an easy 20 minute mobility session card."
+  - "Put four workout cards in a grid on the training page."
+
+lifecycle: experimental
+content_model: A workout title, duration, intensity level, optional cover image and optional calorie figure.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep the title to a few words and the duration consistent across the set. Colour of the intensity
+  pill must match the real difficulty — never label a hard session easy.
+
+relationships:
+  related:
+    - fitness/exercise-row
+    - fitness/workout-timer
+    - dashboard/stat-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Workouts
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Intensity is conveyed by the pill's text as well as colour; the cover image is decorative with an empty alt.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 40
+  text_direction: both

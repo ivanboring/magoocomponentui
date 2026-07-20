@@ -1,0 +1,9 @@
+{
+  "save_label": "Save current",
+  "filters": [
+    { "label": "All", "active": true, "value": "all" },
+    { "label": "Unread", "active": false, "count": 12, "value": "unread" },
+    { "label": "Starred", "active": false, "count": 3, "value": "starred" },
+    { "label": "Assigned to me", "active": false, "count": 5, "value": "mine" }
+  ]
+}

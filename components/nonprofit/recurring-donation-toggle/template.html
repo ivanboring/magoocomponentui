@@ -1,0 +1,7 @@
+<div class="recurring-donation-toggle">
+  <div class="recurring-donation-toggle__group group/rdt inline-flex rounded-pill bg-surface-raised p-1" role="group" aria-label="Donation frequency" data-state="{{ value }}">
+    <button type="button" data-value="one-time" class="recurring-donation-toggle__btn rounded-pill px-4 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=one-time]/rdt:bg-surface group-data-[state=one-time]/rdt:text-on-surface group-data-[state=one-time]/rdt:shadow-card">One-time</button>
+    <button type="button" data-value="monthly" class="recurring-donation-toggle__btn rounded-pill px-4 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=monthly]/rdt:bg-surface group-data-[state=monthly]/rdt:text-on-surface group-data-[state=monthly]/rdt:shadow-card">Monthly</button>
+  </div>
+  <p data-if="monthly_note" class="recurring-donation-toggle__note mt-2 text-sm text-on-surface-muted">{{ monthly_note }}</p>
+</div>

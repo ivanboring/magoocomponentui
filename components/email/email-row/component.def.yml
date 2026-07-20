@@ -1,0 +1,35 @@
+name: email-row
+props:
+  sender:
+    type: string
+    required: true
+    title: Sender
+    description: The sender's display name.
+    example: "Ava Chen"
+  subject:
+    type: string
+    required: true
+    title: Subject
+    description: The message subject line.
+    example: "Q3 planning notes"
+  snippet:
+    type: string
+    required: true
+    title: Snippet
+    description: A short preview of the message body, shown after the subject.
+    example: "Here are the notes from today's session and a few next steps."
+  time:
+    type: string
+    title: Time
+    description: Pre-formatted timestamp shown on the trailing edge (e.g. "9:41 AM", "Mar 4").
+    example: "9:41 AM"
+  unread:
+    type: boolean
+    default: false
+    title: Unread
+    description: When true the row is tinted and the sender/subject are bolded.
+  starred:
+    type: boolean
+    default: false
+    title: Starred
+    description: When true the star button is filled in the warning colour.

@@ -1,0 +1,26 @@
+<div class="brand-deal-tracker rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="font-heading text-on-surface">{{ brand }}</h3>
+      <p data-if="campaign" class="text-sm text-on-surface-muted">{{ campaign }}</p>
+    </div>
+    <span data-if="payment" class="brand-deal-tracker__payment shrink-0 rounded-pill bg-surface-raised px-2.5 py-1 text-xs font-medium text-on-surface-muted">{{ payment }}</span>
+  </div>
+
+  <div data-if="progress_pct" class="mt-3 h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+    <div class="brand-deal-tracker__fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ progress_pct }}%"></div>
+  </div>
+
+  <ul class="brand-deal-tracker__list mt-3 flex flex-col gap-2">
+    <li data-for="deliverable in deliverables" data-status="{{ deliverable.status }}" class="group flex items-center justify-between gap-3 text-sm">
+      <span class="inline-flex min-w-0 items-center gap-2">
+        <svg class="hidden size-4 shrink-0 text-success group-data-[status=approved]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+        <span class="hidden size-4 shrink-0 items-center justify-center group-data-[status=todo]:flex group-data-[status=in-progress]:flex group-data-[status=submitted]:flex" aria-hidden="true">
+          <span class="size-2 rounded-full border border-current text-on-surface-muted"></span>
+        </span>
+        <span class="truncate text-on-surface group-data-[status=approved]:text-on-surface-muted">{{ deliverable.label }}</span>
+      </span>
+      <span data-status="{{ deliverable.status }}" class="shrink-0 rounded-pill px-2 py-0.5 text-xs font-medium capitalize data-[status=todo]:bg-surface-raised data-[status=todo]:text-on-surface-muted data-[status=in-progress]:bg-info/10 data-[status=in-progress]:text-info data-[status=submitted]:bg-warning/10 data-[status=submitted]:text-warning data-[status=approved]:bg-success/10 data-[status=approved]:text-success">{{ deliverable.status }}</span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+name: fundraiser-progress
+props:
+  raised:
+    type: string
+    required: true
+    title: Amount raised
+    description: The formatted amount raised so far, including currency (e.g. "$12,500").
+    example: "$12,500"
+  goal:
+    type: string
+    required: true
+    title: Goal
+    description: The formatted fundraising goal, including currency (e.g. "$20,000").
+    example: "$20,000"
+  pct:
+    type: integer
+    required: true
+    title: Percent of goal
+    description: >
+      Percent of the goal reached, 0-100, precomputed by the caller (round(raised / goal * 100),
+      capped at 100). Drives both the bar width and the percentage label.
+    example: 62
+  donors:
+    type: integer
+    title: Donor count
+    description: Optional number of donors so far.
+    example: 184

@@ -1,0 +1,42 @@
+name: token-balance-row
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The token ticker symbol (e.g. ETH, USDC).
+    example: "ETH"
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The token's full name (e.g. Ethereum).
+    example: "Ethereum"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: The held amount, preformatted with the symbol or units in the caller (e.g. 2.1408 ETH).
+    example: "2.1408"
+  value_usd:
+    type: string
+    required: true
+    title: Value
+    description: The fiat value of the holding, preformatted (e.g. $6,742.10).
+    example: "$6,742.10"
+  icon:
+    type: string
+    title: Icon
+    description: Optional raw inline SVG for the token glyph, rendered as-is in a round badge.
+    example: "<svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path d='M10 2l5 8-5 3-5-3zM5 11l5 3 5-3-5 6z'/></svg>"
+  change_dir:
+    type: enum
+    values: [up, down]
+    title: Change direction
+    description: Direction of the change, colouring the change value green (up) or red (down).
+  change:
+    type: string
+    title: Change
+    description: Optional formatted 24h change shown beside the value (e.g. +1.8%). Include the sign in the caller.
+    example: "+1.8%"
+variants: {}

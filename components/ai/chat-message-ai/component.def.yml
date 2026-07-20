@@ -1,0 +1,21 @@
+name: chat-message-ai
+props:
+  content:
+    type: string
+    title: Content
+    description: The assistant message text. Overridden by the content slot when provided.
+    example: "Here's a quick summary. Let me know if you'd like me to go deeper on any point."
+  model:
+    type: string
+    title: Model
+    description: Optional model label shown in the action row (e.g. the model that produced the reply).
+    example: "gpt-4o"
+  time:
+    type: string
+    title: Time
+    description: Optional timestamp shown at the trailing end of the action row.
+    example: "9:41 AM"
+slots:
+  content:
+    title: Content
+    description: Rich message body. Overrides the content prop; accepts markup (paragraphs, lists, code).

@@ -1,0 +1,71 @@
+name: "Capabilities List"
+short_description: A service checklist - an optional title over a list of capabilities, each with a success check and an optional note.
+long_visual_description: >
+  An optional heading in the heading face sits above a vertical list. Each row leads with a small
+  round success-tinted badge holding a check mark, followed by the capability label in on-surface
+  text and an optional muted note on the line below. Rows are evenly spaced into a clean checklist.
+
+use_cases:
+  - Lay out an agency's or studio's services as a scannable checklist.
+  - Summarise what's included in a package or engagement.
+  - List a freelancer's skills and disciplines on an About page.
+  - Show the deliverables of a service tier.
+  - Enumerate capabilities beside a services hero.
+  - Present a "What we offer" block on a landing page.
+
+recommended_for:
+  - A short-to-medium list of services or capabilities where each affirms a check.
+  - Pairing labels with a one-line clarifying note.
+avoid_for:
+  - Feature comparisons across plans (use a pricing table).
+  - Rich, linked service cards with imagery (use a card grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { label, note }); note is optional per item. Add a title to head the
+  list, or omit it to drop the list into an existing section that already has a heading.
+
+props:
+  title: "Optional heading above the checklist; omit when the surrounding section already has one."
+  items: "The capabilities in display order. Each item has a label and an optional one-line note."
+
+example_prompts:
+  - "Add a capabilities checklist of our services with short notes."
+  - "List what's included in this package as a checkmarked list."
+  - "Show a 'What we do' list with a title and five services."
+
+lifecycle: experimental
+content_model: >
+  An optional title and a list of capabilities, each a label with an optional note.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --font-heading
+
+editorial_guidance: >
+  Keep labels to a few words naming the discipline; use the note for a concrete, plain-language
+  clarification. Order by relevance or by how you pitch the work.
+
+relationships:
+  related:
+    - portfolio/pricing-quote
+    - portfolio/award-row
+    - marketing/feature-grid
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Services
+  atomic_type: molecule
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Semantic list markup; check badges are aria-hidden decoration and meaning is carried by the text labels, not colour.
+  keyboard_support: none
+  seo_score: 45
+  text_direction: both

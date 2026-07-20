@@ -1,0 +1,91 @@
+name: "Age Gate"
+short_description: A centered card that asks a visitor to confirm they meet a minimum age before entering.
+long_visual_description: >
+  A compact, centered card on the surface colour with a card radius and soft shadow. A rounded
+  shield-check glyph sits at the top over a heading question, an optional muted supporting line, and
+  a two-button stack: a primary "I am N or older" confirm button and a secondary outlined "Exit"
+  button. It reads as a gentle gate rather than a hard paywall.
+
+use_cases:
+  - Age confirmation before alcohol, tobacco, or vaping content.
+  - Gate on mature or age-restricted editorial or video.
+  - Entry check for gambling or betting sections.
+  - Confirming a legal minimum age before a signup flow.
+  - Regional compliance gate where a self-declared age is required.
+  - A soft interstitial before content a brand restricts by age.
+
+recommended_for:
+  - Self-declared age confirmation with confirm/decline outcomes.
+  - Interstitials whose result the host app wires to reveal or redirect.
+avoid_for:
+  - Verified identity or document-based age checks (needs a real KYC flow).
+  - Full authentication or login (use a sign-in form).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the heading, an optional message explaining why age is asked, and min_age (shown on the
+  confirm button). Listen for the bubbling "age:verify" event: detail.ok is true when the visitor
+  confirms and false when they exit, so the page can reveal the content, set a remembered choice, or
+  redirect away.
+
+how_to_use: >
+  behavior.js wires the two buttons. Clicking confirm dispatches a bubbling "age:verify" CustomEvent
+  with detail { ok: true }; clicking Exit dispatches the same event with { ok: false }. The component
+  does not itself hide or redirect anything - the host listens and decides. The portable self-init
+  needs no props object and there is no data-* config to read. init returns a cleanup that removes
+  both listeners.
+
+props:
+  heading: "The age question shown at the top; keep it short and direct."
+  message: "Optional supporting line explaining why age is required; omit for a bare question."
+  min_age: "The age rendered on the confirm button label; a string so locales like \"21\" or \"18\" pass through unchanged."
+
+example_prompts:
+  - "Add an age gate that asks visitors to confirm they are 21 or older before the shop."
+  - "Put an 18+ age gate in front of this video with an Exit button."
+  - "Show an age confirmation card explaining the content is restricted."
+
+lifecycle: experimental
+content_model: A heading question, an optional supporting message, and a minimum age for the confirm label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Ask plainly and say why if it helps trust. Make the confirm action state the age so the choice is
+  explicit, and keep Exit clearly secondary. Never imply the check verifies identity.
+
+relationships:
+  related:
+    - legal/disclosure-accordion
+    - overlays/modal
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Gates
+  atomic_type: organism
+  usage_type: [highlight, gate]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Rendered as a labelled dialog; both actions are real buttons with visible focus rings and the icon is aria-hidden. Outcome is conveyed by button text, not colour.
+  keyboard_support: Both buttons are focusable and activate on Enter/Space; the confirm and exit outcomes are announced by their labels.
+  seo_score: 20
+  text_direction: both

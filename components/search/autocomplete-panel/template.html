@@ -1,0 +1,16 @@
+<div class="autocomplete-panel group/ap relative" data-open="{{ start_open }}">
+  <div class="autocomplete-panel__control flex items-center gap-2 rounded-control border border-border bg-surface px-3 focus-within:ring-2 focus-within:ring-ring">
+    <svg class="size-4 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+    <input type="text" class="autocomplete-panel__input w-full bg-transparent py-2 text-sm text-on-surface outline-none placeholder:text-on-surface-muted" value="{{ query }}" placeholder="{{ placeholder }}" role="combobox" aria-expanded="{{ start_open }}" aria-autocomplete="list" autocomplete="off">
+  </div>
+  <div class="autocomplete-panel__panel invisible pointer-events-none absolute z-20 mt-1 max-h-80 w-full overflow-auto rounded-card border border-border bg-surface py-1 opacity-0 shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]/ap:visible group-data-[open=true]/ap:opacity-100 group-data-[open=true]/ap:pointer-events-auto" role="listbox">
+    <div data-for="group in groups" class="autocomplete-panel__group">
+      <p class="autocomplete-panel__group-label px-3 pb-1 pt-2 text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ group.label }}</p>
+      <button data-for="item in group.items" type="button" class="autocomplete-panel__option flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised focus-visible:bg-surface-raised focus-visible:outline-none" role="option" data-label="{{ item.label }}">
+        <span data-if="item.icon" class="autocomplete-panel__icon shrink-0 text-on-surface-muted" aria-hidden="true">{{{ item.icon }}}</span>
+        <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
+        <span data-if="item.meta" class="shrink-0 text-xs text-on-surface-muted">{{ item.meta }}</span>
+      </button>
+    </div>
+  </div>
+</div>

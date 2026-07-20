@@ -1,0 +1,11 @@
+{
+  "label": "Trusted by",
+  "speed": "normal",
+  "logos": [
+    { "image": "/stock/nike-3-logo-svgrepo-com.svg", "alt": "Nike" },
+    { "image": "/stock/adidas-logo-svgrepo-com.svg", "alt": "Adidas" },
+    { "image": "/stock/decathlon-logo-svgrepo-com.svg", "alt": "Decathlon" },
+    { "image": "/stock/forbes-logo-svgrepo-com.svg", "alt": "Forbes" },
+    { "image": "/stock/discover-svgrepo-com.svg", "alt": "Discover" }
+  ]
+}

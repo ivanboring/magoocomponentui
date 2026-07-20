@@ -1,0 +1,81 @@
+name: "Risk Assessment"
+short_description: A card summarising an overall risk level with an optional score and a list of contributing factors, each with an impact chip.
+long_visual_description: >
+  A card on the surface colour with a risk-level pill tinted by band - success for low, warning for
+  moderate, danger for high - beside an optional large numeric score. Below a divider sits a list of
+  contributing factors, each row pairing a factor label with a small impact chip coloured low, medium
+  or high.
+
+use_cases:
+  - Summarise an underwriting risk band for a quote.
+  - Explain which factors drive a premium up or down.
+  - Show a risk score with its contributing signals.
+  - Compare the impact of individual risk factors.
+  - Give an applicant transparency into their assessment.
+  - Flag a high-risk profile before a policy is bound.
+
+recommended_for:
+  - Underwriting and quote-explanation screens.
+  - Any breakdown of an overall rating into factors.
+avoid_for:
+  - A single metric with no breakdown (use stat-card).
+  - A time series of risk over time (use a chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Set level to the overall band and optionally score for a numeric reading. Pass factors as label and
+  impact pairs, where impact is low, medium or high; the chips colour themselves from the data-impact
+  attribute. Order factors from highest impact down so the main drivers read first.
+
+props:
+  score: An optional numeric risk score shown beside the level.
+  level: The overall risk band; colours the level badge.
+  factors: The contributing factors, each a label and an impact of low, medium or high.
+
+example_prompts:
+  - "Show a moderate risk assessment scoring 72 with driving history, vehicle value and mileage."
+  - "Flag a high-risk profile and list the factors driving it."
+
+lifecycle: experimental
+content_model: An overall risk level, an optional numeric score, and a list of factors each with an impact.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep factor labels plain and neutral, and make sure the overall level agrees with the mix of factor
+  impacts. Reserve the high band and danger tint for genuinely elevated risk so the colour stays
+  meaningful.
+
+relationships:
+  related:
+    - insurance/premium-summary
+    - insurance/claim-document-upload
+    - dashboard/stat-card
+
+categorization:
+  category: Insurance
+  subcategory: Underwriting
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both the risk level and each factor impact are shown as text labels, not colour alone; the card is static and non-interactive.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,24 @@
+name: carousel-thumbnails
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Media
+    description: >
+      The media frames, in order. Each item: { image, alt, caption }. image is the frame source,
+      alt its accessible description, and caption an optional overlay shown at the bottom of the
+      main frame when that frame is active. The first item is shown on load; the thumbnail strip
+      selects which frame is displayed.
+    example:
+      - { image: "/stock/stage1.jpg", alt: "Workspace overview", caption: "The finished workspace." }
+  show_arrows:
+    type: boolean
+    default: false
+    title: Show arrows
+    description: Show previous/next arrow buttons over the main frame to step through the media.
+  label:
+    type: string
+    default: "Gallery"
+    title: Accessible label
+    description: Accessible name announced for the gallery region.

@@ -1,0 +1,11 @@
+{
+  "tracking_number": "1Z999AA10123456784",
+  "status": "Delivered",
+  "stops": [
+    { "label": "Order received", "location": "Chicago, IL", "time": "Jul 1, 9:12 AM", "done": true, "current": false },
+    { "label": "Departed facility", "location": "Chicago, IL", "time": "Jul 2, 6:03 AM", "done": true, "current": false },
+    { "label": "Arrived at hub", "location": "Indianapolis, IN", "time": "Jul 3, 2:40 PM", "done": true, "current": false },
+    { "label": "Out for delivery", "location": "Columbus, OH", "time": "Jul 5, 7:55 AM", "done": true, "current": false },
+    { "label": "Delivered", "location": "Columbus, OH", "time": "Jul 5, 1:22 PM", "done": true, "current": false }
+  ]
+}

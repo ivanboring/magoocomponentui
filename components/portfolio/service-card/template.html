@@ -1,0 +1,9 @@
+<div class="service-card flex h-full flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="service-card__icon flex size-11 shrink-0 items-center justify-center rounded-control bg-primary/10 text-primary" aria-hidden="true">{{{ icon }}}</span>
+  <h3 class="mt-4 font-heading text-lg text-on-surface">{{ title }}</h3>
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-on-surface-muted">{{ blurb }}</p>
+  <a data-if="href" class="service-card__link mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline" href="{{ href }}">
+    Learn more
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg>
+  </a>
+</div>

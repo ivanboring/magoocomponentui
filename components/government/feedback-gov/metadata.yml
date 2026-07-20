@@ -1,0 +1,87 @@
+name: "Report an Issue Form"
+short_description: A compact report-an-issue form — category select, description textarea, optional location, and a submit button that dispatches the report.
+long_visual_description: >
+  A card-form on the surface colour with a heading and helper line, a category dropdown, a
+  multi-line description field, an optional location input, and a full-width primary submit button
+  with a paper-plane icon. Fields have muted labels and a primary focus ring.
+
+use_cases:
+  - A 311-style non-emergency issue reporting form.
+  - A "report a problem" widget on a city services page.
+  - A public works request form (potholes, streetlights, graffiti).
+  - A code-enforcement or nuisance complaint intake form.
+  - A park or facility maintenance request form.
+  - A civic feedback box embedded on a department page.
+
+recommended_for:
+  - Lightweight resident-to-government issue intake.
+  - Embedding a quick report form on any service page.
+avoid_for:
+  - Emergencies (direct users to call emergency services instead).
+  - Long, multi-step applications (use a full form flow).
+
+markets:
+  - Government
+  - Civic
+
+example_usage: >
+  Pass a categories array (each { label, value }) for the dropdown and an optional placeholder for
+  the description. Listen for the bubbling "issue:report" event and send its detail to your intake
+  endpoint.
+
+how_to_use: >
+  behavior.js handles submission: it prevents the default navigation and dispatches a bubbling
+  CustomEvent "issue:report" with detail { category, details, location } read from the select,
+  textarea, and location input. Wire your own handler to POST the report. The form has no client-side
+  validation beyond the browser default, so validate server-side.
+
+props:
+  categories: "The issue types offered in the dropdown. Each item: label (shown) and value (submitted)."
+  placeholder: Placeholder text for the description field.
+
+example_prompts:
+  - "Add a report-an-issue form with pothole, streetlight, and graffiti categories."
+  - "Embed a 311-style feedback form and handle issue:report."
+  - "Show a public works request form with an optional location field."
+
+lifecycle: experimental
+content_model: A set of issue categories, a free-text description, an optional location, submitted as a report event.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the category list short and use words residents recognize, not internal department codes.
+  Make the description placeholder concrete so people include what and where. Confirm receipt after
+  submit so residents know the report went through.
+
+relationships:
+  related:
+    - government/public-record-row
+    - forms/contact-form
+
+categorization:
+  category: Government
+  subcategory: Forms
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every control has an associated label; the optional field is marked in its label text and the submit control has a visible text label alongside its icon.
+  keyboard_support: All fields and the submit button are focusable in order; the form submits on Enter within a field.
+  seo_score: 35
+  text_direction: both

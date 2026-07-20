@@ -1,0 +1,74 @@
+name: "Tier Benefits Table"
+short_description: A comparison table of loyalty benefits (rows) across membership tiers (columns), with the member's current tier column highlighted.
+long_visual_description: >
+  A bordered, horizontally scrollable table. Tier names head the columns and benefit names label the
+  rows; each cell shows the benefit's value for that tier or a muted dash when it is not included.
+  The member's current tier column is tinted and its header marked "Current", so the value of the
+  current tier and the next one up read clearly side by side.
+
+use_cases:
+  - Compare what each loyalty tier unlocks side by side.
+  - Show a member which benefits their current tier includes.
+  - Motivate an upgrade by contrasting the next tier's benefits.
+  - Present a membership benefits matrix on a program page.
+  - Summarise subscription tier entitlements as a table.
+
+recommended_for:
+  - Comparing many benefits across three or more tiers.
+  - Programs where the current tier should stand out in context.
+avoid_for:
+  - A single tier's perks as tiles (use perks-grid).
+  - A pricing section with plan cards (use pricing-tiers).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass tiers in column order and mark one as current. Pass benefits as rows, each with a values
+  array aligned to the tiers - a string shows as the cell value, an empty string renders an excluded
+  dash. Keep every benefit's values length equal to the number of tiers.
+
+props:
+  tiers: The tier columns in order; set current true on the member's tier to highlight its column.
+  benefits: One row per benefit, each with a label and a values array aligned to the tiers.
+
+example_prompts:
+  - "Compare Silver, Gold, and Platinum loyalty benefits."
+  - "Show a tier benefits table with Gold as the current tier."
+  - "Add a membership benefits matrix across three tiers."
+
+lifecycle: experimental
+content_model: A set of tier columns and benefit rows, with per-cell values aligned to the tiers and one tier optionally current.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep benefit labels short and order tiers from lowest to highest so the upgrade path reads left to
+  right. Use an empty value for a benefit a tier does not include rather than repeating "No".
+
+relationships:
+  related:
+    - loyalty/perks-grid
+    - marketing/pricing-tiers
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Tiers
+  atomic_type: organism
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses real table semantics with scope on header cells; excluded cells carry an sr-only "Not included" so the dash is not the only cue, and the current column is marked "Current" in text.
+  keyboard_support: None - static; the table scrolls horizontally when focused within its container.
+  seo_score: 45
+  text_direction: both

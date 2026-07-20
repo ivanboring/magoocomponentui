@@ -1,0 +1,23 @@
+name: axis-controls
+props:
+  scales:
+    type: array
+    items: object
+    required: true
+    title: Scales
+    description: >
+      The segmented scale toggle options, e.g. Linear vs Log. Each item:
+      { label, value, active } where exactly one should have active true (it is drawn raised).
+    example:
+      - { label: "Linear", value: "linear", active: true }
+      - { label: "Log", value: "log", active: false }
+  show_grid:
+    type: boolean
+    default: true
+    title: Show gridlines
+    description: Reflected by the gridlines switch (on when true). A chart library wires the toggle.
+  zoom_label:
+    type: string
+    title: Zoom label
+    description: Optional current zoom level (e.g. "100%"); shows the zoom +/- controls when set.
+    example: "100%"

@@ -22,14 +22,16 @@ export async function loadAllMetadata() {
  */
 export function searchComponents(all, f = {}) {
   const q = (f.q || "").trim().toLowerCase();
+  // Catalog values are capitalized ("Commerce"); callers type them however they like.
+  const eq = (a, b) => String(a ?? "").toLowerCase() === String(b ?? "").toLowerCase();
   return all
     .filter(({ metadata: m }) => {
       const c = m.categorization || {};
-      if (f.category && c.category !== f.category) return false;
-      if (f.subcategory && c.subcategory !== f.subcategory) return false;
-      if (f.atomic && c.atomic_type !== f.atomic) return false;
-      if (f.lifecycle && m.lifecycle !== f.lifecycle) return false;
-      if (f.usage && !(c.usage_type || []).includes(f.usage)) return false;
+      if (f.category && !eq(c.category, f.category)) return false;
+      if (f.subcategory && !eq(c.subcategory, f.subcategory)) return false;
+      if (f.atomic && !eq(c.atomic_type, f.atomic)) return false;
+      if (f.lifecycle && !eq(m.lifecycle, f.lifecycle)) return false;
+      if (f.usage && !(c.usage_type || []).some((u) => eq(u, f.usage))) return false;
       if (q) {
         const hay = [m.name, m.short_description, (m.use_cases || []).join(" "), (m.example_prompts || []).join(" ")]
           .join(" ").toLowerCase();

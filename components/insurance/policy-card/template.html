@@ -1,0 +1,28 @@
+<article class="policy-card flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="flex min-w-0 items-center gap-3">
+      <span class="policy-card__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-primary/10 text-primary" aria-hidden="true">
+        <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 2l6 2v5c0 4-2.7 6.3-6 7-3.3-.7-6-3-6-7V4l6-2z"/></svg>
+      </span>
+      <div class="min-w-0">
+        <p class="policy-card__type font-heading text-on-surface">{{ type }}</p>
+        <p class="policy-card__number font-mono text-xs text-on-surface-muted">{{ policy_number }}</p>
+      </div>
+    </div>
+    <span class="policy-card__status shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+  <dl class="grid grid-cols-1 gap-3 border-t border-border pt-4 text-sm sm:grid-cols-3">
+    <div data-if="insured" class="flex flex-col gap-0.5">
+      <dt class="text-xs text-on-surface-muted">Insured</dt>
+      <dd class="text-on-surface">{{ insured }}</dd>
+    </div>
+    <div data-if="premium" class="flex flex-col gap-0.5">
+      <dt class="text-xs text-on-surface-muted">Premium</dt>
+      <dd class="text-on-surface">{{ premium }}</dd>
+    </div>
+    <div data-if="renewal_date" class="flex flex-col gap-0.5">
+      <dt class="text-xs text-on-surface-muted">Renews</dt>
+      <dd class="text-on-surface">{{ renewal_date }}</dd>
+    </div>
+  </dl>
+</article>

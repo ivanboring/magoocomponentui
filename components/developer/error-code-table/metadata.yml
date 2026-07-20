@@ -1,0 +1,70 @@
+name: "Error Code Table"
+short_description: A reference table of API error codes - code, name, HTTP status and what each one means.
+long_visual_description: >
+  A bordered table on the surface colour with four columns: a monospaced error Code, a human Name, a
+  monospaced HTTP status (a dash when none applies), and a muted Meaning describing when the error
+  occurs. Rows are top-aligned so longer explanations wrap cleanly.
+
+use_cases:
+  - Document the error codes an API can return in reference docs.
+  - Map error codes to their HTTP statuses and meanings.
+  - Provide a troubleshooting reference for integrators.
+  - List domain-specific errors alongside standard HTTP ones.
+  - Pair with endpoint docs so failures are self-explanatory.
+
+recommended_for:
+  - API reference pages enumerating error responses.
+  - Any code-to-meaning lookup with an optional HTTP status.
+avoid_for:
+  - Live error logs or incidents (use a data table or status rows).
+  - Prose troubleshooting guides (use an editorial component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an errors array where each item has a code, a name, an optional http status, and a meaning.
+  Order them by status or by how commonly they occur so the table is easy to scan.
+
+props:
+  errors: "The error codes to document; each is { code, name, http?, meaning }."
+
+example_prompts:
+  - "Document common API error codes in a reference table."
+  - "Add an error code table mapping codes to HTTP statuses and meanings."
+
+lifecycle: experimental
+content_model: A list of error codes, each with a code, name, optional HTTP status and a meaning.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-mono
+
+editorial_guidance: >
+  Use canonical snake_case codes and keep meanings to a sentence that says when the error fires and
+  what to do. Include the HTTP status when there is one; leave it blank for transport-agnostic codes.
+
+relationships:
+  related:
+    - developer/schema-table
+    - developer/try-it-console
+    - developer/changelog-entry
+
+categorization:
+  category: Developer
+  subcategory: Documentation
+  atomic_type: organism
+  usage_type: [table]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A real table with scoped column headers; the missing-status placeholder dash is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 45
+  text_direction: both

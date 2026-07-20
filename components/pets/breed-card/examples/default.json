@@ -1,0 +1,8 @@
+{
+  "breed": "Border Collie",
+  "species": "Dog",
+  "image": "",
+  "size": "Medium",
+  "temperament": ["Energetic", "Smart", "Loyal"],
+  "lifespan": "12-15 years"
+}

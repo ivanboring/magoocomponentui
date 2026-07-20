@@ -1,0 +1,28 @@
+<article class="technician-card flex flex-col gap-3 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-3">
+    <img data-if="avatar" class="technician-card__avatar size-11 shrink-0 rounded-pill object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" class="technician-card__avatar flex size-11 shrink-0 items-center justify-center rounded-pill bg-primary/10 font-mono text-sm font-semibold text-primary" aria-hidden="true">{{ initials }}</span>
+    <div class="min-w-0 flex-1">
+      <h3 class="truncate font-heading text-on-surface">{{ name }}</h3>
+      <span class="technician-card__status mt-0.5 inline-flex items-center rounded-pill px-2 py-0.5 text-xs font-medium uppercase tracking-wide {{ status@class }}">{{ status }}</span>
+    </div>
+  </div>
+
+  <dl class="flex flex-col gap-1.5 text-sm">
+    <div data-if="location" class="flex items-center gap-2 text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 18s6-5 6-10a6 6 0 10-12 0c0 5 6 10 6 10z"/><circle cx="10" cy="8" r="2"/></svg>
+      <dt class="sr-only">Location</dt>
+      <dd>{{ location }}</dd>
+    </div>
+    <div data-if="jobs_today" class="flex items-center gap-2 text-on-surface-muted">
+      <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="14" height="12" rx="2"/><path d="M3 8h14M7 3v4M13 3v4"/></svg>
+      <dt class="sr-only">Jobs today</dt>
+      <dd>{{ jobs_today }}</dd>
+    </div>
+    <div data-if="rating" class="flex items-center gap-2 text-on-surface-muted">
+      <svg class="size-4 shrink-0 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2l2.4 5 5.6.8-4 3.9 1 5.5L10 15.5 4.9 17.2l1-5.5-4-3.9L7.6 7z"/></svg>
+      <dt class="sr-only">Rating</dt>
+      <dd class="tabular-nums">{{ rating }}</dd>
+    </div>
+  </dl>
+</article>

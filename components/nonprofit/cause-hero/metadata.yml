@@ -1,0 +1,83 @@
+name: "Cause Hero"
+short_description: A mission banner with a background photo, dark scrim, optional fundraising progress, and a donate CTA.
+long_visual_description: >
+  A rounded full-bleed hero. A background photo sits under a dark scrim (or a solid primary panel
+  when no image is given) so white text stays legible. A large heading and a supporting subheading
+  sit left-aligned; below them an optional slim progress bar in translucent white fills to the
+  raised amount, with an "X raised of Y goal" caption. A primary donate button anchors the block.
+
+use_cases:
+  - Top a campaign or appeal page with the mission and a donate button.
+  - Show live fundraising progress toward a goal above the fold.
+  - Launch a matching-gift or year-end giving drive.
+  - Front a disaster-relief or emergency-response appeal.
+  - Introduce a program with an emotive photo and a clear ask.
+  - Anchor a nonprofit home page hero with a single strong CTA.
+
+recommended_for:
+  - An image-forward fundraising banner with an optional progress meter.
+  - A single, prominent donate call to action.
+avoid_for:
+  - Text-heavy heroes needing a readable light surface (use a centered hero).
+  - Multi-CTA marketing heroes (this leads with one donate action).
+
+markets:
+  - Global
+
+example_usage: >
+  Give heading and a short subheading and set cta to { label, href }. Add a background image for
+  impact; without one the hero falls back to a solid primary panel. To show progress, pass goal
+  plus raised (display strings) and pct as the precomputed raised/goal percentage - the bar and its
+  aria-valuenow both read pct. Omit goal to hide the progress row entirely.
+
+props:
+  heading: "The mission headline; keep it short so it reads over the image."
+  subheading: "One supporting line under the heading."
+  image: "Optional background photo; omit for a solid primary panel."
+  raised: "Amount raised so far, as a display string (e.g. $48,200)."
+  goal: "Fundraising goal, as a display string; presence of goal shows the progress bar."
+  pct: "Precomputed progress percent 0-100 (raised / goal); sets the bar width and aria-valuenow."
+  cta: "The donate call to action: { label, href }."
+
+example_prompts:
+  - "Add a cause hero with a photo, a goal progress bar at 64%, and a Donate now button."
+  - "Show a fundraising hero without a progress bar, just a headline and a donate CTA."
+
+lifecycle: experimental
+content_model: A headline and optional subheading over a background image, an optional raised/goal progress meter, and a single donate CTA.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --font-heading
+    - --space-section
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the outcome, not the organisation. Keep the heading to a single line and the subheading
+  to one sentence. Use a real, high-contrast photo so the white text and scrim carry it, and phrase
+  the caption as progress ("X raised of Y"), not a percentage.
+
+relationships:
+  related:
+    - nonprofit/donation-form
+    - nonprofit/pledge-card
+    - nonprofit/transparency-breakdown
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: organism
+  usage_type: [hero, media, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The scrim keeps white text legible over the photo; the progress bar carries role="progressbar" with aria-valuenow/min/max; the background is decorative. Verify contrast against your specific image.
+  keyboard_support: The donate CTA is focusable and activates on Enter.
+  seo_score: 60
+  text_direction: both

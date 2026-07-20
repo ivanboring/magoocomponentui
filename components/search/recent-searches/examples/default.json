@@ -1,0 +1,10 @@
+{
+  "clear_label": "Clear",
+  "searches": [
+    { "label": "webhooks retry" },
+    { "label": "api keys" },
+    { "label": "rate limits" },
+    { "label": "oauth scopes" },
+    { "label": "pagination" }
+  ]
+}

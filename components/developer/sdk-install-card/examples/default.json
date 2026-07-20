@@ -1,0 +1,7 @@
+{
+  "commands": [
+    { "manager": "npm", "command": "npm install @example/sdk", "active": true },
+    { "manager": "pnpm", "command": "pnpm add @example/sdk", "active": false },
+    { "manager": "yarn", "command": "yarn add @example/sdk", "active": false }
+  ]
+}

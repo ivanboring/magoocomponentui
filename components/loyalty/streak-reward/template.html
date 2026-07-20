@@ -1,0 +1,21 @@
+<div class="streak-reward rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-3">
+    <span class="flex size-11 shrink-0 items-center justify-center rounded-pill bg-primary/10 text-primary" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c.4 2.6-1 4-2.3 5.3C8.2 8.7 7 10 7 12a5 5 0 0 0 10 0c0-1.4-.6-2.7-1.5-3.7.1 1-.4 1.9-1.2 2.3.3-1.6-.2-3.3-1.3-4.5C11.6 4.6 12.3 3.2 12 2Z"/></svg>
+    </span>
+    <div class="min-w-0">
+      <p class="font-heading text-2xl text-on-surface tabular-nums">{{ days }} day streak</p>
+      <p data-if="next_reward" class="text-sm text-on-surface-muted">{{ next_reward }}</p>
+    </div>
+  </div>
+  <ul class="streak-reward__week mt-4 flex items-stretch justify-between gap-2" aria-label="This week">
+    <li data-for="d in week" class="flex flex-1 flex-col items-center gap-1.5">
+      <span class="text-xs text-on-surface-muted">{{ d.day }}</span>
+      <span data-done="{{ d.done }}" class="flex size-8 items-center justify-center rounded-pill border border-border bg-surface-raised text-on-surface-muted data-[done=true]:border-primary data-[done=true]:bg-primary data-[done=true]:text-primary-contrast">
+        <svg data-if="d.done" class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 10l3.5 3.5L15 6"/></svg>
+        <span data-if="!d.done" class="size-1.5 rounded-pill bg-current" aria-hidden="true"></span>
+      </span>
+    </li>
+  </ul>
+  <p data-if="reward_at" class="mt-4 rounded-control bg-surface-raised px-3 py-2 text-center text-xs font-medium text-on-surface-muted">Reward unlocks at {{ reward_at }} days</p>
+</div>

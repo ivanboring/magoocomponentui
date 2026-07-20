@@ -1,0 +1,84 @@
+name: "Policy Card"
+short_description: A compact summary card for a single insurance policy - type, number, status pill and key terms.
+long_visual_description: >
+  A card on the surface colour with a shield icon beside the policy type and a monospace policy
+  number. A coloured status pill (active in success green, pending in warning amber, lapsed in
+  danger red, cancelled in muted grey) sits at the top right. A three-column footer lists the
+  insured party, premium and renewal date, each guarded so empty fields collapse away.
+
+use_cases:
+  - A policy summary tile in a customer's insurance dashboard.
+  - A row in a list of a member's active and past policies.
+  - A confirmation card after a new policy is bound.
+  - A renewal reminder card highlighting an upcoming renewal date.
+  - An agent's view of a client's policy portfolio.
+  - A lapsed-policy prompt encouraging the member to reinstate.
+
+recommended_for:
+  - Showing a policy's identity, standing and core terms at a glance.
+  - A grid or list of a member's policies.
+avoid_for:
+  - A step-by-step claim timeline (use claim-status).
+  - A deep coverage limits breakdown (use coverage-breakdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass type, policy_number and status, then optionally premium, renewal_date and insured as
+  pre-formatted display strings. The status enum drives the pill colour through the variant map, so
+  set it to active, pending, lapsed or cancelled rather than styling it directly.
+
+props:
+  type: The policy kind shown next to the shield icon, such as Auto, Home or Life.
+  policy_number: The policy reference, rendered monospace for scannability.
+  status: The policy standing - active, pending, lapsed or cancelled - which sets the pill colour.
+  premium: Pre-formatted premium text such as "$92 / mo".
+  renewal_date: Display text for the next renewal, such as "Aug 1, 2026".
+  insured: The primary insured party or covered item.
+
+lifecycle: experimental
+content_model: A single policy with a type, number, status and optional premium, renewal date and insured party.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the type label short and consistent across a portfolio. Use pre-formatted premium and date
+  strings since the template does no formatting, and let the status pill carry the standing rather
+  than repeating it in the body copy.
+
+relationships:
+  related:
+    - insurance/claim-status
+    - insurance/coverage-breakdown
+    - insurance/agent-card
+
+categorization:
+  category: Insurance
+  subcategory: Policy
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status is conveyed by the pill's text label as well as its colour, so standing never depends on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

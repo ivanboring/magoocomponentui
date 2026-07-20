@@ -1,0 +1,11 @@
+<div class="showreel-embed group relative aspect-video overflow-hidden rounded-card bg-black shadow-card" data-video-url="{{ video_url }}">
+  <img data-if="poster" class="size-full object-cover" src="{{ poster }}" alt="">
+  <div class="showreel-embed__scrim absolute inset-0 bg-black/40 transition-colors duration-(--duration-token) group-hover:bg-black/50" aria-hidden="true"></div>
+  <button type="button" class="showreel-embed__play absolute left-1/2 top-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-primary shadow-raised transition-transform duration-(--duration-token) hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" aria-label="Play showreel">
+    <svg class="size-8 translate-x-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l11 6-11 6V4z"/></svg>
+  </button>
+  <div class="showreel-embed__caption absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
+    <h3 data-if="title" class="showreel-embed__title font-heading text-lg text-white">{{ title }}</h3>
+    <span data-if="duration" class="showreel-embed__duration shrink-0 rounded-pill bg-black/50 px-2.5 py-1 font-mono text-xs text-white">{{ duration }}</span>
+  </div>
+</div>

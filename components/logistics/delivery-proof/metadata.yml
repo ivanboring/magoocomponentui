@@ -1,0 +1,82 @@
+name: "Delivery Proof"
+short_description: A proof-of-delivery card pairing a drop-off photo and captured signature with the recipient, time and courier note.
+long_visual_description: >
+  A card headed by a green "Delivered" check and the delivery time, with a two-up media area below:
+  a proof-of-delivery photo on one side and the recipient's captured signature on the other, each
+  falling back to a placeholder when absent. A footer names who received the package and carries an
+  optional courier note.
+
+use_cases:
+  - Confirm a completed delivery with photo and signature evidence.
+  - Show proof of delivery on a customer order page.
+  - Attach drop-off evidence to a support or dispute ticket.
+  - Record a signature capture for a signed-for parcel.
+  - Display a courier's drop-off note and photo.
+  - Give recipients a receipt of where their package was left.
+
+recommended_for:
+  - Proof-of-delivery views that need photo and signature side by side.
+  - Order pages confirming a completed, evidenced delivery.
+
+avoid_for:
+  - An in-progress tracking timeline (use shipment-tracker).
+  - A compact status line (use package-status-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Show it once a delivery is complete. Provide a photo URL and a signature image; either falls back
+  to a placeholder when omitted. Add the recipient name, delivery time and an optional drop-off note.
+
+props:
+  recipient: Name of the person who received the delivery.
+  time: When the delivery was completed.
+  signature_image: URL of a captured signature; falls back to a drawn placeholder mark.
+  photo: URL of a proof-of-delivery photo; falls back to a camera placeholder.
+  note: Optional courier note about the drop-off.
+
+example_prompts:
+  - "Show proof of delivery with a doorstep photo and a signature."
+  - "Add a delivered card with the recipient name, time and a left-at-door note."
+  - "Render a signature-only proof of delivery when no photo was taken."
+
+lifecycle: experimental
+content_model: A completed delivery's photo, captured signature, recipient, time and courier note.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Use it only for completed deliveries. Keep the note factual about where the package was left, and
+  supply a real signature capture where available - the drawn mark is only a placeholder.
+
+relationships:
+  related:
+    - logistics/shipment-tracker
+    - logistics/package-status-row
+    - commerce/order-tracker
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [card, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo and signature images carry descriptive alt text; the check and placeholder glyphs are aria-hidden.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

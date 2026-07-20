@@ -1,0 +1,17 @@
+{
+  "total": "3 results",
+  "facets": [
+    {
+      "label": "Type",
+      "options": [
+        { "label": "People", "count": 3, "checked": true },
+        { "label": "Teams", "count": 0 }
+      ]
+    }
+  ],
+  "results": [
+    { "title": "Ada Lovelace", "snippet": "Mathematician and writer, known for work on the Analytical Engine.", "meta": ["Engineering", "London"] },
+    { "title": "Grace Hopper", "snippet": "Computer scientist and pioneer of machine-independent programming languages.", "meta": ["Research"] },
+    { "title": "Alan Turing", "snippet": "Founder of theoretical computer science and artificial intelligence." }
+  ]
+}

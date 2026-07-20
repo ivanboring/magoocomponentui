@@ -1,0 +1,81 @@
+name: "Rate Limit Meter"
+short_description: A compact meter showing API calls used against a quota, with a coloured fill bar and reset time.
+long_visual_description: >
+  A small card with a caption on the left and a monospaced "used / limit" count on the right.
+  Below sits a thin pill-shaped track whose fill grows to the used percentage and is coloured by
+  tone - the primary colour while there is headroom, warning as it fills, danger when nearly
+  exhausted. An optional muted line beneath states when the window resets.
+
+use_cases:
+  - Show remaining API quota in a developer dashboard or settings page.
+  - Surface plan usage (requests, credits, build minutes) with a reset window.
+  - Warn a user approaching a rate limit before requests start failing.
+  - Display per-key consumption in an API key management row.
+  - Give an at-a-glance sense of how much of an allowance is left this period.
+
+recommended_for:
+  - Any quota or allowance that resets on a fixed window.
+  - Dashboards that need a small, non-charting usage indicator.
+avoid_for:
+  - Historical usage over time (use a chart component).
+  - Multi-metric summaries (use a stat card or scorecard).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass used and limit as display strings, precompute used_pct (0-100) from them, and set tone to
+  match how close usage is to the cap. Add reset_at to tell the user when the window rolls over.
+
+props:
+  used: "Calls consumed this window, as a display string or integer."
+  limit: "The total allowance for the window, as a display string."
+  used_pct: "Fill width 0-100; precompute from used/limit and pass it in (no division in templates)."
+  reset_at: "Optional human-readable reset time, e.g. \"in 12 min\"."
+  tone: "Colours the fill bar: ok (primary), warning, or danger - set it to match how full the meter is."
+
+example_prompts:
+  - "Show an API rate limit meter at 82 percent that resets in 12 minutes."
+  - "Add a quota meter that turns red when nearly used up."
+
+lifecycle: experimental
+content_model: A used and limit count, a precomputed fill percentage, an optional reset time, and a tone.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --space-card
+
+editorial_guidance: >
+  Keep the caption short. Match tone to the fill so colour and value agree - never a green bar that
+  is almost full. Phrase reset_at as a duration or a clock time, consistently.
+
+relationships:
+  related:
+    - developer/webhook-row
+    - developer/status-service-row
+    - dashboard/stat-card
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: molecule
+  usage_type: [stat, meter]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The used/limit count is real text so the state is not conveyed by the bar colour alone; the bar is decorative.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,92 @@
+name: "Battery Storage Tile"
+short_description: A tile showing a home battery's state of charge with a fill visual, its status, capacity, power flow, and backup runtime.
+long_visual_description: >
+  A surface card pairing a vertical battery glyph with a stat column. The battery has a
+  small cap on top and a fill that rises from the bottom to the current state of charge,
+  tinted by status: info while charging, warning while discharging, primary when idle, and
+  success when full. Beside it a large tabular percentage sits over a status pill with a
+  matching colour dot, followed by a small definition list of capacity, power flow, and
+  estimated backup runtime.
+
+use_cases:
+  - Show a home battery's charge and status on an energy dashboard.
+  - Summarise a solar plus storage system's reserve in a mobile app.
+  - Display backup runtime remaining during a grid outage.
+  - Report a fleet of stationary batteries on an operations screen.
+  - Give an at a glance storage tile in a smart home hub.
+  - Track an EV home battery buffer alongside charging status.
+
+recommended_for:
+  - A single battery or storage unit summarised in one tile.
+  - Dashboards that pair the charge visual with a few key figures.
+  - Cases where the charge percent is already computed by the caller.
+
+avoid_for:
+  - Charge history over time (use a line chart shell).
+  - Detailed cell level diagnostics (use a dedicated table).
+  - Non storage metrics like instantaneous grid draw (use a live counter).
+
+markets:
+  - Global
+
+example_usage: >
+  Set charge_pct to the current state of charge and status to what the battery is doing;
+  the fill height and colour follow. Add capacity_kwh, power_kw and backup_hours as
+  preformatted display strings for the stat rows.
+
+props:
+  charge_pct: Current state of charge, 0-100; precomputed and used for the fill height.
+  status: What the battery is doing now, setting the fill colour and status label.
+  capacity_kwh: Total usable capacity as a display string.
+  power_kw: Current charge or discharge rate as a display string.
+  backup_hours: Estimated backup runtime at the current charge as a display string.
+
+example_prompts:
+  - Add a home battery tile at 76 percent that is charging.
+  - Show a storage tile discharging with backup hours remaining.
+  - Put a full battery tile with capacity and power on the dashboard.
+
+relationships:
+  related:
+    - energy/energy-mix-donut
+    - energy/demand-response-banner
+    - energy/renewable-goal
+
+lifecycle: experimental
+content_model: A charge percent, a status, and optional capacity, power flow, and backup runtime figures.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Let the charge percentage lead and keep the supporting figures quiet. Use status
+  literally so the fill colour matches what the battery is doing, and word backup as a
+  plain runtime such as hours remaining.
+
+categorization:
+  category: Energy
+  subcategory: Storage
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The battery visual has an accessible label with the charge percent, and the status is stated in text beside the colour dot, not by colour alone.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

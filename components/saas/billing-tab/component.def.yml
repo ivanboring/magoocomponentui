@@ -1,0 +1,29 @@
+name: billing-tab
+props:
+  plan:
+    type: object
+    required: true
+    title: Plan
+    description: >
+      The current plan: { name, price, period, features }. name is the plan name, price is the
+      formatted amount (e.g. "$29"), period is the billing period noun (e.g. "month"), and features
+      is an optional array of strings listed with check marks.
+    example:
+      { name: "Pro", price: "$29", period: "month", features: ["Unlimited projects", "Priority support", "Advanced analytics"] }
+  payment:
+    type: object
+    required: true
+    title: Payment method
+    description: >
+      The card on file: { brand, last4, expires }. brand is the card network (e.g. "Visa"), last4 is
+      the last four digits, and expires is the expiry (e.g. "08/27").
+    example:
+      { brand: "Visa", last4: "4242", expires: "08/27" }
+  usage:
+    type: object
+    title: Usage
+    description: >
+      Optional usage summary shown as a bar: { label, used_pct }. label describes what is metered and
+      used_pct is a precomputed percentage 0-100 for the fill width.
+    example:
+      { label: "Seats used", used_pct: 72 }

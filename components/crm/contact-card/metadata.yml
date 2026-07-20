@@ -1,0 +1,84 @@
+name: "Contact Card"
+short_description: A person card with avatar, name, role, company, and email or phone action buttons.
+long_visual_description: >
+  A card on the surface colour with a round avatar (photo, or a monogram fallback on the raised
+  surface) at the left. The name sits in the heading face with the job title and company muted
+  beneath. A row of small square icon buttons follows for email and phone, each an outlined control
+  that tints on hover.
+
+use_cases:
+  - A CRM contact record summary.
+  - The account owner or primary contact on a deal page.
+  - A team or org directory entry.
+  - A "who to reach" card in a support or account view.
+  - A speaker or attendee card in an events context.
+  - A referral or lead contact preview.
+
+recommended_for:
+  - Showing one person with quick email and phone actions.
+  - Directory grids of people with consistent structure.
+avoid_for:
+  - A deal summary (use deal-card).
+  - A dense scannable list of many contacts (use a list row component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a name and optional title and company. Provide an avatar image, or omit it and pass initials
+  for a monogram fallback. Add email and phone to render the mailto and tel action buttons.
+
+props:
+  name: "The person's full name."
+  title: "Their job title or role."
+  company: "The organisation they belong to."
+  avatar: "Photo URL; omit and pass initials for a monogram fallback."
+  initials: "A precomputed 1-3 char monogram, shown when there is no avatar."
+  email: "Email address; renders a mailto action button."
+  phone: "Phone number; renders a tel action button."
+
+example_prompts:
+  - Show a contact card for Priya Nair, VP of Operations at Northwind Traders.
+  - Add a person card with avatar and email and call buttons.
+  - Render a directory contact with a monogram fallback and phone action.
+
+lifecycle: experimental
+content_model: A person's name with optional title, company, avatar or initials, email, and phone.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Prefer a real photo; fall back to initials only when none exists. Keep the title short. Provide
+  email and phone only when they are genuinely reachable so the action buttons never dead-end.
+
+relationships:
+  related:
+    - crm/deal-card
+    - crm/contact-list-row
+    - crm/activity-timeline
+
+categorization:
+  category: CRM & Sales
+  subcategory: Contacts
+  atomic_type: molecule
+  usage_type: [card, grid, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Action buttons are real links with descriptive aria-labels that include the person's name; the avatar is decorative with empty alt.
+  keyboard_support: The email and phone links are focusable and activate with Enter.
+  seo_score: 40
+  text_direction: both

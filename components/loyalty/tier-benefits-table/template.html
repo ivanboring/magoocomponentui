@@ -1,0 +1,29 @@
+<div class="tier-benefits-table overflow-x-auto rounded-card border border-border bg-surface shadow-card">
+  <table class="w-full min-w-[480px] border-collapse text-sm">
+    <colgroup>
+      <col class="w-2/5">
+      <col data-for="t in tiers" data-current="{{ t.current }}" class="data-[current=true]:bg-primary/5">
+    </colgroup>
+    <thead>
+      <tr class="border-b border-border">
+        <th scope="col" class="p-3 text-left text-xs font-medium uppercase tracking-wide text-on-surface-muted">Benefit</th>
+        <th data-for="t in tiers" data-current="{{ t.current }}" scope="col" class="p-3 text-center font-heading text-on-surface data-[current=true]:text-primary">
+          {{ t.name }}
+          <span data-if="t.current" class="mt-1 block text-[10px] font-medium uppercase tracking-wide text-primary">Current</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-for="b in benefits" class="border-b border-border last:border-b-0">
+        <th scope="row" class="p-3 text-left font-normal text-on-surface">{{ b.label }}</th>
+        <td data-for="v in b.values" class="p-3 text-center align-middle text-on-surface">
+          <span data-if="v">{{ v }}</span>
+          <span data-if="!v" class="inline-flex text-on-surface-muted" aria-hidden="true">
+            <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 10h10"/></svg>
+          </span>
+          <span data-if="!v" class="sr-only">Not included</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+{
+  "fields": [
+    { "name": "query", "type": "string", "required": true, "description": "The search term to match against." },
+    { "name": "limit", "type": "integer", "required": false, "description": "Maximum results to return (1-100).", "default": "20" }
+  ]
+}

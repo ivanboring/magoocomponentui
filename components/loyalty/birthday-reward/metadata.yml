@@ -1,0 +1,75 @@
+name: "Birthday Reward"
+short_description: A celebratory card that greets a member on their birthday and highlights a reward with an expiry note.
+long_visual_description: >
+  A centred card washed in a soft primary tint with a matching border. A circular gift glyph sits at
+  the top, a birthday message reads below it, and the reward appears as a raised pill callout on the
+  surface colour, with a small muted expiry note beneath.
+
+use_cases:
+  - Greet a member on their birthday with a reward.
+  - Surface a time-limited birthday perk in a rewards inbox.
+  - Add a celebratory reward banner to a member dashboard.
+  - Announce a birthday gift with a redeem-by date.
+  - Feature a seasonal or milestone celebration reward.
+
+recommended_for:
+  - A single, celebratory birthday or milestone reward.
+  - Moments that should feel warm and stand apart from the surface.
+avoid_for:
+  - A grid of many perks (use perks-grid).
+  - A progress-based challenge (use challenge-progress).
+
+markets:
+  - Global
+
+example_usage: >
+  Set message to the greeting and reward to the perk; add expires for a redeem-by note. message
+  defaults to "Happy birthday!" so the card always reads even when only a reward is passed.
+
+props:
+  message: The celebratory headline; defaults to "Happy birthday!".
+  reward: The birthday reward, shown as a highlighted pill callout.
+  expires: A short redeem-by note shown muted at the bottom.
+
+example_prompts:
+  - "Add a birthday reward card with a free dessert."
+  - "Show a birthday gift with a redeem-by date."
+  - "Greet the member on their birthday with a reward."
+
+lifecycle: experimental
+content_model: A birthday message, an optional reward callout, and an optional expiry note.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the message warm and personal and the reward concrete. Include an expiry only when the reward
+  really is time-limited, and phrase it as a friendly nudge rather than a deadline.
+
+relationships:
+  related:
+    - loyalty/perks-grid
+    - loyalty/challenge-progress
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Rewards
+  atomic_type: atom
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The reward and expiry are conveyed as text; the decorative gift glyph is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

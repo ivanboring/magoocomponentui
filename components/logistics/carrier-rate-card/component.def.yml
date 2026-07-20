@@ -1,0 +1,36 @@
+name: carrier-rate-card
+props:
+  carrier:
+    type: string
+    required: true
+    title: Carrier
+    description: The carrier or provider name (e.g. "UPS", "DHL Express").
+    example: "UPS"
+  service:
+    type: string
+    title: Service
+    description: The service level or method under the carrier (e.g. "Ground", "2-Day Air").
+    example: "Ground"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The formatted rate, including currency and any unit.
+    example: "$12.40"
+  eta:
+    type: string
+    title: Estimated delivery
+    description: A human-readable delivery estimate shown with a clock icon (e.g. "Arrives Jul 6").
+    example: "Arrives Jul 6"
+  logo:
+    type: string
+    title: Carrier logo
+    description: Optional carrier logo image URL, shown as a small square on the leading edge.
+    example: "/stock/carrier-ups.png"
+  selected:
+    type: boolean
+    default: false
+    title: Selected
+    description: >
+      When true the card is styled as the chosen option - a primary border, a faint primary tint,
+      and a filled selection mark. Set by the caller to reflect the picked rate.

@@ -1,0 +1,82 @@
+name: "Cold Chain Monitor"
+short_description: A temperature-monitoring card showing the current reading against a safe range with a recent-readings log.
+long_visual_description: >
+  A card on the surface colour dominated by a large current temperature in the heading face, coloured
+  green when in range and red when out of range, with a matching status pill on the trailing edge. A
+  thermometer-marked line states the safe range, and an optional log lists recent timestamped
+  readings with any range breach called out in red.
+
+use_cases:
+  - A reefer or refrigerated-truck temperature readout in a fleet view.
+  - A cold-storage warehouse sensor tile.
+  - A pharmaceutical cold-chain compliance monitor.
+  - A food-safety temperature log on a shipment page.
+  - A vaccine or biologics shipment integrity check.
+
+recommended_for:
+  - A single sensor's current reading, safe range, and recent history.
+  - Temperature data rendered from a current value plus a readings log.
+avoid_for:
+  - A multi-sensor dashboard grid (compose several of these).
+  - A full charting surface (use a chart component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the current temperature and set in_range to reflect whether it sits within min_temp and
+  max_temp; the big reading and status pill colour follow that flag. Add a readings array newest
+  first and mark any out-of-range entry with breach true to highlight it in red.
+
+props:
+  current_temp: The latest reading formatted with a unit; shown large and coloured by in_range.
+  min_temp: The low end of the safe range shown in the range line.
+  max_temp: The high end of the safe range shown in the range line.
+  in_range: Whether the current reading is within range; drives the success or danger colouring and the pill label.
+  readings: Optional recent readings newest first; each has a time, temp, and a breach flag that reddens the value.
+
+example_prompts:
+  - "Add a cold chain monitor reading 3.4 C, safe range 2 to 8 C, in range."
+  - "Show a reefer temperature card that is out of range with a breach in the log."
+  - "Display a cold storage sensor tile with recent readings."
+
+lifecycle: experimental
+content_model: A current temperature, an optional safe range, an in-range flag, and an optional log of recent readings.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the reading and range in the same unit and set in_range to match - never a green reading
+  outside its stated range. Order the log newest first and reserve the breach highlight for genuine
+  excursions.
+
+relationships:
+  related:
+    - logistics/tracking-timeline
+    - logistics/load-board-row
+    - dashboard/stat-card
+
+categorization:
+  category: Logistics & Shipping
+  subcategory: Monitoring
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The status pill carries a text label (In range / Out of range) alongside the colour, so state is not conveyed by colour alone; the thermometer icon is decorative.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

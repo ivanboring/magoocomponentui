@@ -1,0 +1,32 @@
+name: sprint-header
+props:
+  name:
+    type: string
+    required: true
+    title: Sprint name
+    example: "Sprint 24 - Payments"
+  start:
+    type: string
+    title: Start date
+    description: Human-readable sprint start date.
+    example: "Mar 3"
+  end:
+    type: string
+    title: End date
+    description: Human-readable sprint end date.
+    example: "Mar 14"
+  points_done:
+    type: string
+    title: Points done
+    description: Precomputed completed story points (shown as done/total).
+    example: "21"
+  points_total:
+    type: string
+    title: Points total
+    description: Precomputed committed story points (shown as done/total).
+    example: "34"
+  days_left:
+    type: string
+    title: Days left
+    description: Precomputed number of days remaining in the sprint.
+    example: "4"

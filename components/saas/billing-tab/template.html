@@ -1,0 +1,39 @@
+<div class="billing-tab flex flex-col gap-4">
+  <div class="grid gap-4 sm:grid-cols-2">
+    <section class="billing-tab__plan flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+      <p class="text-sm text-on-surface-muted">Current plan</p>
+      <p class="mt-1 font-heading text-2xl text-on-surface">{{ plan.name }}</p>
+      <p class="mt-1">
+        <span class="font-heading text-3xl text-on-surface tabular-nums">{{ plan.price }}</span>
+        <span data-if="plan.period" class="text-sm text-on-surface-muted">/{{ plan.period }}</span>
+      </p>
+      <ul data-if="plan.features" class="mt-3 flex flex-col gap-1.5">
+        <li data-for="feature in plan.features" class="flex items-start gap-2 text-sm text-on-surface">
+          <svg class="mt-0.5 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+          <span>{{ feature }}</span>
+        </li>
+      </ul>
+      <button type="button" class="billing-tab__change mt-4 w-full rounded-button border border-border px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Change plan</button>
+    </section>
+
+    <section class="billing-tab__payment flex flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+      <p class="text-sm text-on-surface-muted">Payment method</p>
+      <div class="mt-2 flex items-center gap-3">
+        <span class="flex h-8 w-12 shrink-0 items-center justify-center rounded-control bg-surface-raised font-heading text-xs uppercase text-on-surface-muted">{{ payment.brand }}</span>
+        <span class="font-mono text-on-surface">•••• {{ payment.last4 }}</span>
+      </div>
+      <p class="mt-2 text-sm text-on-surface-muted">Expires {{ payment.expires }}</p>
+      <button type="button" class="billing-tab__update mt-auto w-full rounded-button border border-border px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Update</button>
+    </section>
+  </div>
+
+  <section data-if="usage" class="billing-tab__usage rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+    <div class="mb-1 flex items-center justify-between text-sm">
+      <span data-if="usage.label" class="text-on-surface-muted">{{ usage.label }}</span>
+      <span class="tabular-nums text-on-surface-muted">{{ usage.used_pct }}%</span>
+    </div>
+    <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ usage.used_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ usage.label }}">
+      <div class="billing-tab__usage-fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ usage.used_pct }}%"></div>
+    </div>
+  </section>
+</div>

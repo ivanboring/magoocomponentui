@@ -1,0 +1,22 @@
+<article class="agent-card flex items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="agent-card__avatar relative flex size-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary/10 font-heading text-primary">
+    <img data-if="avatar" class="absolute inset-0 size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="initials">{{ initials }}</span>
+  </div>
+  <div class="min-w-0 flex-1">
+    <p class="agent-card__name font-heading text-on-surface">{{ name }}</p>
+    <p data-if="title" class="text-sm text-on-surface-muted">{{ title }}</p>
+    <div data-if="rating" class="agent-card__rating mt-1 flex items-center gap-1 text-sm">
+      <svg class="size-4 text-warning" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.4 5.2 16.9l.9-5.4L2.2 7.7l5.4-.8L10 2z"/></svg>
+      <span class="tabular-nums text-on-surface">{{ rating }}</span>
+    </div>
+  </div>
+  <div class="flex shrink-0 items-center gap-2">
+    <a data-if="phone" class="agent-card__call flex size-9 items-center justify-center rounded-control border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="tel:{{ phone }}" aria-label="Call {{ name }}">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3H4a1.5 1.5 0 00-1.5 1.6A13 13 0 0015.4 17.5 1.5 1.5 0 0017 16v-2l-3-1-1.4 1.4a10 10 0 01-4-4L10 9 9 6 6 3z"/></svg>
+    </a>
+    <a data-if="email" class="agent-card__email flex size-9 items-center justify-center rounded-control border border-border text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" href="mailto:{{ email }}" aria-label="Email {{ name }}">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="M3 5l7 5 7-5"/></svg>
+    </a>
+  </div>
+</article>

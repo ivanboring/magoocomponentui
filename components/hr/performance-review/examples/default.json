@@ -1,0 +1,16 @@
+{
+  "employee": "Jordan Kim",
+  "period": "H1 2026",
+  "overall_rating": "4.2/5",
+  "ratings": [
+    { "label": "Delivery", "score": "4.5/5", "pct": 90 },
+    { "label": "Collaboration", "score": "4.0/5", "pct": 80 },
+    { "label": "Ownership", "score": "4.2/5", "pct": 84 },
+    { "label": "Communication", "score": "3.8/5", "pct": 76 }
+  ],
+  "goals": [
+    { "label": "Ship the billing revamp", "status": "done" },
+    { "label": "Mentor two engineers", "status": "on-track" },
+    { "label": "Reduce p95 latency by 20 percent", "status": "at-risk" }
+  ]
+}

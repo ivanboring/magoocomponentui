@@ -1,0 +1,32 @@
+<div class="performance-review rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="performance-review__employee truncate font-heading text-on-surface">{{ employee }}</h3>
+      <p class="text-sm text-on-surface-muted">{{ period }}</p>
+    </div>
+    <div class="performance-review__overall shrink-0 rounded-control bg-primary/10 px-3 py-2 text-center">
+      <p class="font-heading text-xl text-primary tabular-nums">{{ overall_rating }}</p>
+      <p class="text-xs text-on-surface-muted">Overall</p>
+    </div>
+  </div>
+  <ul class="performance-review__ratings mt-4 flex flex-col gap-3">
+    <li data-for="rating in ratings" class="flex flex-col gap-1">
+      <div class="flex items-center justify-between gap-3 text-sm">
+        <span class="text-on-surface">{{ rating.label }}</span>
+        <span class="tabular-nums text-on-surface-muted">{{ rating.score }}</span>
+      </div>
+      <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+        <div class="h-full rounded-pill bg-primary" style="width: {{ rating.pct }}%"></div>
+      </div>
+    </li>
+  </ul>
+  <div data-if="goals" class="performance-review__goals mt-5 border-t border-border pt-4">
+    <p class="text-sm font-medium text-on-surface">Goals</p>
+    <ul class="mt-2 flex flex-col gap-2">
+      <li data-for="goal in goals" class="flex items-center justify-between gap-3 text-sm">
+        <span class="min-w-0 flex-1 text-on-surface-muted">{{ goal.label }}</span>
+        <span class="shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium capitalize text-on-surface-muted data-[status=done]:bg-success/10 data-[status=done]:text-success data-[status=on-track]:bg-info/10 data-[status=on-track]:text-info data-[status=at-risk]:bg-warning/10 data-[status=at-risk]:text-warning" data-status="{{ goal.status }}">{{ goal.status }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

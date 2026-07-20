@@ -1,0 +1,26 @@
+<div class="oee-gauge flex flex-col items-center gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <span class="oee-gauge__dial relative inline-flex size-32 items-center justify-center" role="img" aria-label="Overall equipment effectiveness {{ oee_pct }} percent">
+    <svg class="size-full -rotate-90" viewBox="0 0 100 100">
+      <circle class="text-surface-raised" cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="10"></circle>
+      <circle class="oee-gauge__arc text-primary transition-all duration-(--duration-token)" cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-dasharray="{{ arc_dash }}" style="stroke-dashoffset: {{ arc_offset }}"></circle>
+    </svg>
+    <span class="oee-gauge__value absolute flex flex-col items-center">
+      <span class="font-heading text-3xl tabular-nums text-on-surface">{{ oee_pct }}%</span>
+      <span class="text-xs uppercase tracking-wide text-on-surface-muted">OEE</span>
+    </span>
+  </span>
+  <dl class="grid w-full grid-cols-3 gap-2 text-center">
+    <div data-if="availability" class="oee-gauge__sub rounded-control bg-surface-raised px-2 py-2">
+      <dt class="text-xs text-on-surface-muted">Avail.</dt>
+      <dd class="mt-0.5 font-heading tabular-nums text-on-surface">{{ availability }}</dd>
+    </div>
+    <div data-if="performance" class="oee-gauge__sub rounded-control bg-surface-raised px-2 py-2">
+      <dt class="text-xs text-on-surface-muted">Perf.</dt>
+      <dd class="mt-0.5 font-heading tabular-nums text-on-surface">{{ performance }}</dd>
+    </div>
+    <div data-if="quality" class="oee-gauge__sub rounded-control bg-surface-raised px-2 py-2">
+      <dt class="text-xs text-on-surface-muted">Qual.</dt>
+      <dd class="mt-0.5 font-heading tabular-nums text-on-surface">{{ quality }}</dd>
+    </div>
+  </dl>
+</div>

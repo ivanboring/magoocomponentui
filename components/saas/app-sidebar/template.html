@@ -1,0 +1,20 @@
+<nav class="app-sidebar flex w-64 flex-col border-r border-border bg-surface" aria-label="Primary">
+  <div class="app-sidebar__brand flex h-14 shrink-0 items-center gap-2 border-b border-border px-4">
+    <span class="flex size-7 items-center justify-center rounded-control bg-primary font-heading text-sm font-semibold text-primary-contrast" aria-hidden="true">{{ brand }}</span>
+    <span class="app-sidebar__brand-name truncate font-heading text-sm font-semibold text-on-surface">{{ brand }}</span>
+  </div>
+  <div class="app-sidebar__scroll flex flex-1 flex-col gap-6 overflow-y-auto p-3">
+    <div data-for="section in sections" class="app-sidebar__section">
+      <p data-if="section.label" class="app-sidebar__heading px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ section.label }}</p>
+      <ul class="app-sidebar__list flex flex-col gap-0.5">
+        <li data-for="item in section.items">
+          <a class="app-sidebar__item flex items-center gap-3 rounded-control px-3 py-2 text-sm text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:font-medium data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">
+            <span class="app-sidebar__icon shrink-0 [&>svg]:size-5" aria-hidden="true">{{{ item.icon }}}</span>
+            <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
+            <span data-if="item.badge" class="app-sidebar__badge shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs font-medium text-on-surface-muted">{{ item.badge }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

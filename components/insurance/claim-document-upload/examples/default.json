@@ -1,0 +1,7 @@
+{
+  "documents": [
+    { "label": "Police report", "required": true, "status": "missing" },
+    { "label": "Repair estimate", "required": true, "status": "uploaded" },
+    { "label": "Photos of damage", "required": false, "status": "reviewing" }
+  ]
+}

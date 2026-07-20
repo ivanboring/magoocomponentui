@@ -1,0 +1,41 @@
+name: thermostat-dial
+props:
+  current_temp:
+    type: string
+    required: true
+    title: Current temperature
+    description: The current measured temperature, formatted with its unit, e.g. "19.5°".
+    example: "19.5°"
+  target_temp:
+    type: string
+    required: true
+    title: Target temperature
+    description: The set-point shown large in the centre of the dial, e.g. "21°".
+    example: "21°"
+  mode:
+    type: enum
+    values: [heat, cool, auto]
+    title: Mode
+    description: Optional running mode; colours the value arc and shows a small label.
+    example: heat
+  arc_dash:
+    type: string
+    required: true
+    title: Arc dash array
+    description: >
+      Precomputed SVG stroke-dasharray for the value arc on a circle of circumference 251 (r=40).
+      Use "251" for a full-circle gauge; the template performs no arithmetic.
+    example: "251"
+  arc_offset:
+    type: string
+    required: true
+    title: Arc dash offset
+    description: >
+      Precomputed SVG stroke-dashoffset driving the visible arc length. For a fraction f of a full
+      ring, pass 251 * (1 - f) (e.g. "88" for 65%).
+    example: "88"
+variants:
+  mode:
+    heat: "text-warning"
+    cool: "text-info"
+    auto: "text-primary"

@@ -1,0 +1,40 @@
+name: margin-meter
+props:
+  used:
+    type: string
+    required: true
+    title: Used
+    description: The margin / buying power currently used, preformatted with currency (e.g. $12,400).
+    example: "$12,400"
+  available:
+    type: string
+    required: true
+    title: Available
+    description: The remaining buying power, preformatted with currency (e.g. $7,600).
+    example: "$7,600"
+  used_pct:
+    type: integer
+    required: true
+    title: Used percent
+    description: >
+      The percentage of buying power used, 0-100. PRECOMPUTED BY THE CALLER (the template language
+      has no math) and used directly as the fill bar width.
+    example: 62
+  maintenance:
+    type: string
+    title: Maintenance requirement
+    description: Optional maintenance margin requirement, preformatted with currency (e.g. $6,200).
+    example: "$6,200"
+  tone:
+    type: enum
+    values: [ok, warning, danger]
+    default: ok
+    title: Tone
+    description: >
+      Severity of the margin usage, driving the fill colour: ok is primary, warning is amber,
+      danger is red. Set it by threshold in the caller.
+variants:
+  tone:
+    ok: "bg-primary"
+    warning: "bg-warning"
+    danger: "bg-danger"

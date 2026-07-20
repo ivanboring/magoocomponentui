@@ -1,0 +1,14 @@
+name: thread-list
+props:
+  threads:
+    type: array
+    items: object
+    required: true
+    title: Threads
+    description: >
+      The forum topics to list, in order. Each item:
+      { title, author, replies, views, last_activity, pinned, tags } where views is an optional
+      pre-formatted count, pinned (boolean) subtly highlights the row and shows a pin icon, and
+      tags is an optional array of label strings shown as chips under the title.
+    example:
+      - { title: "Welcome to the community, start here", author: "Ada L.", replies: "42", views: "1.2k", last_activity: "2h ago", pinned: true, tags: ["announcement"] }

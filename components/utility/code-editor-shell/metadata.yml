@@ -1,0 +1,85 @@
+name: "Code Editor Shell"
+short_description: A read-only editor chrome with file tabs and a numbered gutter for displaying source code.
+long_visual_description: >
+  A card-framed editor with a raised tab bar across the top holding one file tab per open file,
+  each with a small close icon and an optional language badge floated to the right. The active
+  tab reads onto the surface below. The body is a monospace two-column layout: a right-aligned
+  line-number gutter separated by a border from the code column, which preserves whitespace and
+  scrolls horizontally for long lines.
+
+use_cases:
+  - Displaying a code snippet with an editor-like frame in docs or a tutorial.
+  - A read-only source viewer inside a developer dashboard.
+  - Showing example files with switchable tabs in a component gallery.
+  - A diff or review surface that frames the code being discussed.
+  - Marketing or landing sections that show off an SDK or CLI snippet.
+
+recommended_for:
+  - Presenting source code with familiar editor chrome (tabs, gutter, mono body).
+  - Multi-file snippets where the reader switches between tabs.
+avoid_for:
+  - A fully editable code editor (this is display chrome, not an input).
+  - A single inline code span (use an inline code element).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a tabs array (each { name, active }) and a lines array (each { num, code }) where num is
+  the precomputed gutter number and code is the verbatim source for that line, including its
+  leading indentation. Optionally set language for a badge. Listen for the bubbling tab:select
+  event (detail.name) to swap the lines you render for the chosen file.
+
+how_to_use: >
+  The shell is presentation-only skeleton UI and does not edit or run anything. Clicking a tab
+  marks it active (clearing the others) and dispatches a bubbling CustomEvent "tab:select" with
+  { name }; wire a listener to replace the displayed lines for that file. The line numbers and
+  code are supplied as data (num is precomputed - the directive language does no arithmetic).
+  The portable self-init reads each tab's data-tab attribute; no props object is passed.
+
+props:
+  tabs: "The open file tabs, in order. Each: { name, active }. Exactly one active."
+  lines: "The code body, one item per line: { num (precomputed gutter number), code (verbatim source text, whitespace preserved) }."
+  language: "Optional language label badged at the right of the tab bar."
+
+example_prompts:
+  - "Show this example file in an editor-style frame with tabs."
+  - "Add a code viewer with a line-number gutter and file tabs."
+
+lifecycle: experimental
+content_model: A set of file tabs plus an array of numbered source lines shown in a monospace body.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --duration-token
+    - --font-mono
+
+editorial_guidance: >
+  Keep snippets short and focused; trim to the lines that matter. Match the language badge to the
+  actual syntax, and mark the file the reader should look at first as active.
+
+relationships:
+  related:
+    - navigation/tabs
+    - editorial/rich-text
+    - utility/tree-view
+
+categorization:
+  category: UI Utilities
+  subcategory: Developer
+  atomic_type: organism
+  usage_type: [display, code]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Tabs are role="tab" buttons in a labelled tablist with aria-selected reflecting the active file; the decorative close and gutter are aria-hidden. It presents code and is not an editable input.
+  keyboard_support: Each file tab is focusable and activates on Enter/Space; the code body scrolls with the keyboard when focused.
+  seo_score: 20
+  text_direction: ltr

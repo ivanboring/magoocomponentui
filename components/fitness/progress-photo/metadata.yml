@@ -1,0 +1,76 @@
+name: "Progress Photo"
+short_description: A side-by-side before/after photo tile with labelled dates for tracking physical change.
+long_visual_description: >
+  Two portrait photos sit side by side in a rounded, clipped frame with a thin gap between them.
+  Each image carries a small pill label in its lower corner — a muted "Before" on the left, a primary
+  "After" on the right — over a soft dark gradient, with an optional date beside each label.
+
+use_cases:
+  - A transformation before/after in a fitness journal.
+  - Weight-loss or muscle-gain progress on a profile.
+  - A physiotherapy or recovery comparison over time.
+  - A posture or mobility change snapshot.
+  - A client result in a coaching or PT case study.
+
+recommended_for:
+  - Two comparable photos taken at different dates to show change.
+  - Progress galleries and check-in logs.
+avoid_for:
+  - Comparing more than two images (use a gallery or slider).
+  - Non-photographic content.
+
+markets:
+  - Global
+
+example_usage: >
+  Provide before_image and after_image paths (e.g. /stock/stage1.jpg and /stock/stage2.jpg) and
+  optional before_date and after_date captions. Both images are cropped to a matching portrait ratio
+  so the pair lines up cleanly.
+
+props:
+  before_image: Path to the earlier photo, shown on the left with a "Before" pill.
+  after_image: Path to the later photo, shown on the right with an "After" pill.
+  before_date: Optional date/caption for the before photo.
+  after_date: Optional date/caption for the after photo.
+
+example_prompts:
+  - "Add a before/after progress photo from January to July."
+  - "Show a transformation tile with two dated photos."
+  - "Put a before/after comparison in the client's check-in log."
+
+lifecycle: experimental
+content_model: Two dated photos, a before and an after, cropped to a matching portrait ratio.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Use photos shot from the same angle and distance so the comparison is fair. Keep dates short
+  (month and year) and consistent between the two captions.
+
+relationships:
+  related:
+    - fitness/activity-ring
+    - fitness/workout-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [media, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each image has a Before/After alt and the labels repeat in text; the caption gradient keeps date text legible.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

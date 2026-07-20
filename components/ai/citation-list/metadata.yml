@@ -1,0 +1,73 @@
+name: "Citation List"
+short_description: A numbered list of source citations backing an AI answer, each linking out with an optional snippet.
+long_visual_description: >
+  A vertical stack of bordered cards, each led by a small numbered badge, then the source title as
+  an outbound link, the domain in muted text, and an optional supporting snippet. Titles and domains
+  truncate to keep rows tidy.
+
+use_cases:
+  - Listing the web sources an AI answer drew from.
+  - Footnote-style references beneath a generated summary.
+  - A "sources" panel in a research or RAG assistant.
+  - Showing retrieved documents that grounded a response.
+  - Citing knowledge-base articles behind a support answer.
+
+recommended_for:
+  - Grounded or retrieval-augmented answers that must show provenance.
+  - Any numbered reference list that links out with a short preview.
+avoid_for:
+  - Inline single-link chips (use a plain link or badge).
+  - Rich document previews with thumbnails (use a media card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass sources, each { index, title, url, domain, snippet }. The index is the visible citation
+  number (match it to any inline markers in the answer). domain and snippet are optional; titles
+  open in a new tab.
+
+props:
+  sources: "The cited sources in order. Each item: index (badge number), title, url, optional domain, optional snippet."
+
+example_prompts:
+  - "List the sources for this answer as a numbered citation list with links."
+  - "Show the retrieved documents that grounded the response with a short snippet each."
+
+lifecycle: experimental
+content_model: An ordered list of citations, each a numbered link to a source with optional domain and snippet.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Number sources in the order they are referenced in the answer so the badge matches inline markers.
+  Keep snippets to a sentence that shows why the source is relevant.
+
+relationships:
+  related:
+    - ai/tool-call-card
+    - ai/assistant-hero
+
+categorization:
+  category: AI & Chat
+  subcategory: Answers
+  atomic_type: molecule
+  usage_type: [list-item, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses an ordered list for semantics; each source is a real link with discernible text; outbound links carry rel="noopener".
+  keyboard_support: Standard link tab order; each citation is a focusable anchor.
+  seo_score: 45
+  text_direction: both

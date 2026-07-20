@@ -1,0 +1,33 @@
+{
+  "item": "Build your burger",
+  "groups": [
+    {
+      "label": "Temperature",
+      "required": true,
+      "options": [
+        { "label": "Medium rare", "selected": true },
+        { "label": "Medium", "selected": false },
+        { "label": "Well done", "selected": false }
+      ]
+    },
+    {
+      "label": "Cheese",
+      "required": false,
+      "options": [
+        { "label": "Cheddar", "price": "+$1.00", "selected": true },
+        { "label": "Swiss", "price": "+$1.00", "selected": false },
+        { "label": "Blue", "price": "+$1.50", "selected": false }
+      ]
+    },
+    {
+      "label": "Extras",
+      "required": false,
+      "options": [
+        { "label": "Bacon", "price": "+$2.00", "selected": false },
+        { "label": "Avocado", "price": "+$1.50", "selected": true },
+        { "label": "Fried egg", "price": "+$1.50", "selected": false },
+        { "label": "Extra patty", "price": "+$3.00", "selected": false }
+      ]
+    }
+  ]
+}

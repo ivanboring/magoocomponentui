@@ -1,0 +1,88 @@
+name: "Portfolio Grid"
+short_description: A filterable grid of work tiles with a row of category chips that show or hide projects client-side.
+long_visual_description: >
+  A pill-shaped row of filter chips above a responsive 1-to-3 column grid of work thumbnails. The
+  leading "All" chip is active by default; clicking any chip highlights it in the primary colour and
+  shows only the projects whose category matches, hiding the rest. Each tile is a 4:3 image that
+  zooms slightly and reveals a dark gradient with the project title and category on hover.
+
+use_cases:
+  - An agency or studio "selected work" section filtered by discipline.
+  - A freelancer portfolio filtered by project type.
+  - A design or photography showcase filtered by medium.
+  - A case-study index filtered by industry.
+  - A product gallery of projects filtered by platform.
+  - A team's shipped-work wall filtered by category.
+
+recommended_for:
+  - Small-to-medium project sets where a single-select category filter is enough.
+  - Grids whose tiles and filter chips both come from structured data.
+avoid_for:
+  - Large datasets needing search, pagination or server-side filtering.
+  - Multi-select or faceted filtering across several dimensions at once.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, title, category, href }) and a filters array (each
+  { label, value }) whose values match the item categories - the component can't dedupe categories
+  itself, so you supply the chip set explicitly. An "All" chip is prepended automatically. Clicking a
+  chip filters the grid client-side and dispatches a "portfolio:filter" event.
+
+how_to_use: >
+  behavior.js wires the chips: on click it marks the clicked chip data-active="true" (clearing the
+  others, which drives the data-[active=true]: primary styling) and reads its data-value, then shows
+  only the tiles whose data-category equals that value - an empty value (the All chip) shows
+  everything. It toggles each tile's `hidden` property rather than a `hidden` class so it never
+  clashes with the grid's responsive display utilities, and dispatches a "portfolio:filter"
+  CustomEvent (detail: { value, visible }) after each change. The portable self-init reads all config
+  from the DOM - no props object is passed. Filtering does not run in screenshots (behavior.js is not
+  executed there), so captures show every tile.
+
+props:
+  items: "The work tiles. Each item: image, title, category (must match a filter value), href (optional link)."
+  filters: "The chip set, supplied explicitly. Each { label, value }; value must match an item's category."
+  all_label: "Label for the leading chip that clears the filter and shows every project."
+  label: "Accessible name announced for the grid region."
+
+lifecycle: experimental
+content_model: A set of category-tagged work tiles with a caller-supplied chip set that filters them.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the tiles a single type and give every tile a category that maps to exactly one chip. Order
+  chips by importance or frequency and keep the label set short - this is a quick single-select
+  filter, not a faceted search. Use consistent crops so the grid reads evenly.
+
+relationships:
+  related:
+    - portfolio/work-tile
+    - portfolio/project-case-study
+    - layout/filter-grid
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Work Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The grid region and chip group carry aria-labels; chips are real buttons with an active state; filtering toggles the hidden property so hidden tiles leave the accessibility tree; hover overlay text is backed by the image alt.
+  keyboard_support: Chips are focusable buttons that activate on Enter/Space; the active chip is styled distinctly; each tile with a link is focusable.
+  seo_score: 40
+  text_direction: both

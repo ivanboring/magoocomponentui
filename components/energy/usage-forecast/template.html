@@ -1,0 +1,31 @@
+<figure class="usage-forecast rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="usage-forecast__header mb-3 flex flex-wrap items-center justify-between gap-3">
+    <h3 class="usage-forecast__title font-heading text-on-surface">{{ title }}</h3>
+    <div class="usage-forecast__legend flex items-center gap-4 text-xs text-on-surface-muted">
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="h-2 w-5" viewBox="0 0 20 4" aria-hidden="true"><path d="M1 2h18" fill="none" stroke-linecap="round" class="stroke-primary [stroke-width:2]"></path></svg>
+        Actual
+      </span>
+      <span data-if="forecast_path" class="inline-flex items-center gap-1.5">
+        <svg class="h-2 w-5" viewBox="0 0 20 4" aria-hidden="true"><path d="M1 2h18" fill="none" stroke-linecap="round" stroke-dasharray="3 3" class="stroke-on-surface-muted [stroke-width:2]"></path></svg>
+        Forecast
+      </span>
+    </div>
+  </header>
+  <div class="usage-forecast__body flex gap-2">
+    <div class="usage-forecast__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="usage-forecast__y-tick">{{ y }}</span>
+    </div>
+    <div class="usage-forecast__col min-w-0 flex-1">
+      <div class="usage-forecast__plot relative h-48 w-full">
+        <svg class="usage-forecast__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="usage-forecast__line fill-none stroke-primary [stroke-width:2]" d="{{ line_path }}" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+          <path data-if="forecast_path" class="usage-forecast__forecast fill-none stroke-on-surface-muted [stroke-width:2]" d="{{ forecast_path }}" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"></path>
+        </svg>
+      </div>
+      <div class="usage-forecast__x-axis mt-2 flex justify-between text-[11px] text-on-surface-muted">
+        <span data-for="x in x_labels" class="usage-forecast__x-tick">{{ x }}</span>
+      </div>
+    </div>
+  </div>
+</figure>

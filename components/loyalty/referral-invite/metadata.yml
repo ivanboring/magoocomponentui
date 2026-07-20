@@ -1,0 +1,90 @@
+name: "Referral Invite"
+short_description: A card inviting a member to share a referral code for a bonus, with one-click copy.
+long_visual_description: >
+  A card led by a gift glyph, an incentive headline in the heading face, and a supporting line. Below,
+  a mono referral code sits in a raised field with a primary Copy button on the trailing edge that
+  flashes "Copied!" when used. An optional line reports how many friends have joined.
+
+use_cases:
+  - Refer-a-friend module on a loyalty or account page.
+  - Share-your-code invite with a give-and-get bonus.
+  - Growth loop prompting members to invite others.
+  - Post-purchase referral offer.
+  - Membership app panel to share an invite link.
+  - Rewards dashboard widget tracking referrals earned.
+
+recommended_for:
+  - Referral programs where a member shares a code or link.
+  - Surfacing the incentive and copy action together.
+avoid_for:
+  - Generic social sharing without a referral code.
+  - A full referral history or payout ledger.
+
+markets:
+  - Global
+
+example_usage: >
+  Set bonus for the incentive headline and code for the member's referral code or link; the Copy
+  button copies it and flashes "Copied!". Add placeholder for a supporting line and referred_count to
+  show friends joined.
+
+how_to_use: >
+  behavior.js wires the copy action. On click it copies the button's data-copy value to the clipboard
+  (with a textarea fallback where the Clipboard API is unavailable), swaps the label from
+  data-label-default to data-label-copied for about 1.6 seconds, and dispatches a bubbling
+  "referral:copied" event with the code in event.detail. The portable self-init reads all config from
+  the button's data-* attributes - no props object is passed. The cleanup removes the listener and
+  clears the pending label-reset timer.
+
+props:
+  bonus: The incentive headline, e.g. "Give $10, get $10".
+  placeholder: Optional supporting line explaining how the referral works.
+  code: The referral code or invite link, shown in mono and copied on click.
+  referred_count: Optional pre-formatted count of friends who have joined.
+
+example_prompts:
+  - "Add a referral invite with a give-ten-get-ten bonus and a copyable code."
+  - "Show a refer-a-friend card reporting 4 friends joined."
+  - "Add a share-your-code panel to the rewards dashboard."
+
+lifecycle: experimental
+content_model: An incentive headline, an optional description, a copyable referral code, and an optional friends-joined count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the mutual benefit and keep the code prominent. Say plainly what the friend must do for
+  the bonus to land so the offer feels trustworthy.
+
+relationships:
+  related:
+    - loyalty/points-balance-card
+    - loyalty/reward-catalog-item
+    - loyalty/member-card
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Referrals
+  atomic_type: molecule
+  usage_type: [highlight, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The Copy button has an accessible label; the gift glyph is aria-hidden; feedback is conveyed as text, not colour.
+  keyboard_support: The Copy button is focusable and copies on Enter/Space.
+  seo_score: 40
+  text_direction: both

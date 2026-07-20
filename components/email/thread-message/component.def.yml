@@ -1,0 +1,30 @@
+name: thread-message
+props:
+  sender:
+    type: object
+    required: true
+    title: Sender
+    description: "The sender: { name, avatar (optional image URL), initials (optional avatar fallback) }."
+    example: { name: "Ava Chen", initials: "AC" }
+  time:
+    type: string
+    required: true
+    title: Time
+    description: Pre-formatted timestamp for this message.
+    example: "9:41 AM"
+  body_html:
+    type: html
+    required: true
+    title: Body
+    description: The message body as sanitized HTML. Rendered raw; shown only when not collapsed.
+    example: "<p>Sounds good — I'll get started on it today.</p>"
+  collapsed:
+    type: boolean
+    default: false
+    title: Collapsed
+    description: When true, only the header and a one-line preview are shown (the body is hidden).
+  preview:
+    type: string
+    title: Preview
+    description: A one-line plain-text preview shown in place of the body when collapsed. Provide it (precomputed) for collapsed messages.
+    example: "Sounds good - I'll get started on it today."

@@ -1,0 +1,9 @@
+{
+  "title": "How a $100 gift is used",
+  "segments": [
+    { "label": "Direct aid", "pct": 64, "color_class": "bg-primary" },
+    { "label": "Field programs", "pct": 18, "color_class": "bg-success" },
+    { "label": "Fundraising", "pct": 10, "color_class": "bg-accent" },
+    { "label": "Administration", "pct": 8, "color_class": "bg-secondary" }
+  ]
+}

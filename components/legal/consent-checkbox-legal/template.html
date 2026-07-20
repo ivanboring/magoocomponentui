@@ -1,0 +1,9 @@
+<label class="consent-checkbox-legal flex items-start gap-2 text-sm text-on-surface">
+  <input data-if="required" type="checkbox" required aria-required="true" class="consent-checkbox-legal__input mt-0.5 size-4 shrink-0 rounded border-border text-primary focus:ring-ring">
+  <input data-if="!required" type="checkbox" class="consent-checkbox-legal__input mt-0.5 size-4 shrink-0 rounded border-border text-primary focus:ring-ring">
+  <span class="consent-checkbox-legal__label text-on-surface-muted">
+    {{ text }}
+    <a data-if="link_label" class="consent-checkbox-legal__link text-primary underline underline-offset-2 hover:no-underline" href="{{ link_href }}">{{ link_label }}</a>
+    <span data-if="required" class="consent-checkbox-legal__required text-on-surface-muted">(required)</span>
+  </span>
+</label>

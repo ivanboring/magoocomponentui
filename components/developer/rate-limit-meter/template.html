@@ -1,0 +1,10 @@
+<div class="rate-limit-meter rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-3">
+    <span class="text-sm text-on-surface-muted">API requests</span>
+    <span class="font-mono text-sm text-on-surface"><span class="font-medium">{{ used }}</span> / {{ limit }}</span>
+  </div>
+  <div class="mt-2 h-2 overflow-hidden rounded-pill bg-surface-raised">
+    <div class="h-full rounded-pill {{ tone@class }} transition-[width] duration-(--duration-token)" style="width: {{ used_pct }}%"></div>
+  </div>
+  <p data-if="reset_at" class="mt-2 text-xs text-on-surface-muted">Resets {{ reset_at }}</p>
+</div>

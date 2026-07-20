@@ -1,0 +1,91 @@
+name: "Sensor Alarm Banner"
+short_description: A severity-tinted banner announcing a sensor reading that breached its threshold, with an acknowledge action.
+long_visual_description: >
+  A bordered banner tinted by severity - blue for info, amber for warning, red for critical - with a
+  triangular alarm glyph on the leading edge. The sensor name sits in the heading face, the current
+  reading and the breached threshold below it in tabular figures, and an optional timestamp beneath.
+  An Acknowledge button on the trailing edge outlines in the current severity colour; once pressed the
+  banner dims to show it has been handled.
+
+use_cases:
+  - Over-temperature or over-pressure alarm on a machine sensor.
+  - Vibration or bearing-condition threshold breach alert.
+  - Tank level, flow or humidity out-of-range warning.
+  - SCADA or IoT telemetry alarm on a dashboard.
+  - Cold-chain or environmental monitoring excursion notice.
+  - Utility or energy-draw threshold alarm.
+
+recommended_for:
+  - Single sensor alarms that a plant operator should acknowledge.
+  - Threshold breaches where the reading and limit both matter.
+avoid_for:
+  - A scrolling event log or alarm history (use a list or table).
+  - Non-alarm status messages (use an alert).
+
+markets:
+  - Global
+
+example_usage: >
+  Set the sensor name, the current value and the breached threshold, and choose a severity of info,
+  warning or critical to colour the banner. Provide a timestamp when available. The Acknowledge
+  button dims the banner and emits a sensor-alarm:acknowledged event for a host to record.
+
+how_to_use: >
+  Layout and colour are pure CSS from the severity variant, so the banner renders fully with no
+  JavaScript (and in screenshots). behavior.js wires the Acknowledge button - clicking it sets
+  data-acknowledged="true" on the root (which dims it via a data-attribute variant), disables the
+  button, and dispatches a bubbling sensor-alarm:acknowledged event. The portable self-init passes
+  no props object; there is no data-* config to read beyond the rendered markup.
+
+props:
+  sensor: The sensor or measurement point raising the alarm.
+  value: The current reading that triggered the alarm.
+  threshold: The threshold the reading breached.
+  severity: Sets the banner colour - info, warning or critical.
+  time: When the alarm was raised.
+
+example_prompts:
+  - Add a critical over-temperature alarm banner for a motor bearing.
+  - Show a warning-level tank pressure alarm with an acknowledge button.
+  - Render an info sensor banner reporting a reading near its threshold.
+
+relationships:
+  related:
+    - industrial/andon-board
+    - industrial/shift-handover
+    - notifications/alert
+
+lifecycle: experimental
+content_model: A sensor name, a reading, a breached threshold, a severity and an optional timestamp, plus an acknowledge affordance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name the sensor and location clearly and always show the value against the threshold so the breach
+  is self-evident. Reserve critical for alarms needing immediate action; the tint reinforces the
+  severity word rather than replacing it. Keep the reading and threshold in matching units.
+
+categorization:
+  category: Manufacturing
+  subcategory: Monitoring
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role="alert" announces the alarm; severity is stated in text and units, not colour alone; the alarm glyph is aria-hidden and the acknowledge button has an accessible label.
+  keyboard_support: The Acknowledge button is focusable and activates on Enter/Space; it disables once pressed.
+  seo_score: 35
+  text_direction: both

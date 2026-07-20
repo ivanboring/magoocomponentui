@@ -1,0 +1,13 @@
+{
+  "categories": ["Coffee", "Tea", "Pastries", "Cold"],
+  "items": [
+    { "name": "Espresso", "price": "$3.00", "color_class": "bg-primary/10 text-primary" },
+    { "name": "Latte", "price": "$4.50", "color_class": "bg-primary/10 text-primary" },
+    { "name": "Cappuccino", "price": "$4.25", "color_class": "bg-primary/10 text-primary" },
+    { "name": "Cold Brew", "price": "$4.75", "color_class": "bg-info/10 text-info" },
+    { "name": "Green Tea", "price": "$3.50", "color_class": "bg-success/10 text-success" },
+    { "name": "Chai Latte", "price": "$4.50", "color_class": "bg-warning/10 text-warning" },
+    { "name": "Croissant", "price": "$3.25" },
+    { "name": "Muffin", "price": "$3.00" }
+  ]
+}

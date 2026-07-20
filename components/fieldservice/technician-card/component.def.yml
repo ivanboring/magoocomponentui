@@ -1,0 +1,44 @@
+name: technician-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: Technician's display name.
+    example: "Dana Ruiz"
+  initials:
+    type: string
+    title: Initials
+    description: Precomputed 1-2 character initials for the avatar fallback (shown when no avatar image is given).
+    example: "DR"
+  avatar:
+    type: image
+    title: Avatar image
+    description: Optional photo URL; when omitted the initials avatar is shown instead.
+  status:
+    type: enum
+    values: [available, on-job, break, offline]
+    required: true
+    title: Status
+    description: Current availability; colours the status pill.
+  location:
+    type: string
+    title: Location
+    description: Current location or area, preformatted for display.
+    example: "North district"
+  jobs_today:
+    type: string
+    title: Jobs today
+    description: Count or summary of today's jobs, preformatted (e.g. "4 jobs").
+    example: "4 jobs"
+  rating:
+    type: string
+    title: Rating
+    description: Preformatted rating string (e.g. "4.8").
+    example: "4.8"
+variants:
+  status:
+    available: "bg-success/10 text-success"
+    on-job: "bg-info/10 text-info"
+    break: "bg-warning/10 text-warning"
+    offline: "bg-surface-raised text-on-surface-muted"

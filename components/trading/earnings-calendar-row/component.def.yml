@@ -1,0 +1,39 @@
+name: earnings-calendar-row
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The company ticker (e.g. AAPL).
+    example: "AAPL"
+  name:
+    type: string
+    title: Name
+    description: Optional company name shown under the symbol.
+    example: "Apple Inc."
+  date:
+    type: string
+    required: true
+    title: Report date
+    description: The earnings report date, preformatted in the caller (e.g. Aug 1, 2026).
+    example: "Aug 1, 2026"
+  time:
+    type: enum
+    values: [before-open, after-close]
+    title: Time of day
+    description: >
+      When the report is expected relative to the trading session: before-open (renders a sun chip
+      reading "Before open") or after-close (a moon chip reading "After close"). Omit if unknown.
+  eps_estimate:
+    type: string
+    title: EPS estimate
+    description: Optional consensus EPS estimate, preformatted with currency (e.g. $1.34).
+    example: "$1.34"
+  confirmed:
+    type: boolean
+    default: false
+    title: Confirmed
+    description: >
+      Whether the report date is confirmed by the company. true shows a green "Confirmed" tag;
+      false shows a muted "Estimated" tag.
+variants: {}

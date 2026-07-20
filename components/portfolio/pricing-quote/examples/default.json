@@ -1,0 +1,13 @@
+{
+  "title": "Custom Project",
+  "description": "For teams that need a bespoke design and build, scoped to your goals.",
+  "starting_price": "$8,000",
+  "features": [
+    "Discovery & strategy workshop",
+    "Custom design system",
+    "Production front-end build",
+    "Two rounds of revisions",
+    "30 days of post-launch support"
+  ],
+  "cta": { "label": "Request a quote", "href": "#" }
+}

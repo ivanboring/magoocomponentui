@@ -1,0 +1,91 @@
+name: "Data Request Form"
+short_description: A GDPR/DSAR form for a person to request access to, deletion, export, or correction of their data.
+long_visual_description: >
+  A single-column form card on the surface colour with a card radius and soft shadow. It stacks a
+  request-type select (access, delete, export, correct), a required email input, a free-form details
+  textarea, a required consent checkbox, and a full-width primary submit button. Labels are in the
+  on-surface colour with muted placeholders and a token-driven focus ring.
+
+use_cases:
+  - GDPR data-subject access request (DSAR) intake.
+  - Right-to-be-forgotten / deletion request form.
+  - Data portability / export request.
+  - Correction or rectification request for inaccurate data.
+  - CCPA "do not sell / delete my info" request.
+  - A privacy centre contact form for data rights.
+
+recommended_for:
+  - Self-service intake of data-rights requests on a privacy page.
+  - Flows where the submit result is wired to a ticket or API by the host.
+avoid_for:
+  - General contact or support forms (use a contact form).
+  - Account settings changes the user can make while signed in.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass request_types (each { label, value }) to populate the select - typically Access, Delete,
+  Export, and Correct. Listen for the bubbling "dsar:submit" event, whose detail carries the chosen
+  type and the entered email, then file the request through your own system. The email and consent
+  fields are required at the markup level.
+
+how_to_use: >
+  behavior.js intercepts the form submit, prevents the default navigation, and dispatches a bubbling
+  "dsar:submit" CustomEvent with detail { type, email } read from the request-type select and the
+  email input. The host app listens and does the real work (open a ticket, call an API, send mail).
+  The portable self-init reads no props object and there is no data-* config. init returns a cleanup
+  that removes the submit listener.
+
+props:
+  request_types: "The request kinds offered in the select; each item is { label, value }. Order them by how often people pick them."
+  placeholder: "Placeholder for the details textarea; prompt for anything that helps locate the person's records."
+
+example_prompts:
+  - "Add a GDPR data request form with access, delete, export, and correct options."
+  - "Put a DSAR intake form on the privacy page that captures the request type and email."
+  - "Show a right-to-be-forgotten form with a consent checkbox."
+
+lifecycle: experimental
+content_model: A request-type choice, an email, optional free-form details, and a required consent confirmation.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-danger
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name each request type in the person's words ("Delete my data"), not the regulation's. Keep the
+  consent line short and honest about who may submit. Confirm receipt after submit rather than
+  promising a specific outcome.
+
+relationships:
+  related:
+    - legal/disclosure-accordion
+    - forms/form-field-select
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Requests
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every control has an associated label, required fields are marked, and the select and inputs show a visible focus state. Submit is a real submit button.
+  keyboard_support: All controls are in the natural tab order; the select opens with the keyboard and the form submits on Enter within a field.
+  seo_score: 25
+  text_direction: both

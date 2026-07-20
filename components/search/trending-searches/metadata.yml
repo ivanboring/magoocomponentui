@@ -1,0 +1,81 @@
+name: "Trending Searches"
+short_description: A compact panel listing the most popular search queries, each with an optional rank and up/down/flat trend indicator.
+long_visual_description: >
+  A bordered surface card headed by a small trend-line icon and a "Trending" title.
+  Below it, a numbered list of popular queries: each row shows an optional monospace
+  rank at the left, the query text (an optional link) filling the middle, and a small
+  coloured trend arrow at the right - green pointing up for rising queries, red pointing
+  down for falling ones, and a muted dash for flat ones.
+
+use_cases:
+  - A "trending now" panel in a search overlay or results sidebar.
+  - Popular queries surfaced on an empty search page before the user types.
+  - A discovery widget on a marketplace or news homepage.
+  - Editor-facing insight into what visitors are searching for most.
+  - A most-searched list on a help center or knowledge base.
+  - Seasonal or event-driven query spikes highlighted with trend arrows.
+
+recommended_for:
+  - Showing a short, ranked list of popular queries with direction of movement.
+  - Seeding an empty search state with something to click.
+avoid_for:
+  - Full analytics tables of query volume over time (use a data table or chart).
+  - Autocomplete of the current input (use autocomplete-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a queries array in popularity order; give each item a rank number, a trend of
+  "up", "down" or "flat", and an href to make the label clickable. Omit rank or trend
+  on any item to hide just that piece.
+
+props:
+  heading: "The panel heading; defaults to Trending."
+  queries: "The popular queries in display order, each with an optional rank, trend direction and link href."
+
+example_prompts:
+  - "Add a trending searches panel to the empty search page."
+  - "Show the top five queries with up and down trend arrows."
+
+lifecycle: experimental
+content_model: A headed, ranked list of popular search queries with optional trend indicators.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep query labels lowercase and verbatim to how people actually search. Order the
+  list by popularity and cap it at five to ten rows so it stays scannable. Reserve the
+  up/down arrows for genuinely moving queries; use flat when a term is steady.
+
+relationships:
+  related:
+    - search/autocomplete-panel
+    - search/no-results-suggestions
+    - search/saved-filters
+
+categorization:
+  category: Search
+  subcategory: Discovery
+  atomic_type: molecule
+  usage_type: [list, widget]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: An ordered list conveys ranking; the trend arrows are decorative (aria-hidden) so their meaning is carried by the rank order and label, not colour alone.
+  keyboard_support: Query links are focusable and activate on Enter in source order.
+  seo_score: 40
+  text_direction: both

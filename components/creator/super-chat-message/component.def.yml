@@ -1,0 +1,41 @@
+name: super-chat-message
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The sender's display name.
+    example: "Jordan Lee"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      Precomputed initials shown in the avatar when no avatar image is given (e.g. "JL").
+      Compute these from the name before passing them in.
+    example: "JL"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar
+    description: Optional avatar image URL; when omitted the initials are shown instead.
+    example: "/stock/avatar-man-1.jpg"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: The formatted paid amount shown in the highlight pill (e.g. "$20.00").
+    example: "$20.00"
+  message:
+    type: string
+    required: true
+    title: Message
+    description: The chat message body.
+    example: "Loved the stream tonight, keep it up!"
+  tier_color_class:
+    type: string
+    default: "bg-warning/10"
+    title: Tier colour class
+    description: >
+      A tokenized Tailwind background utility that tints the whole highlight by paid tier
+      (e.g. "bg-warning/10", "bg-info/10", "bg-primary/10"). Defaults to a warning tint. Only tokenized
+      utilities are safelisted; see the hidden safelist span in the template for the supported set.

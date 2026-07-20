@@ -1,0 +1,22 @@
+name: downtime-tracker
+props:
+  total_downtime:
+    type: string
+    title: Total downtime
+    description: Optional preformatted total downtime shown in the header, e.g. "3h 45m".
+    example: "3h 45m"
+  reasons:
+    type: array
+    items: object
+    required: true
+    title: Reasons
+    description: >
+      The downtime reasons, in order. Each item is { label, minutes, pct, color_class } where minutes
+      is the preformatted duration, pct is the precomputed segment width from 0-100 (the reason's share
+      of total downtime), and color_class is a tokenised fill utility (e.g. bg-primary, bg-warning,
+      bg-danger). The pct values should sum to 100.
+    example:
+      - { label: "Changeover", minutes: 95, pct: 42, color_class: "bg-primary" }
+      - { label: "Material shortage", minutes: 60, pct: 27, color_class: "bg-warning" }
+      - { label: "Breakdown", minutes: 45, pct: 20, color_class: "bg-danger" }
+      - { label: "Other", minutes: 25, pct: 11, color_class: "bg-info" }

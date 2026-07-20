@@ -1,0 +1,21 @@
+name: kitchen-display
+props:
+  tickets:
+    type: array
+    items: object
+    required: true
+    title: Tickets
+    description: >
+      The open kitchen tickets, in order across the board. Each item:
+      { ticket_number, table, time, elapsed, items, status }. ticket_number is the order
+      identifier (e.g. "#A12"); table (optional) is the table or destination label; time
+      (optional) is the order-placed time; elapsed (optional) is the pre-formatted age since the
+      ticket was fired (e.g. "8m"); items is an array of line objects { qty, name }; status is one
+      of new, cooking or ready and colours the ticket's accent border and status pill.
+    example:
+      - { ticket_number: "#A12", table: "Table 6", time: "12:40", elapsed: "8m", status: "cooking", items: [ { qty: 2, name: "Cheeseburger" }, { qty: 1, name: "Fries" } ] }
+  label:
+    type: string
+    default: "Kitchen tickets"
+    title: Accessible label
+    description: Accessible name announced for the ticket board region.

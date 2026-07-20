@@ -1,0 +1,84 @@
+name: "Donation Amount Picker"
+short_description: A grid of preset donation amount buttons with single selection and an optional custom amount.
+long_visual_description: >
+  A three-column grid of amount buttons on the surface colour; the selected button takes a primary
+  border and a soft primary tint with primary text. An optional custom amount input, prefixed with
+  a currency symbol, sits below the grid and clears the preset selection when used.
+
+use_cases:
+  - The amount step of a longer donation or checkout flow.
+  - A reusable amount selector shared across several appeals.
+  - Suggested amounts alongside an external payment widget.
+  - A tip or add-on amount picker at checkout.
+  - A pledge amount selector in a membership form.
+  - A quick-give control embedded in a campaign sidebar.
+
+recommended_for:
+  - Presenting a few suggested amounts with single selection.
+  - Cases where you handle the cadence and submit elsewhere.
+avoid_for:
+  - A complete give box with frequency and submit (use donation-form).
+  - Free-form numeric entry only (use a plain number input).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an amounts array (each { value, label, selected }) with one pre-selected item, and set
+  allow_custom to show or hide the custom input. Listen for the amount:select event to read the
+  chosen { amount }.
+
+how_to_use: >
+  The static markup renders fully without JavaScript (the pre-selected button comes from
+  data-selected). behavior.js wires single selection: clicking a button selects it, clears the
+  others and any custom value, and dispatches a bubbling "amount:select" CustomEvent whose detail
+  is { amount }; typing in the custom input clears the presets. The portable self-init reads config
+  from data-* attributes, so no props object is passed.
+
+props:
+  amounts: "Selectable buttons in order; each item { value, label, selected }. value is emitted on select, label is the button text, selected pre-highlights one."
+  allow_custom: "Show a custom amount input below the presets."
+
+example_prompts:
+  - "Add an amount picker with $25, $50 and $100 and a custom field."
+  - "Show suggested donation amounts with $50 pre-selected and no custom input."
+  - "Add a preset amount selector to the give step."
+
+lifecycle: experimental
+content_model: A set of suggested amounts with single selection and an optional custom value.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-button
+    - --radius-control
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep three to six amounts, order them low to high, and label each with the currency. Pre-select a
+  sensible middle value so the picker is never empty.
+
+relationships:
+  related:
+    - nonprofit/donation-form
+    - nonprofit/campaign-card
+    - nonprofit/impact-stat
+
+categorization:
+  category: Nonprofit
+  subcategory: Donation
+  atomic_type: molecule
+  usage_type: [form, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The buttons form a labelled group, selection is shown by border and tint (not colour alone), and the custom input carries an aria-label.
+  keyboard_support: Buttons and the custom input are focusable; buttons activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

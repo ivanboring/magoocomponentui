@@ -1,0 +1,8 @@
+{
+  "service": "Annual furnace tune-up",
+  "date": "Fri, Jul 24",
+  "window": "9-11 AM",
+  "customer": "Acme Bakery",
+  "technician": "Dana Ruiz",
+  "status": "confirmed"
+}

@@ -1,0 +1,11 @@
+<div class="floating-action-button relative h-40 overflow-hidden rounded-card border border-border bg-surface-raised">
+  <div class="floating-action-button__anchor group absolute bottom-4 right-4 flex flex-col items-end gap-3" data-open="{{ start_open }}">
+    <div data-if="actions" class="floating-action-button__dial flex flex-col items-end gap-3 opacity-0 transition-opacity duration-(--duration-token) group-data-[open=false]:pointer-events-none group-data-[open=true]:opacity-100">
+      <button data-for="action in actions" type="button" class="floating-action-button__action flex items-center gap-2" data-label="{{ action.label }}" aria-label="{{ action.label }}">
+        <span class="rounded-control bg-surface px-2 py-1 text-xs font-medium text-on-surface shadow-card" aria-hidden="true">{{ action.label }}</span>
+        <span class="flex size-11 items-center justify-center rounded-pill bg-surface text-on-surface shadow-card" aria-hidden="true">{{{ action.icon }}}</span>
+      </button>
+    </div>
+    <button type="button" class="floating-action-button__toggle flex size-14 items-center justify-center rounded-pill bg-primary text-primary-contrast shadow-raised transition-transform duration-(--duration-token) group-data-[open=true]:rotate-45" aria-label="{{ label }}" aria-expanded="{{ start_open }}">{{{ icon }}}</button>
+  </div>
+</div>

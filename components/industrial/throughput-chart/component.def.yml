@@ -1,0 +1,32 @@
+name: throughput-chart
+props:
+  title:
+    type: string
+    title: Title
+    description: Optional chart heading.
+    example: "Units per hour by line"
+  unit:
+    type: string
+    title: Unit
+    description: Optional unit label shown in the header (e.g. "units/hr").
+    example: "units/hr"
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: >
+      Each bar: { label, value, height_pct, target_met } where height_pct is the precomputed bar
+      height as a percentage (0-100) of the plot area, scaled by the caller from the data maximum.
+      value reveals on hover. target_met is a boolean - when false the bar is tinted warning to flag
+      throughput below target.
+    example:
+      - { label: "Line A", value: "128", height_pct: 92, target_met: true }
+      - { label: "Line B", value: "74", height_pct: 53, target_met: false }
+  target_line_pct:
+    type: string
+    title: Target line
+    description: >
+      Optional target reference line, as a precomputed percentage (0-100) of the plot height from
+      the baseline. Drawn as a dashed horizontal rule across the plot.
+    example: "70"

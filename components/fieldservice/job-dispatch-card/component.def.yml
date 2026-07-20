@@ -1,0 +1,61 @@
+name: job-dispatch-card
+props:
+  job_number:
+    type: string
+    required: true
+    title: Job number
+    description: The work order or dispatch reference shown in the header.
+    example: "WO-4821"
+  customer:
+    type: string
+    title: Customer
+    description: Name of the customer or account the job is for.
+    example: "Acme Bakery"
+  address:
+    type: string
+    title: Service address
+    description: Where the technician is dispatched to.
+    example: "142 Maple Ave, Springfield"
+  service_type:
+    type: string
+    title: Service type
+    description: Short label for the kind of work (install, repair, inspection).
+    example: "HVAC repair"
+  window:
+    type: string
+    title: Arrival window
+    description: The scheduled arrival window, preformatted for display.
+    example: "Today 1-3 PM"
+  priority:
+    type: enum
+    values: [low, medium, high, urgent]
+    default: medium
+    title: Priority
+    description: Urgency of the dispatch; colours the priority pill.
+  technician:
+    type: string
+    title: Technician
+    description: Name of the assigned technician.
+    example: "Dana Ruiz"
+  initials:
+    type: string
+    title: Technician initials
+    description: Precomputed 1-2 character initials for the technician avatar (the directive language cannot derive them).
+    example: "DR"
+  status:
+    type: enum
+    values: [assigned, en-route, on-site, complete]
+    default: assigned
+    title: Status
+    description: Current dispatch state; colours the status pill.
+variants:
+  priority:
+    low: "bg-surface-raised text-on-surface-muted"
+    medium: "bg-info/10 text-info"
+    high: "bg-warning/10 text-warning"
+    urgent: "bg-danger/10 text-danger"
+  status:
+    assigned: "bg-surface-raised text-on-surface-muted"
+    en-route: "bg-info/10 text-info"
+    on-site: "bg-primary/10 text-primary"
+    complete: "bg-success/10 text-success"

@@ -1,0 +1,35 @@
+name: battery-storage-tile
+props:
+  charge_pct:
+    type: integer
+    required: true
+    title: Charge percent
+    description: Current state of charge from 0-100. Precomputed by the caller; drives the fill height.
+    example: 76
+  status:
+    type: enum
+    values: [charging, discharging, idle, full]
+    required: true
+    title: Status
+    description: What the battery is doing now. Sets the fill colour and the status label tone.
+  capacity_kwh:
+    type: string
+    title: Capacity
+    description: Total usable capacity as a display string (e.g. "13.5 kWh").
+    example: "13.5 kWh"
+  power_kw:
+    type: string
+    title: Power flow
+    description: Current charge or discharge rate as a display string (e.g. "3.2 kW").
+    example: "3.2 kW"
+  backup_hours:
+    type: string
+    title: Backup remaining
+    description: Estimated backup runtime at the current charge as a display string (e.g. "11 hrs").
+    example: "11 hrs"
+variants:
+  status:
+    charging: "bg-info"
+    discharging: "bg-warning"
+    idle: "bg-primary"
+    full: "bg-success"

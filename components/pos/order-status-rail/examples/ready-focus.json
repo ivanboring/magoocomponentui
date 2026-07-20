@@ -1,0 +1,9 @@
+{
+  "label": "Pickup queue",
+  "stages": [
+    { "label": "New", "count": 1, "active": false },
+    { "label": "Preparing", "count": 3, "active": false },
+    { "label": "Ready", "count": 5, "active": true },
+    { "label": "Served", "count": 22, "active": false }
+  ]
+}

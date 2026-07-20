@@ -1,0 +1,8 @@
+{
+  "documents": [
+    { "label": "Proof of identity (passport or driving licence)", "required": true, "status": "uploaded" },
+    { "label": "Proof of address (utility bill or bank statement)", "required": true, "status": "pending" },
+    { "label": "Proof of income (payslip or benefit letter)", "required": true, "status": "rejected" },
+    { "label": "Supporting statement", "required": false, "status": "pending" }
+  ]
+}

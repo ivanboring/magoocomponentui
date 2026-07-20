@@ -1,0 +1,10 @@
+{
+  "title": "Enterprise",
+  "description": "Ongoing partnership for larger teams with dedicated capacity.",
+  "features": [
+    "Dedicated design and engineering team",
+    "Quarterly roadmap planning",
+    "Priority support and SLAs"
+  ],
+  "cta": { "label": "Let's talk", "href": "#" }
+}

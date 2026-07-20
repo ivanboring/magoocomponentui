@@ -1,0 +1,81 @@
+name: "Sprint Header"
+short_description: A sprint summary bar showing the sprint name, date range, story-point progress, and days remaining.
+long_visual_description: >
+  A wide surface card that puts the sprint name and its date range on the leading edge and a small
+  cluster of figures on the trailing edge: a story-point tally with the completed count in the
+  primary colour over the committed total, and a days-left number. Everything uses tabular figures
+  and wraps to a stack on narrow screens.
+
+use_cases:
+  - The header above a sprint board or backlog.
+  - A sprint summary card on a team dashboard.
+  - A standup view showing points burned and days left.
+  - A release train iteration header.
+  - Any iteration banner needing name, dates, and progress at a glance.
+
+recommended_for:
+  - Topping a board or backlog with iteration context.
+  - Showing committed-vs-done points without a full chart.
+avoid_for:
+  - A day-by-day burndown trend (use burndown-chart).
+  - Non-time-boxed work.
+
+markets:
+  - Global
+
+example_usage: >
+  Give it the sprint name and a start/end date range, then the precomputed points_done,
+  points_total, and days_left figures. The counts are precomputed because the template language
+  does no arithmetic; pass them already calculated from your tracker.
+
+props:
+  name: "The sprint name, including any theme or goal."
+  start: "Human-readable start date."
+  end: "Human-readable end date; shown after the start with a dash."
+  points_done: "Precomputed completed story points."
+  points_total: "Precomputed committed story points; the pair hides when total is unset."
+  days_left: "Precomputed days remaining in the sprint."
+
+example_prompts:
+  - "Add a sprint header for Sprint 24 running Mar 3 to Mar 14."
+  - "Show 21 of 34 points done with 4 days left."
+  - "Put a sprint summary bar above the board."
+
+relationships:
+  related:
+    - pm/kanban-board
+    - pm/burndown-chart
+    - pm/milestone-marker
+
+lifecycle: experimental
+content_model: A sprint name, a date range, precomputed points done/total, and precomputed days remaining.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Name the sprint after its goal, not just a number, so the header carries meaning. Keep the point
+  and day figures precomputed and current; the completed count is emphasised in the primary colour
+  so it reads first.
+
+categorization:
+  category: Project Management
+  subcategory: Sprints
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: All figures are real text with clear labels; the primary-colour emphasis on the completed count is reinforced by its position in the done/total pair.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

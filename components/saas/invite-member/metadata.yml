@@ -1,0 +1,83 @@
+name: "Invite Member"
+short_description: An inline email-plus-role invite form that emits an event with the address and chosen role on submit.
+long_visual_description: >
+  A single compact row: a flexible email input on the left, a native role dropdown, and a solid
+  primary "Invite" button on the right. The controls share a control radius and border; on narrow
+  screens they stack vertically. Focus rings use the theme's ring token.
+
+use_cases:
+  - Inviting a teammate into a workspace or organisation.
+  - Adding a collaborator to a project by email.
+  - A quick-add row at the top of a members list.
+  - Sending a seat invitation with a preselected role.
+  - Onboarding step that adds the first teammates.
+  - Sharing access to a document or board.
+
+recommended_for:
+  - Team and access-management screens.
+  - Any place a person is invited by email with a role.
+avoid_for:
+  - Bulk imports of many members (use an upload/CSV flow).
+  - Inviting without any role concept (use a plain email field).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a roles array (each { label, value }); the first entry is the default selection. On
+  submit the component emits member:invite with the entered email and selected role for your app to
+  handle. It does not send anything itself.
+
+how_to_use: >
+  behavior.js listens for the form's submit, prevents the default navigation, and dispatches a
+  bubbling member:invite CustomEvent with detail { email, role } read from the email input and role
+  select. The portable self-init passes no props object — everything is read from the form's own
+  inputs. Listen for member:invite on an ancestor to perform the actual invitation, then clear or
+  disable the form as needed.
+
+props:
+  placeholder: "Placeholder for the email input; defaults to \"colleague@company.com\"."
+  roles: "The selectable roles. Each: label (shown) and value (sent on submit). The first entry is the default."
+
+example_prompts:
+  - "Add an invite member row with Admin, Member, and Viewer roles."
+  - "Put an email-and-role invite form at the top of the team list."
+  - "Add an invite form that emits an event with the email and role."
+
+lifecycle: experimental
+content_model: An email address and a role chosen from a provided list, reported on submit.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-control
+    - --radius-button
+    - --duration-token
+
+editorial_guidance: >
+  Keep role labels short and human (Admin, Member, Viewer). Use a realistic placeholder that signals
+  the expected format without looking like a real address.
+
+relationships:
+  related:
+    - saas/team-member-row
+    - saas/danger-zone
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Team
+  atomic_type: molecule
+  usage_type: [form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The email input and role select each carry an aria-label; the submit is a real button; focus is visible via the ring token.
+  keyboard_support: All three controls are keyboard operable; Enter submits the form.
+  seo_score: 20
+  text_direction: both

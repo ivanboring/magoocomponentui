@@ -1,0 +1,79 @@
+name: "Pinned Post"
+short_description: A highlighted, stuck-to-top forum post with a pin marker, title, author meta and optional excerpt.
+long_visual_description: >
+  A card on a faint primary tint with a thick primary left border, marking it as pinned above the
+  regular thread list. A small pin glyph and an uppercase "Pinned" label lead, followed by the post
+  title in the heading face (optionally a link), an author and time meta line, and an optional
+  one-to-two line excerpt of the body.
+
+use_cases:
+  - Sticky welcome or rules post at the top of a forum board.
+  - Pinned announcement about downtime or a release.
+  - Highlighted "start here" thread for new members.
+  - Featured question a moderator wants kept visible.
+  - Ongoing megathread anchored above daily discussion.
+  - Event or AMA notice pinned for the week.
+
+recommended_for:
+  - Marking one or two important threads above a list.
+  - Boards where moderators curate a highlighted post.
+avoid_for:
+  - Regular, unpinned thread rows (use a plain thread list item).
+  - Transient system notices (use an alert or announcement-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Place above the thread list. Give it a title (with an optional href to the thread), an author name,
+  a pre-formatted relative time, and an optional excerpt to preview the body.
+
+props:
+  title: The post headline; concise and specific.
+  author: Display name of the poster or team.
+  time: A pre-formatted, human-readable timestamp such as "2 days ago".
+  href: Optional link target that makes the title clickable.
+  excerpt: Optional short preview of the post body.
+
+example_prompts:
+  - "Pin a welcome post with the community rules at the top of the board."
+  - "Add a pinned announcement about scheduled downtime this weekend."
+  - "Highlight a start-here thread for new members."
+
+lifecycle: experimental
+content_model: A title, author, timestamp, optional link and optional excerpt for one highlighted post.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Reserve pinning for one or two genuinely important posts; too many pins lose their meaning. Keep
+  the title scannable and the excerpt to a single idea.
+
+relationships:
+  related:
+    - community/moderator-tools
+    - community/online-members
+    - community/tag-filter-forum
+
+categorization:
+  category: Community
+  subcategory: Forum
+  atomic_type: molecule
+  usage_type: [highlight, list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The pin glyph is aria-hidden and the separator dot is aria-hidden; the title link (when present) is a real anchor with a visible focus underline.
+  keyboard_support: The optional title link is focusable and activates on Enter; otherwise static.
+  seo_score: 55
+  text_direction: both

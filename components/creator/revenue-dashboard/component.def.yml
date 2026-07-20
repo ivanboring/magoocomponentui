@@ -1,0 +1,38 @@
+name: revenue-dashboard
+props:
+  total:
+    type: string
+    required: true
+    title: Total revenue
+    description: The formatted headline total, including currency symbol.
+    example: "$12,480"
+  period:
+    type: string
+    title: Period
+    description: The reporting window shown beside the "Total revenue" label.
+    example: "This month"
+  stats:
+    type: array
+    items: object
+    required: true
+    title: Stats
+    description: >
+      The summary stat row. Each item: { label, value, change, change_dir } where change is an
+      optional formatted delta string and change_dir is "up", "down", or "flat" — it colours the
+      change (up=success, down=danger, flat/absent=muted). Compute the direction caller-side.
+    example:
+      - { label: "Subscribers", value: "1,240", change: "+8.2%", change_dir: "up" }
+      - { label: "Churn", value: "2.1%", change: "-0.4%", change_dir: "down" }
+      - { label: "Avg pledge", value: "$9.80", change: "+2.0%", change_dir: "up" }
+  bars:
+    type: array
+    items: object
+    title: Chart bars
+    description: >
+      Optional mini bar chart. Each bar: { label, value, height_pct } where height_pct is the
+      precomputed bar height as a percentage (0-100) of the plot, scaled by the caller from the
+      series maximum. value reveals on hover; label sits under the bar.
+    example:
+      - { label: "Mar", value: "$9.1k", height_pct: 62 }
+      - { label: "Apr", value: "$10.4k", height_pct: 72 }
+      - { label: "May", value: "$12.5k", height_pct: 100 }

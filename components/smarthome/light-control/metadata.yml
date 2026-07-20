@@ -1,0 +1,88 @@
+name: "Light Control"
+short_description: A dimmable smart-light tile with a power switch, a brightness slider, and an optional colour swatch.
+long_visual_description: >
+  A compact surface card. A title row pairs the light's name (with an optional round colour swatch
+  in front) against a pill power switch that slides to primary when on. Below, a sun glyph sits
+  beside a full-width brightness slider whose primary fill grows left-to-right, with the current
+  percentage shown at the right end.
+
+use_cases:
+  - A single smart bulb tile in a room or scene panel.
+  - A dimmable light row in a whole-home dashboard.
+  - A tunable-colour lamp with a swatch showing its current hue.
+  - A quick-access light control on a mobile home screen.
+  - A grouped-light master control that sets brightness for a zone.
+  - A bedside or reading-lamp control in a goodnight scene editor.
+
+recommended_for:
+  - Lights that support on/off plus a brightness level.
+  - Panels where a light needs an inline dimmer, not a separate detail screen.
+avoid_for:
+  - Non-dimmable on/off-only devices (use a plain switch tile).
+  - Full colour-picker editing (use a dedicated colour wheel component).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the light a name, set on, and pass brightness_pct as an already-scaled 0-100 whole number.
+  Add color_hex for a colour bulb to show its current hue as a swatch.
+
+how_to_use: >
+  Layout is static and renders with no JavaScript, so the switch position, slider fill and readout
+  reflect the on and brightness_pct props at render time. behavior.js wires interaction: clicking the
+  switch flips data-state on the button and knob (and aria-checked), and dragging the range input
+  updates the fill width and the percentage; both dispatch a bubbling "light:change" event carrying
+  the current on/brightness. The portable self-init reads state from the DOM and passes no props.
+
+props:
+  name: The light or group name shown as the title.
+  on: Whether the light is on; drives the power switch.
+  brightness_pct: Current brightness as a precomputed 0-100 whole number; sets the slider fill and range value.
+  color_hex: Optional CSS colour for a tunable bulb, shown as a round swatch.
+
+example_prompts:
+  - "Add a light control for the living room, on at 70 percent."
+  - "Show a bedroom lamp light tile that is currently off."
+  - "Put a colour bulb control with a warm amber swatch on the dashboard."
+
+lifecycle: experimental
+content_model: A light name, on/off state, a brightness percentage, and an optional colour.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name the light the way a resident would say it, not by device id. Keep brightness a plain
+  percentage; let colour convey warmth via the swatch rather than words.
+
+relationships:
+  related:
+    - smarthome/device-group-card
+    - smarthome/schedule-timer
+    - smarthome/room-grid
+
+categorization:
+  category: Smart Home
+  subcategory: Controls
+  atomic_type: molecule
+  usage_type: [card, control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The power control is a role="switch" with aria-checked; the dimmer is a native range input with an aria-label; the colour swatch is decorative and aria-hidden.
+  keyboard_support: The switch activates on Enter/Space and the range input adjusts with arrow keys when focused.
+  seo_score: 20
+  text_direction: both

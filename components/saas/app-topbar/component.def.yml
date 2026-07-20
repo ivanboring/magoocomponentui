@@ -1,0 +1,23 @@
+name: app-topbar
+props:
+  search_placeholder:
+    type: string
+    default: "Search…"
+    title: Search placeholder
+    description: Placeholder text for the global search input.
+  notifications_count:
+    type: string
+    title: Notifications count
+    description: >
+      Optional unread notification count shown as a danger badge on the bell button. Pass a
+      precomputed display string (e.g. "3" or "9+"); when empty no badge is rendered.
+  user:
+    type: object
+    required: true
+    title: User
+    description: >
+      The signed-in user: { name, avatar, initials }. avatar is an optional image URL; when it
+      is empty the initials string (a precomputed 1-2 letter fallback) is shown instead. name is
+      used as the button's accessible label.
+    example:
+      { name: "Dana Lee", avatar: "/stock/avatar-woman-1.jpg", initials: "DL" }

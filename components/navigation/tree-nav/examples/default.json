@@ -1,0 +1,27 @@
+{
+  "label": "Documentation",
+  "items": [
+    {
+      "label": "Getting Started",
+      "children": [
+        { "label": "Introduction", "href": "/docs/intro", "active": true },
+        { "label": "Install", "href": "/docs/install" },
+        { "label": "Setup", "href": "/docs/setup" }
+      ]
+    },
+    {
+      "label": "Guides",
+      "children": [
+        {
+          "label": "Basics",
+          "children": [
+            { "label": "Components", "href": "/docs/guides/basics/components" },
+            { "label": "Theming", "href": "/docs/guides/basics/theming" }
+          ]
+        },
+        { "label": "Advanced", "href": "/docs/guides/advanced" }
+      ]
+    },
+    { "label": "Reference", "href": "/docs/reference" }
+  ]
+}

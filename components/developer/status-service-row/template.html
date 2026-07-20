@@ -1,0 +1,10 @@
+<div class="status-service-row flex items-center justify-between gap-4 border-b border-border py-3 last:border-0">
+  <div class="flex min-w-0 items-center gap-2.5">
+    <span class="size-2.5 shrink-0 rounded-pill bg-current {{ status@class }}" aria-hidden="true"></span>
+    <span class="truncate font-medium text-on-surface">{{ name }}</span>
+  </div>
+  <div class="flex shrink-0 items-center gap-3">
+    <span data-if="uptime" class="font-mono text-xs text-on-surface-muted">{{ uptime }}</span>
+    <span class="text-sm capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+</div>

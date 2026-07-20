@@ -1,0 +1,33 @@
+name: live-stream-chrome
+props:
+  title:
+    type: string
+    title: Stream title
+    description: The current stream title, shown in the bottom overlay.
+    example: "Building the new dashboard live"
+  streamer:
+    type: string
+    title: Streamer name
+    description: The broadcaster's name, shown under the title.
+    example: "Ava Rivera"
+  viewers:
+    type: string
+    title: Viewer count
+    description: Formatted live viewer count shown top-left (pass the precomputed formatted string).
+    example: "2,304"
+  is_live:
+    type: boolean
+    default: true
+    title: Is live
+    description: Shows the pulsing LIVE badge top-left when true.
+  category:
+    type: string
+    title: Category
+    description: Stream category or tag, shown as a chip top-right.
+    example: "Software & Dev"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Streamer avatar
+    description: Optional streamer avatar image; falls back to a plain ringed circle when omitted.
+    example: "/stock/avatar-woman-1.jpg"

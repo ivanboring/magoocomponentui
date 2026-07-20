@@ -1,0 +1,88 @@
+name: "Filter Grid"
+short_description: A responsive card grid with a row of filter chips that show or hide cards by category.
+long_visual_description: >
+  A pill-shaped row of filter chips above a responsive 1-to-3 column card grid. The leading "All"
+  chip is active by default; clicking any chip highlights it in the primary colour and shows only
+  the cards whose category matches, hiding the rest. Each card is an image over a title and
+  optional subtitle on a bordered surface panel.
+
+use_cases:
+  - A portfolio or case-study grid filtered by discipline.
+  - A recipe or article index filtered by category or tag.
+  - A product or collection grid filtered by type.
+  - A team or people directory filtered by department.
+  - A resource library filtered by topic.
+  - A gallery filtered by theme or medium.
+
+recommended_for:
+  - Small-to-medium card sets where a single-select category filter is enough.
+  - Grids whose items and filter chips both come from structured data.
+avoid_for:
+  - Large datasets needing server-side filtering, search or pagination (use a data table or a paged grid).
+  - Multi-select or faceted filtering across several dimensions at once.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, title, subtitle, category }) and a filters array (each
+  { label, value }) whose values match the item categories — the component can't dedupe categories
+  itself, so you supply the chip set explicitly. An "All" chip is prepended automatically. Clicking
+  a chip filters the grid client-side.
+
+how_to_use: >
+  behavior.js wires the chips: on click it marks the clicked chip data-active="true" (clearing the
+  others, which drives the data-[active=true]: primary styling) and reads its data-value, then
+  shows only the items whose data-category equals that value — an empty value (the All chip) shows
+  everything. It toggles each card's `hidden` property rather than a `hidden` class so it never
+  clashes with the grid's responsive display utilities. The portable self-init reads all config
+  from the DOM — no props object is passed. Filtering does not run in screenshots (behavior.js is
+  not executed there), so captures show every card.
+
+props:
+  items: "The cards. Each item: image (optional), title, subtitle (optional), category (must match a filter value)."
+  filters: "The chip set, supplied explicitly. Each { label, value }; value must match an item's category."
+  all_label: "Label for the leading chip that clears the filter and shows every item."
+  gap: "Space between grid cells: default, none, sm, md, lg or xl."
+  label: "Accessible name announced for the grid region."
+
+lifecycle: experimental
+content_model: A set of category-tagged cards with a caller-supplied chip set that filters them.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the cards a single type and give every card a category that maps to exactly one chip. Order
+  chips by importance or frequency, and keep the label set short — this is a quick single-select
+  filter, not a faceted search.
+
+relationships:
+  related:
+    - cards/card-grid
+    - layout/load-more-grid
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The grid region and the chip group carry aria-labels; chips are real buttons with an active state; filtering toggles the hidden property so hidden cards leave the accessibility tree.
+  keyboard_support: Chips are focusable buttons that activate on Enter/Space; the active chip is styled distinctly.
+  seo_score: 35
+  text_direction: both

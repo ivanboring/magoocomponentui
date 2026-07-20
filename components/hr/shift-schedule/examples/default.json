@@ -1,0 +1,57 @@
+{
+  "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "staff": [
+    {
+      "name": "Dana Okafor",
+      "initials": "DO",
+      "cells": [
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        { "label": "12-8", "color_class": "bg-info/10 text-info" },
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        {}
+      ]
+    },
+    {
+      "name": "Marco Silva",
+      "initials": "MS",
+      "cells": [
+        { "label": "12-8", "color_class": "bg-info/10 text-info" },
+        {},
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        { "label": "On-call", "color_class": "bg-warning/10 text-warning" },
+        {}
+      ]
+    },
+    {
+      "name": "Priya Raman",
+      "initials": "PR",
+      "cells": [
+        {},
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        { "label": "12-8", "color_class": "bg-info/10 text-info" },
+        { "label": "9-1", "color_class": "bg-success/10 text-success" },
+        {}
+      ]
+    },
+    {
+      "name": "Tom Becker",
+      "initials": "TB",
+      "cells": [
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        {},
+        { "label": "9-5", "color_class": "bg-primary/10 text-primary" },
+        {},
+        { "label": "On-call", "color_class": "bg-warning/10 text-warning" }
+      ]
+    }
+  ]
+}

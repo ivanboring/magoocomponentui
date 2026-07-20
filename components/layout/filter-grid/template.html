@@ -1,0 +1,17 @@
+<section class="filter-grid" aria-label="{{ label }}">
+  <div class="filter-grid__filters mb-4 flex flex-wrap gap-2" role="group" aria-label="Filters">
+    <button type="button" class="filter-grid__chip rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-value="" data-active="true">{{ all_label }}</button>
+    <button data-for="f in filters" type="button" class="filter-grid__chip rounded-pill border border-border bg-surface px-4 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-value="{{ f.value }}">{{ f.label }}</button>
+  </div>
+  <div class="filter-grid__grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 {{ gap@class }}">
+    <article data-for="item in items" class="filter-grid__item flex flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card" data-category="{{ item.category }}">
+      <div data-if="item.image" class="filter-grid__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+        <img class="size-full object-cover" src="{{ item.image }}" alt="">
+      </div>
+      <div class="flex flex-1 flex-col gap-1 p-4">
+        <h3 class="font-heading text-on-surface">{{ item.title }}</h3>
+        <p data-if="item.subtitle" class="text-sm text-on-surface-muted">{{ item.subtitle }}</p>
+      </div>
+    </article>
+  </div>
+</section>

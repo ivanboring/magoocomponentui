@@ -1,0 +1,43 @@
+name: adoption-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Pepper"
+  species:
+    type: string
+    title: Species
+    example: "Dog"
+  breed:
+    type: string
+    title: Breed
+    example: "Labrador mix"
+  age:
+    type: string
+    title: Age
+    example: "2 years"
+  photo:
+    type: string
+    title: Photo
+    description: "URL of the pet photo. Falls back to a paw glyph tile when empty."
+  shelter:
+    type: string
+    title: Shelter
+    example: "Happy Tails Rescue"
+  status:
+    type: enum
+    values: [available, pending, adopted]
+    default: available
+    title: Status
+    description: Adoption state, shown as a badge over the photo.
+  cta_label:
+    type: string
+    default: "Meet me"
+    title: CTA label
+    description: The call-to-action button text.
+variants:
+  status:
+    available: "bg-success/10 text-success"
+    pending: "bg-warning/10 text-warning"
+    adopted: "bg-surface-raised text-on-surface-muted"

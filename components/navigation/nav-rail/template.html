@@ -1,0 +1,6 @@
+<nav class="nav-rail group/rail flex h-full min-h-80 w-16 flex-col gap-1 overflow-hidden border-r border-border bg-surface p-2 transition-[width] duration-(--duration-token) hover:w-56 focus-within:w-56" aria-label="{{ label }}">
+  <a data-for="item in items" class="nav-rail__item flex items-center gap-3 rounded-control p-2.5 text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface data-[active=true]:bg-surface-raised data-[active=true]:text-primary" href="{{ item.href }}" data-active="{{ item.active }}" aria-current="{{ item.active }}">
+    <span class="nav-rail__icon size-6 shrink-0">{{{ item.icon }}}</span>
+    <span class="nav-rail__label whitespace-nowrap text-sm opacity-0 transition-opacity duration-(--duration-token) group-hover/rail:opacity-100 group-focus-within/rail:opacity-100">{{ item.label }}</span>
+  </a>
+</nav>

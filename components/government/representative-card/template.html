@@ -1,0 +1,23 @@
+<article class="representative-card flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start gap-4">
+    <div class="representative-card__avatar flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-raised font-heading text-lg font-semibold text-on-surface-muted">
+      <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+      <span data-if="!avatar">{{ initials }}</span>
+    </div>
+    <div class="min-w-0 flex-1">
+      <h3 class="representative-card__name truncate font-heading text-lg text-on-surface">{{ name }}</h3>
+      <p class="text-sm text-on-surface-muted">{{ title }}</p>
+      <div class="mt-2 flex flex-wrap items-center gap-2">
+        <span data-if="district" class="inline-flex items-center rounded-pill bg-surface-raised px-2.5 py-0.5 text-xs font-medium text-on-surface-muted">{{ district }}</span>
+        <span data-if="party" class="inline-flex items-center rounded-pill bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">{{ party }}</span>
+      </div>
+    </div>
+  </div>
+  <div data-if="contacts" class="representative-card__contacts flex flex-wrap items-center gap-2 border-t border-border pt-3">
+    <a data-for="contact in contacts" data-type="{{ contact.type }}" href="{{ contact.href }}" title="{{ contact.value }}" aria-label="{{ contact.value }}" class="representative-card__contact flex size-9 items-center justify-center rounded-control border border-border bg-surface text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface">
+      <svg class="hidden size-4 [[data-type=phone]_&]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4h3l1.5 4-2 1.5a9 9 0 004 4l1.5-2 4 1.5v3a1 1 0 01-1 1A13 13 0 013 5a1 1 0 011-1z" stroke-linejoin="round"/></svg>
+      <svg class="hidden size-4 [[data-type=email]_&]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 5h14v10H3z"/><path d="M3 6l7 5 7-5" stroke-linejoin="round"/></svg>
+      <svg class="hidden size-4 [[data-type=web]_&]:block" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2.2 2 3.4 4.8 3.4 7.5S12.2 15.5 10 17.5C7.8 15.5 6.6 12.7 6.6 10S7.8 4.5 10 2.5z"/></svg>
+    </a>
+  </div>
+</article>

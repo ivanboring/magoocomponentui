@@ -1,0 +1,38 @@
+name: select-setting-row
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The setting name, shown as the row's label.
+    example: "Theme"
+  help:
+    type: string
+    title: Help text
+    description: An optional one-line explanation shown under the label in muted text.
+    example: "Applies across the whole workspace."
+  options:
+    type: array
+    items: object
+    required: true
+    title: Options
+    description: >
+      The selectable options, each { label, value }, rendered in order. The skeleton does not
+      mark a selected option (the directive language has no equality test); the host/caller sets
+      the selected option when rendering (e.g. Twig/JSX compares each value to the current one).
+    example:
+      - { label: "System", value: "system" }
+      - { label: "Light", value: "light" }
+      - { label: "Dark", value: "dark" }
+  value:
+    type: string
+    title: Current value
+    description: >
+      The currently selected value. Informational for the host, which is responsible for marking
+      the matching option selected; the skeleton renders options in order without a selection.
+    example: "system"
+  name:
+    type: string
+    title: Name
+    description: An optional machine name for the field, applied to the select element.
+    example: "theme"

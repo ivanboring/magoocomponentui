@@ -1,0 +1,13 @@
+name: reply-composer
+props:
+  placeholder:
+    type: string
+    default: "Write a reply…"
+    title: Placeholder
+    description: Placeholder text shown in the empty reply field.
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar
+    description: Optional image URL for the current user's avatar shown beside the field.
+    example: "/stock/avatar-man-1.jpg"

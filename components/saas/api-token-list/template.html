@@ -1,0 +1,24 @@
+<ul class="api-token-list flex flex-col gap-3">
+  <li data-for="token in tokens" class="api-token-list__item rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+      <div class="min-w-0">
+        <p class="font-heading text-on-surface">{{ token.name }}</p>
+        <div class="mt-1 flex items-center gap-2">
+          <code class="api-token-list__token rounded-control bg-surface-raised px-2 py-1 font-mono text-sm text-on-surface-muted" data-token="{{ token.token_masked }}">{{ token.token_masked }}</code>
+          <button type="button" class="api-token-list__copy inline-flex shrink-0 items-center gap-1 rounded-control px-2 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface" aria-label="Copy token">
+            <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="1.5"/><path d="M13 7V5.5A1.5 1.5 0 0011.5 4H5.5A1.5 1.5 0 004 5.5v6A1.5 1.5 0 005.5 13H7"/></svg>
+            <span class="api-token-list__copy-label">Copy</span>
+          </button>
+        </div>
+        <ul data-if="token.scopes" class="mt-2 flex flex-wrap gap-1.5">
+          <li data-for="scope in token.scopes" class="rounded-pill bg-surface-raised px-2 py-0.5 font-mono text-xs text-on-surface-muted">{{ scope }}</li>
+        </ul>
+        <p class="mt-2 flex flex-wrap gap-x-3 text-xs text-on-surface-muted">
+          <span data-if="token.created">Created {{ token.created }}</span>
+          <span data-if="token.last_used">Last used {{ token.last_used }}</span>
+        </p>
+      </div>
+      <button type="button" class="api-token-list__revoke shrink-0 rounded-button border border-danger px-3 py-1.5 text-sm font-medium text-danger transition-colors duration-(--duration-token) hover:bg-danger/10">Revoke</button>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,86 @@
+name: "Rating Slider"
+short_description: A range slider with a floating value bubble above the thumb for score, rating and NPS-style inputs.
+long_visual_description: >
+  A single horizontal track on a raised surface with a primary-coloured fill from the start up to
+  the current value, a round bordered thumb, and a small pill bubble floating above the thumb that
+  shows the current number. An optional label sits above. A transparent native range input overlays
+  the track so it is fully keyboard and pointer accessible.
+
+use_cases:
+  - An NPS or likelihood-to-recommend question in a survey.
+  - A satisfaction or star-equivalent rating captured as a number.
+  - A confidence or priority score input in a form.
+  - A difficulty or intensity selector in a settings panel.
+  - Any 0-N scale input where the current value should be clearly visible.
+
+recommended_for:
+  - Numeric rating and score inputs where the live value needs a visible bubble.
+  - Bounded scales (0-10, 1-5) driven and reported as a single number.
+avoid_for:
+  - Selecting a range with two handles (use range-slider or a dual-thumb control).
+  - Continuous precise values where a numeric input is clearer.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass value, min and max, plus the precomputed fill_pct and bubble_left percentages (both equal
+  to (value - min) / (max - min) * 100 - the directive language does no arithmetic). Give it a
+  label for context and the input's accessible name. Listen for the bubbling rating:change event
+  (detail.value) to read the score as the user drags; behavior.js keeps the fill, thumb and bubble
+  in sync.
+
+how_to_use: >
+  The initial fill and bubble position are rendered from the precomputed fill_pct/bubble_left props
+  so the component looks correct with no JavaScript (and in screenshots). behavior.js then recomputes
+  the percentage live from the range input's min/max/value on every input event, repositions the fill,
+  thumb and bubble, updates the bubble text, and dispatches a bubbling CustomEvent "rating:change"
+  with { value }. The portable self-init needs no props object.
+
+props:
+  label: "Optional label above the slider and accessible name for the input."
+  min: "Minimum value of the range input."
+  max: "Maximum value of the range input."
+  value: "Current value, shown in the bubble and set on the input."
+  fill_pct: "Precomputed track fill percentage: (value - min) / (max - min) * 100."
+  bubble_left: "Precomputed bubble/thumb position percentage (normally equal to fill_pct)."
+
+example_prompts:
+  - "Add an NPS slider from 0 to 10 with a value bubble."
+  - "Let users rate satisfaction on a slider that shows the number."
+
+lifecycle: experimental
+content_model: A single numeric value on a bounded scale, shown on a slider with a value bubble.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-pill
+    - --shadow-card
+
+editorial_guidance: >
+  Keep the scale small and familiar (0-10 or 1-5) and phrase the label as the question being scored.
+  Set a sensible starting value so the bubble is visible on first render.
+
+relationships:
+  related:
+    - forms/range-slider
+    - utility/segmented-control
+    - utility/rich-text-toolbar
+
+categorization:
+  category: UI Utilities
+  subcategory: Forms
+  atomic_type: molecule
+  usage_type: [form-control, input]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A native range input provides the semantics, keyboard support and value announcement; it carries an accessible name from the label, and the bubble/thumb are decorative overlays.
+  keyboard_support: The range input is focusable and adjusts with the arrow keys, Home and End; the value bubble updates on change.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,8 @@
+{
+  "badges": [
+    { "label": "First post", "description": "Published a thread", "earned": true, "tier": "bronze" },
+    { "label": "Helpful", "description": "50 upvotes", "earned": true, "tier": "silver" },
+    { "label": "Top author", "description": "100 posts", "earned": true, "tier": "gold" },
+    { "label": "Veteran", "description": "One year here", "earned": true, "tier": "bronze" }
+  ]
+}

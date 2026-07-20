@@ -1,0 +1,7 @@
+{
+  "model": "claude-opus",
+  "time": "10:12 AM",
+  "$slots": {
+    "content": "<p class=\"mb-2\">Here are three ways to improve first paint:</p><ul class=\"list-disc space-y-1 pl-5\"><li>Inline critical CSS and defer the rest.</li><li>Preload the hero image and web fonts.</li><li>Split the bundle so above-the-fold code loads first.</li></ul>"
+  }
+}

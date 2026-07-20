@@ -1,0 +1,86 @@
+name: "Radar / Spider Chart Shell"
+short_description: A tokenized SVG radar chart skeleton that renders a data polygon over a spoked grid from caller-precomputed geometry,.
+long_visual_description: >
+  A card on the surface colour with a title header and a centred radar plot. Concentric
+  grid rings and spokes are drawn in the border colour; the data shape is a translucent
+  primary-filled polygon with a primary outline. Axis labels sit just beyond each spoke
+  in the muted text colour. Every coordinate is precomputed and passed in, so the shell
+  paints without any arithmetic.
+
+use_cases:
+  - Comparing a single item across several rated dimensions.
+  - Model or vendor comparison on multiple criteria.
+  - Skills or competency profile for a person or team.
+  - Product feature coverage against a baseline.
+  - Sensory or tasting profiles (flavour, aroma, body).
+  - Fitness or health metrics across categories.
+  - Sports player attribute breakdown.
+
+recommended_for:
+  - Three to eight rated axes on a common scale.
+  - Showing overall shape or balance across dimensions.
+  - Dashboards where geometry is computed upstream.
+avoid_for:
+  - Precise value reading (a bar chart is clearer).
+  - Many axes, which crowd the labels.
+  - Comparing more than a couple of overlaid series.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each vertex from its axis value on a 100x100 viewBox centred at 50,50, then
+  pass the data polygon points, optional grid rings and spokes, and label anchor
+  coordinates. replace the SVG markup with a live chart when interactivity is needed.
+
+props:
+  title: Short heading above the chart; also the SVG accessible label.
+  polygon_points: Precomputed SVG points string for the data shape.
+  axes: Spoke labels with precomputed anchor coordinates.
+  rings: Optional precomputed concentric grid polygons.
+  axis_lines: Optional precomputed spokes from the centre.
+
+example_prompts:
+  - "Add a radar chart comparing two models on speed, accuracy, cost, and latency."
+  - "Show a skills profile radar with six axes."
+  - "Put a spider chart of product feature coverage in the report."
+
+relationships:
+  related:
+    - dataviz/pie-chart-shell
+    - dataviz/chart-legend
+    - dataviz/data-point-callout
+
+lifecycle: experimental
+content_model: A title, a precomputed data polygon, and optional precomputed grid rings, spokes, and axis labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  All polygon, ring, spoke, and label-anchor coordinates are precomputed by the caller
+  because the directive language has no arithmetic; the shell only draws the given
+  points. Keep axis labels short so they do not collide at the edges. The skeleton
+  renders directly from the precomputed data; for an interactive chart, a real charting
+  library replaces the tokenized SVG markup, which otherwise stands as the static render.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Axis labels are real text; the SVG carries an accessible label. Pair with a data table for exact values.
+  keyboard_support: None — static, non-interactive skeleton.
+  seo_score: 38
+  text_direction: both

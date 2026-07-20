@@ -1,0 +1,47 @@
+name: digital-product-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The product name shown as the card heading.
+    example: "Lightroom Portrait Presets"
+  type:
+    type: enum
+    values: [ebook, preset, template, course]
+    default: template
+    title: Type
+    description: The kind of digital product; sets the type badge colour and fallback glyph label.
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The formatted price including currency (e.g. "$29").
+    example: "$29"
+  image:
+    type: string
+    format: uri-reference
+    title: Image
+    description: Optional cover image URL. When omitted, a typed glyph placeholder is shown instead.
+    example: "/stock/cover-workspace.jpg"
+  sales:
+    type: string
+    title: Sales
+    description: Optional formatted sales count (e.g. "1,240").
+    example: "1,240"
+  rating:
+    type: string
+    title: Rating
+    description: Optional formatted average rating out of 5 (e.g. "4.8").
+    example: "4.8"
+  format:
+    type: string
+    title: Format
+    description: Optional delivery format note shown under the details (e.g. "PDF + XMP, 240 MB").
+    example: "12 presets, XMP"
+variants:
+  type:
+    ebook: "bg-info/10 text-info"
+    preset: "bg-accent/10 text-accent"
+    template: "bg-primary/10 text-primary"
+    course: "bg-success/10 text-success"

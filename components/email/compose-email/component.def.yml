@@ -1,0 +1,17 @@
+name: compose-email
+props:
+  to:
+    type: string
+    title: To
+    description: Pre-filled recipient(s) for the To field.
+    example: "ava@example.com"
+  subject:
+    type: string
+    title: Subject
+    description: Pre-filled subject line.
+    example: "Re: Q3 planning notes"
+  body_placeholder:
+    type: string
+    default: "Write your message…"
+    title: Body placeholder
+    description: Placeholder text shown in the empty message body.

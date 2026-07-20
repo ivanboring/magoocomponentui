@@ -1,0 +1,81 @@
+name: "Thumbs Feedback"
+short_description: A one-line "Was this helpful?" prompt with Yes/No thumb buttons that highlight the chosen answer.
+long_visual_description: >
+  A single inline row: a muted prompt on the left, then two small outlined buttons — a thumbs-up
+  "Yes" and a thumbs-down "No". The selected button fills with a tinted background and switches to
+  the success colour for Yes or the danger colour for No; the other stays neutral. Re-clicking the
+  active choice returns the control to its neutral state.
+
+use_cases:
+  - Ask whether a help-centre or docs article was useful.
+  - Collect a quick yes/no reaction under an FAQ answer.
+  - Rate whether an AI or search result resolved the question.
+  - Gauge usefulness at the end of a knowledge-base page.
+  - Capture lightweight satisfaction after a support interaction.
+  - Add an unobtrusive helpfulness vote to a blog post footer.
+
+recommended_for:
+  - A single binary helpfulness vote with visible labels.
+  - Docs, help centres, and AI answer surfaces.
+avoid_for:
+  - Rating on a scale (use a star rating or feedback/csat-score).
+  - Choosing among many options (use feedback/poll-inline).
+
+markets:
+  - Global
+
+example_usage: >
+  Render with value="" for the neutral state. When the host receives the "helpful:vote" event it
+  persists the answer; re-render with value="yes" or "no" to keep the highlighted choice after a page
+  reload. Override question to match the surrounding content.
+
+how_to_use: >
+  behavior.js toggles the answer on the root's data-value attribute, which drives the highlight via
+  group-data CSS variants (no re-render needed for the visual state). Clicking Yes or No sets the
+  value (or clears it back to neutral when the active choice is clicked again), syncs aria-pressed,
+  and dispatches a bubbling "helpful:vote" CustomEvent with { value } for the host to record.
+
+props:
+  question: The prompt shown before the buttons; defaults to "Was this helpful?".
+  value: The current answer — "" neutral, "yes" (success highlight) or "no" (danger highlight).
+
+example_prompts:
+  - "Add a 'Was this helpful?' yes/no control to the article footer."
+  - "Show helpfulness feedback with Yes already selected."
+
+lifecycle: experimental
+content_model: A short prompt and a binary yes/no answer.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Keep the prompt to a single short question in sentence case. Do not add a comment field here; pair
+  with a separate follow-up if you need free text.
+
+relationships:
+  related:
+    - feedback/csat-score
+    - feedback/poll-inline
+    - feedback/testimonial-collect
+
+categorization:
+  category: Feedback & Surveys
+  subcategory: Ratings
+  atomic_type: atom
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Both choices are real buttons with text labels and aria-pressed reflecting selection; icons are aria-hidden.
+  keyboard_support: The Yes/No buttons are focusable and toggle on Enter/Space.
+  seo_score: 20
+  text_direction: both

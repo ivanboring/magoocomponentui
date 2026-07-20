@@ -1,0 +1,84 @@
+name: "Transaction Hash"
+short_description: A truncated transaction hash in the mono face with a copy button and an optional link to a block explorer.
+long_visual_description: >
+  An inline mono-face element showing a shortened hash (leading and trailing characters around an
+  ellipsis). When a block-explorer URL is set the hash is a primary-coloured link; otherwise it is
+  plain surface text. A small copy button sits beside it, its icon flipping from a copy glyph to a
+  green check for a moment after a successful copy, with an offscreen live region announcing
+  "Copied!".
+
+use_cases:
+  - Showing a tx hash in a transaction history row.
+  - Linking a confirmed transaction to a block explorer.
+  - Displaying a contract or wallet address inline.
+  - A "view on Etherscan" affordance after an action.
+  - A copyable reference in a receipt or confirmation.
+  - An inline hash inside a notification or toast.
+
+recommended_for:
+  - Any place a long hash must be shown compactly but copied in full.
+  - Rows and receipts that reference an on-chain transaction.
+avoid_for:
+  - A full transaction detail panel (build a bespoke layout).
+  - Copying a secret key (use developer/api-key-card, which masks it).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the full hash plus a truncated display string (shorten it in the caller). Add explorer_url to
+  make the display a link to a block explorer. The copy button always copies the full hash, never
+  the truncated form.
+
+how_to_use: >
+  The truncated display and optional link are static markup. behavior.js copies the full hash from
+  the button's data-hash attribute to the clipboard, flips the icon to a check via data-copied, and
+  announces "Copied!" through an sr-only live region; both revert after about 1.5s. Screenshots
+  never run the behavior, so they show the default copy icon.
+
+props:
+  hash: "The full transaction hash; copied in full, never truncated."
+  display: "The truncated hash shown to the viewer; shorten it in the caller."
+  explorer_url: "Optional explorer URL; when set the display becomes a link to it."
+
+example_prompts:
+  - "Show the transaction hash with a copy button and a link to Etherscan."
+  - "Add an inline tx hash to each row of the transaction history."
+  - "Display a copyable contract address."
+
+lifecycle: experimental
+content_model: >
+  A full hash, a truncated display of it, and an optional block-explorer URL.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --radius-control
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Truncate consistently across the app (same number of leading/trailing characters). Prefer linking
+  to an explorer when one exists so users can verify the transaction.
+
+relationships:
+  related:
+    - crypto/wallet-connect
+    - crypto/token-balance-row
+    - developer/api-key-card
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Transactions
+  atomic_type: atom
+  usage_type: [inline, action]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The copy button has an accessible label that updates on copy, an sr-only aria-live region announces success, and the icons are aria-hidden.
+  keyboard_support: The copy button (and the explorer link when present) are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: ltr

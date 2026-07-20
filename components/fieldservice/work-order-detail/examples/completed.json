@@ -1,0 +1,17 @@
+{
+  "order_number": "WO-4790",
+  "status": "Completed",
+  "customer": "Riverside Apartments",
+  "address": "88 Dockside Rd, Unit 3B",
+  "description_html": "<p>Kitchen sink leak under the trap. Replaced the P-trap and tested for leaks under full flow.</p>",
+  "tasks": [
+    { "label": "Isolate water supply", "done": true },
+    { "label": "Replace P-trap", "done": true },
+    { "label": "Leak test under full flow", "done": true }
+  ],
+  "parts": [
+    { "name": "P-trap kit, 1.5 in", "qty": "1" },
+    { "name": "Slip-joint washers", "qty": "2" }
+  ],
+  "total": "$132.50"
+}

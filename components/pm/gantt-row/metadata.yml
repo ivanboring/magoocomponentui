@@ -1,0 +1,79 @@
+name: "Gantt Row"
+short_description: A single timeline row with a coloured bar positioned by precomputed left and width percentages.
+long_visual_description: >
+  A horizontal row with a fixed-width label column on the left showing the task name and an
+  optional date range, followed by a full-width track on the raised surface. A rounded coloured
+  bar floats inside the track at a precomputed left offset and width, both expressed as percentages
+  of the track, so many rows stacked together read as a Gantt chart. The bar colour is a tokenized
+  utility that defaults to the primary colour.
+
+use_cases:
+  - One task or phase inside a project timeline.
+  - A roadmap lane spanning a range of weeks or months.
+  - A resource schedule showing when work is booked.
+  - A release plan with overlapping workstreams.
+  - Any horizontal duration bar mapped onto a shared timeline.
+
+recommended_for:
+  - Timelines assembled by stacking rows over a shared date axis.
+  - Cases where the caller can map dates to percentage offsets.
+avoid_for:
+  - A single milestone with no duration (use milestone-marker).
+  - Interactive drag-to-reschedule (this is a static skeleton).
+
+markets:
+  - Global
+
+example_usage: >
+  Map each task's start and duration onto the timeline in the caller and pass bar_left and
+  bar_width as 0-100 percentages (no percent sign). Stack several rows over the same axis to form
+  the chart. Set color_class to a tokenized background utility to distinguish workstreams; it
+  defaults to bg-primary.
+
+props:
+  label: "The task or phase name shown in the label column."
+  bar_left: "Precomputed left offset of the bar as a 0-100 percentage of the track."
+  bar_width: "Precomputed width of the bar as a 0-100 percentage of the track."
+  color_class: "A tokenized bg-* utility for the bar; defaults to bg-primary."
+  dates: "Optional human-readable date range shown under the label."
+
+example_prompts:
+  - "Add a gantt row for the design phase spanning the first third of the timeline."
+  - "Show a roadmap row coloured with bg-success for a shipped workstream."
+  - "Stack gantt rows for three overlapping teams on one timeline."
+
+relationships:
+  related:
+    - pm/milestone-marker
+    - pm/sprint-header
+    - pm/burndown-chart
+
+lifecycle: experimental
+content_model: A label, an optional date range, and a bar positioned by precomputed left/width percentages with a tokenized colour.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-control
+    - --font-body
+
+editorial_guidance: >
+  The bar geometry is precomputed by the caller from real dates - the row ships no date math. Keep
+  labels short so the fixed label column does not truncate, and reserve distinct colours for
+  distinct workstreams rather than decorating every row differently.
+
+categorization:
+  category: Project Management
+  subcategory: Timeline
+  atomic_type: molecule
+  usage_type: [chart, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar is positioned decoration; the task name and its date range are real text, so the schedule is perceivable without relying on the bar.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 25
+  text_direction: both

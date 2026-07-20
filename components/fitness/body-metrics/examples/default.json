@@ -1,0 +1,10 @@
+{
+  "metrics": [
+    { "label": "Weight", "value": "74.2", "unit": "kg", "change": "1.2", "change_dir": "down" },
+    { "label": "BMI", "value": "22.8", "unit": "", "change": "0.3", "change_dir": "down" },
+    { "label": "Body fat", "value": "18.4", "unit": "%", "change": "0.6", "change_dir": "down" },
+    { "label": "Muscle", "value": "34.1", "unit": "kg", "change": "0.4", "change_dir": "up" },
+    { "label": "Waist", "value": "82", "unit": "cm", "change": "1.0", "change_dir": "down" },
+    { "label": "Resting HR", "value": "58", "unit": "bpm" }
+  ]
+}

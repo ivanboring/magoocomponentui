@@ -1,0 +1,94 @@
+name: "Time on Site"
+short_description: A count-up on-site timer card with a large elapsed clock, start time and Start/Pause/Stop controls.
+long_visual_description: >
+  A surface card headed by a "Time on site" label and a status badge whose colour shifts with state
+  (muted when paused, green when running). A large tabular clock dominates the card, with the start
+  time in muted text below it. A footer row holds a primary Start button, a Pause button and a Stop
+  button pushed to the trailing edge in the danger colour.
+
+use_cases:
+  - Track billable on-site time for a service visit.
+  - Time a job from arrival to completion in the field.
+  - Log labour duration against a work order.
+  - Show a running clock during an active dispatch.
+  - Capture elapsed time for a callout or emergency response.
+  - Time a technician's task and hand the total back on stop.
+
+recommended_for:
+  - Field service apps that bill or log time per visit.
+  - Any single running-timer surface with clear start, pause and stop actions.
+avoid_for:
+  - A precise, audited time-tracking system of record (this is a lightweight skeleton timer).
+  - A countdown to a deadline (use sla-timer).
+
+markets:
+  - Global
+
+example_usage: >
+  Set elapsed to the initial clock value (MM:SS or HH:MM:SS) and status to the current state. On
+  status "running" the timer starts counting immediately; Stop dispatches "timer:stop" with the
+  final seconds so the surrounding app can persist the duration.
+
+how_to_use: >
+  The clock, start time, status badge and buttons are pure markup, so the card renders (and
+  screenshots) without JavaScript at its initial elapsed value. behavior.js parses that displayed
+  value back to seconds, then Start runs a one-second interval that increments and re-renders the
+  clock, Pause halts it, and Stop halts it and dispatches "timer:stop" with { seconds }. The status
+  badge colour follows the root's data-status via CSS group-data variants, so the behavior only sets
+  the attribute and the label text. If the root initialises with data-status="running" the timer
+  auto-starts. The portable self-init reads everything from the markup and cleans up its interval and
+  listeners on teardown.
+
+props:
+  started_at: Human-readable start time shown under the clock.
+  elapsed: Initial clock value, formatted MM:SS or HH:MM:SS; the behavior resumes counting from it.
+  status: Current state (running, paused or complete); running auto-starts the timer.
+
+example_prompts:
+  - "Add an on-site timer that counts up with start, pause and stop buttons."
+  - "Show a running job timer that started at 9:12 AM."
+
+lifecycle: experimental
+content_model: A running elapsed clock, a start time, a status badge, and start/pause/stop controls.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the start-time line factual and short. Use Stop as the terminal action that captures the total;
+  Pause is for breaks that keep the accumulated time.
+
+relationships:
+  related:
+    - fieldservice/sla-timer
+    - fieldservice/checklist-inspection
+    - fieldservice/customer-signoff
+
+categorization:
+  category: Field Service
+  subcategory: Timing
+  atomic_type: molecule
+  usage_type: [card, control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Start, Pause and Stop are labelled buttons; the clock is an aria-live polite region so updates are announced; status is conveyed by text as well as colour.
+  keyboard_support: Start, Pause and Stop are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

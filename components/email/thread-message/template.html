@@ -1,0 +1,14 @@
+<article class="thread-message rounded-card border border-border bg-surface p-(--space-card)" data-collapsed="{{ collapsed }}">
+  <div class="thread-message__header flex items-center gap-3">
+    <span class="thread-message__avatar flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-raised text-xs font-medium text-on-surface-muted">
+      <img data-if="sender.avatar" class="size-full object-cover" src="{{ sender.avatar }}" alt="">
+      <span data-if="!sender.avatar">{{ sender.initials }}</span>
+    </span>
+    <p class="min-w-0 flex-1 truncate text-sm font-medium text-on-surface">{{ sender.name }}</p>
+    <span class="thread-message__time shrink-0 text-xs text-on-surface-muted">{{ time }}</span>
+  </div>
+  <div data-if="!collapsed" class="thread-message__body mt-3 space-y-3 text-sm leading-relaxed text-on-surface">
+    {{{ body_html }}}
+  </div>
+  <p data-if="collapsed" class="thread-message__preview mt-2 truncate text-sm text-on-surface-muted">{{ preview }}</p>
+</article>

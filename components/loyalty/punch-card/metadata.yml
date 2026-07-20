@@ -1,0 +1,81 @@
+name: "Punch Card"
+short_description: A stamp-card showing earned and remaining punches toward a reward.
+long_visual_description: >
+  A card with an optional title and a "filled/total" count. Below it a grid of round stamp slots:
+  earned ones fill with the primary colour and a check, unearned ones stay as empty dashed circles.
+  A reward line beneath states what completing the card earns.
+
+use_cases:
+  - Coffee-shop buy-ten-get-one loyalty card.
+  - Punch-based reward toward a free item or service.
+  - Visit-count reward in a cafe or salon app.
+  - Gamified streak or collection toward a prize.
+  - Onboarding checklist reframed as collectable stamps.
+  - Digital stamp card in a membership wallet.
+
+recommended_for:
+  - Count-based rewards where each action earns a stamp.
+  - Showing progress as discrete, collectable slots.
+avoid_for:
+  - Continuous percentage progress (use tier-progress or progress-bar).
+  - A points balance figure (use points-balance-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stamps array with one { filled } object per slot, in order; each filled true renders a
+  completed stamp. Provide filled_count and total for the header count, and reward_label for what a
+  full card earns. The grid does no counting - pass the precomputed count.
+
+props:
+  title: Optional heading describing the offer.
+  stamps: One object per slot, in order; { filled } true marks it earned.
+  filled_count: Pre-formatted number of stamps earned, shown before the slash.
+  total: Pre-formatted total number of stamps, shown after the slash.
+  reward_label: Optional line describing what completing the card earns.
+
+example_prompts:
+  - "Add a punch card with 7 of 10 stamps filled toward a free coffee."
+  - "Show a completed punch card, all 10 stamps earned."
+  - "Add a buy-ten-get-one stamp card to the rewards page."
+
+lifecycle: experimental
+content_model: An optional title, an ordered set of filled/empty stamps, a filled and total count, and a reward line.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the reward line concrete about what a full card earns. Match total to the real offer so the
+  grid reads as a promise the member can complete.
+
+relationships:
+  related:
+    - loyalty/points-balance-card
+    - loyalty/reward-catalog-item
+    - loyalty/tier-progress
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Stamps
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stamp state is reflected in the header count text; the decorative stamp glyphs are aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

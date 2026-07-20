@@ -1,0 +1,38 @@
+name: mint-widget
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The mint's name or headline.
+    example: "Mint Cosmic Drifters"
+  price:
+    type: string
+    required: true
+    title: Unit price
+    description: >
+      The per-item mint price as a numeric string (e.g. "0.05"). It is shown beside a currency
+      diamond glyph, and behavior.js multiplies it by the quantity to render the running total.
+    example: "0.05"
+  max:
+    type: string
+    title: Max per wallet
+    description: >
+      Optional maximum quantity per transaction. behavior.js clamps the stepper to 1..max; when
+      omitted there is no upper bound.
+    example: "10"
+  supply_minted:
+    type: string
+    title: Supply minted
+    description: Count already minted; shown in the supply line when supply_total is set.
+    example: "3120"
+  supply_total:
+    type: string
+    title: Supply total
+    description: Total collection supply; the supply line renders only when this is set.
+    example: "5000"
+  quantity:
+    type: string
+    default: "1"
+    title: Initial quantity
+    description: The stepper's starting quantity.

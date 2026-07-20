@@ -1,0 +1,97 @@
+name: "Crypto Price Chart"
+short_description: A candlestick price chart card with a segmented time-range selector.
+long_visual_description: >
+  A surface card with a header that pairs the pair title with a pill-shaped segmented control of
+  time ranges (1H, 1D, 1W, 1M); the active range sits on a raised chip. Below is a candlestick plot
+  drawn in a stretched cartesian viewBox - each candle a thin high-low wick with a thicker
+  open-close body, green (success) for up sessions and red (danger) for down. Selecting a range
+  moves the active chip and emits an event for the host to reload the series.
+
+use_cases:
+  - Chart a crypto pair's OHLC price over a selectable range.
+  - Show a markets or trading widget on a dashboard.
+  - Let a user switch between hourly, daily, weekly, monthly views.
+  - Present a token detail page's price history.
+  - Illustrate up and down sessions with green/red candles.
+  - Prototype a trading view before wiring live data.
+
+recommended_for:
+  - Crypto trading and markets dashboards.
+  - Token and pair detail pages.
+  - Any OHLC series with switchable time ranges.
+
+avoid_for:
+  - A single close-price sparkline (use a line chart).
+  - Non-financial categorical data (use a bar chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each candle's x_pct centre and high/low/open/close percentages in a 0-100 cartesian
+  viewBox (y grows downward), with an up boolean for colour. Provide the range tabs with exactly
+  one marked active. On tab click the component updates the active state and dispatches
+  "range:change"; reload the candles for the chosen range in your handler.
+
+how_to_use: >
+  behavior.js targets the .price-chart-crypto__range tab buttons. On click it sets data-active /
+  aria-selected across the tabs (data-[active=true]: utilities restyle the active chip) and
+  dispatches a bubbling "range:change" CustomEvent whose detail is { label } (e.g. "1W"). Listen on
+  the component root or an ancestor, fetch that range's OHLC series, recompute the candle
+  percentages, and re-render. The candle colours come from data-up plus
+  data-[up=true]:stroke-success / data-[up=false]:stroke-danger, so no JS touches them. The init
+  returns a cleanup function that removes every listener.
+
+props:
+  title: The chart title, usually the traded pair.
+  candles: The candles, each with precomputed x/high/low/open/close percentages and an up boolean.
+  ranges: The time-range tabs; each has a label and an active boolean (mark exactly one).
+
+example_prompts:
+  - "Add a BTC/USD candlestick chart with 1H/1D/1W/1M range tabs."
+  - "Show a crypto price chart that emits an event when the range changes."
+  - "Put a daily candlestick chart for ETH on the markets dashboard."
+
+relationships:
+  related:
+    - crypto/portfolio-allocation-crypto
+    - crypto/defi-pool-row
+    - crypto/staking-card
+
+lifecycle: experimental
+content_model: A pair title, a set of precomputed OHLC candles, and a set of time-range tabs.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  The caller owns the candle math - map open, high, low, and close onto the 0-100 axis (higher price
+  is a smaller number). Supply a mix of up and down candles so the chart reads as real, and mark
+  exactly one range tab active. Swap the SVG for a live charting library in production while keeping
+  this card as the themed frame and range control.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: Markets
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Range tabs use role=tab with aria-selected; the SVG plot is decorative and aria-hidden. Provide an OHLC data-table alternative in production.
+  keyboard_support: Range tabs are focusable and activate on Enter/Space; each click moves the active tab and emits range:change.
+  seo_score: 35
+  text_direction: both

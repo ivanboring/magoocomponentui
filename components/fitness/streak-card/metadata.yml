@@ -1,0 +1,78 @@
+name: "Streak Card"
+short_description: A day-streak counter with a flame badge, a large streak number, and a week row of completed-day dots.
+long_visual_description: >
+  A surface card with a circular flame badge in a soft primary tint beside a large streak number and
+  a caption. Below sits a row of seven day markers, one per weekday, each a small dot that fills with
+  the primary colour and shows a check when that day's goal was met, or stays muted when it was not.
+
+use_cases:
+  - Habit or workout streak on a fitness dashboard.
+  - Daily-goal momentum tile in a wellness app home screen.
+  - Gamified consistency badge to encourage return visits.
+  - Learning or meditation streak in a self-improvement app.
+  - Weekly consistency recap alongside other metrics.
+
+recommended_for:
+  - Reinforcing a daily habit with a visible streak and week overview.
+  - Compact motivation tiles in a dashboard grid.
+avoid_for:
+  - Long histories or calendars (use a heatmap or calendar component).
+  - A single numeric metric with no per-day detail (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the current streak length as days plus a week array with one entry per weekday. Mark each
+  day's done true when the goal was met so its dot fills and shows a check; leave upcoming or missed
+  days false.
+
+props:
+  days: The current streak length, as a string.
+  label: Caption beneath the number, defaults to "day streak".
+  week: One entry per weekday; each has a short day letter and a done flag.
+
+example_prompts:
+  - "Add a streak card at 12 days with four of seven days completed this week."
+  - "Show a 30-day streak with a perfect week."
+
+lifecycle: experimental
+content_model: A streak length, a caption, and a week's worth of met/unmet daily goals.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the caption short. Order the week consistently (start on the same weekday each time) so the
+  dots read as a stable calendar strip. The check plus fill convey "done" without relying on colour.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - fitness/water-intake
+    - fitness/challenge-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Motivation
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Completed days carry a check icon in addition to the fill colour, so done state is not colour-only; the flame badge is decorative and aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

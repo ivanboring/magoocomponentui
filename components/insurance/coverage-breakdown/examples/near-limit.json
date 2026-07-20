@@ -1,0 +1,7 @@
+{
+  "coverages": [
+    { "label": "Dwelling", "limit": "$300,000", "used": "$285,000", "pct": 95, "color_class": "bg-danger" },
+    { "label": "Personal property", "limit": "$120,000", "used": "$72,000", "pct": 60, "color_class": "bg-warning" },
+    { "label": "Loss of use", "limit": "$30,000", "used": "$4,500", "pct": 15, "color_class": "bg-primary" }
+  ]
+}

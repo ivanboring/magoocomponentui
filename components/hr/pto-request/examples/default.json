@@ -1,0 +1,9 @@
+{
+  "types": [
+    { "label": "Vacation", "value": "vacation" },
+    { "label": "Sick leave", "value": "sick" },
+    { "label": "Personal day", "value": "personal" },
+    { "label": "Unpaid leave", "value": "unpaid" }
+  ],
+  "balance": "18 days remaining this year"
+}

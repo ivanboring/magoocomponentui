@@ -1,0 +1,11 @@
+{
+  "standard": "WCAG 2.2 Level AA",
+  "intro": "We want everyone to be able to use our services. This statement explains how accessible this website is and how to get help.",
+  "commitments": [
+    "Text can be resized without loss of content or function.",
+    "All forms have clear labels and error messages.",
+    "Videos include captions and transcripts.",
+    "Navigation is consistent and predictable across pages.",
+    "We fix reported barriers within 10 business days."
+  ]
+}

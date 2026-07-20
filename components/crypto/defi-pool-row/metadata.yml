@@ -1,0 +1,88 @@
+name: "DeFi Pool Row"
+short_description: A liquidity-pool list row showing the pair, TVL, APR, optional volume, and an add-liquidity action.
+long_visual_description: >
+  A wide surface row led by a cluster of two overlapping token logos and the pair name in the
+  heading face. To the right sit right-aligned stat columns - TVL, APR in the success colour, and an
+  optional 24h volume that hides on narrow screens - followed by a primary "Add liquidity" button.
+  The row wraps gracefully when space is tight.
+
+use_cases:
+  - List a liquidity pool in a DeFi pools table.
+  - Show a pair's TVL and APR at a glance.
+  - Offer an add-liquidity entry point per pool.
+  - Rank pools by yield in a farm or DEX view.
+  - Surface a featured or incentivized pool.
+  - Compare pool APRs across a set of pairs.
+
+recommended_for:
+  - DEX and yield-farm pool lists.
+  - DeFi dashboards ranking pools.
+  - Any paired-asset liquidity listing.
+
+avoid_for:
+  - Single-asset staking (use staking-card).
+  - Portfolio share breakdowns (use portfolio-allocation-crypto).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it the pair, TVL, and APR; add a 24h volume when you have it. Pass raw HTML for the paired
+  token logos via icons, or leave it out for a neutral placeholder cluster. Stack several rows to
+  form a pools list.
+
+props:
+  pair: The liquidity pair such as ETH/USDC.
+  icons: Optional raw HTML for the two overlapping token logos; a placeholder cluster shows when omitted.
+  tvl: Total value locked in the pool.
+  apr: The pool's annual percentage rate, shown in the success colour.
+  volume: Optional 24h volume; the column hides when omitted.
+
+example_prompts:
+  - "Add a DeFi pool row for ETH/USDC with TVL and APR."
+  - "List liquidity pools with an add-liquidity button per row."
+  - "Show a WBTC/ETH pool row with its yield."
+
+relationships:
+  related:
+    - crypto/staking-card
+    - crypto/portfolio-allocation-crypto
+    - crypto/price-chart-crypto
+
+lifecycle: experimental
+content_model: A pair, an optional icon cluster, TVL, APR, an optional volume, and an add-liquidity action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the pair notation consistent (BASE/QUOTE) across a list. APR is the number users scan on, so
+  it carries the success colour; only show volume when it is available so the row stays clean.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: DeFi
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stats use a definition list; the icon cluster is decorative and aria-hidden; the action has a visible text label.
+  keyboard_support: The Add liquidity button is focusable and activates on Enter/Space.
+  seo_score: 50
+  text_direction: both

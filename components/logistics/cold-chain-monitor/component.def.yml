@@ -1,0 +1,39 @@
+name: cold-chain-monitor
+props:
+  current_temp:
+    type: string
+    required: true
+    title: Current temperature
+    description: The latest temperature reading, formatted with a unit (e.g. "3.4 C", "38 F").
+    example: "3.4 C"
+  min_temp:
+    type: string
+    title: Minimum safe temperature
+    description: The low end of the safe range, formatted with a unit; shown in the range line.
+    example: "2 C"
+  max_temp:
+    type: string
+    title: Maximum safe temperature
+    description: The high end of the safe range, formatted with a unit; shown in the range line.
+    example: "8 C"
+  in_range:
+    type: boolean
+    default: true
+    title: In range
+    description: >
+      Whether the current temperature is within the safe range. True colours the big reading and the
+      status pill success/green ("In range"); false colours them danger/red ("Out of range").
+  readings:
+    type: array
+    items: object
+    required: false
+    title: Recent readings
+    description: >
+      An optional log of recent readings, newest first. Each item: { time, temp, breach } where time
+      and temp are strings and breach is a boolean - true marks a reading that fell outside the safe
+      range (rendered in danger/red).
+    example:
+      - { time: "14:00", temp: "3.4 C", breach: false }
+      - { time: "13:00", temp: "3.1 C", breach: false }
+      - { time: "12:00", temp: "9.2 C", breach: true }
+      - { time: "11:00", temp: "4.0 C", breach: false }

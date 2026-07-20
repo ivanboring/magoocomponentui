@@ -1,0 +1,84 @@
+name: "NFT Gallery"
+short_description: A responsive grid of NFT tiles, each showing artwork, name, collection, and price.
+long_visual_description: >
+  A responsive grid that shows two tiles per row on mobile, three from the small breakpoint and
+  four from the large breakpoint, with an even gap. Each tile is a compact surface card: a square
+  artwork image that zooms slightly on hover, then the name in the heading face, an optional muted
+  collection line, and a price row with a small currency diamond glyph, the mono price figure, and
+  the ticker, divided off by a top border.
+
+use_cases:
+  - Browse an NFT collection as a responsive grid.
+  - Show a wallet or profile's owned collectibles.
+  - Present a marketplace's trending or newest drops.
+  - Lay out the items in a single collection page.
+  - Display curated or featured NFTs on a landing page.
+  - Show search or filter results in a marketplace.
+
+recommended_for:
+  - Collection and marketplace listing pages.
+  - Wallet and profile galleries.
+  - Curated drop showcases.
+
+avoid_for:
+  - A single highlighted item (use nft-card directly).
+  - Fungible token balances (use a token list or table).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array; each item needs an image, name, and price, with an optional collection and
+  currency. Tiles render inline in a 2 -> 3 -> 4 column grid, so a set stays evenly laid out at
+  every width.
+
+props:
+  items: The collectibles; each is an object with image, name, price, and optional collection and currency.
+
+example_prompts:
+  - "Show a grid of NFTs from a collection with prices in ETH."
+  - "Lay out the wallet's owned NFTs in a responsive gallery."
+  - "Display the newest drops as an NFT grid."
+
+relationships:
+  children:
+    - crypto/nft-card
+  related:
+    - crypto/nft-card
+    - crypto/mint-widget
+
+lifecycle: experimental
+content_model: >
+  An array of collectibles, each with a square artwork image, a name, an optional collection, and
+  a price with a currency ticker.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the set visually coherent - similar crop and subject read best in a grid. Let the artwork
+  carry the tile; names and collections stay short so they do not truncate awkwardly.
+
+categorization:
+  category: "Crypto & Web3"
+  subcategory: NFT
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each tile's artwork uses the token name as alt text; the currency glyph is decorative and aria-hidden.
+  keyboard_support: "none"
+  seo_score: 58
+  text_direction: both

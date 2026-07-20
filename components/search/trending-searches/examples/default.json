@@ -1,0 +1,11 @@
+{
+  "heading": "Trending",
+  "queries": [
+    { "label": "wireless earbuds", "rank": 1, "trend": "up", "href": "#" },
+    { "label": "mechanical keyboard", "rank": 2, "trend": "up", "href": "#" },
+    { "label": "standing desk", "rank": 3, "trend": "flat", "href": "#" },
+    { "label": "4k monitor", "rank": 4, "trend": "down", "href": "#" },
+    { "label": "usb-c hub", "rank": 5, "trend": "up", "href": "#" },
+    { "label": "webcam cover", "rank": 6, "trend": "flat", "href": "#" }
+  ]
+}

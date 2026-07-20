@@ -1,0 +1,85 @@
+name: "Transfer List"
+short_description: A dual-list picker for moving items between an available and a chosen list with selection and move controls.
+long_visual_description: >
+  Two bordered list cards side by side, each with a heading, separated by a vertical column of
+  four move buttons (single and double chevrons pointing each way). List rows are selectable:
+  a selected row tints with a primary wash and primary text. The single chevrons move the
+  selected rows across; the double chevrons move every row.
+
+use_cases:
+  - Assigning roles, teams or permissions from an available pool to a chosen set.
+  - Building a playlist or collection by moving items from a catalogue.
+  - Column or field pickers that choose which items to show.
+  - Audience or segment selection in a campaign builder.
+  - Any "pick some from a list" flow where both sides stay visible.
+
+recommended_for:
+  - Moving discrete items between two lists with a clear source and destination.
+  - Multi-select assignment where the user should see both what is and is not chosen.
+avoid_for:
+  - Choosing a single value from many (use a select or radio group).
+  - Very large lists that need search and virtualisation (add a filtered picker instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass available and chosen arrays (each item { label, value, selected }). Set available_label
+  and chosen_label for the headings. Click rows to select them, then use the chevron controls to
+  move the selection (single) or everything (double). Listen for the bubbling transfer:change
+  event, whose detail carries the current { available, chosen } value arrays, to persist the
+  result.
+
+how_to_use: >
+  The picker is self-contained skeleton UI. Clicking a row toggles its data-selected/aria-pressed.
+  The four move buttons transfer rows by moving their DOM nodes between the two lists: add/remove
+  move the selected rows, add-all/remove-all move all rows. Every move deselects the moved rows
+  and dispatches a bubbling CustomEvent "transfer:change" with { available, chosen } value arrays.
+  The portable self-init reads the list and value data attributes; no props object is passed.
+
+props:
+  available_label: "Heading above the left (source) list."
+  chosen_label: "Heading above the right (destination) list."
+  available: "Items in the source list. Each: { label, value, selected }."
+  chosen: "Items in the destination list. Each: { label, value, selected }."
+
+example_prompts:
+  - "Add a dual-list picker to assign teams to a project."
+  - "Let the user move permissions between available and granted lists."
+
+lifecycle: experimental
+content_model: Two lists of labelled items with values, moved between a source and a destination.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --duration-token
+
+editorial_guidance: >
+  Label both sides so the direction of movement is obvious (e.g. Available vs Assigned). Keep item
+  labels short, and order lists so related items sit together for easier multi-select.
+
+relationships:
+  related:
+    - forms/range-slider
+    - utility/segmented-control
+    - navigation/tabs
+
+categorization:
+  category: UI Utilities
+  subcategory: Forms
+  atomic_type: organism
+  usage_type: [form-control, picker]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Rows are real buttons with aria-pressed reflecting selection; the move controls are buttons with descriptive aria-labels. Consider announcing list changes in a live region in a production integration.
+  keyboard_support: Rows and move buttons are focusable and activate on Enter/Space; selection toggles via aria-pressed.
+  seo_score: 15
+  text_direction: both

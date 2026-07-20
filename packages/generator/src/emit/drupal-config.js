@@ -194,6 +194,9 @@ export const FIELD_TYPES = {
 export const DEFAULT_BY_TYPE = {
   string: "string", text: "text_long", html: "text_long", integer: "integer",
   boolean: "boolean", enum: "list_string", link: "link", image: "image",
+  // A video prop is a media entity under Canvas; in the paragraph/node path it degrades to a URL
+  // (link) field until a dedicated media-video mapping is added.
+  video: "link",
   array: "custom_field", object: "custom_field",
 };
 
@@ -204,6 +207,80 @@ export const DEFAULT_BY_TYPE = {
 export const FORMATTER_OVERRIDES = {
   chart: { type: "chart", module: "charts", settings: {} },
 };
+
+/* --------------------------------------------------------------------------
+ * Module classification — THE single source of truth for core vs. contrib.
+ *
+ * Every module string that can land in a config `dependencies.module` (from the
+ * field-type registry above, from a formatter override, or from the structural
+ * config the emitters always write) must be classified here. Core modules and core
+ * submodules ship with Drupal: they are enabled with `drush en`, and requiring them
+ * with composer fails (there is no `drupal/media_library` package on Packagist).
+ * Contrib modules must be `composer require drupal/<name>`d first.
+ *
+ * `emittableModules()` + the unit test guarantee a new field type that introduces an
+ * unknown module fails loudly instead of printing a broken composer line.
+ * ------------------------------------------------------------------------ */
+
+/** Modules the config builders always emit, independent of the field-type registry. */
+export const STRUCTURAL_MODULES = ["paragraphs", "entity_reference_revisions", "custom_field", "node"];
+
+/** module machine name -> "core" | "contrib". */
+export const MODULE_KIND = {
+  // ---- Drupal core (incl. core submodules — never Packagist packages) ----
+  node: "core", field: "core", text: "core", options: "core", image: "core", file: "core",
+  link: "core", datetime: "core", datetime_range: "core", telephone: "core", comment: "core",
+  taxonomy: "core", path: "core", views: "core", user: "core", system: "core",
+  media: "core", media_library: "core", menu_link_content: "core", responsive_image: "core",
+  // ---- contrib (composer require drupal/<name>) ----
+  paragraphs: "contrib", entity_reference_revisions: "contrib", custom_field: "contrib",
+  address: "contrib", video_embed_field: "contrib", geofield: "contrib", geolocation: "contrib",
+  svg_image_field: "contrib", faqfield: "contrib", office_hours: "contrib", tablefield: "contrib",
+  charts: "contrib",
+  // Drupal Canvas (`drupal/canvas`, formerly "Experience Builder"). Not a field-type provider — it
+  // is added as a theme dependency by create-child's `config: "canvas"` mode, which emits only the
+  // SDC and lets Canvas derive its component config on cache rebuild.
+  canvas: "contrib",
+};
+
+/**
+ * Every module string the emitters can put in a config dependency, derived from the
+ * registry itself (so it can't drift). `"core"` is the field-API provider pseudo-module
+ * used by the registry and is never emitted as a dependency — it is excluded.
+ * @returns {string[]} sorted unique module machine names
+ */
+export function emittableModules() {
+  const out = new Set(STRUCTURAL_MODULES);
+  for (const entry of Object.values(FIELD_TYPES)) {
+    for (const m of [entry.module, entry.widget && entry.widget.module, entry.formatter && entry.formatter.module, ...(entry.extra || [])]) {
+      if (m && m !== "core") out.add(m);
+    }
+  }
+  for (const fo of Object.values(FORMATTER_OVERRIDES)) if (fo.module && fo.module !== "core") out.add(fo.module);
+  return [...out].sort();
+}
+
+/**
+ * True when the module ships with Drupal core (enable with drush; do NOT composer require).
+ * Unknown modules are treated as contrib — the safer default — and the unit test asserts
+ * everything the registry can emit is classified explicitly.
+ * @param {string} module
+ */
+export function isCoreModule(module) {
+  return MODULE_KIND[module] === "core";
+}
+
+/**
+ * Split a set/list of module deps into the two install channels.
+ * @param {Iterable<string>} modules
+ * @returns {{ core: string[], contrib: string[] }}
+ */
+export function splitModuleDeps(modules) {
+  const core = [];
+  const contrib = [];
+  for (const m of [...new Set(modules)].sort()) (isCoreModule(m) ? core : contrib).push(m);
+  return { core, contrib };
+}
 
 /** Candidate field-type keys for a prop (first is primary; rest are alternatives). */
 export function resolveCandidates(prop) {

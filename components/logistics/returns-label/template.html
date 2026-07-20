@@ -1,0 +1,54 @@
+<div class="returns-label rounded-card border-2 border-dashed border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-2 border-b border-border pb-3">
+    <svg class="size-5 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5L3 10l5 5"/><path d="M3 10h9a5 5 0 015 5v1"/></svg>
+    <p class="font-heading text-on-surface">Return label</p>
+    <span data-if="carrier" class="ml-auto rounded-pill bg-surface-raised px-2.5 py-1 text-xs font-medium text-on-surface-muted">{{ carrier }}</span>
+  </div>
+  <dl class="mt-3 flex flex-col gap-2 text-sm">
+    <div class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">RMA number</dt>
+      <dd class="font-mono text-on-surface">{{ rma_number }}</dd>
+    </div>
+    <div data-if="order_number" class="flex items-center justify-between gap-3">
+      <dt class="text-on-surface-muted">Order</dt>
+      <dd class="font-mono text-on-surface">{{ order_number }}</dd>
+    </div>
+    <div data-if="reason" class="flex items-start justify-between gap-3">
+      <dt class="shrink-0 text-on-surface-muted">Reason</dt>
+      <dd class="text-right text-on-surface">{{ reason }}</dd>
+    </div>
+  </dl>
+  <div class="returns-label__barcode mt-4 flex h-16 items-stretch justify-center gap-px overflow-hidden rounded-control bg-surface-raised p-3" aria-hidden="true">
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-1 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+    <span class="w-1.5 bg-on-surface"></span>
+    <span class="w-0.5 bg-on-surface"></span>
+    <span class="w-px bg-on-surface"></span>
+  </div>
+  <p data-if="barcode" class="mt-1.5 text-center font-mono text-xs tracking-[0.2em] text-on-surface-muted">{{ barcode }}</p>
+</div>

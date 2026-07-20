@@ -1,0 +1,19 @@
+name: segmented-control
+props:
+  label:
+    type: string
+    default: "View"
+    title: Group label
+    description: Accessible name for the segmented control group (aria-label).
+  segments:
+    type: array
+    items: object
+    required: true
+    title: Segments
+    description: >
+      The segments, left to right. Each item: { label, value, active (bool) }. value is echoed
+      in the segment:change event; exactly one segment should be active.
+    example:
+      - { label: "Day", value: "day", active: true }
+      - { label: "Week", value: "week", active: false }
+      - { label: "Month", value: "month", active: false }

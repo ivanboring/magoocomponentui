@@ -1,0 +1,81 @@
+name: "AI Code Block"
+short_description: A code block with a language header, one-click copy, and an optional Run button for AI-generated snippets.
+long_visual_description: >
+  A rounded, bordered panel on a raised surface. A header row shows the language name in a muted
+  monospace label at the leading edge and, at the trailing end, an optional Run button and a Copy
+  button. Below the header a monospace code body scrolls horizontally when lines are long. Pressing
+  Copy briefly swaps its label to "Copied!".
+
+use_cases:
+  - Render a code snippet inside an AI assistant reply.
+  - Offer copy-to-clipboard for generated code.
+  - Show a runnable example with a Run affordance in a playground.
+  - Display a config or command block in docs.
+  - Present a diff-free code sample in a chat message.
+  - Share a reusable function or utility from an assistant.
+
+recommended_for:
+  - Code returned by an assistant that users will copy or run.
+  - Any monospace snippet that needs a language label and copy button.
+avoid_for:
+  - A full editable code editor (this is read-only).
+  - Long multi-file listings (link to a repo or gist instead).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the code string and a language label. Set runnable to add a Run button; listen for the
+  bubbling code:run event (detail.code) on a parent to execute it in a sandbox. The Copy button
+  copies the code text to the clipboard.
+
+how_to_use: >
+  behavior.js reads the rendered text from the code element, so no configuration is needed. Copy
+  writes the code to the clipboard and swaps the button label to "Copied!" for a moment before
+  restoring it. When runnable is on, the Run button dispatches a bubbling "code:run" CustomEvent
+  with { code } for a parent to execute. The code is rendered verbatim and escaped.
+
+props:
+  language: "The language label shown in the header."
+  code: "The source code, rendered verbatim in a monospace block."
+  runnable: "Show a Run button that emits code:run."
+
+content_model: >
+  A single code snippet plus a language label; optionally marked runnable.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Label the language accurately so the header reads true. Keep snippets short and self-contained;
+  only mark a block runnable when there is a sandbox wired to execute it.
+
+relationships:
+  related:
+    - ai/chat-message-ai
+    - ai/chat-thread
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Output
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The copy button has an accessible label and updates its visible label to Copied on success; the Run button carries a visible label.
+  keyboard_support: The Copy and Run buttons are focusable and activate on Enter/Space; the code region scrolls with the keyboard when focused.
+  seo_score: 25
+  text_direction: ltr

@@ -1,0 +1,12 @@
+<div class="moderator-tools rounded-card border border-border bg-surface p-3 shadow-card" role="toolbar" aria-label="Moderator tools">
+  <p class="mb-2 flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-on-surface-muted">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 2l6 2v5c0 4-3 6-6 7-3-1-6-3-6-7V4l6-2z"/></svg>
+    Moderator tools
+  </p>
+  <div class="flex flex-wrap gap-2">
+    <button data-for="action in actions" type="button" class="moderator-tools__action inline-flex items-center gap-1.5 rounded-button border border-border bg-surface px-3 py-1.5 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[danger=true]:border-danger/40 data-[danger=true]:text-danger data-[danger=true]:hover:bg-danger/10" data-action="{{ action.value }}" data-danger="{{ action.danger }}">
+      <span data-if="action.icon" class="shrink-0 [&>svg]:size-4">{{{ action.icon }}}</span>
+      {{ action.label }}
+    </button>
+  </div>
+</div>

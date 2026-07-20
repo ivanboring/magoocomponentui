@@ -1,0 +1,20 @@
+<figure class="bubble-chart-shell rounded-card border border-border bg-surface p-4 shadow-card">
+  <header class="bubble-chart-shell__header mb-3 flex items-center justify-between gap-3">
+    <h3 class="bubble-chart-shell__title font-heading text-on-surface">{{ title }}</h3>
+  </header>
+  <div class="bubble-chart-shell__body flex gap-2">
+    <div class="bubble-chart-shell__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="bubble-chart-shell__y-tick">{{ y }}</span>
+    </div>
+    <div class="bubble-chart-shell__col min-w-0 flex-1">
+      <div class="bubble-chart-shell__plot relative h-48 w-full">
+        <svg class="bubble-chart-shell__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <circle data-for="p in points" class="bubble-chart-shell__bubble fill-primary/50 data-[tone=accent]:fill-accent/50 data-[tone=success]:fill-success/50" data-tone="{{ p.tone }}" cx="{{ p.x_pct }}" cy="{{ p.y_pct }}" r="{{ p.r_pct }}" vector-effect="non-scaling-stroke"></circle>
+        </svg>
+      </div>
+      <div class="bubble-chart-shell__x-axis mt-2 flex justify-between text-[11px] text-on-surface-muted">
+        <span data-for="x in x_labels" class="bubble-chart-shell__x-tick">{{ x }}</span>
+      </div>
+    </div>
+  </div>
+</figure>

@@ -1,0 +1,70 @@
+name: "Walk Tracker"
+short_description: A card logging a pet's walk - distance and duration, a route facade and progress toward the daily goal.
+long_visual_description: >
+  A surface card headed by a paw glyph and a "Walk" label with the walk date to the
+  right. Two large tabular figures show distance and duration side by side. An optional
+  route facade draws the walk as a primary-coloured polyline inside a rounded panel, and
+  a labelled progress bar tracks completion of the daily walk goal with its percentage.
+use_cases:
+  - Log a completed dog walk with distance and duration.
+  - Show progress toward a daily activity goal on a pet dashboard.
+  - Summarise the morning walk on a home screen widget.
+  - Encourage exercise consistency for a weight-management plan.
+  - Give a dog walker a shareable record of the outing.
+  - Track walks alongside weight and health trends.
+recommended_for:
+  - A single walk's headline stats with a daily-goal indicator.
+  - Dashboards that pair activity with a caller-precomputed route and goal.
+avoid_for:
+  - A live GPS map (the route is a decorative facade only).
+  - A full activity history (render a list of cards).
+markets:
+  - Global
+example_usage: >
+  Set distance, duration and date for the walk. Pass a precomputed goal_pct (0-100) for
+  the progress bar and an optional route_points polyline for the decorative route
+  facade. The route is illustrative only, not a real map.
+props:
+  distance: "Distance walked, formatted for display, e.g. 2.4 km."
+  duration: "Time spent, formatted for display, e.g. 38 min."
+  date: "When the walk happened."
+  route_points: "A precomputed SVG polyline points string for the decorative route facade, in a 0 0 100 48 viewBox."
+  goal_pct: "Progress toward the daily walk goal, 0-100, precomputed by the caller."
+lifecycle: experimental
+content_model: A walk's distance, duration and date, an optional decorative route path and a daily-goal percentage.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+editorial_guidance: >
+  Keep distance and duration in consistent units across the app. Compute goal_pct against
+  a realistic daily target so a full bar genuinely means the goal was met. Treat the route
+  as decoration, never as a precise map.
+relationships:
+  related:
+    - pets/weight-tracker-pet
+    - pets/pet-health-timeline
+    - atoms/progress-bar
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Activity
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The goal bar uses role="progressbar" with aria-valuenow/min/max and restates its percentage in text; the route facade is aria-hidden.
+  keyboard_support: "none"
+  seo_score: 25
+  text_direction: both

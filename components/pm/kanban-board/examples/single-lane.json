@@ -1,0 +1,16 @@
+{
+  "label": "Bug triage",
+  "columns": [
+    {
+      "label": "New",
+      "count": "4",
+      "wip": "6",
+      "tasks": [
+        { "title": "500 on CSV export over 10k rows", "tag": "Bug", "assignee_initials": "JD", "priority": "urgent" },
+        { "title": "Timezone off by one on invites", "tag": "Bug", "assignee_initials": "MG", "priority": "high" },
+        { "title": "Broken avatar fallback initials", "tag": "Bug", "priority": "low" },
+        { "title": "Search ignores trailing spaces", "tag": "Bug", "assignee_initials": "RP", "priority": "medium" }
+      ]
+    }
+  ]
+}

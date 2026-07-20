@@ -1,0 +1,36 @@
+name: subforum-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "General Discussion"
+  description:
+    type: string
+    title: Description
+    description: Optional one-line summary of the board.
+    example: "Anything and everything about the product."
+  icon:
+    type: html
+    title: Icon
+    description: Optional inline SVG (or small markup) shown in the leading icon tile.
+    example: "<svg viewBox='0 0 20 20' fill='none' stroke='currentColor' stroke-width='1.6'><path d='M4 5h12v8H8l-4 3V5z'/></svg>"
+  topics:
+    type: string
+    required: true
+    title: Topics
+    description: Pre-formatted count of topics in the board.
+    example: "1.2k"
+  posts:
+    type: string
+    required: true
+    title: Posts
+    description: Pre-formatted count of posts in the board.
+    example: "18.4k"
+  last_post:
+    type: object
+    title: Last post
+    description: >
+      Optional most-recent post preview. Object: { title, author, time } where time is a
+      pre-formatted absolute or relative string.
+    example: { title: "Roadmap for the next quarter", author: "Ada L.", time: "12m ago" }

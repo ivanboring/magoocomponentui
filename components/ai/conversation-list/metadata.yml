@@ -1,0 +1,75 @@
+name: "Conversation List"
+short_description: A chat-history sidebar listing past conversations grouped by time, with a New chat button.
+long_visual_description: >
+  A vertical sidebar led by an outlined New chat button, then time buckets (Today, Yesterday,
+  Previous 7 days) each with a small uppercase heading and a list of conversation links. Titles
+  truncate, an optional relative time sits at the right, and the active conversation is tinted and
+  emphasised.
+
+use_cases:
+  - The chat-history sidebar of an AI assistant.
+  - A recent-conversations panel in an agent console.
+  - Navigating between saved sessions or threads.
+  - A grouped list of past prompts or transcripts.
+  - The left rail of a chat app showing today vs. earlier chats.
+
+recommended_for:
+  - Chat products that keep a browsable history of conversations.
+  - Any time-bucketed list of links with an active item.
+avoid_for:
+  - A single flat list with no grouping (use a plain nav list).
+  - Rich message previews per row (use a message list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass groups, each { label, items } where items are { title, time, active, href }. Mark the open
+  conversation active to tint and emphasise it, and give each item an href to its thread. Time is an
+  optional relative stamp shown at the right.
+
+props:
+  new_label: "Text of the New chat button at the top."
+  groups: "Time buckets, each with a label heading and a list of conversation items (title, optional time, active, href)."
+
+example_prompts:
+  - "Add a chat history sidebar grouped into Today, Yesterday, and Previous 7 days."
+  - "Show a conversation list with a New chat button and the current thread highlighted."
+
+lifecycle: experimental
+content_model: A New-chat action plus time-grouped lists of past conversations.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-button
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Use conversation titles that summarise the thread rather than the first message verbatim. Keep the
+  time buckets consistent (Today, Yesterday, then rolling windows) and only one item active.
+
+relationships:
+  related:
+    - ai/assistant-hero
+    - ai/model-picker
+
+categorization:
+  category: AI & Chat
+  subcategory: Navigation
+  atomic_type: organism
+  usage_type: [nav, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Wrapped in a labelled nav landmark; conversations are real links with discernible text; the active item is signalled by weight and colour, not colour alone.
+  keyboard_support: The New chat button and every conversation link are in the natural tab order and activate with Enter (links) or Enter/Space (button).
+  seo_score: 25
+  text_direction: both

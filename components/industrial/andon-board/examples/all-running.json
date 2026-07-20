@@ -1,0 +1,10 @@
+{
+  "stations": [
+    { "name": "CNC 1", "status": "normal" },
+    { "name": "CNC 2", "status": "normal" },
+    { "name": "CNC 3", "status": "call", "message": "Tool change due" },
+    { "name": "Deburr", "status": "normal" },
+    { "name": "Wash", "status": "normal" },
+    { "name": "QA Gate", "status": "normal" }
+  ]
+}

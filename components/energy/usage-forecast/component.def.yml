@@ -1,0 +1,37 @@
+name: usage-forecast
+props:
+  title:
+    type: string
+    default: "Usage forecast"
+    title: Title
+    description: Heading shown above the chart.
+    example: "Energy usage forecast"
+  line_path:
+    type: string
+    required: true
+    title: Actual line path
+    description: >
+      Precomputed SVG path for the actual/measured series, in a 0-100 x 0-100 viewBox (y grows
+      downward, so a low number is near the top). The caller computes this from the data; the shell
+      only draws it. Example: "M0,70 L25,60 L50,66 L75,48".
+    example: "M0,72 L20,64 L40,68 L60,50 L80,44"
+  forecast_path:
+    type: string
+    title: Forecast line path
+    description: >
+      Optional precomputed SVG path for the forecast/projected series, drawn as a dashed continuation
+      in the same 0-100 x 0-100 viewBox. Usually starts where line_path ends. Omit to hide.
+    example: "M80,44 L90,40 L100,30"
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["40", "30", "20", "10", "0"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+variants: {}

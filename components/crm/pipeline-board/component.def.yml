@@ -1,0 +1,21 @@
+name: pipeline-board
+props:
+  stages:
+    type: array
+    items: object
+    required: true
+    title: Stages
+    description: >
+      The pipeline columns, left to right. Each item:
+      { label, total, deals }. `label` is the stage name; `total` is an optional
+      summary shown in the header (e.g. a deal count or aggregate value string);
+      `deals` is an array of mini-cards, each { name, value, owner, initials }.
+      For each deal, `name` and `value` carry the card; `owner` and `initials`
+      (a precomputed 1-3 char monogram) are optional. All values are preformatted
+      strings — the template does no math or currency formatting.
+    example:
+      - label: "Qualified"
+        total: "$120k"
+        deals:
+          - { name: "Acme Corp renewal", value: "$48,000", owner: "Dana Lee", initials: "DL" }
+          - { name: "Northwind expansion", value: "$72,000", owner: "Sam Ortiz", initials: "SO" }

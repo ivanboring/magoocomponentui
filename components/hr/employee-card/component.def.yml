@@ -1,0 +1,41 @@
+name: employee-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Dana Reyes"
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Senior Product Designer"
+  department:
+    type: string
+    title: Department
+    example: "Design"
+  avatar:
+    type: string
+    title: Avatar
+    description: "Avatar image URL. When empty, the initials fallback shows."
+    example: "/stock/avatar-woman-1.jpg"
+  initials:
+    type: string
+    title: Initials
+    description: "Precomputed initials shown when no avatar is set (e.g. DR)."
+    example: "DR"
+  location:
+    type: string
+    title: Location
+    example: "Berlin, DE"
+  status:
+    type: enum
+    values: [active, on-leave, remote]
+    default: active
+    title: Status
+    description: Availability status shown as a coloured pill.
+variants:
+  status:
+    active: "bg-success/10 text-success"
+    on-leave: "bg-warning/10 text-warning"
+    remote: "bg-info/10 text-info"

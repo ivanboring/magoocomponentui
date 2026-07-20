@@ -1,0 +1,76 @@
+name: "Activity Timeline"
+short_description: A vertical log of calls, emails, notes, and meetings, each entry marked and colour-coded by type.
+long_visual_description: >
+  A vertical timeline with a thin connector line running down the left. Each entry has a round marker
+  tinted by activity type - info for calls, primary for emails, warning for notes, success for
+  meetings - followed by a bold title, a muted timestamp aligned to the right, and optional detail
+  text beneath.
+
+use_cases:
+  - A contact or account activity history in a CRM.
+  - A deal timeline of touches leading up to close.
+  - A recent-interactions feed on a customer record.
+  - An audit trail of outreach across a team.
+  - A support case history of calls and notes.
+  - A follow-up log shown on a lead detail page.
+
+recommended_for:
+  - Chronological logs where the kind of activity matters at a glance.
+  - Mixed call, email, note, and meeting histories.
+avoid_for:
+  - A composer for adding a new note (use note-composer).
+  - A single upcoming step tracker (use deal-stage-progress).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an activities array, newest first. Give each entry a type (call, email, note, or meeting) to
+  colour its marker, a title, a preformatted time string, and optional body detail.
+
+props:
+  activities: "The log entries, newest first. Each has a type (call, email, note, meeting) that colours the marker, a title, a preformatted time, and optional body text."
+
+example_prompts:
+  - Show an activity timeline of recent calls and emails on this contact.
+  - Add a deal history log with notes and meetings.
+  - Render a chronological outreach feed for the account.
+
+lifecycle: experimental
+content_model: A chronological list of activity entries, each with a type, title, time, and optional body.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-info
+    - --color-warning
+    - --color-success
+    - --radius-pill
+
+editorial_guidance: >
+  Order entries newest first and keep titles action-led. Use the type consistently so colours stay
+  meaningful. Reserve body text for detail that adds context, not a restatement of the title.
+
+relationships:
+  related:
+    - crm/note-composer
+    - crm/contact-card
+    - crm/deal-card
+
+categorization:
+  category: CRM & Sales
+  subcategory: Activity
+  atomic_type: organism
+  usage_type: [list, feed]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Entry type is reinforced by the title text, not colour alone; the list uses ordered-list semantics and time elements.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

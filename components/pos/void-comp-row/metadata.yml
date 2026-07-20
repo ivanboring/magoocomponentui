@@ -1,0 +1,80 @@
+name: "Void / Comp Row"
+short_description: A single void or comp entry - the item and amount, a colour-coded void/comp pill, and the reason plus who authorised it.
+long_visual_description: >
+  A compact row on the surface colour with a card radius and soft shadow. A rounded pill on the
+  left flags the entry as a void (red tint) or a comp (amber tint); the item name and, beneath it,
+  the reason and the authorising manager sit in the middle; and the amount is emphasised in the
+  heading face on the right. The pill colour distinguishes the two kinds at a glance.
+
+use_cases:
+  - Line in a voids and comps audit log for a shift.
+  - Manager review of comped items before close-out.
+  - Loss-prevention report of voided orders.
+  - Reason-code list attached to a shift report.
+  - Server accountability list for discounts given.
+  - Exception feed of adjustments awaiting sign-off.
+
+recommended_for:
+  - Read-only lists of voided or comped items with reasons.
+  - Any adjustment row needing a clear kind flag and an authoriser.
+avoid_for:
+  - Applying a void or comp interactively (this is a display row).
+  - A full refund workflow with payment reversal (use a refund flow).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row an item and amount, set kind to void or comp, and add an optional reason and the
+  authorized_by name. The pill colour follows the kind; stack several rows under a heading to form
+  a voids-and-comps log, and pre-format the amount with its currency symbol.
+
+props:
+  item: "The name of the voided or comped item."
+  amount: "The pre-formatted value of the item."
+  kind: "Whether it was a void or a comp; sets the pill colour."
+  reason: "Optional short reason for the adjustment."
+  authorized_by: "Optional name or initials of the authorising manager."
+
+example_prompts:
+  - "Add a void row for a ribeye steak that was sent back."
+  - "Show a comped dessert authorised by the manager."
+  - "List the shift's voids and comps with reasons."
+
+lifecycle: experimental
+content_model: An item and amount, a void-or-comp kind, and an optional reason and authoriser.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep reasons short and specific and always record who authorised the adjustment. Use void for
+  items removed before they were made and comp for items given away after being made.
+
+relationships:
+  related:
+    - pos/shift-report
+    - pos/kitchen-display
+
+categorization:
+  category: Restaurant POS
+  subcategory: Adjustments
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The kind is spelled out in the pill text as well as its colour, so void versus comp does not rely on colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

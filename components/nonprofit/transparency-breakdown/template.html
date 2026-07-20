@@ -1,0 +1,14 @@
+<div class="transparency-breakdown rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 data-if="title" class="transparency-breakdown__title font-heading text-on-surface">{{ title }}</h3>
+  <div class="transparency-breakdown__bar mt-3 flex h-3 w-full overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="{{ title }}">
+    <span data-for="seg in segments" class="{{ seg.color_class }}" style="width: {{ seg.pct }}%"></span>
+  </div>
+  <ul class="transparency-breakdown__legend mt-4 flex flex-col gap-2">
+    <li data-for="seg in segments" class="flex items-center gap-2 text-sm">
+      <span class="size-3 shrink-0 rounded-pill {{ seg.color_class }}" aria-hidden="true"></span>
+      <span class="text-on-surface">{{ seg.label }}</span>
+      <span class="ml-auto tabular-nums text-on-surface-muted">{{ seg.pct }}%</span>
+    </li>
+    <li class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></li>
+  </ul>
+</div>

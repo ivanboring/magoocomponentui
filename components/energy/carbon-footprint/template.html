@@ -1,0 +1,20 @@
+<figure class="carbon-footprint rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <figcaption class="text-sm text-on-surface-muted">Carbon footprint<span data-if="period"> &middot; {{ period }}</span></figcaption>
+
+  <p class="mt-1 font-heading text-4xl text-on-surface tabular-nums">{{ total_kg }}<span class="ml-1 text-lg text-on-surface-muted">kg CO2e</span></p>
+
+  <div class="carbon-footprint__bar mt-4 flex h-3 w-full overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Emissions by source">
+    <span data-for="s in sources" class="carbon-footprint__segment h-full first:rounded-l-pill last:rounded-r-pill {{ s.color_class }}" style="width: {{ s.pct }}%"></span>
+  </div>
+
+  <ul class="carbon-footprint__legend mt-4 flex flex-col gap-2.5">
+    <li data-for="s in sources" class="flex items-center gap-2 text-sm">
+      <span class="size-3 shrink-0 rounded-pill {{ s.color_class }}" aria-hidden="true"></span>
+      <span class="text-on-surface">{{ s.label }}</span>
+      <span class="ml-auto tabular-nums text-on-surface-muted">{{ s.pct }}%</span>
+      <span class="w-20 text-right tabular-nums text-on-surface">{{ s.kg }}</span>
+    </li>
+  </ul>
+
+  <span class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></span>
+</figure>

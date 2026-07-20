@@ -1,0 +1,39 @@
+name: medication-reminder-pet
+props:
+  pet:
+    type: string
+    title: Pet name
+    description: The pet the medication is for, shown as an eyebrow.
+    example: "Biscuit"
+  medication:
+    type: string
+    required: true
+    title: Medication
+    example: "Apoquel"
+  dosage:
+    type: string
+    title: Dosage
+    description: Amount per dose, e.g. "16 mg tablet".
+    example: "16 mg tablet"
+  schedule:
+    type: string
+    title: Schedule
+    description: How often the medication is given, e.g. "Twice daily with food".
+    example: "Twice daily with food"
+  next_dose:
+    type: string
+    title: Next dose
+    description: When the next dose is due, shown in a highlighted band.
+    example: "Today, 6:00 PM"
+  doses:
+    type: array
+    items: object
+    required: true
+    title: Doses
+    description: >
+      The scheduled doses for the day. Each item is an object { time, given }.
+      given is a boolean; a given dose shows a check, an outstanding one shows a
+      "Mark given" button.
+    example:
+      - { time: "8:00 AM", given: true }
+      - { time: "6:00 PM", given: false }

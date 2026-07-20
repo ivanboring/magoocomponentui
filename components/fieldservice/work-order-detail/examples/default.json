@@ -1,0 +1,18 @@
+{
+  "order_number": "WO-4821",
+  "status": "In progress",
+  "customer": "Acme Bakery",
+  "address": "142 Maple Ave, Springfield",
+  "description_html": "<p>Furnace not igniting on the morning cycle. Replace the igniter assembly and verify a clean start and steady flame.</p>",
+  "tasks": [
+    { "label": "Diagnose fault", "done": true },
+    { "label": "Replace igniter assembly", "done": true },
+    { "label": "Test heating cycle", "done": false },
+    { "label": "Clean up and confirm with customer", "done": false }
+  ],
+  "parts": [
+    { "name": "Igniter assembly", "qty": "1" },
+    { "name": "Flame sensor", "qty": "1" }
+  ],
+  "total": "$248.00"
+}

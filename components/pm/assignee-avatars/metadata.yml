@@ -1,0 +1,72 @@
+name: "Assignee Avatars"
+short_description: An overlapping stack of task assignees with an optional "+N" overflow count.
+long_visual_description: >
+  A compact horizontal row of small circular avatars that overlap slightly, each separated from
+  its neighbour by a thin surface-coloured ring. An assignee with a photo shows it; one without
+  falls back to uppercase initials on a raised surface. When more people are assigned than are
+  shown, a muted "+N" circle closes the row.
+
+use_cases:
+  - Show who is assigned to a task or card on a board.
+  - Show reviewers on a pull request or work item.
+  - Show owners on an epic, story, or sprint item.
+  - Show watchers or participants on an issue.
+  - Show the team responsible for a project row.
+  - Compact who-is-on-it cue in a dense table or list.
+
+recommended_for:
+  - A small set of assignees shown compactly on a card or row.
+  - Cases where extra assignees should collapse into a "+N" chip.
+avoid_for:
+  - A single assignee (use an avatar).
+  - A full participant list with names (use a list of profile rows).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the visible assignees as people (each with name, precomputed initials, and an optional
+  avatar) and set overflow_count to the number of additional assignees not shown; the template
+  performs no arithmetic itself.
+
+props:
+  people: The assignees to render as overlapping avatars; order by relevance (owner first).
+  overflow_count: Precomputed remaining count shown as "+N"; 0 hides the chip.
+
+example_prompts:
+  - "Show the four assignees on this task with a plus-two overflow."
+  - "Add assignee avatars to the board card for its two owners."
+
+lifecycle: experimental
+content_model: A short ordered list of assignees (name, initials, optional photo) and an overflow count.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+
+editorial_guidance: >
+  Order assignees by responsibility, with the primary owner first, since only the passed people
+  render and the rest collapse into the overflow count.
+
+relationships:
+  related:
+    - atoms/avatar-group
+    - pm/time-log-row
+    - pm/project-health-card
+
+categorization:
+  category: Project Management
+  subcategory: People
+  atomic_type: atom
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each avatar carries role="img" and an aria-label with the assignee's name; initials are decorative.
+  keyboard_support: "none"
+  seo_score: 15
+  text_direction: both

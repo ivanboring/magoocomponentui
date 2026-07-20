@@ -1,0 +1,25 @@
+<section class="appointment-gov rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="appointment-gov__office flex items-start gap-3">
+    <span class="mt-0.5 shrink-0 text-primary" aria-hidden="true">
+      <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6-5-6-10a6 6 0 0 1 12 0c0 5-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+    </span>
+    <div class="min-w-0">
+      <p data-if="office" class="font-heading text-lg text-on-surface">{{ office }}</p>
+      <p data-if="address" class="text-sm text-on-surface-muted">{{ address }}</p>
+    </div>
+  </div>
+
+  <div class="appointment-gov__dates mt-5 flex flex-col gap-4">
+    <div data-for="date in dates" class="appointment-gov__date">
+      <p class="text-sm font-medium text-on-surface">{{ date.label }}</p>
+      <div class="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-4">
+        <button data-for="slot in date.slots" type="button" data-available="{{ slot.available }}" data-selected="{{ slot.selected }}" class="appointment-gov__slot rounded-control border border-border bg-surface-raised px-3 py-2 text-sm tabular-nums text-on-surface transition-colors duration-(--duration-token) hover:border-primary/30 hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[selected=true]:border-primary data-[selected=true]:bg-primary data-[selected=true]:text-primary-contrast data-[available=false]:pointer-events-none data-[available=false]:border-border data-[available=false]:bg-surface data-[available=false]:text-on-surface-muted data-[available=false]:line-through data-[available=false]:opacity-50">{{ slot.time }}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="appointment-gov__actions mt-6 flex flex-wrap items-center justify-between gap-3">
+    <p data-if="selected" class="text-sm text-on-surface-muted">Selected: <span class="font-medium text-on-surface">{{ selected }}</span></p>
+    <button type="button" class="appointment-gov__book ml-auto rounded-button bg-primary px-6 py-2.5 font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Book appointment</button>
+  </div>
+</section>

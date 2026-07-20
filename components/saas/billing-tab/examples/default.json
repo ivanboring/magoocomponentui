@@ -1,0 +1,21 @@
+{
+  "plan": {
+    "name": "Pro",
+    "price": "$29",
+    "period": "month",
+    "features": [
+      "Unlimited projects",
+      "Priority support",
+      "Advanced analytics"
+    ]
+  },
+  "payment": {
+    "brand": "Visa",
+    "last4": "4242",
+    "expires": "08/27"
+  },
+  "usage": {
+    "label": "Seats used",
+    "used_pct": 72
+  }
+}

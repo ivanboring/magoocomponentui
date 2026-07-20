@@ -1,0 +1,6 @@
+{
+  "clear_label": "Reset",
+  "chips": [
+    { "label": "In stock", "value": "availability:in-stock" }
+  ]
+}

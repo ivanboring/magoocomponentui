@@ -1,0 +1,85 @@
+name: "Shift Report"
+short_description: An end-of-shift sales summary card - a shift header, a grid of headline figures, and an optional payment-method breakdown bar with legend.
+long_visual_description: >
+  A card on the surface colour with a header carrying the shift name and date, a responsive grid of
+  headline stats (net sales, covers, average check) with large tabular values under muted labels,
+  and an optional payment breakdown: a single slim stacked bar split by method, followed by a
+  legend that names each method with its coloured swatch and total.
+
+use_cases:
+  - End-of-shift or end-of-day sales summary for a manager.
+  - Z-report style recap of takings by payment method.
+  - Daily close-out card in a back-office dashboard.
+  - Weekly rollup of net sales, covers and average check.
+  - Location performance snapshot across a chain.
+  - Server or section summary at cash-out.
+
+recommended_for:
+  - A compact summary of a shift's key numbers plus a payment split.
+  - Dashboards that recap sales without a full chart.
+avoid_for:
+  - Time-series sales trends (use a chart component).
+  - A line-by-line transaction log (use a table or list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a shift and date for the header and a stats array of { label, value } for the grid (three
+  reads well on desktop). Optionally add payment_breakdown as { method, amount, pct, color_class }
+  where pct is the precomputed share and color_class is a tokenised fill such as bg-primary; the
+  segments and legend swatches share that colour.
+
+props:
+  shift: "The shift name shown in the header; a generic heading is used when omitted."
+  date: "Optional pre-formatted date shown beside the shift name."
+  stats: "Headline figures as { label, value } pairs rendered in the responsive stat grid."
+  payment_breakdown: "Optional split of takings by method as { method, amount, pct, color_class }, rendered as a stacked bar and legend."
+
+example_prompts:
+  - "Show a dinner-shift report with net sales, covers and average check."
+  - "Add a shift report card with a payment breakdown bar for card, cash and gift card."
+  - "Give me an end-of-day sales summary with a payments split."
+
+lifecycle: experimental
+content_model: A shift header with date, a set of headline stat figures, and an optional payment-method breakdown with amounts and shares.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep stat labels short and format every figure consistently. Give payment segments a stable
+  colour per method so the bar and legend agree, and make sure the shares sum to about a hundred.
+
+relationships:
+  related:
+    - pos/tip-out-row
+    - pos/kitchen-display
+    - dashboard/stat-card
+
+categorization:
+  category: Restaurant POS
+  subcategory: Reports
+  atomic_type: organism
+  usage_type: [card, summary]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each payment method is named with its amount in the legend, so meaning does not rely on the bar colours alone; the stat grid uses a definition list.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

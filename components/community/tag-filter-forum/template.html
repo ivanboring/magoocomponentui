@@ -1,0 +1,6 @@
+<div class="tag-filter-forum flex flex-wrap gap-2" role="group" aria-label="Filter by tag">
+  <button data-for="tag in tags" type="button" class="tag-filter-forum__tag inline-flex items-center gap-1.5 rounded-pill border border-border bg-surface px-3 py-1 text-sm text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised data-[active=true]:border-primary data-[active=true]:bg-primary data-[active=true]:text-primary-contrast" data-label="{{ tag.label }}" data-active="{{ tag.active }}">
+    <span>{{ tag.label }}</span>
+    <span data-if="tag.count" class="tabular-nums opacity-70">{{ tag.count }}</span>
+  </button>
+</div>

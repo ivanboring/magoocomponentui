@@ -1,0 +1,34 @@
+name: challenge-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The challenge name.
+    example: "30-Day Plank Challenge"
+  description:
+    type: string
+    title: Description
+    description: A short line describing the challenge.
+    example: "Build core strength with a daily plank that grows a little longer each day."
+  image:
+    type: string
+    format: uri-reference
+    title: Image
+    description: Optional cover image URL for the challenge (a /stock path in the catalog).
+    example: "/stock/stage1.jpg"
+  participants:
+    type: string
+    title: Participants
+    description: Preformatted count of people taking part, e.g. "1,240 joined".
+    example: "1,240 joined"
+  days:
+    type: string
+    title: Duration
+    description: Preformatted duration or time remaining, e.g. "30 days".
+    example: "30 days"
+  joined:
+    type: boolean
+    default: false
+    title: Joined
+    description: Whether the current user has joined; toggles the button to its Joined state.

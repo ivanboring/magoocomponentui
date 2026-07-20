@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "title": "Data processing agreement", "body_html": "<p>Our standard data processing agreement governs how we handle personal data on your behalf, including sub-processors and international transfers.</p>", "open": false },
+    { "title": "Retention periods", "body_html": "<p>We keep account data for the life of the account and for 90 days after closure, then delete or anonymise it.</p>", "open": false },
+    { "title": "Security measures", "body_html": "<p>Data is encrypted in transit and at rest. Access is restricted to staff who need it and is logged and reviewed.</p>", "open": false }
+  ]
+}

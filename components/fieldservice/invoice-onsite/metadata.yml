@@ -1,0 +1,89 @@
+name: "On-site Invoice"
+short_description: A compact on-site invoice card with a status pill, line items, a totals block and a Collect payment button.
+long_visual_description: >
+  A surface card headed by an "Invoice" label and reference number on the left with a status pill on
+  the right - neutral for draft, info for sent, green for paid. A divided list of billed lines follows,
+  each label on the left and a monospaced amount on the right. A totals block separated by a rule shows
+  the subtotal, tax and an emphasised grand total, and a full-width primary Collect payment button
+  closes the card.
+
+use_cases:
+  - Present an invoice to a customer at the end of a service visit.
+  - Collect payment on site once a job is complete.
+  - Summarise labour and parts charges for a work order.
+  - Show a draft invoice for review before sending.
+  - Confirm a paid invoice at the close of a callout.
+  - Itemise a repair estimate turned invoice in the field.
+
+recommended_for:
+  - Field service completion flows that bill and collect on site.
+  - Compact invoice summaries paired with a sign-off.
+avoid_for:
+  - A full accounting invoice document with tax breakdowns and terms.
+  - Recurring or subscription billing.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass line_items with preformatted amounts and a preformatted total; add subtotal and tax where
+  relevant. Set status to colour the pill. Amounts are display strings, so format currency upstream.
+  The Collect payment button is a skeleton control - wire it to your payment flow.
+
+props:
+  invoice_number: The invoice reference shown in the header.
+  line_items: The billed lines in order, each with a label and a preformatted amount.
+  subtotal: Preformatted subtotal shown in the totals block.
+  tax: Preformatted tax amount shown in the totals block.
+  total: Preformatted grand total, emphasised in the totals block.
+  status: draft, sent or paid; colours the status pill.
+
+example_prompts:
+  - "Show an on-site invoice for labour and parts with a Collect payment button."
+  - "Add a paid invoice card summarising the job charges."
+
+lifecycle: experimental
+content_model: An invoice number, a status, a list of billed line items, a subtotal/tax/total block, and a pay action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep line labels short and specific about what was billed. Make the status honest - it sets
+  expectations for the pay action - and ensure the total matches the lines and taxes shown.
+
+relationships:
+  related:
+    - fieldservice/customer-signoff
+    - fieldservice/checklist-inspection
+    - fieldservice/equipment-card
+
+categorization:
+  category: Field Service
+  subcategory: Billing
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill's text label as well as colour; totals use a semantic definition list and the pay control is a labelled button.
+  keyboard_support: The Collect payment button is focusable and activates on Enter/Space.
+  seo_score: 30
+  text_direction: both

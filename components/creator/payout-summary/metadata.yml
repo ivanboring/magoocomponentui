@@ -1,0 +1,83 @@
+name: "Payout Summary"
+short_description: A creator payout card breaking a period's earnings into revenue sources with a paid/pending status.
+long_visual_description: >
+  A surface card with a muted period label above a large headline payout total in the heading face,
+  and a small status pill (pending in a warning tone, paid in a success tone) on the trailing edge.
+  Below, a divided list itemises each revenue source with its amount right-aligned in tabular
+  figures, and a footer row shows the payout date and destination method with small glyphs.
+
+use_cases:
+  - Show a creator's monthly payout total broken down by revenue source.
+  - Summarise a pending payout before it is sent to the connected bank account.
+  - Confirm a completed payout with its date and destination.
+  - Give a per-period earnings recap in a creator dashboard.
+  - Display a settlement summary in a membership or tipping platform.
+  - Recap channel earnings across memberships, tips, and product sales.
+
+recommended_for:
+  - Creator earnings and payout dashboards.
+  - Period settlement summaries with a small set of revenue lines.
+avoid_for:
+  - A full transaction ledger or statement (use a table).
+  - A single headline number with no breakdown (use stat-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a formatted total and a sources array (each { label, amount }); set status to pending or paid
+  and optionally add a payout_date and method. Keep amounts pre-formatted with currency — the card
+  does no maths and simply lists what it is given.
+
+props:
+  total: The formatted headline payout amount including currency.
+  period: The period the payout covers, shown above the total.
+  sources: The revenue lines making up the total; each { label, amount } with amounts pre-formatted.
+  status: Whether the payout is pending or paid; colours the status pill.
+  payout_date: The date the payout is or was sent.
+  method: The destination the payout is sent to, e.g. a masked bank account.
+
+example_prompts:
+  - "Show a March payout summary of $2,480 split across memberships, tips, and products."
+  - "Add a pending payout card with a bank destination and payout date."
+  - "Summarise this month's creator earnings by source."
+
+lifecycle: experimental
+content_model: A period, a formatted total, a list of revenue sources with amounts, a status, and optional date and method.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-warning
+    - --color-success
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep source labels short and consistent across periods so payouts read as a running series. Let the
+  status colour agree with its meaning and pre-format every amount with the same currency.
+
+relationships:
+  related:
+    - creator/engagement-stat
+    - dashboard/stat-card
+    - creator/brand-deal-tracker
+
+categorization:
+  category: Creator
+  subcategory: Earnings
+  atomic_type: molecule
+  usage_type: [card, stat]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text as well as colour; amounts use tabular figures and a semantic list.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 30
+  text_direction: both

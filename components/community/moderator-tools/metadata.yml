@@ -1,0 +1,83 @@
+name: "Moderator Tools"
+short_description: A compact moderation toolbar of labelled action buttons (Pin, Lock, Move, Remove) that dispatch events.
+long_visual_description: >
+  A bordered toolbar on the surface colour titled "Moderator tools" with a small shield glyph. Below
+  the title sits a wrapping row of icon-and-label buttons — Pin, Lock, Move and Remove by default —
+  each with a leading glyph. The destructive Remove button is tinted with the danger colour and gains
+  a danger-tinted hover.
+
+use_cases:
+  - Inline moderation controls on a forum thread.
+  - Comment-row admin actions for a moderator.
+  - Post overflow menu contents for staff.
+  - Quick actions on a reported-content review card.
+  - Board management strip above a thread.
+  - Staff-only controls on a community feed item.
+
+recommended_for:
+  - Giving moderators a consistent, event-driven action strip.
+  - Wiring moderation actions to a host via custom events.
+avoid_for:
+  - Regular member actions like reply or share (use ordinary buttons).
+  - Irreversible actions without a confirmation step downstream.
+
+markets:
+  - Global
+
+example_usage: >
+  Drop it beside a thread or comment. Leave the default actions or pass your own array; each button
+  dispatches a "mod:action" event carrying its value so the host can run the moderation and confirm
+  destructive ones.
+
+how_to_use: >
+  Each button carries its identifier in data-action (set from the action's value). behavior.js wires
+  a click listener on every button that dispatches a bubbling "mod:action" CustomEvent with
+  detail { action }. The portable self-init reads config from the data-* attributes only — no props
+  object is passed. Confirm destructive actions (Remove) in the host handler.
+
+props:
+  actions: "The buttons, in order. Each: label, value (dispatched identifier), danger (destructive tint), icon (optional raw SVG). Defaults to Pin, Lock, Move, Remove."
+
+example_prompts:
+  - "Add a moderator toolbar with pin, lock, move and remove actions to the thread."
+  - "Show staff moderation buttons where remove is styled as destructive."
+  - "Wire a moderation strip that dispatches an event when an action is clicked."
+
+lifecycle: experimental
+content_model: An ordered set of moderation actions, each with a label, dispatched value, optional danger flag and optional icon.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-danger
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep action labels to a single verb. Order them from least to most destructive so Remove sits last,
+  and always confirm destructive actions before acting on them.
+
+relationships:
+  related:
+    - community/pinned-post
+    - community/report-post
+    - community/online-members
+
+categorization:
+  category: Community
+  subcategory: Moderation
+  atomic_type: molecule
+  usage_type: [list-item, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Wrapped in role="toolbar" with an accessible label; icons are decorative inside labelled buttons so each control has a text name.
+  keyboard_support: Each action is a focusable button that activates on Enter or Space.
+  seo_score: 20
+  text_direction: both

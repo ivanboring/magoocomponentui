@@ -1,0 +1,16 @@
+{
+  "title": "ETH / USD",
+  "ranges": [
+    { "label": "1H", "active": false },
+    { "label": "1D", "active": false },
+    { "label": "1W", "active": true },
+    { "label": "1M", "active": false }
+  ],
+  "candles": [
+    { "x_pct": 10, "high_pct": 34, "low_pct": 70, "open_pct": 62, "close_pct": 44, "up": true },
+    { "x_pct": 30, "high_pct": 28, "low_pct": 58, "open_pct": 44, "close_pct": 52, "up": false },
+    { "x_pct": 50, "high_pct": 22, "low_pct": 54, "open_pct": 52, "close_pct": 32, "up": true },
+    { "x_pct": 70, "high_pct": 26, "low_pct": 60, "open_pct": 32, "close_pct": 48, "up": false },
+    { "x_pct": 90, "high_pct": 18, "low_pct": 46, "open_pct": 48, "close_pct": 24, "up": true }
+  ]
+}

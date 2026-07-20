@@ -1,0 +1,73 @@
+name: "Points History Row"
+short_description: A single ledger row for a points transaction - description, date, a signed delta coloured by direction, and a running balance.
+long_visual_description: >
+  A compact list row with a bottom hairline. The left side holds a truncating description over a
+  muted date; the right side shows the points delta in tabular figures, prefixed with a green "+"
+  when earned or a red "-" when spent, with the running balance in muted text beneath.
+
+use_cases:
+  - A row in a loyalty-points transaction history.
+  - An earn/spend ledger line on a member account page.
+  - A rewards activity feed entry with a running balance.
+  - A redemption record in a points wallet.
+  - A recent-activity line summarising points movement.
+
+recommended_for:
+  - Points ledgers where each row needs a signed, colour-coded delta.
+  - Activity lists that stack many rows with a shared hairline divider.
+avoid_for:
+  - A single headline points balance (use a stat-card or points-balance-card).
+  - Rows needing rich media or actions (use a fuller list-item component).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows inside a card or list container. Pass an unsigned points string and set
+  direction to earned or spent - the sign and colour are applied for you. Add date for context and
+  balance to show the ledger's running total after each entry.
+
+props:
+  description: What earned or spent the points; truncates when long.
+  points: The unsigned, formatted points amount; the sign comes from direction.
+  direction: earned renders a green "+"; spent renders a red "-".
+  date: A short date or timestamp under the description.
+  balance: The formatted running balance after this entry; omit to hide.
+
+example_prompts:
+  - "Add a points history row earning 250 points from an order."
+  - "Show a spent points row for a reward redemption."
+  - "List recent points activity with a running balance."
+
+lifecycle: experimental
+content_model: A description, an optional date, a signed points delta, and an optional running balance.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+
+editorial_guidance: >
+  Keep descriptions specific enough to recognise the transaction. Colour must agree with direction -
+  earned is always the green "+", spent always the red "-".
+
+relationships:
+  related:
+    - loyalty/points-balance-card
+    - dashboard/stat-card
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Points
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The +/- sign carries the earn/spend meaning as text, so direction is not conveyed by colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 20
+  text_direction: both

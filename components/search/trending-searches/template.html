@@ -1,0 +1,18 @@
+<section class="trending-searches rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h2 class="trending-searches__heading mb-3 flex items-center gap-2 font-heading text-on-surface">
+    <svg class="size-4 text-primary" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 13l4-4 3 3 7-7"/><path d="M14 5h3v3"/></svg>
+    {{ heading }}
+  </h2>
+  <ol class="trending-searches__list flex flex-col">
+    <li data-for="query in queries" class="trending-searches__item flex items-center gap-3 border-b border-border py-2 last:border-0">
+      <span data-if="query.rank" class="trending-searches__rank w-5 shrink-0 text-right font-mono text-sm text-on-surface-muted">{{ query.rank }}</span>
+      <a data-if="query.href" class="trending-searches__label min-w-0 flex-1 truncate text-sm text-on-surface outline-none hover:text-primary hover:underline focus-visible:text-primary focus-visible:underline" href="{{ query.href }}">{{ query.label }}</a>
+      <span data-if="!query.href" class="trending-searches__label min-w-0 flex-1 truncate text-sm text-on-surface">{{ query.label }}</span>
+      <span data-if="query.trend" data-trend="{{ query.trend }}" class="trending-searches__trend group/trend relative inline-block size-4 shrink-0 data-[trend=up]:text-success data-[trend=down]:text-danger data-[trend=flat]:text-on-surface-muted" aria-hidden="true">
+        <svg class="absolute inset-0 size-4 opacity-0 group-data-[trend=up]/trend:opacity-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5-5 5 5"/></svg>
+        <svg class="absolute inset-0 size-4 opacity-0 group-data-[trend=down]/trend:opacity-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg>
+        <svg class="absolute inset-0 size-4 opacity-0 group-data-[trend=flat]/trend:opacity-100" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h12"/></svg>
+      </span>
+    </li>
+  </ol>
+</section>

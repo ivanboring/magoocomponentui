@@ -1,0 +1,22 @@
+{
+  "employee": "Priya Nair",
+  "pct": 40,
+  "groups": [
+    {
+      "label": "Before day one",
+      "items": [
+        { "label": "Sign offer letter", "done": true },
+        { "label": "Submit tax forms", "done": true },
+        { "label": "Complete background check", "done": false }
+      ]
+    },
+    {
+      "label": "First week",
+      "items": [
+        { "label": "Set up laptop and accounts", "done": true },
+        { "label": "Meet the team", "done": false },
+        { "label": "Read the engineering handbook", "done": false }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="lost-pet-alert overflow-hidden rounded-card border border-warning bg-surface shadow-card" role="alert">
+  <p class="lost-pet-alert__banner flex items-center gap-2 bg-warning/10 px-(--space-card) py-2 text-sm font-semibold uppercase tracking-wide text-warning">
+    <svg class="size-4 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 7v4M10 14h.01M8.6 3.2 1.7 15a1.6 1.6 0 0 0 1.4 2.4h13.8A1.6 1.6 0 0 0 18.3 15L11.4 3.2a1.6 1.6 0 0 0-2.8 0z"/></svg>
+    Missing
+  </p>
+  <div class="flex gap-4 p-(--space-card)">
+    <img data-if="photo" class="lost-pet-alert__photo size-24 shrink-0 rounded-control object-cover" src="{{ photo }}" alt="{{ name }}">
+    <div data-if="!photo" class="lost-pet-alert__glyph flex size-24 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+      <svg class="size-10" viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="10" cy="6" r="2"/><circle cx="14" cy="6" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-2.5 0-4.5 2-4.5 4.2 0 1.6 1.3 2.3 2.6 2.3.9 0 1.3-.4 1.9-.4s1 .4 1.9.4c1.3 0 2.6-.7 2.6-2.3C16.5 14 14.5 12 12 12z"/></svg>
+    </div>
+    <div class="min-w-0 flex-1">
+      <h3 class="font-heading text-lg text-on-surface">{{ name }}</h3>
+      <p data-if="breed" class="text-sm text-on-surface-muted">{{ breed }}</p>
+      <p data-if="species" class="text-sm text-on-surface-muted">{{ species }}</p>
+      <p data-if="last_seen" class="mt-2 text-sm text-on-surface">Last seen {{ last_seen }}</p>
+      <p data-if="reward" class="mt-1 text-sm font-semibold text-warning">{{ reward }}</p>
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-2 px-(--space-card) pb-(--space-card)">
+    <a data-if="contact" class="lost-pet-alert__contact inline-flex items-center justify-center rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90" href="{{ contact }}">Contact owner</a>
+    <button data-if="!contact" type="button" class="lost-pet-alert__contact inline-flex items-center justify-center rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Contact owner</button>
+    <button type="button" class="lost-pet-alert__share inline-flex items-center gap-2 rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+      <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="15" cy="5" r="2.5"/><circle cx="5" cy="10" r="2.5"/><circle cx="15" cy="15" r="2.5"/><path d="M7.2 8.8 12.8 6.2M7.2 11.2l5.6 2.6"/></svg>
+      Share
+    </button>
+  </div>
+</div>

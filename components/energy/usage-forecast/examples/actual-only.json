@@ -1,0 +1,6 @@
+{
+  "title": "Monthly consumption",
+  "line_path": "M0,60 L20,52 L40,58 L60,40 L80,46 L100,34",
+  "y_labels": ["600", "450", "300", "150", "0"],
+  "x_labels": ["Wk 1", "Wk 2", "Wk 3", "Wk 4"]
+}

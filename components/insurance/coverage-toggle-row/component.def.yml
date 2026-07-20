@@ -1,0 +1,23 @@
+name: coverage-toggle-row
+props:
+  name:
+    type: string
+    required: true
+    title: Coverage name
+    description: The name of the coverage or add-on.
+    example: "Roadside assistance"
+  description:
+    type: string
+    title: Description
+    description: An optional one-line explanation of what the coverage includes.
+    example: "24/7 towing and lockout help."
+  price:
+    type: string
+    title: Price
+    description: An optional pre-formatted price for the coverage, e.g. "+$8/mo".
+    example: "+$8/mo"
+  included:
+    type: boolean
+    default: false
+    title: Included
+    description: Whether the coverage is currently on; drives the switch state.

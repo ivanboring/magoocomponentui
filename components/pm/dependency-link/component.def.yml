@@ -1,0 +1,22 @@
+name: dependency-link
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The linked item's reference or title (e.g. an issue key like "PROJ-142").
+    example: "PROJ-142"
+  kind:
+    type: enum
+    values: ["blocks", "blocked-by", "relates-to"]
+    default: relates-to
+    title: Link kind
+    description: >
+      The dependency relationship. Colours the pill — blocks is danger, blocked-by is warning,
+      relates-to is info.
+    example: blocked-by
+variants:
+  kind:
+    "blocks": "bg-danger/10 text-danger"
+    "blocked-by": "bg-warning/10 text-warning"
+    "relates-to": "bg-info/10 text-info"

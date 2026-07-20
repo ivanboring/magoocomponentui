@@ -1,0 +1,26 @@
+name: snooze-menu
+props:
+  trigger_label:
+    type: string
+    default: "Snooze"
+    title: Trigger label
+    description: The text shown on the button that opens the menu.
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: Render the menu already open (useful for previews and examples).
+  options:
+    type: array
+    items: object
+    required: true
+    title: Snooze options
+    description: >
+      The preset snooze targets, in order. Each option: { label, when }. label names the
+      target ("Later today", "Tomorrow"); when is the muted resolved time shown on the right
+      ("6:00 PM", "Tue 8 AM").
+    example:
+      - { label: "Later today", when: "6:00 PM" }
+      - { label: "Tomorrow", when: "Tue 8:00 AM" }
+      - { label: "This weekend", when: "Sat 8:00 AM" }
+      - { label: "Next week", when: "Mon 8:00 AM" }

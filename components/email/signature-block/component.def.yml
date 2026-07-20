@@ -1,0 +1,38 @@
+name: signature-block
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The person's full name (the signature's primary line).
+    example: "Jordan Rivera"
+  title:
+    type: string
+    title: Job title
+    description: Optional role or job title.
+    example: "Head of Partnerships"
+  company:
+    type: string
+    title: Company
+    description: Optional company or organisation name.
+    example: "Northwind Studio"
+  phone:
+    type: string
+    title: Phone
+    description: Optional phone number, rendered as a telephone link.
+    example: "+1 (555) 018-2245"
+  email:
+    type: string
+    title: Email
+    description: Optional email address, rendered as a mailto link.
+    example: "jordan@northwind.studio"
+  website:
+    type: link
+    title: Website
+    description: Optional website URL.
+    example: "https://northwind.studio"
+  avatar:
+    type: image
+    title: Avatar
+    description: Optional profile photo shown beside the details.
+    example: "/stock/avatar-woman-1.jpg"

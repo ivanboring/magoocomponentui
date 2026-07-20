@@ -1,0 +1,30 @@
+<section class="cookie-preferences rounded-card border border-border bg-surface p-(--space-card) shadow-card" aria-label="{{ title }}">
+  <h2 class="cookie-preferences__title font-heading text-lg font-semibold text-on-surface">{{ title }}</h2>
+  <p data-if="intro" class="cookie-preferences__intro mt-1 text-sm text-on-surface-muted">{{ intro }}</p>
+
+  <ul class="cookie-preferences__list mt-4 flex flex-col divide-y divide-border">
+    <li data-for="cat in categories" class="cookie-preferences__row flex items-start justify-between gap-4 py-3">
+      <div class="min-w-0">
+        <p class="cookie-preferences__label font-medium text-on-surface">{{ cat.label }}</p>
+        <p data-if="cat.description" class="cookie-preferences__description mt-0.5 text-sm text-on-surface-muted">{{ cat.description }}</p>
+      </div>
+
+      <div data-if="cat.required" class="flex shrink-0 items-center gap-2">
+        <span class="text-xs font-medium text-on-surface-muted">Always on</span>
+        <span class="cookie-preferences__switch group inline-flex h-5 w-9 shrink-0 cursor-not-allowed items-center rounded-pill bg-primary px-0.5 opacity-60" role="switch" aria-checked="true" aria-disabled="true" aria-label="{{ cat.label }}" data-state="true">
+          <span class="cookie-preferences__knob size-4 translate-x-4 rounded-pill bg-primary-contrast transition-transform duration-(--duration-token)"></span>
+        </span>
+      </div>
+
+      <button data-if="!cat.required" type="button" class="cookie-preferences__switch cookie-preferences__toggle group inline-flex h-5 w-9 shrink-0 items-center rounded-pill border border-border bg-surface-raised px-0.5 transition-colors duration-(--duration-token) hover:border-on-surface-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[state=true]:border-primary data-[state=true]:bg-primary" role="switch" aria-checked="{{ cat.on }}" aria-label="{{ cat.label }}" data-state="{{ cat.on }}">
+        <span class="cookie-preferences__knob size-4 rounded-pill bg-on-surface-muted transition-transform duration-(--duration-token) group-data-[state=true]:translate-x-4 group-data-[state=true]:bg-primary-contrast"></span>
+      </button>
+    </li>
+  </ul>
+
+  <div class="cookie-preferences__actions mt-5 flex flex-wrap items-center gap-2">
+    <button type="button" class="cookie-preferences__reject rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Reject all</button>
+    <button type="button" class="cookie-preferences__accept rounded-button border border-border bg-surface px-4 py-2 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">Accept all</button>
+    <button type="button" class="cookie-preferences__save ml-auto rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90">Save preferences</button>
+  </div>
+</section>

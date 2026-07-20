@@ -1,0 +1,31 @@
+name: defi-pool-row
+props:
+  pair:
+    type: string
+    required: true
+    title: Pair
+    description: The liquidity pair, e.g. "ETH/USDC".
+    example: "ETH/USDC"
+  icons:
+    type: html
+    title: Token icons
+    description: >
+      Optional raw HTML for the paired-token icon cluster (two overlapping token logos). When
+      omitted, a neutral two-circle placeholder cluster is shown instead.
+  tvl:
+    type: string
+    required: true
+    title: TVL
+    description: Total value locked in the pool.
+    example: "$42.8M"
+  apr:
+    type: string
+    required: true
+    title: APR
+    description: The pool's annual percentage rate (shown in the success colour).
+    example: "18.4%"
+  volume:
+    type: string
+    title: Volume
+    description: Optional 24h trading volume; the column is hidden when omitted.
+    example: "$6.1M"

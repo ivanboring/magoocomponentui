@@ -1,0 +1,13 @@
+{
+  "title": "Line 3 pre-shipment QC",
+  "passed": "5",
+  "total": "6",
+  "items": [
+    { "label": "Weld penetration within tolerance", "result": "pass" },
+    { "label": "Surface finish free of scoring", "result": "pass" },
+    { "label": "Torque values logged for all fasteners", "result": "pass", "note": "Spec 42 Nm, measured 41-43 Nm" },
+    { "label": "Dimensional check against drawing REV-C", "result": "fail", "note": "Bore diameter 0.08 mm over max" },
+    { "label": "Label and serial number applied", "result": "pass" },
+    { "label": "Final packaging inspection", "result": "pending" }
+  ]
+}

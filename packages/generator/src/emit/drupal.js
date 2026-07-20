@@ -116,7 +116,7 @@ function paragraphTwig(name, def, theme, ast) {
     // Integer/number fields return their .value as a string; `+ 0` coerces so strict SDC
     // props typed integer/number don't reject it.
     if (p.type === "integer") { propLines.push(`  ${p.name}: paragraph.${fn}.value|default(0) + 0,`); continue; }
-    if (p.type === "link") { propLines.push(`  ${p.name}: paragraph.${fn}.0.url|default(''),`); continue; }
+    if (p.type === "link" || p.type === "video") { propLines.push(`  ${p.name}: paragraph.${fn}.0.url|default(''),`); continue; }
     if (p.type === "image") { propLines.push(`  ${p.name}: paragraph.${fn}.entity ? file_url(paragraph.${fn}.entity.uri.value) : '',`); continue; }
     // An unset enum field yields '' — which strict SDC prop validation rejects. Fall back to
     // the prop's declared default (or first allowed value).

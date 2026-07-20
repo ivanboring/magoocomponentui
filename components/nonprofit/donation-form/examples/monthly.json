@@ -1,0 +1,9 @@
+{
+  "frequency": "monthly",
+  "currency": "$",
+  "amounts": [
+    { "value": "10", "label": "$10", "selected": false },
+    { "value": "20", "label": "$20", "selected": true },
+    { "value": "40", "label": "$40", "selected": false }
+  ]
+}

@@ -1,0 +1,22 @@
+name: label-chip
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The label text shown next to the colour dot.
+    example: "Work"
+  color:
+    type: enum
+    values: [gray, blue, green, amber, red, purple]
+    default: gray
+    title: Colour
+    description: The label's colour tone; sets the dot and text/background pair.
+variants:
+  color:
+    gray: "bg-surface-raised text-on-surface-muted"
+    blue: "bg-info/10 text-info"
+    green: "bg-success/10 text-success"
+    amber: "bg-warning/10 text-warning"
+    red: "bg-danger/10 text-danger"
+    purple: "bg-primary/10 text-primary"

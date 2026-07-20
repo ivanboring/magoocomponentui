@@ -1,0 +1,19 @@
+<div class="reward-catalog-item flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface shadow-card">
+  <div class="reward-catalog-item__media aspect-[3/2] shrink-0 overflow-hidden bg-surface-raised">
+    <img data-if="image" class="size-full object-cover" src="{{ image }}" alt="">
+    <div data-if="!image" class="flex size-full items-center justify-center text-on-surface-muted">
+      <svg class="size-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 7H4v4h16V7zM12 7v14M12 7C12 5 10.5 3 8.5 3S5 4.5 5 6s2 1 3.5 1M12 7c0-2 1.5-4 3.5-4S19 4.5 19 6s-2 1-3.5 1M4 11v9a1 1 0 001 1h14a1 1 0 001-1v-9"/></svg>
+    </div>
+  </div>
+  <div class="flex flex-1 flex-col gap-1 p-4">
+    <span data-if="category" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ category }}</span>
+    <h3 class="font-heading text-on-surface">{{ name }}</h3>
+    <div class="mt-auto flex items-center justify-between gap-3 pt-3">
+      <span class="reward-catalog-item__cost inline-flex items-center gap-1 rounded-pill bg-primary/10 px-3 py-1 text-sm font-medium text-primary tabular-nums">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.9 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>
+        {{ cost }}
+      </span>
+      <button type="button" data-affordable="{{ affordable }}" aria-label="Redeem {{ name }}" class="reward-catalog-item__redeem rounded-button bg-primary px-4 py-2 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:bg-primary/90 data-[affordable=false]:pointer-events-none data-[affordable=false]:opacity-40">Redeem</button>
+    </div>
+  </div>
+</div>

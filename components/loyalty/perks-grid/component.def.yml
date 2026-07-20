@@ -1,0 +1,17 @@
+name: perks-grid
+props:
+  perks:
+    type: array
+    items: object
+    required: true
+    title: Perks
+    description: >
+      The member perks to display, in order. Each item: { label, description, icon, unlocked }.
+      label is required; description is an optional supporting line; icon is an optional raw inline
+      SVG string (falls back to a default glyph when omitted); unlocked is a boolean - pass false to
+      lock a perk (the tile dims and shows a lock badge). Always pass unlocked explicitly; a perk
+      with unlocked true reads as available.
+    example:
+      - { label: "Free shipping", description: "On every order", unlocked: true }
+      - { label: "Early access", description: "Shop drops first", unlocked: true }
+      - { label: "Birthday gift", description: "A treat on your day", unlocked: false }

@@ -1,0 +1,77 @@
+name: "Redemption Row"
+short_description: A single loyalty redemption entry - reward, date, points spent, and status.
+long_visual_description: >
+  A list row divided by a bottom border. The reward name in medium weight leads on the left with an
+  optional date beneath it. On the right sit a status pill - green for redeemed, amber for pending,
+  red for expired - and the points spent shown as a negative figure in tabular figures.
+
+use_cases:
+  - A line in a member's redemption history list.
+  - Points-activity feed entry for a redemption.
+  - Account statement row showing points spent.
+  - Pending redemption awaiting fulfilment.
+  - Expired reward the member did not claim in time.
+  - Wallet transaction list in a membership app.
+
+recommended_for:
+  - Stacking into a redemption or activity history.
+  - Showing per-redemption status and points spent.
+avoid_for:
+  - Browsing rewards to redeem (use reward-catalog-item).
+  - A points balance total (use points-balance-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows to form a redemption history. Give each a reward name and pre-formatted points
+  (shown negative), plus an optional date and a status of redeemed, pending, or expired that colours
+  the pill.
+
+props:
+  reward: The redeemed reward's name.
+  points: Pre-formatted points spent, rendered with a leading minus.
+  date: Optional redemption date.
+  status: redeemed, pending, or expired - colours the status pill.
+
+example_prompts:
+  - "Add a redemption history row for a $10 gift card, 1,500 points, redeemed."
+  - "Show a pending redemption awaiting fulfilment."
+  - "Add an expired reward row to the points activity list."
+
+lifecycle: experimental
+content_model: A reward name, points spent, an optional date, and a redemption status.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Keep reward names consistent with the catalog. Let the status word carry the state; the pill colour
+  only reinforces it. Show points spent as a clear negative.
+
+relationships:
+  related:
+    - loyalty/reward-catalog-item
+    - loyalty/points-balance-card
+    - loyalty/punch-card
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: History
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is stated in text as well as the pill colour; digits use tabular figures for alignment.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

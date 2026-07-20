@@ -1,0 +1,23 @@
+<div class="range-facet flex flex-col gap-3">
+  <div class="flex items-baseline justify-between">
+    <span class="range-facet__label text-sm font-medium text-on-surface">{{ label }}</span>
+    <span class="range-facet__readout font-mono text-xs text-on-surface-muted">{{ current_min }}{{ unit }} &ndash; {{ current_max }}{{ unit }}</span>
+  </div>
+  <div class="range-facet__track relative h-1.5 rounded-pill bg-surface-raised">
+    <div class="range-facet__fill absolute inset-y-0 rounded-pill bg-primary" style="left: {{ track_left }}%; width: {{ track_width }}%">
+      <span class="range-facet__handle absolute left-0 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-pill border-2 border-primary bg-surface shadow-card" aria-hidden="true"></span>
+      <span class="range-facet__handle absolute right-0 top-1/2 size-4 translate-x-1/2 -translate-y-1/2 rounded-pill border-2 border-primary bg-surface shadow-card" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="flex items-center gap-2">
+    <div class="relative flex-1">
+      <input type="number" class="range-facet__min w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:ring-2 focus:ring-ring" value="{{ current_min }}" min="{{ min }}" max="{{ max }}" aria-label="Minimum {{ label }}">
+      <span data-if="unit" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-on-surface-muted">{{ unit }}</span>
+    </div>
+    <span class="text-on-surface-muted" aria-hidden="true">&ndash;</span>
+    <div class="relative flex-1">
+      <input type="number" class="range-facet__max w-full rounded-control border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:ring-2 focus:ring-ring" value="{{ current_max }}" min="{{ min }}" max="{{ max }}" aria-label="Maximum {{ label }}">
+      <span data-if="unit" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs text-on-surface-muted">{{ unit }}</span>
+    </div>
+  </div>
+</div>

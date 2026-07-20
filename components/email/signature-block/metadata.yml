@@ -1,0 +1,71 @@
+name: "Signature Block"
+short_description: An email signature with a name, role, and linked contact details beside an avatar.
+long_visual_description: >
+  A compact signature laid out beside an optional round avatar, marked off by a primary-tinted
+  left accent border. The name sits in the heading face; the role and company follow in muted
+  text; then a stack of contact lines — phone, email, and website — each with a small line icon,
+  rendered as tel:, mailto:, and web links that solidify on hover.
+
+use_cases:
+  - Personal sign-off at the foot of an email.
+  - Team member contact block in a newsletter footer.
+  - Agent or representative details on a message.
+  - Author card beneath a transactional email.
+  - Support-agent signature in a helpdesk reply.
+  - Contributor credit with contact links.
+
+recommended_for:
+  - A person's signature with a few contact links.
+  - Consistent sign-offs rendered from structured contact data.
+avoid_for:
+  - A full profile or team member card (use a card component).
+  - A company-wide legal footer (use a footer component).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a name and any of title, company, phone, email, website, and avatar; omitted fields
+  simply drop out. Phone becomes a tel: link, email a mailto: link, and website a plain link.
+
+props:
+  name: "The person's full name (the primary line)."
+  title: "Optional role or job title."
+  company: "Optional company or organisation name."
+  phone: "Optional phone number, rendered as a tel: link."
+  email: "Optional email address, rendered as a mailto: link."
+  website: "Optional website URL."
+  avatar: "Optional profile photo shown beside the details."
+
+lifecycle: experimental
+content_model: A name plus optional role, company, avatar, and contact links (phone, email, website).
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --font-heading
+    - --font-body
+    - --duration-token
+
+editorial_guidance: >
+  Keep it to a name, one role/company line, and the two or three contact methods you actually
+  want used. Consistency across a team reads more polished than exhaustive detail.
+
+relationships:
+  related:
+    - email/newsletter-template
+
+categorization:
+  category: Email
+  subcategory: Content
+  atomic_type: molecule
+  usage_type: [content, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Contact links use real tel:/mailto:/href targets with visible text; the avatar is decorative with empty alt; icons are aria-hidden.
+  keyboard_support: Each contact link is focusable and activated with Enter.
+  seo_score: 30
+  text_direction: both

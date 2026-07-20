@@ -1,0 +1,14 @@
+<section class="danger-zone overflow-hidden rounded-card border border-danger/40 bg-surface shadow-card">
+  <header class="border-b border-danger/30 bg-danger/5 px-(--space-card) py-3">
+    <h2 class="font-heading text-danger">{{ title }}</h2>
+  </header>
+  <ul class="divide-y divide-border">
+    <li data-for="action in actions" class="flex flex-col gap-3 p-(--space-card) sm:flex-row sm:items-center sm:justify-between">
+      <div class="min-w-0">
+        <p class="font-medium text-on-surface">{{ action.title }}</p>
+        <p data-if="action.description" class="text-sm text-on-surface-muted">{{ action.description }}</p>
+      </div>
+      <button type="button" class="danger-zone__action shrink-0 rounded-button border border-danger px-4 py-2 text-sm font-medium text-danger transition-colors duration-(--duration-token) hover:bg-danger/10">{{ action.button_label }}</button>
+    </li>
+  </ul>
+</section>

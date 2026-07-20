@@ -1,0 +1,92 @@
+name: "Approval Request Row"
+short_description: A pending-request row with the requester, request type and detail, an optional amount and date, and approve/deny buttons.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and soft shadow. An initials avatar
+  leads, the request type sits in the heading face above the requester's name and a short detail
+  line, and an optional amount and date align to the right. Two action buttons close the row: a
+  green Approve with a check and a red Deny with a cross, each on a soft tinted fill that deepens on
+  hover. It reads as one actionable item in an approvals queue.
+
+use_cases:
+  - A manager's pending-approvals inbox row (time off, expenses).
+  - An expense-report review queue with amounts to approve.
+  - A leave-request approval list for a team.
+  - A purchase or budget request awaiting sign-off.
+  - An access or provisioning request needing a decision.
+  - A document or content publishing approval item.
+
+recommended_for:
+  - A queue where each item needs a quick approve or deny.
+  - Surfacing the requester, context and amount before a decision.
+avoid_for:
+  - Multi-step or multi-approver workflows with routing.
+  - Read-only status display (use a plain list row).
+
+markets:
+  - Global
+
+example_usage: >
+  Give each row a requester with precomputed initials, a request type and a short detail line, plus
+  an optional amount and date. Listen for the bubbling "approval:decision" event to read whether the
+  reviewer approved or denied.
+
+how_to_use: >
+  The row is static markup; behavior.js wires the two buttons, which carry data-decision="approve"
+  or "deny". Clicking either dispatches a bubbling "approval:decision" event with { decision } and
+  sets data-resolved on the row so a host can style or remove it. The portable self-init reads
+  everything from the DOM - no props object is passed.
+
+props:
+  requester: The person who submitted the request.
+  initials: One or two precomputed initials for the avatar circle.
+  type: The kind of request, e.g. "Time off" or "Expense".
+  detail: A short supporting line such as the dates or purpose.
+  date: Preformatted submission or requested date.
+  amount: Preformatted amount for expense-type requests.
+
+example_prompts:
+  - "Add an approval row for Priya Raman requesting time off Mar 4 to Mar 8."
+  - "Show an expense approval row for $420.00 with approve and deny buttons."
+  - "Build a pending approvals queue of leave requests."
+
+lifecycle: experimental
+content_model: A requester, a request type and detail, an optional amount and date, and an approve/deny decision.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Name the request type plainly and keep the detail to the facts a reviewer needs. Show amounts
+  formatted with a currency. Approve and deny are opposite and equal - do not hide the deny action.
+
+relationships:
+  related:
+    - hr/attendance-row
+    - hr/goal-okr-row
+    - hr/benefits-enrollment
+
+categorization:
+  category: HR & People
+  subcategory: Approvals
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Approve and deny are real labelled buttons; the avatar is decorative and aria-hidden; icons are aria-hidden and paired with text.
+  keyboard_support: The approve and deny buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

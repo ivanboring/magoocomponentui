@@ -1,0 +1,90 @@
+name: "Email Reader"
+short_description: A full message view with subject heading, sender row, HTML body and an attachments strip.
+long_visual_description: >
+  A card panel on the surface colour. The header holds the subject as a large heading, then a sender
+  row with a round avatar, the sender name and address, an optional "to" line, and the send date on
+  the trailing edge, all above a divider. The body renders the message HTML as spaced, readable
+  paragraphs in on-surface text. When attachments are present, a bordered strip at the foot lays out
+  each file as a small download tile with a file icon, name and size.
+
+use_cases:
+  - Read a single opened email in a mail client.
+  - Show a message preview pane beside an inbox list.
+  - Display a support ticket's original message.
+  - Render a notification email in full for review.
+  - Present an archived message from a thread.
+  - Show a sent message's contents in the Sent folder.
+
+recommended_for:
+  - The reading pane of an email or messaging app.
+  - Any full-message view with sender metadata and attachments.
+avoid_for:
+  - A compact inbox line (use email-row / inbox-list).
+  - A back-and-forth conversation of many messages (use thread-message).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the subject, a sender object (name, email, avatar or initials), a pre-formatted date and the
+  sanitized body_html. Pass an optional attachments array to render the download strip; omit it to
+  hide the strip entirely.
+
+props:
+  subject: The message subject; rendered as the heading.
+  sender: "The sender object: name, email, and either avatar (image URL) or initials."
+  to: The recipient line; shown under the sender when set.
+  date: A pre-formatted date/time string you supply.
+  body_html: The sanitized message body HTML; rendered raw, so sanitize it upstream.
+  attachments: "Optional files; each item has a name and a size string. Omit to hide the strip."
+
+slots: {}
+
+example_prompts:
+  - "Show a full email from Ava Chen with two attachments."
+  - "Render an opened message with an HTML body and no attachments."
+  - "Display the reading pane for the selected inbox message."
+
+lifecycle: experimental
+content_model: A subject, a sender identity, a date, an HTML body, and optional named attachments.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Sanitize body_html before passing it in. Keep the sender line to name and address, and format the
+  date consistently. Let long file names truncate in the attachment tiles rather than wrapping.
+
+relationships:
+  children:
+    - email/attachment-row
+  related:
+    - email/inbox-list
+    - email/email-row
+    - email/thread-message
+    - email/label-chip
+
+categorization:
+  category: Email
+  subcategory: Reader
+  atomic_type: organism
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A single h1 subject and semantic article; avatar images use empty alt and icons are aria-hidden; body markup should be sanitized upstream since it renders raw.
+  keyboard_support: Attachment tiles are links focusable in reading order; the body scrolls with the page.
+  seo_score: 40
+  text_direction: both

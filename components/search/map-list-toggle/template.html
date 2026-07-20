@@ -1,0 +1,10 @@
+<div class="map-list-toggle group/mlt inline-flex rounded-pill bg-surface-raised p-1" role="tablist" aria-label="Results view" data-state="{{ view }}">
+  <button type="button" class="map-list-toggle__btn map-list-toggle__list inline-flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=list]/mlt:bg-surface group-data-[state=list]/mlt:text-on-surface group-data-[state=list]/mlt:shadow-card" role="tab" data-view="list">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 5h9M7 10h9M7 15h9"/><circle cx="3.5" cy="5" r="1"/><circle cx="3.5" cy="10" r="1"/><circle cx="3.5" cy="15" r="1"/></svg>
+    {{ list_label }}
+  </button>
+  <button type="button" class="map-list-toggle__btn map-list-toggle__map inline-flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=map]/mlt:bg-surface group-data-[state=map]/mlt:text-on-surface group-data-[state=map]/mlt:shadow-card" role="tab" data-view="map">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4L3 6v10l4-2 6 2 4-2V4l-4 2-6-2z"/><path d="M7 4v10M13 6v10"/></svg>
+    {{ map_label }}
+  </button>
+</div>

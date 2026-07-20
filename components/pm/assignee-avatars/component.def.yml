@@ -1,0 +1,21 @@
+name: assignee-avatars
+props:
+  people:
+    type: array
+    items: object
+    required: true
+    title: Assignees
+    description: >
+      The people assigned, in order. Each item: { name, initials, avatar }. initials is the
+      1-2 character fallback (e.g. "JD"), precomputed by the caller since the template cannot
+      slice strings; avatar is an optional photo URL; name is used as the accessible label.
+    example:
+      - { name: "Jane Doe", initials: "JD", avatar: "" }
+      - { name: "Sam Lee", initials: "SL", avatar: "" }
+  overflow_count:
+    type: integer
+    default: 0
+    title: Overflow count
+    description: >
+      Precomputed "+N" count of assignees beyond the ones passed in people; set by the caller
+      since the template has no arithmetic. 0 hides the overflow chip.

@@ -1,0 +1,36 @@
+<div class="payslip-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-3">
+    <h3 class="payslip-summary__period font-heading text-on-surface">{{ period }}</h3>
+    <span class="text-xs uppercase tracking-wide text-on-surface-muted">Payslip</span>
+  </div>
+  <div class="mt-4 grid grid-cols-2 gap-3">
+    <div class="rounded-control bg-surface-raised p-3">
+      <p class="text-xs text-on-surface-muted">Gross pay</p>
+      <p class="mt-1 font-heading text-xl text-on-surface tabular-nums">{{ gross }}</p>
+    </div>
+    <div class="payslip-summary__net rounded-control bg-primary/10 p-3">
+      <p class="text-xs text-on-surface-muted">Net pay</p>
+      <p class="mt-1 font-heading text-xl text-primary tabular-nums">{{ net }}</p>
+    </div>
+  </div>
+  <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div class="payslip-summary__earnings">
+      <p class="text-sm font-medium text-on-surface">Earnings</p>
+      <ul class="mt-2 flex flex-col gap-1">
+        <li data-for="item in earnings" class="flex items-center justify-between gap-3 text-sm">
+          <span class="text-on-surface-muted">{{ item.label }}</span>
+          <span class="tabular-nums text-on-surface">{{ item.amount }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="payslip-summary__deductions">
+      <p class="text-sm font-medium text-on-surface">Deductions</p>
+      <ul class="mt-2 flex flex-col gap-1">
+        <li data-for="item in deductions" class="flex items-center justify-between gap-3 text-sm">
+          <span class="text-on-surface-muted">{{ item.label }}</span>
+          <span class="tabular-nums text-danger">{{ item.amount }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

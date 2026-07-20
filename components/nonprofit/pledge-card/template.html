@@ -1,0 +1,13 @@
+<div class="pledge-card flex h-full flex-col rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p data-if="title" class="pledge-card__title text-sm font-medium uppercase tracking-wide text-on-surface-muted">{{ title }}</p>
+  <p class="pledge-card__amount mt-1 font-heading text-3xl text-on-surface">{{ amount }}</p>
+  <p data-if="description" class="pledge-card__description mt-2 text-sm text-on-surface-muted">{{ description }}</p>
+  <ul data-if="benefits" class="pledge-card__benefits mt-4 flex flex-col gap-2">
+    <li data-for="benefit in benefits" class="flex items-start gap-2 text-sm text-on-surface">
+      <svg class="mt-0.5 size-4 shrink-0 text-success" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-9"/></svg>
+      <span>{{ benefit }}</span>
+    </li>
+  </ul>
+  <p data-if="backers" class="pledge-card__backers mt-4 text-sm text-on-surface-muted">{{ backers }} backers</p>
+  <button type="button" class="pledge-card__button mt-6 inline-flex items-center justify-center rounded-button bg-primary px-4 py-2.5 text-sm font-heading text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Pledge {{ amount }}</button>
+</div>

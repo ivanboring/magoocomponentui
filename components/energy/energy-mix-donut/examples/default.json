@@ -1,0 +1,10 @@
+{
+  "title": "Where your power came from",
+  "renewable_pct": "82",
+  "sources": [
+    { "label": "Solar", "pct": "42%", "kwh": "310 kWh", "dash": "42 58", "offset": "0", "color_class": "stroke-success" },
+    { "label": "Wind", "pct": "28%", "kwh": "207 kWh", "dash": "28 72", "offset": "-42", "color_class": "stroke-info" },
+    { "label": "Hydro", "pct": "12%", "kwh": "89 kWh", "dash": "12 88", "offset": "-70", "color_class": "stroke-primary" },
+    { "label": "Natural gas", "pct": "18%", "kwh": "133 kWh", "dash": "18 82", "offset": "-82", "color_class": "stroke-warning" }
+  ]
+}

@@ -1,0 +1,46 @@
+name: filter-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The cards to show. Each item: { image, title, subtitle, category } where category is a value
+      string that must match one of the filters' value. image/subtitle are optional.
+    example:
+      - { image: "/stock/cover-workspace.jpg", title: "Getting started", subtitle: "Set up your first project.", category: "design" }
+  filters:
+    type: array
+    items: object
+    required: true
+    title: Filters
+    description: >
+      The chip set the caller supplies (directives can't dedupe categories): each { label, value }
+      — value must match an item's category. An "All" chip is added automatically before these.
+    example:
+      - { label: "Design", value: "design" }
+  all_label:
+    type: string
+    default: "All"
+    title: All-chip label
+    description: Label for the leading chip that clears the filter and shows every item.
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: Space between grid cells, from a fixed set of choices.
+  label:
+    type: string
+    default: "Items"
+    title: Accessible label
+    description: Accessible name announced for the grid region.
+variants:
+  gap:
+    default: "gap-4"
+    none: "gap-0"
+    sm: "gap-3"
+    md: "gap-6"
+    lg: "gap-8"
+    xl: "gap-12"

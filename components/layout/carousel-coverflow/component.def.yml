@@ -1,0 +1,24 @@
+name: carousel-coverflow
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Slides
+    description: >
+      The slides, in order. Each item: { image, title, subtitle, href }. image is optional (a plain
+      surface panel is shown when absent); title carries the slide; subtitle and href are optional
+      (href makes the whole card a link). The centered slide is emphasized full-size while its
+      neighbours are scaled down and dimmed.
+    example:
+      - { image: "/stock/cover-workspace.jpg", title: "Getting started", subtitle: "Set up your first project in minutes.", href: "#" }
+  show_arrows:
+    type: boolean
+    default: true
+    title: Show arrows
+    description: Show the previous/next arrow buttons that recenter the neighbouring slide.
+  label:
+    type: string
+    default: "Gallery"
+    title: Accessible label
+    description: Accessible name announced for the carousel region.

@@ -1,0 +1,23 @@
+name: payment-terminal
+props:
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: Pre-formatted charge amount shown large at the centre of the terminal.
+    example: "$42.50"
+  state:
+    type: enum
+    values: [ready, processing, approved, declined]
+    default: ready
+    title: State
+    description: >
+      The terminal's current state. It sets the status message (Tap or insert card / Processing /
+      Approved / Declined), the message and spinner colour, and whether the processing spinner
+      shows.
+variants:
+  state:
+    ready: "text-on-surface"
+    processing: "text-info"
+    approved: "text-success"
+    declined: "text-danger"

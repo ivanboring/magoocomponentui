@@ -1,0 +1,87 @@
+name: "Task Follow-up Row"
+short_description: A CRM follow-up task row with a completion checkbox, title, related contact, and a due-date pill that flags overdue.
+long_visual_description: >
+  A horizontal row on the surface colour with a card radius and soft shadow. A square checkbox
+  leads the row and fills green with a check when the task is done, the task title in the heading
+  face with an optional muted contact beneath it fills the middle, and a rounded due-date pill
+  sits at the trailing edge. When the task is overdue the pill turns danger-coloured; when it is
+  done the title is struck through and muted.
+
+use_cases:
+  - Row in a rep's follow-up or task queue.
+  - Next-steps checklist on a deal or account page.
+  - Overdue-follow-ups widget in a dashboard.
+  - Today's tasks list in a CRM home view.
+  - Reminder items tied to specific contacts.
+  - Post-call action items after logging an activity.
+
+recommended_for:
+  - Scannable task lists where due-date urgency matters.
+  - Follow-ups that need a clear done and overdue state.
+avoid_for:
+  - Rich project tasks with subtasks and assignees (use a task card).
+  - Calendar events (use an event or schedule component).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several in a card or list. Give each a title and a due string, an optional related
+  contact, and set overdue when the date has passed and done when it is complete. Both states
+  are driven by the overdue and done booleans, which toggle the pill colour and the struck-through
+  title via data-attribute variants.
+
+props:
+  title: What the follow-up is; kept to one line.
+  due: Human-readable due date shown in the pill.
+  contact: Person or account the task relates to; optional, shown muted.
+  overdue: When true the due pill turns danger-coloured.
+  done: When true the checkbox fills and the title is struck through.
+
+example_prompts:
+  - "Add a follow-up task to send the proposal, due tomorrow, for Dana Whitfield."
+  - "Show an overdue follow-up row in red."
+  - "List today's follow-ups with completion checkboxes."
+
+relationships:
+  related:
+    - crm/contact-list-row
+    - crm/note-composer
+    - crm/email-sequence-step
+
+lifecycle: experimental
+content_model: A follow-up task with a title, a due date, an optional related contact, and overdue and done flags.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-success-contrast
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep titles action-first, e.g. "Send proposal to Northwind". Set overdue only when the date has
+  genuinely passed - the danger colour should mean something. The checkbox and struck-through title
+  together make the done state obvious without relying on colour alone.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Tasks
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The checkbox exposes role and aria-checked; overdue and done are conveyed by pill text and strike-through, not colour alone.
+  keyboard_support: None in the skeleton - the checkbox reflects state but the host app wires toggling.
+  seo_score: 30
+  text_direction: both

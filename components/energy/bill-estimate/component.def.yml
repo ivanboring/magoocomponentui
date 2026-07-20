@@ -1,0 +1,38 @@
+name: bill-estimate
+props:
+  estimated_total:
+    type: string
+    required: true
+    title: Estimated total
+    description: The projected bill amount as a preformatted display string (e.g. "$142.60").
+    example: "$142.60"
+  period:
+    type: string
+    title: Billing period
+    description: The billing cycle this estimate covers (e.g. "Jul 1 - Jul 31").
+    example: "Jul 1 - Jul 31"
+  usage_kwh:
+    type: string
+    title: Usage so far
+    description: Energy used so far this cycle as a display string (e.g. "612 kWh").
+    example: "612 kWh"
+  days_left:
+    type: integer
+    title: Days left in cycle
+    description: Whole days remaining in the billing cycle.
+    example: 9
+  trend:
+    type: enum
+    values: [up, down]
+    title: Trend vs last cycle
+    description: >
+      Direction of the projected total compared with last cycle. "up" is coloured as a
+      cost increase (danger), "down" as a decrease (success). Leave unset to hide the
+      comparison.
+  vs_last:
+    type: string
+    title: Comparison text
+    description: >
+      Short comparison caption shown beside the trend arrow (e.g. "$14 more than last
+      month"). Only rendered when trend is set.
+    example: "$14 more than last month"

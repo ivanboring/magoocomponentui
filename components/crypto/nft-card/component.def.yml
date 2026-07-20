@@ -1,0 +1,34 @@
+name: nft-card
+props:
+  image:
+    type: string
+    required: true
+    title: Artwork
+    description: URL of the square NFT artwork image (object-cover, cropped to a square).
+    example: "/stock/stage1.jpg"
+  name:
+    type: string
+    required: true
+    title: Name
+    example: "Cosmic Drifter #204"
+  collection:
+    type: string
+    title: Collection
+    description: Optional collection name shown under the title.
+    example: "Cosmic Drifters"
+  price:
+    type: string
+    required: true
+    title: Price
+    description: The listing price value as a string (the currency is shown separately).
+    example: "2.4"
+  currency:
+    type: string
+    default: "ETH"
+    title: Currency
+    description: Currency ticker shown after the price.
+  badge:
+    type: string
+    title: Badge
+    description: Optional corner badge over the artwork (e.g. "Rare", "New", "Live").
+    example: "Rare"

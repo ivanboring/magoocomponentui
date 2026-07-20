@@ -1,0 +1,85 @@
+name: "Showreel Embed"
+short_description: A video reel block - a poster still with a dark overlay, a big centered play button, and an optional title and duration.
+long_visual_description: >
+  A 16:9 media block with a card radius. A poster still fills the frame beneath a dark scrim that
+  deepens slightly on hover. A large white circular play button sits dead center. Along the bottom
+  edge an optional title in the heading face sits at the leading side and an optional monospace
+  duration pill on the trailing side, both in white for legibility over the image.
+
+use_cases:
+  - Feature an agency or studio showreel at the top of a portfolio.
+  - Embed a case-study video with a branded poster frame.
+  - Show a director's or editor's reel with a runtime pill.
+  - Present a product demo behind a click-to-play poster.
+  - Anchor a "Watch our work" section.
+  - Give a motion designer a hero video block.
+
+recommended_for:
+  - A click-to-play video poster where the actual player is wired by the host via the reel:play event.
+  - Reels and demos that should show a still and runtime before playback.
+avoid_for:
+  - An always-playing or autoplaying background video (use a video background hero).
+  - A full media player with controls and captions (use a video player component).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a poster image (and optionally a title and duration). Set video_url to the source you
+  want the host to load; clicking play dispatches a reel:play CustomEvent carrying that URL so your
+  own player can take over. The skeleton itself renders only the poster and controls.
+
+how_to_use: >
+  behavior.js wires the play button: on click it dispatches a bubbling "reel:play" CustomEvent whose
+  detail is { videoUrl }, read from the data-video-url attribute (set from the video_url prop). The
+  portable self-init passes no props object; the listener is removed on cleanup. The component does
+  not embed a player - the host swaps one in when it receives the event.
+
+props:
+  poster: "The still frame shown before playback; fills the 16:9 frame."
+  title: "Optional caption overlaid at the bottom-left of the frame."
+  duration: "Optional running time shown as a monospace pill at the bottom-right."
+  video_url: "Optional source URL held on a data attribute and passed in the reel:play event detail."
+
+example_prompts:
+  - "Add a showreel block with our poster frame and a play button."
+  - "Show a case-study video poster with the title and a 2:14 duration."
+  - "Embed a click-to-play reel that hands the video URL to our player."
+
+lifecycle: experimental
+content_model: >
+  A poster image, an optional title and duration, and an optional video URL to hand off on play.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Choose a poster frame that reads at a glance and keep the title to a few words. Show the duration
+  so viewers know the commitment before they press play.
+
+relationships:
+  related:
+    - portfolio/bio-hero
+    - portfolio/testimonial-spotlight
+    - video/video-player-live
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Media
+  atomic_type: organism
+  usage_type: [media, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The play control is a real button with an accessible label and a visible focus outline; the scrim and icon are aria-hidden and white text sits over a dark overlay for contrast.
+  keyboard_support: The play button is focusable and activates on Enter/Space, dispatching the reel:play event.
+  seo_score: 40
+  text_direction: both

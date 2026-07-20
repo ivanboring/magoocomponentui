@@ -1,0 +1,14 @@
+{
+  "title": "Portfolio value",
+  "change_dir": "down",
+  "line_path": "M0,28 L17,34 L33,30 L50,52 L67,48 L83,66 L100,74",
+  "area_path": "M0,28 L17,34 L33,30 L50,52 L67,48 L83,66 L100,74 L100,100 L0,100 Z",
+  "y_labels": ["$52k", "$50k", "$48k", "$46k"],
+  "x_labels": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "ranges": [
+    { "label": "1D" },
+    { "label": "1W", "active": true },
+    { "label": "1M" },
+    { "label": "1Y" }
+  ]
+}

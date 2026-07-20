@@ -1,0 +1,33 @@
+name: void-comp-row
+props:
+  item:
+    type: string
+    required: true
+    title: Item
+    example: "Ribeye steak"
+  amount:
+    type: string
+    required: true
+    title: Amount
+    description: Pre-formatted value of the voided or comped item.
+    example: "$38.00"
+  kind:
+    type: enum
+    values: [void, comp]
+    default: void
+    title: Kind
+    description: Whether the line was voided (removed before it was made) or comped (made but given away).
+  reason:
+    type: string
+    title: Reason
+    description: Short reason for the void or comp.
+    example: "Sent back - overcooked"
+  authorized_by:
+    type: string
+    title: Authorized by
+    description: Name or initials of the manager who authorised it.
+    example: "J. Rivera"
+variants:
+  kind:
+    void: "bg-danger/10 text-danger"
+    comp: "bg-warning/10 text-warning"

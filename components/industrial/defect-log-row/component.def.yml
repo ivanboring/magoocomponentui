@@ -1,0 +1,35 @@
+name: defect-log-row
+props:
+  defect_type:
+    type: string
+    required: true
+    title: Defect type
+    description: The kind of defect logged.
+    example: "Surface scratch"
+  part:
+    type: string
+    title: Part
+    description: Optional part number the defect was found on.
+    example: "PN-4471"
+  severity:
+    type: enum
+    values: [minor, major, critical]
+    default: minor
+    title: Severity
+    description: Defect severity; sets the severity pill colour.
+    example: minor
+  time:
+    type: string
+    title: Time
+    description: Preformatted time the defect was logged.
+    example: "09:42"
+  station:
+    type: string
+    title: Station
+    description: Optional station or cell where the defect occurred.
+    example: "Station 3"
+variants:
+  severity:
+    minor: "bg-warning/10 text-warning"
+    major: "bg-danger/10 text-danger"
+    critical: "bg-danger/10 text-danger"

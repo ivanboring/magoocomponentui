@@ -1,0 +1,95 @@
+name: "Asset Allocation Donut"
+short_description: A tokenized SVG donut of portfolio allocation by asset class, rendered from caller-precomputed slice geometry, with a value legend.
+long_visual_description: >
+  A surface card with a title, a centred donut ring, and a legend beside it (stacked on narrow
+  screens). The ring is a raised-surface track overlaid by one coloured arc per asset class; each
+  arc's length and starting angle come from precomputed stroke-dasharray/stroke-dashoffset values
+  and its colour from a tokenized stroke utility. The legend lists each slice with a colour swatch,
+  a label, a right-aligned percentage, and an optional mono value amount, all in tabular figures so
+  the columns line up.
+
+use_cases:
+  - Portfolio composition by asset class (equities, bonds, cash, alternatives).
+  - Target vs current allocation summary in a wealth dashboard.
+  - Fund holdings breakdown by sector or region.
+  - Retirement account mix on an account overview.
+  - Robo-advisor recommended allocation on an onboarding review.
+  - Model portfolio weights in a research or advisory report.
+
+recommended_for:
+  - Small numbers of slices (up to about six) that sum to a whole portfolio.
+  - Dashboards where the allocation proportion and dollar value are the headline.
+  - Cases where the caller already computes chart geometry.
+avoid_for:
+  - Time series or performance over time (use a line chart).
+  - Many tiny holdings that are hard to distinguish (use a table).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each slice's stroke-dasharray ("arc remainder", circumference 100) and a
+  stroke-dashoffset equal to the negative of its cumulative start percent, then pass the slices
+  with a display pct, an optional value amount, and a tokenized stroke colour class each (one of
+  the safelisted classes). The value column is hidden per-slice when no value is supplied.
+
+props:
+  title: "Heading above the donut; also the SVG accessible label."
+  slices: >
+    Array of arcs with precomputed dash/offset geometry, a display pct, an optional value amount,
+    and a stroke colour class each. All arithmetic is done by the caller; the template only renders
+    the values. color_class must be one of the safelisted stroke utilities.
+
+example_prompts:
+  - "Add an asset allocation donut with equities, bonds, cash, and alternatives."
+  - "Show a portfolio mix donut with dollar values next to each asset class."
+  - "Put a target allocation donut in the wealth dashboard."
+
+relationships:
+  related:
+    - dataviz/pie-chart-shell
+    - crypto/portfolio-allocation-crypto
+    - finance/portfolio-summary
+
+lifecycle: experimental
+content_model: A title and a set of precomputed allocation slices, each with a percentage, an optional value, a colour class, and dash/offset geometry.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-secondary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  All slice geometry (stroke-dasharray and stroke-dashoffset) is precomputed by the caller because
+  the directive language has no arithmetic; the shell only paints the values it is given. Keep the
+  slice count low and labels short, and assign distinct tokenized stroke colours from the safelist.
+  The value amount is optional per slice - show it for a dollar breakdown, omit it for a pure
+  percentage view.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Values are conveyed by the text legend (label, percentage, amount), not colour alone; the SVG has an accessible label.
+  keyboard_support: "none"
+  seo_score: 40
+  text_direction: both

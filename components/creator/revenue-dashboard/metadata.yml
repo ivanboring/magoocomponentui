@@ -1,0 +1,81 @@
+name: "Revenue Dashboard"
+short_description: An earnings overview card with a headline total, a row of stats with coloured deltas, and an optional mini bar chart.
+long_visual_description: >
+  A surface card led by a large revenue total in the heading face with a period label above it.
+  Beneath sits a two- or three-column grid of stats, each a muted uppercase label over a value with
+  an optional coloured change delta (green up, red down, muted flat). An optional compact bar chart
+  of precomputed heights closes the card, with each bar's value revealing on hover.
+
+use_cases:
+  - A creator earnings summary on a payouts or dashboard page.
+  - A monthly revenue recap with key movement stats.
+  - A membership income overview with subscriber and churn stats.
+  - A tips-and-pledges earnings snapshot.
+  - A payout-period breakdown with a trend chart.
+  - An at-a-glance income widget on a creator home screen.
+
+recommended_for:
+  - Summarising earnings with a headline number plus supporting stats.
+  - Dashboards that pair a total with a small trend chart.
+avoid_for:
+  - A single metric (use stat-card).
+  - Full analytical charts with axes and tooltips (use bar-chart-shell or a real chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the formatted total and a period, a stats array (each with an optional change and change_dir
+  for colouring), and optionally a bars array with precomputed height_pct values for the mini chart.
+  All figures are formatted caller-side; the component does no math.
+
+props:
+  total: "The formatted headline revenue total including currency."
+  period: "Reporting window shown beside the Total revenue label."
+  stats: "Summary stats; each has a label, value, and optional change plus change_dir (up/down/flat) to colour the delta."
+  bars: "Optional mini bar chart; each bar has a label, value, and precomputed height_pct (0-100)."
+
+lifecycle: experimental
+content_model: >
+  A headline total and period, a short row of labelled stats with optional directional deltas, and
+  an optional small bar series with precomputed heights.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with the number that matters most as the total. Keep stats to three or fewer so the row
+  scans. Use change_dir honestly — down is not always bad (e.g. churn), so let the label carry
+  meaning and the colour follow the number's direction.
+
+relationships:
+  related:
+    - dashboard/stat-card
+    - dataviz/bar-chart-shell
+    - creator/tip-jar
+
+categorization:
+  category: Creator
+  subcategory: Analytics
+  atomic_type: organism
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stats use a description list; the change deltas carry their sign in text so colour is not the only cue; hover-only values are supplementary.
+  keyboard_support: none
+  seo_score: 30
+  text_direction: both

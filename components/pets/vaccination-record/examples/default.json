@@ -1,0 +1,9 @@
+{
+  "pet": "Luna",
+  "vaccines": [
+    { "name": "Rabies", "date": "12 Jan 2026", "next_due": "12 Jan 2027", "status": "current" },
+    { "name": "Distemper (DHPP)", "date": "03 Mar 2025", "next_due": "03 Mar 2026", "status": "due" },
+    { "name": "Leptospirosis", "date": "18 Aug 2024", "next_due": "18 Aug 2025", "status": "overdue" },
+    { "name": "Bordetella", "date": "01 Feb 2026", "next_due": "01 Aug 2026", "status": "current" }
+  ]
+}

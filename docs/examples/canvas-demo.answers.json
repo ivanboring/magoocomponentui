@@ -1,0 +1,41 @@
+{
+  "machine_name": "canvas_demo",
+  "name": "Canvas Demo",
+  "description": "Canvas-mode demo child theme: SDCs auto-discovered by Drupal Canvas.",
+  "tokens": {
+    "color_primary": "#7c3aed",
+    "color_accent": "#f59e0b",
+    "radius_card": "18px",
+    "radius_button": "999px"
+  },
+  "components": [
+    {
+      "id": "dashboard/stat-card",
+      "config": "canvas"
+    },
+    {
+      "id": "dashboard/stats-band",
+      "config": "canvas"
+    },
+    {
+      "id": "cards/card-grid",
+      "config": "canvas"
+    },
+    {
+      "id": "cards/card-blog",
+      "config": "canvas"
+    },
+    {
+      "id": "marketing/cta-simple",
+      "config": "canvas"
+    },
+    {
+      "id": "marketing/hero-split",
+      "config": "canvas"
+    },
+    {
+      "id": "data/data-table",
+      "config": "canvas"
+    }
+  ]
+}

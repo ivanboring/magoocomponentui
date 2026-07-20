@@ -1,0 +1,14 @@
+{
+  "tiers": [
+    { "name": "Silver", "current": false },
+    { "name": "Gold", "current": true },
+    { "name": "Platinum", "current": false }
+  ],
+  "benefits": [
+    { "label": "Points multiplier", "values": ["1x", "1.5x", "2x"] },
+    { "label": "Free shipping", "values": ["", "Yes", "Yes"] },
+    { "label": "Birthday gift", "values": ["Yes", "Yes", "Yes"] },
+    { "label": "Early access", "values": ["", "Yes", "Yes"] },
+    { "label": "Concierge line", "values": ["", "", "Yes"] }
+  ]
+}

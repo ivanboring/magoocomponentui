@@ -1,0 +1,81 @@
+name: "Tool Call Card"
+short_description: A collapsible card showing an AI tool invocation - its name, arguments, result, and status.
+long_visual_description: >
+  A bordered card built on a native details element. The summary row carries a coloured status pill
+  (running, done, or error), the tool name in mono, and a chevron that rotates when expanded.
+  Expanding reveals the call arguments and, when present, the result, each in a mono code block.
+
+use_cases:
+  - Showing a function or tool call an agent made mid-conversation.
+  - A transcript entry for a retrieval, search, or API call.
+  - Debugging an agent run by inspecting arguments and results.
+  - Surfacing a tool's success or error state inline in a chat.
+  - Logging each step of a multi-tool workflow.
+
+recommended_for:
+  - Agent and assistant UIs that expose tool use to the user.
+  - Any collapsible request/response pair with a status.
+avoid_for:
+  - Free-form chat messages (use a message bubble).
+  - Long streaming logs (use a dedicated log viewer).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass tool, args (preformatted, e.g. pretty JSON), an optional result, and status. The card starts
+  expanded so the arguments are visible; the result block is omitted when result is empty. The
+  status pill colour reflects running, done, or error.
+
+props:
+  tool: "The invoked tool or function name (shown mono)."
+  args: "Preformatted call arguments, shown in a mono block."
+  result: "Optional preformatted output; its block is hidden when empty."
+  status: "running, done, or error - colours the status pill."
+
+example_prompts:
+  - "Show the search_web tool call with its query arguments and the JSON result."
+  - "Add a tool call card in the error state for a failed fetch."
+
+lifecycle: experimental
+content_model: A single tool invocation with a name, arguments, optional result, and a status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the tool name identical to the real function id. Pretty-print args and results so the mono
+  blocks stay readable, and let the status pill carry the outcome rather than repeating it in prose.
+
+relationships:
+  related:
+    - ai/citation-list
+    - ai/token-usage
+    - ai/model-picker
+
+categorization:
+  category: AI & Chat
+  subcategory: Answers
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Built on a native details/summary so expand/collapse is keyboard-operable by default; status is conveyed by both colour and the pill's text label, not colour alone.
+  keyboard_support: The summary toggles the card on Enter/Space and is in the natural tab order (native details).
+  seo_score: 20
+  text_direction: both

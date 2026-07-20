@@ -1,0 +1,82 @@
+name: "Pledge Card"
+short_description: A single pledge tier showing an amount, description, benefits checklist, backer count, and a confirm button.
+long_visual_description: >
+  A surface card with an optional small uppercase tier name, a large amount in the heading face, and
+  a short describing sentence. Below sits a checklist of what the pledge includes, each row led by a
+  green success check. An optional backer count reads in muted text, and a full-width primary button
+  echoing "Pledge <amount>" anchors the card.
+
+use_cases:
+  - Present a giving tier on a campaign page (Supporter, Champion, Patron).
+  - Offer preset pledge amounts each with their own perks.
+  - Show what a specific donation funds and who else has backed it.
+  - Build a crowdfunding-style reward ladder for a nonprofit.
+  - Highlight a recommended tier alongside others in a grid.
+
+recommended_for:
+  - A discrete pledge tier with a fixed amount and listed benefits.
+  - A grid or row of comparable giving levels.
+avoid_for:
+  - A free-choice amount entry (use a donation amount picker).
+  - Showing overall campaign progress (use cause-hero or transparency-breakdown).
+
+markets:
+  - Global
+
+example_usage: >
+  Set amount as a display string; it shows large and is echoed in the button ("Pledge $50"). Add an
+  optional title (tier name), a one-line description of what the pledge funds, a benefits array of
+  plain strings, and a backers count (omit or 0 to hide). Place several side by side in a card grid
+  to form a giving ladder.
+
+props:
+  amount: "The pledge amount as a display string; shown large and echoed in the button."
+  title: "Optional tier name shown as a small uppercase kicker."
+  description: "One line on what the pledge funds."
+  benefits: "Optional list of included perks, each a plain string, rendered as a checklist."
+  backers: "Optional count of people on this tier; omit or 0 to hide the line."
+
+example_prompts:
+  - "Add a $50 Supporter pledge card with three benefits and a backer count."
+  - "Show a Champion pledge tier at $250 with perks and a Pledge button."
+
+lifecycle: experimental
+content_model: A pledge amount, an optional tier name and description, an optional benefits checklist, an optional backer count, and a confirm action.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --radius-card
+    - --radius-button
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name tiers by the supporter, not the price. Make the description outcome-led (what the amount
+  funds) and keep benefits to short noun phrases. Order tiers low to high in a grid.
+
+relationships:
+  related:
+    - nonprofit/donation-amount-picker
+    - nonprofit/recurring-donation-toggle
+    - nonprofit/cause-hero
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The confirm button is a real button with a self-describing label; the benefit check icons are decorative (aria-hidden) with the meaning carried by adjacent text.
+  keyboard_support: The pledge button is focusable and activates on Enter/Space.
+  seo_score: 35
+  text_direction: both

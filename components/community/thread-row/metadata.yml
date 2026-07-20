@@ -1,0 +1,82 @@
+name: "Thread Row"
+short_description: A single forum-topic row showing the title, author, tags, reply and view counts, and last activity, with an optional pinned state.
+long_visual_description: >
+  One bordered row on the surface colour with a card radius. An optional pin icon in the primary
+  colour leads the row, followed by the topic title as a link with the author and tag chips beneath.
+  A right-aligned column holds the reply and view counts above the last-activity time. When pinned,
+  the row border and background take a faint primary tint.
+
+use_cases:
+  - A standalone topic entry outside a full list.
+  - A single result in a forum search dropdown.
+  - A watched or bookmarked thread in a sidebar.
+  - The building block composed by thread-list.
+  - A recent-activity item in a profile.
+  - A promoted or featured thread callout.
+
+recommended_for:
+  - Rendering one topic row on its own.
+  - Composing custom lists of forum threads.
+avoid_for:
+  - A pre-built divided list of many rows (use thread-list).
+  - The full topic page with the post body (use post-detail).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a title, author, replies and last_activity, plus optional views, a pinned flag and a tags
+  array. Counts and times are pre-formatted strings. Set pinned to add the pin icon and the tinted
+  highlight for announcements.
+
+props:
+  title: "The topic title, shown as a link."
+  author: "Display name of the thread starter."
+  replies: "Pre-formatted reply count (e.g. 7)."
+  views: "Optional pre-formatted view count (e.g. 312)."
+  last_activity: "Pre-formatted relative time of the latest reply (e.g. 12m ago)."
+  pinned: "When true, highlights the row and shows a pin icon."
+  tags: "Optional array of label chips shown under the title."
+
+example_prompts:
+  - Show a single pinned announcement row at the top of a board.
+  - Render a thread row with help and api tags and a reply count.
+  - Add a watched-topic row to the sidebar.
+
+lifecycle: experimental
+content_model: A single forum thread with title, author, counts, last activity, tags and a pinned flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+
+editorial_guidance: >
+  Keep the title descriptive and front-loaded. Reserve the pinned state for genuinely sticky topics.
+  Abbreviate large counts upstream since they render as plain strings.
+
+relationships:
+  related:
+    - community/thread-list
+    - community/post-detail
+    - community/vote-control
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: molecule
+  usage_type: [list-item, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title is a real link and the pinned state carries an accessible label, so the pin is not conveyed by colour alone.
+  keyboard_support: The title is a focusable link; there are no other interactive controls.
+  seo_score: 40
+  text_direction: both

@@ -1,0 +1,18 @@
+name: lock-status
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The lock's name shown as the card title.
+    example: "Front door"
+  locked:
+    type: boolean
+    default: true
+    title: Locked
+    description: Whether the lock is currently engaged. Drives the icon, status text and button label.
+  last_changed:
+    type: string
+    title: Last changed
+    description: Human-readable time of the last state change, e.g. "2 min ago".
+    example: "2 min ago"

@@ -21,24 +21,55 @@ function mapExpr(part, variants) {
   return `(${JSON.stringify(variants[part.prop] || {})}[${part.prop}] || "")`;
 }
 
-/** @param {any} attr @param {Record<string,any>} variants */
-function attrToJsx(attr, variants) {
+/**
+ * Code Components run inside Canvas, which passes an image/video prop as a media OBJECT — so a bare
+ * reference resolves to its `.src`. React (media:false) keeps the plain-string shape.
+ * @param {string} path @param {any} opts
+ */
+function mediaExpr(path, opts) {
+  return opts.media && opts.mediaProps && opts.mediaProps.has(path) ? `${path}.src` : path;
+}
+
+/** @param {any} attr @param {Record<string,any>} variants @param {any} [opts] */
+function attrToJsx(attr, variants, opts = {}) {
   const name = ATTR_RENAME[attr.name] || attr.name;
   const parts = attr.parts;
   if (parts.length === 1) {
     const p = parts[0];
     if (p.kind === "literal") return p.value.includes('"') ? `${name}={${JSON.stringify(p.value)}}` : `${name}="${p.value}"`;
-    if (p.kind === "expr") return `${name}={${p.path}}`;
+    if (p.kind === "expr") return `${name}={${mediaExpr(p.path, opts)}}`;
     if (p.kind === "classmap") return `${name}={${mapExpr(p, variants)}}`;
   }
   const tpl = parts
     .map((p) => {
       if (p.kind === "literal") return escTpl(p.value);
-      if (p.kind === "expr") return `\${${p.path}}`;
+      if (p.kind === "expr") return `\${${mediaExpr(p.path, opts)}}`;
       return `\${${mapExpr(p, variants)}}`;
     })
     .join("");
   return `${name}={\`${tpl}\`}`;
+}
+
+const MEDIA_SRC_ATTRS = new Set(["src", "poster", "data-src"]);
+
+/**
+ * The media prop feeding an <img>'s src/poster, so we can supply its alt when the markup has none.
+ * @param {any} node @param {any} opts
+ */
+function jsxMediaSrcProp(node, opts) {
+  if (!opts.media || !opts.mediaProps) return null;
+  for (const a of node.attrs) {
+    if (MEDIA_SRC_ATTRS.has(a.name.toLowerCase()) && a.parts.length === 1 &&
+        a.parts[0].kind === "expr" && opts.mediaProps.has(a.parts[0].path)) {
+      return a.parts[0].path;
+    }
+  }
+  return null;
+}
+
+/** @param {any} parts */
+function jsxEmptyAttr(parts) {
+  return parts.length === 0 || (parts.length === 1 && parts[0].kind === "literal" && parts[0].value === "");
 }
 
 const VOID = new Set([
@@ -46,13 +77,13 @@ const VOID = new Set([
   "link", "meta", "param", "source", "track", "wbr",
 ]);
 
-/** @param {any} node @param {Record<string,any>} variants */
-function nodeToJsx(node, variants) {
+/** @param {any} node @param {Record<string,any>} variants @param {any} [opts] */
+function nodeToJsx(node, variants, opts = {}) {
   if (node.type === "text") {
     return node.parts
       .map((p) => {
         if (p.kind === "literal") return p.value;
-        if (p.kind === "expr") return `{${p.path}}`;
+        if (p.kind === "expr") return `{${mediaExpr(p.path, opts)}}`;
         if (p.kind === "classmap") return `{${mapExpr(p, variants)}}`;
         return `<span dangerouslySetInnerHTML={{ __html: ${p.path} }} />`;
       })
@@ -61,12 +92,24 @@ function nodeToJsx(node, variants) {
   if (node.type === "slot") return `{${node.name}}`;
   if (node.type !== "element") return "";
 
-  let attrs = node.attrs.map((a) => attrToJsx(a, variants)).join(" ");
+  const isImg = node.tag.toLowerCase() === "img";
+  const altProp = isImg ? jsxMediaSrcProp(node, opts) : null;
+  let altSeen = false;
+  const attrParts = [];
+  for (const a of node.attrs) {
+    if (altProp && (ATTR_RENAME[a.name] || a.name).toLowerCase() === "alt") {
+      altSeen = true;
+      if (jsxEmptyAttr(a.parts)) { attrParts.push(`alt={${altProp}.alt}`); continue; }
+    }
+    attrParts.push(attrToJsx(a, variants, opts));
+  }
+  if (altProp && !altSeen) attrParts.push(`alt={${altProp}.alt}`);
+  let attrs = attrParts.join(" ");
   if (node.__ref) attrs = `ref={rootRef}${attrs ? " " + attrs : ""}`;
   const open = attrs ? `<${node.tag} ${attrs}` : `<${node.tag}`;
   const el = VOID.has(node.tag.toLowerCase())
     ? `${open} />`
-    : `${open}>${node.children.map((c) => nodeToJsx(c, variants)).join("")}</${node.tag}>`;
+    : `${open}>${node.children.map((c) => nodeToJsx(c, variants, opts)).join("")}</${node.tag}>`;
 
   let out = el;
   const dir = node.directives || {};
@@ -95,7 +138,13 @@ export function emitJsx({ name, def, ast, behavior, mode }) {
     const first = tree.find((n) => n.type === "element");
     if (first) first.__ref = true;
   }
-  const body = tree.map((n) => nodeToJsx(n, variants)).join("\n      ");
+  // Code Components (mode:preact) render inside Canvas, where image/video props arrive as media
+  // objects; the React target proves generality with plain-string props, so it opts out.
+  const opts = {
+    media: mode === "preact",
+    mediaProps: new Set(def.props.filter((p) => p.type === "image" || p.type === "video").map((p) => p.name)),
+  };
+  const body = tree.map((n) => nodeToJsx(n, variants, opts)).join("\n      ");
 
   const header =
     mode === "react"

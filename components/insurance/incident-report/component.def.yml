@@ -1,0 +1,47 @@
+name: incident-report
+props:
+  incident_number:
+    type: string
+    title: Incident number
+    description: An optional claim or incident reference shown in the header.
+    example: "INC-2026-0417"
+  date:
+    type: string
+    title: Date
+    description: The pre-formatted incident date (and optional time).
+    example: "July 12, 2026 - 4:20 PM"
+  location:
+    type: string
+    title: Location
+    description: Where the incident happened.
+    example: "5th Ave & Main St, Springfield"
+  type:
+    type: string
+    title: Incident type
+    description: A short label for the kind of incident, shown as a chip.
+    example: "Collision"
+  description_html:
+    type: html
+    title: Description
+    description: The narrative description of what happened. Accepts inline HTML (raw).
+    example: "<p>Rear-ended at a stop light; minor bumper damage, no injuries.</p>"
+  parties:
+    type: array
+    items: object
+    title: Involved parties
+    description: >
+      The people involved. Each item: { name, role }. role is a short label such as
+      "Driver" or "Witness".
+    example:
+      - { name: "Alex Morgan", role: "Driver" }
+      - { name: "Sam Patel", role: "Witness" }
+  photos:
+    type: array
+    items: string
+    title: Photos
+    description: >
+      Absolute image paths (e.g. /stock/property-house.jpg) rendered as a row of thumbnails.
+      The caller supplies each image URL as a string.
+    example:
+      - "/stock/property-house.jpg"
+      - "/stock/cover-workspace.jpg"

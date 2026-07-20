@@ -1,0 +1,30 @@
+name: grid-status
+props:
+  status:
+    type: enum
+    values: [stable, strained, outage]
+    required: true
+    title: Status
+    description: The overall grid state. Colours the icon and the large status label.
+  frequency:
+    type: string
+    title: Frequency
+    description: The grid frequency reading, formatted with unit. E.g. "50.02 Hz". Omit to hide.
+    example: "50.02 Hz"
+  load_pct:
+    type: integer
+    title: Load percent
+    description: >
+      Current demand as a share of capacity, a PRECOMPUTED whole number 0-100. Drives the load-bar
+      fill width; the template does no math. Omit to hide the bar.
+    example: 74
+  regions:
+    type: string
+    title: Regions
+    description: A short summary of regional coverage, e.g. "4 of 4 regions online". Omit to hide.
+    example: "4 of 4 regions online"
+variants:
+  status:
+    stable: "text-success"
+    strained: "text-warning"
+    outage: "text-danger"

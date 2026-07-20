@@ -1,0 +1,12 @@
+{
+  "bids": [
+    { "price": "63,120", "size": "0.84", "depth_pct": 100 },
+    { "price": "63,090", "size": "0.31", "depth_pct": 37 },
+    { "price": "63,050", "size": "0.12", "depth_pct": 14 }
+  ],
+  "asks": [
+    { "price": "63,180", "size": "0.22", "depth_pct": 40 },
+    { "price": "63,210", "size": "0.55", "depth_pct": 100 },
+    { "price": "63,260", "size": "0.18", "depth_pct": 33 }
+  ]
+}

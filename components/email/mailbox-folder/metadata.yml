@@ -1,0 +1,67 @@
+name: "Mailbox Folder"
+short_description: A single mailbox folder row with an icon, label, and unread count badge.
+long_visual_description: >
+  One horizontal folder row with an optional leading icon, the folder label, and a
+  right-aligned pill badge carrying the unread count (shown only when greater than zero).
+  In its active state the whole row fills with the raised surface and the label turns solid;
+  otherwise it reads in muted text and lifts to the raised surface on hover.
+
+use_cases:
+  - A standalone folder entry composed into a custom sidebar.
+  - A single selectable mailbox in a compact folder picker.
+  - A folder shortcut placed inside another layout.
+  - A recently-used folder chip in a mail toolbar.
+  - The building block for a hand-assembled folder list.
+
+recommended_for:
+  - A single folder row you place and count yourself.
+  - Composing bespoke folder navigation one row at a time.
+avoid_for:
+  - A full folder list from data (use folder-nav).
+  - App section navigation with collapsible groups (use sidebar-nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a label and, optionally, an inline SVG icon and an unread count; set active to
+  mark it as the current folder. The count badge appears only when count is greater than zero.
+
+props:
+  label: "The folder name."
+  icon: "An optional leading inline SVG icon."
+  count: "Optional unread count; the badge shows only when it is greater than zero."
+  active: "Marks this folder as the current one (filled with the raised surface)."
+
+lifecycle: experimental
+content_model: A single folder label with an optional icon and unread count.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-control
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label to a single noun. Only surface a count when there is genuinely unread mail,
+  and reserve the active state for the folder currently open.
+
+relationships:
+  related:
+    - email/folder-nav
+
+categorization:
+  category: Email
+  subcategory: Navigation
+  atomic_type: molecule
+  usage_type: [list-item, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The active row sets aria-current; the icon is aria-hidden; the count is plain text within the row.
+  keyboard_support: The row is a link, focusable and activated with Enter.
+  seo_score: 15
+  text_direction: both

@@ -1,0 +1,11 @@
+{
+  "pet": "Willow",
+  "medication": "Amoxicillin",
+  "dosage": "50 mg capsule",
+  "schedule": "Three times daily",
+  "doses": [
+    { "time": "7:00 AM", "given": true },
+    { "time": "1:00 PM", "given": true },
+    { "time": "9:00 PM", "given": true }
+  ]
+}

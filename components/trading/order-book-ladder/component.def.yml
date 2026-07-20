@@ -1,0 +1,25 @@
+name: order-book-ladder
+props:
+  title:
+    type: string
+    default: "Order book"
+    title: Title
+    description: Heading shown above the ladder; also the region's accessible label.
+  rows:
+    type: array
+    items: object
+    required: true
+    title: Rows
+    description: >
+      The price ladder, top to bottom (highest ask at the top, lowest bid at the bottom, with the
+      spread row in the middle). Each item: { price, bid_size, ask_size, is_spread }. `price` is the
+      preformatted price level (e.g. 184.22). `bid_size` and `ask_size` are preformatted resting
+      quantities at that level - supply only one per row (bid rows carry bid_size, ask rows carry
+      ask_size); leave the other unset. Set `is_spread` true on the single divider row that sits
+      between the best bid and best ask (its price shows the spread) - that row highlights and omits
+      both sizes.
+    example:
+      - { price: "184.24", ask_size: "1,240" }
+      - { price: "0.02", is_spread: true }
+      - { price: "184.22", bid_size: "1,980" }
+variants: {}

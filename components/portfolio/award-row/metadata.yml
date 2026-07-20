@@ -1,0 +1,76 @@
+name: "Award Row"
+short_description: A single award line - year, award name and organization, with an optional category pill.
+long_visual_description: >
+  A horizontal row with a monospace year on the leading edge, the award name in the heading face
+  with the granting organization in muted text beneath it, and an optional category pill in the
+  primary tint on the trailing edge. A hairline bottom border lets several rows stack into a clean
+  awards list.
+
+use_cases:
+  - List an agency's or studio's awards and recognitions.
+  - Show a freelancer's honours and nominations on an About page.
+  - Build a press-and-accolades section from repeated rows.
+  - Summarise a case study's wins beneath the project.
+  - Present a speaker's or author's credentials.
+  - Stack a chronological timeline of recognitions.
+
+recommended_for:
+  - A scannable, repeated list of awards where each line carries a year, title, and issuer.
+  - Pairing with a heading like "Recognition" or "Awards".
+avoid_for:
+  - A single hero award that needs a badge or trophy visual.
+  - Rich award cards with logos and descriptions (use a card).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one award-row per honour, in the order you want them listed (usually most recent first).
+  Provide the award and year; add organization for the issuer and category for a discipline pill.
+
+props:
+  award: "The name of the award or recognition."
+  organization: "Optional issuing body or publication shown under the award name."
+  year: "The year granted, shown in the monospace lead column."
+  category: "Optional discipline or category, shown as a pill on the trailing edge."
+
+example_prompts:
+  - "Add an award row for Site of the Year 2025 from Awwwards in Web Design."
+  - "List our studio's awards, most recent first."
+  - "Show a recognition line with the year and issuing organization."
+
+lifecycle: experimental
+content_model: >
+  One award: a year, an award name, an optional organization, and an optional category.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --font-heading
+    - --font-mono
+    - --radius-pill
+
+editorial_guidance: >
+  Keep award names as the issuer titles them and list years consistently. Use the category pill for
+  a short discipline label, not a sentence.
+
+relationships:
+  related:
+    - portfolio/capabilities-list
+    - portfolio/testimonial-spotlight
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Credentials
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Plain text row with sufficient contrast; the category pill relies on text, not colour alone, to convey meaning.
+  keyboard_support: none
+  seo_score: 40
+  text_direction: both

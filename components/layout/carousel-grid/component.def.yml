@@ -1,0 +1,113 @@
+name: carousel-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Cards
+    description: >
+      The cards to place in the carousel. Each item: { image, eyebrow, title, subtitle, href }.
+      image/eyebrow/subtitle/href are optional; title carries the card. Whether the image renders
+      is controlled globally by the show_image prop (a per-item image is only shown when show_image
+      is true and the item supplies one).
+    example:
+      - { image: "/stock/cover-workspace.jpg", eyebrow: "Guide", title: "Getting started", subtitle: "Set up your first project in minutes.", href: "#" }
+  cols_mobile:
+    type: enum
+    values: ["1", "2", "3", "4"]
+    default: "1"
+    title: Cards in view (mobile)
+    description: How many cards are fully visible per view at the base (mobile) width.
+  cols_tablet:
+    type: enum
+    values: ["1", "2", "3", "4"]
+    default: "2"
+    title: Cards in view (tablet)
+    description: How many cards are fully visible per view from the sm breakpoint up.
+  cols_desktop:
+    type: enum
+    values: ["1", "2", "3", "4"]
+    default: "3"
+    title: Cards in view (desktop)
+    description: How many cards are fully visible per view from the lg breakpoint up.
+  peek:
+    type: enum
+    values: [none, sm, md, lg]
+    default: none
+    title: Peek
+    description: >
+      How much of the previous/next card peeks in at the edges. "none" shows exactly the chosen
+      number of cards; sm/md/lg reserve a growing sliver on each side to hint there is more.
+  gap:
+    type: enum
+    values: [default, none, sm, md, lg, xl]
+    default: default
+    title: Gap
+    description: >
+      Space between cards, from a fixed set of choices. "default" keeps the designed spacing;
+      none/sm/md/lg/xl are explicit fixed overrides.
+  loop:
+    type: boolean
+    default: false
+    title: Loop
+    description: >
+      When true, pressing next at the end wraps to the start (and previous at the start wraps to
+      the end). When false, the arrows stop — and disable — at the first and last position.
+  end_at_start:
+    type: boolean
+    default: false
+    title: Last card scrolls to the start
+    description: >
+      Controls where scrolling ends. When false (default) the last page stops flush to the right
+      edge, so the final cards fill the view. When true, extra trailing space lets the very last
+      card scroll all the way to the leading (left) edge instead of staying flush-right.
+  show_arrows:
+    type: boolean
+    default: true
+    title: Show arrows
+    description: Show the previous/next arrow buttons overlaid on the edges.
+  show_pager:
+    type: boolean
+    default: true
+    title: Show pager
+    description: Show the row of pager dots below the track (one dot per card).
+  show_image:
+    type: boolean
+    default: true
+    title: Show preview image
+    description: >
+      Show each card's preview image. When true a card with no image falls back to a plain
+      surface panel; when false no media area is rendered and cards are text-only.
+  label:
+    type: string
+    default: "Carousel"
+    title: Accessible label
+    description: Accessible name announced for the carousel region.
+variants:
+  cols_mobile:
+    "1": "[--cc-cols:1]"
+    "2": "[--cc-cols:2]"
+    "3": "[--cc-cols:3]"
+    "4": "[--cc-cols:4]"
+  cols_tablet:
+    "1": "sm:[--cc-cols:1]"
+    "2": "sm:[--cc-cols:2]"
+    "3": "sm:[--cc-cols:3]"
+    "4": "sm:[--cc-cols:4]"
+  cols_desktop:
+    "1": "lg:[--cc-cols:1]"
+    "2": "lg:[--cc-cols:2]"
+    "3": "lg:[--cc-cols:3]"
+    "4": "lg:[--cc-cols:4]"
+  peek:
+    none: "[--cc-peek:0px]"
+    sm: "[--cc-peek:20px]"
+    md: "[--cc-peek:44px]"
+    lg: "[--cc-peek:72px]"
+  gap:
+    default: "[--cc-gap:16px]"
+    none: "[--cc-gap:0px]"
+    sm: "[--cc-gap:12px]"
+    md: "[--cc-gap:24px]"
+    lg: "[--cc-gap:40px]"
+    xl: "[--cc-gap:64px]"

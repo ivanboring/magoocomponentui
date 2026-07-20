@@ -1,0 +1,27 @@
+name: rating-prompt
+props:
+  question:
+    type: string
+    default: "How was your experience?"
+    title: Question
+    description: The prompt shown above the star row.
+  max:
+    type: string
+    default: "5"
+    title: Max stars
+    description: How many stars to offer, as a string. Should match the length of the stars array.
+  stars:
+    type: array
+    items: object
+    required: true
+    title: Stars
+    description: >
+      Precomputed list of { index, filled } objects, length == max, in order. index is the 1-based
+      star position the caller passes so behavior.js knows how many to fill on click/hover; filled
+      is the initial fill state (usually all false for an unrated prompt).
+    example:
+      - { index: 1, filled: false }
+      - { index: 2, filled: false }
+      - { index: 3, filled: false }
+      - { index: 4, filled: false }
+      - { index: 5, filled: false }

@@ -1,0 +1,7 @@
+{
+  "title": "Console",
+  "edge": "bottom",
+  "$slots": {
+    "content": "<pre class=\"font-mono text-xs text-on-surface-muted\">$ build started\n$ compiled 42 modules\n$ ready in 1.2s\n$ watching for changes...</pre>"
+  }
+}

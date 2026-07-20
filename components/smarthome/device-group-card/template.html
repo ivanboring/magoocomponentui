@@ -1,0 +1,13 @@
+<div class="device-group-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center justify-between gap-3">
+    <span class="device-group-card__icon flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
+      <span data-if="icon">{{ icon }}</span>
+      <svg data-if="!icon" class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="7" height="6.5" rx="1.5"/><rect x="11" y="4" width="6" height="4.5" rx="1.5"/><rect x="3" y="12.5" width="6" height="4.5" rx="1.5"/><rect x="10" y="10.5" width="7" height="6.5" rx="1.5"/></svg>
+    </span>
+    <button type="button" class="device-group-card__switch relative inline-flex h-6 w-10 shrink-0 items-center rounded-pill bg-surface-raised transition-colors duration-(--duration-token) data-[state=true]:bg-primary" role="switch" data-state="{{ all_on }}" aria-checked="{{ all_on }}" aria-label="Toggle all devices in group">
+      <span class="device-group-card__knob ml-0.5 inline-block size-5 rounded-full bg-surface shadow-card transition-transform duration-(--duration-token) data-[state=true]:translate-x-4" data-state="{{ all_on }}"></span>
+    </button>
+  </div>
+  <p class="device-group-card__name mt-3 font-heading text-on-surface">{{ name }}</p>
+  <p class="device-group-card__count mt-1 text-sm tabular-nums text-on-surface-muted">{{ on_count }}/{{ device_count }} on</p>
+</div>

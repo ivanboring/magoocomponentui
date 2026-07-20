@@ -1,0 +1,15 @@
+{
+  "label": "Recipes",
+  "all_label": "Everything",
+  "gap": "md",
+  "filters": [
+    { "label": "Savoury", "value": "savoury" },
+    { "label": "Sweet", "value": "sweet" }
+  ],
+  "items": [
+    { "image": "/stock/food-plate.jpg", "title": "Roasted vegetable bowl", "subtitle": "A weeknight staple.", "category": "savoury" },
+    { "image": "/stock/cover-workspace.jpg", "title": "Slow-cooked ragu", "subtitle": "Worth the wait.", "category": "savoury" },
+    { "image": "/stock/product-sneaker.jpg", "title": "Berry galette", "subtitle": "Rustic and quick.", "category": "sweet" },
+    { "image": "/stock/property-house.jpg", "title": "Dark chocolate tart", "subtitle": "For the weekend.", "category": "sweet" }
+  ]
+}

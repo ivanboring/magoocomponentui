@@ -1,0 +1,76 @@
+name: "Generic Result Card"
+short_description: A single search result — optional thumbnail, breadcrumb URL, linked title, two-line snippet and a meta row.
+long_visual_description: >
+  A bordered surface card laid out as an optional square thumbnail beside a text column. The column
+  stacks a small green breadcrumb URL, a primary-colour linked title, a two-line clamped snippet and
+  a dot-separated meta row of short facts. Without a thumbnail the text fills the width; without a
+  URL the title is plain text and the breadcrumb is omitted.
+
+use_cases:
+  - A single row in a list of search results.
+  - A web-search-style result with URL, title and snippet.
+  - A documentation or knowledge-base hit in a results list.
+  - A recent or saved result shown outside a full results page.
+  - The repeated unit inside a custom results list where you control the loop.
+
+recommended_for:
+  - Rendering one result record on its own or in a hand-built results list.
+  - Web/doc-search style results that want a breadcrumb, title link and snippet.
+avoid_for:
+  - A full results page with a facet sidebar and count (use faceted-results).
+  - Rich domain cards like products or podcasts (use the specific card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a title and snippet (both required); add a url to make the title a link and show the
+  breadcrumb, a meta array of short strings for the dot-separated footer, and a thumbnail path for
+  the square preview. Stack several in your own list, or reach for faceted-results for a full page.
+
+props:
+  title: "The result headline; a link when url is set, plain text otherwise."
+  url: "Destination for the title link and the breadcrumb above it; omit for a non-linked result."
+  snippet: "Short excerpt, clamped to two lines."
+  meta: "Short facts shown dot-separated below the snippet."
+  thumbnail: "Optional square preview image (a /stock path or URL); omit for a text-only card."
+
+lifecycle: experimental
+content_model: "One search result record - title, optional url, snippet, optional meta and thumbnail."
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Write the snippet to lead with the matched context; it clamps to two lines. Keep the breadcrumb
+  short and human-readable, and use meta for two or three quick facts (type, read time, date) rather
+  than a long list.
+
+relationships:
+  related:
+    - search/faceted-results
+    - search/sort-and-view
+    - search/did-you-mean
+
+categorization:
+  category: Search
+  subcategory: Results
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title is a real link when linked, the thumbnail is decorative (empty alt), and colour is not the only cue for the title or breadcrumb.
+  keyboard_support: The title link is in the tab order when a url is present; the card is otherwise static content.
+  seo_score: 45
+  text_direction: both

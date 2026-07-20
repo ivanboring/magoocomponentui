@@ -1,0 +1,12 @@
+{
+  "current_temp": "3.4 C",
+  "min_temp": "2 C",
+  "max_temp": "8 C",
+  "in_range": true,
+  "readings": [
+    { "time": "14:00", "temp": "3.4 C", "breach": false },
+    { "time": "13:00", "temp": "3.1 C", "breach": false },
+    { "time": "12:00", "temp": "3.6 C", "breach": false },
+    { "time": "11:00", "temp": "4.0 C", "breach": false }
+  ]
+}

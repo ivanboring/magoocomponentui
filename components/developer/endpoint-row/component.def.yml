@@ -1,0 +1,31 @@
+name: endpoint-row
+props:
+  method:
+    type: enum
+    values: ["get", "post", "put", "patch", "delete"]
+    default: "get"
+    title: HTTP method
+    description: The HTTP verb for this endpoint; drives the method pill colour.
+  path:
+    type: string
+    required: true
+    title: Path
+    description: The endpoint path, shown in a monospace face (e.g. /v1/orders/{id}).
+    example: "/v1/orders/{id}"
+  summary:
+    type: string
+    title: Summary
+    description: A short one-line description of what the endpoint does. Truncates if long.
+    example: "Retrieve a single order by id"
+  deprecated:
+    type: boolean
+    default: false
+    title: Deprecated
+    description: When true, marks the endpoint with a Deprecated tag and dims the path.
+variants:
+  method:
+    get: "bg-info/10 text-info"
+    post: "bg-success/10 text-success"
+    put: "bg-warning/10 text-warning"
+    patch: "bg-warning/10 text-warning"
+    delete: "bg-danger/10 text-danger"

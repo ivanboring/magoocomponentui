@@ -1,0 +1,85 @@
+name: "Service Appointment"
+short_description: A booking card for a scheduled service visit, with date, time window, technician and confirm or reschedule actions.
+long_visual_description: >
+  A surface card titled with the booked service and a coloured status pill. A calendar-icon row
+  shows the date and time window, with optional customer and assigned-technician rows below. A
+  divider separates a footer with an outlined Reschedule button and a filled primary Confirm button.
+
+use_cases:
+  - Customer-facing confirmation of a booked service visit.
+  - Upcoming appointments list on a service portal.
+  - Booking summary shown after scheduling an appointment.
+  - Reminder card for a pending appointment awaiting confirmation.
+  - Calendar day entry summarising a scheduled visit.
+
+recommended_for:
+  - A single bookable or booked appointment slot with actions.
+  - Lists of upcoming visits a customer can confirm or reschedule.
+avoid_for:
+  - A dispatched job in progress (use job-dispatch-card).
+  - A full day's route of visits (use route-schedule).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the required date and window plus a service title, then set the status enum to colour the
+  pill. The Reschedule and Confirm buttons are skeleton controls; wire them to your booking flow.
+
+props:
+  service: "The booked service, used as the card title."
+  date: "Preformatted appointment date."
+  window: "Preformatted appointment time window."
+  customer: "Customer the appointment is for."
+  technician: "Assigned technician, if any."
+  status: "One of confirmed, pending, completed; colours the status pill."
+
+example_prompts:
+  - "Add a service appointment for Fri Jul 24, 9-11 AM, furnace tune-up, pending."
+  - "Show upcoming appointments with confirm and reschedule buttons."
+
+lifecycle: experimental
+content_model: A single scheduled service appointment with date, window, participants and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the service title specific so a customer recognises the visit. Use pending until the customer
+  confirms, then advance to confirmed, and completed after the visit.
+
+relationships:
+  related:
+    - fieldservice/job-dispatch-card
+    - fieldservice/route-schedule
+    - fieldservice/technician-card
+
+categorization:
+  category: Field Service
+  subcategory: Scheduling
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is shown by an uppercase text label in the pill, not colour alone; buttons carry visible text labels and icons are decorative and aria-hidden.
+  keyboard_support: The Reschedule and Confirm buttons are native buttons, focusable and activated with Enter or Space.
+  seo_score: 30
+  text_direction: both

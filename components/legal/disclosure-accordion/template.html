@@ -1,0 +1,18 @@
+<div class="disclosure-accordion divide-y divide-border rounded-card border border-border bg-surface">
+  <div data-for="item in items" class="disclosure-accordion__item">
+    <details data-if="item.open" class="disclosure-accordion__disclosure group" open>
+      <summary class="disclosure-accordion__summary flex cursor-pointer list-none items-center justify-between gap-4 px-(--space-card) py-4 font-heading text-on-surface marker:content-none [&::-webkit-details-marker]:hidden">
+        {{ item.title }}
+        <svg class="disclosure-accordion__icon size-5 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </summary>
+      <div class="disclosure-accordion__body px-(--space-card) pb-4 text-sm text-on-surface-muted">{{{ item.body_html }}}</div>
+    </details>
+    <details data-if="!item.open" class="disclosure-accordion__disclosure group">
+      <summary class="disclosure-accordion__summary flex cursor-pointer list-none items-center justify-between gap-4 px-(--space-card) py-4 font-heading text-on-surface marker:content-none [&::-webkit-details-marker]:hidden">
+        {{ item.title }}
+        <svg class="disclosure-accordion__icon size-5 shrink-0 text-on-surface-muted transition-transform duration-(--duration-token) group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8l4 4 4-4"/></svg>
+      </summary>
+      <div class="disclosure-accordion__body px-(--space-card) pb-4 text-sm text-on-surface-muted">{{{ item.body_html }}}</div>
+    </details>
+  </div>
+</div>

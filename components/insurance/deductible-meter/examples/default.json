@@ -1,0 +1,7 @@
+{
+  "met": "$500",
+  "deductible": "$1,500",
+  "pct": 33,
+  "out_of_pocket_max": "$6,000",
+  "oop_pct": 18
+}

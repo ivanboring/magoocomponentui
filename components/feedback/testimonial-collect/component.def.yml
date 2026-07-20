@@ -1,0 +1,32 @@
+name: testimonial-collect
+props:
+  heading:
+    type: string
+    default: "Share your experience"
+    title: Heading
+    description: The card heading inviting the user to leave a testimonial.
+  prompt:
+    type: string
+    title: Prompt
+    description: Optional supporting line under the heading explaining what to write about.
+    example: "Tell us what you liked and how it helped."
+  name_placeholder:
+    type: string
+    default: "Your name"
+    title: Name placeholder
+    description: Placeholder for the name input.
+  role_placeholder:
+    type: string
+    default: "Role, Company"
+    title: Role placeholder
+    description: Placeholder for the role/company input.
+  message_placeholder:
+    type: string
+    default: "Write your testimonial…"
+    title: Message placeholder
+    description: Placeholder for the testimonial textarea.
+  submit_label:
+    type: string
+    default: "Submit testimonial"
+    title: Submit label
+    description: Text on the submit button.

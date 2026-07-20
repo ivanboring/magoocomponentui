@@ -1,0 +1,15 @@
+<section class="cause-hero relative flex min-h-96 items-center overflow-hidden rounded-card bg-primary">
+  <div data-if="image" class="cause-hero__bg absolute inset-0 bg-cover bg-center" style="background-image: url({{ image }})" aria-hidden="true"></div>
+  <div class="cause-hero__scrim absolute inset-0 bg-black/55" aria-hidden="true"></div>
+  <div class="cause-hero__body relative max-w-xl px-6 py-(--space-section) text-white sm:px-10">
+    <h1 class="cause-hero__heading font-heading text-3xl leading-tight sm:text-4xl">{{ heading }}</h1>
+    <p data-if="subheading" class="cause-hero__subheading mt-4 max-w-lg text-lg text-white/85">{{ subheading }}</p>
+    <div data-if="goal" class="cause-hero__progress mt-6">
+      <div class="h-2 w-full overflow-hidden rounded-pill bg-white/25" role="progressbar" aria-valuenow="{{ pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Amount raised toward goal">
+        <div class="cause-hero__fill h-full rounded-pill bg-white transition-all duration-(--duration-token)" style="width: {{ pct }}%"></div>
+      </div>
+      <p class="mt-2 text-sm text-white/85"><span class="font-heading text-white">{{ raised }}</span> raised of {{ goal }} goal</p>
+    </div>
+    <a class="cause-hero__cta mt-8 inline-flex items-center rounded-button bg-primary px-6 py-3 text-sm font-heading text-primary-contrast shadow-card transition-opacity duration-(--duration-token) hover:opacity-90" href="{{ cta.href }}">{{ cta.label }}</a>
+  </div>
+</section>

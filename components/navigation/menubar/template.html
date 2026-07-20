@@ -1,0 +1,11 @@
+<div class="menubar flex items-center gap-0.5 rounded-card border border-border bg-surface p-1 text-sm" role="menubar" aria-label="{{ label }}">
+  <div data-for="menu in menus" class="menubar__menu group/m relative" data-open="{{ menu.open }}">
+    <button type="button" class="menubar__button rounded-control px-3 py-1.5 text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised group-data-[open=true]/m:bg-surface-raised" role="menuitem" aria-haspopup="true" aria-expanded="{{ menu.open }}">{{ menu.label }}</button>
+    <div class="menubar__panel invisible absolute left-0 top-full z-20 mt-1 min-w-52 rounded-card border border-border bg-surface py-1 opacity-0 pointer-events-none shadow-raised transition-opacity duration-(--duration-token) group-data-[open=true]/m:visible group-data-[open=true]/m:opacity-100 group-data-[open=true]/m:pointer-events-auto" role="menu">
+      <div data-for="item in menu.items" role="none">
+        <a data-if="!item.divider" class="menubar__item flex items-center justify-between gap-8 px-3 py-1.5 text-on-surface transition-colors hover:bg-surface-raised data-[danger=true]:text-danger" href="{{ item.href }}" role="menuitem" data-danger="{{ item.danger }}"><span>{{ item.label }}</span><span data-if="item.shortcut" class="text-xs text-on-surface-muted">{{ item.shortcut }}</span></a>
+        <hr data-if="item.divider" class="my-1 border-t border-border">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+name: batch-record
+props:
+  batch_number:
+    type: string
+    required: true
+    title: Batch number
+    description: The batch or lot identifier, shown in a mono face.
+    example: "B-2209-A"
+  product:
+    type: string
+    title: Product
+    description: The product or material this batch produces.
+    example: "Buffer solution pH 7.0"
+  quantity:
+    type: string
+    title: Quantity
+    description: Quantity produced, precomputed and formatted by the caller.
+    example: "500 L"
+  start:
+    type: string
+    title: Start
+    description: Batch start time.
+    example: "07:15"
+  end:
+    type: string
+    title: End
+    description: Batch end time.
+    example: "11:40"
+  status:
+    type: string
+    title: Status
+    description: Free-text batch status shown as a neutral pill (e.g. "Released", "In progress", "On hold").
+    example: "Released"
+  params:
+    type: array
+    items: object
+    required: false
+    title: Parameters
+    description: >
+      Process parameters recorded for the batch. Each param: { label, value, in_spec }. in_spec is a
+      boolean - when false the parameter value is coloured danger and gains an alert glyph to flag an
+      out-of-spec reading.
+    example:
+      - { label: "Temperature", value: "25.2 C", in_spec: true }
+      - { label: "pH", value: "6.4", in_spec: false }

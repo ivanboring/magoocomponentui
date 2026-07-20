@@ -1,0 +1,85 @@
+name: "Company Account Card"
+short_description: An at-a-glance CRM account card with logo, industry, a size/revenue/open-deals stat row, and the account owner.
+long_visual_description: >
+  A card on the surface colour with a card radius and soft shadow. A square logo tile (image or
+  monogram fallback) leads a header with the company name in the heading face and its industry
+  muted beneath. A three-column stat row divided by a top border shows size, revenue, and open
+  deals with tabular figures, and a footer row divided by another border names the account owner
+  with a person glyph.
+
+use_cases:
+  - Account summary tile in a company directory.
+  - Header card on a CRM account detail page.
+  - Target-account list in an ABM dashboard.
+  - Related-accounts panel on a contact record.
+  - Territory or book-of-business overview grid.
+  - Pipeline account cards grouped by owner.
+
+recommended_for:
+  - Company-level records that need a quick financial and ownership snapshot.
+  - Grids of comparable accounts.
+avoid_for:
+  - Individual people (use contact-list-row).
+  - A single metric (use a stat card).
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid. Give each a company name, a logo image or precomputed
+  monogram, an industry, and any of the size, revenue, and open-deals stats. Each stat cell is
+  gated so the row collapses gracefully when a value is missing. Add the owner to show the footer.
+
+props:
+  name: Company/account name; also the logo's accessible label.
+  logo: Optional company logo image path; falls back to the monogram.
+  monogram: One or two precomputed characters shown when there is no logo.
+  industry: Sector shown muted under the name.
+  size: Company size band, e.g. an employee count.
+  revenue: Formatted annual revenue figure.
+  owner: Rep who owns the account, shown in the footer.
+  open_deals: Formatted count of open opportunities.
+
+example_prompts:
+  - "Add an account card for Northwind Traders, wholesale, $48M revenue, 3 open deals."
+  - "Show a target account with a logo and its owner."
+  - "Put a grid of company account cards on the ABM dashboard."
+
+relationships:
+  related:
+    - crm/contact-list-row
+    - crm/win-loss-summary
+    - crm/territory-map
+
+lifecycle: experimental
+content_model: A company with a name, a logo or monogram, an industry, size/revenue/open-deals stats, and an owner.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Format revenue and size for humans before passing them in - the card only paints the strings it
+  is given. Keep the industry short so the header stays on one line. Omit stats you do not have
+  rather than showing a zero; each cell disappears when empty.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Accounts
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stats use a description list for structure and the logo carries an accessible label from the company name; no meaning is colour-only.
+  keyboard_support: None - static, non-interactive card.
+  seo_score: 40
+  text_direction: both

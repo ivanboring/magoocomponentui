@@ -1,0 +1,14 @@
+name: api-token-list
+props:
+  tokens:
+    type: array
+    items: object
+    required: true
+    title: Tokens
+    description: >
+      The API tokens to list, in order. Each item:
+      { name, token_masked, scopes, created, last_used }. name labels the token, token_masked is the
+      partially hidden key shown in a mono chip (only the masked value is ever exposed), scopes is an
+      array of scope strings shown as chips, and created/last_used are optional meta strings.
+    example:
+      - { name: "Production server", token_masked: "sk_live_...4f9a", scopes: ["read", "write"], created: "Mar 4, 2026", last_used: "2 hours ago" }

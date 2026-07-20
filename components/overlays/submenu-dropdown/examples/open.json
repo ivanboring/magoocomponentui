@@ -1,0 +1,26 @@
+{
+  "trigger_label": "Options",
+  "label": "Menu",
+  "start_open": true,
+  "items": [
+    { "label": "New", "href": "#" },
+    { "label": "Open", "href": "#" },
+    {
+      "label": "Share",
+      "children": [
+        { "label": "Email", "href": "#" },
+        { "label": "Copy link", "href": "#" },
+        { "label": "Embed", "href": "#" }
+      ]
+    },
+    {
+      "label": "Export",
+      "children": [
+        { "label": "PDF", "href": "#" },
+        { "label": "PNG", "href": "#" },
+        { "label": "CSV", "href": "#" }
+      ]
+    },
+    { "label": "Delete", "href": "#", "danger": true }
+  ]
+}

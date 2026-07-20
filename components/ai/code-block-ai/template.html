@@ -1,0 +1,16 @@
+<div class="code-block-ai overflow-hidden rounded-card border border-border bg-surface-raised">
+  <div class="flex items-center justify-between gap-2 border-b border-border px-4 py-2">
+    <span class="font-mono text-xs text-on-surface-muted">{{ language }}</span>
+    <div class="flex items-center gap-1">
+      <button data-if="runnable" type="button" class="code-block-ai__run inline-flex items-center gap-1.5 rounded-control px-2 py-1 text-xs font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface hover:text-primary">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4l10 6-10 6V4z"/></svg>
+        Run
+      </button>
+      <button type="button" class="code-block-ai__copy inline-flex items-center gap-1.5 rounded-control px-2 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface hover:text-on-surface" aria-label="Copy code">
+        <svg class="size-3.5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="7" y="7" width="9" height="9" rx="2"/><path d="M13 7V5a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2"/></svg>
+        <span class="code-block-ai__copy-label">Copy</span>
+      </button>
+    </div>
+  </div>
+  <pre class="overflow-x-auto p-4 text-sm"><code class="code-block-ai__code font-mono text-on-surface">{{ code }}</code></pre>
+</div>

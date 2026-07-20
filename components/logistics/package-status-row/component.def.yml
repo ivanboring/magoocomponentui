@@ -1,0 +1,43 @@
+name: package-status-row
+props:
+  tracking_number:
+    type: string
+    required: true
+    title: Tracking number
+    description: The parcel tracking number, shown in a mono face.
+    example: "1Z999AA10123456784"
+  carrier:
+    type: string
+    title: Carrier
+    description: Carrier name shown under the tracking number.
+    example: "UPS"
+  status:
+    type: enum
+    values: ["in-transit", "out-for-delivery", "delivered", "delayed", "exception"]
+    default: "in-transit"
+    title: Status
+    description: Delivery state; drives the status pill colour.
+  status_label:
+    type: string
+    title: Status label
+    description: >
+      Human-readable text shown inside the status pill (e.g. "Out for delivery"). Kept separate from
+      the machine status so the pill reads well; the colour still comes from status.
+    example: "In transit"
+  eta:
+    type: string
+    title: ETA
+    description: Estimated or actual delivery time shown on the trailing edge.
+    example: "Arrives Jul 5"
+  destination:
+    type: string
+    title: Destination
+    description: Delivery destination shown under the tracking number.
+    example: "Columbus, OH"
+variants:
+  status:
+    "in-transit": "bg-info/10 text-info"
+    "out-for-delivery": "bg-primary/10 text-primary"
+    "delivered": "bg-success/10 text-success"
+    "delayed": "bg-warning/10 text-warning"
+    "exception": "bg-danger/10 text-danger"

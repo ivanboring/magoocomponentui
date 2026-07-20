@@ -1,0 +1,86 @@
+name: "Code Sample Tabs"
+short_description: A tabbed multi-language code block - switch languages with an ARIA tablist and copy the active sample with one click.
+long_visual_description: >
+  A bordered card with a row of language tabs across the top; the active tab is underlined in the
+  primary colour. Below sits a monospace code panel for the selected language with a small Copy
+  button floating in the top-right corner that swaps to "Copied!" for a moment after use. Only the
+  active language's panel is shown; the rest are hidden until their tab is chosen.
+
+use_cases:
+  - Show the same API call in curl, JavaScript and Python.
+  - Offer install or setup snippets across several ecosystems.
+  - Present a quickstart with copyable code in multiple SDKs.
+  - Document a request/response pair with language options.
+  - Provide framework-specific variants of an integration example.
+  - Let readers copy a ready-to-run snippet in their language.
+
+recommended_for:
+  - Docs that show the same operation in more than one language.
+  - Any code block where one-click copy improves the reader flow.
+avoid_for:
+  - A single snippet with no language choice (use a plain code block).
+  - Prose tabs or settings panels (use tabs).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a samples array where each item has a language token, its code, and an active flag. Mark the
+  first sample active so a panel shows before JavaScript loads. The tabs switch panels; the copy
+  button copies the currently active panel's code.
+
+how_to_use: >
+  Layout and the initial visible panel are pure markup (the active sample carries data-active=true,
+  and inactive panels are hidden by a data-[active=false]:hidden utility), so a panel renders in
+  screenshots with no JavaScript. behavior.js wires the interaction: clicking a tab - or arrowing
+  Left/Right/Home/End across the tablist - activates it and reveals its panel; the copy button reads
+  the active panel's code, calls navigator.clipboard.writeText, and briefly shows "Copied!". It
+  dispatches a code-sample-tabs:change event (detail.index) on switch. The portable self-init reads
+  everything from the DOM - no props object is passed.
+
+props:
+  label: "Accessible name for the tablist as a whole."
+  samples: "The language variants, in tab order. Each has a language token (visible label and id link), the code body, and an active flag - set exactly one, normally the first."
+
+example_prompts:
+  - "Show this API call in curl, JavaScript, and Python tabs with a copy button."
+  - "Add copyable install snippets for npm and pip as language tabs."
+
+lifecycle: experimental
+content_model: A set of code samples of the same operation, one per language, switched by a tablist.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-border
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --duration-token
+    - --font-mono
+
+editorial_guidance: >
+  Keep language labels short and consistent (curl, JavaScript, Python). Order tabs by expected
+  popularity, most common first, and keep the samples equivalent so switching languages does not
+  change what the code does.
+
+relationships:
+  related:
+    - developer/sdk-install-card
+    - developer/request-response-viewer
+    - developer/endpoint-row
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: organism
+  usage_type: [nav, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: role=tablist/tab/tabpanel with aria-selected, aria-controls and aria-labelledby; roving tabindex keeps one tab in the tab order; Left/Right/Home/End move between tabs; the copy control is a labelled button.
+  keyboard_support: Tab moves focus into the active tab; Left/Right cycle and activate tabs; Home/End jump to first/last; Enter/Space and click activate; the copy button is reachable in the tab order.
+  seo_score: 35
+  text_direction: ltr

@@ -1,0 +1,8 @@
+{
+  "people": [
+    { "name": "Jane Doe", "initials": "JD", "avatar": "/stock/avatar-woman-1.jpg" },
+    { "name": "Sam Lee", "initials": "SL", "avatar": "/stock/avatar-man-1.jpg" },
+    { "name": "Ari Cohen", "initials": "AC", "avatar": "" }
+  ],
+  "overflow_count": 2
+}

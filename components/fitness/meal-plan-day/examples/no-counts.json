@@ -1,0 +1,26 @@
+{
+  "day": "Rest day",
+  "meals": [
+    {
+      "name": "Breakfast",
+      "items": [
+        { "label": "Scrambled eggs on toast" },
+        { "label": "Orange juice" }
+      ]
+    },
+    {
+      "name": "Lunch",
+      "items": [
+        { "label": "Turkey wrap" },
+        { "label": "Side salad" }
+      ]
+    },
+    {
+      "name": "Dinner",
+      "items": [
+        { "label": "Vegetable stir-fry" },
+        { "label": "Jasmine rice" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+name: "Signature Pad"
+short_description: A framed canvas field for drawing a signature with a mouse, pen or finger, with Clear and Done controls.
+long_visual_description: >
+  A surface card containing a bordered drawing area on the raised surface, with a faint baseline (an
+  "x" mark and a rule) near the bottom to sign above. A caption sits under the pad and an optional
+  hint line below it. A footer row holds a Clear button and a primary Done button on the trailing
+  edge. The signer draws directly on the canvas; the stroke follows the pointer.
+
+use_cases:
+  - Capture a handwritten signature to accept a contract or agreement.
+  - Sign off on a delivery, work order or inspection form.
+  - Provide consent on a healthcare or intake form.
+  - Acknowledge receipt of a policy or handbook.
+  - Add a signature to a waiver or release before an activity.
+  - Approve an estimate or invoice inline.
+
+recommended_for:
+  - Forms that need a drawn signature rather than a typed name.
+  - Touch and pen devices where signing feels natural.
+avoid_for:
+  - Legally binding e-signature workflows needing an audit trail (use a dedicated e-sign service).
+  - A simple typed-name acknowledgement (use a text field plus consent-checkbox-legal).
+
+markets:
+  - Global
+
+example_usage: >
+  Place inside a form near the submit action. Set label to describe what is being signed and give a
+  name so the drawn signature is submitted: on Done the pad writes a PNG data URL into a hidden
+  input with that name and dispatches "signature:done". Use Clear to let the signer start over.
+
+how_to_use: >
+  The framed empty pad, baseline, label and buttons are pure markup, so the component renders (and
+  screenshots) without JavaScript — the pad simply shows empty and framed there, which is expected.
+  behavior.js makes it interactive with Pointer Events: pointerdown starts a stroke (with
+  setPointerCapture so a drag off the canvas keeps drawing), pointermove extends it with a round
+  line cap, pointerup ends it. The backing store is sized to the canvas box times devicePixelRatio
+  on init for crisp lines. Clear wipes the canvas; Done exports a PNG data URL to the optional
+  hidden input (name prop) and dispatches "signature:done" with { empty, dataUrl }. The portable
+  self-init reads everything from the markup and passes no props object; all listeners are cleaned
+  up on teardown.
+
+props:
+  label: The caption describing what the signature is for.
+  name: Optional form-field name; when set, the signature PNG data URL is written to a hidden input with this name on Done.
+  hint: Optional helper line under the label.
+
+example_prompts:
+  - "Add a signature pad so the customer can sign the agreement."
+  - "Add a canvas e-signature field with Clear and Done buttons to the intake form."
+
+lifecycle: experimental
+content_model: A drawing canvas, a caption, an optional hint, and Clear/Done actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label specific ("Sign to accept the service agreement"). Use the hint to tell first-time
+  users they can draw with a mouse, pen or finger. Pair with a consent-checkbox-legal when the
+  signature also requires agreeing to written terms.
+
+relationships:
+  related:
+    - legal/consent-checkbox-legal
+    - legal/terms-section
+
+categorization:
+  category: Legal & Compliance
+  subcategory: Consent
+  atomic_type: molecule
+  usage_type: [form-control]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Clear and Done are labelled buttons; the drawing surface is inherently pointer-based, so provide a typed-name alternative alongside it for keyboard-only and screen-reader users.
+  keyboard_support: The Clear and Done buttons are focusable and activate on Enter/Space; drawing itself requires a pointer (mouse, pen or touch).
+  seo_score: 15
+  text_direction: both

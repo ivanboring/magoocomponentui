@@ -1,0 +1,8 @@
+{
+  "people": [
+    { "name": "Nadia Farouk", "title": "Recruiter", "initials": "NF", "department": "People" },
+    { "name": "Omar Haddad", "title": "Sales Lead", "initials": "OH", "department": "Revenue" },
+    { "name": "Grace Lin", "title": "Finance Analyst", "initials": "GL", "department": "Finance" },
+    { "name": "Ravi Patel", "title": "IT Support", "initials": "RP", "department": "IT" }
+  ]
+}

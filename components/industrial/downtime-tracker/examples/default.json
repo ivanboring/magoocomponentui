@@ -1,0 +1,9 @@
+{
+  "total_downtime": "3h 45m",
+  "reasons": [
+    { "label": "Changeover", "minutes": 95, "pct": 42, "color_class": "bg-primary" },
+    { "label": "Material shortage", "minutes": 60, "pct": 27, "color_class": "bg-warning" },
+    { "label": "Breakdown", "minutes": 45, "pct": 20, "color_class": "bg-danger" },
+    { "label": "Other", "minutes": 25, "pct": 11, "color_class": "bg-info" }
+  ]
+}

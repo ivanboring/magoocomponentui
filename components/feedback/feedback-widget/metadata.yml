@@ -1,0 +1,89 @@
+name: "Feedback Widget"
+short_description: A floating launcher button that opens a small panel to rate and send written feedback.
+long_visual_description: >
+  A dashed-border demo area with a pill-shaped launcher button in the primary colour pinned to the
+  bottom-right corner. Activating it reveals a raised feedback panel above the button, holding a short
+  heading, a five-star rating row, a message textarea, and a full-width primary Send button. The panel
+  slides and fades in and can be dismissed with Escape or an outside click.
+
+use_cases:
+  - Offer an always-available "give feedback" launcher on any page.
+  - Collect a star rating plus a comment without leaving the current screen.
+  - Capture bug reports or suggestions from a floating corner button.
+  - Provide a lightweight feedback entry point in an app shell.
+  - Gather quick input during a beta or early-access program.
+  - Route feedback with a rating into a support or product queue.
+
+recommended_for:
+  - A persistent, unobtrusive feedback affordance in a corner.
+  - Combining a quick rating with an optional written comment.
+avoid_for:
+  - A full support ticket form with attachments (use a dedicated form).
+  - A one-time in-flow survey (use nps-survey or survey-question).
+
+markets:
+  - Global
+
+example_usage: >
+  Drop it where a floating feedback button belongs. The demo container is a positioning context for
+  the preview; in production place the launcher against a full-height region instead. Listen for the
+  bubbling feedback:send event (detail.rating 0-5, detail.message string) on a parent to persist it.
+
+how_to_use: >
+  The panel reveal is pure CSS driven by the root's data-open attribute through group-data-[open=true],
+  so the open state (start_open) renders in screenshots with no JavaScript; the closed panel is hidden
+  with invisible, opacity-0 and pointer-events-none. behavior.js toggles data-open from the launcher
+  (syncing aria-expanded), closes on Escape or an outside click, tracks the star rating, and on Send
+  dispatches a bubbling "feedback:send" CustomEvent with { rating, message } then closes. The portable
+  self-init reads no props object.
+
+props:
+  label: "Text on the floating launcher button."
+  start_open: "Whether the panel is open on load (sets data-open)."
+
+slots: {}
+
+lifecycle: experimental
+content_model: A launcher plus a small panel holding a star rating and a free-text message.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-warning
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --radius-pill
+    - --shadow-raised
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep the launcher label short (Feedback, Help). Ask for a rating and a comment only, and confirm
+  receipt after Send rather than demanding more fields up front.
+
+relationships:
+  related:
+    - feedback/rating-prompt
+    - feedback/emoji-reaction-survey
+    - feedback/survey-question
+
+categorization:
+  category: "Feedback & Surveys"
+  subcategory: Widgets
+  atomic_type: molecule
+  usage_type: [highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The launcher exposes aria-expanded and aria-haspopup; the panel is a labelled dialog with a labelled star radiogroup and textarea; Escape and outside click close it and focus styles are visible.
+  keyboard_support: The launcher toggles on Enter/Space; Escape closes the panel; the star buttons, textarea, and Send are focusable with a visible focus ring.
+  seo_score: 10
+  text_direction: both

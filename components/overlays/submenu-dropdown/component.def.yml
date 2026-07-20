@@ -1,0 +1,31 @@
+name: submenu-dropdown
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The menu entries. Each item is either a leaf action { label, href, danger } or a
+      group { label, children: [{ label, href }] } that opens a cascading flyout to the
+      right. Set danger: true on a leaf to tint a destructive action.
+    example:
+      - { label: "New", href: "#" }
+      - { label: "Share", children: [{ label: "Email", href: "#" }, { label: "Copy link", href: "#" }] }
+  trigger_label:
+    type: string
+    default: "Options"
+    title: Trigger label
+    description: The visible label on the button that opens the menu.
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: >
+      Render with the root menu already open. Off by default; used to capture the open state
+      in screenshots. behavior.js still toggles it on the trigger at runtime.
+  label:
+    type: string
+    default: "Menu"
+    title: Menu label
+    description: Accessible label announced for the opened menu panel.

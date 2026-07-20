@@ -1,0 +1,10 @@
+{
+  "name": "Mochi",
+  "species": "Cat",
+  "breed": "Tabby",
+  "age": "8 months",
+  "photo": "",
+  "shelter": "City Animal Shelter",
+  "status": "adopted",
+  "cta_label": "See more like Mochi"
+}

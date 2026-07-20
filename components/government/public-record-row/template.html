@@ -1,0 +1,18 @@
+<div class="public-record-row flex items-center gap-4 rounded-card border border-border bg-surface p-4 shadow-card" data-access="{{ access }}">
+  <span class="public-record-row__icon flex size-10 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2.5h6l4 4V17.5H5z" stroke-linejoin="round"/><path d="M11 2.5V6.5h4M7.5 10.5h5M7.5 13.5h5" stroke-linecap="round"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="public-record-row__title truncate font-medium text-on-surface">{{ title }}</p>
+    <p data-if="type" class="text-xs text-on-surface-muted">{{ type }}</p>
+  </div>
+  <time class="public-record-row__date shrink-0 font-mono text-sm text-on-surface-muted max-sm:hidden">{{ date }}</time>
+  <span class="public-record-row__badge inline-flex shrink-0 items-center rounded-pill px-2.5 py-0.5 text-xs font-medium {{ access@class }}">
+    <span class="hidden [[data-access=public]_&]:inline">Public</span>
+    <span class="hidden [[data-access=restricted]_&]:inline">Restricted</span>
+  </span>
+  <a href="{{ href }}" class="public-record-row__action inline-flex shrink-0 items-center rounded-button border border-border bg-surface px-3 py-1.5 text-sm font-medium text-on-surface transition-colors duration-(--duration-token) hover:bg-surface-raised">
+    <span class="hidden [[data-access=public]_&]:inline">View</span>
+    <span class="hidden [[data-access=restricted]_&]:inline">Request</span>
+  </a>
+</div>

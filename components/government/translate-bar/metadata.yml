@@ -1,0 +1,88 @@
+name: "Translate Bar"
+short_description: A compact language-selection strip — a globe icon and a row of language buttons, with the current language highlighted.
+long_visual_description: >
+  A slim bar on the surface colour with a globe glyph at the left and a horizontal row of pill
+  buttons, one per offered language. The active language is filled in the primary colour with
+  contrasting text; the rest are muted and highlight on hover. The buttons wrap onto a second line
+  on narrow screens.
+
+use_cases:
+  - A language switcher in a government site header.
+  - A translation strip above the main content of a public page.
+  - A multilingual portal offering a handful of languages.
+  - A civic form page that can be viewed in several languages.
+  - A community notice board serving multiple language groups.
+  - A localized landing page with an explicit language chooser.
+
+recommended_for:
+  - Sites offering a small, fixed set of languages inline.
+  - Public-sector pages that must expose language choice prominently.
+avoid_for:
+  - Dozens of languages (use a searchable dropdown instead).
+  - Region/currency selection (this is language only).
+
+markets:
+  - Government
+  - Civic
+  - Multilingual
+
+example_usage: >
+  Pass a languages array (each { label, code, current }) and set current to the active language's
+  label for the region's accessible name. Mark exactly one language current: true. Listen for the
+  bubbling "lang:change" event to switch the interface when a visitor picks a language.
+
+how_to_use: >
+  behavior.js wires the interaction: clicking a language button sets data-current="true" (and
+  aria-pressed) on it, clears the others, and dispatches a bubbling CustomEvent "lang:change" with
+  detail { code, label }. Config comes from each button's data-code / data-label / data-current
+  attributes — the portable self-init passes no props. The current highlight is pure CSS
+  (data-[current=true]) so it renders correctly before the script runs and in screenshots.
+
+props:
+  languages: "The offered languages. Each item: label (display name), code (BCP-47 code), current (boolean, marks the selected one)."
+  current: The display label of the currently selected language, used in the region's accessible name.
+
+example_prompts:
+  - "Add a translate bar offering English, Spanish, and Vietnamese."
+  - "Put a language switcher strip at the top of the page with English selected."
+  - "Show a translate bar and change the page language on lang:change."
+
+lifecycle: experimental
+content_model: A list of offered languages with codes and a current selection, plus the current language's label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Write each language's label in that language (its endonym), not in English. Keep the set small and
+  ordered by expected audience size, and make sure the current selection genuinely reflects the
+  language the page is rendered in.
+
+relationships:
+  related:
+    - navigation/navbar
+    - government/accessibility-statement
+
+categorization:
+  category: Government
+  subcategory: Localization
+  atomic_type: molecule
+  usage_type: [banner, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each button carries a lang attribute and aria-pressed state; the region has an accessible name and the current selection is exposed in text and state, not colour alone.
+  keyboard_support: Each language button is focusable and activates on Enter or Space, toggling the current selection.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,31 @@
+name: premium-summary
+props:
+  total:
+    type: string
+    required: true
+    title: Total premium
+    description: The headline premium amount, pre-formatted with its currency symbol.
+    example: "$142.50"
+  period:
+    type: enum
+    values: [monthly, yearly]
+    title: Billing period
+    description: The billing cadence shown after the total (e.g. "/monthly"). Omit for a one-off premium.
+    example: monthly
+  line_items:
+    type: array
+    items: object
+    required: true
+    title: Line items
+    description: >
+      The premium breakdown rows. Each item: { label, amount }. amount is pre-formatted text
+      including the currency symbol.
+    example:
+      - { label: "Base cover", amount: "$120.00" }
+      - { label: "Roadside assistance", amount: "$12.50" }
+      - { label: "Taxes and fees", amount: "$10.00" }
+  discount:
+    type: string
+    title: Discount
+    description: An optional savings line rendered in the success colour, e.g. "-$18.00".
+    example: "-$18.00"

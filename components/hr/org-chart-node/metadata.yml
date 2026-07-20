@@ -1,0 +1,74 @@
+name: "Org Chart Node"
+short_description: A manager node with an avatar and a connected row of direct-report mini-cards, one branch of an org chart.
+long_visual_description: >
+  A centered manager card on the surface colour with a circular avatar (or initials fallback), name in
+  the heading face, and a muted title. A divider separates it from a wrapping row of smaller
+  direct-report cards below, each showing an initials mini-avatar, name and role on the raised surface.
+
+use_cases:
+  - A single branch of an org chart on a team or company page.
+  - A manager plus their direct reports in a people directory.
+  - Department leadership shown above its team members.
+  - An "meet the team" block grouped by reporting line.
+  - A reporting-line preview inside an employee profile.
+  - A hierarchy node reused across a larger tree layout.
+
+recommended_for:
+  - Showing one manager and their immediate reports as a unit.
+  - People directories organised by reporting structure.
+avoid_for:
+  - A full recursive multi-level tree (compose several nodes instead).
+  - A flat list of employees with no hierarchy (use employee-card in a grid).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name, title and either an avatar URL or precomputed initials for the manager, then a reports
+  array where each entry is { name, title, initials }. The reports row is hidden when the array is empty,
+  so the same component renders both a lone leaf and a manager with a team.
+
+props:
+  name: The manager's full name shown in the heading face.
+  title: The manager's role or job title.
+  avatar: Optional avatar image URL; when empty the initials fallback is shown.
+  initials: Precomputed initials fallback shown when no avatar is set.
+  reports: Direct reports as mini-cards; each entry carries a name, title and precomputed initials.
+
+lifecycle: experimental
+content_model: A manager (name, title, avatar or initials) plus an array of direct reports.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep titles short and consistent in casing across the branch. Provide initials for every person so the
+  avatar fallback reads cleanly when no photo is available.
+
+relationships:
+  related:
+    - hr/employee-card
+    - hr/headcount-stat
+
+categorization:
+  category: "HR & People"
+  subcategory: Org
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Avatar images are decorative with empty alt; text carries all identity, so nothing depends on the image.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

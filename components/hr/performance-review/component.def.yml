@@ -1,0 +1,39 @@
+name: performance-review
+props:
+  employee:
+    type: string
+    required: true
+    title: Employee
+    example: "Jordan Kim"
+  period:
+    type: string
+    required: true
+    title: Review period
+    example: "H1 2026"
+  overall_rating:
+    type: string
+    required: true
+    title: Overall rating
+    description: "Formatted overall rating (e.g. 4.2/5)."
+    example: "4.2/5"
+  ratings:
+    type: array
+    items: object
+    required: true
+    title: Rating breakdown
+    description: >
+      Per-competency ratings. Each item is { label, score, pct } where score is the display value
+      (e.g. 4.5/5) and pct is the precomputed bar width from 0-100.
+    example:
+      - { label: "Delivery", score: "4.5/5", pct: 90 }
+      - { label: "Collaboration", score: "4.0/5", pct: 80 }
+  goals:
+    type: array
+    items: object
+    title: Goals
+    description: >
+      Goals with a status. Each item is { label, status } where status is one of done, on-track or
+      at-risk (the pill colours those values; any other value renders neutral).
+    example:
+      - { label: "Ship the billing revamp", status: "done" }
+      - { label: "Mentor two engineers", status: "on-track" }

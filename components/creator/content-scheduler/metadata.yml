@@ -1,0 +1,82 @@
+name: "Content Scheduler"
+short_description: A week strip of day columns, each listing its scheduled, published, or draft post chips.
+long_visual_description: >
+  A surface card with a heading above a responsive grid of day columns (up to seven across on
+  desktop, wrapping to two or three on smaller screens). Each column has a weekday label and short
+  date, then a stack of compact post chips carrying a time, title, and platform. A coloured left
+  border and a small status pill mark each post as scheduled (info), published (success), or draft
+  (muted), so the week's cadence reads at a glance.
+
+use_cases:
+  - Show a creator's weekly posting schedule across platforms.
+  - Plan a content calendar with scheduled, published, and draft states.
+  - Give a social manager an at-a-glance view of the week's cadence.
+  - Surface upcoming drops on a creator dashboard.
+  - Review what published versus what is still in draft for the week.
+  - Coordinate a multi-platform release calendar.
+
+recommended_for:
+  - A single week (or short run) of days with a handful of posts each.
+  - Pre-grouped schedule data where each post already belongs to a day.
+avoid_for:
+  - A full month grid with drag-and-drop (use a dedicated calendar).
+  - A single upcoming-posts list with no day columns (use a list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a days array where each day carries its own posts (each { title, platform, time, status }).
+  Group posts into their day before passing them in — the strip renders columns in the order given
+  and colours each chip by its status. Seven days fill the desktop row; fewer days simply take less.
+
+props:
+  title: Heading shown above the week strip.
+  days: The day columns in order; each has a label, optional date, and its own posts array.
+
+example_prompts:
+  - "Show my posting schedule for the week with published and scheduled posts per day."
+  - "Add a content calendar strip with draft, scheduled, and published chips."
+  - "Lay out this week's YouTube and Instagram posts by day."
+
+lifecycle: experimental
+content_model: A titled week of day columns, each listing pre-grouped posts with a time, title, platform, and status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-info
+    - --color-success
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep post titles short so chips stay one line, and use the status consistently — scheduled for
+  planned, published for live, draft for unfinished. Order days left to right as the week runs.
+
+relationships:
+  related:
+    - creator/engagement-stat
+    - creator/brand-deal-tracker
+    - creator/digital-product-card
+
+categorization:
+  category: Creator
+  subcategory: Planning
+  atomic_type: organism
+  usage_type: [grid, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is conveyed by the pill text as well as the chip colour; the strip is a labelled region of semantic lists.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 25
+  text_direction: both

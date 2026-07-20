@@ -1,0 +1,81 @@
+name: "Route Map"
+short_description: A stylized route facade showing numbered, connected stops on a schematic map panel with a distance and time summary.
+long_visual_description: >
+  A card containing a decorative map panel - a faint grid with a dashed route line - overlaid by a
+  horizontal row of numbered stop pins connected by a progress bar. Completed stops fill solid, the
+  current stop is outlined, and upcoming stops stay muted, each with a label beneath. Below the panel
+  a summary shows total distance and time, with a note that it is a skeleton facade.
+
+use_cases:
+  - Sketch a delivery route's ordered stops without a live map.
+  - Show a driver's planned itinerary in a dispatch view.
+  - Preview a multi-stop route in a shipping estimate.
+  - Illustrate a pickup-to-drop-off path on an order page.
+  - Give a lightweight route overview before a real map loads.
+  - Summarise total distance and time for a planned run.
+
+recommended_for:
+  - A schematic, token-styled placeholder where a real map is overkill or not yet wired.
+  - Showing stop order and progress along a route.
+
+avoid_for:
+  - Real geographic positioning (swap in Leaflet, Mapbox or Google Maps).
+  - A single vehicle's live status (use fleet-vehicle-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an ordered stops array; give each stop a precomputed order number and an optional status of
+  done, current or upcoming. Add total_distance and total_time for the summary. Replace the facade
+  with a real map library in production.
+
+props:
+  stops: The route waypoints in order; each has a label, a precomputed order number and an optional status.
+  total_distance: Summary distance for the whole route.
+  total_time: Summary estimated time for the whole route.
+
+example_prompts:
+  - "Sketch a delivery route with four stops from the depot to the final drop-off."
+  - "Show a route overview with total distance and estimated time."
+  - "Render a multi-stop itinerary where the second stop is current."
+
+lifecycle: experimental
+content_model: An ordered set of route stops with numbers and progress status, plus total distance and time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --space-card
+
+editorial_guidance: >
+  Keep stop labels to short place names and number them in travel order. Treat the panel as a
+  schematic - it is not geographically accurate, so pair it with a real map when precision matters.
+
+relationships:
+  related:
+    - logistics/fleet-vehicle-card
+    - logistics/shipment-tracker
+    - commerce/order-tracker
+
+categorization:
+  category: "Logistics & Shipping"
+  subcategory: Fleet
+  atomic_type: organism
+  usage_type: [timeline, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Stops are an ordered list; each pin's state is shown by its number, label emphasis and a data attribute, not colour alone. The decorative map svg is aria-hidden.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

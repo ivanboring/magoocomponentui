@@ -1,0 +1,9 @@
+{
+  "name": "Air conditioner",
+  "icon": "❄️",
+  "watts": "1800 W",
+  "kwh": "4.2 kWh",
+  "cost": "$1.05",
+  "pct": 68,
+  "on": true
+}

@@ -1,0 +1,12 @@
+{
+  "people": [
+    { "name": "Dana Okafor", "title": "Engineering Manager", "avatar": "/stock/avatar-woman-1.jpg", "initials": "DO", "department": "Platform" },
+    { "name": "Marco Silva", "title": "Product Designer", "avatar": "/stock/avatar-man-1.jpg", "initials": "MS", "department": "Design" },
+    { "name": "Priya Raman", "title": "Data Analyst", "initials": "PR", "department": "Analytics" },
+    { "name": "Tom Becker", "title": "Backend Engineer", "initials": "TB", "department": "Platform" },
+    { "name": "Aisha Nasir", "title": "People Partner", "initials": "AN", "department": "People" },
+    { "name": "Leo Martins", "title": "QA Engineer", "initials": "LM", "department": "Quality" },
+    { "name": "Sara Cohen", "title": "Content Strategist", "initials": "SC", "department": "Marketing" },
+    { "name": "Wei Zhang", "title": "Staff Engineer", "initials": "WZ", "department": "Platform" }
+  ]
+}

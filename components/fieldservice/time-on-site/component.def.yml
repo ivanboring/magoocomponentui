@@ -1,0 +1,21 @@
+name: time-on-site
+props:
+  started_at:
+    type: string
+    title: Started at
+    description: Human-readable start time shown under the timer, e.g. "Started 9:12 AM".
+  elapsed:
+    type: string
+    default: "00:00"
+    title: Elapsed
+    description: >
+      The initial elapsed time shown, formatted MM:SS (or HH:MM:SS). behavior.js parses this string
+      back to seconds and keeps counting up from it while the timer runs.
+  status:
+    type: enum
+    values: [running, paused, complete]
+    default: paused
+    title: Status
+    description: >
+      Current timer state. It sets the status badge and, when "running", starts the timer counting
+      as soon as the behavior initialises.

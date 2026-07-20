@@ -1,0 +1,79 @@
+name: "Pipeline Board"
+short_description: A horizontally scrolling kanban of deal stages, each column holding stacked deal mini-cards.
+long_visual_description: >
+  A row of stage columns on the raised surface colour, scrolling horizontally when they overflow.
+  Each column has a header with the stage name and an optional summary pill (a count or aggregate
+  value), then a stack of compact deal cards below. Every deal card shows the opportunity name, its
+  value in the heading face, and an optional owner with a small monogram avatar.
+
+use_cases:
+  - Sales kanban showing deals grouped by pipeline stage.
+  - CRM home board where reps scan open opportunities at a glance.
+  - Deal-flow overview for a manager watching stage distribution.
+  - Fundraising or partnership pipeline tracked by stage.
+  - Recruiting pipeline of candidates by interview stage.
+  - Support or onboarding board where accounts move through phases.
+
+recommended_for:
+  - Showing many deals organised into a small number of ordered stages.
+  - A read-first overview where stage totals matter as much as individual deals.
+avoid_for:
+  - A single deal's detail (use deal-card).
+  - A linear step indicator for one opportunity (use deal-stage-progress).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a stages array in pipeline order. Give each stage a label, an optional total string for the
+  header pill, and a deals array of preformatted mini-cards (name, value, optional owner and
+  initials). The board scrolls horizontally when the stages overflow the viewport.
+
+props:
+  stages: "The pipeline columns in order. Each stage has a label, an optional total header pill, and a deals array. Each deal has a name, value, and optional owner plus a precomputed initials monogram."
+
+example_prompts:
+  - Show a sales pipeline board with Qualified, Proposal, and Closed stages.
+  - Add a kanban of deals grouped by stage with owner avatars.
+  - Render open opportunities as columns per pipeline stage.
+
+lifecycle: experimental
+content_model: An ordered set of pipeline stages, each with a label, optional total, and a list of deal cards.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep stage labels short and in pipeline order. Preformat every value and total (currency, counts)
+  before passing them in. Cap the deals per column to what reads at a glance; deep stages are better
+  paged than fully stacked.
+
+relationships:
+  related:
+    - crm/deal-card
+    - crm/deal-stage-progress
+    - crm/sales-forecast
+
+categorization:
+  category: CRM & Sales
+  subcategory: Pipeline
+  atomic_type: organism
+  usage_type: [board, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The board is a labelled group region; columns use headings and the track is keyboard-scrollable. No colour-only meaning.
+  keyboard_support: The horizontal track scrolls with the keyboard when focused; there are no interactive controls.
+  seo_score: 25
+  text_direction: both

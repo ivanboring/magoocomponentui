@@ -1,0 +1,42 @@
+name: attendance-row
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The person whose attendance this row represents.
+    example: "Dana Okafor"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      One or two precomputed initials shown in the avatar circle (the directive language
+      can't derive them from the name). Pass e.g. "DO".
+    example: "DO"
+  clock_in:
+    type: string
+    title: Clock in
+    description: Preformatted clock-in time, shown in the mono face (e.g. "09:02").
+    example: "09:02"
+  clock_out:
+    type: string
+    title: Clock out
+    description: Preformatted clock-out time, shown in the mono face (e.g. "17:30").
+    example: "17:30"
+  hours:
+    type: string
+    title: Hours
+    description: Preformatted total worked, e.g. "8h 12m".
+    example: "8h 12m"
+  status:
+    type: enum
+    values: [present, late, absent, remote]
+    default: present
+    title: Status
+    description: Attendance state; drives the pill colour.
+variants:
+  status:
+    present: "bg-success/10 text-success"
+    late: "bg-warning/10 text-warning"
+    absent: "bg-danger/10 text-danger"
+    remote: "bg-info/10 text-info"

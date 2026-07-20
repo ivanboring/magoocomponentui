@@ -1,0 +1,39 @@
+name: campaign-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The campaign or cause name.
+    example: "Clean water for Maella village"
+  image:
+    type: string
+    required: true
+    title: Image
+    description: URL of the cause image shown at the top of the card.
+    example: "/stock/property-house.jpg"
+  raised:
+    type: string
+    required: true
+    title: Amount raised
+    description: Formatted amount raised so far, including currency (e.g. "$8,400").
+    example: "$8,400"
+  goal:
+    type: string
+    required: true
+    title: Goal
+    description: Formatted fundraising goal, including currency (e.g. "$15,000").
+    example: "$15,000"
+  pct:
+    type: integer
+    required: true
+    title: Percent of goal
+    description: >
+      Percent of the goal reached, 0-100, precomputed by the caller (round(raised / goal * 100),
+      capped at 100). Drives the progress bar width.
+    example: 56
+  days_left:
+    type: integer
+    title: Days left
+    description: Optional number of days remaining in the campaign.
+    example: 12

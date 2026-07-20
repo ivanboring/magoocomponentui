@@ -1,0 +1,75 @@
+name: "Prompt Suggestions"
+short_description: A wrapping row of starter-prompt chips that prefill an AI composer when clicked.
+long_visual_description: >
+  A horizontal, wrapping cluster of pill-shaped chips on the surface colour with a subtle border.
+  Each chip holds an optional leading icon and its prompt label in on-surface text, and lifts to a
+  raised surface with a ring border on hover. The row wraps to as many lines as needed.
+
+use_cases:
+  - Offer starter prompts on an empty AI chat screen.
+  - Suggest quick follow-up questions under an assistant reply.
+  - Seed a copilot panel with common tasks.
+  - Give example queries in a search or ask box.
+  - Present canned actions in a support chat widget.
+  - Onboard users to what an assistant can do.
+
+recommended_for:
+  - Empty states and first-run screens for assistants.
+  - Quick-action chip rows above or below a composer.
+avoid_for:
+  - A single primary call to action (use a button).
+  - Navigation between pages (use tabs or a nav).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a prompts array (each { label, icon }). Listen for the bubbling prompt:pick event
+  (detail.label) on a parent to prefill or immediately send the chosen prompt through a
+  chat-composer. Keep four to six concise prompts.
+
+how_to_use: >
+  behavior.js reads each chip's prompt from its data-label attribute and dispatches a bubbling
+  "prompt:pick" CustomEvent with { label } on click. Wire it to a chat-composer to prefill the
+  textarea or send the prompt directly. The optional per-chip icon is raw inline SVG.
+
+props:
+  prompts: "The chips, in order. Each item: label (the prompt text) and optional icon (raw inline SVG)."
+
+content_model: >
+  A short list of suggested prompts, each a label and an optional icon.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-pill
+    - --duration-token
+
+editorial_guidance: >
+  Phrase each prompt as an action the user might actually take (Summarize this page, Write a
+  follow-up email). Keep them short and distinct; four to six is plenty.
+
+relationships:
+  related:
+    - ai/chat-composer
+    - ai/chat-thread
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Input
+  atomic_type: molecule
+  usage_type: [list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Chips are real buttons with visible text labels; icons are aria-hidden decoration.
+  keyboard_support: Each chip is focusable and activates on Enter/Space.
+  seo_score: 20
+  text_direction: both

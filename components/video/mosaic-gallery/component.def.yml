@@ -1,0 +1,40 @@
+name: mosaic-gallery
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Images
+    description: >
+      Each image: { image, ar, alt, caption }. `ar` is the width/height ratio as a number
+      (e.g. 1.5 landscape, 0.8 portrait, 1 square) — the caller must precompute it; it drives
+      how the image flexes to fill a justified row. `alt` is required per image; `caption` is
+      optional and overlays the bottom of the tile.
+    example:
+      - { image: "/stock/stage1.jpg", ar: 1.5, alt: "Performer on a lit stage", caption: "Opening night" }
+  row_height:
+    type: enum
+    values: ["sm", "md", "lg"]
+    default: "md"
+    title: Row height
+    description: The uniform target height of each justified row (sm 8rem, md 12rem, lg 16rem).
+  gap:
+    type: enum
+    values: [default, none, sm]
+    default: default
+    title: Gap
+    description: Space between tiles — default, none (flush) or sm (tight).
+  label:
+    type: string
+    default: "Gallery"
+    title: Accessible label
+    description: Accessible name announced for the gallery group.
+variants:
+  row_height:
+    "sm": "[--mg-h:8rem]"
+    "md": "[--mg-h:12rem]"
+    "lg": "[--mg-h:16rem]"
+  gap:
+    default: "gap-2"
+    none: "gap-0"
+    sm: "gap-1"

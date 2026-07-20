@@ -1,0 +1,90 @@
+name: "Floating Action Button"
+short_description: A circular floating primary-action button, optionally expanding into a speed-dial of secondary actions.
+long_visual_description: >
+  A round primary-coloured button with a raised shadow, anchored to the bottom-right of its
+  container. It holds a single icon (a plus by default). When secondary actions are supplied,
+  pressing it reveals a vertical stack of smaller labelled action buttons above it and rotates
+  the main icon 45 degrees into a close affordance. The demo is shown inside a bounded panel so
+  it stays visible on the page rather than pinned to the viewport.
+
+use_cases:
+  - The primary create action on a mobile-first screen (compose, add, new).
+  - A speed-dial of related create actions (new document, folder, upload).
+  - A persistent "add" affordance on a list or board view.
+  - A quick-compose button on a messaging or mail surface.
+  - A prominent single call to action floating over content.
+
+recommended_for:
+  - A single, high-priority action that should stay reachable over scrolling content.
+  - A small cluster of related create actions grouped behind one button.
+avoid_for:
+  - Multiple equally-weighted actions (use a toolbar or button row).
+  - Destructive or rarely-used actions that should not be this prominent.
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a label for the accessible name and, optionally, a custom icon. Omit actions for a single
+  primary FAB whose press emits fab:action. Supply an actions array (each { label, icon }) to turn it
+  into a speed-dial; set start_open: true to show the dial expanded. Listen for the bubbling fab:action
+  event (detail.label) to run the chosen action. In production the FAB is usually positioned fixed to
+  the viewport; here it is absolute within a bounded container so it renders inside the preview stage.
+
+how_to_use: >
+  The FAB is self-contained skeleton UI. With actions present, pressing it toggles the speed-dial by
+  flipping data-open on the anchor (which drives the CSS reveal and the icon rotation) and updates
+  aria-expanded; each action button dispatches a bubbling CustomEvent "fab:action" with { label } and
+  closes the dial. With no actions, pressing the FAB dispatches fab:action with its own label. The
+  portable self-init reads the DOM only; no props object is passed.
+
+props:
+  label: "Accessible name for the FAB (aria-label)."
+  icon: "Raw inline-SVG icon in the button (defaults to a plus); rotates 45deg when the dial is open."
+  actions: "Optional secondary actions revealed above the FAB. Each: { label, icon (raw SVG) }."
+  start_open: "When true and actions are present, the speed-dial starts expanded."
+
+example_prompts:
+  - "Add a floating create button to the bottom-right of the screen."
+  - "Give me a speed-dial FAB with new document, folder and upload actions."
+
+lifecycle: experimental
+content_model: A primary action, optionally with a small set of labelled secondary actions.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Reserve the FAB for the single most important action on the screen. If you use a speed-dial, keep it
+  to a handful of closely related create actions with short labels.
+
+relationships:
+  related:
+    - atoms/button
+    - utility/segmented-control
+    - utility/rich-text-toolbar
+
+categorization:
+  category: UI Utilities
+  subcategory: Controls
+  atomic_type: atom
+  usage_type: [action, button]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The FAB is a real button with an aria-label and aria-expanded reflecting the dial state; action buttons carry aria-labels and the duplicated visible label pills and icons are aria-hidden.
+  keyboard_support: The FAB and each action button are focusable and activate on Enter/Space; aria-expanded reflects whether the dial is open.
+  seo_score: 15
+  text_direction: both

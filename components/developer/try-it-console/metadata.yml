@@ -1,0 +1,91 @@
+name: "Try-it Console"
+short_description: A live API request-builder skeleton - method + URL bar, Params/Headers/Body tabs, and a response area.
+long_visual_description: >
+  A bordered card. A top bar holds a monospaced HTTP method dropdown (coloured by verb), a wide
+  monospaced URL input, and a primary Send button with an arrow glyph. Below, a Params/Headers/Body
+  tab row switches between key/value input rows and a body textarea. A footer shows a Response label
+  over a monospaced panel with the sample response, or a muted placeholder when none is given.
+
+use_cases:
+  - Embed an interactive "try it" panel in API reference docs.
+  - Let developers experiment with an endpoint from the docs page.
+  - Prototype a request builder in an internal API console.
+  - Show a request/response example that users can tweak and send.
+  - Pair with a schema table to document then try an endpoint.
+
+recommended_for:
+  - Developer docs that want a hands-on request builder.
+  - API consoles where the app wires up the actual send.
+avoid_for:
+  - A static request/response sample (use a code block).
+  - A full Postman-style multi-request workspace.
+
+markets:
+  - Global
+
+example_usage: >
+  Set the initial method and url and optionally a sample_response. The tabs switch the request panes
+  and Send emits a console:send event with the current method and url for the app to execute - the
+  component performs no real HTTP itself.
+
+how_to_use: >
+  behavior.js reads data-method from the root and applies it to the method select on init. Clicking
+  a tab shows its panel and hides the others (with arrow-key roving-tabindex navigation across the
+  tabs); clicking Send dispatches a bubbling "console:send" CustomEvent whose detail carries the
+  current { method, url } so an integrating app can run the request and render the real response.
+  The portable self-init passes no props object - all config comes from the data-method attribute.
+
+props:
+  method: "Initial HTTP method selected (get, post, put, patch, delete); colours the method control."
+  url: "Initial request URL value shown in the monospaced input."
+  sample_response: "Optional example response body; when empty a placeholder is shown instead."
+
+example_prompts:
+  - "Add a try-it console for a GET charges endpoint with a sample 200 response."
+  - "Embed a request builder that POSTs to /v1/charges with a body tab."
+
+lifecycle: experimental
+content_model: An HTTP method, a request URL, static request tabs, and an optional sample response.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-ring
+    - --color-info
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --duration-token
+    - --font-mono
+
+editorial_guidance: >
+  Use a real, canonical endpoint URL and a response that matches the method (a 201 for a POST that
+  creates, a list for a GET). Keep the sample response short enough to read without scrolling.
+
+relationships:
+  related:
+    - developer/schema-table
+    - developer/error-code-table
+    - navigation/tabs
+
+categorization:
+  category: Developer
+  subcategory: API
+  atomic_type: organism
+  usage_type: [interactive, form]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: An ARIA tablist drives the request panes with arrow-key navigation and aria-selected; every input and control has an accessible name.
+  keyboard_support: Tabs are focusable and navigate with Left/Right/Home/End; inputs and the Send button are in the natural tab order.
+  seo_score: 25
+  text_direction: both

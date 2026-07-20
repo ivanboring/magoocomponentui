@@ -1,0 +1,31 @@
+name: price-ticker-tape
+props:
+  quotes:
+    type: array
+    items: object
+    required: true
+    title: Quotes
+    description: >
+      The list of ticker quotes that scrolls in a continuous loop. Each item:
+      { symbol, price, change_pct, change_dir }. `symbol` is the ticker (e.g. AAPL),
+      `price` the preformatted last price (e.g. $184.20), `change_pct` the preformatted
+      change string including its sign (e.g. +1.4% or -0.8%), and `change_dir` is either
+      "up" or "down" which colours the change green or red. Supply the list once; the
+      component renders it twice internally so the loop is seamless.
+    example:
+      - { symbol: "AAPL", price: "$184.20", change_pct: "+1.4%", change_dir: "up" }
+      - { symbol: "TSLA", price: "$242.10", change_pct: "-0.8%", change_dir: "down" }
+  speed:
+    type: enum
+    values: [slow, normal, fast]
+    default: normal
+    title: Speed
+    description: >
+      How fast the tape scrolls. slow/normal/fast map to fixed per-frame pixel steps in
+      behavior.js.
+  label:
+    type: string
+    default: "Market quotes"
+    title: Accessible label
+    description: Accessible name announced for the ticker region.
+variants: {}

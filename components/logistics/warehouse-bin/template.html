@@ -1,0 +1,21 @@
+<div class="warehouse-bin rounded-card border border-border bg-surface p-4 shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p class="font-heading text-on-surface">{{ bin_id }}</p>
+      <p data-if="zone" class="text-xs text-on-surface-muted">Zone {{ zone }}</p>
+    </div>
+    <div class="shrink-0 text-right">
+      <p data-if="sku" class="truncate font-mono text-xs text-on-surface-muted">{{ sku }}</p>
+      <p data-if="qty" class="text-sm text-on-surface tabular-nums">{{ qty }} of {{ capacity }}</p>
+    </div>
+  </div>
+  <div class="mt-3">
+    <div class="flex items-center justify-between text-xs text-on-surface-muted">
+      <span>Capacity</span>
+      <span class="tabular-nums">{{ fill_pct }}%</span>
+    </div>
+    <div class="mt-1 h-2 overflow-hidden rounded-pill bg-surface-raised">
+      <div class="warehouse-bin__fill h-full rounded-pill bg-primary data-[tone=warning]:bg-warning data-[tone=danger]:bg-danger" data-tone="{{ tone }}" style="width: {{ fill_pct }}%"></div>
+    </div>
+  </div>
+</div>

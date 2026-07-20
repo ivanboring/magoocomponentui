@@ -1,0 +1,22 @@
+<div class="appliance-usage-row flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="appliance-usage-row__icon flex size-9 shrink-0 items-center justify-center rounded-control bg-surface-raised text-on-surface-muted">
+    <span data-if="icon" class="text-base leading-none">{{ icon }}</span>
+    <svg data-if="!icon" class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 2v4M14 2v4M5 6h10v3a5 5 0 01-10 0zM10 14v4"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <div class="flex items-center gap-2">
+      <span data-on="{{ on }}" class="size-2 shrink-0 rounded-full data-[on=true]:bg-success data-[on=false]:bg-border" aria-hidden="true"></span>
+      <span class="min-w-0 truncate font-medium text-on-surface">{{ name }}</span>
+      <span data-if="on" class="sr-only">On now</span>
+      <span data-if="!on" class="sr-only">Off</span>
+    </div>
+    <div data-if="pct" class="mt-1.5 h-1.5 w-full overflow-hidden rounded-pill bg-surface-raised">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ pct }}%"></div>
+    </div>
+  </div>
+  <div class="shrink-0 text-right">
+    <p data-if="kwh" class="tabular-nums font-medium text-on-surface">{{ kwh }}</p>
+    <p data-if="cost" class="tabular-nums text-sm text-on-surface-muted">{{ cost }}</p>
+    <p data-if="watts" class="tabular-nums text-xs text-on-surface-muted">{{ watts }}</p>
+  </div>
+</div>

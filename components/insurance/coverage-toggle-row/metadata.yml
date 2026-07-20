@@ -1,0 +1,86 @@
+name: "Coverage Toggle Row"
+short_description: A row for adding or removing an insurance coverage, with a name, optional description and price, and a state switch.
+long_visual_description: >
+  A horizontal row on the surface colour with the coverage name in the heading face above an optional
+  muted description, an optional price on the trailing side, and a pill switch at the far edge that
+  fills with the primary colour and slides its knob across when the coverage is included.
+
+use_cases:
+  - Let a shopper add or remove an optional coverage.
+  - Build a policy from a menu of add-ons.
+  - Toggle roadside, glass, or rental cover on a quote.
+  - Adjust included benefits and update the premium.
+  - Present bundled coverages as switchable line items.
+  - Show which coverages are currently on a policy.
+
+recommended_for:
+  - Coverage selection and policy-builder flows.
+  - Any list of optional add-ons with a price.
+avoid_for:
+  - A read-only list of included benefits.
+  - A single yes/no form field (use a checkbox).
+
+markets:
+  - Global
+
+how_to_use: >
+  Set name and, optionally, description and price for the coverage, and included for the starting
+  state. The switch reads role="switch" with data-state driving both its colour and the knob position
+  via Tailwind data-attribute variants. behavior.js flips data-state on click, keeps aria-checked in
+  sync, and dispatches a bubbling "coverage:toggle" event with detail { name, included } so a parent
+  can recompute the premium. The portable self-init reads the coverage name from data-name.
+
+example_usage: >
+  Stack several rows to form a coverage menu. Give each a clear name, a short description of what it
+  covers, and a price delta, and listen for the coverage:toggle event to update a premium summary as
+  the user switches add-ons on and off.
+
+props:
+  name: The coverage or add-on name.
+  description: An optional one-line explanation of the coverage.
+  price: An optional pre-formatted price delta for the coverage.
+  included: Whether the coverage starts on; sets the switch state.
+
+example_prompts:
+  - "Add a coverage toggle for roadside assistance at plus $8 a month, on by default."
+  - "List optional coverages the user can switch on to build their policy."
+
+lifecycle: experimental
+content_model: A coverage name, an optional description and price, and an included on/off state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Name coverages the way a customer thinks of them and keep the description to the concrete benefit.
+  Show the price as a clear delta so the effect of switching it on is obvious.
+
+relationships:
+  related:
+    - insurance/premium-summary
+    - insurance/risk-assessment
+    - atoms/toggle-switch
+
+categorization:
+  category: Insurance
+  subcategory: Policy
+  atomic_type: molecule
+  usage_type: [list-item, form, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The control uses role="switch" with aria-checked kept in sync and a descriptive aria-label; the knob is aria-hidden and state is not conveyed by colour alone.
+  keyboard_support: The switch is focusable and toggles on Enter/Space; aria-checked reflects the current state.
+  seo_score: 25
+  text_direction: both

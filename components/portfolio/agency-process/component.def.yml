@@ -1,0 +1,18 @@
+name: agency-process
+props:
+  steps:
+    type: array
+    items: object
+    required: true
+    title: Steps
+    description: >
+      The ordered process steps. Each item: { number, title, body } where number is the step label
+      the caller supplies (a string like "01" - the directive language does no arithmetic), title is
+      the step name and body is a short description.
+    example:
+      - { number: "01", title: "Discover", body: "We learn your goals, users and constraints." }
+  label:
+    type: string
+    default: "Our process"
+    title: Accessible label
+    description: Accessible name announced for the process region.

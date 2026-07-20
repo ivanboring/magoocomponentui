@@ -1,0 +1,77 @@
+name: "Donor Wall"
+short_description: A card listing recent donors with avatars, names, optional messages, amounts, and times.
+long_visual_description: >
+  A card on the surface colour headed "Recent donors" over a divided list of donor rows. Each row
+  shows a circular avatar (or a generic person glyph when none is supplied), the donor's name with
+  an optional short message beneath, and the amount in the heading face with an optional relative
+  time to the right.
+
+use_cases:
+  - A recent-donors feed on a campaign page.
+  - A live donation ticker during a giving day.
+  - A supporter wall thanking recent contributors.
+  - A peer-to-peer fundraiser's list of backers.
+  - A sidebar of latest gifts beside a progress bar.
+  - A social-proof list under a donation form.
+
+recommended_for:
+  - Showing social proof with recent named gifts and messages.
+  - Feeds where each entry has a name, amount, and optional note.
+avoid_for:
+  - A single aggregate total or goal (use fundraiser-progress).
+  - A leaderboard ranked by amount (use a dedicated ranking list).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a donors array (each { name, amount, time, message, avatar }) with the most recent first.
+  Supply an avatar URL per donor where available; rows without one fall back to a person glyph.
+  Anonymous gifts can use a name like "Anonymous" and omit the avatar.
+
+props:
+  donors: "Recent donors, newest first; each item { name, amount, time, message, avatar }. name and amount are required; time, message and avatar are optional."
+
+example_prompts:
+  - "Add a recent donors card with names, amounts and short messages."
+  - "Show a live feed of the latest gifts next to the progress bar."
+  - "Add a supporter wall with avatars and thank-you notes."
+
+lifecycle: experimental
+content_model: A list of recent donors, each with a name, amount, and optional time, message, and avatar.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+
+editorial_guidance: >
+  Order donors newest first, keep messages short, and respect anonymity by allowing a name like
+  "Anonymous" with no avatar. Format all amounts consistently with the campaign's currency.
+
+relationships:
+  related:
+    - nonprofit/fundraiser-progress
+    - nonprofit/campaign-card
+    - nonprofit/donation-form
+
+categorization:
+  category: Nonprofit
+  subcategory: Fundraising
+  atomic_type: organism
+  usage_type: [list, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Donor avatars are decorative (empty alt) and the fallback glyph is aria-hidden; each row's name, amount, and time are plain text.
+  keyboard_support: None — static, non-interactive.
+  seo_score: 35
+  text_direction: both

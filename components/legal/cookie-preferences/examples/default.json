@@ -1,0 +1,10 @@
+{
+  "title": "Cookie preferences",
+  "intro": "We use cookies to run the site and, with your consent, to improve it. Choose which categories to allow.",
+  "categories": [
+    { "label": "Strictly necessary", "description": "Required for core features like signing in and security. Cannot be switched off.", "on": true, "required": true },
+    { "label": "Functional", "description": "Remember your choices, such as language and region.", "on": true, "required": false },
+    { "label": "Analytics", "description": "Help us understand how the site is used so we can improve it.", "on": false, "required": false },
+    { "label": "Marketing", "description": "Used to show you more relevant ads on other sites.", "on": false, "required": false }
+  ]
+}

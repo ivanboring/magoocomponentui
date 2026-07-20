@@ -1,0 +1,92 @@
+name: "Customer Sign-off"
+short_description: A sign-off card pairing a work summary with a signature canvas and Clear/Confirm controls.
+long_visual_description: >
+  A surface card that opens with a muted "Sign-off for" line naming the customer and a short summary
+  of the completed work. Below sits a framed signature canvas on the raised surface with a faint
+  signature line near its base and a caption underneath. A footer row holds a Clear button and a
+  primary "Confirm & sign" button on the trailing edge; the customer draws directly on the canvas.
+
+use_cases:
+  - Capture a customer signature to close out a service visit.
+  - Confirm completion of a work order on site.
+  - Sign off on a delivery or installation in the field.
+  - Acknowledge a repair estimate before work proceeds.
+  - Record customer acceptance of an inspection result.
+  - Approve a callout summary before invoicing.
+
+recommended_for:
+  - Field service completion flows that need a drawn customer signature.
+  - Touch and pen devices where signing on site feels natural.
+avoid_for:
+  - Legally binding e-signature workflows needing an audit trail (use a dedicated e-sign service).
+  - A typed-name acknowledgement (use a text field plus a consent checkbox).
+
+markets:
+  - Global
+
+example_usage: >
+  Set customer and summary to describe what is being signed off, and name_label to caption the
+  signature line. On Confirm the pad exports a PNG data URL and dispatches "signoff:confirm" with
+  { empty, dataUrl } so the surrounding app can attach the signature to the job record.
+
+how_to_use: >
+  The summary, framed empty canvas, signature line, caption and buttons are pure markup, so the card
+  renders (and screenshots) without JavaScript, showing the pad empty and framed. behavior.js makes
+  it interactive with Pointer Events: pointerdown starts a stroke (with setPointerCapture so a drag
+  off the canvas keeps drawing), pointermove extends it with a round cap, pointerup ends it. The
+  backing store is sized to the canvas box times devicePixelRatio on init for crisp lines. Clear
+  wipes the canvas; Confirm exports a PNG data URL and dispatches "signoff:confirm" with
+  { empty, dataUrl }. The portable self-init reads everything from the markup, passes no props, and
+  cleans up all listeners on teardown.
+
+props:
+  customer: Name of the customer signing off.
+  summary: Short description of the work being signed off.
+  name_label: Caption under the signature line naming whose signature is expected.
+
+example_prompts:
+  - "Add a customer sign-off card so they can sign to confirm the job is complete."
+  - "Show a work-order sign-off with a summary and a signature pad."
+
+lifecycle: experimental
+content_model: A customer name, a work summary, a signature canvas, and Clear/Confirm actions.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the summary factual and specific about what was done. Make name_label say exactly whose
+  signature is expected, and pair with a checklist-inspection or invoice-onsite so the customer sees
+  what they are approving.
+
+relationships:
+  related:
+    - fieldservice/checklist-inspection
+    - fieldservice/invoice-onsite
+    - fieldservice/time-on-site
+
+categorization:
+  category: Field Service
+  subcategory: Sign-off
+  atomic_type: molecule
+  usage_type: [form-control, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Clear and Confirm are labelled buttons; the drawing surface is inherently pointer-based, so provide a typed-name alternative alongside it for keyboard-only and screen-reader users.
+  keyboard_support: Clear and Confirm are focusable and activate on Enter/Space; drawing itself requires a pointer (mouse, pen or touch).
+  seo_score: 15
+  text_direction: both

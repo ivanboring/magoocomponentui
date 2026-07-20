@@ -1,0 +1,11 @@
+{
+  "severities": [
+    { "label": "Question", "value": "question" },
+    { "label": "Minor issue", "value": "minor" },
+    { "label": "Blocking issue", "value": "blocking" }
+  ],
+  "title_placeholder": "What do you need help with?",
+  "placeholder": "Describe the problem and what you were trying to do.",
+  "dropzone_label": "Attach a screenshot or file",
+  "submit_label": "Send to support"
+}

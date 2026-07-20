@@ -1,0 +1,10 @@
+<div class="color-picker-input flex flex-col gap-2" data-value="{{ value }}">
+  <label data-if="label" class="text-sm font-medium text-on-surface">{{ label }}</label>
+  <div class="flex items-center gap-2">
+    <input type="color" class="color-picker-input__swatch size-9 shrink-0 cursor-pointer rounded-control border border-border bg-surface p-0.5" value="{{ value }}" aria-label="Colour swatch">
+    <input type="text" class="color-picker-input__hex w-28 rounded-control border border-border bg-surface px-2 py-1.5 font-mono text-sm uppercase text-on-surface focus:outline-none focus:ring-2 focus:ring-ring" value="{{ value }}" aria-label="Hex colour value" spellcheck="false" autocomplete="off">
+  </div>
+  <div data-if="presets" class="color-picker-input__presets flex flex-wrap items-center gap-1.5">
+    <button data-for="preset in presets" type="button" class="color-picker-input__preset size-6 rounded-control border border-border transition-transform duration-(--duration-token) motion-safe:hover:scale-110 focus:outline-none focus:ring-2 focus:ring-ring" style="background:{{ preset }}" data-color="{{ preset }}" aria-label="{{ preset }}"></button>
+  </div>
+</div>

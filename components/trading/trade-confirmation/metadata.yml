@@ -1,0 +1,89 @@
+name: "Trade Confirmation"
+short_description: A compact fill-confirmation card summarising an executed order - side, quantity, symbol, price, total, and status.
+long_visual_description: >
+  A surface card led by a round status icon (a green check when filled, amber when partial, blue
+  clock when pending) beside a headline that pairs a colour-coded BUY or SELL chip with the
+  quantity, symbol, and execution price. A divider separates a right-aligned mono total, and a
+  footer row shows a tinted status chip on the left with an optional execution timestamp on the
+  right.
+
+use_cases:
+  - An order-fill confirmation shown after a trade is submitted.
+  - A toast or receipt summarising an executed buy or sell.
+  - A confirmation step in an order-entry flow.
+  - A recent-fills list item in a trading activity feed.
+  - A pending-order acknowledgement awaiting execution.
+  - A partial-fill notice in a brokerage notification.
+
+recommended_for:
+  - Confirming a single executed or pending order at a glance.
+  - Order receipts and activity-feed entries where side, size, and total matter most.
+avoid_for:
+  - A full order-history table (use a data table).
+  - Live streaming quotes (use a ticker tape or quote card).
+
+markets:
+  - Global
+
+example_usage: >
+  Set side (buy/sell), the symbol, and preformat shares, price and total in the caller. Choose a
+  status (filled, partial or pending) to drive the icon and chip tint, and pass an optional
+  preformatted execution time. The side chip is green for buy and red for sell.
+
+props:
+  side: "buy or sell; colours the side chip green or red."
+  symbol: "The instrument ticker."
+  shares: "Filled quantity, preformatted."
+  price: "Execution price per share, preformatted with currency."
+  total: "Total consideration, preformatted with currency."
+  status: "filled (green check), partial (amber check), or pending (blue clock); also tints the status chip."
+  time: "Optional preformatted execution timestamp."
+
+example_prompts:
+  - "Show a trade confirmation for buying 25 AAPL at $184.20, filled."
+  - "Add a sell confirmation card with a total and execution time."
+  - "Display a pending order acknowledgement for a limit buy."
+
+relationships:
+  related:
+    - trading/order-book-ladder
+    - trading/price-ticker-tape
+    - notifications/alert
+
+lifecycle: experimental
+content_model: A single executed or pending order - side, quantity, symbol, price, total, status, and an optional time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the headline terse - side chip, quantity, symbol, price. Match status to the real execution
+  state so the icon, chip, and copy agree, and preformat all money values consistently in the
+  caller. Buy/sell is conveyed by the chip text as well as its colour.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Orders
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The card is a status region; side and status are conveyed by text (BUY/SELL, filled/partial/pending) as well as colour and icon.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: ltr

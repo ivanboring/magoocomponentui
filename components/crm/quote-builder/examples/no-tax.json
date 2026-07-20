@@ -1,0 +1,9 @@
+{
+  "currency": "EUR ",
+  "line_items": [
+    { "name": "Design sprint", "qty": "2", "price": "3,000", "total": "6,000" },
+    { "name": "Research interviews", "qty": "6", "price": "250", "total": "1,500" }
+  ],
+  "subtotal": "7,500",
+  "total": "7,500"
+}

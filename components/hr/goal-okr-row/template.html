@@ -1,0 +1,31 @@
+<div class="goal-okr-row rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p class="font-heading text-on-surface">{{ objective }}</p>
+      <p data-if="owner" class="mt-0.5 text-xs text-on-surface-muted">{{ owner }}</p>
+    </div>
+    <span data-if="status" class="goal-okr-row__status shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+
+  <div class="mt-3">
+    <div class="mb-1 flex items-center justify-between text-xs text-on-surface-muted">
+      <span>Progress</span>
+      <span class="tabular-nums">{{ progress }}%</span>
+    </div>
+    <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" aria-label="Objective progress">
+      <div class="goal-okr-row__fill h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ progress }}%"></div>
+    </div>
+  </div>
+
+  <ul data-if="key_results" class="mt-3 flex flex-col gap-2 border-t border-border pt-3">
+    <li data-for="kr in key_results">
+      <div class="mb-1 flex items-center justify-between gap-3 text-xs text-on-surface-muted">
+        <span class="min-w-0 truncate">{{ kr.label }}</span>
+        <span class="shrink-0 tabular-nums">{{ kr.pct }}%</span>
+      </div>
+      <div class="h-1.5 w-full overflow-hidden rounded-pill bg-surface-raised" role="progressbar" aria-valuenow="{{ kr.pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ kr.label }}">
+        <div class="h-full rounded-pill bg-primary transition-all duration-(--duration-token)" style="width: {{ kr.pct }}%"></div>
+      </div>
+    </li>
+  </ul>
+</div>

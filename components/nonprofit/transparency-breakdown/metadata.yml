@@ -1,0 +1,80 @@
+name: "Transparency Breakdown"
+short_description: A single stacked bar plus legend showing how each dollar is split across spending categories.
+long_visual_description: >
+  A surface card with an optional title, a single slim stacked horizontal bar whose coloured
+  segments are sized to each category's share of funds, and a legend beneath listing each category
+  with its colour swatch, label, and percentage. Segment and swatch colours come from tokenized
+  Tailwind background utilities so the chart restyles with the theme.
+
+use_cases:
+  - Show a nonprofit's program vs fundraising vs admin split.
+  - Break down how a specific donation is allocated.
+  - Publish a transparency or annual-report funding breakdown.
+  - Compare spending categories at a glance on a donate page.
+  - Reassure donors that most funds reach the programs.
+
+recommended_for:
+  - A parts-of-a-whole breakdown that sums to 100%.
+  - A compact spending or allocation summary with a legend.
+avoid_for:
+  - Trends over time (use a line or bar chart).
+  - Many small categories where a single bar becomes unreadable (group them).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a segments array; each has a label, a precomputed pct (integer share, summing to about 100),
+  and a color_class (a tokenized bg-* utility, e.g. bg-primary). The bar sizes each segment by pct
+  and the legend echoes the label, swatch, and percentage. A hidden safelist span keeps the common
+  bg-* utilities in Tailwind's build so any per-segment colour resolves.
+
+props:
+  title: "Optional heading, e.g. 'Where your money goes'."
+  segments: "The spending categories. Each: label, pct (precomputed integer share, summing to about 100), and color_class (a tokenized bg-* utility for the segment and swatch)."
+
+example_prompts:
+  - "Add a where-your-money-goes breakdown: 82% programs, 11% fundraising, 7% admin."
+  - "Show a funding allocation bar with a legend of four categories."
+
+lifecycle: experimental
+content_model: A set of spending categories, each with a share of the whole and a colour, shown as one stacked bar with a legend.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-secondary
+    - --color-accent
+    - --radius-card
+    - --radius-pill
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep to a handful of clear categories and make sure the percentages sum to roughly 100. Lead with
+  the largest, most reassuring category (usually programs). Use distinct token colours so adjacent
+  segments read apart.
+
+relationships:
+  related:
+    - nonprofit/cause-hero
+    - nonprofit/donation-form
+    - nonprofit/pledge-card
+
+categorization:
+  category: Nonprofit
+  subcategory: Transparency
+  atomic_type: molecule
+  usage_type: [stat, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar has role="img" and an accessible label; the meaning is not colour-only because each category is named with its percentage in the legend. Swatches are decorative (aria-hidden).
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

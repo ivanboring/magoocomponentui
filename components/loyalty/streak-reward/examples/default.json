@@ -1,0 +1,14 @@
+{
+  "days": 5,
+  "reward_at": 7,
+  "next_reward": "2 days to a free coffee",
+  "week": [
+    { "day": "M", "done": true },
+    { "day": "T", "done": true },
+    { "day": "W", "done": true },
+    { "day": "T", "done": true },
+    { "day": "F", "done": true },
+    { "day": "S", "done": false },
+    { "day": "S", "done": false }
+  ]
+}

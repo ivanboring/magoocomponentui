@@ -1,0 +1,9 @@
+{
+  "current_pct": 92,
+  "goal_pct": 90,
+  "sources": [
+    { "label": "Solar", "pct": 55 },
+    { "label": "Wind", "pct": 30 },
+    { "label": "Hydro", "pct": 7 }
+  ]
+}

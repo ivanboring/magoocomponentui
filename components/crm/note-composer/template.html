@@ -1,0 +1,21 @@
+<form class="note-composer flex gap-3">
+  <span class="note-composer__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm text-on-surface" role="img" aria-label="Note author">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" class="uppercase" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1 rounded-card border border-border bg-surface shadow-card transition-colors duration-(--duration-token) focus-within:border-ring">
+    <label class="sr-only" for="note-composer-input">Note</label>
+    <textarea id="note-composer-input" class="note-composer__input block w-full resize-none rounded-t-card bg-transparent p-3 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none" rows="3" placeholder="{{ placeholder }}"></textarea>
+    <div class="flex items-center justify-between gap-2 border-t border-border px-2 py-2">
+      <div class="flex items-center gap-1">
+        <button type="button" class="note-composer__mention flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Mention a teammate">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="3.2"/><path d="M13.2 10v1.3a2.3 2.3 0 004.6 0V10a7.8 7.8 0 10-3 6.2"/></svg>
+        </button>
+        <button type="button" class="note-composer__attach flex size-8 items-center justify-center rounded-control text-on-surface-muted transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Attach a file">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 9.5l-4.6 4.6a3 3 0 01-4.2-4.2l5.3-5.3a2 2 0 012.8 2.8l-5.3 5.3a1 1 0 01-1.4-1.4l4.6-4.6"/></svg>
+        </button>
+      </div>
+      <button type="submit" class="note-composer__save rounded-button bg-primary px-3 py-1.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) hover:opacity-90 disabled:opacity-40">Save</button>
+    </div>
+  </div>
+</form>

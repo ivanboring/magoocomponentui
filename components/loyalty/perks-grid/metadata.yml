@@ -1,0 +1,75 @@
+name: "Perks Grid"
+short_description: A responsive grid of member perk tiles, each with an icon and label, where locked perks dim and show a lock badge.
+long_visual_description: >
+  A two-up (three-up from the sm breakpoint) grid of centred perk tiles on the surface colour. Each
+  tile leads with a circular tinted icon over a bold label and an optional supporting line. A locked
+  perk is dimmed and carries a small lock badge in its top-right corner, so available and locked
+  perks read apart at a glance.
+
+use_cases:
+  - Show the perks a loyalty tier or membership unlocks.
+  - Preview locked perks a member can still work toward.
+  - Summarise plan benefits as a scannable icon grid.
+  - Display a rewards catalog of member privileges.
+  - Contrast unlocked versus locked perks on an upgrade page.
+
+recommended_for:
+  - Member perk overviews that mix unlocked and locked items.
+  - Benefit summaries that read best as an icon grid, not a table.
+avoid_for:
+  - Comparing benefits across several tiers (use tier-benefits-table).
+  - A single highlighted reward (use birthday-reward or a card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a perks array of { label, description, icon, unlocked }. Set unlocked explicitly on every
+  perk - true shows an available tile, false dims it and adds the lock badge. Provide a raw inline
+  SVG in icon to override the default gift glyph.
+
+props:
+  perks: The perk tiles in order; each has a label, optional description, optional raw icon SVG, and an unlocked boolean.
+
+example_prompts:
+  - "Show a grid of member perks with two locked."
+  - "Display the perks this tier unlocks."
+  - "Add a perks grid contrasting unlocked and locked benefits."
+
+lifecycle: experimental
+content_model: An array of perk tiles, each with a label, optional description and icon, and a locked/unlocked state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep labels to a couple of words and descriptions to a short phrase. Lock only perks a member has
+  not yet earned; do not lock everything or the grid loses its sense of progress.
+
+relationships:
+  related:
+    - loyalty/tier-benefits-table
+    - loyalty/birthday-reward
+
+categorization:
+  category: Loyalty & Rewards
+  subcategory: Benefits
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: A locked perk carries a lock badge with an accessible label in addition to the dimmed styling, so state is not by colour alone.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 35
+  text_direction: both

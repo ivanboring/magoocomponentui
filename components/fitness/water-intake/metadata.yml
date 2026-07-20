@@ -1,0 +1,91 @@
+name: "Water Intake Tracker"
+short_description: A hydration card showing cups consumed, current vs goal millilitres, a progress bar, and an add-serving button.
+long_visual_description: >
+  A surface card with a heading and a "current / goal ml" figure on the top row, a wrapping row of
+  glass icons below (consumed cups tinted with the info colour, remaining ones muted), a thin
+  progress-bar track filled to the day's percentage in the info colour, and a small primary button
+  that logs another serving.
+
+use_cases:
+  - Daily hydration goal on a fitness or wellness dashboard.
+  - Quick water log tile in a health app home screen.
+  - Habit-tracker card for a "drink more water" goal.
+  - Post-workout recovery checklist entry for fluids.
+  - Reminder widget that shows how close the user is to their target.
+
+recommended_for:
+  - Determinate hydration progress where cups and percent are computed by the host.
+  - Compact daily-goal tiles in a wellness dashboard grid.
+avoid_for:
+  - A generic percentage bar with no cups (use progress-bar).
+  - Multi-metric summaries (use body-metrics).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass current_ml, goal_ml and a precomputed pct (round(current/goal*100)), plus one cups entry per
+  planned glass with filled marking the consumed ones. The add button dispatches a water:add event
+  carrying the step amount; a host updates its own state and re-renders with new values.
+
+how_to_use: >
+  Layout is render-driven: cups (filled/empty) and pct are precomputed by the caller since the
+  directive language cannot divide. behavior.js reads data-step from the root and, on the add button
+  click, dispatches a bubbling water:add CustomEvent with detail { amount }. Screenshots do not run
+  behavior, so the static render reflects the passed props exactly.
+
+props:
+  label: Heading for the card, e.g. "Water intake".
+  current_ml: Millilitres consumed so far today.
+  goal_ml: The daily hydration target in millilitres.
+  pct: Percent of goal reached (0-100), precomputed as round(current_ml / goal_ml * 100).
+  cups: One entry per planned glass; set filled true for consumed cups, false for the rest.
+  step: Millilitres the add button logs and reports in the water:add event.
+
+example_prompts:
+  - "Add a water intake card at 1500 of 2500 ml with five cups, three filled."
+  - "Show a hydration tracker that has hit its 2500 ml goal."
+
+lifecycle: experimental
+content_model: A daily hydration goal expressed as consumed vs target millilitres, a cups plan, and a completion percentage.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-info
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label short and the goal realistic. Match the number of cups to the goal so a full row
+  reads as a completed day. Colour is a secondary cue; the ml figure and progress carry the meaning.
+
+relationships:
+  related:
+    - atoms/progress-bar
+    - fitness/streak-card
+    - fitness/body-metrics
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The cups row carries a text alt via role="img" and aria-label; the bar exposes role="progressbar" with aria-valuenow/min/max; the add button has a visible text label.
+  keyboard_support: The add button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

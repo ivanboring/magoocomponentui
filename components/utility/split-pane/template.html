@@ -1,0 +1,15 @@
+<div class="split-pane flex h-80 overflow-hidden rounded-card border border-border bg-surface shadow-card {{ ratio@class }}">
+  <div class="split-pane__start flex min-w-0 shrink-0 grow-0 basis-[var(--sp)] flex-col overflow-auto">
+    <p data-if="start_label" class="sticky top-0 z-10 border-b border-border bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ start_label }}</p>
+    <div class="min-h-0 flex-1 p-4 text-sm text-on-surface">
+      <slot name="start"></slot>
+    </div>
+  </div>
+  <div class="split-pane__divider w-1.5 shrink-0 cursor-col-resize touch-none bg-border transition-colors duration-(--duration-token) hover:bg-primary focus-visible:bg-primary focus-visible:outline-none" role="separator" aria-orientation="vertical" aria-label="Resize panes" aria-valuemin="15" aria-valuemax="85" aria-valuenow="50" tabindex="0"></div>
+  <div class="split-pane__end flex min-w-0 flex-1 flex-col overflow-auto">
+    <p data-if="end_label" class="sticky top-0 z-10 border-b border-border bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-wide text-on-surface-muted">{{ end_label }}</p>
+    <div class="min-h-0 flex-1 p-4 text-sm text-on-surface">
+      <slot name="end"></slot>
+    </div>
+  </div>
+</div>

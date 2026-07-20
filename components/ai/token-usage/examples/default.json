@@ -1,0 +1,8 @@
+{
+  "label": "Token usage",
+  "used": "12,400",
+  "limit": "20,000",
+  "used_pct": 62,
+  "cost": "$0.37",
+  "tone": "normal"
+}

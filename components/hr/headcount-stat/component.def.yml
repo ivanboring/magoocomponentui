@@ -1,0 +1,33 @@
+name: headcount-stat
+props:
+  count:
+    type: string
+    required: true
+    title: Count
+    description: "The headcount figure, pre-formatted (e.g. 248)."
+    example: "248"
+  label:
+    type: string
+    title: Label
+    example: "Total headcount"
+  change:
+    type: string
+    title: Change
+    description: "Change vs the previous period, pre-formatted (e.g. +12 this quarter)."
+    example: "+12 this quarter"
+  change_dir:
+    type: enum
+    values: [up, down]
+    default: up
+    title: Change direction
+    description: Colours the change and its arrow - up is green, down is red.
+  breakdown:
+    type: array
+    items: object
+    title: Breakdown
+    description: >
+      Optional sub-figures shown in a row beneath the count. Each item is { label, value } where
+      value is pre-formatted.
+    example:
+      - { label: "Engineering", value: "96" }
+      - { label: "Sales", value: "54" }

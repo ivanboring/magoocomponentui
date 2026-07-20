@@ -1,0 +1,28 @@
+<article class="pet-profile-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-center gap-4">
+    <div class="pet-profile-card__avatar size-16 shrink-0 overflow-hidden rounded-pill bg-surface-raised">
+      <img data-if="photo" class="size-full object-cover" src="{{ photo }}" alt="{{ name }}">
+      <span data-if="!photo" class="flex size-full items-center justify-center text-on-surface-muted" aria-hidden="true">
+        <svg class="size-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.5c2.2 0 4 1.9 4 3.6 0 1.1-.9 1.9-2 1.9-.8 0-1.4-.4-2-.4s-1.2.4-2 .4c-1.1 0-2-.8-2-1.9 0-1.7 1.8-3.6 4-3.6Z"/><circle cx="6.5" cy="11" r="1.8"/><circle cx="17.5" cy="11" r="1.8"/><circle cx="9.5" cy="7" r="1.8"/><circle cx="14.5" cy="7" r="1.8"/></svg>
+      </span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="pet-profile-card__name truncate font-heading text-lg text-on-surface">{{ name }}</h3>
+      <p data-if="species" class="text-sm text-on-surface-muted">{{ species }}<span data-if="breed"> · {{ breed }}</span></p>
+    </div>
+  </div>
+  <dl class="pet-profile-card__stats mt-4 grid grid-cols-3 gap-2 border-t border-border pt-4 text-center">
+    <div data-if="age">
+      <dt class="text-xs uppercase tracking-wide text-on-surface-muted">Age</dt>
+      <dd class="mt-0.5 font-heading text-sm text-on-surface">{{ age }}</dd>
+    </div>
+    <div data-if="weight">
+      <dt class="text-xs uppercase tracking-wide text-on-surface-muted">Weight</dt>
+      <dd class="mt-0.5 font-heading text-sm text-on-surface">{{ weight }}</dd>
+    </div>
+    <div data-if="gender">
+      <dt class="text-xs uppercase tracking-wide text-on-surface-muted">Gender</dt>
+      <dd class="mt-0.5 font-heading text-sm text-on-surface">{{ gender }}</dd>
+    </div>
+  </dl>
+</article>

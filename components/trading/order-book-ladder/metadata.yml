@@ -1,0 +1,83 @@
+name: "Order Book Ladder"
+short_description: A mono price ladder showing resting bid sizes on the left, ask sizes on the right, and a highlighted spread row in the middle.
+long_visual_description: >
+  A surface card with a title and a three-column header (Bid size, Price, Ask size). Below it a
+  vertical ladder lists price levels top to bottom: ask levels near the top carry a red, tinted
+  size cell on the right; bid levels near the bottom carry a green, tinted size cell on the left;
+  and a single highlighted divider row in the middle shows the spread on a raised surface with no
+  sizes. All figures use tabular mono digits so the columns align.
+
+use_cases:
+  - A live order book beside a trading chart in an exchange interface.
+  - A depth-of-market ladder in a broker's order-entry screen.
+  - A market-microstructure widget in an analytics dashboard.
+  - A crypto order book on a token trading page.
+  - A read-only snapshot of resting liquidity in a research report.
+  - A compact bid/ask ladder in a market-maker monitoring panel.
+
+recommended_for:
+  - Showing resting bid/ask liquidity at discrete price levels around the spread.
+  - Dense, glanceable market-depth data where column alignment matters.
+avoid_for:
+  - Time-and-sales or trade history (use a table or feed).
+  - A single last price and change (use a quote card or ticker tape).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a rows array ordered top to bottom, each { price, bid_size, ask_size, is_spread }.
+  Preformat price and the sizes in the caller. Give ask rows an ask_size and leave bid_size unset,
+  give bid rows a bid_size and leave ask_size unset, and mark the single middle divider row with
+  is_spread true (its price shows the spread and it renders highlighted with no sizes).
+
+props:
+  title: "Heading above the ladder; also the region's accessible label."
+  rows: "The price ladder top to bottom. Each row is a bid level (bid_size set), an ask level (ask_size set), or the spread divider (is_spread true). Preformat price and sizes in the caller."
+
+example_prompts:
+  - "Add an order book ladder next to the chart with five ask levels and five bid levels."
+  - "Show a depth-of-market ladder with the spread highlighted in the middle."
+  - "Put a crypto order book showing resting bid and ask sizes around the mid price."
+
+relationships:
+  related:
+    - trading/price-ticker-tape
+    - crypto/token-price-card
+    - finance/portfolio-summary
+
+lifecycle: experimental
+content_model: A titled, three-column price ladder of bid levels, ask levels, and a highlighted spread row, all preformatted by the caller.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep price and size formatting consistent across rows so the mono columns line up. Order rows
+  with asks descending to the spread and bids continuing below it, and mark exactly one spread row.
+  Bid green and ask red are reinforced by column position (left vs right), not colour alone.
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Market Data
+  atomic_type: organism
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Bid and ask are distinguished by column position and header, not colour alone; values are real tabular text. The region carries an accessible label.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: ltr

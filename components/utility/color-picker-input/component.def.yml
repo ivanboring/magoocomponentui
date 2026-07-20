@@ -1,0 +1,17 @@
+name: color-picker-input
+props:
+  label:
+    type: string
+    title: Label
+    description: Optional field label shown above the control.
+  value:
+    type: string
+    required: true
+    title: Value
+    description: The current colour as a hex string (e.g. "#4f46e5"). Drives both the native swatch and the hex text field.
+  presets:
+    type: array
+    items: string
+    title: Presets
+    description: Optional list of hex strings shown as quick-pick swatches below the input.
+    example: ["#4f46e5", "#0ea5e9", "#10b981"]

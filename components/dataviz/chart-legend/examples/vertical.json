@@ -1,0 +1,9 @@
+{
+  "orientation": "vertical",
+  "items": [
+    { "label": "Videos", "color_class": "bg-primary", "value": "48%" },
+    { "label": "Images", "color_class": "bg-accent", "value": "22%" },
+    { "label": "Documents", "color_class": "bg-info", "value": "9%" },
+    { "label": "Audio", "color_class": "bg-success", "value": "7%" }
+  ]
+}

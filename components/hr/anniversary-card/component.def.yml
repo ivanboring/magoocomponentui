@@ -1,0 +1,30 @@
+name: anniversary-card
+props:
+  name:
+    type: string
+    required: true
+    title: Name
+    description: The person celebrating the work anniversary.
+    example: "Dana Okafor"
+  years:
+    type: integer
+    required: true
+    title: Years
+    description: Number of completed years (used in the "N years" line).
+    example: 5
+  initials:
+    type: string
+    title: Initials
+    description: One or two precomputed initials for the avatar circle (used when no photo).
+    example: "DO"
+  avatar:
+    type: string
+    format: uri-reference
+    title: Avatar
+    description: Optional photo URL; falls back to the initials circle when absent.
+    example: "/stock/avatar-woman-1.jpg"
+  date:
+    type: string
+    title: Date
+    description: Preformatted anniversary date, e.g. "Joined Mar 3, 2021".
+    example: "Joined Mar 3, 2021"

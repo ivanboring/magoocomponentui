@@ -1,0 +1,33 @@
+name: cashback-summary
+props:
+  total_earned:
+    type: string
+    required: true
+    title: Total earned
+    description: The all-time cashback earned, preformatted with its currency symbol.
+    example: "$128.40"
+  this_month:
+    type: string
+    title: This month
+    description: Cashback earned this month, preformatted. Omit to hide the stat.
+    example: "$18.20"
+  pending:
+    type: string
+    title: Pending
+    description: Cashback still pending, preformatted. Omit to hide the stat.
+    example: "$6.75"
+  categories:
+    type: array
+    items: object
+    required: false
+    title: Category breakdown
+    description: >
+      Optional breakdown of cashback by category, shown as a stacked bar and legend. Each item:
+      { label, amount, pct, color_class }. amount is a preformatted string; pct is the segment width
+      percent (0-100), precomputed by the caller so all pcts sum to 100; color_class is a tokenized
+      background utility chosen from the safelisted set in the template (one of "bg-primary",
+      "bg-secondary", "bg-accent", "bg-success", "bg-warning", "bg-danger", "bg-info").
+    example:
+      - { label: "Groceries", amount: "$62.10", pct: 48, color_class: "bg-primary" }
+      - { label: "Fuel", amount: "$38.20", pct: 30, color_class: "bg-info" }
+      - { label: "Dining", amount: "$28.10", pct: 22, color_class: "bg-accent" }

@@ -1,0 +1,35 @@
+name: sensor-alarm-banner
+props:
+  sensor:
+    type: string
+    required: true
+    title: Sensor
+    description: The sensor or measurement point raising the alarm.
+    example: "Bearing temp - Motor 3"
+  value:
+    type: string
+    title: Value
+    description: The current reading that triggered the alarm.
+    example: "92 C"
+  threshold:
+    type: string
+    title: Threshold
+    description: The threshold the reading breached.
+    example: "80 C"
+  severity:
+    type: enum
+    values: [info, warning, critical]
+    default: warning
+    title: Severity
+    description: Sets the banner border, tint and text colour.
+    example: critical
+  time:
+    type: string
+    title: Time
+    description: When the alarm was raised.
+    example: "18:42:07"
+variants:
+  severity:
+    info: "bg-info/10 text-info border-info/30"
+    warning: "bg-warning/10 text-warning border-warning/30"
+    critical: "bg-danger/10 text-danger border-danger/30"

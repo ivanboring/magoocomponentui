@@ -1,0 +1,34 @@
+name: air-quality-tile
+props:
+  aqi:
+    type: integer
+    required: true
+    title: AQI
+    description: The air quality index reading.
+    example: 42
+  level:
+    type: enum
+    values: [good, moderate, unhealthy, hazardous]
+    default: good
+    title: Level
+    description: Qualitative band for the reading; colours the value, label and scale bar.
+    example: good
+  pollutant:
+    type: string
+    title: Main pollutant
+    description: The dominant pollutant, e.g. "PM2.5". The row hides when omitted.
+    example: "PM2.5"
+  pct:
+    type: integer
+    default: 0
+    title: Scale position
+    description: >
+      Where the reading sits on the scale as a whole number 0-100 (precomputed by the caller); sets
+      the scale bar width. The directive language does no arithmetic, so pass the percentage.
+    example: 21
+variants:
+  level:
+    good: "text-success"
+    moderate: "text-warning"
+    unhealthy: "text-danger"
+    hazardous: "text-danger"

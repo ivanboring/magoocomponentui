@@ -1,0 +1,12 @@
+name: tag-filter-forum
+props:
+  tags:
+    type: array
+    items: object
+    required: true
+    title: Tags
+    description: >
+      The topic tags, in order. Each item: { label, count, active } where count (optional) is a
+      pre-formatted thread count and active (boolean) marks the tag as selected on render.
+    example:
+      - { label: "General", count: 128, active: true }

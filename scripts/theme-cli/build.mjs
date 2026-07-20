@@ -21,12 +21,12 @@ async function defaultExample(dir) {
 }
 
 /** Generate one component and return the { relPath: contents } map for a target. */
-export async function buildFilesFor(id, target) {
+export async function buildFilesFor(id, target, { canvas = false } = {}) {
   const dir = path.join(COMPONENTS_DIR, id);
   const src = await readComponentSource(dir);
   const def = loadDef(src.defYaml);
   const metadata = src.metadataYaml ? yaml.load(src.metadataYaml) : {};
-  const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples: null });
+  const { files } = generate({ id, name: def.name, def, template: src.template, behavior: src.behavior, metadata, examples: null, canvas });
   if (target === "html") {
     const ast = JSON.parse(files["ast.json"]);
     const meta = JSON.parse(files["meta.json"]);

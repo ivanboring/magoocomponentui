@@ -1,0 +1,24 @@
+name: team-grid
+props:
+  members:
+    type: array
+    items: object
+    required: true
+    title: Members
+    description: >
+      The team members to show. Each item:
+      { name, role, avatar, initials, socials } where avatar is an optional photo URL, initials is a
+      short fallback string shown when there is no avatar (caller precomputes it, e.g. "AR"), and
+      socials is an optional array of { icon, href } where icon is inline SVG markup.
+    example:
+      - name: "Ada Rivera"
+        role: "Founder & CEO"
+        avatar: "/stock/avatar-woman-1.jpg"
+        initials: "AR"
+        socials:
+          - { icon: '<svg viewBox="0 0 24 24" fill="currentColor" class="size-4" aria-hidden="true"><path d="M4 4h4l4 8 4-8h4l-6 12v4h-4v-4z"/></svg>', href: "#" }
+  label:
+    type: string
+    default: "Our team"
+    title: Accessible label
+    description: Accessible name announced for the team grid region.

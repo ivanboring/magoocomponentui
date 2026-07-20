@@ -1,0 +1,11 @@
+{
+  "tiers": [
+    { "name": "Member", "current": true },
+    { "name": "Member+", "current": false }
+  ],
+  "benefits": [
+    { "label": "Points multiplier", "values": ["1x", "2x"] },
+    { "label": "Free shipping", "values": ["", "Yes"] },
+    { "label": "Exclusive drops", "values": ["", "Yes"] }
+  ]
+}

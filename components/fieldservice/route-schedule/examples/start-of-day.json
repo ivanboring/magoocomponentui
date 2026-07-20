@@ -1,0 +1,8 @@
+{
+  "date": "Monday, Jul 27",
+  "jobs": [
+    { "time": "8:30 AM", "customer": "Priya Nair", "service": "Dishwasher install", "address": "12 Elm Court", "status": "current" },
+    { "time": "11:00 AM", "customer": "Harbor Cafe", "service": "Grease trap clean", "address": "3 Wharf Lane", "status": "upcoming" },
+    { "time": "2:00 PM", "customer": "Sunset Motel", "service": "Water heater check", "address": "440 Coast Hwy", "status": "upcoming" }
+  ]
+}

@@ -1,0 +1,25 @@
+name: bar-chart-shell
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Signups by channel"
+  bars:
+    type: array
+    items: object
+    required: true
+    title: Bars
+    description: >
+      Each bar: { label, value, height_pct } where height_pct is the precomputed bar
+      height as a percentage (0-100) of the plot area, scaled by the caller from the
+      data's maximum. label is shown under the bar; value reveals on hover.
+    example:
+      - { label: "Organic", value: "1,240", height_pct: 88 }
+      - { label: "Referral", value: "860", height_pct: 55 }
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["1.5k", "1k", "500", "0"]

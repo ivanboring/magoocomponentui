@@ -1,0 +1,10 @@
+{
+  "tokens": [
+    {
+      "name": "Personal access token",
+      "token_masked": "ghp_...9Kd2",
+      "scopes": ["repo", "read:org", "workflow"],
+      "created": "Feb 28, 2026"
+    }
+  ]
+}

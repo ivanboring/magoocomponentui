@@ -1,0 +1,57 @@
+name: performance-chart-trade
+props:
+  title:
+    type: string
+    title: Title
+    description: Heading shown in the card header (e.g. the instrument name or portfolio label).
+    example: "AAPL - Apple Inc."
+  line_path:
+    type: string
+    required: true
+    title: Line path
+    description: >
+      Precomputed SVG path for the price series line, in a 0-100 x 0-100 cartesian viewBox
+      (y grows downward, so a low number is near the top). The caller computes this from the data;
+      the shell only draws it.
+    example: "M0,70 L14,64 L29,72 L43,50 L57,58 L71,34 L86,40 L100,22"
+  area_path:
+    type: string
+    title: Area path
+    description: >
+      Optional precomputed SVG path for the filled area beneath the line - the same line geometry
+      closed down to the baseline (e.g. ... L100,100 L0,100 Z). Rendered as a faint fill tinted to
+      match the line direction. Omit for a plain line with no fill.
+    example: "M0,70 L14,64 L29,72 L43,50 L57,58 L71,34 L86,40 L100,22 L100,100 L0,100 Z"
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["$200", "$180", "$160", "$140"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["9:30", "11:00", "12:30", "14:00", "16:00"]
+  ranges:
+    type: array
+    items: object
+    title: Range tabs
+    description: >
+      Optional timeframe selector shown top-right. Each item: { label, active }. `label` is the
+      range button text (e.g. 1D, 1W, 1M, 1Y) and `active` is a boolean marking the currently
+      selected range (set it true on exactly one). Static skeleton - the tabs are presentational.
+    example:
+      - { label: "1D", active: true }
+      - { label: "1W" }
+      - { label: "1M" }
+      - { label: "1Y" }
+  change_dir:
+    type: enum
+    values: [up, down]
+    title: Change direction
+    description: >
+      Direction of the period's performance. Colours the line and area green (up) or red (down).
+      Leave unset to draw the line in the neutral primary colour.
+variants: {}

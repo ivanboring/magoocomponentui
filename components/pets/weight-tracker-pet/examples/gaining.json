@@ -1,0 +1,8 @@
+{
+  "current_weight": "12.8",
+  "unit": "lb",
+  "change": "0.6 lb",
+  "change_dir": "up",
+  "ideal_range": "11.0-14.0 lb",
+  "spark_path": "M0 32 L20 30 L40 28 L60 22 L80 18 L100 12"
+}

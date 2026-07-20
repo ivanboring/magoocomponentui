@@ -1,0 +1,31 @@
+name: email-sequence-step
+props:
+  step_number:
+    type: string
+    required: true
+    title: Step number
+    description: Position of this step in the cadence, shown in the badge, e.g. "1".
+    example: "1"
+  subject:
+    type: string
+    required: true
+    title: Subject
+    description: The email subject line for this step.
+    example: "Quick intro and a question"
+  delay:
+    type: string
+    title: Delay
+    description: When this step fires relative to the previous one, e.g. "Day 1" or "3 days later".
+    example: "Day 1"
+  status:
+    type: enum
+    values: ["sent", "scheduled", "draft"]
+    default: "draft"
+    required: true
+    title: Status
+    description: Delivery state of the step. sent has gone out, scheduled is queued, draft is unfinished.
+variants:
+  status:
+    sent: "text-success"
+    scheduled: "text-info"
+    draft: "text-on-surface-muted"

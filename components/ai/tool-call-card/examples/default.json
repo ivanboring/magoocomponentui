@@ -1,0 +1,6 @@
+{
+  "tool": "search_web",
+  "status": "done",
+  "args": "{\n  \"query\": \"weather in Paris tomorrow\",\n  \"max_results\": 3\n}",
+  "result": "{\n  \"location\": \"Paris, FR\",\n  \"temp_c\": 14,\n  \"conditions\": \"Light rain\"\n}"
+}

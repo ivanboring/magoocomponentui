@@ -1,0 +1,9 @@
+{
+  "placeholder": "Which park, and what needs attention?",
+  "categories": [
+    { "label": "Broken playground equipment", "value": "playground" },
+    { "label": "Overgrown landscaping", "value": "landscaping" },
+    { "label": "Restroom problem", "value": "restroom" },
+    { "label": "Trail or path damage", "value": "trail" }
+  ]
+}

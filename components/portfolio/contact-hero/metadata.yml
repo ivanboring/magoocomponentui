@@ -1,0 +1,94 @@
+name: "Contact Hero"
+short_description: A two-column contact call to action - heading, subheading and details on the left, a simple contact form on the right.
+long_visual_description: >
+  A full-width section that splits into two columns on large screens. The left column carries a
+  large heading in the heading face, a muted subheading, and a stack of contact details (email and
+  phone) each with a round primary-tinted icon. The right column is a bordered surface card holding
+  a name field, an email field, a message textarea, and a full-width primary Send button. On small
+  screens the two columns stack.
+
+use_cases:
+  - Close an agency or freelancer site with a clear way to get in touch.
+  - Provide a "Work with us" section with both a form and direct contact details.
+  - Serve as the body of a dedicated Contact page.
+  - Pair a project brief form with an email and phone fallback.
+  - Add a lead-capture block to the foot of a landing page.
+  - Give a studio a single, self-contained enquiry section.
+
+recommended_for:
+  - A contact section that shows contact details alongside an enquiry form.
+  - Pages that need a simple, backend-agnostic lead form (wired via the contact:submit event).
+avoid_for:
+  - Multi-step or heavily validated forms (compose dedicated form components).
+  - A details-only contact block with no form (use a simpler layout).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the heading and optional subheading; add email and phone to populate the details column
+  (each is omitted when empty). The form submit is intercepted by behavior.js, which dispatches a
+  contact:submit CustomEvent carrying the field values - wire your own handler or backend to it.
+
+how_to_use: >
+  behavior.js listens for the form's submit, prevents the default navigation, collects the field
+  values with FormData, and dispatches a bubbling "contact:submit" CustomEvent whose detail is the
+  { name, email, message } map. It reads everything from the form itself - the portable self-init
+  passes no props object - and removes the listener on cleanup.
+
+props:
+  heading: "The section headline; keep it short and inviting."
+  subheading: "Optional supporting line setting expectations (e.g. response time)."
+  email: "Optional contact email; rendered as a mailto link with an envelope icon."
+  phone: "Optional contact phone; rendered as a tel link with a phone icon."
+
+example_prompts:
+  - "Add a contact hero with a heading, our email, and a simple enquiry form."
+  - "Put a two-column contact section with a message form at the bottom of the page."
+  - "Show a Work-with-us block with contact details and a Send button."
+
+lifecycle: experimental
+content_model: >
+  A heading, an optional subheading, optional email and phone details, and a name/email/message form.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-section
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with a warm, specific heading and set expectations in the subheading. Keep the form short -
+  name, email, and message are enough for a first touch.
+
+relationships:
+  related:
+    - portfolio/pricing-quote
+    - portfolio/bio-hero
+    - marketing/cta-simple
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Contact
+  atomic_type: organism
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every field has an associated label, links use mailto/tel, and focus states use a visible ring; the submit is a real button in a form.
+  keyboard_support: All fields and the submit button are focusable in order; the button activates on Enter/Space and Enter submits the form.
+  seo_score: 55
+  text_direction: both

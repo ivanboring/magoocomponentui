@@ -1,0 +1,85 @@
+name: "Scene Card"
+short_description: A tappable smart-home scene card that activates a group of devices at once.
+long_visual_description: >
+  A card on the surface colour with a round primary-tinted scene glyph at the top, the scene name
+  in the heading face, and a small muted count of the devices it controls. A pill button below reads
+  "Activate" and, once active, flips to a filled primary "Active" state with a check, so the current
+  scene is obvious across a grid of cards.
+
+use_cases:
+  - Activate a lighting or comfort scene like "Movie night" or "Good morning".
+  - Trigger a group of devices from a single tap on a home dashboard.
+  - Show which scene is currently running across a scene grid.
+  - Offer quick-access presets on a wall-panel or mobile home view.
+  - Let a user start a bedtime or away routine from one control.
+
+recommended_for:
+  - Scene and routine launchers on home dashboards.
+  - Grids of preset device groupings.
+avoid_for:
+  - Controlling a single device (use device-tile).
+  - Editing what a scene contains (use a settings form).
+
+markets:
+  - Global
+
+example_usage: >
+  Lay several in a responsive grid. Pass the current active state; on tap the card dispatches
+  scene:activate so the host can run or clear the scene, and the button reflects the new state.
+
+how_to_use: >
+  Interactive. The activate button toggles on click: it flips data-active (label and style follow via
+  group-data variants), updates aria-pressed, and dispatches a bubbling "scene:activate" CustomEvent
+  with detail { active }. Read the current state from the button's data-active attribute.
+
+props:
+  name: The scene name shown in the heading face.
+  icon: Optional scene glyph as raw inline-SVG HTML; keep it decorative.
+  devices_count: Optional count of devices the scene controls; hidden when zero.
+  active: Whether the scene is currently active; drives the button label and style.
+
+example_prompts:
+  - "Add a scene card for Movie night controlling 6 devices."
+  - "Show a grid of scene cards for the home's routines."
+  - "Add a Good morning scene that is currently active."
+
+lifecycle: experimental
+content_model: A scene name, an optional icon and device count, and an active state.
+
+relationships:
+  related:
+    - smarthome/device-tile
+    - smarthome/automation-rule-row
+    - smarthome/thermostat-dial
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Name scenes for the moment they create, not the devices they touch. Keep names to a couple of words.
+
+categorization:
+  category: Smart Home
+  subcategory: Scenes
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The activate control is a native button with aria-pressed; the active state is text plus colour, not colour alone.
+  keyboard_support: The activate button is focusable and toggles on Enter/Space.
+  seo_score: 25
+  text_direction: both

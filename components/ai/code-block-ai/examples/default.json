@@ -1,0 +1,5 @@
+{
+  "language": "javascript",
+  "runnable": false,
+  "code": "function debounce(fn, wait) {\n  let t;\n  return (...args) => {\n    clearTimeout(t);\n    t = setTimeout(() => fn(...args), wait);\n  };\n}"
+}

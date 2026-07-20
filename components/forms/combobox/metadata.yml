@@ -1,0 +1,87 @@
+name: "Combobox"
+short_description: A typeahead select whose text input filters a keyboard-navigable listbox of options.
+long_visual_description: >
+  A labeled input inside a bordered control with a chevron toggle on the right. As the
+  user types, a surface popover of options drops below and filters case-insensitively to
+  the matching labels; the active option is highlighted. Choosing an option (click, or
+  ArrowUp/ArrowDown then Enter) fills the input and closes the list. Opens on focus,
+  closes on Escape or an outside click.
+
+use_cases:
+  - Picking one value from a long list where scrolling a plain select is slow.
+  - Country, language, or timezone selection with search.
+  - Choosing a framework, tag, or category from many options.
+  - Filtering to a single record before submitting a form.
+  - Any single-select field that benefits from typeahead over a native dropdown.
+  - Keyboard-first selection in a settings or onboarding form.
+
+recommended_for:
+  - Single-select form fields with many options that benefit from typing to narrow.
+avoid_for:
+  - A handful of options (a native select is simpler — see form-field-select).
+  - Selecting multiple values (use a multi-select or tag input).
+  - App-wide command running (use command-palette).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide the options as { label, value } pairs; the input filters by label as the user
+  types and the behavior fills the input on selection. Wire the combobox:select event to
+  read the chosen value. Set start_open true only for previews/screenshots.
+
+props:
+  options: The selectable options, each with a display label and a submit value.
+  placeholder: The input's placeholder text.
+  label: The visible field label; omit to render without one.
+  name: The input's name attribute for form submission.
+  start_open: Renders the list already open; for previews and screenshots only.
+
+example_prompts:
+  - "Add a searchable single-select combobox for choosing a framework."
+  - "Add a typeahead country picker that filters as you type with keyboard support."
+
+lifecycle: experimental
+content_model: A text input and a filterable listbox of label/value options.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep option labels short and scannable; order them by expected frequency or
+  alphabetically. Use a placeholder that hints at searching ("Search countries…").
+
+relationships:
+  related:
+    - forms/form-field-select
+    - overlays/command-palette
+    - overlays/dropdown-menu
+
+how_to_use: >
+  A vanilla-JS typeahead: input events filter options by label (non-matches get
+  data-hidden), the list opens on focus/typing, and full keyboard support moves a
+  data-active highlight over the visible options with ArrowUp/ArrowDown (tracked by
+  aria-activedescendant), selects with Enter, and closes with Escape or an outside click.
+
+categorization:
+  category: Forms
+  subcategory: Inputs
+  atomic_type: molecule
+  usage_type: [form, input]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Input is role="combobox" with aria-autocomplete="list" and aria-expanded; the list is role="listbox" with role="option" items; the active option is exposed via aria-activedescendant and selection via aria-selected; Escape closes.
+  keyboard_support: Type to filter; ArrowDown/ArrowUp move the active option among visible matches; Enter selects; Escape closes; focus opens the list.
+  seo_score: 15
+  text_direction: both

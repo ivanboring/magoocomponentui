@@ -1,0 +1,21 @@
+<div class="thread-row flex items-start gap-3 rounded-card border border-border bg-surface p-4 data-[pinned=true]:border-primary/40 data-[pinned=true]:bg-primary/5" data-pinned="{{ pinned }}">
+  <span data-if="pinned" class="thread-row__pin mt-0.5 shrink-0 text-primary" aria-label="Pinned">
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 3h4l-1 5 3 2v2H6v-2l3-2-1-5z"/><path d="M10 12v5"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <h3 class="font-heading text-on-surface">
+      <a class="outline-none hover:underline focus-visible:underline" href="#">{{ title }}</a>
+    </h3>
+    <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-on-surface-muted">
+      <span>by {{ author }}</span>
+      <span data-for="tag in tags" class="inline-flex rounded-pill bg-surface-raised px-2 py-0.5 font-medium text-on-surface-muted">{{ tag }}</span>
+    </div>
+  </div>
+  <div class="shrink-0 text-right text-xs text-on-surface-muted">
+    <div class="flex items-center justify-end gap-3">
+      <span class="tabular-nums"><span class="font-medium text-on-surface">{{ replies }}</span> replies</span>
+      <span data-if="views" class="tabular-nums"><span class="font-medium text-on-surface">{{ views }}</span> views</span>
+    </div>
+    <div class="mt-1">{{ last_activity }}</div>
+  </div>
+</div>

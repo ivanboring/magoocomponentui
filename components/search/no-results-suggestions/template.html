@@ -1,0 +1,16 @@
+<div class="no-results-suggestions rounded-card border border-border bg-surface p-(--space-card) text-center">
+  <span class="no-results-suggestions__icon mx-auto flex size-12 items-center justify-center rounded-pill bg-surface-raised text-on-surface-muted" aria-hidden="true">
+    <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/><path d="M8 8l4 4M12 8l-4 4"/></svg>
+  </span>
+  <h2 class="no-results-suggestions__heading mt-4 font-heading text-lg text-on-surface">No results for &ldquo;{{ query }}&rdquo;</h2>
+  <p class="mt-1 text-sm text-on-surface-muted">Try one of these searches instead.</p>
+  <div data-if="suggestions" class="no-results-suggestions__chips mt-4 flex flex-wrap justify-center gap-2">
+    <button data-for="suggestion in suggestions" type="button" class="no-results-suggestions__chip rounded-pill border border-border bg-surface-raised px-3 py-1 text-sm text-on-surface transition-colors duration-(--duration-token) hover:border-primary hover:bg-primary/10 hover:text-primary" data-label="{{ suggestion.label }}">{{ suggestion.label }}</button>
+  </div>
+  <ul data-if="tips" class="no-results-suggestions__tips mx-auto mt-5 max-w-sm space-y-1 text-left text-sm text-on-surface-muted">
+    <li data-for="tip in tips" class="flex items-start gap-2">
+      <svg class="mt-1 size-3.5 shrink-0 text-on-surface-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10l4 4 8-8"/></svg>
+      <span>{{ tip }}</span>
+    </li>
+  </ul>
+</div>

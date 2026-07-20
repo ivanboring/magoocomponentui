@@ -1,0 +1,87 @@
+name: "Snooze Menu"
+short_description: A snooze-until dropdown listing preset times plus a custom "Pick date & time".
+long_visual_description: >
+  A compact trigger button (a clock icon, a label, and a chevron) that opens an absolutely
+  positioned menu on the surface colour. The menu lists snooze presets, each with its name on
+  the left and the resolved time in muted text on the right, then a divider and a primary-tinted
+  "Pick date & time" footer. The chevron rotates while open; the panel fades in over the raised
+  shadow.
+
+use_cases:
+  - Snooze a mail thread until a preset or custom time.
+  - Defer a task or reminder to later today, tomorrow, or next week.
+  - Postpone a notification from an inbox row.
+  - Reschedule a follow-up from a message toolbar.
+  - Offer quick snooze presets on a to-do item.
+  - Pick a resurface time for a saved item.
+
+recommended_for:
+  - A snooze/remind-me control with a few presets plus a custom option.
+  - Toolbar or row actions that defer an item to a chosen time.
+avoid_for:
+  - A general actions menu (use dropdown-menu).
+  - A full date/time picker on its own (the footer only signals one).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an options array (each { label, when }); the label names the preset and when shows the
+  resolved time on the right. The trigger toggles the menu; choosing a preset or the "Pick date
+  & time" footer dispatches snooze:pick and closes. Set start_open to preview the open state.
+
+how_to_use: >
+  Open/closed state lives on the root's data-open attribute and the panel is revealed entirely
+  by the group-data-[open=true] Tailwind variants, so it renders correctly (including the
+  start_open preview) with no JavaScript. behavior.js wires interaction: the trigger toggles
+  data-open and aria-expanded; clicking a preset dispatches snooze:pick with { label, when }
+  and the footer dispatches { label: "Pick date & time", custom: true }, both closing the menu;
+  Escape or an outside click closes it. The portable self-init reads no props object.
+
+props:
+  trigger_label: "The text on the button that opens the menu."
+  start_open: "Render the menu already open (for previews and examples)."
+  options: "The snooze presets, in order. Each: label (the target) and when (the muted resolved time)."
+
+example_prompts:
+  - "Add a snooze menu with Later today, Tomorrow, This weekend, and Next week."
+  - "Add a remind-me dropdown with preset times and a custom date option."
+
+lifecycle: experimental
+content_model: A trigger label and an ordered list of snooze presets, each with a label and a resolved time.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-button
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep preset labels short and natural ("Tomorrow", "Next week") and put the concrete resolved
+  time in the muted right column so the user can confirm exactly when it resurfaces.
+
+relationships:
+  related:
+    - overlays/dropdown-menu
+    - email/mailbox-folder
+
+categorization:
+  category: Email
+  subcategory: Actions
+  atomic_type: molecule
+  usage_type: [overlay, nav]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The trigger exposes aria-haspopup/aria-expanded; the panel uses role="menu"/"menuitem"; Escape closes and restores focus to the trigger.
+  keyboard_support: The trigger toggles on Enter/Space; Escape closes the menu and refocuses the trigger. Menu items are focusable buttons activated with Enter/Space.
+  seo_score: 10
+  text_direction: both

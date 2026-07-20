@@ -1,0 +1,11 @@
+{
+  "label": "Support CSAT this week",
+  "score": 3.1,
+  "scale": "5",
+  "responses": 412,
+  "distribution": [
+    { "label": "Satisfied", "pct": 41, "color_class": "bg-success" },
+    { "label": "Neutral", "pct": 22, "color_class": "bg-warning" },
+    { "label": "Unsatisfied", "pct": 37, "color_class": "bg-danger" }
+  ]
+}

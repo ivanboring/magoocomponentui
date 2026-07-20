@@ -1,0 +1,17 @@
+name: priority-flag
+props:
+  level:
+    type: enum
+    values: ["low", "medium", "high", "urgent"]
+    default: medium
+    title: Priority level
+    description: >
+      The priority of the item. Colours the flag and label — low is muted, medium is info,
+      high is warning, urgent is danger. The level name is shown as the label.
+    example: high
+variants:
+  level:
+    "low": "text-on-surface-muted"
+    "medium": "text-info"
+    "high": "text-warning"
+    "urgent": "text-danger"

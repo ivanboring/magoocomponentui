@@ -1,0 +1,18 @@
+{
+  "title": "Buy 10, get 1 free",
+  "filled_count": "7",
+  "total": "10",
+  "reward_label": "Free coffee on your next visit",
+  "stamps": [
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": true },
+    { "filled": false },
+    { "filled": false },
+    { "filled": false }
+  ]
+}

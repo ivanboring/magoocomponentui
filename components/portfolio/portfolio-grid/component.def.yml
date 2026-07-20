@@ -1,0 +1,32 @@
+name: portfolio-grid
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Work items
+    description: >
+      The work tiles to show. Each item: { image, title, category, href } where category is a value
+      string that must match one of the filters' value. href is optional (makes the tile a link).
+    example:
+      - { image: "/stock/cover-workspace.jpg", title: "Checkout redesign", category: "web", href: "#" }
+  filters:
+    type: array
+    items: object
+    required: true
+    title: Filters
+    description: >
+      The chip set the caller supplies (directives can't dedupe categories): each { label, value } -
+      value must match an item's category. An "All" chip is added automatically before these.
+    example:
+      - { label: "Web", value: "web" }
+  all_label:
+    type: string
+    default: "All"
+    title: All-chip label
+    description: Label for the leading chip that clears the filter and shows every project.
+  label:
+    type: string
+    default: "Selected work"
+    title: Accessible label
+    description: Accessible name announced for the grid region.

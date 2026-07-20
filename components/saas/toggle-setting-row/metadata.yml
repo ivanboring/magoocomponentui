@@ -1,0 +1,87 @@
+name: "Toggle Setting Row"
+short_description: A single settings row pairing a label and help text with an on/off switch.
+long_visual_description: >
+  A horizontal row with the setting label and an optional muted help line on the leading edge
+  and a pill switch on the trailing edge. The switch track fills with the primary colour and
+  slides its round knob to the right when on; off, it rests on a raised surface with the knob
+  to the left. The whole row shares comfortable vertical padding so a stack of rows aligns
+  cleanly inside a settings-section card.
+
+use_cases:
+  - Toggling a single boolean preference.
+  - Enabling or disabling a notification channel.
+  - Turning a feature flag on or off.
+  - Switching two-factor authentication on.
+  - Opting in or out of marketing email.
+  - Rows inside a grouped settings panel.
+
+recommended_for:
+  - Settings and preferences panels.
+  - Any single on/off choice with a label.
+  - Stacks of related toggles in a settings-section.
+avoid_for:
+  - Choosing one of several options (use a select).
+  - Actions that submit immediately with side effects needing confirmation.
+  - Non-boolean values.
+
+markets:
+  - Global
+
+example_usage: >
+  Slot into a settings-section content stack. Give it a clear label and a one-line help
+  string, set the initial on state, and pass a name so setting:toggle identifies the field.
+
+props:
+  label: The setting name; also the switch's accessible label.
+  help: Optional one-line explanation under the label.
+  on: The initial switch state.
+  name: Optional machine name echoed in the setting:toggle event.
+
+example_prompts:
+  - "Add a toggle row for email notifications that starts on."
+  - "Build a setting row to enable two-factor authentication, off by default."
+  - "Create a labelled switch row with help text for a feature flag."
+
+how_to_use: >
+  Clicking the switch flips its data-state, updates aria-checked, slides the knob, and
+  dispatches setting:toggle with { name, on }. Set the on prop for the initial state; the host
+  listens for the event to persist the change.
+
+lifecycle: experimental
+content_model: >
+  A label, an optional help line, an initial boolean state, and an optional field name.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-ring
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Label with the state that "on" enables, phrased positively. Keep help text to one plain
+  sentence describing what turning it on does.
+
+relationships:
+  parents:
+    - saas/settings-section
+  related:
+    - saas/select-setting-row
+
+categorization:
+  category: SaaS & Settings
+  subcategory: Settings
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Uses role="switch" with aria-checked reflecting state and an accessible label from the setting name.
+  keyboard_support: The switch is focusable and toggles on Enter/Space; state is exposed via aria-checked.
+  seo_score: 40
+  text_direction: both

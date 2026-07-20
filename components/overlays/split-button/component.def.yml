@@ -1,0 +1,35 @@
+name: split-button
+props:
+  label:
+    type: string
+    required: true
+    title: Label
+    description: The primary action's label (the large clickable button).
+    example: "Save"
+  href:
+    type: link
+    default: "#"
+    title: Primary link
+    description: Where the primary action navigates (or "#" if it is wired via JS).
+  items:
+    type: array
+    items: object
+    required: true
+    title: Menu items
+    description: >
+      The related actions listed in the caret menu. Each item: { label, href, danger }.
+      Set danger: true to tint a destructive action (e.g. Delete). href defaults to "#".
+    example:
+      - { label: "Save a copy", href: "#", danger: false }
+  start_open:
+    type: boolean
+    default: false
+    title: Start open
+    description: >
+      Render with the menu already open. Off by default; used to capture the open state in
+      screenshots. behavior.js still toggles it on the caret at runtime.
+  menu_label:
+    type: string
+    default: "More actions"
+    title: Menu label
+    description: Accessible label announced for the caret toggle that opens the menu.

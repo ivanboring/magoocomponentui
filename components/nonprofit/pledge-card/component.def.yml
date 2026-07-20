@@ -1,0 +1,27 @@
+name: pledge-card
+props:
+  amount:
+    type: string
+    required: true
+    title: Pledge amount
+    description: The pledge amount as a display string (currency formatting is the caller's). Shown large and echoed in the button.
+    example: "$50"
+  title:
+    type: string
+    title: Tier name
+    example: "Supporter"
+  description:
+    type: string
+    title: Description
+    example: "Fund a month of after-school meals for one child."
+  benefits:
+    type: array
+    items: string
+    title: Benefits
+    description: An optional checklist of what the pledge includes; each item is a plain string.
+    example: ["Thank-you postcard", "Impact newsletter", "Name on the donor wall"]
+  backers:
+    type: integer
+    title: Backers
+    description: Optional count of people who have chosen this tier. Omit or 0 to hide the line.
+    example: 128

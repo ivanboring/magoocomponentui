@@ -1,0 +1,9 @@
+{
+  "name": "Maple Street Veterinary",
+  "address": "128 Maple St, Portland, OR",
+  "rating": "4.8",
+  "phone": "(503) 555-0142",
+  "hours": "Mon-Fri 8am-6pm",
+  "services": ["Surgery", "Dentistry", "Emergency"],
+  "open_now": true
+}

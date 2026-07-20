@@ -1,0 +1,76 @@
+name: "Team Grid"
+short_description: A responsive grid of team members, each with a round avatar (or initials), name, role, and optional social links.
+long_visual_description: >
+  A 2-to-4 column grid of centred member cards. Each shows a large circular avatar - or, when no
+  photo is supplied, the member's initials on a raised surface - above the name in the heading face, a
+  muted role line, and an optional row of small circular social icon links that tint to the primary
+  colour on hover.
+
+use_cases:
+  - An agency or studio "meet the team" section.
+  - A company about page listing leadership.
+  - A conference or event speakers grid.
+  - A startup founders and advisors section.
+  - A department or squad roster on an intranet.
+  - A contributors or maintainers wall for a project.
+
+recommended_for:
+  - Showing a group of people uniformly with photos and roles.
+  - Rosters where some members may not have a photo (initials fallback).
+avoid_for:
+  - A single featured person with a bio (use a dedicated profile card).
+  - Directories needing search, filtering or pagination.
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a members array (each { name, role, avatar, initials, socials }). Supply initials as a short
+  precomputed string for members without an avatar, and socials as an array of { icon, href } where
+  icon is inline SVG. The grid flows from two columns on mobile up to four on desktop.
+
+props:
+  members: "The people, in order. Each: name, role, avatar (optional photo), initials (fallback when no avatar), socials (optional array of { icon, href })."
+  label: "Accessible name announced for the team grid region."
+
+example_prompts:
+  - "Add a team grid with four people and their social links."
+  - "Show the founders with photos and initials fallback."
+  - "List the speakers in a responsive people grid."
+
+lifecycle: experimental
+content_model: A set of team members, each with a name, role, optional avatar or initials, and optional social links.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --radius-pill
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Use consistent, similarly-cropped headshots so the row of avatars reads evenly, and keep roles
+  short and parallel. Provide initials for anyone without a photo so no card renders an empty circle.
+  Limit social links to a couple per person.
+
+relationships:
+  related:
+    - portfolio/service-card
+    - portfolio/agency-process
+    - cards/card-team-member
+
+categorization:
+  category: Portfolio & Agency
+  subcategory: Team
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Avatars are decorative (empty alt) with the visible name conveying identity; the initials fallback is real text; social links are focusable anchors and should carry an accessible name via their SVG title or surrounding context.
+  keyboard_support: Social links are focusable anchors activated on Enter; the grid is otherwise static.
+  seo_score: 45
+  text_direction: both

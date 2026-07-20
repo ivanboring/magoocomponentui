@@ -1,0 +1,32 @@
+<div class="request-response-viewer grid gap-4 lg:grid-cols-2">
+  <section class="flex flex-col rounded-card border border-border bg-surface" aria-label="Request">
+    <header class="border-b border-border px-4 py-2">
+      <span class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Request</span>
+    </header>
+    <div class="space-y-3 p-4">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex shrink-0 rounded-control px-2 py-0.5 text-xs font-semibold uppercase font-mono {{ method@class }}">{{ method }}</span>
+        <code class="min-w-0 flex-1 break-all font-mono text-sm text-on-surface">{{ request.url }}</code>
+      </div>
+      <div data-if="request.headers">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-on-surface-muted">Headers</p>
+        <pre class="overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs leading-relaxed text-on-surface"><code>{{ request.headers }}</code></pre>
+      </div>
+      <div data-if="request.body">
+        <p class="mb-1 text-xs font-medium uppercase tracking-wide text-on-surface-muted">Body</p>
+        <pre class="overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs leading-relaxed text-on-surface"><code>{{ request.body }}</code></pre>
+      </div>
+    </div>
+  </section>
+  <section class="flex flex-col rounded-card border border-border bg-surface" aria-label="Response">
+    <header class="border-b border-border px-4 py-2">
+      <span class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">Response</span>
+    </header>
+    <div class="space-y-3 p-4">
+      <p class="font-mono text-sm font-semibold {{ status_tone@class }}">{{ response.status }} {{ response.status_text }}</p>
+      <div data-if="response.body">
+        <pre class="overflow-x-auto rounded-control bg-surface-raised p-3 font-mono text-xs leading-relaxed text-on-surface"><code>{{ response.body }}</code></pre>
+      </div>
+    </div>
+  </section>
+</div>

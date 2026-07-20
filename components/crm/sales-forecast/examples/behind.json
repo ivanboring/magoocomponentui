@@ -1,0 +1,10 @@
+{
+  "quota": "$250k",
+  "committed": "$90k",
+  "best_case": "$140k",
+  "bars": [
+    { "label": "Committed", "value": "$90k", "pct": 36, "color_class": "bg-warning" },
+    { "label": "Best case", "value": "$140k", "pct": 56, "color_class": "bg-info" },
+    { "label": "Pipeline", "value": "$210k", "pct": 84, "color_class": "bg-accent" }
+  ]
+}

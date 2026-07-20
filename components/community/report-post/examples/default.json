@@ -1,0 +1,10 @@
+{
+  "placeholder": "Add any details (optional)",
+  "reasons": [
+    { "label": "Spam or advertising", "value": "spam" },
+    { "label": "Harassment or hate", "value": "harassment" },
+    { "label": "Off-topic or low quality", "value": "off-topic" },
+    { "label": "Misinformation", "value": "misinformation" },
+    { "label": "Something else", "value": "other" }
+  ]
+}

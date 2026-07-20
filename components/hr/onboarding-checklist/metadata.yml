@@ -1,0 +1,75 @@
+name: "Onboarding Checklist"
+short_description: A grouped new-hire task checklist with a progress header and completed items shown checked and struck through.
+long_visual_description: >
+  A card on the surface colour headed "Onboarding checklist" with an optional new-hire name and a
+  primary-tinted percent pill. A slim progress bar follows when a percentage is given. Below, tasks are
+  organised into labelled groups; each task shows a green check in a tinted circle when done (its label
+  muted and struck through) or an empty outlined circle when still open.
+
+use_cases:
+  - A new-hire onboarding task list in an HR portal.
+  - A day-one readiness checklist for a manager.
+  - A provisioning checklist across IT, HR and facilities.
+  - A self-service onboarding tracker for the new employee.
+  - A 30-60-90 day plan grouped by phase.
+  - A compliance and paperwork completion tracker.
+
+recommended_for:
+  - Grouped task lists where progress matters.
+  - Showing completion at a glance with a percentage.
+avoid_for:
+  - A single flat checklist with no grouping (overkill).
+  - Editable task management with reordering (build a richer app).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a groups array where each group is { label, items } and each task is { label, done }. Optionally
+  add an employee name and a precomputed pct for the progress header. Compute pct as completed-over-total
+  before rendering, since the template does no arithmetic.
+
+props:
+  employee: Optional new-hire name shown under the heading.
+  groups: Labelled task sections; each contains a nested array of tasks with a label and a done flag.
+  pct: Optional precomputed completion percentage shown in the header and bar.
+
+lifecycle: experimental
+content_model: Optional employee name, a precomputed percentage, and groups of tasks each marked done or not.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Group tasks by phase or owner so the list stays scannable. Keep task labels imperative and short.
+  Precompute the percentage and the done flags before rendering rather than deriving them in the template.
+
+relationships:
+  related:
+    - hr/employee-card
+    - hr/performance-review
+
+categorization:
+  category: "HR & People"
+  subcategory: Onboarding
+  atomic_type: organism
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Done state is shown by a check icon and struck text, not colour alone; groups use real headings and lists.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,82 @@
+name: "Subtask Checklist"
+short_description: A card of subtask rows with a segmented progress bar and a done/total count, striking through completed items.
+long_visual_description: >
+  A surface card with a title and a done/total count in the header, a segmented progress bar with
+  one cell per item (completed cells filled in the success colour, the rest muted), and a list of
+  rows. Each done row shows a filled green check and a struck-through, muted label; each remaining
+  row shows an empty box and full-strength text. The per-item segments mean the bar needs no
+  percentage math.
+
+use_cases:
+  - The subtask breakdown inside a task detail panel.
+  - A definition-of-done checklist on a story.
+  - An acceptance-criteria list with progress.
+  - An onboarding or setup checklist card.
+  - Any short list of steps that tracks completion.
+
+recommended_for:
+  - Small ordered checklists rendered from item data.
+  - Progress shown as completed-vs-total without a percentage.
+avoid_for:
+  - Long documents or nested outlines.
+  - Interactive toggling that must persist (this is a static skeleton).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array of { label, done } and the precomputed done_count and total_count for the
+  header. The progress bar draws one segment per item and fills the done ones, so you do not supply
+  a percentage; the counts are precomputed because the template does no arithmetic.
+
+props:
+  title: "The checklist heading."
+  items: "The rows in order, each { label, done }. done fills the check and strikes the label."
+  done_count: "Precomputed number of completed items for the header."
+  total_count: "Precomputed total item count; the header pair hides when total is unset."
+
+example_prompts:
+  - "Add a subtask checklist with 1 of 3 items done."
+  - "Show a definition-of-done checklist with two items complete."
+  - "Put a setup checklist card with a progress bar."
+
+relationships:
+  related:
+    - pm/task-card
+    - pm/backlog-item
+    - pm/kanban-board
+
+lifecycle: experimental
+content_model: A title, an ordered list of { label, done } items, and precomputed done/total counts.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Keep item labels short and action-oriented, and keep done_count/total_count in sync with the
+  items you pass. Completion is shown by the check, the strike-through, and the filled bar segments
+  together, so it does not rely on colour alone.
+
+categorization:
+  category: Project Management
+  subcategory: Tasks
+  atomic_type: molecule
+  usage_type: [card, list]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Completion is conveyed by the check icon and strike-through as well as colour; the progress bar is decorative (aria-hidden) and backed by the done/total text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

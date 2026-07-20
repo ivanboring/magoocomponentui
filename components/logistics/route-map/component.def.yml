@@ -1,0 +1,25 @@
+name: route-map
+props:
+  stops:
+    type: array
+    items: object
+    required: true
+    title: Stops
+    description: >
+      The route waypoints in order. Each stop: { label, order, status }. order is the precomputed
+      stop number shown in the pin (caller supplies, e.g. 1, 2, 3). status is optional and one of
+      done | current | upcoming — done pins fill solid, current is outlined, upcoming stays muted.
+    example:
+      - { label: "Depot", order: 1, status: "done" }
+      - { label: "Elm St", order: 2, status: "current" }
+      - { label: "Pier 9", order: 3, status: "upcoming" }
+  total_distance:
+    type: string
+    title: Total distance
+    description: Summary distance for the whole route.
+    example: "42 mi"
+  total_time:
+    type: string
+    title: Total time
+    description: Summary estimated time for the whole route.
+    example: "1 hr 20 min"

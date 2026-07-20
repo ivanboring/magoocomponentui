@@ -1,0 +1,10 @@
+{
+  "question": "Which features do you use most? Select all that apply.",
+  "kind": "multi",
+  "options": [
+    { "label": "Reporting", "value": "reporting" },
+    { "label": "Automation", "value": "automation" },
+    { "label": "Integrations", "value": "integrations" },
+    { "label": "Collaboration", "value": "collaboration" }
+  ]
+}

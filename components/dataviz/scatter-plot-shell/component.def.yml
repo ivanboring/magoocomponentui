@@ -1,0 +1,38 @@
+name: scatter-plot-shell
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Spend vs conversions"
+  points:
+    type: array
+    items: object
+    required: true
+    title: Points
+    description: >
+      Each point: { x_pct, y_pct, label } where x_pct and y_pct are precomputed 0-100
+      positions in the plot's cartesian viewBox (y grows downward). label is optional and
+      used as the accessible title of the marker.
+    example:
+      - { x_pct: 20, y_pct: 70, label: "A" }
+      - { x_pct: 55, y_pct: 40, label: "B" }
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["100", "75", "50", "25", "0"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["0", "1k", "2k", "3k", "4k"]
+  grid_lines:
+    type: array
+    items: string
+    title: Gridline positions
+    description: >
+      Optional precomputed y-percent positions (0-100) for horizontal gridlines.
+    example: ["25", "50", "75"]

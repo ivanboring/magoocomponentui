@@ -1,0 +1,81 @@
+name: "Burndown Chart"
+short_description: A sprint-burndown card that draws a dashed ideal line against a precomputed actual remaining-work line.
+long_visual_description: >
+  A surface card with a title and a small legend (a dashed swatch for Ideal, a solid primary swatch
+  for Actual). Below it a full-width SVG plot shows a straight dashed ideal decline from full scope
+  to zero and a solid primary line tracing the actual work remaining, with points-remaining tick
+  labels down the left and day labels along the bottom. Both lines are supplied precomputed, so the
+  card renders a real burndown with no charting code.
+
+use_cases:
+  - Track remaining work across a sprint's days.
+  - Show whether a team is ahead of or behind the ideal line.
+  - A burndown widget on a sprint or team dashboard.
+  - A retrospective figure comparing planned vs actual pace.
+  - Release burndown over a longer window of weeks.
+
+recommended_for:
+  - A single ideal-vs-actual remaining-work comparison over time.
+  - Cases where the caller can precompute both SVG paths from data.
+avoid_for:
+  - Cumulative flow across multiple states (use a stacked area chart).
+  - A generic single-series trend (use dataviz/line-chart-shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute ideal_path (a straight decline from full scope to zero) and actual_path in a 0-100 by
+  0-100 viewBox (y grows downward) from the sprint's daily remaining points, then pass y_labels top
+  to bottom and x_labels left to right. The card ships no charting math.
+
+props:
+  title: "The chart title shown in the header."
+  ideal_path: "Precomputed SVG path for the straight ideal burndown line."
+  actual_path: "Precomputed SVG path for the actual remaining-work line."
+  y_labels: "Points-remaining tick labels, top to bottom."
+  x_labels: "Day tick labels, left to right."
+
+example_prompts:
+  - "Add a sprint burndown chart with the team tracking above the ideal line."
+  - "Show a burndown over 7 days ending at zero points."
+  - "Put a burndown card on the sprint dashboard."
+
+relationships:
+  related:
+    - pm/sprint-header
+    - pm/gantt-row
+    - dataviz/line-chart-shell
+
+lifecycle: experimental
+content_model: A title, two precomputed line paths (ideal and actual), and y/x axis label arrays.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  Both lines are precomputed by the caller from the sprint's daily remaining points - the card
+  ships no burndown math. Keep the ideal line a clean straight decline and the axis labels short so
+  the comparison reads instantly. For a live chart, replace the SVG markup with a real library and
+  keep the card as the themed frame.
+
+categorization:
+  category: Project Management
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decoration; the legend and axis labels are real text. Provide a data-table alternative for the two series in production.
+  keyboard_support: "none"
+  seo_score: 30
+  text_direction: both

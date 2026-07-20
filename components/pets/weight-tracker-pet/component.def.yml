@@ -1,0 +1,41 @@
+name: weight-tracker-pet
+props:
+  current_weight:
+    type: string
+    required: true
+    title: Current weight
+    description: The latest weigh-in, formatted for display (the number only; pair with unit).
+    example: "5.4"
+  unit:
+    type: string
+    default: "kg"
+    title: Unit
+    description: Weight unit shown after the number, e.g. kg or lb.
+  change:
+    type: string
+    title: Change
+    description: The change since the last weigh-in, formatted for display, e.g. "0.2 kg".
+    example: "0.2 kg"
+  change_dir:
+    type: enum
+    values: [up, down]
+    title: Change direction
+    description: >
+      Direction of the change. up tints the change amber (gaining) and shows an up
+      arrow; down tints it green (on track) and shows a down arrow. Omit for no arrow
+      or tint.
+    example: down
+  ideal_range:
+    type: string
+    title: Ideal range
+    description: The vet-recommended healthy range, e.g. "4.5-6.0 kg".
+    example: "4.5-6.0 kg"
+  spark_path:
+    type: string
+    title: Sparkline path
+    description: >
+      A precomputed SVG path "d" attribute for the mini trend line, drawn in a
+      0 0 100 40 viewBox (x left-to-right over time, y inverted so lower is higher
+      on screen). Omit to hide the sparkline. The caller computes this from the
+      weigh-in series.
+    example: "M0 30 L25 24 L50 26 L75 18 L100 14"

@@ -1,0 +1,24 @@
+name: chart-legend
+props:
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The legend entries. Each item: { label, color_class, value }. `color_class` is a
+      tokenized Tailwind background utility for the swatch (e.g. "bg-primary"); `value`
+      is an optional trailing figure (e.g. a percentage or count).
+    example:
+      - { label: "Direct", color_class: "bg-primary", value: "40%" }
+      - { label: "Search", color_class: "bg-accent", value: "30%" }
+  orientation:
+    type: enum
+    values: [horizontal, vertical]
+    default: horizontal
+    title: Orientation
+    description: Lay the entries out in a wrapping row (horizontal) or a stacked column (vertical).
+variants:
+  orientation:
+    horizontal: "flex flex-wrap items-center gap-4"
+    vertical: "flex flex-col gap-2"

@@ -1,0 +1,10 @@
+{
+  "from_shift": "A crew",
+  "to_shift": "B crew",
+  "date": "19 Jul 2026, 06:00",
+  "signed_off": false,
+  "notes": [
+    { "category": "Production", "text": "Line running at 92 percent of target rate, no stoppages.", "flag": false },
+    { "category": "Maintenance", "text": "Scheduled lubrication on robot cell 1 still outstanding.", "flag": true }
+  ]
+}

@@ -1,0 +1,84 @@
+name: "Map/List Toggle"
+short_description: A two-button segmented control that switches search results between a list view and a map view.
+long_visual_description: >
+  A compact pill-shaped segmented control on a muted rail holding two tabs, each with a
+  small icon: a list icon beside "List" and a folded-map icon beside "Map". The active
+  segment is lifted onto a raised surface with a soft shadow and stronger text, while the
+  inactive one stays muted. Clicking a segment slides the active state across.
+
+use_cases:
+  - Switching search results between a list and a map on real-estate or travel sites.
+  - Toggling a store or venue locator between listings and a map.
+  - Restaurant, event or job search offering both a feed and a map.
+  - A results header control that persists the user's preferred view.
+  - Any dataset with locations that reads well as either a list or a map.
+  - Compact view switching where a full tab bar would be too heavy.
+
+recommended_for:
+  - A binary list-versus-map switch above location-based search results.
+  - Compact placement in a results toolbar or filter bar.
+avoid_for:
+  - More than two views (use a tab bar or segmented control with more segments).
+  - Toggling a single boolean setting (use a switch).
+
+markets:
+  - Global
+
+example_usage: >
+  Set view to "list" or "map" for the initial state and optionally rename the segments
+  with list_label and map_label. Listen for view:change to swap the results panel below
+  it. The active styling is driven by the root's data-state so it renders correctly in
+  screenshots without JS.
+
+props:
+  view: "Which view is active initially - list or map."
+  list_label: "Text for the list segment."
+  map_label: "Text for the map segment."
+
+example_prompts:
+  - "Add a list/map toggle above the property search results."
+  - "Let users switch the venue results between a list and a map."
+
+lifecycle: experimental
+content_model: A two-option view switch (list or map) for a results region.
+
+how_to_use: >
+  A vanilla-JS segmented control. The root carries data-state (list or map) and the
+  active segment's styling comes from group-data-[state=...] utilities, so the correct
+  tab looks active in screenshots without JS. behavior.js flips data-state on click,
+  syncs aria-selected on both tabs, and fires view:change with the chosen { view } for
+  the page to swap the results panel.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the two labels to a single word each and pair them with recognizable icons. Choose
+  the default view that suits most sessions - a list for scanning, a map when location is
+  the primary decision.
+
+relationships:
+  related:
+    - search/saved-filters
+    - search/range-facet
+    - navigation/tabs
+
+categorization:
+  category: Search
+  subcategory: Views
+  atomic_type: molecule
+  usage_type: [toggle, navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The control is a role="tablist" of two role="tab" buttons whose aria-selected tracks the active view; each tab has a visible text label so the icon is decorative.
+  keyboard_support: Both tabs are focusable and activate on Enter/Space; aria-selected announces the active view.
+  seo_score: 10
+  text_direction: both

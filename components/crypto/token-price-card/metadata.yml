@@ -1,0 +1,91 @@
+name: "Token Price Card"
+short_description: A compact token price card - symbol and name, a large price, a coloured change pill and a sparkline.
+long_visual_description: >
+  A card on the surface colour with the ticker symbol in the heading face over the full token name,
+  a change pill in the top-right that carries a directional arrow and turns green (up) or red (down)
+  with a tinted background, a large price line, and a full-width sparkline along the bottom drawn in
+  the matching up/down colour.
+
+use_cases:
+  - A price tile in a markets or watchlist grid.
+  - A token summary at the top of an asset detail page.
+  - A trending tokens rail on a dApp home.
+  - A quick price glance in a portfolio dashboard.
+  - A comparison grid of several tokens' prices and trends.
+  - A featured token spotlight card.
+
+recommended_for:
+  - Showing price plus recent trend at a glance in a card grid.
+  - Any surface that needs a sparkline alongside a price and change.
+avoid_for:
+  - A holdings list line pairing amount with fiat value (use token-balance-row).
+  - Full interactive charts (embed a real charting component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a preformatted price and change_pct (with sign), set change_dir to up or down to colour the
+  pill and sparkline, and supply a precomputed spark_path. The sparkline plots in a 100x30 viewBox
+  (x left-to-right, y top-to-bottom), so compute the point geometry in the caller.
+
+how_to_use: >
+  There is no JavaScript - the whole card is static markup. The change_dir prop drives colour via
+  data-[dir=up]/data-[dir=down] utilities (pill background and text on the pill, arrow direction via
+  a grouped data attribute, and the sparkline stroke on the path). Precompute the sparkline geometry
+  and pass it as the spark_path 'd' string.
+
+props:
+  symbol: "The token ticker; the card's heading."
+  name: "The token's full name, shown small under the symbol."
+  price: "The current price, preformatted with currency in the caller."
+  change_pct: "The change percentage shown in the pill; include the sign in the caller."
+  change_dir: "up or down - colours the pill and sparkline and points the arrow."
+  spark_path: "A precomputed SVG path 'd' string for the sparkline in a 100x30 viewBox."
+
+example_prompts:
+  - "Add a price card for ETH at $3,150 up 4.2% with an upward sparkline."
+  - "Show a token price card in the red with a downward trend."
+  - "Build a markets grid of token price cards."
+
+lifecycle: experimental
+content_model: >
+  One token: symbol and name, a current price, a signed change percentage with a direction, and a
+  precomputed sparkline path.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep the price the visual anchor. Make sure change_pct's sign, change_dir and the sparkline shape
+  all tell the same story - an up card should read green with a rising line.
+
+relationships:
+  related:
+    - crypto/token-balance-row
+    - crypto/swap-widget
+    - crypto/wallet-connect
+
+categorization:
+  category: Crypto & Web3
+  subcategory: Markets
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The change arrow and sparkline are aria-hidden decoration; the change text carries its sign so direction is not conveyed by colour alone.
+  keyboard_support: none
+  seo_score: 35
+  text_direction: both

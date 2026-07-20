@@ -1,0 +1,9 @@
+{
+  "name": "Riverside Animal Hospital",
+  "address": "44 River Rd, Austin, TX",
+  "rating": "4.5",
+  "phone": "(512) 555-0198",
+  "hours": "Tue-Sat 9am-5pm",
+  "services": ["Wellness", "Vaccinations"],
+  "open_now": false
+}

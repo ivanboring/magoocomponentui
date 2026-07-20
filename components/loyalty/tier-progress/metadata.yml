@@ -1,0 +1,82 @@
+name: "Tier Progress"
+short_description: A card showing how far a loyalty member has progressed from their current tier toward the next.
+long_visual_description: >
+  A card with the current tier labelled on the left and the next tier, muted, on the right. Between
+  them a thin pill track fills with the primary colour to the precomputed percentage. Below, the
+  member's current points sit in tabular figures, followed by an optional line stating how many more
+  points reach the next tier.
+
+use_cases:
+  - Show progress from Silver toward Gold in a rewards dashboard.
+  - Motivate members with the points remaining to level up.
+  - Loyalty profile panel summarizing tier standing.
+  - Airline or hotel status progress toward the next elite level.
+  - Gamified membership progress in an app home screen.
+  - Post-purchase nudge showing a member is closer to the next tier.
+
+recommended_for:
+  - Communicating tier advancement with a clear bar.
+  - Pairing with a points balance to give context.
+avoid_for:
+  - The raw balance figure itself (use points-balance-card).
+  - A generic non-tier progress meter (use progress-bar).
+
+markets:
+  - Global
+
+example_usage: >
+  Compute pct as current points over the next-tier threshold (0-100) and pass it in; the bar does no
+  arithmetic. Provide current_tier and current_points, plus next_tier and needed_points to show the
+  gap. Omit next_tier when the member is at the top tier.
+
+props:
+  current_tier: The tier the member is in now.
+  next_tier: The tier being worked toward; omit at the top tier.
+  current_points: Points in this tier cycle, pre-formatted.
+  pct: Precomputed 0-100 progress toward the next tier - caller does the division.
+  needed_points: Pre-formatted points still required to reach the next tier.
+
+example_prompts:
+  - "Show tier progress from Silver to Gold at 70 percent with 750 points to go."
+  - "Add a loyalty tier progress bar with the member at the top tier."
+  - "Show progress toward Platinum with 1,750 current points."
+
+lifecycle: experimental
+content_model: A current tier, an optional next tier, a current points figure, a precomputed percent, and optional points remaining.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-primary
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --space-card
+
+editorial_guidance: >
+  Keep tier names short and the points remaining honest. Frame the remaining line as a goal, not a
+  shortfall, to keep the tone encouraging.
+
+relationships:
+  related:
+    - loyalty/points-balance-card
+    - loyalty/member-card
+    - atoms/progress-bar
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Tiers
+  atomic_type: molecule
+  usage_type: [stat, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The bar uses role="progressbar" with aria-valuenow/min/max and an aria-label; standing is also stated in text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

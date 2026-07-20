@@ -1,0 +1,40 @@
+name: order-ticket-trade
+props:
+  symbol:
+    type: string
+    required: true
+    title: Symbol
+    description: The instrument ticker being traded (e.g. AAPL).
+    example: "AAPL"
+  side:
+    type: enum
+    values: [buy, sell]
+    default: buy
+    title: Side
+    description: >
+      Which side the ticket opens on. Buy tints the active toggle and the place button green
+      (success); sell tints them red (danger). The toggle is interactive at runtime.
+  order_type:
+    type: string
+    default: "Market"
+    title: Order type
+    description: >
+      The pre-selected order type. The select lists Market, Limit and Stop; this value is carried
+      on the root data-order-type attribute and included in the dispatched order:submit event.
+    example: "Market"
+  quantity:
+    type: string
+    title: Quantity
+    description: Initial value for the quantity input, preformatted in the caller.
+    example: "10"
+  price:
+    type: string
+    title: Price
+    description: Initial value for the price input (relevant to limit and stop orders), preformatted in the caller.
+    example: "189.40"
+  estimated_cost:
+    type: string
+    title: Estimated cost
+    description: The estimated order cost shown above the place button, preformatted with currency in the caller. Hidden when unset.
+    example: "$1,894.00"
+variants: {}

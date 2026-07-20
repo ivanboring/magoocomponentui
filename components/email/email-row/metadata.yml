@@ -1,0 +1,78 @@
+name: "Email Row"
+short_description: A single inbox line showing sender, subject, snippet, time, plus star and unread state.
+long_visual_description: >
+  A compact horizontal row with a star button on the leading edge, the sender name in a fixed-width
+  column, then the subject followed by an em-dash and a muted snippet that truncates to one line, and
+  a timestamp on the trailing edge. When unread, the whole row is tinted with the raised-surface
+  colour and the sender and subject are bolded; when starred, the star fills in the warning colour.
+
+use_cases:
+  - A single message line inside an inbox list.
+  - A search result row in an email client.
+  - A row in a folder, label or filtered view.
+  - A conversation entry in a threads list.
+  - An unread-first digest of recent messages.
+  - A starred / flagged messages shortlist.
+
+recommended_for:
+  - Building an inbox one row at a time or inside a list container.
+  - Any message list needing unread and starred states.
+avoid_for:
+  - Full message bodies (use email-reader).
+  - Non-email generic list items (use a list-row).
+
+markets:
+  - Global
+
+example_usage: >
+  Give it a sender, subject, snippet and pre-formatted time. Set unread to tint and bold the row, and
+  starred to fill the star. Stack many rows with a divider between them (inbox-list does this for you).
+
+props:
+  sender: The sender's display name; it truncates in a fixed-width column.
+  subject: The subject line; shown before the snippet and bolded when unread.
+  snippet: A one-line preview of the body; muted and truncated after the subject.
+  time: A pre-formatted timestamp string you supply.
+  unread: When true, tints the row and bolds the sender and subject.
+  starred: When true, fills the star in the warning colour.
+
+example_prompts:
+  - "Add an unread, starred inbox row from Ava Chen about Q3 planning."
+  - "Show a read notification row from GitHub."
+  - "List several message rows with mixed unread state."
+
+lifecycle: experimental
+content_model: A sender, subject, snippet and time, plus unread and starred booleans.
+
+theming:
+  tokens_used:
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --duration-token
+
+editorial_guidance: >
+  Keep snippets to a single clause; they are a teaser, not the message. Reserve unread bolding for
+  genuinely unread mail so the emphasis stays meaningful.
+
+relationships:
+  parents:
+    - email/inbox-list
+  related:
+    - email/inbox-list
+    - email/email-reader
+    - email/label-chip
+
+categorization:
+  category: Email
+  subcategory: Inbox
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The star button has an accessible label; unread and starred states are conveyed by weight/fill in addition to the tint colour; the star icon is aria-hidden.
+  keyboard_support: The star button is focusable and activates on Enter/Space.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,27 @@
+<div class="cashback-summary rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <p class="text-sm text-on-surface-muted">Cashback earned</p>
+  <p class="font-heading text-4xl text-on-surface tabular-nums">{{ total_earned }}</p>
+  <div class="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+    <div data-if="this_month">
+      <p class="text-xs text-on-surface-muted">This month</p>
+      <p class="font-medium text-on-surface tabular-nums">{{ this_month }}</p>
+    </div>
+    <div data-if="pending">
+      <p class="text-xs text-on-surface-muted">Pending</p>
+      <p class="font-medium text-on-surface tabular-nums">{{ pending }}</p>
+    </div>
+  </div>
+  <div data-if="categories" class="cashback-summary__breakdown mt-5">
+    <div class="flex h-2.5 w-full gap-0.5 overflow-hidden rounded-pill bg-surface-raised" role="img" aria-label="Cashback by category">
+      <span data-for="c in categories" class="h-full {{ c.color_class }}" style="width: {{ c.pct }}%"></span>
+    </div>
+    <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
+      <li data-for="c in categories" class="flex items-center gap-1.5 text-xs">
+        <span class="size-2 shrink-0 rounded-pill {{ c.color_class }}" aria-hidden="true"></span>
+        <span class="text-on-surface">{{ c.label }}</span>
+        <span class="text-on-surface-muted tabular-nums">{{ c.amount }}</span>
+      </li>
+    </ul>
+  </div>
+  <span class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></span>
+</div>

@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "label": "Ingredients", "href": "#ingredients", "active": true },
+    { "label": "Method", "href": "#method", "active": false },
+    { "label": "Notes", "href": "#notes", "active": false }
+  ]
+}

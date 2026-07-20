@@ -1,0 +1,85 @@
+name: "Win / Loss Summary"
+short_description: A CRM deal-outcome donut showing won, lost, and open counts from caller-precomputed slice geometry.
+long_visual_description: >
+  A card on the surface colour with a title and a centred donut ring. The ring is a raised-surface
+  track overlaid by coloured arcs - green for won, red for lost, muted for open - drawn from
+  precomputed dash and offset geometry. The won count sits large in the ring's centre, and a legend
+  below lists won, lost, and open with a colour swatch and a right-aligned count each.
+
+use_cases:
+  - Win rate widget in a sales dashboard.
+  - Deal-outcome breakdown on a rep or team scorecard.
+  - Quarterly pipeline result summary.
+  - Territory or segment win-loss comparison card.
+  - Forecast review outcome snapshot.
+  - Post-quarter retrospective figure.
+
+recommended_for:
+  - Summarising deal outcomes as a share of the whole.
+  - Dashboards where the win-to-loss ratio is the headline.
+avoid_for:
+  - Trends over time (use a line or bar chart shell).
+  - More than a few outcome categories.
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each slice's stroke-dasharray (arc then remainder, circumference 100) and a
+  stroke-dashoffset equal to the negative of its cumulative start percent, then pass the slices
+  with a tokenized stroke colour class each - stroke-success for won, stroke-danger for lost,
+  stroke-on-surface-muted for open. Pass the raw won, lost, and open counts for the centre and
+  legend. The template does no arithmetic; it only paints the values it is given.
+
+props:
+  won: Count of won deals, shown in the centre and legend.
+  lost: Count of lost deals, shown in the legend.
+  open: Count of open deals, shown in the legend when provided.
+  slices: Array of arcs with precomputed dash/offset geometry and a stroke colour class each.
+
+example_prompts:
+  - "Add a win-loss donut with 18 won, 7 lost, 5 open."
+  - "Show this rep's deal outcomes as a donut summary."
+  - "Put a quarterly win rate donut on the sales dashboard."
+
+relationships:
+  related:
+    - crm/company-account-card
+    - crm/email-sequence-step
+    - crm/territory-map
+
+lifecycle: experimental
+content_model: Won, lost, and open deal counts plus the precomputed donut geometry for each slice.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  All slice geometry is precomputed by the caller because the directive language has no arithmetic;
+  the shell only paints what it is given. Keep the slice colours consistent with the legend -
+  success for won, danger for lost, muted for open - so the ring and the labels agree. Counts are
+  in text, so meaning is never colour-only.
+
+categorization:
+  category: CRM & Sales
+  subcategory: Reporting
+  atomic_type: molecule
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Won, lost, and open values are conveyed by the text legend and centre count, not colour alone; the SVG has an accessible label.
+  keyboard_support: None - static, non-interactive skeleton.
+  seo_score: 35
+  text_direction: both

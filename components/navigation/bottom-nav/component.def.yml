@@ -1,0 +1,18 @@
+name: bottom-nav
+props:
+  label:
+    type: string
+    default: "Primary"
+    title: Accessible label
+    description: Accessible name announced for the bottom navigation region.
+  items:
+    type: array
+    items: object
+    required: true
+    title: Items
+    description: >
+      The tab items, left to right. Each item: { label, icon, href, active, badge }. icon is raw
+      inline-SVG markup for the tab glyph; active (boolean) marks the current tab; badge is an
+      optional short count/string shown as a pill on the icon. Keep to 3-5 items.
+    example:
+      - { label: "Home", icon: "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' aria-hidden='true'><path d='M3 11l9-8 9 8'/><path d='M5 10v10h14V10'/></svg>", href: "#", active: true }

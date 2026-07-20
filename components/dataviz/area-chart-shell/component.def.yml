@@ -1,0 +1,50 @@
+name: area-chart-shell
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Sessions"
+  area_path:
+    type: string
+    required: true
+    title: Area path
+    description: >
+      Precomputed closed SVG path for the filled area, in a 0-100 x 0-100 cartesian
+      viewBox (y grows downward). Typically the series line then down to the baseline
+      and back, e.g. "M0,80 L50,40 L100,20 L100,100 L0,100 Z".
+    example: "M0,78 L20,60 L40,66 L60,38 L80,46 L100,22 L100,100 L0,100 Z"
+  line_path:
+    type: string
+    required: true
+    title: Line path
+    description: >
+      Precomputed SVG stroke path for the series line drawn on top of the area, same
+      0-100 viewBox, e.g. "M0,80 L50,40 L100,20".
+    example: "M0,78 L20,60 L40,66 L60,38 L80,46 L100,22"
+  second_area_path:
+    type: string
+    title: Second area path
+    description: >
+      Optional precomputed closed path for a second stacked/overlaid area, drawn in the
+      accent colour beneath the primary line. Same 0-100 viewBox.
+    example: ""
+  y_labels:
+    type: array
+    items: string
+    title: Y-axis labels
+    description: Axis tick labels rendered top to bottom beside the plot.
+    example: ["40k", "30k", "20k", "10k", "0"]
+  x_labels:
+    type: array
+    items: string
+    title: X-axis labels
+    description: Axis tick labels rendered left to right below the plot.
+    example: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+  grid_lines:
+    type: array
+    items: string
+    title: Gridline positions
+    description: >
+      Precomputed y-percent positions (0-100, top to bottom) for horizontal gridlines.
+    example: ["25", "50", "75"]

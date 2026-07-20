@@ -1,0 +1,28 @@
+name: pinned-post
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    example: "Welcome — please read the community rules first"
+  author:
+    type: string
+    required: true
+    title: Author
+    example: "Ada L."
+  time:
+    type: string
+    required: true
+    title: Time
+    description: A pre-formatted, human-readable timestamp (e.g. "2 days ago").
+    example: "2 days ago"
+  href:
+    type: string
+    title: Link
+    description: Optional URL for the title; when set the whole title becomes a link.
+    example: "#"
+  excerpt:
+    type: string
+    title: Excerpt
+    description: Optional one-to-two line preview of the post body.
+    example: "A quick tour of how the forum works and where to ask for help."

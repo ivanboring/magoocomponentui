@@ -1,0 +1,15 @@
+<div class="time-off-balance rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <h3 class="time-off-balance__title font-heading text-on-surface">Time off balance</h3>
+  <ul class="mt-4 flex flex-col gap-4">
+    <li data-for="bal in balances" class="time-off-balance__row flex flex-col gap-1">
+      <div class="flex items-center justify-between gap-3 text-sm">
+        <span class="text-on-surface">{{ bal.label }}</span>
+        <span class="tabular-nums text-on-surface-muted">{{ bal.used }}/{{ bal.total }} days</span>
+      </div>
+      <div class="h-2 w-full overflow-hidden rounded-pill bg-surface-raised">
+        <div class="h-full rounded-pill {{ bal.color_class }}" style="width: {{ bal.pct }}%"></div>
+      </div>
+    </li>
+    <li class="hidden bg-primary bg-secondary bg-accent bg-success bg-warning bg-danger bg-info" aria-hidden="true"></li>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+{
+  "label": "Featured stages",
+  "show_arrows": true,
+  "items": [
+    { "image": "/stock/stage1.jpg", "title": "Discovery", "subtitle": "Frame the problem and the audience.", "href": "#" },
+    { "image": "/stock/stage2.jpg", "title": "Design", "subtitle": "Shape the flow before writing code.", "href": "#" },
+    { "image": "/stock/stage3.jpg", "title": "Build", "subtitle": "Ship the first working slice.", "href": "#" },
+    { "image": "/stock/cover-workspace.jpg", "title": "Refine", "subtitle": "Polish the details that matter.", "href": "#" },
+    { "image": "/stock/property-house.jpg", "title": "Launch", "subtitle": "Put it in front of real people.", "href": "#" }
+  ]
+}

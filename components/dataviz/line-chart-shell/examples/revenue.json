@@ -1,0 +1,7 @@
+{
+  "title": "Monthly revenue",
+  "line_path": "M0,40 L20,52 L40,30 L60,58 L80,44 L100,62",
+  "y_labels": ["$80k", "$60k", "$40k", "$20k", "$0"],
+  "x_labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  "grid_lines": ["25", "50", "75"]
+}

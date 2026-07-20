@@ -1,0 +1,92 @@
+name: "Pie / Donut Chart Shell"
+short_description: A tokenized SVG donut chart skeleton that renders from caller-precomputed slice geometry, with a legend.
+long_visual_description: >
+  A card on the surface colour with a title header, a centred donut ring, and a legend
+  below. The ring is a full-circle track in the raised-surface colour overlaid by one
+  coloured arc per slice; each arc's length and starting angle come from precomputed
+  stroke-dasharray/stroke-dashoffset values, and its colour from a tokenized stroke
+  utility. The legend lists each slice with a colour swatch, label, and right-aligned
+  value. Digits use tabular figures so values line up.
+
+use_cases:
+  - Share-of-total breakdown such as traffic by source or spend by category.
+  - Plan or tier distribution across a user base.
+  - Budget allocation across departments.
+  - Device or browser share in an analytics summary.
+  - Poll or survey result proportions.
+  - Portfolio composition by asset class.
+  - Storage or quota usage split by type.
+
+recommended_for:
+  - Small numbers of slices (up to about six) that sum to a whole.
+  - Dashboards and reports where a proportion is the headline.
+  - Cases where the caller already computes chart geometry server-side.
+avoid_for:
+  - Time series or trends (use a line or bar chart shell).
+  - Many tiny slices that are hard to distinguish.
+  - Precise value comparison (a bar chart reads more accurately).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each slice's stroke-dasharray ("arc remainder", circumference 100) and a
+  stroke-dashoffset equal to the negative of its cumulative start percent, then pass the
+  slices with a tokenized stroke colour class each. Swap in a live chart via the chart
+  in place of the SVG when interactivity is needed.
+
+props:
+  title: Short heading above the chart; also the SVG accessible label.
+  slices: >
+    Array of arcs with precomputed dash/offset geometry and a stroke colour class each.
+    All arithmetic is done by the caller; the template only renders the values.
+
+example_prompts:
+  - "Add a donut chart of traffic by source with direct, search, referral, and social."
+  - "Show a pie chart of plan distribution across free, pro, and enterprise."
+  - "Put a share-of-spend donut in the finance dashboard."
+
+relationships:
+  related:
+    - dataviz/chart-legend
+    - dataviz/radar-chart-shell
+    - dataviz/treemap-shell
+
+lifecycle: experimental
+content_model: A title and a set of precomputed slices, each with a value, a colour class, and dash/offset geometry.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  All slice geometry (stroke-dasharray and stroke-dashoffset) is precomputed by the
+  caller because the directive language has no arithmetic; the shell only paints the
+  values it is given. Keep slice count low and labels short. The skeleton renders
+  directly from the precomputed data; for a live, interactive chart, a real charting
+  library replaces the tokenized SVG markup, which otherwise stands as the static
+  render used for screenshots and no-JS contexts.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Values are conveyed by the text legend, not colour alone; the SVG has an accessible label.
+  keyboard_support: None — static, non-interactive skeleton.
+  seo_score: 40
+  text_direction: both

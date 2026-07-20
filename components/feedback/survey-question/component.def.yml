@@ -1,0 +1,29 @@
+name: survey-question
+props:
+  question:
+    type: string
+    required: true
+    title: Question
+    description: The survey question shown above the options.
+    example: "Which features do you use most?"
+  kind:
+    type: enum
+    values: ["single", "multi", "scale"]
+    default: "single"
+    title: Answer kind
+    description: >
+      Advisory hint to the host about how answers should be treated: single (choose one), multi
+      (choose several), or scale (an ordered 1-5 style set). It is surfaced as data-kind on the root
+      and steers behavior.js (single clears siblings; multi toggles independently); the options render
+      as selectable rows either way, so the host owns validation of the answer shape.
+  options:
+    type: array
+    items: object
+    title: Options
+    description: >
+      The answer choices, in order. Each item: { label, value }. label is the visible text and the
+      accessible name; value is the stored key.
+    example:
+      - { label: "Reporting", value: "reporting" }
+      - { label: "Automation", value: "automation" }
+      - { label: "Integrations", value: "integrations" }

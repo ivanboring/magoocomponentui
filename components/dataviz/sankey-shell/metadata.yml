@@ -1,0 +1,89 @@
+name: "Sankey Flow Shell"
+short_description: A tokenized SVG Sankey diagram skeleton that draws stage nodes and flow ribbons from caller-precomputed geometry,.
+long_visual_description: >
+  A card on the surface colour with a title header and a flow diagram. Thin coloured
+  bars mark each stage node down the left and right edges, and thick semi-transparent
+  bezier ribbons connect them across the middle, each in a tokenized colour. Node labels
+  sit above their bars. Node rectangles, ribbon paths, and label anchors are all
+  precomputed and passed in, so the shell renders without any arithmetic.
+
+use_cases:
+  - Signup or conversion funnel flow between sources and outcomes.
+  - Budget or spend flow from inputs to categories.
+  - User journey between pages or states.
+  - Energy or material flow diagrams.
+  - Traffic routing between channels and destinations.
+  - Cohort movement between plan tiers.
+  - Support ticket flow from intake to resolution.
+
+recommended_for:
+  - Showing how quantities split and merge across stages.
+  - Two- or three-stage flows with a handful of nodes.
+  - Reports where flow geometry is computed upstream.
+avoid_for:
+  - Precise value reading (label the flows or pair with a table).
+  - Very dense graphs with many crossing links.
+  - Simple part-to-whole splits (use a pie or treemap shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute each node rectangle, each ribbon path (a cubic bezier between node edges on
+  a 100x100 viewBox), and the label anchor points, then pass them with tokenized fill
+  (nodes) and stroke (links) colour classes. Replace the SVG markup with a live chart when
+  interactivity is needed.
+
+props:
+  title: Short heading above the diagram; also the SVG accessible label.
+  nodes: Stage bars with precomputed rect geometry, label anchors, and a fill colour class each.
+  links: Flow ribbons with a precomputed bezier path and a stroke colour class each.
+
+example_prompts:
+  - "Add a Sankey of the signup funnel from direct, referral, and search into signup or bounce."
+  - "Show a flow diagram of budget moving from revenue into expense categories."
+  - "Put a user-journey Sankey between the main app states."
+
+relationships:
+  related:
+    - dataviz/pie-chart-shell
+    - dataviz/treemap-shell
+    - dataviz/chart-legend
+
+lifecycle: experimental
+content_model: A title, a set of precomputed stage nodes, and a set of precomputed flow links between them.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-accent
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  All node rectangles, ribbon paths, and label anchors are precomputed by the caller
+  because the directive language has no arithmetic; the shell only paints the given
+  geometry. Keep node and link counts low so the flows stay legible, and label nodes
+  clearly. The skeleton renders directly from the precomputed data; for an interactive
+  chart, a real charting library replaces the tokenized SVG markup, which otherwise
+  stands as the static render.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Node labels are real text and the SVG carries an accessible label; pair with a table for exact flow values.
+  keyboard_support: None — static, non-interactive skeleton.
+  seo_score: 36
+  text_direction: both

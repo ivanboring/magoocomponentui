@@ -1,0 +1,85 @@
+name: "Market Depth"
+short_description: An order-book depth panel - two columns of bids and asks with price, size and precomputed depth bars.
+long_visual_description: >
+  A card split into two columns: bids on the left in green with their depth bars filling from the
+  right edge, and asks on the right in red with bars filling from the left edge. Each row shows a
+  price and a size in the mono face over a faint tinted depth bar whose width is a precomputed
+  percentage, so the two ladders mirror outward from the spread in the middle.
+
+use_cases:
+  - An order-book depth panel in a trading dashboard.
+  - A bid/ask ladder on an asset or pair detail page.
+  - A level-2 style quote view beside a chart.
+  - A depth snapshot in a market-data widget.
+  - A compact book preview in a modal or drawer.
+
+recommended_for:
+  - Showing bid and ask ladders with relative depth at a glance.
+  - Any surface that needs a two-sided order book with depth bars.
+avoid_for:
+  - A single quote line (use watchlist-row).
+  - A full interactive depth chart (embed a real charting component).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass bids and asks arrays, best price first. Each item has a preformatted price and size plus a
+  precomputed depth_pct (0-100) for its bar width - compute the depth in the caller since the
+  directive language has no math. Bid bars fill from the right and ask bars from the left so the
+  book mirrors outward from the spread.
+
+how_to_use: >
+  There is no JavaScript - the panel is static markup. Each depth bar is an absolutely positioned
+  span whose width is set inline from the item's depth_pct; bids anchor to the right edge and asks
+  to the left. Price and size sit above the bar on a relative layer. Precompute depth_pct per row.
+
+props:
+  bids: "The bid ladder, best bid first. Each item: price and size (preformatted) plus a precomputed depth_pct (0-100) for the right-aligned bar."
+  asks: "The ask ladder, best ask first. Each item: price and size (preformatted) plus a precomputed depth_pct (0-100) for the left-aligned bar."
+
+example_prompts:
+  - "Add a market depth panel showing the top five bids and asks."
+  - "Show an order book ladder beside the price chart."
+  - "Build a level-2 depth view with depth bars."
+
+lifecycle: experimental
+content_model: >
+  Two order-book ladders: a list of bids and a list of asks, each row a price, a size and a
+  precomputed depth percentage.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep bids green and asks red so the two sides read instantly, order each ladder from best price
+  outward, and normalise depth_pct against the largest size so the bars are comparable across sides.
+
+relationships:
+  related:
+    - trading/options-chain-row
+    - trading/watchlist-row
+    - trading/order-ticket-trade
+
+categorization:
+  category: Wealth & Trading
+  subcategory: Markets
+  atomic_type: organism
+  usage_type: [list, data]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The depth bars are decorative tints behind the figures; price and size text carry the meaning and the columns are labelled Bid and Ask.
+  keyboard_support: none
+  seo_score: 20
+  text_direction: ltr

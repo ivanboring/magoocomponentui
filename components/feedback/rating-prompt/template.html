@@ -1,0 +1,9 @@
+<section class="rating-prompt inline-flex flex-col items-center gap-2 rounded-card border border-border bg-surface p-(--space-card) text-center shadow-card" data-value="0" data-max="{{ max }}">
+  <h3 class="rating-prompt__question font-heading text-on-surface">{{ question }}</h3>
+  <div class="rating-prompt__stars flex items-center gap-1" role="radiogroup" aria-label="{{ question }}">
+    <button data-for="star in stars" type="button" role="radio" aria-checked="false" class="rating-prompt__star flex size-10 items-center justify-center rounded-control text-warning transition-transform duration-(--duration-token) hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring" data-index="{{ star.index }}" aria-label="{{ star.index }} stars">
+      <svg class="rating-prompt__glyph size-7 data-[filled=false]:opacity-25" data-filled="{{ star.filled }}" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.1 1 5.9L10 14.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.9L10 1.5z"/></svg>
+    </button>
+  </div>
+  <p class="rating-prompt__hint text-xs text-on-surface-muted">Tap to rate</p>
+</section>

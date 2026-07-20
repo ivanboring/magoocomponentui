@@ -1,0 +1,6 @@
+{
+  "label": "Two-factor authentication",
+  "help": "Require a verification code at sign-in.",
+  "on": false,
+  "name": "two_factor"
+}

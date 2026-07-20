@@ -1,0 +1,45 @@
+name: company-account-card
+props:
+  name:
+    type: string
+    required: true
+    title: Company name
+    description: Account/company name; also the logo's accessible label.
+    example: "Northwind Traders"
+  logo:
+    type: image
+    title: Logo
+    description: Optional company logo. When omitted, the precomputed monogram shows instead.
+    example: "/stock/nike-3-logo-svgrepo-com.svg"
+  monogram:
+    type: string
+    title: Monogram
+    description: >
+      1-2 characters shown when there is no logo, e.g. "NT" for "Northwind Traders".
+      Precomputed by the caller; the template has no string-slicing directive.
+    example: "NT"
+  industry:
+    type: string
+    title: Industry
+    description: Sector or vertical, shown muted under the name.
+    example: "Wholesale distribution"
+  size:
+    type: string
+    title: Size
+    description: Company size, typically an employee-count band, e.g. "500-1k".
+    example: "500-1k"
+  revenue:
+    type: string
+    title: Revenue
+    description: Annual revenue figure, formatted by the caller, e.g. "$48M".
+    example: "$48M"
+  owner:
+    type: string
+    title: Account owner
+    description: Rep who owns the account, shown in the footer row.
+    example: "Dana Whitfield"
+  open_deals:
+    type: string
+    title: Open deals
+    description: Count of open opportunities, formatted by the caller, e.g. "3".
+    example: "3"

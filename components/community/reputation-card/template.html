@@ -1,0 +1,19 @@
+<div class="reputation-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-baseline justify-between gap-3">
+    <p class="font-heading text-3xl text-on-surface tabular-nums">{{ points }}</p>
+    <span data-if="level" class="rounded-pill bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">{{ level }}</span>
+  </div>
+  <p class="mt-1 text-sm text-on-surface-muted">Reputation points</p>
+  <div data-if="next_level_pct" class="mt-4">
+    <div class="h-2 overflow-hidden rounded-pill bg-surface-raised">
+      <div class="h-full rounded-pill bg-primary" style="width: {{ next_level_pct }}%"></div>
+    </div>
+    <p class="mt-1.5 text-xs text-on-surface-muted">{{ next_level_pct }}% to next level</p>
+  </div>
+  <ul data-if="breakdown" class="mt-4 flex flex-col gap-2 border-t border-border pt-4">
+    <li data-for="row in breakdown" class="flex items-center justify-between text-sm">
+      <span class="text-on-surface-muted">{{ row.label }}</span>
+      <span class="font-medium text-on-surface tabular-nums">{{ row.value }}</span>
+    </li>
+  </ul>
+</div>

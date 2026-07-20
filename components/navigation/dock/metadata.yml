@@ -1,0 +1,75 @@
+name: "Dock"
+short_description: A macOS-style floating app dock whose icons lift and reveal a tooltip on hover, with a dot marking the active app.
+long_visual_description: >
+  A rounded, pill-shaped floating bar of app icons over a translucent, blurred surface with a
+  raised shadow. Each icon sits on its own rounded tile; on hover the icon lifts and scales up
+  and a small dark tooltip with its label appears above it. The currently running app carries a
+  small dot beneath its tile. Icons are bottom-aligned so the hover lift reads as a magnify.
+
+use_cases:
+  - Web-desktop or OS-style interface bottom app dock.
+  - Launcher for a small set of primary destinations or tools.
+  - Portfolio or showcase site with a playful app-dock navigation.
+  - Kiosk or tablet app switcher along the bottom edge.
+  - Creative-suite home screen linking to individual tools.
+  - Prototype of a desktop environment in the browser.
+
+recommended_for:
+  - A compact, icon-only launcher for a handful of primary apps or tools.
+avoid_for:
+  - Text-labeled primary site navigation (use navbar or bottom-nav).
+  - Long or scrolling lists of destinations (use nav-rail).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide an items array of apps, each with a raw inline-SVG icon, an href, and a label shown
+  as a hover tooltip. Mark the running app with active: true to render its dot. The dock is
+  pure CSS: hover lift, scale, and tooltip are all driven by Tailwind hover/group-hover
+  utilities with no JavaScript.
+
+props:
+  items: The app icons, each with an inline-SVG icon, link, tooltip label, and active flag.
+  label: Accessible name announced for the dock navigation.
+
+example_prompts:
+  - "Add a macOS-style dock with Finder, Mail, Calendar, Photos, Music, and Settings."
+  - "Add an app dock along the bottom with four icons and the Home app marked active."
+
+lifecycle: experimental
+content_model: A short ordered list of app icons, each with an icon, link, label, and active state.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-border
+    - --radius-pill
+    - --radius-control
+    - --shadow-raised
+    - --duration-token
+
+editorial_guidance: >
+  Keep the dock to a small set of primary apps; use one- or two-word tooltip labels; reserve
+  the active dot for the app currently in focus. The resting screenshot shows icons flat -
+  the lift and tooltip only appear on hover, which is expected.
+
+relationships:
+  related:
+    - navigation/bottom-nav
+    - navigation/nav-rail
+
+categorization:
+  category: Navigation
+  subcategory: Bars
+  atomic_type: molecule
+  usage_type: [navigation]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each item is a real link with an inline-SVG icon; provide a meaningful label per item so the hover tooltip text is available. The tooltip is decorative reinforcement of the label.
+  keyboard_support: Each icon is a focusable link reached by Tab; the hover lift and tooltip are visual only and not required to operate the dock.
+  seo_score: 20
+  text_direction: both

@@ -1,0 +1,82 @@
+name: "Meter Reading Row"
+short_description: A compact list row for a single utility meter reading with its ID, type, value, date, and change.
+long_visual_description: >
+  A single-line row on a surface background with a bottom divider. A rounded tile holds a meter glyph
+  tinted by utility type (amber for electric, red for gas, blue for water), the meter ID and a type
+  and date caption fill the middle, and the reading in a mono, tabular face with its unit sits on the
+  trailing edge above an optional change figure.
+
+use_cases:
+  - A row in a list of utility meters on an account or property page.
+  - Reading history entry in a metering dashboard.
+  - Sub-meter breakdown for a building or tenancy.
+  - Smart-meter readout in a home energy app.
+  - Manual reading log where entries stack vertically.
+
+recommended_for:
+  - Dense, scannable lists of meters or readings that share one layout.
+  - Values formatted upstream and passed in ready to render in a mono column.
+avoid_for:
+  - A single hero metric (use solar-production-card or a stat card).
+  - A time-series of one meter's readings (use a line chart shell).
+
+markets:
+  - Global
+
+example_usage: >
+  Stack several rows in a bordered container. Give each a meter_id and a type (electric, gas, or
+  water) to colour the glyph, a formatted reading with its unit, an optional date, and an optional
+  signed change since the last reading.
+
+props:
+  meter_id: The meter serial or identifier, shown as the row's title.
+  type: electric, gas, or water; colours the glyph and shows as a caption label.
+  reading: The current reading, formatted for display and shown in a mono face.
+  unit: The reading's unit rendered after the value, e.g. kWh or m3.
+  date: When the reading was taken, formatted for display; omit to hide.
+  change: Signed change since the previous reading with unit; omit to hide.
+
+example_prompts:
+  - "Add a meter reading row for electric meter MTR-00482913 at 48210.6 kWh."
+  - "Show a gas meter reading with a monthly change."
+  - "List three utility meter rows - electric, gas, and water - on the account page."
+
+lifecycle: experimental
+content_model: A meter ID, a utility type, a formatted reading with unit, an optional date, and an optional change.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-warning
+    - --color-danger
+    - --color-info
+    - --color-border
+    - --radius-control
+    - --font-heading
+    - --font-mono
+
+editorial_guidance: >
+  Keep the meter_id and reading formatted upstream. Match type to the utility so the glyph tint reads
+  correctly, and keep the change concise with its sign so trends are obvious in a stacked list.
+
+relationships:
+  related:
+    - energy/solar-production-card
+    - energy/carbon-footprint
+    - energy/usage-forecast
+
+categorization:
+  category: Energy
+  subcategory: Metering
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The meter type is shown as a text caption, not colour alone; the glyph is decorative and the reading is real text in a mono face.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

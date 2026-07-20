@@ -1,0 +1,37 @@
+name: tool-call-card
+props:
+  tool:
+    type: string
+    required: true
+    title: Tool name
+    description: The invoked tool or function name, shown mono in the summary row.
+    example: "search_web"
+  args:
+    type: string
+    required: true
+    title: Arguments
+    description: The call arguments, preformatted by the caller (e.g. pretty-printed JSON); shown in a mono block.
+    example: |-
+      {
+        "query": "weather in Paris"
+      }
+  result:
+    type: string
+    title: Result
+    description: The tool's returned output, preformatted; its mono block is omitted when empty.
+    example: |-
+      {
+        "temp_c": 14,
+        "conditions": "Light rain"
+      }
+  status:
+    type: enum
+    values: [running, done, error]
+    default: done
+    title: Status
+    description: The call state - running (in progress), done (succeeded), or error (failed). Colours the status badge.
+variants:
+  status:
+    running: "bg-info/10 text-info"
+    done: "bg-success/10 text-success"
+    error: "bg-danger/10 text-danger"

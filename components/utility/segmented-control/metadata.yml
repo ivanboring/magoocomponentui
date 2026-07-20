@@ -1,0 +1,78 @@
+name: "Segmented Control"
+short_description: An iOS-style single-select switch of pill segments for toggling between a few mutually exclusive views.
+long_visual_description: >
+  A rounded pill track on a raised surface holding two to four text segments. The active segment
+  lifts onto the surface with a soft card shadow and full-strength text; inactive segments are
+  muted and brighten on hover. It reads as a compact, single-select toggle.
+
+use_cases:
+  - Switching a chart or list between day/week/month ranges.
+  - Toggling a layout between list and grid.
+  - Choosing between a few filter modes (all/active/archived).
+  - Switching units or currencies in a settings row.
+  - Any small set of mutually exclusive view options.
+
+recommended_for:
+  - Two-to-four mutually exclusive options that fit inline as short labels.
+  - Compact view or mode switches near the content they affect.
+avoid_for:
+  - Many options or long labels (use tabs or a select).
+  - Multi-select toggling (use a button group with independent toggles).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a segments array (each { label, value, active }) with exactly one active. Set label for the
+  group's accessible name. Listen for the bubbling segment:change event (detail.value) to switch the
+  affected view. Keep labels to a word or two so the whole control stays on one line.
+
+how_to_use: >
+  The control is self-contained skeleton UI. Clicking a segment activates it and clears the others
+  (data-active/aria-pressed), then dispatches a bubbling CustomEvent "segment:change" with { value }.
+  Wire a listener to swap the content the control governs. The portable self-init reads each segment's
+  data-value attribute; no props object is passed.
+
+props:
+  label: "Accessible name for the segmented control group."
+  segments: "The segments, in order. Each: { label, value, active }. Exactly one active."
+
+example_prompts:
+  - "Add a day/week/month switch above the chart."
+  - "Toggle the results between list and grid layouts."
+
+lifecycle: experimental
+content_model: A small set of mutually exclusive options shown as pill segments.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep segment labels to one or two words and limit to four options; if you need more, reach for tabs.
+  Order segments by natural progression (Day before Week before Month).
+
+relationships:
+  related:
+    - navigation/tabs
+    - forms/range-slider
+    - utility/rich-text-toolbar
+
+categorization:
+  category: UI Utilities
+  subcategory: Controls
+  atomic_type: molecule
+  usage_type: [control, toggle]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The track is a labelled role="group"; each segment is a real button with aria-pressed reflecting the single active choice.
+  keyboard_support: Each segment is focusable and activates on Enter/Space; the active state is exposed via aria-pressed.
+  seo_score: 15
+  text_direction: both

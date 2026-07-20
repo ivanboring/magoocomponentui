@@ -1,0 +1,16 @@
+name: coverage-breakdown
+props:
+  coverages:
+    type: array
+    items: object
+    required: true
+    title: Coverages
+    description: >
+      One row per coverage line. Each item is { label, limit, used, pct, color_class } where limit
+      is the pre-formatted coverage limit text, used is the pre-formatted amount already claimed
+      (optional), pct is the precomputed used-over-limit bar width from 0-100 (optional - omit to
+      hide the bar), and color_class is a tokenised fill utility such as bg-primary or bg-warning.
+    example:
+      - { label: "Bodily injury", limit: "$100,000", used: "$12,000", pct: 12, color_class: "bg-primary" }
+      - { label: "Property damage", limit: "$50,000", used: "$41,000", pct: 82, color_class: "bg-warning" }
+      - { label: "Medical payments", limit: "$5,000", color_class: "bg-info" }

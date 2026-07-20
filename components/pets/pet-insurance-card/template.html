@@ -1,0 +1,33 @@
+<div class="pet-insurance-card rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <div class="flex items-start justify-between gap-3">
+    <div class="min-w-0">
+      <p data-if="pet" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">{{ pet }}</p>
+      <h3 data-if="plan" class="font-heading text-lg text-on-surface">{{ plan }}</h3>
+    </div>
+    <span data-if="status" class="pet-insurance-card__status shrink-0 rounded-pill px-2.5 py-1 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+  </div>
+
+  <dl data-if="policy_number" class="mt-4">
+    <dt class="text-xs text-on-surface-muted">Policy number</dt>
+    <dd class="pet-insurance-card__policy font-mono text-sm text-on-surface">{{ policy_number }}</dd>
+  </dl>
+
+  <div class="mt-4 flex flex-wrap gap-6">
+    <div data-if="coverage_pct">
+      <p class="text-xs text-on-surface-muted">Coverage</p>
+      <p class="font-heading text-2xl text-on-surface tabular-nums">{{ coverage_pct }}%</p>
+      <div class="mt-1 h-1.5 w-24 overflow-hidden rounded-pill bg-surface-raised">
+        <div class="pet-insurance-card__bar h-full rounded-pill bg-primary" style="width: {{ coverage_pct }}%"></div>
+      </div>
+    </div>
+    <div data-if="deductible">
+      <p class="text-xs text-on-surface-muted">Deductible</p>
+      <p class="font-heading text-2xl text-on-surface tabular-nums">{{ deductible }}</p>
+    </div>
+  </div>
+
+  <a class="pet-insurance-card__link mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline" href="#">
+    View policy
+    <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+  </a>
+</div>

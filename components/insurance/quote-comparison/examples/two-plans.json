@@ -1,0 +1,20 @@
+{
+  "plans": [
+    {
+      "name": "Term 20",
+      "premium": "$28",
+      "deductible": "None",
+      "coverage_limit": "$250,000",
+      "features": ["20-year level term", "No medical exam", "Convertible to whole life"],
+      "recommended": false
+    },
+    {
+      "name": "Term 30",
+      "premium": "$41",
+      "deductible": "None",
+      "coverage_limit": "$500,000",
+      "features": ["30-year level term", "No medical exam", "Convertible to whole life", "Living benefits rider"],
+      "recommended": true
+    }
+  ]
+}

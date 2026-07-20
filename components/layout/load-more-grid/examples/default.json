@@ -1,0 +1,18 @@
+{
+  "label": "Latest articles",
+  "initial": "6",
+  "step": "3",
+  "gap": "default",
+  "button_label": "Load more",
+  "items": [
+    { "image": "/stock/cover-workspace.jpg", "eyebrow": "Guide", "title": "Getting started", "subtitle": "Set up your first project in minutes.", "href": "#" },
+    { "image": "/stock/blog-api-streaming.jpg", "eyebrow": "Engineering", "title": "Streaming APIs", "subtitle": "Push updates to clients in real time.", "href": "#" },
+    { "image": "/stock/blog-voice-cloning.jpg", "eyebrow": "Product", "title": "Voice cloning", "subtitle": "Bring your own voice to every project.", "href": "#" },
+    { "image": "/stock/blog-dubbing.jpg", "eyebrow": "Tutorial", "title": "Automatic dubbing", "subtitle": "Localize a video into any language.", "href": "#" },
+    { "image": "/stock/audio-studio-mic.jpg", "eyebrow": "Studio", "title": "Recording basics", "subtitle": "Capture a clean take on the first try.", "href": "#" },
+    { "image": "/stock/introduction.jpg", "eyebrow": "Welcome", "title": "Introduction", "subtitle": "A quick tour of everything you can build.", "href": "#" },
+    { "image": "/stock/food-plate.jpg", "eyebrow": "Recipe", "title": "Plating basics", "subtitle": "Make every dish look the part.", "href": "#" },
+    { "image": "/stock/product-sneaker.jpg", "eyebrow": "Review", "title": "Sneaker roundup", "subtitle": "The releases worth your attention.", "href": "#" },
+    { "image": "/stock/property-house.jpg", "eyebrow": "Property", "title": "Home tour", "subtitle": "Inside a bright modern build.", "href": "#" }
+  ]
+}

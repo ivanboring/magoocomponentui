@@ -1,0 +1,74 @@
+name: "Status Service Row"
+short_description: A single service status row - a coloured status dot, the service name, and optional uptime.
+long_visual_description: >
+  A slim row with a bottom border. On the left a small round status dot sits beside the service
+  name; the dot is coloured by state - green when operational, amber when degraded or partially
+  down, red when fully down. On the right an optional monospaced uptime figure precedes the status
+  word in the matching colour. Stacked, several rows read as a status-page component list.
+
+use_cases:
+  - Build a status page listing each service and its current state.
+  - Show component health inside an incident or ops dashboard.
+  - Summarise uptime per service for a reporting period.
+  - Surface a degraded or down service prominently in a system health panel.
+  - Group service rows under a region or subsystem heading.
+
+recommended_for:
+  - Status pages and health dashboards with one row per service.
+  - Compact lists where colour plus a word conveys state.
+avoid_for:
+  - Incident timelines or post-mortems (use an editorial or timeline component).
+  - A single overall system banner (use a notification banner).
+
+markets:
+  - Global
+
+example_usage: >
+  Render one per service. Pass the name and set status to its current state; add uptime to show the
+  period figure. Stack rows inside a bordered surface to form a status list.
+
+props:
+  name: "The service or component name, e.g. \"API\"."
+  status: "Current state: operational, degraded, partial or down - drives the dot and label colour."
+  uptime: "Optional uptime figure for the period, e.g. \"99.98%\"."
+
+example_prompts:
+  - "Add a status page row for the API that is operational at 99.99 percent."
+  - "Show a degraded Webhooks service row."
+
+lifecycle: experimental
+content_model: A service name, a current status, and an optional uptime figure.
+
+theming:
+  tokens_used:
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-success
+    - --color-warning
+    - --color-danger
+    - --radius-pill
+    - --font-mono
+
+editorial_guidance: >
+  Name services the way users recognise them. Keep status honest - reserve down for a full outage.
+  Use a consistent uptime precision across the list so figures line up.
+
+relationships:
+  related:
+    - developer/webhook-row
+    - developer/rate-limit-meter
+    - dashboard/stat-card
+
+categorization:
+  category: Developer
+  subcategory: Status
+  atomic_type: molecule
+  usage_type: [list-item, row]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is stated in the visible label text, not the dot colour alone; the decorative dot is aria-hidden.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,9 @@
+{
+  "placeholder": "Tell us what you need and any details that help us find your records.",
+  "request_types": [
+    { "label": "Access my data", "value": "access" },
+    { "label": "Delete my data", "value": "delete" },
+    { "label": "Export my data", "value": "export" },
+    { "label": "Correct my data", "value": "correct" }
+  ]
+}

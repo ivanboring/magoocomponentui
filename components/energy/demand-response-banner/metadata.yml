@@ -1,0 +1,100 @@
+name: "Demand Response Banner"
+short_description: A tinted banner announcing a grid demand response event, with an urgency level, a reward, and opt in / opt out actions.
+long_visual_description: >
+  A bordered banner tinted to its urgency level (info, warning or urgent) with a matching
+  lightning bolt icon on the leading edge. The message sits in the heading face over an
+  optional event time, with an optional reward shown as a pill. Below sit Opt in and Opt
+  out buttons; once the visitor chooses, the buttons are replaced in place by a short
+  confirmation line stating whether they opted in or out.
+
+use_cases:
+  - Announce a peak demand event and invite customers to reduce usage.
+  - Offer bill credits for shifting load away from a grid stress window.
+  - Warn of an imminent conservation period on a utility dashboard.
+  - Recruit participants into a smart thermostat curtailment event.
+  - Notify a home energy app of a critical grid emergency.
+  - Prompt opt in to an off peak charging incentive for an EV plan.
+
+recommended_for:
+  - A time bound event that asks the customer to act or enrol.
+  - Dashboards and app home screens where the event needs a clear response.
+  - Pairing the urgency level with the real severity of the grid condition.
+
+avoid_for:
+  - A passive status message with no action (use an alert).
+  - A permanent marketing notice (use an announcement bar).
+  - Blocking, full screen confirmations (use a modal).
+
+markets:
+  - Global
+
+example_usage: >
+  Set message to the ask and level to match the grid condition, add event_time and an
+  optional reward, then let the visitor Opt in or Opt out. The banner starts in its prompt
+  state; behavior.js flips data-state to in or out on click and the confirmation line
+  swaps in with no rebuild.
+
+how_to_use: >
+  Layout and the tint are pure CSS from the level variant class. behavior.js wires the two
+  buttons: clicking Opt in or Opt out sets data-state on the root, and group-data variants
+  hide the actions and reveal the matching confirmation line. The portable self init reads
+  no props; the initial data-state="prompt" lives in the markup, and a
+  demand-response:change event bubbles on each choice.
+
+props:
+  message: The main notice explaining the event and what is being asked.
+  event_time: When the event runs, as a display string.
+  level: Urgency, driving the border, tint and text tone (info, warning or urgent).
+  reward: Optional incentive for taking part, shown as a pill.
+
+example_prompts:
+  - Add an urgent demand response banner for a grid emergency this evening.
+  - Show a warning banner offering credits to cut usage from 4 to 7 PM.
+  - Put an opt in energy event notice on the dashboard with a reward.
+
+relationships:
+  related:
+    - energy/bill-estimate
+    - energy/battery-storage-tile
+    - notifications/alert
+
+lifecycle: experimental
+content_model: A message, an urgency level, an optional event time and reward, and an opt in or opt out choice.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-info
+    - --color-warning
+    - --color-danger
+    - --color-border
+    - --color-ring
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Match the level to the real grid condition so urgent stays rare and credible. Lead the
+  message with what is happening, then the ask, and keep the reward concrete. Word the
+  buttons as a clear opt in versus opt out choice.
+
+categorization:
+  category: Energy
+  subcategory: Grid Events
+  atomic_type: molecule
+  usage_type: [banner, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The banner uses role="status" and an aria-live confirmation region; urgency is carried by the message text, not colour alone, and both buttons are labelled.
+  keyboard_support: The Opt in and Opt out buttons are focusable and activate on Enter or Space.
+  seo_score: 40
+  text_direction: both

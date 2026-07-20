@@ -1,0 +1,37 @@
+name: time-log-row
+props:
+  task:
+    type: string
+    required: true
+    title: Task
+    description: What the time was logged against.
+    example: "Fix checkout validation"
+  user:
+    type: string
+    title: User
+    description: Who logged the time; used as the avatar's accessible label.
+    example: "Jane Doe"
+  initials:
+    type: string
+    title: Initials
+    description: >
+      1-2 character avatar fallback (e.g. "JD"), precomputed by the caller since the template
+      cannot slice strings. When empty, no avatar is shown.
+    example: "JD"
+  hours:
+    type: string
+    required: true
+    title: Hours
+    description: >
+      The logged duration as a display string (e.g. "2.5h" or "45m"), formatted by the caller.
+    example: "2.5h"
+  date:
+    type: string
+    title: Date
+    description: Optional display date for the entry.
+    example: "Jul 18"
+  billable:
+    type: boolean
+    default: false
+    title: Billable
+    description: When true, shows a "Billable" pill.

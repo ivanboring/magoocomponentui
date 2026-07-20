@@ -1,0 +1,32 @@
+name: risk-assessment
+props:
+  score:
+    type: integer
+    title: Risk score
+    description: An optional numeric risk score (e.g. 0-100) shown alongside the level.
+    example: 72
+  level:
+    type: enum
+    values: [low, moderate, high]
+    required: true
+    default: low
+    title: Risk level
+    description: The overall risk band; drives the badge colour (low=success, moderate=warning, high=danger).
+    example: moderate
+  factors:
+    type: array
+    items: object
+    required: true
+    title: Risk factors
+    description: >
+      The contributing factors. Each item: { label, impact }. impact is one of "low", "medium" or
+      "high" and drives the per-factor impact chip.
+    example:
+      - { label: "Driving history", impact: "low" }
+      - { label: "Vehicle value", impact: "medium" }
+      - { label: "Annual mileage", impact: "high" }
+variants:
+  level:
+    low: "bg-success/10 text-success"
+    moderate: "bg-warning/10 text-warning"
+    high: "bg-danger/10 text-danger"

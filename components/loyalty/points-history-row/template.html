@@ -1,0 +1,10 @@
+<div class="points-history-row flex items-center gap-4 border-b border-border py-3 last:border-b-0">
+  <div class="min-w-0 flex-1">
+    <p class="truncate text-sm text-on-surface">{{ description }}</p>
+    <p data-if="date" class="text-xs text-on-surface-muted">{{ date }}</p>
+  </div>
+  <div class="shrink-0 text-right">
+    <p data-direction="{{ direction }}" class="font-medium tabular-nums {{ direction@class }} before:content-['+'] data-[direction=spent]:before:content-['-']">{{ points }}</p>
+    <p data-if="balance" class="text-xs text-on-surface-muted tabular-nums">Balance {{ balance }}</p>
+  </div>
+</div>

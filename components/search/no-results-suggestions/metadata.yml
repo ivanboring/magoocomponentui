@@ -1,0 +1,81 @@
+name: "No Results Suggestions"
+short_description: An empty-search state that echoes the failed query and offers alternative searches plus optional tips.
+long_visual_description: >
+  A centered empty state on a surface card: a round muted badge holding a crossed-out
+  magnifier icon, a heading reading No results for the searched term in quotes, and a
+  short prompt to try something else. Below sit a centered row of pill-shaped suggestion
+  chips (each an alternative query) and, optionally, a small left-aligned list of muted
+  search tips with check-style bullets.
+
+use_cases:
+  - The zero-results state of a site or product search.
+  - A dead-end filter combination that matched nothing, offering broader terms.
+  - Knowledge-base or docs search with no matching article.
+  - Store search suggesting related categories when a query fails.
+  - Recovering a misspelled query by offering corrected alternatives.
+  - Any search results page that needs a graceful empty state.
+
+recommended_for:
+  - Turning an empty search result into a next click with suggested queries.
+  - Pairing alternative searches with lightweight how-to-search tips.
+avoid_for:
+  - A general empty state unrelated to search (use an empty-state component).
+  - Live suggestions while typing (use autocomplete-panel).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the failed query plus a suggestions array of { label } chips; optionally add a
+  tips array of plain strings shown as a muted list. Wire each chip to run its label as
+  a new search.
+
+props:
+  query: "The search term that returned nothing, echoed in the heading."
+  suggestions: "Alternative queries offered as clickable chips."
+  tips: "Optional plain-text search tips shown as a muted list."
+
+example_prompts:
+  - "Add a no-results state that suggests other searches."
+  - "Show a friendly empty search page with alternative queries and spelling tips."
+
+lifecycle: experimental
+content_model: A search empty state with an echoed query, alternative-query chips and optional tips.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --space-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the heading factual and echo the exact query so the user can spot a typo. Offer a
+  few genuinely related alternatives rather than a long list, and keep tips to one short
+  actionable line each.
+
+relationships:
+  related:
+    - search/autocomplete-panel
+    - search/trending-searches
+    - search/saved-filters
+
+categorization:
+  category: Search
+  subcategory: Empty States
+  atomic_type: organism
+  usage_type: [empty-state, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The state is announced by a real heading; the icon is decorative (aria-hidden) and suggestion chips are labelled buttons, so meaning does not depend on the icon.
+  keyboard_support: Suggestion chips are focusable buttons activated with Enter/Space.
+  seo_score: 25
+  text_direction: both

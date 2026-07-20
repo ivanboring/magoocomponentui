@@ -1,0 +1,90 @@
+name: "Treemap Shell"
+short_description: A tokenized treemap skeleton that tiles a plot box with proportional coloured rectangles from caller-precomputed layout,.
+long_visual_description: >
+  A card on the surface colour with a title header and a fixed-height plot box packed
+  with coloured rectangles. Each tile is sized as a percentage of the box, separated by
+  thin surface-coloured gaps, and labelled with a name and value in the contrast text
+  colour. Tile positions, sizes, and colours are all precomputed and passed in, so the
+  shell renders the packing without any layout math.
+
+use_cases:
+  - Part-to-whole breakdown where relative size is the story, such as storage by type.
+  - Revenue or spend by category or region.
+  - Portfolio or holdings by weight.
+  - Disk or quota usage by folder.
+  - Market share across competitors.
+  - Traffic share by page or section.
+  - Inventory value by product line.
+
+recommended_for:
+  - Showing many proportional parts in a compact space.
+  - Emphasising the largest contributors at a glance.
+  - Reports where the treemap layout is computed upstream.
+avoid_for:
+  - Precise value comparison between similar tiles (use a bar chart).
+  - Time series or trends.
+  - Very small parts that become unreadable tiles.
+
+markets:
+  - Global
+
+example_usage: >
+  Run a squarified-treemap layout upstream to get each tile's percentage rectangle, then
+  pass the tiles with a name, value, and tokenized background colour class each. Render a
+  live chart in place of the SVG markup when interactivity is needed.
+
+props:
+  title: Short heading above the treemap.
+  tiles: Rectangles with precomputed percentage geometry, a label, a value, and a background colour class each.
+
+example_prompts:
+  - "Add a treemap of storage usage by type."
+  - "Show a treemap of revenue by region."
+  - "Put a market-share treemap in the report."
+
+relationships:
+  related:
+    - dataviz/pie-chart-shell
+    - dataviz/sankey-shell
+    - dataviz/chart-legend
+
+lifecycle: experimental
+content_model: A title and a set of precomputed tiles, each with a label, a value, and a percentage rectangle.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-primary
+    - --color-primary-contrast
+    - --color-accent
+    - --color-success
+    - --color-info
+    - --color-warning
+    - --color-secondary
+    - --color-border
+    - --radius-card
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  All tile positions and sizes are precomputed by the caller (a squarified-treemap layout
+  upstream) because the directive language has no arithmetic; the shell only paints the
+  rectangles. Keep labels short so they fit small tiles, and use the primary-contrast
+  colour for text so it reads on any tile colour. The skeleton renders directly from the
+  precomputed data; for an interactive chart, a real charting library replaces the
+  tokenized tile markup, which otherwise stands as the static render.
+
+categorization:
+  category: Data Visualization
+  subcategory: Charts
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Each tile carries a real text label and value; contrast text is used on colour. Pair with a table for exact figures.
+  keyboard_support: None — static, non-interactive skeleton.
+  seo_score: 40
+  text_direction: both

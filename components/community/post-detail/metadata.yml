@@ -1,0 +1,94 @@
+name: "Post Detail"
+short_description: A full forum post card with the title, author identity, timestamp, rendered body, and a footer of vote, reply, share and save actions.
+long_visual_description: >
+  A card on the surface colour with a card radius and soft shadow. The header stacks a large heading
+  title, an author row with a round avatar (image or initials fallback) beside the name and an
+  optional flair pill, and the post time, followed by optional tag chips. The rendered post body
+  fills the middle in the on-surface colour. A divided footer holds the vote score pill and Reply,
+  Share and Save action buttons that tint on hover.
+
+use_cases:
+  - The opening post at the top of a forum thread page.
+  - A permalinked answer or reply detail view.
+  - A featured community post embedded on a home page.
+  - A moderation review card showing a reported post in full.
+  - A knowledge-base article rendered from user content.
+  - A blog-style community update with author and actions.
+
+recommended_for:
+  - Displaying one post in full with author and actions.
+  - Thread pages where the first post needs prominence.
+avoid_for:
+  - A compact list of many topics (use thread-list).
+  - The reply input itself (use reply-composer).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a title, an author object (name plus optional avatar, flair and precomputed initials), a
+  pre-formatted time, and body_html as trusted pre-rendered HTML. Add an optional score and tags. The
+  footer buttons are skeleton triggers; wire them to your own vote, reply, share and save handlers.
+
+how_to_use: >
+  The avatar shows author.avatar when present and falls back to the precomputed author.initials
+  otherwise, matching the online-members pattern. body_html is inserted raw, so sanitise it upstream.
+  The footer action buttons carry post-detail__reply/share/save hook classes for wiring behaviour.
+
+props:
+  title: "The post headline."
+  author: "Poster object: name, optional avatar URL, optional flair pill label, and precomputed initials fallback."
+  time: "Pre-formatted post time, absolute or relative."
+  body_html: "Trusted, pre-rendered HTML for the post body; sanitise upstream."
+  score: "Optional pre-formatted vote score shown in the footer."
+  tags: "Optional array of label chips shown under the header."
+
+slots: {}
+
+example_prompts:
+  - Render a forum post with a maintainer flair and a vote score of 128.
+  - Show the opening post of a thread with performance and tooling tags.
+  - Display a reported post in full for moderator review.
+
+lifecycle: experimental
+content_model: A single forum post with title, author identity, time, rendered body, optional score and tags, and action controls.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the title specific and the flair short (Maintainer, OP, Mod). Sanitise body_html before
+  passing it. Label the action buttons plainly and keep the footer to a few primary actions.
+
+relationships:
+  related:
+    - community/reply-composer
+    - community/vote-control
+    - community/user-flair
+    - community/thread-list
+
+categorization:
+  category: Community
+  subcategory: Forums
+  atomic_type: organism
+  usage_type: [card, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The title is a real heading, the avatar image is decorative with the name in text, and every footer action is a labelled button; body_html must be sanitised by the caller.
+  keyboard_support: The Reply, Share and Save buttons are focusable and activate on Enter/Space.
+  seo_score: 55
+  text_direction: both

@@ -1,0 +1,82 @@
+name: "Member Card"
+short_description: A digital loyalty membership card with the member's name, number, tier, and a scannable barcode facade.
+long_visual_description: >
+  A premium card in the primary colour with contrast text. A "Rewards" eyebrow sits above the member's
+  name, with a tier badge in the top-right. A footer pairs the membership number in a mono face with an
+  optional points balance. A light panel at the bottom holds a barcode facade - a row of tokenized
+  vertical bars - above its human-readable number.
+
+use_cases:
+  - Digital membership card in a loyalty wallet.
+  - Scannable in-store rewards card on a phone.
+  - Account page showing a member's card and number.
+  - Tiered membership card with a status badge.
+  - Airline or hotel loyalty card in an app.
+  - Cafe or retail rewards card presented at checkout.
+
+recommended_for:
+  - Presenting a member's identity and scannable code together.
+  - A hero card at the top of a loyalty account page.
+avoid_for:
+  - A live, genuinely scannable barcode (the bars are a decorative facade).
+  - The points balance on its own (use points-balance-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass member_name and member_number, plus an optional tier badge and points balance. The barcode
+  string prints under the decorative bar facade - it is a skeleton, not a real scannable code, so wire
+  a genuine barcode image at integration time if scanning is required.
+
+props:
+  member_name: The member's full name on the card.
+  member_number: The membership number, shown in mono.
+  tier: Optional tier name shown as a badge.
+  points: Optional pre-formatted points balance.
+  barcode: Optional human-readable number under the decorative barcode facade.
+
+example_prompts:
+  - "Show a digital member card for Jordan Rivera at Platinum tier."
+  - "Add a loyalty membership card with a barcode and points balance."
+  - "Show a rewards card with the member number and a scannable code area."
+
+lifecycle: experimental
+content_model: A member name and number, an optional tier and points balance, and a decorative barcode with its number.
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface
+    - --color-on-surface
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --shadow-card
+    - --font-heading
+    - --font-mono
+    - --space-card
+
+editorial_guidance: >
+  Keep the name and number accurate and the tier badge consistent with the program. Treat the barcode
+  as a placeholder facade until a real scannable code is wired in.
+
+relationships:
+  related:
+    - loyalty/points-balance-card
+    - loyalty/tier-progress
+    - loyalty/referral-invite
+
+categorization:
+  category: "Loyalty & Rewards"
+  subcategory: Membership
+  atomic_type: molecule
+  usage_type: [highlight, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The barcode bars are decorative and aria-hidden; the member number and code are available as text.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

@@ -1,0 +1,36 @@
+name: workout-card
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: Name of the workout or routine.
+    example: "Full-body HIIT"
+  duration:
+    type: string
+    required: true
+    title: Duration
+    description: Human-readable session length, e.g. "30 min".
+    example: "30 min"
+  level:
+    type: enum
+    values: ["easy", "medium", "hard"]
+    default: easy
+    title: Intensity level
+    description: Difficulty tier; colours the level pill.
+    example: medium
+  image:
+    type: image
+    title: Cover image
+    description: Optional cover image path (e.g. /stock/stage1.jpg). Omitted → no media area.
+    example: "/stock/stage1.jpg"
+  kcal:
+    type: string
+    title: Calories
+    description: Optional estimated calorie burn as a plain number, e.g. "320".
+    example: "320"
+variants:
+  level:
+    easy: "bg-success/10 text-success"
+    medium: "bg-warning/10 text-warning"
+    hard: "bg-danger/10 text-danger"

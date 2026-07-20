@@ -1,0 +1,27 @@
+name: asset-allocation-donut
+props:
+  title:
+    type: string
+    default: "Asset allocation"
+    title: Title
+    description: Heading above the donut; also the SVG's accessible label.
+  slices:
+    type: array
+    items: object
+    required: true
+    title: Slices
+    description: >
+      The donut arcs, one per asset class or holding. All geometry is PRECOMPUTED BY THE CALLER
+      because the template language has no math. Each item:
+      { label, pct, value, dash, offset, color_class }. `dash` is the SVG stroke-dasharray for a
+      circle of circumference 100 (r=15.9155), given as "<arc-length> <remainder>" (a 45% slice is
+      "45 55"). `offset` is the stroke-dashoffset that rotates the arc to its start position - the
+      negative of the slice's cumulative start percent (a slice beginning at 45% is "-45").
+      `pct` is the display percentage string (e.g. "45%"), `value` an optional display amount
+      (e.g. "$45,000"), and `color_class` is a tokenized Tailwind stroke utility (e.g.
+      "stroke-primary") - it must be one of the classes listed in the hidden safelist span in the
+      template.
+    example:
+      - { label: "Equities", pct: "55%", value: "$55,000", dash: "55 45", offset: "0", color_class: "stroke-primary" }
+      - { label: "Bonds", pct: "25%", value: "$25,000", dash: "25 75", offset: "-55", color_class: "stroke-info" }
+variants: {}

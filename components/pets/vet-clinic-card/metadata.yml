@@ -1,0 +1,74 @@
+name: "Vet Clinic Card"
+short_description: A directory card for a veterinary clinic, with open status, rating, address, service chips and Call and Directions actions.
+long_visual_description: >
+  A surface card leading with the clinic name in the heading face and an open-status pill
+  top-right - green "Open now" or a muted "Closed". A star and rating sit below, followed
+  by an address with a pin icon and a short hours line, then a wrapping row of service
+  chips. A footer pairs a primary Call button with a bordered Directions button.
+use_cases:
+  - List nearby veterinary clinics in a search or directory.
+  - Show a clinic's open status and rating before booking.
+  - Give owners one-tap Call and Directions to their vet.
+  - Surface an emergency clinic with its services at a glance.
+  - Present a preferred or in-network clinic on an insurance page.
+  - Compare clinics by rating and services in a results list.
+recommended_for:
+  - A single clinic summary with contact actions in a directory list.
+  - Cards that combine open status, rating and quick service tags.
+avoid_for:
+  - A full clinic profile page with reviews and staff.
+  - A live map view (use a map component).
+markets:
+  - Global
+example_usage: >
+  Set name and the details you have - address, rating, phone, hours and a services array
+  of short labels. Set open_now to control the status badge. The Call button links to the
+  phone number; point Directions at your map link.
+props:
+  name: "The clinic name, shown as the card heading."
+  address: "The clinic address, shown with a pin icon."
+  rating: "Average rating, formatted for display, e.g. 4.8."
+  phone: "Phone number in display form; also used for the Call link."
+  hours: "Short hours summary, e.g. Mon-Fri 8am-6pm."
+  services: "Service labels shown as chips, e.g. Surgery, Dentistry, Emergency."
+  open_now: "When true shows an Open now badge, otherwise Closed."
+lifecycle: experimental
+content_model: A clinic name with an open status, a rating, an address and hours, a set of service tags and contact actions.
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+editorial_guidance: >
+  Keep service chips to a handful of the most relevant offerings. Make sure open_now
+  reflects live hours, since the badge is the first thing an owner scans in an emergency.
+relationships:
+  related:
+    - pets/lost-pet-alert
+    - pets/pet-insurance-card
+    - pets/pet-health-timeline
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Directory
+  atomic_type: molecule
+  usage_type: [card, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Open status is conveyed by its text label as well as colour; icons are aria-hidden and the Call and Directions actions are labelled links.
+  keyboard_support: The Call and Directions links are focusable and activate on Enter.
+  seo_score: 40
+  text_direction: both

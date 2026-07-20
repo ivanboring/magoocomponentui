@@ -1,0 +1,41 @@
+name: work-order-card
+props:
+  order_number:
+    type: string
+    required: true
+    title: Order number
+    description: The work order identifier, shown in a mono heading face.
+    example: "WO-10482"
+  product:
+    type: string
+    title: Product
+    description: The product or part this order produces.
+    example: "Bracket Assembly A2"
+  quantity:
+    type: string
+    title: Quantity
+    description: Preformatted order quantity (include the unit, e.g. "500 units").
+    example: "500 units"
+  due:
+    type: string
+    title: Due
+    description: Preformatted due date or time.
+    example: "Jul 24"
+  status:
+    type: enum
+    values: [open, in-progress, complete, on-hold]
+    default: open
+    title: Status
+    description: Current order state; sets the status pill colour.
+    example: in-progress
+  priority:
+    type: string
+    title: Priority
+    description: Optional priority label shown in a flag tag, e.g. "High".
+    example: "High"
+variants:
+  status:
+    open: "bg-info/10 text-info"
+    "in-progress": "bg-primary/10 text-primary"
+    complete: "bg-success/10 text-success"
+    "on-hold": "bg-warning/10 text-warning"

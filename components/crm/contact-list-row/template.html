@@ -1,0 +1,12 @@
+<div class="contact-list-row flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="contact-list-row__avatar relative inline-flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-surface-raised font-heading text-sm text-on-surface" role="img" aria-label="{{ name }}">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <span data-if="!avatar" class="uppercase" aria-hidden="true">{{ initials }}</span>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-on-surface">{{ name }}</p>
+    <p data-if="company" class="truncate text-sm text-on-surface-muted">{{ company }}</p>
+  </div>
+  <time data-if="last_touch" class="shrink-0 text-xs tabular-nums text-on-surface-muted">{{ last_touch }}</time>
+  <span class="contact-list-row__status shrink-0 rounded-pill px-2 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+</div>

@@ -1,0 +1,26 @@
+name: dock-schedule
+props:
+  docks:
+    type: array
+    items: object
+    required: true
+    title: Docks
+    description: >
+      One row per dock door. Each item: { label, slots } where label names the dock and slots is an
+      array of time-slot cells in order. Each slot is { time, carrier, status } - time is the slot
+      window, carrier is an optional booked carrier name, and status is one of "free", "booked", or
+      "loading", which tints the cell (free - muted surface, booked - info/blue, loading -
+      warning/amber). Keep each dock's slots the same length so the columns line up.
+    example:
+      - label: "Dock 1"
+        slots:
+          - { time: "8:00", status: "loading", carrier: "UPS" }
+          - { time: "10:00", status: "booked", carrier: "DHL" }
+          - { time: "12:00", status: "free" }
+          - { time: "14:00", status: "booked", carrier: "FedEx" }
+      - label: "Dock 2"
+        slots:
+          - { time: "8:00", status: "free" }
+          - { time: "10:00", status: "booked", carrier: "XPO" }
+          - { time: "12:00", status: "loading", carrier: "Estes" }
+          - { time: "14:00", status: "free" }

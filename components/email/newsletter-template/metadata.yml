@@ -1,0 +1,83 @@
+name: "Newsletter Template"
+short_description: A centered, email-width content block with a header, hero, body, CTA, and footer.
+long_visual_description: >
+  A centered, email-width card on the surface colour with a bordered, centered header carrying
+  the title, an optional full-bleed hero image, a body of rich HTML (headings, paragraphs, links),
+  a centered primary call-to-action button, and a muted, bordered footer for the address and
+  unsubscribe links. A hidden preheader supplies inbox preview text.
+
+use_cases:
+  - A weekly or monthly newsletter issue layout.
+  - A product-update or changelog announcement email.
+  - A transactional notice with a single primary action.
+  - A maintenance or status announcement to subscribers.
+  - A welcome or onboarding email with a call to action.
+  - A digest email summarising recent activity.
+
+recommended_for:
+  - A self-contained, centered email body with one primary CTA.
+  - Newsletter and announcement layouts rendered from a title, body HTML, and a button.
+avoid_for:
+  - A rich in-app article page (use editorial components).
+  - A multi-column marketing landing section (use marketing components).
+
+markets:
+  - Global
+
+example_usage: >
+  Provide a title, body_html (the rich content), and a cta { label, href }; optionally add a
+  hero_image, a preheader for inbox preview text, and a footer with the address and unsubscribe
+  links. The block centers itself at a readable email width.
+
+props:
+  title: "The header title (usually the newsletter or brand name)."
+  preheader: "Optional hidden inbox preview text; visually hidden in the body."
+  hero_image: "Optional banner image below the header."
+  body_html: "The email body as raw HTML (headings, paragraphs, links)."
+  cta: "The primary button: label and href."
+  footer: "Optional muted footer HTML (address, unsubscribe link)."
+
+example_prompts:
+  - "Build a newsletter email with a hero, a short body, and a Read more button."
+  - "Create a maintenance announcement email with no hero and a status-page CTA."
+
+lifecycle: experimental
+content_model: A title, optional preheader and hero, a rich HTML body, one primary CTA, and an optional footer.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --font-body
+    - --duration-token
+
+editorial_guidance: >
+  Lead with one clear idea and a single primary action; keep the body scannable with a short
+  heading and a few short paragraphs. Always include an unsubscribe link in the footer, and use
+  the preheader to extend the subject line rather than repeat it.
+
+relationships:
+  related:
+    - email/signature-block
+    - marketing/newsletter-signup
+
+categorization:
+  category: Email
+  subcategory: Layout
+  atomic_type: organism
+  usage_type: [content, banner]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The hero uses empty alt as decoration; the CTA is a real link with visible text; body and footer links inherit underlines. Author the body_html with a proper heading structure.
+  keyboard_support: The CTA and any links within the body/footer are focusable and activated with Enter.
+  seo_score: 25
+  text_direction: both

@@ -1,0 +1,89 @@
+name: "AI Chat Message"
+short_description: A single assistant reply with an AI avatar, message bubble, and a copy/rate/regenerate action row.
+long_visual_description: >
+  A circular avatar reading "AI" in the primary colour sits at the leading edge. To its right a
+  raised-surface bubble holds the reply text (or rich markup via the content slot). Below the
+  bubble a row of muted icon buttons offers copy, thumbs up, thumbs down, and regenerate, with an
+  optional model label at the start and a timestamp at the trailing end.
+
+use_cases:
+  - Render one assistant turn with inline feedback and copy controls.
+  - The latest reply at the bottom of an AI assistant conversation.
+  - A standalone generated answer in a docs or help widget.
+  - A completion shown with a regenerate affordance in a playground.
+  - An assistant message that needs a one-click copy of its text.
+  - A reply whose body is rich markup (lists, code) via the content slot.
+
+recommended_for:
+  - A single assistant message that needs actions attached.
+  - Playgrounds and assistants where users copy, rate, or regenerate replies.
+avoid_for:
+  - A whole conversation of turns (use chat-thread).
+  - A live typing or partial-stream state (use streaming-response).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass the reply as content, or slot rich markup into the content slot. Add an optional model label
+  and time. The action row emits chat:regenerate when the regenerate button is pressed and copies
+  the message text to the clipboard on copy.
+
+how_to_use: >
+  behavior.js reads the rendered text from the content element, so no configuration is needed. The
+  copy button writes the message to the clipboard and briefly swaps its glyph to a check mark, then
+  restores it. The regenerate button dispatches a bubbling "chat:regenerate" CustomEvent you can
+  listen for on a parent to request a new completion. The thumbs buttons are skeleton affordances;
+  wire a feedback-thumbs component in for persisted ratings.
+
+props:
+  content: "The reply text. Ignored when the content slot is filled."
+  model: "Optional model name shown at the start of the action row."
+  time: "Optional timestamp shown at the trailing end of the action row."
+
+slots:
+  content: "Rich message body (paragraphs, lists, code). Overrides the content prop."
+
+content_model: >
+  One assistant message: body text or markup, an optional model label, and an optional timestamp.
+
+lifecycle: experimental
+
+theming:
+  tokens_used:
+    - --color-primary
+    - --color-primary-contrast
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-danger
+    - --radius-card
+    - --radius-pill
+    - --radius-control
+    - --font-heading
+    - --font-mono
+    - --duration-token
+
+editorial_guidance: >
+  Keep the reply focused and skimmable. Use the content slot for structured answers so lists and
+  code render properly rather than as a wall of text.
+
+relationships:
+  related:
+    - ai/chat-thread
+    - ai/feedback-thumbs
+    - ai/code-block-ai
+
+categorization:
+  category: "AI & Chat"
+  subcategory: Conversation
+  atomic_type: molecule
+  usage_type: [list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Every action button has an accessible label; the avatar is aria-hidden; the copy control updates its label to Copied on success.
+  keyboard_support: All action buttons are focusable and activate on Enter/Space.
+  seo_score: 20
+  text_direction: both

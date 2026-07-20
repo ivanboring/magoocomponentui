@@ -1,0 +1,30 @@
+name: carbon-footprint
+props:
+  total_kg:
+    type: string
+    required: true
+    title: Total CO2
+    description: The total emissions figure without a unit; the template renders the "kg CO2e" suffix. E.g. "412".
+    example: "412"
+  period:
+    type: string
+    title: Period
+    description: The reporting window the total covers, e.g. "this month".
+    example: "this month"
+  sources:
+    type: array
+    items: object
+    required: true
+    title: Sources
+    description: >
+      The emission sources that make up the total, in display order. Each item:
+      { label, kg, pct, color_class }. `pct` is the PRECOMPUTED whole-number share (0-100) of the
+      total and drives the stacked-bar segment width - the template does no math. `kg` is the
+      display amount for that source (e.g. "180 kg"). `color_class` is a tokenized Tailwind
+      background utility (e.g. "bg-primary") and MUST be one of the classes listed in the hidden
+      safelist span in the template.
+    example:
+      - { label: "Electricity", kg: "180 kg", pct: 44, color_class: "bg-primary" }
+      - { label: "Heating", kg: "132 kg", pct: 32, color_class: "bg-warning" }
+      - { label: "Transport", kg: "100 kg", pct: 24, color_class: "bg-info" }
+variants: {}

@@ -1,0 +1,14 @@
+{
+  "title": "Dispatch board",
+  "label": "Technician dispatch map",
+  "technicians": [
+    { "name": "Dana P.", "initials": "DP", "status": "available", "x_pct": 22, "y_pct": 38 },
+    { "name": "Marcus L.", "initials": "ML", "status": "en-route", "x_pct": 48, "y_pct": 62 },
+    { "name": "Priya S.", "initials": "PS", "status": "on-job", "x_pct": 70, "y_pct": 30 },
+    { "name": "Sam R.", "initials": "SR", "status": "offline", "x_pct": 85, "y_pct": 72 }
+  ],
+  "jobs": [
+    { "label": "Work order 4471", "x_pct": 62, "y_pct": 48 },
+    { "label": "Work order 4488", "x_pct": 34, "y_pct": 24 }
+  ]
+}

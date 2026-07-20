@@ -1,0 +1,18 @@
+name: feeding-schedule
+props:
+  pet:
+    type: string
+    title: Pet
+    description: "Optional pet name shown in the card header."
+    example: "Luna"
+  meals:
+    type: array
+    items: object
+    required: true
+    title: Meals
+    description: >
+      The feeding times, in order. Each meal: { time, food, amount, done }. time, food, and amount
+      are required; done is an optional boolean marking the meal as already fed (shows a filled check
+      and strikes the food name). Clicking a meal toggles its done state.
+    example:
+      - { time: "7:00 AM", food: "Dry kibble", amount: "1 cup", done: true }

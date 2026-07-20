@@ -1,0 +1,10 @@
+{
+  "heading": "What do you want to build?",
+  "subheading": "Describe an app and it will be scaffolded for you.",
+  "placeholder": "Build me a task tracker with…",
+  "examples": [
+    { "label": "A landing page for a coffee shop" },
+    { "label": "A CRM dashboard" },
+    { "label": "A blog with dark mode" }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="reply-composer flex items-start gap-3">
+  <span class="reply-composer__avatar flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-raised text-on-surface-muted">
+    <img data-if="avatar" class="size-full object-cover" src="{{ avatar }}" alt="">
+    <svg data-if="!avatar" class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3 2.7-5 6-5s6 2 6 5"/></svg>
+  </span>
+  <div class="min-w-0 flex-1 overflow-hidden rounded-card border border-border bg-surface focus-within:border-ring">
+    <label class="sr-only" for="reply-composer-input">Reply</label>
+    <textarea id="reply-composer-input" class="reply-composer__input block w-full resize-y bg-transparent px-3 py-2.5 text-sm text-on-surface placeholder:text-on-surface-muted focus:outline-none" rows="3" placeholder="{{ placeholder }}"></textarea>
+    <div class="flex items-center justify-between gap-2 border-t border-border px-2 py-2">
+      <div class="flex items-center gap-0.5 text-on-surface-muted">
+        <button type="button" class="flex size-8 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Bold">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 4h5a3 3 0 010 6H6V4zm0 6h6a3 3 0 010 6H6v-6z"/></svg>
+        </button>
+        <button type="button" class="flex size-8 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Italic">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4h6M6 16h6M11 4l-2 12"/></svg>
+        </button>
+        <button type="button" class="flex size-8 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Link">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 12l4-4M7 9L5.5 10.5a2.5 2.5 0 003.5 3.5L11 12M13 11l1.5-1.5a2.5 2.5 0 00-3.5-3.5L9 8"/></svg>
+        </button>
+        <button type="button" class="flex size-8 items-center justify-center rounded-control transition-colors duration-(--duration-token) hover:bg-surface-raised hover:text-on-surface" aria-label="Code">
+          <svg class="size-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 6l-4 4 4 4M13 6l4 4-4 4"/></svg>
+        </button>
+      </div>
+      <button type="button" class="reply-composer__submit inline-flex shrink-0 items-center rounded-button bg-primary px-4 py-1.5 text-sm font-medium text-primary-contrast transition-opacity duration-(--duration-token) hover:opacity-90">Reply</button>
+    </div>
+  </div>
+</div>

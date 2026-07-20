@@ -1,0 +1,80 @@
+name: "Employee Card"
+short_description: A compact profile card with an avatar, name, title, department, location and an availability status pill.
+long_visual_description: >
+  A horizontal card on the surface colour. A circular avatar (or initials fallback) sits at the left,
+  and to its right the name in the heading face carries a small coloured status pill - green for active,
+  amber for on-leave, blue for remote. Muted title and department lines follow, with a pin-icon location
+  line beneath. Text truncates so the card stays a single tidy tile in a grid.
+
+use_cases:
+  - A person tile in a team or people directory grid.
+  - A staff member card on an about or contact page.
+  - A search result for an employee lookup.
+  - An assignee preview beside a task or ticket.
+  - A profile summary in an org or headcount view.
+  - A quick who-is-who card in an onboarding pack.
+
+recommended_for:
+  - Grids of comparable people tiles.
+  - Showing availability at a glance via the status pill.
+avoid_for:
+  - A full profile page (too little detail).
+  - A reporting hierarchy with reports (use org-chart-node).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass name and title plus optional department, location and either an avatar URL or precomputed
+  initials. Set status to active, on-leave or remote to colour the availability pill; it defaults to
+  active. Lay several in a responsive grid for a directory.
+
+props:
+  name: The person's full name shown in the heading face.
+  title: The person's role or job title.
+  department: Optional team or department name.
+  avatar: Optional avatar image URL; when empty the initials fallback is shown.
+  initials: Precomputed initials fallback shown when no avatar is set.
+  location: Optional location shown with a pin icon.
+  status: Availability shown as a coloured pill - active, on-leave or remote.
+
+lifecycle: experimental
+content_model: A person's name, title, optional department and location, an avatar or initials, and an availability status.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-success
+    - --color-warning
+    - --color-info
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+
+editorial_guidance: >
+  Keep titles and departments short so they do not truncate. Provide initials for everyone so the avatar
+  fallback reads cleanly. Choose the status that matches the person's current availability.
+
+relationships:
+  related:
+    - hr/org-chart-node
+    - hr/performance-review
+
+categorization:
+  category: "HR & People"
+  subcategory: Directory
+  atomic_type: molecule
+  usage_type: [card, grid, list-item]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: Status is shown as pill text, not colour alone; the avatar image is decorative with empty alt.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 40
+  text_direction: both

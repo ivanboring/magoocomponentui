@@ -5,6 +5,12 @@ props:
     required: true
     title: Brand
     example: "Acme"
+  brand_image:
+    type: image
+    title: Brand logo
+    description: >
+      Optional logo image shown in place of the `brand` wordmark. `brand` is still required and
+      becomes the image's alt text.
   tagline:
     type: string
     title: Tagline

@@ -1,0 +1,79 @@
+name: "Quote Comparison"
+short_description: A responsive set of side-by-side insurance quote columns with premium, deductible, coverage and a feature list.
+long_visual_description: >
+  A responsive grid of quote columns, one per plan, each a bordered card showing the plan name, a
+  large monthly premium, a divided list of deductible and coverage limit, a checkmarked feature
+  list and a full-width Select button. The recommended plan is highlighted with a doubled primary
+  border, a "Recommended" pill floating above its top edge, and a filled primary Select button.
+
+use_cases:
+  - Comparing insurance quotes side by side before purchase.
+  - A quote results page after a member requests pricing.
+  - A plan chooser during an online insurance application.
+  - An agent presenting two or three coverage options to a client.
+  - A renewal upsell showing an upgrade next to the current plan.
+  - A landing page comparing tiers of a single insurance product.
+
+recommended_for:
+  - Presenting two to three insurance quotes with clear differences.
+  - Steering members toward a recommended plan.
+avoid_for:
+  - A single plan summary (use policy-card).
+  - A generic SaaS pricing block with a billing toggle (use marketing/pricing-tiers).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass a plans array where each item is { name, premium, deductible, coverage_limit, features,
+  recommended }. Give premium, deductible and coverage_limit as pre-formatted strings and features
+  as an array of plain strings. Mark exactly one plan recommended true to highlight it with the
+  border, badge and filled button.
+
+props:
+  plans: The quotes to compare; each carries a name, premium, deductible, coverage limit, a feature string array, and an optional recommended flag.
+
+lifecycle: experimental
+content_model: An array of quote plans, each with a premium, deductible, coverage limit, a list of feature strings, and an optional recommended flag.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-border
+    - --radius-card
+    - --radius-button
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the comparison to two or three plans and order them from lower to higher coverage. Feature
+  each plan's differences with short phrases, lead higher tiers with an "Everything in ..." line,
+  and mark a single recommended plan so the choice is guided rather than overwhelming.
+
+relationships:
+  related:
+    - insurance/policy-card
+    - insurance/coverage-breakdown
+    - marketing/pricing-tiers
+
+categorization:
+  category: Insurance
+  subcategory: Quotes
+  atomic_type: organism
+  usage_type: [grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The recommended plan is marked by a text badge as well as the border colour, and each Select button names its plan, so meaning never depends on colour alone.
+  keyboard_support: Each Select button is focusable and activates on Enter or Space.
+  seo_score: 45
+  text_direction: both

@@ -1,0 +1,24 @@
+<figure class="performance-chart-trade rounded-card border border-border bg-surface p-(--space-card) shadow-card">
+  <header class="performance-chart-trade__header mb-4 flex flex-wrap items-center justify-between gap-3">
+    <figcaption data-if="title" class="font-heading text-on-surface">{{ title }}</figcaption>
+    <div data-if="ranges" class="performance-chart-trade__ranges inline-flex items-center gap-1 rounded-pill border border-border bg-surface-raised p-0.5" role="group" aria-label="Timeframe">
+      <button data-for="r in ranges" type="button" class="performance-chart-trade__range rounded-pill px-2.5 py-1 text-xs font-medium text-on-surface-muted transition-colors duration-(--duration-token) hover:text-on-surface data-[active=true]:bg-surface data-[active=true]:text-on-surface data-[active=true]:shadow-card" data-active="{{ r.active }}" aria-pressed="{{ r.active }}">{{ r.label }}</button>
+    </div>
+  </header>
+  <div class="performance-chart-trade__body flex gap-2">
+    <div data-if="y_labels" class="performance-chart-trade__y-axis flex h-48 flex-col justify-between py-1 text-right text-[11px] text-on-surface-muted tabular-nums">
+      <span data-for="y in y_labels" class="performance-chart-trade__y-tick">{{ y }}</span>
+    </div>
+    <div class="performance-chart-trade__col min-w-0 flex-1">
+      <div class="performance-chart-trade__plot relative h-48 w-full">
+        <svg class="performance-chart-trade__svg h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path data-if="area_path" class="performance-chart-trade__area stroke-none fill-primary/10 data-[dir=up]:fill-success/10 data-[dir=down]:fill-danger/10" data-dir="{{ change_dir }}" d="{{ area_path }}"></path>
+          <path class="performance-chart-trade__line fill-none stroke-primary [stroke-width:2] data-[dir=up]:stroke-success data-[dir=down]:stroke-danger" data-dir="{{ change_dir }}" d="{{ line_path }}" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+        </svg>
+      </div>
+      <div data-if="x_labels" class="performance-chart-trade__x-axis mt-2 flex justify-between text-[11px] text-on-surface-muted tabular-nums">
+        <span data-for="x in x_labels" class="performance-chart-trade__x-tick">{{ x }}</span>
+      </div>
+    </div>
+  </div>
+</figure>

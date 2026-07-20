@@ -1,0 +1,7 @@
+{
+  "label": "Humidity",
+  "value": "42",
+  "unit": "%",
+  "status": "normal",
+  "icon": "<svg class=\"size-4\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M10 2s5 6 5 10a5 5 0 01-10 0c0-4 5-10 5-10z\"/></svg>"
+}

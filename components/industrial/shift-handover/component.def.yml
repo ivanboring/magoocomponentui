@@ -1,0 +1,34 @@
+name: shift-handover
+props:
+  from_shift:
+    type: string
+    title: From shift
+    description: The outgoing shift handing over (e.g. "Day shift", "A crew").
+    example: "Day shift"
+  to_shift:
+    type: string
+    title: To shift
+    description: The incoming shift receiving the handover.
+    example: "Night shift"
+  date:
+    type: string
+    title: Date
+    description: Date or timestamp of the handover, shown in the header.
+    example: "18 Jul 2026, 18:00"
+  notes:
+    type: array
+    items: object
+    required: true
+    title: Handover notes
+    description: >
+      The handover entries, in order. Each note: { category, text, flag }. category is a short
+      kicker (Safety, Production, Maintenance, Quality). text is the note body. flag is a boolean -
+      when true the note is highlighted as needing the incoming shift's attention.
+    example:
+      - { category: "Safety", text: "Guard on press 2 reported loose, tagged out.", flag: true }
+      - { category: "Production", text: "Order 4471 running ahead of schedule.", flag: false }
+  signed_off:
+    type: boolean
+    default: false
+    title: Signed off
+    description: Show a sign-off confirmation in the footer.

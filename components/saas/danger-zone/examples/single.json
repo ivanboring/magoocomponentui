@@ -1,0 +1,10 @@
+{
+  "title": "Delete account",
+  "actions": [
+    {
+      "title": "Delete your account",
+      "description": "Once you delete your account, there is no going back. Please be certain.",
+      "button_label": "Delete account"
+    }
+  ]
+}

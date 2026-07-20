@@ -1,0 +1,93 @@
+name: "Donation Form"
+short_description: A donation panel with preset amount buttons, a custom amount, a one-time/monthly toggle, and a Donate button.
+long_visual_description: >
+  A card on the surface colour with a grid of preset amount buttons at the top; the selected
+  amount takes a primary border and a soft primary tint. Below sits a custom amount input prefixed
+  with a currency symbol, then a pill-shaped One-time / Monthly segmented toggle whose active side
+  lifts onto the surface colour with a shadow, and a full-width primary Donate button.
+
+use_cases:
+  - A single-page donation ask on a nonprofit campaign page.
+  - The give box in a fundraising appeal or email landing page.
+  - A recurring-giving prompt that defaults to monthly.
+  - A donation step inside a checkout or membership flow.
+  - An embedded give widget in a sidebar or footer.
+  - A disaster-relief or emergency appeal with fixed suggested amounts.
+
+recommended_for:
+  - Collecting a donation amount and cadence before handing off to a payment provider.
+  - Campaigns that suggest a few amounts but still allow a custom value.
+avoid_for:
+  - Just showing suggested amounts with no cadence or submit (use donation-amount-picker).
+  - Full multi-field billing/checkout forms (compose with dedicated form components).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an amounts array (each { value, label, selected }) with one item pre-selected, set frequency
+  to the default cadence, and optionally override the currency symbol. Listen for the donate:submit
+  event to read the chosen { amount, frequency } and hand it to your payment flow.
+
+how_to_use: >
+  The static markup renders fully without JavaScript (the selected preset and the active toggle side
+  come from data-selected and the group data-frequency attribute). behavior.js wires interaction:
+  clicking a preset selects it and clears any custom amount; typing a custom amount clears the
+  presets; the toggle updates data-frequency (driving the highlight) and aria-pressed; Donate
+  dispatches a bubbling "donate:submit" CustomEvent whose detail is { amount, frequency }. The
+  portable self-init reads all config from data-* attributes, so no props object is passed.
+
+props:
+  amounts: "Preset buttons in order; each item { value, label, selected }. value is the raw amount emitted on submit, label is the button text, selected pre-highlights one."
+  frequency: "Which cadence is active on load: one-time or monthly."
+  currency: "Symbol shown before the custom amount input."
+
+example_prompts:
+  - "Add a donation form with $25, $50 and $100 presets defaulting to monthly."
+  - "Put a give box on the campaign page with a custom amount and a one-time/monthly toggle."
+  - "Add a donation panel where $50 is pre-selected."
+
+lifecycle: experimental
+content_model: A set of preset amounts, a giving cadence, and a submit affordance.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --color-primary-contrast
+    - --radius-card
+    - --radius-button
+    - --radius-control
+    - --radius-pill
+    - --shadow-card
+    - --space-card
+    - --font-heading
+    - --duration-token
+
+editorial_guidance: >
+  Keep three or four preset amounts anchored to real impact, order them low to high, and pre-select
+  a sensible middle value. Default to monthly only when recurring giving is the primary ask.
+
+relationships:
+  related:
+    - nonprofit/donation-amount-picker
+    - nonprofit/campaign-card
+    - nonprofit/fundraiser-progress
+    - nonprofit/impact-stat
+
+categorization:
+  category: Nonprofit
+  subcategory: Donation
+  atomic_type: organism
+  usage_type: [form, highlight]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The custom input has an aria-label, the toggle is a labelled group whose buttons expose aria-pressed, and selection is conveyed by border and tint plus the pressed state, not colour alone.
+  keyboard_support: All buttons and the input are focusable; buttons activate on Enter/Space and the toggle updates aria-pressed.
+  seo_score: 30
+  text_direction: both

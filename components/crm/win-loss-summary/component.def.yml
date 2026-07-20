@@ -1,0 +1,36 @@
+name: win-loss-summary
+props:
+  won:
+    type: string
+    required: true
+    title: Won
+    description: Count of won deals, shown in the donut centre and legend. Formatted by the caller, e.g. "18".
+    example: "18"
+  lost:
+    type: string
+    required: true
+    title: Lost
+    description: Count of lost deals, shown in the legend. Formatted by the caller, e.g. "7".
+    example: "7"
+  open:
+    type: string
+    title: Open
+    description: Count of still-open deals, shown in the legend when provided.
+    example: "5"
+  slices:
+    type: array
+    items: object
+    required: true
+    title: Slices
+    description: >
+      The donut arcs. All geometry is PRECOMPUTED BY THE CALLER because the template language
+      has no math. Each item: { label, value, dash, offset, color_class }. `dash` is the SVG
+      stroke-dasharray for a circle of circumference 100 (r=15.9155), given as "<arc> <remainder>"
+      (a 60% slice is "60 40"). `offset` is the stroke-dashoffset rotating the arc to its start
+      (the negative of the slice's cumulative start percent, e.g. a slice beginning at 60% is
+      "-60"). `color_class` is a tokenized Tailwind stroke utility (use stroke-success for won,
+      stroke-danger for lost, stroke-on-surface-muted for open).
+    example:
+      - { label: "Won", value: "18", dash: "60 40", offset: "0", color_class: "stroke-success" }
+      - { label: "Lost", value: "7", dash: "23.3 76.7", offset: "-60", color_class: "stroke-danger" }
+      - { label: "Open", value: "5", dash: "16.7 83.3", offset: "-83.3", color_class: "stroke-on-surface-muted" }

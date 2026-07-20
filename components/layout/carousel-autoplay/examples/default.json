@@ -1,0 +1,12 @@
+{
+  "label": "Featured stories",
+  "interval": "6",
+  "autoplay": true,
+  "show_arrows": true,
+  "show_dots": true,
+  "items": [
+    { "image": "/stock/stage1.jpg", "eyebrow": "Featured", "title": "Build faster", "subtitle": "Ship your next release in record time with a component library your agents can browse.", "cta_label": "Get started", "href": "#" },
+    { "image": "/stock/stage2.jpg", "eyebrow": "Product", "title": "One source, every target", "subtitle": "Author once and generate SDC, React, Vue and Storybook from the same contract.", "cta_label": "See the catalog", "href": "#" },
+    { "image": "/stock/stage3.jpg", "eyebrow": "Guide", "title": "Themable by tokens", "subtitle": "Restyle every component by changing a fixed set of CSS variables — no forked markup.", "cta_label": "Read the guide", "href": "#" }
+  ]
+}

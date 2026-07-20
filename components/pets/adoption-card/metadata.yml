@@ -1,0 +1,89 @@
+name: "Adoption Card"
+short_description: An adoptable pet card with a photo or paw glyph, name, breed and age, shelter, a status badge, and a call-to-action button.
+long_visual_description: >
+  A photo-forward card with a wide media area holding the pet photo, or a centered paw glyph on a
+  raised tile when none is supplied, and a rounded status badge floating in the top corner that reads
+  success when available, warning when pending, and muted when adopted. Below, the pet name sits in
+  the heading face over a muted breed, species, and age line, an optional shelter line with a pin
+  glyph, and a full-width primary call-to-action button.
+
+use_cases:
+  - Adoptable pet tile in a shelter listings grid.
+  - Featured pet of the week on a rescue home page.
+  - Foster or rehoming listing card.
+  - Adoption event roster entry.
+  - Search results card on a pet adoption site.
+  - Saved or favourited adoptable pets list.
+
+recommended_for:
+  - Presenting one adoptable pet with a clear call to action.
+  - Grids of listings where availability status matters.
+avoid_for:
+  - A pet the owner already has (use pet-profile-card).
+  - General breed information (use breed-card).
+
+markets:
+  - Global
+
+example_usage: >
+  Give the pet a name plus optional breed, species, age, photo, and shelter. Set status to available,
+  pending, or adopted to colour the badge, and customise the button via cta_label.
+
+props:
+  name: The pet name shown in the heading face.
+  species: The species, appended in the muted detail line.
+  breed: The breed, shown first in the muted detail line.
+  age: The age, appended in the muted detail line.
+  photo: URL of the pet photo. Leave empty to fall back to a paw glyph tile.
+  shelter: The shelter or rescue name, shown with a pin glyph.
+  status: Adoption state, available, pending, or adopted, shown as a badge.
+  cta_label: The call-to-action button text, e.g. Meet me or Adopt.
+
+example_prompts:
+  - Add an adoption card for a Labrador mix named Pepper.
+  - Show an adoptable cat listing with an available badge.
+  - Build a grid of adoptable pets from the shelter.
+
+lifecycle: experimental
+content_model: A pet name, optional breed, species, age, photo, and shelter, an adoption status, and a call-to-action label.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-success
+    - --color-warning
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --radius-button
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Lead with a warm, specific name and keep the detail line to breed, species, and age. Match the
+  status badge to the real listing state and soften the call to action to invite a meet.
+
+relationships:
+  related:
+    - pets/breed-card
+    - pets/pet-profile-card
+
+categorization:
+  category: "Pets & Veterinary"
+  subcategory: Adoption
+  atomic_type: molecule
+  usage_type: [card, grid]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The photo has the pet name as alt text; the paw glyph fallback and pin glyph are aria-hidden; status reads as badge text plus colour; the CTA is a labelled button.
+  keyboard_support: The call-to-action is a focusable button that activates on Enter/Space.
+  seo_score: 50
+  text_direction: both

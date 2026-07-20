@@ -1,0 +1,9 @@
+{
+  "title": "Manage your cookies",
+  "intro": "You have accepted all cookies. You can withdraw consent for any optional category at any time.",
+  "categories": [
+    { "label": "Strictly necessary", "description": "Always active. Needed for the site to work.", "on": true, "required": true },
+    { "label": "Performance", "description": "Measure and improve site performance.", "on": true, "required": false },
+    { "label": "Personalization", "description": "Tailor content and recommendations to you.", "on": true, "required": false }
+  ]
+}

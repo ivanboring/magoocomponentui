@@ -1,0 +1,95 @@
+name: "Carousel Grid"
+short_description: A highly configurable horizontal carousel of preview cards — cards-in-view per breakpoint, peek, looping, arrows and pager.
+long_visual_description: >
+  A horizontally scrolling, snap-aligned row of preview cards (image over an eyebrow, title and
+  subtitle). Circular previous/next arrows sit at the left and right edges and a centered row of
+  pager dots tracks the active card below the track. How many cards are visible per view is set
+  independently for mobile, tablet and desktop, with an optional peek that reveals a sliver of the
+  neighbouring cards at each edge.
+
+use_cases:
+  - Featured content or guides carousel on a landing page.
+  - Related posts or "keep reading" row beneath an article.
+  - Product or collection highlights that scroll horizontally.
+  - Onboarding or tour steps shown one-to-many at a time.
+  - Any card set where the number visible should change with viewport width.
+  - A recommendations rail with a peek hint that there is more to scroll.
+
+recommended_for:
+  - A carousel whose cards-in-view, peek and end behaviour must be tuned per project.
+  - Card rows that render from structured data (image, title, subtitle, link).
+avoid_for:
+  - A wrapping, multi-row grid (use card-grid).
+  - Dropping in fully custom, arbitrary card markup (use card-slider's items slot).
+
+markets:
+  - Global
+
+example_usage: >
+  Pass an items array (each { image, eyebrow, title, subtitle, href }) and choose how many cards
+  show at each breakpoint via cols_mobile/cols_tablet/cols_desktop. Turn on peek to reveal the
+  neighbouring cards, loop to wrap the arrows around, and end_at_start to let the final card scroll
+  all the way to the leading edge instead of stopping flush-right.
+
+how_to_use: >
+  Layout is pure CSS driven by --cc-* custom properties on the track, so cards-in-view, peek, gap
+  and end alignment all work with no JavaScript (and render in screenshots). behavior.js wires the
+  interaction: the arrows scroll by one page (the current cards-in-view count) and disable at the
+  ends, unless data-loop="true" (set from the loop prop) makes them wrap; the pager dots scroll to
+  their card and mark the active one on scroll. The portable self-init reads config from the
+  data-loop attribute — no props object is passed.
+
+props:
+  items: "The cards, in order. Each item: image (optional), eyebrow (optional kicker), title, subtitle (optional), href (optional — makes the whole card a link)."
+  cols_mobile: "Cards fully visible per view at the base (mobile) width (1-4)."
+  cols_tablet: "Cards fully visible per view from the sm breakpoint up (1-4)."
+  cols_desktop: "Cards fully visible per view from the lg breakpoint up (1-4)."
+  peek: "How much of the previous/next card peeks in at each edge: none, sm, md or lg."
+  gap: "Space between cards: default, or an explicit none/sm/md/lg/xl."
+  loop: "When true the arrows wrap from last to first (and first to last); when false they stop and disable at the ends."
+  end_at_start: "When true the last card can scroll to the leading edge (trailing space is added); when false the last page stops flush-right."
+  show_arrows: "Show the previous/next arrow buttons."
+  show_pager: "Show the row of pager dots (one per card)."
+  show_image: "Show each card's preview image; when off, cards are text-only."
+  label: "Accessible name announced for the carousel region."
+
+lifecycle: experimental
+content_model: A horizontal, snap-scrolling set of preview cards rendered from an items array.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-surface-raised
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --duration-token
+    - --font-heading
+
+editorial_guidance: >
+  Keep the cards a single type and order them by relevance. Match cards-in-view to card density:
+  richer cards read better at 1-2 per view, compact ones at 3-4. Turn on peek when you want to
+  signal there is more to scroll without adding a second row.
+
+relationships:
+  related:
+    - layout/card-slider
+    - cards/card-grid
+    - layout/card-rail
+
+categorization:
+  category: Layout
+  subcategory: Grids
+  atomic_type: organism
+  usage_type: [grid, media]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The region carries an aria-label and aria-roledescription; the track is keyboard-scrollable and the arrow/pager controls are labelled buttons that disable at the ends when not looping.
+  keyboard_support: Arrows and pager dots are focusable and activate on Enter/Space; the track scrolls with the keyboard when focused.
+  seo_score: 30
+  text_direction: both

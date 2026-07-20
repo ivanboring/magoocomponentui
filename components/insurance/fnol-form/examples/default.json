@@ -1,0 +1,10 @@
+{
+  "placeholder": "Describe what happened, when and where...",
+  "incident_types": [
+    { "label": "Auto collision", "value": "auto_collision" },
+    { "label": "Theft", "value": "theft" },
+    { "label": "Property damage", "value": "property_damage" },
+    { "label": "Water or weather", "value": "weather" },
+    { "label": "Other", "value": "other" }
+  ]
+}

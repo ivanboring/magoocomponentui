@@ -1,0 +1,109 @@
+name: Magoo Agentic Base Theme
+type: theme
+base theme: false
+core_version_requirement: ^11
+description: 'Base theme for the Magoo component catalog. Ships the design-token contract as runtime CSS variables, a full token settings form, and a large region set. Subtheme it — do not use it directly.'
+libraries:
+  - magoo_agentic_base_theme/global
+
+regions:
+  page_top: 'Page top'
+  header_top: 'Header top'
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  search: Search
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  hero: Hero
+  hero_secondary: 'Hero secondary'
+  content_above: 'Content above'
+  content_top: 'Content top'
+  content: Content
+  content_bottom: 'Content bottom'
+  content_below: 'Content below'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  pre_footer: 'Pre footer'
+  footer_top: 'Footer top'
+  footer_columns: 'Footer columns'
+  footer_bottom: 'Footer bottom'
+  page_bottom: 'Page bottom'
+
+# Defaults generated from tokens.manifest.json — inherited by every subtheme.
+settings:
+  magoo_color_primary: '#4f46e5'
+  magoo_color_primary_dark: '#818cf8'
+  magoo_color_primary_contrast: '#ffffff'
+  magoo_color_primary_contrast_dark: '#0f172a'
+  magoo_color_background: '#ffffff'
+  magoo_color_background_dark: '#0b1120'
+  magoo_color_surface: '#ffffff'
+  magoo_color_surface_dark: '#111827'
+  magoo_color_on_surface: '#0f172a'
+  magoo_color_on_surface_dark: '#e5e7eb'
+  magoo_color_on_background: '#0f172a'
+  magoo_color_on_background_dark: '#e5e7eb'
+  magoo_color_surface_raised: '#f8fafc'
+  magoo_color_surface_raised_dark: '#1f2937'
+  magoo_color_on_surface_muted: '#64748b'
+  magoo_color_on_surface_muted_dark: '#9ca3af'
+  magoo_color_secondary: '#0f172a'
+  magoo_color_secondary_dark: '#e2e8f0'
+  magoo_color_secondary_contrast: '#ffffff'
+  magoo_color_secondary_contrast_dark: '#0f172a'
+  magoo_color_accent: '#6366f1'
+  magoo_color_accent_dark: '#a5b4fc'
+  magoo_color_accent_contrast: '#ffffff'
+  magoo_color_accent_contrast_dark: '#0f172a'
+  magoo_color_border: '#e2e8f0'
+  magoo_color_border_dark: '#374151'
+  magoo_color_ring: '#4f46e5'
+  magoo_color_ring_dark: '#818cf8'
+  magoo_color_success: '#16a34a'
+  magoo_color_success_dark: '#4ade80'
+  magoo_color_success_contrast: '#ffffff'
+  magoo_color_success_contrast_dark: '#052e16'
+  magoo_color_warning: '#d97706'
+  magoo_color_warning_dark: '#fbbf24'
+  magoo_color_warning_contrast: '#ffffff'
+  magoo_color_warning_contrast_dark: '#451a03'
+  magoo_color_danger: '#dc2626'
+  magoo_color_danger_dark: '#f87171'
+  magoo_color_danger_contrast: '#ffffff'
+  magoo_color_danger_contrast_dark: '#450a0a'
+  magoo_color_info: '#2563eb'
+  magoo_color_info_dark: '#60a5fa'
+  magoo_color_info_contrast: '#ffffff'
+  magoo_color_info_contrast_dark: '#0b1120'
+  magoo_font_heading: '"Inter", ui-sans-serif, system-ui, sans-serif'
+  magoo_font_body: '"Inter", ui-sans-serif, system-ui, sans-serif'
+  magoo_font_mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace'
+  magoo_weight_heading: '600'
+  magoo_weight_body: '400'
+  magoo_tracking_heading: '-0.01em'
+  magoo_text_base: 1rem
+  magoo_scale_ratio: '1.25'
+  magoo_font_source: none
+  magoo_font_url: ''
+  magoo_radius_control: 0.375rem
+  magoo_radius_button: 0.5rem
+  magoo_radius_card: 0.75rem
+  magoo_radius_pill: 9999px
+  magoo_shadow_rgb: 15, 23, 42
+  magoo_shadow_card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.08)
+  magoo_shadow_raised: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.06)
+  magoo_shadow_focus: 0 0 0 3px rgba(79, 70, 229, 0.35)
+  magoo_density: 0.25rem
+  magoo_space_section: 4rem
+  magoo_space_card: 1.5rem
+  magoo_space_control: 0.75rem
+  magoo_container_max_width: 72rem
+  magoo_duration_token: 150ms
+  magoo_ease_token: cubic-bezier(0.4, 0, 0.2, 1)
+  magoo_color_scheme: light
+  magoo_sidebar_position: last
+  magoo_sticky_header: false
+  magoo_full_bleed_regions: header_top,header,primary_menu,secondary_menu,hero,hero_secondary,pre_footer,footer_top,footer_columns,footer_bottom
+  magoo_hidden_regions: ''
+  magoo_custom_css_vars: ''

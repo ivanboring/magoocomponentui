@@ -1,0 +1,37 @@
+<form class="order-ticket-trade group/tkt flex flex-col gap-4 rounded-card border border-border bg-surface p-(--space-card) shadow-card" data-state="{{ side }}" data-symbol="{{ symbol }}" data-order-type="{{ order_type }}" aria-label="Order ticket">
+  <div class="flex items-center justify-between gap-2">
+    <p class="font-heading text-on-surface">{{ symbol }}</p>
+  </div>
+
+  <div class="order-ticket-trade__toggle grid grid-cols-2 gap-1 rounded-control bg-surface-raised p-1" role="group" aria-label="Order side">
+    <button type="button" class="order-ticket-trade__side rounded-control px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=buy]/tkt:bg-success group-data-[state=buy]/tkt:text-primary-contrast group-data-[state=buy]/tkt:shadow-card" data-value="buy">Buy</button>
+    <button type="button" class="order-ticket-trade__side rounded-control px-3 py-1.5 text-sm font-medium text-on-surface-muted transition-colors duration-(--duration-token) group-data-[state=sell]/tkt:bg-danger group-data-[state=sell]/tkt:text-primary-contrast group-data-[state=sell]/tkt:shadow-card" data-value="sell">Sell</button>
+  </div>
+
+  <label class="flex flex-col gap-1 text-sm">
+    <span class="text-on-surface-muted">Order type</span>
+    <select class="order-ticket-trade__type rounded-control border border-border bg-surface px-3 py-2 text-on-surface">
+      <option value="market">Market</option>
+      <option value="limit">Limit</option>
+      <option value="stop">Stop</option>
+    </select>
+  </label>
+
+  <div class="grid grid-cols-2 gap-3">
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="text-on-surface-muted">Quantity</span>
+      <input class="order-ticket-trade__quantity rounded-control border border-border bg-surface px-3 py-2 font-mono text-on-surface tabular-nums" type="text" inputmode="decimal" value="{{ quantity }}">
+    </label>
+    <label class="flex flex-col gap-1 text-sm">
+      <span class="text-on-surface-muted">Price</span>
+      <input class="order-ticket-trade__price rounded-control border border-border bg-surface px-3 py-2 font-mono text-on-surface tabular-nums" type="text" inputmode="decimal" value="{{ price }}">
+    </label>
+  </div>
+
+  <div data-if="estimated_cost" class="flex items-center justify-between text-sm">
+    <span class="text-on-surface-muted">Estimated cost</span>
+    <span class="font-mono text-on-surface tabular-nums">{{ estimated_cost }}</span>
+  </div>
+
+  <button type="submit" class="order-ticket-trade__submit rounded-button px-4 py-2.5 text-sm font-medium text-primary-contrast transition-colors duration-(--duration-token) group-data-[state=buy]/tkt:bg-success group-data-[state=sell]/tkt:bg-danger">Place order</button>
+</form>

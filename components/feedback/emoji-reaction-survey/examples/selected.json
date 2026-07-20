@@ -1,0 +1,10 @@
+{
+  "question": "How do you feel about the new dashboard?",
+  "options": [
+    { "emoji": "😞", "label": "Bad", "value": "bad", "selected": false },
+    { "emoji": "😕", "label": "Meh", "value": "meh", "selected": false },
+    { "emoji": "😐", "label": "Okay", "value": "okay", "selected": false },
+    { "emoji": "🙂", "label": "Good", "value": "good", "selected": true },
+    { "emoji": "😀", "label": "Great", "value": "great", "selected": false }
+  ]
+}

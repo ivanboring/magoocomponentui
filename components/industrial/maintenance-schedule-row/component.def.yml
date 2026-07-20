@@ -1,0 +1,42 @@
+name: maintenance-schedule-row
+props:
+  asset:
+    type: string
+    required: true
+    title: Asset
+    description: The machine or asset the preventive-maintenance task belongs to.
+    example: "CNC Mill 04"
+  task:
+    type: string
+    required: true
+    title: Task
+    description: The maintenance task description.
+    example: "Replace spindle coolant filter"
+  due:
+    type: string
+    required: true
+    title: Due
+    description: When the task is due, precomputed and formatted by the caller.
+    example: "Due 22 Jul"
+  interval:
+    type: string
+    title: Interval
+    description: How often the task recurs (e.g. "500 hrs", "monthly").
+    example: "500 hrs"
+  status:
+    type: enum
+    values: [scheduled, overdue, done]
+    default: scheduled
+    title: Status
+    description: Drives the status pill colour.
+    example: overdue
+  technician:
+    type: string
+    title: Technician
+    description: The assigned technician or crew.
+    example: "R. Okoro"
+variants:
+  status:
+    scheduled: "bg-info/10 text-info"
+    overdue: "bg-danger/10 text-danger"
+    done: "bg-success/10 text-success"

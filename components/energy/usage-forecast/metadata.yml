@@ -1,0 +1,80 @@
+name: "Usage Forecast"
+short_description: A card-framed line chart of measured energy usage with an optional dashed forecast continuation.
+long_visual_description: >
+  A surface card with a title and a small Actual/Forecast legend in the header. Below it a full-width
+  SVG plot draws the measured series as a solid primary-colour line and an optional projected series
+  as a dashed muted line, with a column of y-axis tick labels on the left and a row of x-axis tick
+  labels underneath. Both line geometries are supplied precomputed, so the shell renders a real chart
+  with no charting code.
+
+use_cases:
+  - Energy dashboard chart of usage so far with a forecast to period end.
+  - Demand forecast widget for a utility or grid operator.
+  - Home energy app projecting the month's consumption from usage to date.
+  - Cost or budget forecast line where actual meets projected.
+  - Any measured-plus-projected time series in an energy report.
+
+recommended_for:
+  - A single measured series with an optional forecast tail.
+  - Cases where the caller can precompute both SVG paths from data.
+avoid_for:
+  - Categorical comparison (use a bar chart shell).
+  - Many independent series on one axis (use a dedicated multi-series chart).
+
+markets:
+  - Global
+
+example_usage: >
+  Precompute line_path for the measured series in a 0-100 by 0-100 viewBox (y grows downward) and,
+  optionally, forecast_path for the projection - usually starting where line_path ends, drawn dashed.
+  Pass y_labels top to bottom and x_labels left to right.
+
+props:
+  title: The chart title shown in the header.
+  line_path: Precomputed SVG path for the measured series (0-100 cartesian viewBox).
+  forecast_path: Optional precomputed SVG path for the projected series, drawn dashed. Omit to hide.
+  y_labels: Y-axis tick labels, top to bottom.
+  x_labels: X-axis tick labels, left to right.
+
+example_prompts:
+  - "Add an energy usage forecast card with actual usage this week and a dashed projection."
+  - "Show a monthly consumption chart where the last few days are forecast."
+  - "Put a demand forecast line shell on the grid dashboard."
+
+lifecycle: experimental
+content_model: A title, a precomputed measured series path, an optional precomputed forecast path, and axis labels.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-border
+    - --color-primary
+    - --radius-card
+    - --shadow-card
+    - --font-heading
+
+editorial_guidance: >
+  The chart geometry is precomputed by the caller from the underlying data - the shell ships no
+  charting math or JS. Have the forecast path begin where the actual line ends so the transition
+  reads cleanly, and keep axis labels short.
+
+relationships:
+  related:
+    - energy/grid-status
+    - energy/solar-production-card
+    - dataviz/line-chart-shell
+
+categorization:
+  category: Energy
+  subcategory: Monitoring
+  atomic_type: organism
+  usage_type: [chart, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The SVG is aria-hidden decorative; the title, legend, and axis labels are real text. Provide a data-table alternative for the series in production.
+  keyboard_support: None - static, non-interactive.
+  seo_score: 30
+  text_direction: both

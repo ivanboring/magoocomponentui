@@ -1,0 +1,12 @@
+<div class="attendance-row flex items-center gap-3 rounded-card border border-border bg-surface p-3 shadow-card">
+  <span class="attendance-row__avatar flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-raised font-heading text-sm text-on-surface-muted" aria-hidden="true">{{ initials }}</span>
+  <div class="min-w-0 flex-1">
+    <p class="truncate font-heading text-on-surface">{{ name }}</p>
+    <div class="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-on-surface-muted">
+      <span data-if="clock_in" class="attendance-row__in font-mono">In {{ clock_in }}</span>
+      <span data-if="clock_out" class="attendance-row__out font-mono">Out {{ clock_out }}</span>
+    </div>
+  </div>
+  <span data-if="hours" class="attendance-row__hours shrink-0 font-mono text-sm tabular-nums text-on-surface">{{ hours }}</span>
+  <span class="attendance-row__status shrink-0 rounded-pill px-2.5 py-0.5 text-xs font-medium capitalize {{ status@class }}">{{ status }}</span>
+</div>

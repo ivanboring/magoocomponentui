@@ -1,0 +1,83 @@
+name: "Rep Counter"
+short_description: A tap-to-count card with a big count display, a large +1 button, and a reset, with an optional target cap.
+long_visual_description: >
+  A centered surface card with an optional exercise caption, a large count in the heading face
+  (optionally shown as "count / target"), a big circular primary +1 tap button beneath, and a small
+  muted Reset link below that.
+
+use_cases:
+  - Manual rep tally during a strength set.
+  - Round or lap counter in a circuit workout.
+  - Tally for any repeated action (breaths, stretches, sets).
+  - Kiosk or wall-display counter in a gym.
+  - Quick standalone counter widget in a fitness app.
+
+recommended_for:
+  - A simple tap-to-increment counter with an optional goal.
+  - Hands-busy counting where a large tap target helps.
+avoid_for:
+  - Editing an arbitrary number (use a number input).
+  - Multi-metric summaries (use body-metrics).
+
+markets:
+  - Global
+
+how_to_use: >
+  behavior.js reads the starting value from the rendered count text and an optional cap from
+  data-target (set from the target prop). The +1 button increments up to the target when present;
+  Reset returns to zero. Each change dispatches a bubbling rep:count CustomEvent (detail { count }).
+  Screenshots do not run behavior, so the static render shows the count prop as authored.
+
+example_usage: >
+  Set count to the starting value (usually "0") and optionally a label and a target. With a target,
+  the display shows "count / target" and the +1 button stops at the target.
+
+props:
+  count: The starting rep count, as a string; interaction increments from here.
+  label: Optional caption above the count, e.g. the exercise name.
+  target: Optional goal; shown as "/ target" and caps the +1 button.
+
+example_prompts:
+  - "Add a rep counter for push-ups starting at 12 with a target of 20."
+  - "Add a plain rep counter for pull-ups with no target."
+
+lifecycle: experimental
+content_model: A running count, an optional exercise label, and an optional target cap.
+
+theming:
+  tokens_used:
+    - --color-surface
+    - --color-on-surface
+    - --color-on-surface-muted
+    - --color-primary
+    - --color-primary-contrast
+    - --color-border
+    - --radius-card
+    - --radius-pill
+    - --shadow-card
+    - --font-heading
+    - --space-card
+    - --duration-token
+
+editorial_guidance: >
+  Keep the label to the exercise name. Use a target only when there is a real goal, since it changes
+  the +1 button to stop at the cap. The big tap button should stay the primary action on the card.
+
+relationships:
+  related:
+    - atoms/button
+    - fitness/heart-rate-zone
+    - fitness/streak-card
+
+categorization:
+  category: Fitness & Wellness
+  subcategory: Tracking
+  atomic_type: atom
+  usage_type: [control, card]
+  maturity: ai-generated
+  wcag:
+    level: AA
+    notes: The +1 button has an aria-label and the Reset button carries visible text; the count is plain text updated in place.
+  keyboard_support: The +1 and Reset buttons are focusable and activate on Enter/Space.
+  seo_score: 15
+  text_direction: both

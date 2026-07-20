@@ -1,0 +1,25 @@
+<section class="carousel-fade relative grid overflow-hidden rounded-card" role="group" aria-roledescription="carousel" aria-label="{{ label }}" data-interval="{{ interval }}" data-autoplay="{{ autoplay }}">
+  <div data-for="item in items" class="carousel-fade__slide [grid-area:1/1] opacity-100 transition-opacity duration-700 ease-(--ease-token) data-[active=false]:pointer-events-none data-[active=false]:opacity-0">
+    <div class="relative aspect-[16/9] sm:aspect-[21/9] bg-surface-raised">
+      <img data-if="item.image" class="absolute inset-0 size-full object-cover" src="{{ item.image }}" alt="">
+      <span class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></span>
+      <div class="absolute inset-x-0 bottom-0 p-6 text-white sm:p-10">
+        <span data-if="item.eyebrow" class="text-xs font-medium uppercase tracking-wide text-white/80">{{ item.eyebrow }}</span>
+        <h2 class="font-heading text-2xl sm:text-4xl">{{ item.title }}</h2>
+        <p data-if="item.subtitle" class="mt-2 max-w-xl text-sm text-white/80">{{ item.subtitle }}</p>
+        <a data-if="item.cta_label" class="mt-4 inline-flex rounded-button bg-primary px-5 py-2.5 text-sm font-heading text-primary-contrast transition-colors duration-(--duration-token) hover:bg-secondary" href="{{ item.href }}">{{ item.cta_label }}</a>
+      </div>
+    </div>
+  </div>
+
+  <button data-if="show_arrows" type="button" class="carousel-fade__prev absolute left-3 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white shadow-card backdrop-blur transition-colors duration-(--duration-token) hover:bg-black/50" aria-label="Previous">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>
+  </button>
+  <button data-if="show_arrows" type="button" class="carousel-fade__next absolute right-3 top-1/2 z-10 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white shadow-card backdrop-blur transition-colors duration-(--duration-token) hover:bg-black/50" aria-label="Next">
+    <svg class="size-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4l6 6-6 6"/></svg>
+  </button>
+
+  <div data-if="show_dots" class="carousel-fade__dots absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
+    <button data-for="item in items" type="button" class="carousel-fade__dot size-2 rounded-pill bg-white/50 transition-colors duration-(--duration-token) data-[active=true]:bg-white" aria-label="Go to slide"></button>
+  </div>
+</section>

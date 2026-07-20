@@ -1,0 +1,19 @@
+name: settings-section
+props:
+  title:
+    type: string
+    required: true
+    title: Title
+    description: The section heading (rendered as an h2).
+    example: "Notifications"
+  description:
+    type: string
+    title: Description
+    description: An optional one-line description shown under the title in muted text.
+    example: "Choose how and when we contact you."
+slots:
+  content:
+    title: Content
+    description: >
+      The setting rows for this section. Typically a stack of toggle-setting-row and
+      select-setting-row items; a card wrapper with dividers separates each row automatically.
